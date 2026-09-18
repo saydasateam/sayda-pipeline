@@ -498,7 +498,7 @@
       "verify": "self",
       "_verify_note": "No public price tracker covers Namshi in KSA. Rows start as 'na' and are verified against data/history.json once this pipeline has watched them for ownHistoryMinDays.",
       "productUrl": "https://www.namshi.com{path}",
-      "enabled": true,
+      "enabled": false,
       "collect": {
         "locale": "saudi-ar",
         "paths": [
@@ -515,7 +515,8 @@
         "perCat": 30,
         "cap": 200
       },
-      "_styli_note": "Styli has no reachable own storefront (www.styli.com → DNS NXDOMAIN, 2026-09-18). It is covered as a brand path under Namshi instead. If a working Styli domain turns up, add it as its own store on the namshi.js pattern."
+      "_styli_note": "Styli has no reachable own storefront (www.styli.com → DNS NXDOMAIN, 2026-09-18). It is covered as a brand path under Namshi instead. If a working Styli domain turns up, add it as its own store on the namshi.js pattern.",
+      "_parked": "Parked 2026-09-18 after the first live run. The DOM selectors are correct (verified: 189 product boxes parsed on women-clothing), but namshi.com client-side redirects (/saudi-ar/women/ → /saudi-ar/fashion/women-fashion/) tear down an injected script mid-execution, and the site's CSP blocks the eval-based loader. Fix: drive it with Playwright in run.js (which survives the redirect) rather than the Chrome extension, then flip enabled back to true."
     }
   ],
   "verifyHosts": {
