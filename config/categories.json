@@ -1,9 +1,129 @@
-[
-  { "id": "شاشات",      "label": "شاشات" },
-  { "id": "إلكترونيات", "label": "إلكترونيات" },
-  { "id": "ألعاب",      "label": "ألعاب" },
-  { "id": "المنزل",     "label": "أجهزة منزلية" },
-  { "id": "أثاث",       "label": "أثاث" },
-  { "id": "عطور",       "label": "عطور" },
-  { "id": "أزياء",      "label": "أزياء وحقائب" }
-]
+{
+  "_doc": "chips = the filter buttons on the page, in order. map = collect-path slug → chip id, so a newly collected product lands in the right category deterministically instead of by model judgement. Add a category by adding one chip + its slugs here.",
+  "chips": [
+    {
+      "id": "شاشات",
+      "label": "شاشات"
+    },
+    {
+      "id": "إلكترونيات",
+      "label": "إلكترونيات"
+    },
+    {
+      "id": "ألعاب",
+      "label": "ألعاب"
+    },
+    {
+      "id": "المنزل",
+      "label": "أجهزة منزلية"
+    },
+    {
+      "id": "أثاث",
+      "label": "أثاث"
+    },
+    {
+      "id": "عطور",
+      "label": "عطور"
+    },
+    {
+      "id": "عناية",
+      "label": "عناية شخصية"
+    },
+    {
+      "id": "أزياء",
+      "label": "أزياء وحقائب"
+    },
+    {
+      "id": "أطفال",
+      "label": "أطفال ومستلزماتهم"
+    },
+    {
+      "id": "رياضة",
+      "label": "رياضة"
+    }
+  ],
+  "map": {
+    "television-and-video": "شاشات",
+    "tvs": "شاشات",
+    "projectors-and-screens": "شاشات",
+    "monitors": "شاشات",
+    "mobiles-and-accessories": "إلكترونيات",
+    "mobile-phone": "إلكترونيات",
+    "tablets-and-accessories": "إلكترونيات",
+    "tablets": "إلكترونيات",
+    "computers-and-accessories": "إلكترونيات",
+    "laptops-and-notebooks": "إلكترونيات",
+    "wearable-technology": "إلكترونيات",
+    "wearable-devices": "إلكترونيات",
+    "camera-and-photo-16165": "إلكترونيات",
+    "home-audio": "إلكترونيات",
+    "portable-audio-and-video": "إلكترونيات",
+    "headphones-and-headsets": "إلكترونيات",
+    "speakers-and-home-theater": "إلكترونيات",
+    "printers-scanners-and-fax": "إلكترونيات",
+    "networking-and-wireless": "إلكترونيات",
+    "video-games-10181": "ألعاب",
+    "gaming-consoles": "ألعاب",
+    "home-appliances-31235": "المنزل",
+    "kitchen-and-dining": "المنزل",
+    "kitchenware-and-home-appliances": "المنزل",
+    "food-and-kitchen-machines": "المنزل",
+    "bedding-16171": "المنزل",
+    "fridges-and-freezers": "المنزل",
+    "washers-and-dryers": "المنزل",
+    "fans-cooling-and-heating": "المنزل",
+    "vacuum-cleaner": "المنزل",
+    "microwave-oven": "المنزل",
+    "cookers": "المنزل",
+    "air-treatment": "المنزل",
+    "furniture-10180": "أثاث",
+    "fragrance": "عطور",
+    "styling-tools": "عناية",
+    "personal-care-16342": "عناية",
+    "skin-care": "عناية",
+    "makeup-16700": "عناية",
+    "women-31229": "أزياء",
+    "clothing-16021": "أزياء",
+    "shoes-17421": "أزياء",
+    "luggage-and-bags": "أزياء",
+    "men-31225": "أزياء",
+    "baby-products": "أطفال",
+    "diapering": "أطفال",
+    "toys-and-games": "أطفال",
+    "sports-and-outdoors": "رياضة",
+    "exercise-and-fitness": "رياضة",
+    "dresses": "أزياء",
+    "shirts-and-tops": "أزياء",
+    "skirts": "أزياء",
+    "jackets-and-coats": "أزياء",
+    "sandals": "أزياء",
+    "shoes": "أزياء",
+    "boots": "أزياء",
+    "bags-and-wallets": "أزياء",
+    "accessories": "أزياء",
+    "watches": "أزياء",
+    "sunglasses": "أزياء",
+    "bracelets": "أزياء",
+    "necklaces": "أزياء",
+    "rings": "أزياء",
+    "earrings": "أزياء",
+    "babies-essentials": "أطفال",
+    "baby-and-kids-fashion": "أطفال",
+    "toys-and-baby-accessories": "أطفال",
+    "baby-gears": "أطفال",
+    "sports-shoes": "رياضة",
+    "sports-wear": "رياضة",
+    "sports-accessories": "رياضة",
+    "outdoor-and-adventure": "رياضة",
+    "hair-care": "عناية",
+    "cosmetics": "عناية",
+    "shavers-and-trimmers": "عناية",
+    "perfumes-and-fragrances": "عطور",
+    "home-furnishing-and-bedding": "المنزل",
+    "home-decor": "المنزل",
+    "power-banks": "إلكترونيات",
+    "cable-and-chargers": "إلكترونيات",
+    "digital-cameras": "إلكترونيات"
+  },
+  "fallback": "إلكترونيات"
+}

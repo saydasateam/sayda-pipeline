@@ -1,7 +1,75 @@
 {
-  "candidate": { "minSaving": 75, "minClaimedPct": 0.25, "furnitureMinSaving": 500 },
-  "verdict":   { "okMin": 0.15, "warnMin": 0.05, "cheaperElsewhereTolerance": 0.01 },
-  "avail":     { "lowStockMax": 3, "priceMatchTolerance": 0.01, "endedIfLiveAtLeastOfClaimed": 0.97 },
-  "page":      { "targetRows": [120, 170], "maxRows": 190 },
-  "travel":    { "dropAfterDays": 3 }
+  "candidate": {
+    "_doc": "Pre-filter applied while collecting, BEFORE any verification. Tier is chosen by the live (discounted) price. A deal must clear both the money floor and the claimed-% floor of its tier. Cheap items need a big %, expensive items need real money.",
+    "tiers": [
+      {
+        "maxPrice": 150,
+        "minSaving": 25,
+        "minClaimedPct": 0.25
+      },
+      {
+        "maxPrice": 500,
+        "minSaving": 50,
+        "minClaimedPct": 0.2
+      },
+      {
+        "maxPrice": 1500,
+        "minSaving": 100,
+        "minClaimedPct": 0.15
+      },
+      {
+        "maxPrice": 5000,
+        "minSaving": 250,
+        "minClaimedPct": 0.1
+      },
+      {
+        "maxPrice": null,
+        "minSaving": 500,
+        "minClaimedPct": 0.08
+      }
+    ],
+    "minSaving": 25,
+    "minClaimedPct": 0.08,
+    "furnitureMinSaving": 400
+  },
+  "verdict": {
+    "_doc": "Applied after verification against KanBkam history or a same-model market price. A deal is ok when the REAL discount clears okMin, OR when it clears warnMin and the real money saved clears its price-band floor.",
+    "okMin": 0.1,
+    "warnMin": 0.05,
+    "okSavingTiers": [
+      {
+        "maxPrice": 500,
+        "minSaving": 50
+      },
+      {
+        "maxPrice": 3000,
+        "minSaving": 150
+      },
+      {
+        "maxPrice": null,
+        "minSaving": 300
+      }
+    ],
+    "cheaperElsewhereTolerance": 0.01,
+    "ownHistoryMinDays": 2,
+    "_ownHistory": "Rows with no KanBkam record (fashion, beauty, baby, furniture) are re-judged against data/history.json — prices this pipeline observed itself — once we have at least ownHistoryMinDays distinct earlier days."
+  },
+  "avail": {
+    "lowStockMax": 3,
+    "priceMatchTolerance": 0.01,
+    "endedIfLiveAtLeastOfClaimed": 0.97
+  },
+  "page": {
+    "targetRows": [
+      250,
+      400
+    ],
+    "maxRows": 420,
+    "defaultFilter": "verified",
+    "maxNewPerRun": 60,
+    "_maxNewPerRun": "Hard cap on rows added in a single run. Wider collection now surfaces many more candidates than the page needs; without this the check phase (and the model's review of candidates) grows unbounded and the run time regresses. Highest real saving wins; the rest are simply picked up by the next run."
+  },
+  "travel": {
+    "dropAfterDays": 3
+  }
 }

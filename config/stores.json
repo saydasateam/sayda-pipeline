@@ -1,412 +1,539 @@
 {
- "groups": [
-  {
-   "id": "electronics",
-   "label": "إلكترونيات ومتاجر عامة"
+  "groups": [
+    {
+      "id": "electronics",
+      "label": "إلكترونيات ومتاجر عامة"
+    },
+    {
+      "id": "furniture",
+      "label": "أثاث",
+      "cssClass": "fsub-furn"
+    },
+    {
+      "id": "fashion",
+      "label": "أزياء وتجميل",
+      "cssClass": "fsub-fash"
+    }
+  ],
+  "stores": [
+    {
+      "id": "noon",
+      "label": "نون",
+      "group": "electronics",
+      "adapter": "noon",
+      "origin": "https://www.noon.com",
+      "home": "https://www.noon.com/saudi-ar/",
+      "landing": "https://www.noon.com/saudi-ar/ksa-national/",
+      "verify": "kanbkam",
+      "kanbkamMid": 3,
+      "productUrl": "https://www.noon.com/saudi-ar/{sku}/p/",
+      "collect": {
+        "pages": 8,
+        "limit": 50,
+        "paths": [
+          "electronics-and-mobiles/mobiles-and-accessories",
+          "electronics-and-mobiles/tablets-and-accessories",
+          "electronics-and-mobiles/computers-and-accessories",
+          "electronics-and-mobiles/wearable-technology",
+          "electronics-and-mobiles/video-games-10181",
+          "electronics-and-mobiles/camera-and-photo-16165",
+          "electronics-and-mobiles/television-and-video",
+          "electronics-and-mobiles/home-audio",
+          "electronics-and-mobiles/portable-audio-and-video",
+          "home-and-kitchen/home-appliances-31235",
+          "home-and-kitchen/kitchen-and-dining",
+          "home-and-kitchen/furniture-10180",
+          "beauty/fragrance",
+          "beauty/hair-care/styling-tools",
+          "fashion/luggage-and-bags",
+          "fashion/women-31229",
+          "fashion/women-31229/clothing-16021",
+          "fashion/women-31229/shoes-17421",
+          "baby-products",
+          "baby-products/diapering",
+          "toys-and-games",
+          "sports-and-outdoors",
+          "sports-and-outdoors/exercise-and-fitness",
+          "home-and-kitchen/bedding-16171",
+          "ksa-national"
+        ],
+        "perCat": 40,
+        "cap": 600,
+        "_available_beauty": [
+          "beauty/makeup-16700",
+          "beauty/skin-care",
+          "beauty/personal-care-16342"
+        ]
+      }
+    },
+    {
+      "id": "amazon",
+      "label": "أمازون",
+      "group": "electronics",
+      "adapter": "amazon",
+      "origin": "https://www.amazon.sa",
+      "home": "https://www.amazon.sa/-/ar/",
+      "landing": "https://www.amazon.sa/-/ar/deals",
+      "verify": "kanbkam",
+      "kanbkamMid": 1,
+      "productUrl": "https://www.amazon.sa/dp/{asin}",
+      "collect": {
+        "via": "kanbkam",
+        "cats": [
+          "tvs",
+          "mobile-phone",
+          "tablets",
+          "laptops-and-notebooks",
+          "headphones-and-headsets",
+          "wearable-devices",
+          "gaming-consoles",
+          "speakers-and-home-theater",
+          "power-banks",
+          "cable-and-chargers",
+          "digital-cameras",
+          "fridges-and-freezers",
+          "washers-and-dryers",
+          "fans-cooling-and-heating",
+          "vacuum-cleaner",
+          "food-and-kitchen-machines",
+          "kitchenware-and-home-appliances",
+          "microwave-oven",
+          "cookers",
+          "air-treatment",
+          "home-furnishing-and-bedding",
+          "home-decor",
+          "dresses",
+          "shirts-and-tops",
+          "skirts",
+          "jackets-and-coats",
+          "sandals",
+          "shoes",
+          "boots",
+          "bags-and-wallets",
+          "accessories",
+          "watches",
+          "sunglasses",
+          "bracelets",
+          "necklaces",
+          "rings",
+          "earrings",
+          "babies-essentials",
+          "baby-and-kids-fashion",
+          "toys-and-baby-accessories",
+          "baby-gears",
+          "skin-care",
+          "hair-care",
+          "cosmetics",
+          "shavers-and-trimmers",
+          "perfumes-and-fragrances",
+          "sports-shoes",
+          "sports-wear",
+          "sports-accessories",
+          "exercise-and-fitness",
+          "outdoor-and-adventure"
+        ],
+        "perCat": 25
+      },
+      "kanbkamStoreKey": "amazon"
+    },
+    {
+      "id": "extra",
+      "label": "إكسترا",
+      "group": "electronics",
+      "adapter": "extra",
+      "origin": "https://www.extra.com",
+      "home": "https://www.extra.com/ar-sa/",
+      "landing": "https://www.extra.com/ar-sa/saudi-national-day-offers/cp/8025",
+      "verify": "kanbkam",
+      "kanbkamMid": 13,
+      "kanbkamPrefix": "e",
+      "collect": {
+        "via": "kanbkam",
+        "cats": [
+          "tvs",
+          "mobile-phone",
+          "tablets",
+          "laptops-and-notebooks",
+          "headphones-and-headsets",
+          "wearable-devices",
+          "gaming-consoles",
+          "speakers-and-home-theater",
+          "power-banks",
+          "cable-and-chargers",
+          "digital-cameras",
+          "fridges-and-freezers",
+          "washers-and-dryers",
+          "fans-cooling-and-heating",
+          "vacuum-cleaner",
+          "food-and-kitchen-machines",
+          "kitchenware-and-home-appliances",
+          "microwave-oven",
+          "cookers",
+          "air-treatment",
+          "home-furnishing-and-bedding",
+          "home-decor",
+          "skin-care",
+          "hair-care",
+          "cosmetics",
+          "shavers-and-trimmers",
+          "perfumes-and-fragrances",
+          "projectors-and-screens",
+          "printers-scanners-and-fax",
+          "networking-and-wireless"
+        ],
+        "perCat": 25
+      },
+      "kanbkamStoreKey": "extraStores"
+    },
+    {
+      "id": "jarir",
+      "label": "جرير",
+      "group": "electronics",
+      "adapter": "jarir",
+      "origin": "https://www.jarir.com",
+      "home": "https://www.jarir.com/",
+      "landing": "https://www.jarir.com/sa-ar/weekly-offers.html",
+      "verify": "market",
+      "productUrl": "https://www.jarir.com/{url_key}.html",
+      "collect": {
+        "category": 1145,
+        "pageSize": 100,
+        "maxFrom": 700
+      }
+    },
+    {
+      "id": "blackbox",
+      "label": "بلاك بوكس",
+      "group": "electronics",
+      "adapter": "nextdata",
+      "origin": "https://www.blackbox.com.sa",
+      "home": "https://www.blackbox.com.sa/",
+      "landing": "https://www.blackbox.com.sa/saudi-national-day-offers-c-475",
+      "verify": "market",
+      "productUrl": "https://www.blackbox.com.sa/ar/product/{slug}",
+      "productPath": "/ar/product/",
+      "collect": {
+        "productsAt": "pageProps.products",
+        "pages": [
+          "/saudi-national-day-offers-c-475",
+          "/offer-under-199-sr-c-645",
+          "/offer-under-499-sr-c-601",
+          "/offer-under-999-sr-c-602",
+          "/offer-under-1999-sr-c-603",
+          "/tv-c-106",
+          "/smartphones-tablets-c-3",
+          "/computer-accessories-c-627",
+          "/small-appliances-c-174",
+          "/gaming-c-237",
+          "/air-conditioners-accessories-c-657",
+          "/personal-care-c-219"
+        ],
+        "concurrency": 3
+      }
+    },
+    {
+      "id": "almanea",
+      "label": "المنيع",
+      "group": "electronics",
+      "adapter": "nextdata",
+      "origin": "https://www.almanea.sa",
+      "home": "https://www.almanea.sa/",
+      "landing": "https://www.almanea.sa/national-day-offers-c-7647",
+      "verify": "market",
+      "productUrl": "https://www.almanea.sa/product/{slug}",
+      "productPath": "/product/",
+      "collect": {
+        "productsAt": "pageProps.data.products",
+        "hitSource": true,
+        "pageParam": "?page=",
+        "pagesPerCat": 1,
+        "pages": [
+          "/national-day-offers-c-7647",
+          "/best-sellers-c-7698",
+          "/tvs-c-526",
+          "/split-acs-c-539",
+          "/mobiles-c-7424",
+          "/washing-machines-c-7336",
+          "/refrigerators-c-7333",
+          "/laptops-c-7436",
+          "/smartwatches-accessories-c-7433",
+          "/home-theater-c-524"
+        ],
+        "concurrency": 2
+      },
+      "notes": "SSR pages are ~1 MB each; keep concurrency 2 and pages few — 42 parallel pages froze a tab in testing."
+    },
+    {
+      "id": "saco",
+      "label": "ساكو",
+      "group": "electronics",
+      "adapter": "saco",
+      "origin": "https://www.saco.sa",
+      "home": "https://www.saco.sa/",
+      "landing": "https://www.saco.sa/nationals-day-c-134436",
+      "verify": "market",
+      "productUrl": "https://www.saco.sa/product/{slug}",
+      "collect": {
+        "loadMoreClicks": 14
+      }
+    },
+    {
+      "id": "trendyol",
+      "label": "ترينديول",
+      "group": "electronics",
+      "adapter": "trendyol",
+      "origin": "https://www.trendyol.sa",
+      "home": "https://www.trendyol.sa/",
+      "landing": "https://www.trendyol.sa/",
+      "verify": "trendyol",
+      "productUrl": "https://www.trendyol.sa{path}",
+      "collect": {
+        "pages": 3,
+        "terms": [
+          "ساعة ذكية",
+          "سماعات لاسلكية",
+          "شاحن",
+          "باور بانك",
+          "مكنسة كهربائية",
+          "خلاط",
+          "مقلاة هوائية",
+          "عطر",
+          "حقيبة ظهر",
+          "كنبة",
+          "طاولة",
+          "سجاد",
+          "مكيف",
+          "فستان نسائي",
+          "عباية",
+          "حقيبة يد نسائية",
+          "حذاء نسائي",
+          "بلوزة نسائية",
+          "ملابس أطفال",
+          "ألعاب أطفال",
+          "حفاضات",
+          "حذاء رياضي",
+          "ملابس رياضية",
+          "مستلزمات رياضية"
+        ]
+      }
+    },
+    {
+      "id": "ikea",
+      "label": "إيكيا",
+      "group": "furniture",
+      "adapter": "ikea",
+      "origin": "https://www.ikea.com",
+      "home": "https://www.ikea.com/sa/ar/",
+      "landing": "https://www.ikea.com/sa/ar/offers/limited-time-offers/",
+      "verify": "none",
+      "naFinding": "إيكيا · العرض حتى {end} · لا يوجد سجل خارجي",
+      "collect": {
+        "pages": [
+          "/sa/ar/offers/limited-time-offers/",
+          "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3A700640",
+          "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3Akt001",
+          "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3Abm001",
+          "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3Abc001"
+        ],
+        "campaign": "/sa/ar/campaigns/national-day/"
+      }
+    },
+    {
+      "id": "homecentre",
+      "label": "هوم سنتر",
+      "group": "furniture",
+      "adapter": "landmark",
+      "origin": "https://www.homecentre.com",
+      "home": "https://www.homecentre.com/sa/ar/",
+      "landing": "https://www.homecentre.com/sa/ar/",
+      "verify": "none",
+      "furnitureShare": true,
+      "minSaving": 500,
+      "collect": {
+        "cats": [
+          "furniture-bedroom-beds",
+          "furniture-bedroom-bedsets",
+          "furniture-bedroom-wardrobes",
+          "furniture-sofaandseating-sofasandsofasets",
+          "furniture-sofaandseating-cornersofas",
+          "furniture-sofaandseating-recliners",
+          "furniture-sofaandseating-armchairs",
+          "furniture-livingroom-coffeetables",
+          "furniture-livingroom-tvandmediaunits",
+          "furniture-diningroom-diningsets",
+          "furniture-diningroom-diningtables",
+          "furniture-livingroom-storageanddisplaycabinets"
+        ],
+        "pagesPerCat": 2
+      }
+    },
+    {
+      "id": "homebox",
+      "label": "هوم بوكس",
+      "group": "furniture",
+      "adapter": "landmark",
+      "origin": "https://www.homeboxstores.com",
+      "home": "https://www.homeboxstores.com/sa/ar/",
+      "landing": "https://www.homeboxstores.com/sa/ar/store-offers",
+      "verify": "none",
+      "furnitureShare": true,
+      "minSaving": 400,
+      "collect": {
+        "cats": [
+          "hbxlivingroom-sofasandarmchairs-sofas",
+          "hbxlivingroom-sofasandarmchairs-sofasets",
+          "hbxlivingroom-sofasandarmchairs-cornersofas",
+          "hbxlivingroom-sofasandarmchairs-reclinersofas",
+          "hbxlivingroom-sofasandarmchairs-armchairs",
+          "hbxlivingroom-tablesandstands-coffeetables",
+          "hbxlivingroom-mediaunitsandstorage-tvunits",
+          "hbxdiningroom-diningtablesandsets-dinettesets",
+          "hbxdiningroom",
+          "hbxbedroom",
+          "hbxbedroom-beds",
+          "hbxbedroom-wardrobes"
+        ],
+        "pagesPerCat": 2
+      }
+    },
+    {
+      "id": "panhome",
+      "label": "بان هوم",
+      "group": "furniture",
+      "adapter": "magento",
+      "origin": "https://www.panhomestores.com",
+      "home": "https://www.panhomestores.com/ksa_ar/",
+      "landing": "https://www.panhomestores.com/ksa_ar/",
+      "verify": "none",
+      "furnitureShare": true,
+      "minSaving": 800,
+      "productUrl": "https://www.panhomestores.com/ksa_ar/{url_key}",
+      "collect": {
+        "categoryId": "3",
+        "pageSize": 100,
+        "pages": 25
+      },
+      "check": {
+        "render": true
+      }
+    },
+    {
+      "id": "cityw",
+      "label": "سيتي دبليو",
+      "group": "furniture",
+      "adapter": "woo",
+      "origin": "https://cityw.com.sa",
+      "home": "https://cityw.com.sa/",
+      "landing": "https://cityw.com.sa/shop/",
+      "verify": "none",
+      "furnitureShare": true,
+      "minSaving": 500,
+      "collect": {
+        "perPage": 100,
+        "pages": 9
+      }
+    },
+    {
+      "id": "baytonia",
+      "label": "بيتونيا",
+      "group": "furniture",
+      "adapter": "magento",
+      "origin": "https://baytonia.com",
+      "home": "https://baytonia.com/",
+      "landing": "https://baytonia.com/",
+      "verify": "none",
+      "furnitureShare": true,
+      "minSaving": 500,
+      "productUrl": "https://baytonia.com/{url_key}{url_suffix}",
+      "collect": {
+        "categoryId": "46407",
+        "allCategoryId": "46405",
+        "catalogCategoryId": "2",
+        "pageSize": 200,
+        "pages": 5,
+        "extraFields": "rating_summary review_count url_suffix"
+      }
+    },
+    {
+      "id": "ashley",
+      "label": "أشلي",
+      "group": "furniture",
+      "adapter": "shopify",
+      "origin": "https://store.ashley.sa",
+      "home": "https://store.ashley.sa/",
+      "landing": "https://store.ashley.sa/collections/nd2026",
+      "verify": "ashley-midas",
+      "productUrl": "https://store.ashley.sa/products/{handle}",
+      "collect": {
+        "collection": "nd2026",
+        "limit": 250,
+        "skipTags": [
+          "pre-order"
+        ]
+      }
+    },
+    {
+      "id": "midas",
+      "label": "ميداس",
+      "group": "furniture",
+      "adapter": "midas",
+      "origin": "https://midasfurniture.com",
+      "home": "https://midasfurniture.com/ksa_ar/",
+      "landing": "https://midasfurniture.com/ksa_ar/",
+      "verify": "ashley-midas",
+      "productUrl": "https://midasfurniture.com/ksa_ar/{url_key}.html",
+      "collect": {
+        "via": "ashley-series",
+        "storeHeader": "ksa_ar"
+      }
+    },
+    {
+      "id": "namshi",
+      "label": "نمشي",
+      "group": "fashion",
+      "adapter": "namshi",
+      "origin": "https://www.namshi.com",
+      "home": "https://www.namshi.com/saudi-ar/",
+      "landing": "https://www.namshi.com/saudi-ar/women/",
+      "verify": "self",
+      "_verify_note": "No public price tracker covers Namshi in KSA. Rows start as 'na' and are verified against data/history.json once this pipeline has watched them for ownHistoryMinDays.",
+      "productUrl": "https://www.namshi.com{path}",
+      "enabled": true,
+      "collect": {
+        "locale": "saudi-ar",
+        "paths": [
+          "women-clothing",
+          "women-shoes",
+          "women-bags",
+          "women-accessories",
+          "women-clothing/styli"
+        ],
+        "_paths_verified": [
+          "women-clothing"
+        ],
+        "pages": 3,
+        "perCat": 30,
+        "cap": 200
+      },
+      "_styli_note": "Styli has no reachable own storefront (www.styli.com → DNS NXDOMAIN, 2026-09-18). It is covered as a brand path under Namshi instead. If a working Styli domain turns up, add it as its own store on the namshi.js pattern."
+    }
+  ],
+  "verifyHosts": {
+    "kanbkam": {
+      "origin": "https://www.kanbkam.com",
+      "home": "https://www.kanbkam.com/sa/ar/home"
+    }
   },
-  {
-   "id": "furniture",
-   "label": "أثاث",
-   "cssClass": "fsub-furn"
-  }
- ],
- "stores": [
-  {
-   "id": "noon",
-   "label": "نون",
-   "group": "electronics",
-   "adapter": "noon",
-   "origin": "https://www.noon.com",
-   "home": "https://www.noon.com/saudi-ar/",
-   "landing": "https://www.noon.com/saudi-ar/ksa-national/",
-   "verify": "kanbkam",
-   "kanbkamMid": 3,
-   "productUrl": "https://www.noon.com/saudi-ar/{sku}/p/",
-   "collect": {
-    "pages": 8,
-    "limit": 50,
-    "paths": [
-     "electronics-and-mobiles/mobiles-and-accessories",
-     "electronics-and-mobiles/tablets-and-accessories",
-     "electronics-and-mobiles/computers-and-accessories",
-     "electronics-and-mobiles/wearable-technology",
-     "electronics-and-mobiles/video-games-10181",
-     "electronics-and-mobiles/camera-and-photo-16165",
-     "electronics-and-mobiles/television-and-video",
-     "electronics-and-mobiles/home-audio",
-     "electronics-and-mobiles/portable-audio-and-video",
-     "home-and-kitchen/home-appliances-31235",
-     "home-and-kitchen/kitchen-and-dining",
-     "home-and-kitchen/furniture-10180",
-     "beauty/fragrance",
-     "beauty/hair-care/styling-tools",
-     "fashion/luggage-and-bags",
-     "ksa-national"
-    ]
-   }
-  },
-  {
-   "id": "amazon",
-   "label": "أمازون",
-   "group": "electronics",
-   "adapter": "amazon",
-   "origin": "https://www.amazon.sa",
-   "home": "https://www.amazon.sa/-/ar/",
-   "landing": "https://www.amazon.sa/-/ar/deals",
-   "verify": "kanbkam",
-   "kanbkamMid": 1,
-   "productUrl": "https://www.amazon.sa/dp/{asin}",
-   "collect": {
-    "via": "kanbkam",
-    "seller": 1
-   }
-  },
-  {
-   "id": "extra",
-   "label": "إكسترا",
-   "group": "electronics",
-   "adapter": "extra",
-   "origin": "https://www.extra.com",
-   "home": "https://www.extra.com/ar-sa/",
-   "landing": "https://www.extra.com/ar-sa/saudi-national-day-offers/cp/8025",
-   "verify": "kanbkam",
-   "kanbkamMid": 13,
-   "kanbkamPrefix": "e",
-   "collect": {
-    "via": "kanbkam",
-    "seller": 13,
-    "cats": [
-     "tvs",
-     "mobile-phone",
-     "tablets",
-     "laptops-and-notebooks",
-     "headphones-and-headsets",
-     "wearable-devices",
-     "gaming-consoles",
-     "speakers-and-home-theater",
-     "fridges-and-freezers",
-     "washers-and-dryers",
-     "fans-cooling-and-heating",
-     "vacuum-cleaner",
-     "food-and-kitchen-machines",
-     "kitchenware-and-home-appliances",
-     "microwave-oven",
-     "cookers",
-     "air-treatment",
-     "projectors-and-screens",
-     "printers-scanners-and-fax",
-     "networking-and-wireless"
-    ]
-   }
-  },
-  {
-   "id": "jarir",
-   "label": "جرير",
-   "group": "electronics",
-   "adapter": "jarir",
-   "origin": "https://www.jarir.com",
-   "home": "https://www.jarir.com/",
-   "landing": "https://www.jarir.com/sa-ar/weekly-offers.html",
-   "verify": "market",
-   "productUrl": "https://www.jarir.com/{url_key}.html",
-   "collect": {
-    "category": 1145,
-    "pageSize": 100,
-    "maxFrom": 700
-   }
-  },
-  {
-   "id": "blackbox",
-   "label": "بلاك بوكس",
-   "group": "electronics",
-   "adapter": "nextdata",
-   "origin": "https://www.blackbox.com.sa",
-   "home": "https://www.blackbox.com.sa/",
-   "landing": "https://www.blackbox.com.sa/saudi-national-day-offers-c-475",
-   "verify": "market",
-   "productUrl": "https://www.blackbox.com.sa/ar/product/{slug}",
-   "productPath": "/ar/product/",
-   "collect": {
-    "productsAt": "pageProps.products",
-    "pages": [
-     "/saudi-national-day-offers-c-475",
-     "/offer-under-199-sr-c-645",
-     "/offer-under-499-sr-c-601",
-     "/offer-under-999-sr-c-602",
-     "/offer-under-1999-sr-c-603",
-     "/tv-c-106",
-     "/smartphones-tablets-c-3",
-     "/computer-accessories-c-627",
-     "/small-appliances-c-174",
-     "/gaming-c-237",
-     "/air-conditioners-accessories-c-657",
-     "/personal-care-c-219"
-    ],
-    "concurrency": 3
-   }
-  },
-  {
-   "id": "almanea",
-   "label": "المنيع",
-   "group": "electronics",
-   "adapter": "nextdata",
-   "origin": "https://www.almanea.sa",
-   "home": "https://www.almanea.sa/",
-   "landing": "https://www.almanea.sa/national-day-offers-c-7647",
-   "verify": "market",
-   "productUrl": "https://www.almanea.sa/product/{slug}",
-   "productPath": "/product/",
-   "collect": {
-    "productsAt": "pageProps.data.products",
-    "hitSource": true,
-    "pageParam": "?page=",
-    "pagesPerCat": 1,
-    "pages": [
-     "/national-day-offers-c-7647",
-     "/best-sellers-c-7698",
-     "/tvs-c-526",
-     "/split-acs-c-539",
-     "/mobiles-c-7424",
-     "/washing-machines-c-7336",
-     "/refrigerators-c-7333",
-     "/laptops-c-7436",
-     "/smartwatches-accessories-c-7433",
-     "/home-theater-c-524"
-    ],
-    "concurrency": 2
-   },
-   "notes": "SSR pages are ~1 MB each; keep concurrency 2 and pages few — 42 parallel pages froze a tab in testing."
-  },
-  {
-   "id": "saco",
-   "label": "ساكو",
-   "group": "electronics",
-   "adapter": "saco",
-   "origin": "https://www.saco.sa",
-   "home": "https://www.saco.sa/",
-   "landing": "https://www.saco.sa/nationals-day-c-134436",
-   "verify": "market",
-   "productUrl": "https://www.saco.sa/product/{slug}",
-   "collect": {
-    "loadMoreClicks": 14
-   }
-  },
-  {
-   "id": "trendyol",
-   "label": "ترينديول",
-   "group": "electronics",
-   "adapter": "trendyol",
-   "origin": "https://www.trendyol.sa",
-   "home": "https://www.trendyol.sa/",
-   "landing": "https://www.trendyol.sa/",
-   "verify": "trendyol",
-   "productUrl": "https://www.trendyol.sa{path}",
-   "collect": {
-    "pages": 3,
-    "terms": [
-     "ساعة ذكية",
-     "سماعات لاسلكية",
-     "شاحن",
-     "باور بانك",
-     "مكنسة كهربائية",
-     "خلاط",
-     "مقلاة هوائية",
-     "عطر",
-     "حقيبة ظهر",
-     "كنبة",
-     "طاولة",
-     "سجاد",
-     "مكيف"
-    ]
-   }
-  },
-  {
-   "id": "ikea",
-   "label": "إيكيا",
-   "group": "furniture",
-   "adapter": "ikea",
-   "origin": "https://www.ikea.com",
-   "home": "https://www.ikea.com/sa/ar/",
-   "landing": "https://www.ikea.com/sa/ar/offers/limited-time-offers/",
-   "verify": "none",
-   "naFinding": "إيكيا · العرض حتى {end} · لا يوجد سجل خارجي",
-   "collect": {
-    "pages": [
-     "/sa/ar/offers/limited-time-offers/",
-     "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3A700640",
-     "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3Akt001",
-     "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3Abm001",
-     "/sa/ar/offers/limited-time-offers/?filters=f-subcategories%3Abc001"
-    ],
-    "campaign": "/sa/ar/campaigns/national-day/"
-   }
-  },
-  {
-   "id": "homecentre",
-   "label": "هوم سنتر",
-   "group": "furniture",
-   "adapter": "landmark",
-   "origin": "https://www.homecentre.com",
-   "home": "https://www.homecentre.com/sa/ar/",
-   "landing": "https://www.homecentre.com/sa/ar/",
-   "verify": "none",
-   "furnitureShare": true,
-   "minSaving": 500,
-   "collect": {
-    "cats": [
-     "furniture-bedroom-beds",
-     "furniture-bedroom-bedsets",
-     "furniture-bedroom-wardrobes",
-     "furniture-sofaandseating-sofasandsofasets",
-     "furniture-sofaandseating-cornersofas",
-     "furniture-sofaandseating-recliners",
-     "furniture-sofaandseating-armchairs",
-     "furniture-livingroom-coffeetables",
-     "furniture-livingroom-tvandmediaunits",
-     "furniture-diningroom-diningsets",
-     "furniture-diningroom-diningtables",
-     "furniture-livingroom-storageanddisplaycabinets"
-    ],
-    "pagesPerCat": 2
-   }
-  },
-  {
-   "id": "homebox",
-   "label": "هوم بوكس",
-   "group": "furniture",
-   "adapter": "landmark",
-   "origin": "https://www.homeboxstores.com",
-   "home": "https://www.homeboxstores.com/sa/ar/",
-   "landing": "https://www.homeboxstores.com/sa/ar/store-offers",
-   "verify": "none",
-   "furnitureShare": true,
-   "minSaving": 400,
-   "collect": {
-    "cats": [
-     "hbxlivingroom-sofasandarmchairs-sofas",
-     "hbxlivingroom-sofasandarmchairs-sofasets",
-     "hbxlivingroom-sofasandarmchairs-cornersofas",
-     "hbxlivingroom-sofasandarmchairs-reclinersofas",
-     "hbxlivingroom-sofasandarmchairs-armchairs",
-     "hbxlivingroom-tablesandstands-coffeetables",
-     "hbxlivingroom-mediaunitsandstorage-tvunits",
-     "hbxdiningroom-diningtablesandsets-dinettesets",
-     "hbxdiningroom",
-     "hbxbedroom",
-     "hbxbedroom-beds",
-     "hbxbedroom-wardrobes"
-    ],
-    "pagesPerCat": 2
-   }
-  },
-  {
-   "id": "panhome",
-   "label": "بان هوم",
-   "group": "furniture",
-   "adapter": "magento",
-   "origin": "https://www.panhomestores.com",
-   "home": "https://www.panhomestores.com/ksa_ar/",
-   "landing": "https://www.panhomestores.com/ksa_ar/",
-   "verify": "none",
-   "furnitureShare": true,
-   "minSaving": 800,
-   "productUrl": "https://www.panhomestores.com/ksa_ar/{url_key}",
-   "collect": {
-    "categoryId": "3",
-    "pageSize": 100,
-    "pages": 25
-   },
-   "check": {
-    "render": true
-   }
-  },
-  {
-   "id": "cityw",
-   "label": "سيتي دبليو",
-   "group": "furniture",
-   "adapter": "woo",
-   "origin": "https://cityw.com.sa",
-   "home": "https://cityw.com.sa/",
-   "landing": "https://cityw.com.sa/shop/",
-   "verify": "none",
-   "furnitureShare": true,
-   "minSaving": 500,
-   "collect": {
-    "perPage": 100,
-    "pages": 9
-   }
-  },
-  {
-   "id": "baytonia",
-   "label": "بيتونيا",
-   "group": "furniture",
-   "adapter": "magento",
-   "origin": "https://baytonia.com",
-   "home": "https://baytonia.com/",
-   "landing": "https://baytonia.com/",
-   "verify": "none",
-   "furnitureShare": true,
-   "minSaving": 500,
-   "productUrl": "https://baytonia.com/{url_key}{url_suffix}",
-   "collect": {
-    "categoryId": "46407",
-    "allCategoryId": "46405",
-    "catalogCategoryId": "2",
-    "pageSize": 200,
-    "pages": 5,
-    "extraFields": "rating_summary review_count url_suffix"
-   }
-  },
-  {
-   "id": "ashley",
-   "label": "أشلي",
-   "group": "furniture",
-   "adapter": "shopify",
-   "origin": "https://store.ashley.sa",
-   "home": "https://store.ashley.sa/",
-   "landing": "https://store.ashley.sa/collections/nd2026",
-   "verify": "ashley-midas",
-   "productUrl": "https://store.ashley.sa/products/{handle}",
-   "collect": {
-    "collection": "nd2026",
-    "limit": 250,
-    "skipTags": [
-     "pre-order"
-    ]
-   }
-  },
-  {
-   "id": "midas",
-   "label": "ميداس",
-   "group": "furniture",
-   "adapter": "midas",
-   "origin": "https://midasfurniture.com",
-   "home": "https://midasfurniture.com/ksa_ar/",
-   "landing": "https://midasfurniture.com/ksa_ar/",
-   "verify": "ashley-midas",
-   "productUrl": "https://midasfurniture.com/ksa_ar/{url_key}.html",
-   "collect": {
-    "via": "ashley-series",
-    "storeHeader": "ksa_ar"
-   }
-  }
- ],
- "verifyHosts": {
-  "kanbkam": {
-   "origin": "https://www.kanbkam.com",
-   "home": "https://www.kanbkam.com/sa/ar/home"
-  }
- },
- "travelSources": [
-  "https://www.riyadhair.com/ar/offers/saudi-national-day",
-  "https://www.saudia.com/ar-SA/offers",
-  "https://www.flynas.com/ar/saudi-national-day",
-  "https://www.flynas.com/ar/national-day-domestic-offer",
-  "https://www.flynas.com/ar/national-day-international-offer",
-  "https://booking.nasholidays.com/saudi_national_day/ar",
-  "https://www.flyadeal.com/ar",
-  "https://www.almosafer.com/ar/offers",
-  "https://almatar.com/ar/sa/offers/",
-  "https://www.flyin.com/ar/offers"
- ]
+  "travelSources": [
+    "https://www.riyadhair.com/ar/offers/saudi-national-day",
+    "https://www.saudia.com/ar-SA/offers",
+    "https://www.flynas.com/ar/saudi-national-day",
+    "https://www.flynas.com/ar/national-day-domestic-offer",
+    "https://www.flynas.com/ar/national-day-international-offer",
+    "https://booking.nasholidays.com/saudi_national_day/ar",
+    "https://www.flyadeal.com/ar",
+    "https://www.almosafer.com/ar/offers",
+    "https://almatar.com/ar/sa/offers/",
+    "https://www.flyin.com/ar/offers"
+  ]
 }
