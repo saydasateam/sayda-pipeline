@@ -12,7 +12,9 @@ const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), '
 const state = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/state.json'), 'utf8'));
 const args = process.argv.slice(2); const phase = args[0] || 'check';
 const only = (args.includes('--store') ? args[args.indexOf('--store') + 1].split(',') : null);
-const stores = cfg.stores.filter(s => !only || only.includes(s.id));
+// `enabled: false` parks an adapter that has not been probed live yet — a normal run skips it,
+// but `--store <id>` still selects it so it can be tested on purpose.
+const stores = cfg.stores.filter(s => only ? only.includes(s.id) : s.enabled !== false);
 const CORE = fs.readFileSync(path.join(ROOT, 'adapters/_core.js'), 'utf8');
 const adapterCode = name => CORE + '\n' + fs.readFileSync(path.join(ROOT, 'adapters', name + '.js'), 'utf8');
 const out = (dir, id, data) => { fs.mkdirSync(path.join(ROOT, 'work', dir), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'work', dir, id + '.json'), JSON.stringify(data, null, 1)); };
@@ -34,7 +36,7 @@ async function main() {
   const tasks = stores.map(s => async () => {
     try {
       const adapterName = s.adapter; const rows = rowsOf(s.id);
-      if (phase === 'collect' && s.collect && s.collect.via === 'kanbkam') { const r = await kb.evaluate(([seller, cats, rules]) => SAYDA.kanbkam.listing(seller, cats, rules), [s.collect.seller, s.collect.cats || ['tvs','mobile-phone','laptops-and-notebooks','headphones-and-headsets','wearable-devices','fridges-and-freezers','washers-and-dryers','fans-cooling-and-heating','vacuum-cleaner','food-and-kitchen-machines'], rules]); out('collect', s.id, { candidates: r, via: 'kanbkam' }); return log(s.id, 'collect via kanbkam', r.length); }
+      if (phase === 'collect' && s.collect && s.collect.via === 'kanbkam') { const r = await kb.evaluate(([storeKey, cats, rules, opts]) => SAYDA.kanbkam.listing(storeKey, cats, rules, opts), [s.kanbkamStoreKey, s.collect.cats, rules, { perCat: s.collect.perCat || 25 }]); out('collect', s.id, { candidates: r, via: 'kanbkam' }); return log(s.id, 'collect via kanbkam', r.length); }
       const page = await openOn(phase === 'collect' && s.adapter === 'saco' ? s.landing : s.home); await inject(page, adapterName);
       if (phase === 'collect') {
         if (s.adapter === 'trendyol') { const all = []; for (const term of s.collect.terms) for (let pi = 1; pi <= s.collect.pages; pi++) { await page.goto(`${s.origin}/sr?q=${encodeURIComponent(term)}&sst=BEST_SELLER&pi=${pi}`, { waitUntil: 'domcontentloaded' }); await page.waitForTimeout(3000); await inject(page, adapterName); const r = await page.evaluate(([c, ru]) => SAYDA.adapters.trendyol.collectCurrent(c, ru), [s, rules]); all.push(...r.candidates.map(x => ({ ...x, term }))); } out('collect', s.id, { candidates: all }); }

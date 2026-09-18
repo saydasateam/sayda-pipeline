@@ -1,59 +1,50 @@
-# Sayda deals — pipeline
 
-Code + data live here (public). The website itself is the private `saydasateam/sayda-deals` repo (Cloudflare Pages);
-every run uploads the generated `dist/index.html` there as `index.html`.
+---
 
-Everything that used to live in one 25 KB scheduled-task prompt now lives here. The model's job shrinks to two things:
-write the Arabic *finding* for new rows, and write the summary. Everything else is code.
+## v2.1 — coverage & thresholds (2026-09-18)
 
-```
-config/stores.json      one entry per store (label, group, adapter, origin, catalog paths, coupon pages, verification method)
-config/categories.json  the category chips
-config/rules.json       candidate thresholds, verdict cut-offs, stock rules, page size caps
-data/state.json         the truth: rows, travel offers, "no offer" airlines, coupons, note-card figures, dates
-template/index.html     the page shell — chips, note cards, methodology list and data blocks are filled by build.js
-build.js                state + config + template → dist/index.html (site) and dist/artifact.html (claude.ai page)
-adapters/_core.js       helpers shared by adapters (fetch/parse/pool/background jobs)
-adapters/<name>.js      one per platform; registers SAYDA.adapters[id] = { collect, check, coupons } in the store's page
-adapters/kanbkam.js     price history + market comparison + Extra/Amazon seller listings (SAYDA.kanbkam)
-rules/verdict.js        THE place that decides ok/warn/bad/na and in/low/oos/ended/gone
-run.js                  headless driver (Playwright): run.js collect | check | coupons [--store a,b]
-apply.js                merges work/check/*.json into state.json via the rules; writes work/report.json (what changed)
-scripts/inject.js       prints a bundle to paste into a browser tab (Claude-in-Chrome / DevTools) when running by hand
-lib/ar.js               Arabic date/number formatting
-```
+Driven by reader feedback that the page showed too few real deals (188 rows, but only 48 verified-good
+and in stock, and the page already opens filtered to those).
 
-## Adding a store
-1. Add an entry to `config/stores.json` (copy the closest sibling). `adapter` names a file in `adapters/`.
-2. If it is a new platform, add `adapters/<platform>.js` exposing `collect(cfg, rules)`, `check(rows, cfg, rules)`, `coupons(cfg)`.
-   Platforms already covered: noon, amazon, extra, jarir, nextdata (BlackBox/Al-Manea), saco, ikea, landmark (Home Centre/Homebox),
-   magento (Pan Home/Baytonia), woo (CityW), shopify (Ashley), midas, trendyol.
-3. Nothing else changes: chips, counts, note cards and the methodology list render from config.
+**1. The candidate filter was the bottleneck, not the verdict threshold.**
+The old flat gate (`minSaving 75` + `minClaimedPct 25%`) silently discarded a 3,000 ر.س laptop at 20% off
+(a 600 ر.س saving) and every sub-300 ر.س item that wasn't at least 25% off — i.e. almost all fashion,
+beauty, baby and accessories. It is now **tiered by live price** (`config/rules.json → candidate.tiers`):
+cheap items must show a big percentage, expensive items must return real money.
 
-Adding a category = one line in `config/categories.json`. Rows carry the category id.
+**2. The verdict is now two-track.** A deal is `ok` when the verified discount clears `okMin` (10%),
+**or** when it clears `warnMin` (5%) and the money saved clears its price-band floor
+(`verdict.okSavingTiers`). A flat percentage treated 6 ر.س off a 60 ر.س item and 500 ر.س off a 5,000 ر.س
+TV as the same thing. Replaying this over the existing 188 rows: **48 → 72** verified-and-available.
 
-## Daily flow (target ≤ 20 min, ≤ 35 model calls)
-```
-node run.js check      # every row, all stores in parallel tabs         → work/check/*.json
-node apply.js check    # state.json updated, work/report.json written
-node run.js collect    # morning only: candidates per store              → work/collect/*.json
-# model: pick candidates, get kanbkam history/market (adapters/kanbkam.js), write findings → work/new-rows.json
-node apply.js new work/new-rows.json
-node run.js coupons    # landing-page scan → model updates state.coupons
-node build.js          # dist/index.html → upload to saydasateam/sayda-deals (the site repo); commit data/state.json here
-```
-Availability rules (rules/verdict.js): `in` = buyable & live price matches; `low` = stock ≤ 3; `oos` = no add-to-cart;
-`ended` = live price back at (or above) the reference the deal was measured against; `gone` = page missing.
-The 'ended' reference is only used when it sits above the deal price — a cheaper competitor price never marks a row ended.
+**3. KanBkam's `?seller=` filter was removed upstream** and now returns zero rows for every category —
+Amazon *and* Extra discovery were silently collecting nothing. `kanbkam.listing()` now fetches the
+unfiltered category listing and filters client-side on the merchant key carried in each item's
+`data-gtmid` (`amazon` / `extraStores` / `noon` / `xcite`). One fetch per category now serves all of them.
 
-## Adapter execution model
-Adapters run *inside the store's page* (same origin, real cookies), both under Playwright and when pasted into a Chrome tab.
-Long jobs use `SAYDA.start(name, fn)` and are polled with `SAYDA.status(name)`; results are read with `SAYDA.result(name, from, len)`
-in slices because the Chrome extension truncates tool output at ~1 KB.
+**4. Collection widened.** Noon +9 verified category paths (women's fashion, shoes, baby, diapering,
+toys, sports, fitness, bedding); Amazon 51 KanBkam categories and Extra 30, both previously falling back
+to a hardcoded electronics list; Trendyol +11 Arabic search terms. Every collector now applies a
+**per-category quota** before the global cap — a plain top-N by absolute saving is all electronics and
+starves the categories where a real deal is worth fewer riyals.
 
-Lessons from the 18 Sep live test:
-- Extra product pages must be fetched sequentially (parallel bursts bounce to /ar-sa/error); the adapter retries 3×.
-- Al-Manea/BlackBox SSR pages are ~1 MB each; parsing 40 of them in one tab froze the renderer → few pages, concurrency 2–3.
-- Amazon's deals page only renders when the tab is visible and virtualises cards → Amazon candidates come from KanBkam (seller=1).
-- Home Centre/Homebox/Pan Home/Trendyol need the product page rendered (navigate + ~3.5 s) — those adapters expose `checkCurrent(row)`.
-- Midas product URLs move (…-midas.html → …-midas-saudi-arabia.html); the adapter searches and fixes the link.
+**5. Categories are assigned deterministically.** `config/categories.json` grew from a flat chip array to
+`{ chips, map, fallback }`; `map` translates a collect-path slug to a chip id, and `apply.js new` applies it.
+Unknown slugs land in `fallback` and are listed in `work/report.json → uncategorised`. Adding a category
+is now one chip + its slugs, with no per-run judgement. (The array shape still loads, for older data.)
+
+**6. We keep our own price history.** `data/history.json` records every observed price per row
+(`[firstSeen, price, lastSeen]`, 60 points max). KanBkam only covers Noon/Amazon/Extra electronics, so
+fashion and furniture had no reference and landed as `na` forever. After `verdict.ownHistoryMinDays`
+distinct days, `apply.js check` re-judges `na` rows against what *we* measured — which also catches the
+classic fashion trick of a "before" price the product has never actually been sold at.
+
+**7. New stores.** Namshi (`adapters/namshi.js`, DOM-based — no `__NEXT_DATA__`, CSS-module class
+prefixes matched with `[class*=]`). Styli has no reachable storefront of its own (`www.styli.com` →
+`DNS_PROBE_FINISHED_NXDOMAIN`, checked 2026-09-18), so it is collected as a brand path under Namshi
+(`women-clothing/styli`) rather than as a separate store. `run.js` now skips any store marked
+`enabled: false` unless it is named explicitly with `--store`, so a half-finished adapter can be
+committed without it breaking a scheduled run.
+
+**Adding a store is still:** one entry in `stores.json` + one adapter file.
+**Adding a category is still:** one chip + its slugs in `categories.json`.

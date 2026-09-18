@@ -5,8 +5,11 @@ const fs = require('fs'), path = require('path');
 const { arNum, longDate, shortDate, time12, countWord } = require('./lib/ar');
 const ROOT = __dirname;
 const cfg  = JSON.parse(fs.readFileSync(path.join(ROOT,'config/stores.json'),'utf8'));
-const cats = JSON.parse(fs.readFileSync(path.join(ROOT,'config/categories.json'),'utf8'));
-const st   = JSON.parse(fs.readFileSync(path.join(ROOT,'data/state.json'),'utf8'));
+const catsCfg = JSON.parse(fs.readFileSync(path.join(ROOT,'config/categories.json'),'utf8'));
+// categories.json may be a plain array (old shape) or { chips, map, fallback } (new shape)
+const cats = Array.isArray(catsCfg) ? catsCfg : catsCfg.chips;
+const st    = JSON.parse(fs.readFileSync(path.join(ROOT,'data/state.json'),'utf8'));
+const rules = JSON.parse(fs.readFileSync(path.join(ROOT,'config/rules.json'),'utf8'));
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
 const storeById = Object.fromEntries(cfg.stores.map(s=>[s.id,s]));
@@ -53,6 +56,7 @@ const fill = {
   STORE_COUNT_AR: countWord(cfg.stores.length) + ' عشر'.replace(/.*/, m => cfg.stores.length>=11 && cfg.stores.length<=19 ? '' : '') , // placeholder, fixed below
   COUPONS_NOTE: couponsNote,
   FURNITURE_NOTE: furnitureNote,
+  RULE_JSON: JSON.stringify({ okMin: rules.verdict.okMin, warnMin: rules.verdict.warnMin, okSavingTiers: rules.verdict.okSavingTiers || [] }),
   CATEGORY_CHIPS: catChips,
   STORE_CHIPS: storeChips,
   D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
