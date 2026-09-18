@@ -290,6 +290,7 @@ const TNONE={{TNONE_JSON}};
 // airlines/platforms checked with NO published National Day offer: [company, type]
 const TNO={{TNO_JSON}};
 const fmt=n=>n.toLocaleString('ar-SA',{maximumFractionDigits:0});
+const RULE={{RULE_JSON}};
 const VL={ok:'✓ خصم حقيقي',warn:'خصم أصغر',bad:'✗ وهمي / أغلى',na:'غير متحقق'};
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
@@ -298,8 +299,13 @@ const data=D.map(d=>({s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7]
  .sort((a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999)||(b.claim-a.claim));
 const cnt=k=>data.filter(x=>x.v===k&&!UN(x)).length;
 const missed=data.filter(x=>UN(x)).length;
-const real15=data.filter(x=>!UN(x)&&x.real!=null&&x.real>=15).length;
-document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} متجراً، ${fmt(real15)} فقط أرخص فعلاً بـ 15٪ أو أكثر من سعرها السابق أو من سعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص. كثير من «الأسعار قبل» لم يُبع بها المنتج أبداً، وبعض العروض أغلى من نفس الموديل في متجر آخر.`);
+// threshold comes from config/rules.json (injected at build time) — the page never hardcodes it.
+// A deal counts as real when the verified discount clears okMin, OR when it clears warnMin and the
+// money saved clears the floor for its price band (10% off a 5,000 ر.س شاشة is worth more than 40% off a 60 ر.س سلعة).
+const tierFloor=p=>{const t=(RULE.okSavingTiers||[]).find(t=>t.maxPrice==null||p<=t.maxPrice);return t?t.minSaving:Infinity};
+const isReal=x=>x.real!=null&&(x.real>=RULE.okMin*100||(x.real>=RULE.warnMin*100&&(x.r-x.p)>=tierFloor(x.p)));
+const realN=data.filter(x=>!UN(x)&&isReal(x)).length;
+document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} متجراً، ${fmt(realN)} فقط أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص. كثير من «الأسعار قبل» لم يُبع بها المنتج أبداً، وبعض العروض أغلى من نفس الموديل في متجر آخر.`);
 document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>خصم حقيقي ومتاح</div><div><b>${fmt(cnt('warn'))}</b>أصغر من المعلن</div><div><b>${fmt(cnt('bad'))}</b>وهمي أو السعر ارتفع</div><div><b>${fmt(cnt('na'))}</b>بلا سجل</div>`+(missed?`<div><b>${fmt(missed)}</b>نفد أو انتهى</div>`:'');
 const DEF={a:'avail',v:'ok'};
 const MULTI={c:1,s:1};
