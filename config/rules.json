@@ -1,0 +1,7 @@
+{
+  "candidate": { "minSaving": 75, "minClaimedPct": 0.25, "furnitureMinSaving": 500 },
+  "verdict":   { "okMin": 0.15, "warnMin": 0.05, "cheaperElsewhereTolerance": 0.01 },
+  "avail":     { "lowStockMax": 3, "priceMatchTolerance": 0.01, "endedIfLiveAtLeastOfClaimed": 0.97 },
+  "page":      { "targetRows": [120, 170], "maxRows": 190 },
+  "travel":    { "dropAfterDays": 3 }
+}
