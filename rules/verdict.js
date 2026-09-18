@@ -1,6 +1,33 @@
 // verdict.js — the ONLY place that decides ok/warn/bad/na and in/low/oos/ended/gone. Pure functions, node + browser safe.
 const fmt = n => n == null ? '' : Math.round(n).toLocaleString('en-US');
 
+/** Pick the tier whose maxPrice (null = open-ended) covers `price`. */
+function tierFor(tiers, price) {
+  if (!Array.isArray(tiers) || !tiers.length) return null;
+  return tiers.find(t => t.maxPrice == null || price <= t.maxPrice) || tiers[tiers.length - 1];
+}
+
+/** Candidate gate for a live price: { minSaving, minClaimedPct } from config (tiered, with flat fallback). */
+function candidateGate(price, rules) {
+  const C = rules.candidate;
+  const t = tierFor(C.tiers, price);
+  return { minSaving: t ? t.minSaving : C.minSaving, minClaimedPct: t ? t.minClaimedPct : C.minClaimedPct };
+}
+
+/** Money floor a real saving must clear to count as ok on the money track. */
+function okSavingFloor(price, rules) {
+  const t = tierFor(rules.verdict.okSavingTiers, price);
+  return t ? t.minSaving : Infinity;
+}
+
+/** Two-track good-deal test: real % clears okMin, OR real money clears the band floor (and % clears warnMin). */
+function isGoodDeal(price, real, rules) {
+  const V = rules.verdict;
+  if (real >= V.okMin) return true;
+  return real >= V.warnMin && (price / (1 - real) - price) >= okSavingFloor(price, rules);
+}
+
+
 /** Availability from a live observation.
  * obs: { found, live, buyable, stock, captcha, url }  row: { price, was, ref }  rules: config/rules.json
  * returns { avail, note, price (possibly updated), priceChanged } */
@@ -37,12 +64,16 @@ function verdict(price, claimed, ev, rules, opts = {}) {
   const belowMin = ev.min != null && price <= ev.min * 1.01; const soldLower = ev.min != null && ev.min < price * 0.95;
   if (belowMin) f.push('أقل سعر مسجل'); if (soldLower) f.push(`سبق ونزل ${fmt(ev.min)}`);
   if (ev.max != null && claimed > ev.max * 1.05) f.push(`«قبل» ${fmt(claimed)} لم يُسجّل`);
-  const v = real >= V.okMin ? (soldLower ? 'warn' : 'ok') : 'warn';
+  const v = isGoodDeal(price, real, rules) ? (soldLower ? 'warn' : 'ok') : 'warn';
   return { verdict: v, ref, finding: f.join(' · ') };
 }
 
 /** Candidate pre-filter shared by all stores. */
-function isCandidate(c, rules, minSaving) { return c.price > 0 && c.was > c.price && (c.was - c.price) >= (minSaving ?? rules.candidate.minSaving) && (1 - c.price / c.was) >= rules.candidate.minClaimedPct; }
+function isCandidate(c, rules, minSaving) {
+  if (!(c.price > 0 && c.was > c.price)) return false;
+  const g = candidateGate(c.price, rules);
+  return (c.was - c.price) >= (minSaving ?? g.minSaving) && (1 - c.price / c.was) >= g.minClaimedPct;
+}
 
 /** Trendyol-specific verdict (its own numbers; suggestedPrice never used as claimed). */
 function trendyolVerdict(c, rules, market) {
@@ -50,11 +81,11 @@ function trendyolVerdict(c, rules, market) {
   if (ref == null) return { verdict: 'na', ref: null, finding: `لا يوجد الموديل نفسه في متجر آخر للمقارنة${c.suggested ? ` · «قبل» ${fmt(c.suggested)} هو «السعر المقترح» من ترينديول نفسه` : ''}` };
   const real = 1 - c.price / ref; const cond = c.plusOnly ? 'والسعر لمشتركي Trendyol Plus فقط' : (c.promos || []).some(p => /سلة|عند الدفع|عند شراء|كوبون|رمز/.test(p)) ? 'والخصم يظهر في السلة/عند الدفع فقط' : '';
   const badge = c.suggested && c.suggested > (c.was || 0) ? `شارة «${Math.round(100 * (1 - c.price / c.suggested))}٪» محسوبة من «سعر مقترح» ${fmt(c.suggested)}` : '';
-  let v = real >= rules.verdict.okMin ? 'ok' : real >= rules.verdict.warnMin ? 'warn' : 'bad';
+  let v = isGoodDeal(c.price, real, rules) ? 'ok' : real >= rules.verdict.warnMin ? 'warn' : 'bad';
   if (cond && v === 'ok') v = 'warn'; if (cond && real < 0.05) v = 'bad';
   if (market && market.price && market.price < c.price * 0.99) { v = 'bad'; }
   const parts = [market ? `${market.store} ${fmt(market.price)}` : `أقل سعر حديث ${fmt(ref)}`, `الفرق الحقيقي ${Math.round(real * 100)}٪`, badge, cond].filter(Boolean);
   return { verdict: v, ref, finding: parts.join(' · ') };
 }
 
-module.exports = { availability, verdict, trendyolVerdict, isCandidate, fmt };
+module.exports = { availability, verdict, trendyolVerdict, isCandidate, candidateGate, okSavingFloor, isGoodDeal, tierFor, fmt };
