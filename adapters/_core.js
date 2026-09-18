@@ -26,5 +26,8 @@
   // background job helpers: start(fn) stores a promise on window; status() is polled by the driver
   S.start = (name, fn) => { const j = S.jobs[name] = { done: false, result: null, error: null, t0: Date.now() }; fn().then(r => { j.result = r; j.done = true; }).catch(e => { j.error = String(e && e.stack || e).slice(0, 300); j.done = true; }); return name; };
   S.status = name => { const j = S.jobs[name]; return j ? { done: j.done, error: j.error, ms: Date.now() - j.t0, size: j.result ? JSON.stringify(j.result).length : 0 } : null; };
+  // show(): replace the page body with a job's (compact) result so a driver can read it with one get_page_text call
+  // (the Chrome extension truncates javascript results at ~1 KB; page text is not truncated). fn maps result → string.
+  S.show = (name, fn) => { const j = S.jobs[name]; const r = j ? j.result : null; const txt = fn ? fn(r) : JSON.stringify(r); document.body.innerHTML = '<pre id="sayda-out" style="white-space:pre-wrap;font:12px monospace"></pre>'; document.getElementById('sayda-out').textContent = 'SAYDA:' + name + '\n' + txt; return txt.length; };
   S.result = (name, from, len) => { const j = S.jobs[name]; if (!j || !j.done) return null; const s = JSON.stringify(j.result); return from == null ? s : s.slice(from, from + (len || 30000)); };
 })();
