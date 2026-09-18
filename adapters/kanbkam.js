@@ -20,10 +20,22 @@
         let items = parseList(en.text).filter(x => x.price); if (items.length < 3) { const ar = await S.fetchText('/sa/ar/search/l?q=' + encodeURIComponent(term)); items = items.concat(parseList(ar.text).filter(x => x.price)); }
         return { term, items: items.slice(0, 12) }; });
     },
-    // seller listing (Extra seller=13, Amazon seller=1) sorted by biggest recent drop
-    async listing(seller, cats, rules) {
-      const out = await S.pool(cats, 5, async c => { const { text } = await S.fetchText(`/sa/ar/${c}/l?seller=${seller}&sort=chan_desc`);
-        return parseList(text).filter(x => x.price && x.was && S.isCandidate(x.price, x.was, rules, 100)).map(x => ({ ...x, cat: c })); });
+    // Category listing sorted by biggest recent drop, then filtered to one merchant.
+    // NOTE: kanbkam's `?seller=` URL filter was removed upstream (it now returns 0 rows for every
+    // category). The unfiltered listing already carries the merchant in each item's data-gtmid,
+    // so we filter client-side instead — one fetch per category now serves Amazon, Extra and Noon.
+    // storeKey: 'amazon' | 'extraStores' | 'noon' (config.kanbkamStoreKey)
+    async listing(storeKey, cats, rules, opts) {
+      const o = opts || {}, perCat = o.perCat || 25;
+      const out = await S.pool(cats, 5, async c => {
+        const { text } = await S.fetchText(`/sa/ar/${c}/l?sort=chan_desc`);
+        const rows = parseList(text)
+          .filter(x => x.price && x.was && (!storeKey || x.store === storeKey))
+          .filter(x => S.isCandidate(x.price, x.was, rules))   // tiered gate, no flat override
+          .map(x => ({ ...x, cat: c }));
+        rows.sort((a, b) => (b.was - b.price) - (a.was - a.price));
+        return rows.slice(0, perCat);
+      });
       return out.flat().sort((a, b) => (b.was - b.price) - (a.was - a.price));
     }
   };

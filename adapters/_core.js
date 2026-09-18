@@ -21,7 +21,14 @@
   S.ldProduct = doc => { for (const s of doc.querySelectorAll('script[type="application/ld+json"]')) { try { const j = JSON.parse(s.textContent); const arr = j['@graph'] || [j]; const p = arr.find(x => x && x['@type'] === 'Product'); if (p) return p; } catch (e) {} } return null; };
 
   // candidate filter shared by collectors: real saving and a meaningful claimed discount
-  S.isCandidate = (price, was, rules, minSaving) => price > 0 && was > price && (was - price) >= (minSaving ?? rules.candidate.minSaving) && (1 - price / was) >= rules.candidate.minClaimedPct;
+  // tiered candidate gate — mirrors rules/verdict.js candidateGate(); tier chosen by the LIVE price
+  S.tierFor = (tiers, price) => (Array.isArray(tiers) && tiers.length)
+    ? (tiers.find(t => t.maxPrice == null || price <= t.maxPrice) || tiers[tiers.length - 1]) : null;
+  S.gate = (price, rules) => { const C = rules.candidate, t = S.tierFor(C.tiers, price);
+    return { minSaving: t ? t.minSaving : C.minSaving, minClaimedPct: t ? t.minClaimedPct : C.minClaimedPct }; };
+  S.isCandidate = (price, was, rules, minSaving) => { if (!(price > 0 && was > price)) return false;
+    const g = S.gate(price, rules);
+    return (was - price) >= (minSaving ?? g.minSaving) && (1 - price / was) >= g.minClaimedPct; };
 
   // background job helpers: start(fn) stores a promise on window; status() is polled by the driver
   S.start = (name, fn) => { const j = S.jobs[name] = { done: false, result: null, error: null, t0: Date.now() }; fn().then(r => { j.result = r; j.done = true; }).catch(e => { j.error = String(e && e.stack || e).slice(0, 300); j.done = true; }); return name; };

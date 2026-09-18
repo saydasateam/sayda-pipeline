@@ -16,8 +16,18 @@
           out.push({ key: h.sku, brand: h.brand || '', name: (h.name || '').slice(0, 90), price, was, url: `https://www.noon.com/saudi-ar/${h.sku}/p/`, rating: h.product_rating && h.product_rating.value || 0, reviews: h.product_rating && h.product_rating.count || 0, cat: p.split('/').pop() });
         }
       });
-      out.sort((a, b) => (b.was - b.price) - (a.was - a.price));
-      return { candidates: out.slice(0, 400), stats: { fetched: jobs.length } };
+      // per-category quota: a global top-N by absolute saving would be all electronics and
+      // would starve fashion / baby / sports, where a real deal is worth far fewer riyals.
+      const perCat = cfg.collect.perCat || 40, cap = cfg.collect.cap || 600;
+      const byCat = {}; for (const c of out) (byCat[c.cat] = byCat[c.cat] || []).push(c);
+      const picked = [], empties = [];
+      for (const k of Object.keys(byCat)) {
+        byCat[k].sort((a, b) => (b.was - b.price) - (a.was - a.price));
+        picked.push(...byCat[k].slice(0, perCat));
+      }
+      for (const p of cfg.collect.paths) if (!byCat[p.split('/').pop()]) empties.push(p);
+      picked.sort((a, b) => (b.was - b.price) - (a.was - a.price));
+      return { candidates: picked.slice(0, cap), stats: { fetched: jobs.length, raw: out.length, cats: Object.fromEntries(Object.entries(byCat).map(([k, v]) => [k, v.length])), emptyPaths: empties } };
     },
     async check(rows) {
       return S.pool(rows, 5, async r => {
