@@ -51,7 +51,7 @@ h2{font-size:20px;margin-block:36px 12px}
 /* 36px with a mouse; 44px wherever the pointer is a finger (WCAG 2.5.5). The chips were 28.8px. */
 .filters button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--chip);color:var(--ink);min-height:36px;padding:0 14px;display:inline-flex;align-items:center;border-radius:999px;cursor:pointer;white-space:nowrap}
 @media (pointer:coarse){.filters button{min-height:44px;padding:0 16px;font-size:14px}}
-.ftoggle{display:none}
+.filters .ftoggle{display:none}
 .fsel{display:none}
 .filters button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--surface)}
 .filters button:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
@@ -62,9 +62,9 @@ h2{font-size:20px;margin-block:36px 12px}
 @media (max-width:760px){
   .filters{position:static}
   /* Detailed filters fold away behind «تصفية»; what is currently selected stays on screen. */
-  .ftoggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:600;
+  .filters .ftoggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:600;
            border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;cursor:pointer;width:100%;justify-content:space-between}
-  .ftoggle .fcaret{transition:transform .15s}
+  .filters .ftoggle .fcaret{transition:transform .15s}
   .filters[data-open] .ftoggle .fcaret{transform:rotate(180deg)}
   .filters:not([data-open]) .fbody{display:none}
   .fsel{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
