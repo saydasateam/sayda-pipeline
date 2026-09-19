@@ -1,18 +1,35 @@
 # RUNBOOK — one scheduled run (interim mode: Claude session + your Chrome)
 
-Read this top to bottom, then execute. Target: ≤ 20 min, ≤ 40 tool calls. Never improvise a parser — every store has an adapter.
+Read this top to bottom, then execute. Target: ≤ 60 min, ≤ 110 tool calls. Never improvise a parser — every store has an adapter.
 
 ## 0. Setup (2 calls)
 ```
 git clone https://github.com/saydasateam/sayda-pipeline.git && cd sayda-pipeline && node build.js   # sanity
 ```
-Decide the run type from Riyadh time (UTC+3): **08:30 → FULL** (check + collect + coupons + travel). **12:30 / 16:30 / 20:30 → CHECK** (availability only).
-Browser: Claude in Chrome (`mcp__claude-in-chrome__*`). If it is not connected, try the built-in browser; if neither works → PushNotification "refresh could not run: no browser" and stop.
+**EVERY run is FULL** — availability + price re-check of existing rows, then discovery, coupons and travel — at all four
+Riyadh times (08:30 · 12:30 · 16:30 · 20:30). There is no CHECK-only run. (Until 2026-09-19 this file said 08:30 was the
+only full run and the other three were availability-only; that is no longer true and was the reason three quarters of the
+day's runs added nothing.)
+
+**Browser — check this FIRST, before the clone.** Call `mcp__claude-in-chrome__tabs_context_mcp` (the user's Chrome, signed
+in to GitHub as saydasateam). If that errors, try `mcp__remote-devices__Claude_Browser__tabs_context`. If neither answers:
+wait 5 minutes and try both again, up to three attempts spread over ~15 minutes — a laptop that is still waking is the
+common case and a single probe at :30 gives a false negative. Only after the third failure, PushNotification
+«التحديث لم يعمل: لا يوجد متصفح متاح» with the exact tool error, and stop. A run that ends inside ten minutes has almost
+certainly taken this branch; say so plainly in the summary so a 4-minute no-op is never mistaken for a clean run.
 
 ## 1. CHECK phase — every row, all stores in parallel (≈ 12 calls)
-For each store id in `config/stores.json` (16): `node scripts/inject.js <id> check > /tmp/<id>.js` prints core + adapter + a `SAYDA.start('check:<id>', …)` call.
-- Open one Chrome tab per store on `store.home` (for **saco** open `store.landing`; for **jarir** any jarir.com page works even if it 404s).
-- Inject the whole file content with `javascript_tool` (`cat /tmp/<id>.js` and paste). Do 4–5 stores per `browser_batch`.
+For each store id in `config/stores.json` (16), open one Chrome tab on `store.home` (for **saco** open `store.landing`;
+for **jarir** any jarir.com page works even if it 404s), then **bootstrap the adapter from raw GitHub** rather than pasting a
+bundle into the injection:
+```js
+(0,eval)(await fetch('https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main/adapters/_core.js').then(r=>r.text()));
+(0,eval)(await fetch('https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main/adapters/<id>.js').then(r=>r.text()));
+SAYDA.start('check:<id>', () => SAYDA.adapters['<id>'].check(<rows>))
+```
+Two short lines instead of an 11 KB paste, and the adapter is always the committed version. `node scripts/inject.js <id> check`
+still prints the old self-contained bundle — keep it for **jarir, ikea and midas**, whose Content-Security-Policy blocks the
+`fetch` above. Do 2 stores per `browser_batch`: larger batches with heavy injections time out reliably.
 - Stores whose adapter has `render: true` (**homecentre, homebox, panhome, trendyol**) have no fetch-based `check`: for each of their rows `navigate` → wait 4 s → inject core+adapter (`node scripts/inject.js <id>` without action) → `SAYDA.adapters['<id>'].checkCurrent({id, url})`. Batch 3 rows per call. (panhome: run the GraphQL `check` first, then render.)
 - Wait ~90 s, then per tab: `SAYDA.status('check:<id>')`. When done: `SAYDA.show('check:<id>')` then `get_page_text` on that tab → save the JSON after the `SAYDA:` line to `work/check/<id>.json`. (javascript results are truncated at ~1 KB; page text is not — that is what `show()` is for.)
 - Extra is slow by design (sequential, ~5 min for 18 rows). Start it first.
@@ -34,6 +51,21 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
   Trendyol: skip cards with `plusOnly` unless instructive — that price needs a subscription. Trendyol candidates carrying
   `lowestRecent` can be judged with no extra lookup, so they are the cheapest to verify in the whole pipeline.
 - Evidence: noon/amazon/extra → `SAYDA.kanbkam.history(ids, mid)` on the kanbkam tab (mid from config; extra ids are `e<id>`). jarir/blackbox/almanea/saco/trendyol → `SAYDA.kanbkam.market(['brand model', …])`, keep only the SAME model. ashley ↔ midas: compare the same piece. ikea/homecentre/homebox/panhome/cityw/baytonia → verdict `na` with the store's discounted-share sentence.
+
+  **«keep only the SAME model» is a hard filter, not a hint — write the filter, do not eyeball it.** On 2026-09-19 a sweep of
+  62 branded Trendyol candidates was matched by «cheapest listing whose title looks right». It returned a screen protector as
+  the market price of a 675-riyal Huawei watch, a nylon strap for a Xiaomi band, a charging cable for an Amazfit, a
+  replacement headband for JBL earphones, and a **Koolen** air fryer as the reference for a **Black&Decker** one. Published as
+  written, the page would have claimed a 96% overprice on an item priced correctly. Every market lookup must pass all four:
+  1. **accessory guard** — drop titles matching `strap|band for|bands|case|cover|protector|screen|cable|cord|charger for|replacement|compatible|suitable for|holder|stand|pouch|sleeve|film|glass|skin|جراب|حافظة|واقي|حزام|كابل|بديل|متوافق`;
+  2. **brand as a whole word** — `\bblack\b` must not match «Koolen … black»; a two-word brand must match both words;
+  3. **model as a whole word, or run together** — `dlc 36362` and `dlc36362` both count, `band 10` never matches «Band 9»,
+     and a query with no model token at all is rejected outright rather than matched on the brand alone;
+  4. **sanity band** — reject a candidate priced below 0.35× or above 3× the row's price.
+  Expect a low hit rate and do not force it: of those 62 queries, 49 returned listings, 12 survived the filter, and only 5
+  became deals. Most of a marketplace's catalogue is own-label stock that exists in no other Saudi store, so **no evidence is
+  the correct answer** for those rows — they stay `na`. An unverifiable row is a row we do not publish as a discount; it is
+  never a reason to loosen the filter.
 - For each kept candidate compute `verdict(price, was, evidence, rules)` (or `trendyolVerdict`) from `rules/verdict.js` in node, then write the row: `{id, store, cat, name(Arabic, short), price, was, ref, refKind, refUrl, verdict, finding(Arabic — refine the default text), url, avail, availNote}`;
   `refKind` is `history` when `ref` came from a price record and `market` when it came from another store's price — the page words the two
   differently («✓ خصم مؤكّد» vs «✓ أرخص من متجر آخر»), so it is not optional. `refUrl` is the URL of the **compared** product, required when
@@ -73,8 +105,18 @@ node build.js      # dist/index.html — note the "rows/available" counts it pri
 - Do not update the claude.ai artifact.
 
 ## 5. Report
-Final message in Arabic, concise: top 7 verified deals available now (store, price, real vs claimed), new rows (FULL), newly unavailable / restocked / price changes (from work/report.json), coupon and travel changes (FULL), stores skipped and why, and confirmation of both commits.
-PushNotification only when: a store or the whole run failed, a commit failed, or ≥ 5 deals ended at once. Otherwise stay silent.
+Final message in Arabic, concise: top 7 verified deals available now (store, price, real vs claimed), new rows, newly
+unavailable / restocked / price changes (from work/report.json), coupon and travel changes, stores skipped and why, and
+confirmation of both commits.
+
+**Prove the run did something before calling it done.** Read `https://github.com/saydasateam/sayda-deals/commits/main` and
+confirm the newest commit is this run's. Then:
+- newest commit is this run's → clean run, stay silent.
+- **no commit from this run, for any reason** → PushNotification. This is not optional and it outranks «stay silent»: a run
+  that publishes nothing and says nothing is indistinguishable from a healthy one in the schedule's own record, which reports
+  SUCCEEDED either way. On 2026-09-19 all four runs ended in ~4 minutes having committed nothing; only the user noticing the
+  stale page revealed it. State what stopped it (no browser, adapter failures, budget) and how far the run got.
+PushNotification also when: a store failed, a commit failed, or ≥ 5 deals ended at once.
 If today is after 30 Sep 2026: say the sale is over and suggest pausing the task.
 
 ## Safety
