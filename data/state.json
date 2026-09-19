@@ -2,8 +2,8 @@
  "meta": {
   "campaign": "اليوم الوطني ٩٦",
   "campaignEnd": "2026-09-30",
-  "updated": "2026-09-18",
-  "checkedAt": "2026-09-18T16:20:00+03:00"
+  "updated": "2026-09-19",
+  "checkedAt": "2026-09-19T10:39:46.381+03:00"
  },
  "rows": [
   {
@@ -49,7 +49,7 @@
    "url": "https://www.noon.com/saudi-ar/N41179092A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B09VTJFBZC",
@@ -79,7 +79,7 @@
    "url": "https://www.noon.com/saudi-ar/N13316224A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N12194963A",
@@ -94,7 +94,7 @@
    "url": "https://www.noon.com/saudi-ar/N12194963A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70215257V",
@@ -109,7 +109,7 @@
    "url": "https://www.noon.com/saudi-ar/N70215257V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100336309",
@@ -123,8 +123,8 @@
    "finding": "كان 3,199 · أقل سعر مسجل · آخر رصد في كان بكام",
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/bosch-climate-line-split-air-conditioner-21-000-btu-t3-inverter-compressor-heat-cold/p/100336309",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100485276",
@@ -139,7 +139,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/qled-tv/hisense-65-inch-qled-4k-smart-tv-144hz-8-years-os-update-ai/p/100485276",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100336313",
@@ -153,8 +153,8 @@
    "finding": "كان 2,199 · أقل سعر مسجل · آخر رصد في كان بكام",
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/bosch-split-air-conditioner-18-300-btu-cold-only-t3-rotary-polar-white/p/100336313",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100317889",
@@ -168,8 +168,8 @@
    "finding": "كان 3,589 · أقل سعر مسجل · آخر رصد في كان بكام",
    "url": "https://www.extra.com/ar-sa/large-appliances-/dryers/european-dryer/lg-dual-inverter-heatpump-dryer-10kg-sensor-dry-allergy-care-white/p/100317889",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100410818",
@@ -184,7 +184,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100384100",
@@ -198,8 +198,8 @@
    "finding": "كان 2,149 · أقل سعر مسجل · جيل سابق",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-cellular-46mm-rose-gold-aluminium-case/p/100384100",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100378961",
@@ -213,8 +213,8 @@
    "finding": "كان 1,729 · أقل سعر مسجل · جيل سابق",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-46mm-silver-aluminium-case-with-denim-sport-band-m-l/p/100378961",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100379085",
@@ -228,8 +228,8 @@
    "finding": "كان 899 · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-se-gps-40mm-starlight-aluminium-case-with-starlight-sport-band-s-m/p/100379085",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100363937",
@@ -243,8 +243,8 @@
    "finding": "كان 2,675 · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/lg-spilt-ac-21-500-btu-cool-win-dual-inverter-compressor/p/100363937",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100392593",
@@ -257,9 +257,9 @@
    "verdict": "ok",
    "finding": "كان 3,639 · نزول عام في السوق",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-5g-256-gb-navy/p/100392593",
-   "avail": "low",
-   "availNote": "إكسترا: كمية منخفضة (2)",
-   "lastChecked": "2026-09-18"
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100500820",
@@ -274,7 +274,7 @@
    "url": "https://www.extra.com/ar-sa/computer/laptops/clamshell/asus-vivobook-s16-clamshell-amd-ryzen-ai-7-16gb-1tb-16-inch-fhd-silver/p/100500820",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N53432096A",
@@ -289,7 +289,7 @@
    "url": "https://www.noon.com/saudi-ar/N53432096A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0BZV4QFP8",
@@ -334,7 +334,7 @@
    "url": "https://www.noon.com/saudi-ar/N70053123V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0C1P49WKF",
@@ -379,7 +379,7 @@
    "url": "https://www.noon.com/saudi-ar/N51628022A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N11201185A",
@@ -394,7 +394,7 @@
    "url": "https://www.noon.com/saudi-ar/N11201185A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0D5H3YF9B",
@@ -424,7 +424,7 @@
    "url": "https://www.noon.com/saudi-ar/N51574509A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N53378566A",
@@ -439,7 +439,7 @@
    "url": "https://www.noon.com/saudi-ar/N53378566A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N50953184A",
@@ -453,8 +453,8 @@
    "finding": "كان 356 · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N50953184A/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-18"
+   "availNote": "نون: متبقي 1",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70002048V",
@@ -469,7 +469,7 @@
    "url": "https://www.noon.com/saudi-ar/N70002048V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70096217V",
@@ -484,7 +484,7 @@
    "url": "https://www.noon.com/saudi-ar/N70096217V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70098449V",
@@ -499,7 +499,7 @@
    "url": "https://www.noon.com/saudi-ar/N70098449V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70189410V",
@@ -514,7 +514,7 @@
    "url": "https://www.noon.com/saudi-ar/N70189410V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N32137438A",
@@ -529,7 +529,7 @@
    "url": "https://www.noon.com/saudi-ar/N32137438A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N41427645A",
@@ -544,7 +544,7 @@
    "url": "https://www.noon.com/saudi-ar/N41427645A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N53335721A",
@@ -559,7 +559,7 @@
    "url": "https://www.noon.com/saudi-ar/N53335721A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70206847V",
@@ -574,14 +574,14 @@
    "url": "https://www.noon.com/saudi-ar/N70206847V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70282500V",
    "store": "noon",
    "cat": "ألعاب",
    "name": "ماوس Logitech G Pro 2 Lightspeed",
-   "price": 350,
+   "price": 329,
    "was": 599,
    "ref": 419,
    "verdict": "ok",
@@ -589,7 +589,7 @@
    "url": "https://www.noon.com/saudi-ar/N70282500V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70028165V",
@@ -604,7 +604,7 @@
    "url": "https://www.noon.com/saudi-ar/N70028165V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0GZKZFKMT",
@@ -634,7 +634,7 @@
    "url": "https://www.noon.com/saudi-ar/N70177297V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B09BZR9JFG",
@@ -686,15 +686,15 @@
    "store": "noon",
    "cat": "ألعاب",
    "name": "يد DualSense بلايستيشن 5",
-   "price": 235,
+   "price": 239,
    "was": 484,
    "ref": 269,
    "verdict": "warn",
    "finding": "كان 269 · سبق ونزل 220",
    "url": "https://www.noon.com/saudi-ar/N40633049A/p/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-18"
+   "avail": "low",
+   "availNote": "نون: متبقي 1",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100434138",
@@ -708,8 +708,8 @@
    "finding": "كان 5,599 · لكن سبق ونزل 2,159",
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-55-inch-neo-qled-4k-ai-upscaling-144hz-airslim-design/p/100434138",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100434130",
@@ -722,9 +722,9 @@
    "verdict": "warn",
    "finding": "كان 9,799 · لكن سبق ونزل 3,333",
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-75-inch-neo-qled-4k-ai-upscaling-144hz-airslim-design/p/100434130",
-   "avail": "low",
-   "availNote": "إكسترا: كمية منخفضة (5)",
-   "lastChecked": "2026-09-18"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100396462",
@@ -738,8 +738,8 @@
    "finding": "كان 4,165 · سبق ونزل 2,199",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/ipad/apple-ipad-air-m3-gen-2025-wi-fi-11-inch-128gb-space-grey/p/100396462",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0B1X7H6XS",
@@ -769,7 +769,7 @@
    "url": "https://www.noon.com/saudi-ar/N39359748A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70370387V",
@@ -784,7 +784,7 @@
    "url": "https://www.noon.com/saudi-ar/N70370387V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70102694V",
@@ -799,7 +799,7 @@
    "url": "https://www.noon.com/saudi-ar/N70102694V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70188450V",
@@ -814,7 +814,7 @@
    "url": "https://www.noon.com/saudi-ar/N70188450V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70136207V",
@@ -829,7 +829,7 @@
    "url": "https://www.noon.com/saudi-ar/N70136207V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-galaxy-tab-a11-tablet-pc-670881",
@@ -844,7 +844,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-tab-a11-tablet-pc-670881.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-u8-smart-tv-681233",
@@ -859,7 +859,7 @@
    "url": "https://www.jarir.com/samsung-u8-smart-tv-681233.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:huawei-watch-fit-4-smartwatch-657289",
@@ -874,7 +874,7 @@
    "url": "https://www.jarir.com/huawei-watch-fit-4-smartwatch-657289.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:hisense-hisense-a6q-smart-tv-672673",
@@ -889,7 +889,7 @@
    "url": "https://www.jarir.com/hisense-hisense-a6q-smart-tv-672673.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-galaxy-s25-edge-smartphones-657472",
@@ -904,7 +904,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s25-edge-smartphones-657472.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-galaxy-s25-ultra-smartphones-650926",
@@ -919,7 +919,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s25-ultra-smartphones-650926.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:hisense-hisense-u7q-smart-tv-672703",
@@ -934,7 +934,7 @@
    "url": "https://www.jarir.com/hisense-hisense-u7q-smart-tv-672703.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-m1e-smart-tv-682548",
@@ -949,7 +949,7 @@
    "url": "https://www.jarir.com/samsung-m1e-smart-tv-682548.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:skyworth-x8700g-smart-tv-663712",
@@ -964,7 +964,7 @@
    "url": "https://www.jarir.com/skyworth-x8700g-smart-tv-663712.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:xiaomi-s-mini-pro-smart-tv-680357",
@@ -979,7 +979,7 @@
    "url": "https://www.jarir.com/xiaomi-s-mini-pro-smart-tv-680357.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-galaxy-s26-ultra-smartphones-677535",
@@ -993,8 +993,8 @@
    "finding": "أغلى من نون (4,499)",
    "url": "https://www.jarir.com/samsung-galaxy-s26-ultra-smartphones-677535.html",
    "avail": "oos",
-   "availNote": "جرير: «غير متوفر» في صفحة المنتج",
-   "lastChecked": "2026-09-18"
+   "availNote": "جرير: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:apple-iphone-air-smartphones-666768",
@@ -1009,7 +1009,7 @@
    "url": "https://www.jarir.com/apple-iphone-air-smartphones-666768.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:sony-headsets-614929",
@@ -1024,7 +1024,7 @@
    "url": "https://www.jarir.com/sony-headsets-614929.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-galaxy-watch-8-40-smartwatch-662000",
@@ -1039,7 +1039,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-watch-8-40-smartwatch-662000.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:marshall-speaker-585510",
@@ -1054,7 +1054,7 @@
    "url": "https://www.jarir.com/marshall-speaker-585510.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:huawei-headsets-628907",
@@ -1069,7 +1069,7 @@
    "url": "https://www.jarir.com/huawei-headsets-628907.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:lg-75-inches-qned-evo-tv-web-os-25-smart-a8-gen-2-4-k-p-1411111391605007",
@@ -1083,8 +1083,8 @@
    "finding": "أرخص من نون (7,199) · نزل من 5,999 أمس",
    "url": "https://www.blackbox.com.sa/ar/product/lg-75-inches-qned-evo-tv-web-os-25-smart-a8-gen-2-4-k-p-1411111391605007",
    "avail": "low",
-   "availNote": "بلاك بوكس: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "availNote": "بلاك بوكس: متبقي 2",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502",
@@ -1099,7 +1099,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004",
@@ -1114,7 +1114,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004",
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:lg-86-inches-qned-evo-ai-tv-web-os-25-smart-a9-gen-8-4-p-1411111391715006",
@@ -1129,7 +1129,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/lg-86-inches-qned-evo-ai-tv-web-os-25-smart-a9-gen-8-4-p-1411111391715006",
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
@@ -1144,7 +1144,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:lg-65-inches-qned-tv-web-os-25-2025-smart-4-k-uhd-hdr-10-p-1411111391505002",
@@ -1159,7 +1159,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/lg-65-inches-qned-tv-web-os-25-2025-smart-4-k-uhd-hdr-10-p-1411111391505002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:haier-75-inches-qled-tv-smart-4-k-uhd-dolby-audio-gaming-google-tv-75-p-141111626160503",
@@ -1174,7 +1174,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/haier-75-inches-qled-tv-smart-4-k-uhd-dolby-audio-gaming-google-tv-75-p-141111626160503",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:philips-air-fryer-3000-series-9-l-2750-w-dual-basket-black-na350-09-p-1552221120000003",
@@ -1189,7 +1189,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/philips-air-fryer-3000-series-9-l-2750-w-dual-basket-black-na350-09-p-1552221120000003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:philips-fully-automatic-espresso-machine-1.8-l-2-beverages-touch-screen-gray-p-153412111000015",
@@ -1204,7 +1204,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/philips-fully-automatic-espresso-machine-1.8-l-2-beverages-touch-screen-gray-p-153412111000015",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -1219,7 +1219,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
@@ -1234,7 +1234,7 @@
    "url": "https://www.almanea.sa/product/lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-top-load-washing-machine-21-kg-hygiene-steam-black-wa21a8376gv-p-120300501121002",
@@ -1249,7 +1249,7 @@
    "url": "https://www.almanea.sa/product/samsung-top-load-washing-machine-21-kg-hygiene-steam-black-wa21a8376gv-p-120300501121002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-tv-85-inch-4k-uhd-smart-mini-led-hdr-tizen-ua85m70hauxsa-p-139900599485062",
@@ -1264,7 +1264,7 @@
    "url": "https://www.almanea.sa/product/samsung-tv-85-inch-4k-uhd-smart-mini-led-hdr-tizen-ua85m70hauxsa-p-139900599485062",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-tv-75-inch-4k-uhd-smart-mini-led-hdr-tizen-tv-ua75m80hauxsa-p-139900599475092",
@@ -1279,7 +1279,7 @@
    "url": "https://www.almanea.sa/product/samsung-tv-75-inch-4k-uhd-smart-mini-led-hdr-tizen-tv-ua75m80hauxsa-p-139900599475092",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-100-inch-qned-evo-ai-qned86-mini-led-4k-smart-tv-144hz-vrr-ai-magic-remote-webos25-2025-p-139900799498006",
@@ -1294,7 +1294,7 @@
    "url": "https://www.almanea.sa/product/lg-100-inch-qned-evo-ai-qned86-mini-led-4k-smart-tv-144hz-vrr-ai-magic-remote-webos25-2025-p-139900799498006",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-98-inch-4k-uhd-smart-led-tv-98ut90006la-p-139900799498005",
@@ -1309,7 +1309,7 @@
    "url": "https://www.almanea.sa/product/lg-98-inch-4k-uhd-smart-led-tv-98ut90006la-p-139900799498005",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-98-inch-4k-crystal-uhd-smart-tv-ua98du9000uxsa-p-139900599498005",
@@ -1324,7 +1324,7 @@
    "url": "https://www.almanea.sa/product/samsung-98-inch-4k-crystal-uhd-smart-tv-ua98du9000uxsa-p-139900599498005",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-75-inch-4k-smart-neo-qled-tv-with-built-in-receiver-qa75qn70fauxsa-p-139900599475075",
@@ -1339,7 +1339,7 @@
    "url": "https://www.almanea.sa/product/samsung-75-inch-4k-smart-neo-qled-tv-with-built-in-receiver-qa75qn70fauxsa-p-139900599475075",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-75-inch-4k-uhd-smart-qled-tv-with-built-in-receiver-qa75q8faauxsa-p-139900599475077",
@@ -1353,8 +1353,8 @@
    "finding": "أمازون 2,699",
    "url": "https://www.almanea.sa/product/samsung-75-inch-4k-uhd-smart-qled-tv-with-built-in-receiver-qa75q8faauxsa-p-139900599475077",
    "avail": "low",
-   "availNote": "المنيع: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "availNote": "المنيع: متبقي 2",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-86-inch-4k-uhd-smart-qned-tv-86qned70a6a-p-139900799486038",
@@ -1369,7 +1369,7 @@
    "url": "https://www.almanea.sa/product/lg-86-inch-4k-uhd-smart-qned-tv-86qned70a6a-p-139900799486038",
    "avail": "low",
    "availNote": "المنيع: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:tcl-tv-98-inch-4k-qd-mini-led-98q6c-p-139904799498011",
@@ -1384,7 +1384,7 @@
    "url": "https://www.almanea.sa/product/tcl-tv-98-inch-4k-qd-mini-led-98q6c-p-139904799498011",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:samsung-65-inch-4k-uhd-smart-oled-tv-qa65s85faexsa-p-139900599465102",
@@ -1399,7 +1399,7 @@
    "url": "https://www.almanea.sa/product/samsung-65-inch-4k-uhd-smart-oled-tv-qa65s85faexsa-p-139900599465102",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-18-kg-front-load-washing-machine-black-with-dryer-wsn1810bmt-p-120300702118002",
@@ -1414,7 +1414,7 @@
    "url": "https://www.almanea.sa/product/lg-18-kg-front-load-washing-machine-black-with-dryer-wsn1810bmt-p-120300702118002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-front-loading-automatic-washing-machine-21-kg-silver-wf2111xmt-p-120300702121003",
@@ -1429,7 +1429,7 @@
    "url": "https://www.almanea.sa/product/lg-front-loading-automatic-washing-machine-21-kg-silver-wf2111xmt-p-120300702121003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-dishwasher-stainless-steel-black-10-programs-14-place-dfc335hd-p-120500701814038",
@@ -1444,7 +1444,7 @@
    "url": "https://www.almanea.sa/product/lg-dishwasher-stainless-steel-black-10-programs-14-place-dfc335hd-p-120500701814038",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
@@ -1459,7 +1459,7 @@
    "url": "https://www.saco.sa/product/delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:dyson-v15-detect-extra-cordless-vacuum-cleaner-nickel-blue-476609-01-p-000000000000113865",
@@ -1474,7 +1474,7 @@
    "url": "https://www.saco.sa/product/dyson-v15-detect-extra-cordless-vacuum-cleaner-nickel-blue-476609-01-p-000000000000113865",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:dyson-v8-advanced-cordless-stick-vacuum-cleaner-grey-and-purple-231716970401-p-000000000000101580",
@@ -1489,7 +1489,7 @@
    "url": "https://www.saco.sa/product/dyson-v8-advanced-cordless-stick-vacuum-cleaner-grey-and-purple-231716970401-p-000000000000101580",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:philips-2000w-3000-series-rapidair-plus-technology-air-fryer-black-7-2-liter-na342-00-p-000000000000108809",
@@ -1504,7 +1504,7 @@
    "url": "https://www.saco.sa/product/philips-2000w-3000-series-rapidair-plus-technology-air-fryer-black-7-2-liter-na342-00-p-000000000000108809",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:nespresso-1500w-vertuo-lattissima-coffee-maker-black-1-6-liter-gdv5-bk-p-000000000000094494",
@@ -1519,7 +1519,7 @@
    "url": "https://www.saco.sa/product/nespresso-1500w-vertuo-lattissima-coffee-maker-black-1-6-liter-gdv5-bk-p-000000000000094494",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:philips-5000-series-cordless-stick-vacuum-cleaner-teal-and-black-xc5041-61-p-000000000000097481",
@@ -1534,7 +1534,7 @@
    "url": "https://www.saco.sa/product/philips-5000-series-cordless-stick-vacuum-cleaner-teal-and-black-xc5041-61-p-000000000000097481",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:philips-airfryer-compact-with-see-through-window-1500w-60hz-4-2l-0-6kgs-touch-screen-13-functions-rapidair-technology-black-na220-00-p-000000000000094660",
@@ -1549,7 +1549,7 @@
    "url": "https://www.saco.sa/product/philips-airfryer-compact-with-see-through-window-1500w-60hz-4-2l-0-6kgs-touch-screen-13-functions-rapidair-technology-black-na220-00-p-000000000000094660",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:bissell-330w-multiclean-spot-and-stain-proheat-portable-carpet-and-furniture-deep-vacuum-cleaner-black-and-red-4720e-p-000000000000072562",
@@ -1564,7 +1564,7 @@
    "url": "https://www.saco.sa/product/bissell-330w-multiclean-spot-and-stain-proheat-portable-carpet-and-furniture-deep-vacuum-cleaner-black-and-red-4720e-p-000000000000072562",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:blueair-comfortpure-t10i-most-powerful-3-in-1-hepasilent-air-purifier-white-blu-112644-p-000000000000100024",
@@ -1579,7 +1579,7 @@
    "url": "https://www.saco.sa/product/blueair-comfortpure-t10i-most-powerful-3-in-1-hepasilent-air-purifier-white-blu-112644-p-000000000000100024",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B08CDLX7GK",
@@ -1601,15 +1601,15 @@
    "store": "noon",
    "cat": "شاشات",
    "name": "TCL ‏75 بوصة QD-Mini LED ‏(Google TV)",
-   "price": 3687,
+   "price": 3814,
    "was": 6999,
    "ref": 3217,
    "verdict": "bad",
    "finding": "السعر ارتفع 15٪ (كان 3,217)",
    "url": "https://www.noon.com/saudi-ar/N70356471V/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "availNote": "نون: متبقي 2",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N12582309A",
@@ -1624,7 +1624,7 @@
    "url": "https://www.noon.com/saudi-ar/N12582309A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N11200560A",
@@ -1639,7 +1639,7 @@
    "url": "https://www.noon.com/saudi-ar/N11200560A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B08BJ2119S",
@@ -1667,9 +1667,9 @@
    "verdict": "bad",
    "finding": "«قبل» 9,549 · لكنه بيع سابقاً بـ 2,999 فقط",
    "url": "https://www.extra.com/ar-sa/large-appliances-/dryers/european-dryer/samsung-dryer-16kg-18-programs-inverter-heat-pump-wifi-black/p/100318219",
-   "avail": "low",
-   "availNote": "إكسترا: كمية منخفضة (6)",
-   "lastChecked": "2026-09-18"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100198154",
@@ -1682,9 +1682,9 @@
    "verdict": "bad",
    "finding": "سبق ونزل 552 · «قبل» 1,839 نادر",
    "url": "https://www.extra.com/ar-sa/electronics/home-entertainment/home-theater/yamaha-yas-209-sound-bar-black/p/100198154",
-   "avail": "low",
-   "availNote": "إكسترا: كمية منخفضة (5)",
-   "lastChecked": "2026-09-18"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100386572",
@@ -1699,7 +1699,7 @@
    "url": "https://www.extra.com/ar-sa/large-tvs-/lg-98-inch-uhd-4k-smart-tv-120-hz/p/100386572",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100394802",
@@ -1713,8 +1713,8 @@
    "finding": "سكاي ورث 75 بوصة Mini LED في جرير بـ 3,599 · سبق 3,899",
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/skyworth-75-inch-miniled-google-tv-144-hz/p/100394802",
    "avail": "oos",
-   "availNote": "إكسترا: «غير متوفر حالياً» وزر «ابلغني» بدل «أضف للسلة»",
-   "lastChecked": "2026-09-18"
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0H95BDCF7",
@@ -1744,7 +1744,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-upholstered-storage-bed-gunnared-dark-grey-70447182/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:60372276",
@@ -1759,7 +1759,7 @@
    "url": "https://www.ikea.com/sa/ar/p/hemnes-day-bed-frame-with-3-drawers-grey-60372276/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:00458895",
@@ -1774,7 +1774,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-bed-frame-dark-brown-stained-00458895/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:20561858",
@@ -1789,7 +1789,7 @@
    "url": "https://www.ikea.com/sa/ar/p/tidtabell-rug-flatwoven-grey-20561858/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:50438353",
@@ -1804,7 +1804,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vinliden-cover-for-3-seat-sofa-hakebo-dark-grey-50438353/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:50542905",
@@ -1819,7 +1819,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vihals-shelving-unit-with-10-shelves-dark-grey-50542905/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ashley:bolanburg-dining-table",
@@ -1833,8 +1833,8 @@
    "finding": "انتهى العرض: السعر عاد إلى 3,071 — وصار أغلى من ميداس (2,595)",
    "url": "https://store.ashley.sa/products/bolanburg-dining-table",
    "avail": "ended",
-   "availNote": "أشلي: السعر الآن 3,071 — اختفى سعر اليوم الوطني",
-   "lastChecked": "2026-09-18"
+   "availNote": "أشلي: عاد السعر إلى 3,071 — انتهى العرض",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ashley:skempton-dining-table-and-chairs-set-of-7",
@@ -1849,7 +1849,7 @@
    "url": "https://store.ashley.sa/products/skempton-dining-table-and-chairs-set-of-7",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ashley:modmax-swivel-glider-chair-ashley-homestore",
@@ -1864,7 +1864,7 @@
    "url": "https://store.ashley.sa/products/modmax-swivel-glider-chair-ashley-homestore",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ashley:bolanburg-dining-server",
@@ -1878,8 +1878,8 @@
    "finding": "انتهى العرض: السعر عاد إلى 3,761 — وصار أغلى من ميداس (2,850)",
    "url": "https://store.ashley.sa/products/bolanburg-dining-server",
    "avail": "ended",
-   "availNote": "أشلي: السعر الآن 3,761 — اختفى سعر اليوم الوطني",
-   "lastChecked": "2026-09-18"
+   "availNote": "أشلي: عاد السعر إلى 3,761 — انتهى العرض",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ashley:havalance-dresser",
@@ -1894,7 +1894,7 @@
    "url": "https://store.ashley.sa/products/havalance-dresser",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ashley:barnsana-power-reclining-sofa-1",
@@ -1909,7 +1909,7 @@
    "url": "https://store.ashley.sa/products/barnsana-power-reclining-sofa-1",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "midas:bolanburg-dining-table",
@@ -1924,7 +1924,7 @@
    "url": "https://midasfurniture.com/ksa_ar/bolanburg-dining-table.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "midas:skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia",
@@ -1939,7 +1939,7 @@
    "url": "https://midasfurniture.com/ksa_ar/skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "midas:modmax-swivel-glider-recliner-blue-living-rooms-midas",
@@ -1954,7 +1954,7 @@
    "url": "https://midasfurniture.com/ksa_ar/modmax-swivel-glider-recliner-blue-living-rooms-midas.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "homecentre:165286579",
@@ -1966,10 +1966,10 @@
    "ref": null,
    "verdict": "na",
    "finding": "هوم سنتر · 84٪ من الأثاث «مخفّض» · لا يوجد سجل خارجي",
-   "url": "https://www.homecentre.com/sa/ar/buy-طقم-غرفة-نوم-كينج-5-قطع--فورستا--180x200-سم/p/165286579",
+   "url": "https://www.homecentre.com/sa/ar/buy-foresta-5-piece-king-bedroom-set-180x200-cm/p/165286579",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "homecentre:167286134",
@@ -2179,7 +2179,7 @@
    "url": "https://cityw.com.sa/product/peppo-2-seater-boucle-fabric-loveseat-warm-ivory/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "cityw:6-seater-fabric-sofa-set-warm-grey",
@@ -2194,7 +2194,7 @@
    "url": "https://cityw.com.sa/product/6-seater-fabric-sofa-set-warm-grey/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "cityw:king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey",
@@ -2209,7 +2209,7 @@
    "url": "https://cityw.com.sa/product/king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "cityw:12-seater-ceramic-top-dining-table-set-charcoal-and-bronze",
@@ -2224,7 +2224,7 @@
    "url": "https://cityw.com.sa/product/12-seater-ceramic-top-dining-table-set-charcoal-and-bronze/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "cityw:4-seater-fabric-sectional-sofa-warm-taupe-brown",
@@ -2239,7 +2239,7 @@
    "url": "https://cityw.com.sa/product/4-seater-fabric-sectional-sofa-warm-taupe-brown/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "baytonia:طقم-غرفة-نوم-مزدوج-بوما-5-قطع",
@@ -2254,7 +2254,7 @@
    "url": "https://baytonia.com/طقم-غرفة-نوم-مزدوج-بوما-5-قطع.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "baytonia:طاولة-تزيين-أمانتي",
@@ -2269,7 +2269,7 @@
    "url": "https://baytonia.com/طاولة-تزيين-أمانتي.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "baytonia:dlr-0024-طاولة-تلفاز-مودرن-اليغانت-فيرنيتشر",
@@ -2284,7 +2284,7 @@
    "url": "https://baytonia.com/dlr-0024-طاولة-تلفاز-مودرن-اليغانت-فيرنيتشر.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "baytonia:طاولة-قهوة-رونار-خشبية-و-أرجل-ستيل-و-سطح-رخام-و-زجاج",
@@ -2299,7 +2299,7 @@
    "url": "https://baytonia.com/طاولة-قهوة-رونار-خشبية-و-أرجل-ستيل-و-سطح-رخام-و-زجاج.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "baytonia:كنب-سرير-زاوية-مع-شاحن-بورفال-كحلي",
@@ -2314,7 +2314,7 @@
    "url": "https://baytonia.com/كنب-سرير-زاوية-مع-شاحن-بورفال-كحلي.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "trendyol:941983655",
@@ -2449,7 +2449,7 @@
    "url": "https://www.noon.com/saudi-ar/N70029332V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70118976V",
@@ -2464,7 +2464,7 @@
    "url": "https://www.noon.com/saudi-ar/N70118976V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70293935V",
@@ -2479,7 +2479,7 @@
    "url": "https://www.noon.com/saudi-ar/N70293935V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N15097317A",
@@ -2494,7 +2494,7 @@
    "url": "https://www.noon.com/saudi-ar/N15097317A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70106574V",
@@ -2509,7 +2509,7 @@
    "url": "https://www.noon.com/saudi-ar/N70106574V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70088673V",
@@ -2524,7 +2524,7 @@
    "url": "https://www.noon.com/saudi-ar/N70088673V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N19200536A",
@@ -2539,7 +2539,7 @@
    "url": "https://www.noon.com/saudi-ar/N19200536A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70153699V",
@@ -2552,9 +2552,9 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي 3٪ · «قبل» 6,499 لم يُسجّل (أعلى سعر 4,499)",
    "url": "https://www.noon.com/saudi-ar/N70153699V/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-18"
+   "avail": "ended",
+   "availNote": "نون: عاد السعر إلى 3,796 — انتهى العرض",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N53332704A",
@@ -2569,7 +2569,7 @@
    "url": "https://www.noon.com/saudi-ar/N53332704A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0H5CY6LRM",
@@ -2629,7 +2629,7 @@
    "url": "https://www.jarir.com/sennheiser-headsets-664050.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:huawei-watch-fit-4-pro-smartwatch-657313",
@@ -2644,7 +2644,7 @@
    "url": "https://www.jarir.com/huawei-watch-fit-4-pro-smartwatch-657313.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:samsung-galaxy-watch-ultra-2025-smartwatch-662013",
@@ -2659,7 +2659,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-watch-ultra-2025-smartwatch-662013.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:hisense-e8q-smart-tv-677953",
@@ -2674,7 +2674,7 @@
    "url": "https://www.jarir.com/hisense-e8q-smart-tv-677953.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "blackbox:samsung-65-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241505003",
@@ -2689,7 +2689,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-65-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241505003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:mtc-tv-85-inch-4k-smart-dled-webos-built-in-receiver-mt85uh200wvwos-p-139900399485009",
@@ -2704,7 +2704,7 @@
    "url": "https://www.almanea.sa/product/mtc-tv-85-inch-4k-smart-dled-webos-built-in-receiver-mt85uh200wvwos-p-139900399485009",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "almanea:lg-sc9s-soundbar-for-oled-c-series-with-3-1-3ch-400w-dolby-atmos-dts-x-ai-sound-pro-p-140100799999020",
@@ -2719,7 +2719,7 @@
    "url": "https://www.almanea.sa/product/lg-sc9s-soundbar-for-oled-c-series-with-3-1-3ch-400w-dolby-atmos-dts-x-ai-sound-pro-p-140100799999020",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:panasonic-premium-side-by-side-refrigerator-silver-588-liter-nr-bs780mssa-p-000000000000100089",
@@ -2734,7 +2734,7 @@
    "url": "https://www.saco.sa/product/panasonic-premium-side-by-side-refrigerator-silver-588-liter-nr-bs780mssa-p-000000000000100089",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "saco:philips-9000-series-aquatrio-cordless-stick-vacuum-and-wash-deep-black-xw9463-10-p-000000000000097483",
@@ -2749,7 +2749,7 @@
    "url": "https://www.saco.sa/product/philips-9000-series-aquatrio-cordless-stick-vacuum-and-wash-deep-black-xw9463-10-p-000000000000097483",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:20458823",
@@ -2764,7 +2764,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-cabinet-with-bi-folding-doors-white-20458823/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:80496092",
@@ -2779,7 +2779,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vimle-cover-for-3-seat-section-hallarp-beige-80496092/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "homecentre:167411473",
@@ -2836,10 +2836,11 @@
    "verdict": "ok",
    "finding": "كان 10,499 · أقل سعر مسجل · «قبل» 48,876 لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70188425V/p/",
-   "avail": "in",
+   "avail": "low",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "نون: متبقي 3"
   },
   {
    "id": "extra:e100458001",
@@ -2854,7 +2855,8 @@
    "avail": "in",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B0DG96T6JN",
@@ -2899,7 +2901,8 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "noon:N70394786V",
@@ -2911,10 +2914,11 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي 1٪ فقط · «قبل» 8,799 لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70394786V/p/",
-   "avail": "in",
+   "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "نون: متبقي 3"
   },
   {
    "id": "amazon:B0CT2QGBP1",
@@ -2935,7 +2939,7 @@
    "id": "noon:Z7D534EA91CB9AC4C25FDZ",
    "store": "noon",
    "name": "إيلان مضرب تنس الريشة نانو برو 29 خفيف الوزن بإطار نانو",
-   "price": 27.24,
+   "price": 29,
    "was": 3900,
    "ref": 30,
    "verdict": "warn",
@@ -2944,7 +2948,8 @@
    "avail": "in",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B097DYM7MQ",
@@ -2974,7 +2979,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "noon:N70187008V",
@@ -2986,10 +2992,11 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي 4٪ فقط · «قبل» 7,699 لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70187008V/p/",
-   "avail": "in",
+   "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "نون: متبقي 2"
   },
   {
    "id": "extra:e100410818",
@@ -3004,7 +3011,8 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "noon:ZE45C307F5C4894305A44Z",
@@ -3016,10 +3024,11 @@
    "verdict": "bad",
    "finding": "السعر ارتفع (كان 680)",
    "url": "https://www.noon.com/saudi-ar/ZE45C307F5C4894305A44Z/p/",
-   "avail": "in",
+   "avail": "low",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "نون: متبقي 2"
   },
   {
    "id": "amazon:B08RY4QDN4",
@@ -3079,7 +3088,8 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B07VMJWZHR",
@@ -3151,10 +3161,11 @@
    "verdict": "ok",
    "finding": "كان 2,149 · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/p/100384100",
-   "avail": "in",
+   "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»"
   },
   {
    "id": "noon:ZCD622483F3E1D28C8074Z",
@@ -3169,7 +3180,8 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B0C7VXNWMC",
@@ -3271,10 +3283,11 @@
    "verdict": "ok",
    "finding": "كان 1,350 · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/p/100328112",
-   "avail": "in",
+   "avail": "oos",
    "cat": "ألعاب",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»"
   },
   {
    "id": "amazon:B013V7E91O",
@@ -3376,10 +3389,11 @@
    "verdict": "ok",
    "finding": "كان 549 · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/p/100095442",
-   "avail": "in",
+   "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»"
   },
   {
    "id": "amazon:B09Q1Y7SQH",
@@ -3424,7 +3438,8 @@
    "avail": "in",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B0DK8GF5GT",
