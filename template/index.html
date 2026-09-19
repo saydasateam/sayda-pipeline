@@ -528,8 +528,13 @@ sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
 document.addEventListener('click',e=>{const a=e.target.closest('.evrule a[href="#verdict-rule"]');if(!a)return;
  const head=document.getElementById('how'),line=document.getElementById('verdict-rule');
  if(!head||!line)return; e.preventDefault();
- head.scrollIntoView({behavior:'smooth',block:'start'});
- line.classList.remove('flash'); void line.offsetWidth; line.classList.add('flash');
+ // 'smooth' silently does nothing over a jump this long; a plain jump is what an anchor does anyway
+ head.scrollIntoView({block:'start'});
+ // inline styles: no specificity contest, no custom-property resolution to go wrong
+ line.style.background='var(--chip)'; line.style.backgroundColor=getComputedStyle(document.documentElement).getPropertyValue('--chip').trim()||'#EAEEE8';
+ line.style.borderRadius='8px'; line.style.boxShadow='0 0 0 8px '+line.style.backgroundColor;
+ clearTimeout(window.__ruleT);
+ window.__ruleT=setTimeout(()=>{line.style.background='';line.style.backgroundColor='';line.style.boxShadow='';line.style.borderRadius='';},2600);
  history.replaceState(null,'','#verdict-rule');});
 (()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle'),h=document.getElementById('fthint');
  t.addEventListener('click',()=>{const open=box.hasAttribute('data-open');
