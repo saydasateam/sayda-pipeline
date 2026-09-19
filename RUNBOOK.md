@@ -32,6 +32,11 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
 - `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `state.coupons` in `data/state.json` (node one-liner): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
 - Travel: open each `state.travel[].url` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers. Keep `state.travelNone` accurate (Saudia / flyadeal today).
 - Update `state.notes.furnitureShare` from the collect stats (`sharePct`) when available.
+- **A hand edit of `data/state.json` must never touch `meta`.** `apply.js` owns `meta.checkedAt` and `meta.updated`, and it stamps
+  them as *Riyadh wall-clock digits carrying a `+03:00` suffix* (`new Date(Date.now()+3*3600e3).toISOString().replace('Z','+03:00')`)
+  — which is what `lib/ar.js → time12()` reads back. Writing `new Date().toISOString()` and appending `+03:00` labels UTC digits as
+  Riyadh and puts the page's "آخر فحص للتوفر" three hours behind, plausibly enough to ship unnoticed. If a run edits coupons or travel
+  without a check phase, re-stamp with that exact expression, and verify with `time12(state.meta.checkedAt)` before building.
 
 ## 4. Build & publish (≈ 5 calls)
 ```
@@ -40,7 +45,11 @@ node build.js      # dist/index.html — note the "rows/available" counts it pri
 - Upload `dist/index.html` to the site repo: navigate `https://github.com/saydasateam/sayda-deals/upload/main` → `find` the "Choose your files" input → `file_upload` with `<repo>/dist/index.html` → wait 7 s → set the commit message with the native setter and click the submit button, both in one `javascript_tool` call:
   `const i=document.querySelector('input[name="message"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'Update <YYYY-MM-DD HH:MM> Riyadh');i.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('button')].find(b=>/^Commit changes$/.test(b.innerText.trim())&&b.type==='submit').click();`
   → wait 10 s → `location.href` must be the repo root. Verify on `/commits/main` that the newest commit is yours.
-- Same for `data/state.json` into this repo: `https://github.com/saydasateam/sayda-pipeline/upload/main/data`.
+- Same for the data files into this repo: `https://github.com/saydasateam/sayda-pipeline/upload/main/data`.
+  Upload **both `data/state.json` and `data/history.json` in the same commit** — select the two files in one `file_upload` call.
+  `history.json` is the own-price-history store that `apply.js check` appends to every run. Each run clones `main` fresh, so a run that
+  uploads only `state.json` throws its observations away: the file can never accumulate the `verdict.ownHistoryMinDays` distinct days
+  that `na` rows (fashion, beauty, baby, furniture) need before they can be re-judged, and that re-judging silently never happens.
 - These two commits are the ONLY forms this run may submit. Never touch README.md via upload (GitHub refuses the overwrite).
 - Do not update the claude.ai artifact.
 
