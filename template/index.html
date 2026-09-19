@@ -48,15 +48,28 @@ h2{font-size:20px;margin-block:36px 12px}
 .filters button .cn{font-size:11px;opacity:.75;margin-inline-start:5px;font-variant-numeric:tabular-nums}
 .fsub-furn{margin-inline-start:48px}
 .fsub{font-size:11px;color:var(--muted);padding-inline:6px 2px;border-inline-start:1px solid var(--line);margin-inline-start:2px}
-.filters button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--chip);color:var(--ink);padding:3px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+/* 36px with a mouse; 44px wherever the pointer is a finger (WCAG 2.5.5). The chips were 28.8px. */
+.filters button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--chip);color:var(--ink);min-height:36px;padding:0 14px;display:inline-flex;align-items:center;border-radius:999px;cursor:pointer;white-space:nowrap}
+@media (pointer:coarse){.filters button{min-height:44px;padding:0 16px;font-size:14px}}
+.ftoggle{display:none}
+.fsel{display:none}
 .filters button[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--surface)}
 .filters button:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .fstatus{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:13px;color:var(--muted);padding-inline-start:88px}
 #fhint{font-size:12px;opacity:.85}
-.filters .freset{background:none;border:0;color:var(--green);padding:0;text-decoration:underline}
+.filters .freset{background:none;border:0;color:var(--green);padding:0 4px;min-height:44px;text-decoration:underline}
 .empty{text-align:center;color:var(--muted);padding:28px 12px}
 @media (max-width:760px){
   .filters{position:static}
+  /* Detailed filters fold away behind «تصفية»; what is currently selected stays on screen. */
+  .ftoggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:600;
+           border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;cursor:pointer;width:100%;justify-content:space-between}
+  .ftoggle .fcaret{transition:transform .15s}
+  .filters[data-open] .ftoggle .fcaret{transform:rotate(180deg)}
+  .filters:not([data-open]) .fbody{display:none}
+  .fsel{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+  .fsel span{font-size:12px;background:var(--green-soft);color:var(--ink);border-radius:999px;padding:4px 10px}
+  .filters[data-open] .fsel{display:none}
   .frow{flex-direction:column;align-items:stretch;gap:4px}
   .flabel{flex:none}
   .fchips{flex-wrap:wrap;gap:6px}
@@ -204,7 +217,10 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
   </div>
 
   <div class="dealsblock">
-  <div class="filters" aria-label="تصفية العروض">
+  <div class="filters" aria-label="تصفية العروض" id="filters">
+    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span>تصفية النتائج</span><span class="fcaret" aria-hidden="true">▾</span></button>
+    <div class="fsel" id="fsel" aria-hidden="true"></div>
+    <div class="fbody" id="fbody">
     <div class="frow" role="group" aria-labelledby="fl-a">
       <span class="flabel" id="fl-a">التوفر</span>
       <div class="fchips">
@@ -237,6 +253,7 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
         <button data-g="s" data-f="all" aria-pressed="true">الكل</button>
 {{STORE_CHIPS}}
       </div>
+    </div>
     </div>
     <div class="fstatus"><span id="fcount" aria-live="polite"></span><span class="claim" id="fhint">الافتراضي: الخصومات الحقيقية المتاحة فقط · اضغط «الكل» لعرض البقية · ويمكنك اختيار أكثر من فئة ومتجر</span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
@@ -371,6 +388,11 @@ function render(){
   syncChips();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
   document.getElementById('freset').hidden=!active;
+  // what is selected stays visible even when the panel is folded away
+  const sel=[...document.querySelectorAll('.filters .fbody button[data-g][aria-pressed="true"]')]
+    .map(b=>b.textContent.replace(/\s*\d[\d٠-٩٬,]*\s*$/,'').trim()).filter(t=>t&&t!=='الكل');
+  if(Q.length)sel.unshift('«'+qEl.value.trim()+'»');
+  document.getElementById('fsel').innerHTML=sel.map(t=>`<span>${esc(t)}</span>`).join('');
 }
 function setF(g,f){
   if(MULTI[g]){
@@ -398,6 +420,11 @@ function syncChips(){
   });
 }
 document.querySelectorAll('.filters button[data-g]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)setF(b.dataset.g,b.dataset.f);}));
+// «تصفية» panel (mobile only — the CSS keeps everything open above 760px)
+(()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle');
+ t.addEventListener('click',()=>{const open=box.hasAttribute('data-open');
+  if(open)box.removeAttribute('data-open');else box.setAttribute('data-open','');
+  t.setAttribute('aria-expanded',String(!open));});})();
 document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];render();});
 render();
 (()=>{const VT={clear:'✓ الشروط تطابق الإعلان',catch:'⚠ الإعلان أكبر من الشروط',vague:'تفاصيل غير كافية',pending:'لم يبدأ بعد'};
