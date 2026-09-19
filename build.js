@@ -29,6 +29,10 @@ const D = st.rows.map(r => {
   if (BK[r.bk]) x.bk = BK[r.bk];
   if (r.lastChecked) x.lc = r.lastChecked;
   if (r.refUrl) x.ru = r.refUrl;
+  // the evidence behind the comparison, so the page can show the recorded range and link to the source
+  if (r.ev) { const e = {}; if (r.ev.prev != null) e.p = r.ev.prev; if (r.ev.min != null) e.mn = r.ev.min;
+    if (r.ev.max != null) e.mx = r.ev.max; if (r.ev.url) e.u = r.ev.url; if (r.ev.src) e.s = r.ev.src;
+    if (Object.keys(e).length) x.ev = e; }
   if (Object.keys(x).length) a.push(x);
   return a;
 });
