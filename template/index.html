@@ -218,7 +218,7 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
       <span class="flabel" id="fl-v">نوع الخصم</span>
       <div class="fchips">
         <button data-g="v" data-f="all">الكل</button>
-        <button data-g="v" data-f="ok" aria-pressed="true">✓ خصم مؤكّد</button>
+        <button data-g="v" data-f="ok" aria-pressed="true">✓ صفقة مؤكّدة</button>
         <button data-g="v" data-f="warn">خصم أصغر من المعلن</button>
         <button data-g="v" data-f="bad">أغلى أو بلا توفير</button>
         <button data-g="v" data-f="na">بلا سجل سعري</button>
@@ -309,8 +309,11 @@ const CBY={{CBY_JSON}};  // store label -> coupon index, for the 🎟️ link on
 // Labels state what we measured, never what we think the store intended.
 // A bad row is one of three measurable things: cheaper elsewhere, price went up, or no real saving.
 const VL={ok:'✓ خصم مؤكّد',warn:'خصم أقل من المعلن',bad:'أغلى أو بلا توفير',na:'بلا سجل سعري'};
+// A row judged against another store's price is cheaper than the competition — that is not the
+// same claim as 'this store cut its own price', so it does not borrow the word «خصم».
+const OKM='✓ أرخص من متجر آخر';
 const BL={c:'متوفر بسعر أقل',r:'السعر ارتفع',n:'لا توفير حقيقي'};
-const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:VL[x.v];
+const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.v]);
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
@@ -325,7 +328,7 @@ const tierFloor=p=>{const t=(RULE.okSavingTiers||[]).find(t=>t.maxPrice==null||p
 const isReal=x=>x.real!=null&&(x.real>=RULE.okMin*100||(x.real>=RULE.warnMin*100&&(x.r-x.p)>=tierFloor(x.p)));
 const realN=data.filter(x=>!UN(x)&&isReal(x)).length;
 document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} متجراً، ${fmt(realN)} فقط أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص. كثير من «الأسعار قبل» لم يُبع بها المنتج أبداً، وبعض العروض أغلى من نفس الموديل في متجر آخر.`);
-document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>خصم مؤكّد ومتاح</div><div><b>${fmt(cnt('warn'))}</b>أصغر من المعلن</div><div><b>${fmt(cnt('bad'))}</b>أغلى أو بلا توفير</div><div><b>${fmt(cnt('na'))}</b>بلا سجل</div>`+(missed?`<div><b>${fmt(missed)}</b>نفد أو انتهى</div>`:'');
+document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>صفقة مؤكّدة ومتاحة</div><div><b>${fmt(cnt('warn'))}</b>أصغر من المعلن</div><div><b>${fmt(cnt('bad'))}</b>أغلى أو بلا توفير</div><div><b>${fmt(cnt('na'))}</b>بلا سجل</div>`+(missed?`<div><b>${fmt(missed)}</b>نفد أو انتهى</div>`:'');
 // The methodology sentence is generated from RULE — the same numbers the classifier uses —
 // so the published criteria can never drift from what the rows were actually judged by.
 (()=>{const el=document.getElementById('verdict-rule');if(!el)return;
@@ -334,7 +337,8 @@ document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>خص�
  el.innerHTML=`<b>الحكم</b>: <b>✓ خصم مؤكّد</b> = الفرق الحقيقي ${pct(RULE.okMin)} فأكثر، أو ${pct(RULE.warnMin)} فأكثر مع توفير يتجاوز حد فئته السعرية (${floors}).`
  +` · <b>خصم أقل من المعلن</b> = دون ذلك، أو خصم حقيقي لكن سبق أن نزل أرخص.`
  +` · <b>أغلى أو بلا توفير</b> = نفس الموديل متوفر بسعر أقل في متجر آخر، أو ارتفع سعره عمّا كان، أو لا فرق يُذكر عن مرجع المقارنة.`
- +` · <b>بلا سجل سعري</b> = لا سجل أسعار ولا نفس الموديل في متجر آخر للمقارنة.`;})();
+ +` · <b>بلا سجل سعري</b> = لا سجل أسعار ولا نفس الموديل في متجر آخر للمقارنة.`
+ +` <br>ويُقاس الفرق إمّا من <b>سعره السابق</b> في سجل الأسعار، أو من سعر <b>نفس الموديل في متجر آخر</b>؛ مرجع كل صف مكتوب تحت الرقم في عمود «مرجع المقارنة». الصف المقاس على متجر آخر يُوصف بـ «أرخص من متجر آخر» لا بـ «خصم»، لأن المتجر لم يخفّض سعره بالضرورة.`;})();
 const DEF={a:'avail',v:'ok'};
 const MULTI={c:1,s:1};
 const F={a:'avail',v:'ok',c:[],s:[]};
