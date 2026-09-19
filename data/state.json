@@ -3,7 +3,7 @@
   "campaign": "اليوم الوطني ٩٦",
   "campaignEnd": "2026-09-30",
   "updated": "2026-09-19",
-  "checkedAt": "2026-09-19T11:10:10.397+03:00"
+  "checkedAt": "2026-09-19T15:07:46.801+03:00"
  },
  "rows": [
   {
@@ -2117,9 +2117,9 @@
    "verdict": "na",
    "finding": "بان هوم · 99٪ من الأثاث «مخفّض» دائماً تقريباً · «قبل» غير موثوق",
    "url": "https://www.panhomestores.com/ksa_ar/vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
-   "avail": "oos",
-   "availNote": "بان هوم: زر «أعلمني» بدل «أضف إلى السلة»",
-   "lastChecked": "2026-09-18"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "panhome:sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
@@ -2132,9 +2132,9 @@
    "verdict": "na",
    "finding": "بان هوم · «خصم 55٪» غير متحقق",
    "url": "https://www.panhomestores.com/ksa_ar/sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
-   "avail": "oos",
-   "availNote": "بان هوم: زر «أعلمني» بدل «أضف إلى السلة»",
-   "lastChecked": "2026-09-18"
+   "avail": "gone",
+   "availNote": "بان هوم: الصفحة غير موجودة",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "panhome:eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
@@ -2147,9 +2147,9 @@
    "verdict": "na",
    "finding": "بان هوم · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://www.panhomestores.com/ksa_ar/eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
-   "avail": "oos",
-   "availNote": "بان هوم: زر «أعلمني» بدل «أضف إلى السلة»",
-   "lastChecked": "2026-09-18"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "panhome:tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
@@ -2164,7 +2164,7 @@
    "url": "https://www.panhomestores.com/ksa_ar/tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "cityw:peppo-2-seater-boucle-fabric-loveseat-warm-ivory",
