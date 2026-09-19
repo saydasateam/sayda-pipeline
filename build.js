@@ -43,11 +43,20 @@ const storeChips = cfg.groups.map(g => {
 // ---- note cards ----
 const b = t => `<b style="display:inline">${t}</b>`;
 const inl = t => t.replace(/<b>/g,'<b style="display:inline">');
-const couponLis = st.coupons.map(c => {
+// Each coupon gets its own anchor so a product row can point straight at it (🎟️ beside the store).
+const couponLis = st.coupons.map((c, i) => {
   const code = c.code ? ` — كود ${b(c.code)}: ` : ' — ';
-  return `<li>${b(c.label)}${code}${inl(c.text)}</li>`;
+  return `<li id="coupon-${i}">${b(c.label)}${code}${inl(c.text)}</li>`;
 }).join('');
-const couponsNote = `<div class="note" id="coupons"><b>قسائم إضافية حقيقية</b><ul>${couponLis}<li>أسعار الجدول ${b('قبل')} هذه الخصومات الإضافية.</li></ul></div>`;
+// Top of page: a one-line pointer, same shape as the travel one. The list itself lives below the table.
+const couponsNote = `<a class="note notelink" href="#coupons"><b>🎟️ قسائم وأكواد إضافية</b>خصومات فوق سعر الجدول: أكواد المتاجر وعروض البطاقات البنكية، وما تشترطه فعلاً.<span class="cta">اضغط هنا لعرض القسائم ↓</span></a>`;
+const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">🎟️ قسائم وأكواد إضافية</h2><ul class="cplist">${couponLis}</ul><p class="cpfoot">أسعار الجدول ${b('قبل')} هذه الخصومات الإضافية.</p></section>`;
+// store label -> index of the first coupon that applies, so the table can link to it
+const couponBy = {};
+// only real savings earn the 🎟️ — a 'none' entry ('we found no code') or the Trendyol
+// 'note' caveat would send a shopper to something that saves them nothing.
+const SAVES = new Set(['code', 'voucher', 'bank', 'auto']);
+st.coupons.forEach((c, i) => { if (!SAVES.has(c.kind)) return; (c.stores || []).forEach(id => { if (couponBy[label(id)] == null) couponBy[label(id)] = i; }); });
 
 const fs_ = st.notes.furnitureShare || {};
 const shareList = Object.entries(fs_).sort((a,b)=>b[1].pct-a[1].pct)
@@ -61,11 +70,12 @@ const fill = {
   CHECKED_AR: `${time12(st.meta.checkedAt)} (الرياض)`,
   STORE_COUNT_AR: countWord(cfg.stores.length) + ' عشر'.replace(/.*/, m => cfg.stores.length>=11 && cfg.stores.length<=19 ? '' : '') , // placeholder, fixed below
   COUPONS_NOTE: couponsNote,
+  COUPONS_SECTION: couponsSection,
   FURNITURE_NOTE: furnitureNote,
   RULE_JSON: JSON.stringify({ okMin: rules.verdict.okMin, warnMin: rules.verdict.warnMin, okSavingTiers: rules.verdict.okSavingTiers || [] }),
   CATEGORY_CHIPS: catChips,
   STORE_CHIPS: storeChips,
-  D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
+  CBY_JSON: JSON.stringify(couponBy), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
 };
 fill.STORE_COUNT_AR = countWord(cfg.stores.length); // "الستة عشر" etc. — the template keeps the word order "المتاجر {{n}}"
 let out = tpl;
