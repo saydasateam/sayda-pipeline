@@ -30,6 +30,13 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
   `refKind` is `history` when `ref` came from a price record and `market` when it came from another store's price — the page words the two
   differently («✓ خصم مؤكّد» vs «✓ أرخص من متجر آخر»), so it is not optional. `refUrl` is the URL of the **compared** product, required when
   `refKind` is `market`: without it the «دليل السعر» panel asserts a cross-store comparison the reader has no way to check. Omit it for history rows.
+  **`ref` is whatever `verdict()` returned — never a number you picked.** On 2026-09-19, 29 of 118 history-referenced rows carried a
+  reference taken from KanBkam's 12-month **max** (or a mid-range average) instead of `previousPrice`. The page read «خصم ٦٧٪» on an
+  item whose price had not moved: 1,899 before, 1,899 now. That is the exact practice this site exists to expose, published under our
+  own name. The methodology promises «السعر الذي كان يُباع به فعلاً قبل العرض» — that is `previousPrice`, nothing else.
+  Store the evidence with the row so the claim can be re-checked later without the network:
+  `ev: {prev, min, max, src:'kanbkam'|'market', on:'YYYY-MM-DD'}`. `node scripts/replay.js` re-derives every row that has `ev` and
+  fails the run if a stored `ref` disagrees with it.
   avail from the collect output (inStock/qty) is provisional — mark `in` only if the collect data says in stock. Save as `work/new-rows.json`, then `node apply.js new work/new-rows.json`. Row budget comes from `rules.json → page` (`targetRows`, `maxRows`, `maxNewPerRun`) — never from a number written here.
 
 ## 3. FULL run only — coupons & travel (≈ 6 calls)
