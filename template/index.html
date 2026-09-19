@@ -137,6 +137,15 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 .evgrid .val{font-size:13px;font-weight:600}
 .evnote{font-size:13px;margin:10px 0 0}
 .evrule{font-size:12px;color:var(--muted);margin:6px 0 0}
+.totop{position:fixed;inset-block-end:18px;inset-inline-end:16px;z-index:40;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--green);background:var(--green);color:var(--surface);font-size:20px;line-height:1;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.22);display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s}
+.totop[data-show]{opacity:1;transform:none}
+.totop:hover{filter:brightness(1.06)}
+.totop:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+@media (pointer:coarse){.totop{width:52px;height:52px;inset-block-end:20px}}
+@media print{.totop{display:none}}
 .evflag{display:block;font-size:11px;font-weight:400;color:var(--gold);margin-top:2px}
 #how{scroll-margin-top:16px}
 #verdict-rule{scroll-margin-top:96px;transition:background .3s,box-shadow .3s}
@@ -522,6 +531,26 @@ const readBudget=()=>{const n=el=>{const v=parseFloat(el.value);return isFinite(
 let bT;[pminEl,pmaxEl].forEach(el=>el.addEventListener('input',()=>{clearTimeout(bT);bT=setTimeout(()=>{readBudget();render();},250);}));
 sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
 // «تصفية» panel (mobile only — the CSS keeps everything open above 760px)
+// Back to top. The page runs ~10,000px and every in-page link sends the reader downward
+// (coupons, travel, methodology, the suggestion form) with no way back but a long scroll.
+(()=>{const b=document.getElementById('totop');if(!b)return;
+ const SHOW=600;                       // roughly one screen down
+ let ticking=false;
+ const sync=()=>{ticking=false;const on=scrollY>SHOW;
+   if(on){b.hidden=false;b.setAttribute('data-show','');}
+   else{b.removeAttribute('data-show');
+        // keep it in the layout until the fade finishes, then take it out of the tab order
+        setTimeout(()=>{if(scrollY<=SHOW)b.hidden=true;},200);}};
+ addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(sync);}},{passive:true});
+ sync();
+ b.addEventListener('click',()=>{
+   // 'smooth' silently does nothing over very long distances, so only ask for it when it can deliver
+   const far=scrollY>3000||matchMedia('(prefers-reduced-motion: reduce)').matches;
+   scrollTo(far?{top:0}:{top:0,behavior:'smooth'});
+   // put keyboard focus back at the top too, without yanking the view or opening a phone keyboard
+   const logo=document.querySelector('.brand .logo');
+   if(logo)setTimeout(()=>logo.focus({preventScroll:true}),far?0:420);
+ });})();
 // «كيف نحسب الخصم الحقيقي» → scroll to the section heading, then highlight the rule line itself.
 // Jumping straight at the line left the heading ~200px above the viewport, so the reader landed
 // mid-list with no idea which section they were in.
@@ -566,5 +595,8 @@ catch(_){say('تعذّر الإرسال الآن، حاول بعد قليل.','e
 b.disabled=false;});})();
 </script>
 <section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+<button type="button" id="totop" class="totop" hidden aria-label="العودة إلى أعلى الصفحة" title="العودة إلى الأعلى">
+  <span aria-hidden="true">↑</span>
+</button>
 </body>
 </html>
