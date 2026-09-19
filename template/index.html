@@ -67,8 +67,13 @@ h2{font-size:20px;margin-block:36px 12px}
 @media (max-width:760px){
   .filters{position:static}
   /* Detailed filters fold away behind «تصفية»; what is currently selected stays on screen. */
-  .filters .ftoggle{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;font:inherit;font-size:14px;font-weight:600;
-           border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;cursor:pointer;width:100%;justify-content:space-between}
+  .filters .ftoggle{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 16px;font:inherit;font-size:15px;font-weight:700;
+           border:1px solid var(--green);background:var(--green);color:var(--surface);border-radius:12px;cursor:pointer;width:100%;justify-content:space-between;
+           box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  .filters .ftoggle .fthint{font-weight:400;font-size:13px;opacity:.85}
+  .filters .ftoggle .ftright{display:inline-flex;align-items:center;gap:8px}
+  .filters .ftoggle .ftn{background:var(--surface);color:var(--green);font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px}
+  .filters .ftoggle .fcaret{font-size:13px}
   .filters .ftoggle .fcaret{transition:transform .15s}
   .filters[data-open] .ftoggle .fcaret{transform:rotate(180deg)}
   .filters:not([data-open]) .fbody{display:none}
@@ -238,7 +243,7 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 
   <div class="dealsblock">
   <div class="filters" aria-label="تصفية العروض" id="filters">
-    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span>تصفية النتائج</span><span class="fcaret" aria-hidden="true">▾</span></button>
+    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span class="ftlabel">⚙ تصفية النتائج <span class="fthint" id="fthint">(اضغط هنا)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
     <div class="fsel" id="fsel" aria-hidden="true"></div>
     <div class="fbody" id="fbody">
     <div class="frow" role="group" aria-labelledby="fl-a">
@@ -471,6 +476,8 @@ function render(){
   if(F.pmin!=null||F.pmax!=null)sel.push((F.pmin!=null?fmt(F.pmin):'٠')+' — '+(F.pmax!=null?fmt(F.pmax):'∞')+' ر.س');
   if(Q.length)sel.unshift('«'+qEl.value.trim()+'»');
   document.getElementById('fsel').innerHTML=sel.map(t=>`<span>${esc(t)}</span>`).join('');
+  const ftn=document.getElementById('ftn');ftn.hidden=!sel.length;ftn.textContent=fmt(sel.length);
+  ftn.title=sel.length?'عدد الفلاتر المطبّقة':'';
 }
 function setF(g,f){
   if(MULTI[g]){
@@ -503,10 +510,11 @@ const readBudget=()=>{const n=el=>{const v=parseFloat(el.value);return isFinite(
 let bT;[pminEl,pmaxEl].forEach(el=>el.addEventListener('input',()=>{clearTimeout(bT);bT=setTimeout(()=>{readBudget();render();},250);}));
 sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
 // «تصفية» panel (mobile only — the CSS keeps everything open above 760px)
-(()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle');
+(()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle'),h=document.getElementById('fthint');
  t.addEventListener('click',()=>{const open=box.hasAttribute('data-open');
   if(open)box.removeAttribute('data-open');else box.setAttribute('data-open','');
-  t.setAttribute('aria-expanded',String(!open));});})();
+  t.setAttribute('aria-expanded',String(!open));
+  h.textContent=open?'(اضغط هنا)':'(اضغط للإخفاء)';});})();
 document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];
  F.pmin=F.pmax=null;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
 render();
