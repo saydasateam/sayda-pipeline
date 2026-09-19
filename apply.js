@@ -54,10 +54,16 @@ if (mode === 'check') {
   const catMap = Array.isArray(catsCfg) ? {} : (catsCfg.map || {});
   const fallback = Array.isArray(catsCfg) ? 'إلكترونيات' : (catsCfg.fallback || 'إلكترونيات');
   report.uncategorised = [];
-  // intake cap: keep the biggest real savings, leave the rest for the next run (protects run time)
+  // Intake cap: keep the biggest VERIFIED savings, leave the rest for the next run (protects run time).
+  // This used to rank by (was - price) — the store's own claimed "before". On 2026-09-19 that number
+  // was found inflated on 29 of 118 rows (one claimed 67% off an item whose price had not moved), so
+  // ranking by it handed the intake slots to the loudest claims and pushed quiet genuine discounts to
+  // the next run. Verified rows now outrank unverified ones outright; ties break on money saved.
   const capN = rules.page.maxNewPerRun || Infinity;
+  const verified = r => r.ref != null && r.ref > r.price;
+  const saved = r => verified(r) ? r.ref - r.price : Math.max(0, (r.was || 0) - r.price);
   const fresh = add.filter(r => !ids.has(r.id));
-  fresh.sort((a, b) => ((b.was || 0) - b.price) - ((a.was || 0) - a.price));
+  fresh.sort((a, b) => (verified(b) - verified(a)) || (saved(b) - saved(a)));
   if (fresh.length > capN) report.deferred = fresh.length - capN;
   for (const r of fresh.slice(0, capN)) {
     if (ids.has(r.id)) continue;

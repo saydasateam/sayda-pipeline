@@ -24,7 +24,15 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
 - Same injection with action `collect` (for extra & amazon use the kanbkam tab: `node scripts/inject.js kanbkam` then
   `SAYDA.start('collect:extra', ()=>SAYDA.kanbkam.listing(13, <cats from config>, <rules>))`, seller 1 for amazon).
 - Read each store's candidates with `SAYDA.show('collect:<id>', r => r.candidates.slice(0,40).map(c=>[c.key,c.brand,c.name.slice(0,45),c.price,c.was,c.url].join('|')).join('\n'))` + `get_page_text`.
-- Shortlist ~2–4 per store: well-known brand, saving ≥ 75 SAR (furniture ≥ 500), claimed ≥ 25 %, not already in `data/state.json` (match by id `store:key`), one variant per model. Trendyol: skip cards with `plusOnly` unless instructive.
+- Shortlist **up to 8 per store — a ceiling, never a quota.** Take none from a store that has nothing worth taking; an empty
+  store is a correct result, not a gap to fill. The old «~2–4 per store» capped good stores and flattered poor ones: a store with
+  twenty genuine deals lost sixteen of them while a store with one weak deal still spent a slot. `apply.js new` then ranks ALL
+  candidates together — verified savings first, then money saved — and keeps the top `rules.page.maxNewPerRun`, so the stores that
+  actually earned the slots get them. The rest are re-collected next run, not lost.
+  Qualifying gate comes from `config/rules.json → candidate.tiers` (tiered by live price) — never a number written here.
+  Also: well-known brand, not already in `data/state.json` (match by id `store:key`), one variant per model.
+  Trendyol: skip cards with `plusOnly` unless instructive — that price needs a subscription. Trendyol candidates carrying
+  `lowestRecent` can be judged with no extra lookup, so they are the cheapest to verify in the whole pipeline.
 - Evidence: noon/amazon/extra → `SAYDA.kanbkam.history(ids, mid)` on the kanbkam tab (mid from config; extra ids are `e<id>`). jarir/blackbox/almanea/saco/trendyol → `SAYDA.kanbkam.market(['brand model', …])`, keep only the SAME model. ashley ↔ midas: compare the same piece. ikea/homecentre/homebox/panhome/cityw/baytonia → verdict `na` with the store's discounted-share sentence.
 - For each kept candidate compute `verdict(price, was, evidence, rules)` (or `trendyolVerdict`) from `rules/verdict.js` in node, then write the row: `{id, store, cat, name(Arabic, short), price, was, ref, refKind, refUrl, verdict, finding(Arabic — refine the default text), url, avail, availNote}`;
   `refKind` is `history` when `ref` came from a price record and `market` when it came from another store's price — the page words the two
