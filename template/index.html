@@ -141,6 +141,7 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
   border:1px solid var(--green);background:var(--green);color:var(--surface);font-size:20px;line-height:1;cursor:pointer;
   box-shadow:0 2px 10px rgba(0,0,0,.22);display:flex;align-items:center;justify-content:center;
   opacity:0;transform:translateY(8px);transition:opacity .18s,transform .18s}
+.totop[hidden]{display:none}
 .totop[data-show]{opacity:1;transform:none}
 .totop:hover{filter:brightness(1.06)}
 .totop:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
@@ -537,15 +538,17 @@ sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
 // Back to top. The page runs ~10,000px and every in-page link sends the reader downward
 // (coupons, travel, methodology, the suggestion form) with no way back but a long scroll.
 (()=>{const b=document.getElementById('totop');if(!b)return;
- const SHOW=600;                       // roughly one screen down
- let ticking=false;
- const sync=()=>{ticking=false;const on=scrollY>SHOW;
-   if(on){b.hidden=false;b.setAttribute('data-show','');}
-   else{b.removeAttribute('data-show');
-        // keep it in the layout until the fade finishes, then take it out of the tab order
-        setTimeout(()=>{if(scrollY<=SHOW)b.hidden=true;},200);}};
- addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(sync);}},{passive:true});
- sync();
+ const head=document.querySelector('header.brand');
+ const show=on=>{if(on){b.hidden=false;requestAnimationFrame(()=>b.setAttribute('data-show',''));}
+                 else{b.removeAttribute('data-show');setTimeout(()=>{if(!b.hasAttribute('data-show'))b.hidden=true;},220);}};
+ // Watch the header rather than listening for scroll: layout-driven, no throttling, and it keeps
+ // working when scrolling happens in ways a scroll listener does not see.
+ if(head&&'IntersectionObserver' in window){
+   new IntersectionObserver(es=>show(!es[0].isIntersecting),{threshold:0}).observe(head);
+ } else {
+   const sync=()=>show(scrollY>600);
+   addEventListener('scroll',sync,{passive:true}); sync();
+ }
  b.addEventListener('click',()=>{
    // 'smooth' silently does nothing over very long distances, so only ask for it when it can deliver
    const far=scrollY>3000||matchMedia('(prefers-reduced-motion: reduce)').matches;
