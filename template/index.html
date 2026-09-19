@@ -390,7 +390,7 @@ function render(){
   document.getElementById('freset').hidden=!active;
   // what is selected stays visible even when the panel is folded away
   const sel=[...document.querySelectorAll('.filters .fbody button[data-g][aria-pressed="true"]')]
-    .map(b=>b.textContent.replace(/\s*\d[\d٠-٩٬,]*\s*$/,'').trim()).filter(t=>t&&t!=='الكل');
+    .map(b=>b.textContent.replace(/\s*[\d٠-٩][\d٠-٩٬,]*\s*$/,'').trim()).filter(t=>t&&t!=='الكل');
   if(Q.length)sel.unshift('«'+qEl.value.trim()+'»');
   document.getElementById('fsel').innerHTML=sel.map(t=>`<span>${esc(t)}</span>`).join('');
 }
