@@ -13,7 +13,7 @@
 //   node scripts/replay.js          # report (exit 1 if any CONFLICT)
 //   node scripts/replay.js --fix    # correct CONFLICT rows only
 const fs = require('fs');
-const { isGoodDeal } = require('../rules/verdict.js');
+const { isGoodDeal, verdict } = require('../rules/verdict.js');
 const rules = JSON.parse(fs.readFileSync(__dirname + '/../config/rules.json'));
 const P = __dirname + '/../data/state.json';
 const st = JSON.parse(fs.readFileSync(P));
@@ -29,6 +29,18 @@ for (const r of st.rows) {
   // trendyol has its own verdict function (conditional offers, suggested-price badges) and
   // an ended deal carries context the row text cannot reconstruct — out of scope for a replay.
   if (r.store === 'trendyol' || /انتهى العرض|مشروط|سلة المشتريات|Plus/.test(f)) continue;
+
+  // A row that kept its evidence can be re-derived exactly — no inference from prose needed.
+  // This is the check that would have caught 2026-09-19's inflated references: a reference taken
+  // from the 12-month MAX instead of the price the item actually sold at before the offer.
+  if (r.ev && r.ev.prev != null && r.refKind === 'history') {
+    const want = verdict(r.price, r.was, { prev: r.ev.prev, min: r.ev.min, max: r.ev.max, market: null }, rules);
+    if (want.ref != null && Math.abs(want.ref - r.ref) / Math.max(want.ref, r.ref) > 0.02)
+      conflict.push([r, r.verdict, want.verdict, `المرجع ${r.ref} لا يطابق السعر السابق المسجَّل ${r.ev.prev}`]);
+    else if (want.verdict !== r.verdict)
+      conflict.push([r, r.verdict, want.verdict, `القاعدة تعطي ${want.verdict} من نفس الدليل المحفوظ`]);
+    continue;
+  }
 
   const real = 1 - r.price / r.ref;
   const min = after(f, /سبق ونزل\s+([\d٠-٩٬,]+)/);
