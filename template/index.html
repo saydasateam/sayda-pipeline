@@ -120,6 +120,18 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
 .cpfoot{color:var(--muted);font-size:13px;margin-top:8px}
 .how summary{cursor:pointer;color:var(--green);font-weight:600;font-size:14px;margin-bottom:6px}
 .how{margin-bottom:10px}
+.evbtn{display:block;margin-top:8px;background:none;border:1px solid var(--line);color:var(--green);font:inherit;font-size:12px;font-weight:600;border-radius:999px;min-height:32px;padding:0 12px;cursor:pointer}
+.evbtn:hover{background:var(--chip)}
+@media (pointer:coarse){.evbtn{min-height:44px;font-size:13px}}
+tr.evrow{display:none}
+tr.evrow[data-open]{display:table-row}
+tr.evrow td{background:var(--bg);padding:14px 16px}
+.evgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.evgrid .f{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.evgrid .k{display:block;font-size:11px;color:var(--muted);margin-bottom:2px}
+.evgrid .val{font-size:13px;font-weight:600}
+.evnote{font-size:13px;margin:10px 0 0}
+.evrule{font-size:12px;color:var(--muted);margin:6px 0 0}
 .sortnote{caption-side:top;text-align:right;font-size:12px;color:var(--muted);padding:0 12px 8px}
 .rk{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
 .v{display:inline-block;font-size:12px;font-weight:600;padding:1px 9px;border-radius:999px;white-space:nowrap}
@@ -188,6 +200,9 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
   td[data-l]::before{content:attr(data-l);display:block;font-size:11px;color:var(--muted);font-weight:400;margin-bottom:1px}
   td.vcell{grid-column:1/-1}
   td.empty{grid-column:1/-1}
+  tr.evrow{margin-top:-14px;border-top-left-radius:0;border-top-right-radius:0}
+  tr.evrow[data-open]{display:block}
+  tr.evrow td{padding:0}
 }
 </style>
 <style>
@@ -355,7 +370,7 @@ const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>({s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:d[9]||'in',an:d[10]||'',rk:d[11]||'',bk:d[12]||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null}))
+const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
  ;
 // Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
 // top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
@@ -406,6 +421,26 @@ const hit=(h,a)=>a.length<=3?(' '+h.replace(/[^\p{L}\p{N}]+/gu,' ')+' ').include
 function matchQ(d){if(!Q.length)return true;const h=hay(d);return Q.every(alts=>alts.some(a=>hit(h,a)));}
 function setQ(){let qv=norm(qEl.value);SYN.forEach(g=>g.forEach(x=>{if(x.includes(' ')&&qv.includes(x))qv=qv.split(x).join(g.find(y=>!y.includes(' '))||x.replace(/ /g,''));}));const words=qv.split(' ').filter(Boolean);Q=words.map(w=>{const g=SYN.find(g=>g.some(x=>x===w||(w.length>=3&&x.startsWith(w))));return g?[w,...g.filter(x=>x!==w)]:[w];});}
 let qT;qEl.addEventListener('input',()=>{clearTimeout(qT);qT=setTimeout(()=>{setQ();render();},150);});
+// ---- «دليل السعر»: what each row's verdict was actually measured against ----
+function evDate(iso){ if(!iso) return ''; const r=riyadhParts(iso); return r?`${fmt(r.d)} ${MONTHS_AR[r.m]}`:iso; }
+const MONTHS_AR=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+function riyadhParts(iso){ const t=new Date(iso+'T12:00:00+03:00'); return isNaN(t)?null:{d:t.getUTCDate(),m:t.getUTCMonth()}; }
+function evField(k,v,todo){ return `<div class="f"><span class="k">${k}</span><span class="val">${v}</span></div>`; }
+function evidence(d){
+  const f=[];
+  const saved=d.r!=null?Math.round(d.r-d.p):null;
+  // 1. what the percentage was measured against — the reviewer's main complaint was that this was invisible
+  if(d.r!=null) f.push(evField(d.rk==='m'?'سعر نفس الموديل في متجر آخر':'سعره السابق في سجل الأسعار', fmt(d.r)+' ر.س'));
+  if(d.real!=null) f.push(evField(d.real<0?'الفرق':'الفرق الحقيقي',
+      (d.real<0?'ارتفع '+fmt(-d.real)+'٪':fmt(d.real)+'٪')+(saved&&saved>0?` — ${fmt(saved)} ر.س`:'')));
+  // 2. the store's own claim, and whether our record supports it
+  if(d.w) f.push(evField('«قبل» المعلن من المتجر', fmt(d.w)+' ر.س'+(d.r!=null?(d.w>d.r*1.05?' — أعلى مما سجّلناه':' — مطابق لما سجّلناه'):'')));
+  if(d.lc) f.push(evField('تاريخ آخر رصد', evDate(d.lc)));
+  f.push(evField('صفحة المنتج', `<a href="${d.u}" target="_blank" rel="noopener">افتح صفحة ${d.s} ↗</a>`));
+  if(d.ru) f.push(evField('المنتج المقارَن', `<a href="${d.ru}" target="_blank" rel="noopener">افتح المنتج المقارَن ↗</a>`));
+  const why=d.note?`<p class="evnote">${d.note}</p>`:'';
+  return `<div class="evgrid">${f.join('')}</div>${why}<p class="evrule">الحكم مبني على القاعدة المنشورة — <a href="#verdict-rule">كيف نحسب الخصم الحقيقي</a>.</p>`;
+}
 function render(){
   rows.innerHTML='';
   const list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);
@@ -413,8 +448,17 @@ function render(){
     const tr=document.createElement('tr');
     if(UN(d))tr.className='unavail';
     const real=d.real==null?'<span class="claim">—</span>':`<span class="real ${d.real<0?'neg':''}">${d.real<0?'+'+fmt(-d.real)+'٪ ارتفاع':fmt(d.real)+'٪'}</span>`;
-    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${vlabel(d)}</span></td><td class="name"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''} <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="مرجع المقارنة">${d.r?fmt(d.r)+(d.rk?`<span class="rk">${d.rk==='h'?'سعره السابق':'متجر آخر'}</span>`:''):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}</td>`;
+    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${vlabel(d)}</span></td><td class="name"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''} <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="مرجع المقارنة">${d.r?fmt(d.r)+(d.rk?`<span class="rk">${d.rk==='h'?'سعره السابق':'متجر آخر'}</span>`:''):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}<button type="button" class="evbtn" aria-expanded="false">📄 دليل السعر</button></td>`;
     rows.appendChild(tr);
+    const er=document.createElement('tr');er.className='evrow';
+    er.innerHTML=`<td colspan="7">${evidence(d)}</td>`;
+    rows.appendChild(er);
+    tr.querySelector('.evbtn').addEventListener('click',e=>{
+      const open=er.hasAttribute('data-open');
+      if(open){er.removeAttribute('data-open');}else{er.setAttribute('data-open','');}
+      e.currentTarget.setAttribute('aria-expanded',String(!open));
+      e.currentTarget.textContent=open?'📄 دليل السعر':'✕ إخفاء الدليل';
+    });
   });
   if(!list.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="7" class="empty">'+(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.')+'</td>';rows.appendChild(tr);}
   const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||SORT!=='default';
