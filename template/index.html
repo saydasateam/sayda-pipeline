@@ -57,6 +57,11 @@ h2{font-size:20px;margin-block:36px 12px}
 .filters button:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 .fstatus{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:13px;color:var(--muted);padding-inline-start:88px}
 #fhint{font-size:12px;opacity:.85}
+.fbudget input{font:inherit;font-size:13px;width:110px;min-height:36px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+.fbudget input:focus{outline:2px solid var(--green);outline-offset:1px}
+.pdash{color:var(--muted)}
+#sortby{font:inherit;font-size:13px;min-height:36px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer}
+@media (pointer:coarse){.fbudget input,#sortby{min-height:44px;font-size:14px}}
 .filters .freset{background:none;border:0;color:var(--green);padding:0 4px;min-height:44px;text-decoration:underline}
 .empty{text-align:center;color:var(--muted);padding:28px 12px}
 @media (max-width:760px){
@@ -254,8 +259,24 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
 {{STORE_CHIPS}}
       </div>
     </div>
+    <div class="frow" role="group" aria-labelledby="fl-p">
+      <span class="flabel" id="fl-p">الميزانية</span>
+      <div class="fchips fbudget">
+        <label class="sr" for="pmin">أقل سعر</label>
+        <input type="number" id="pmin" inputmode="numeric" min="0" step="10" placeholder="من (ر.س)">
+        <span class="pdash" aria-hidden="true">—</span>
+        <label class="sr" for="pmax">أعلى سعر</label>
+        <input type="number" id="pmax" inputmode="numeric" min="0" step="10" placeholder="إلى (ر.س)">
+      </div>
     </div>
-    <div class="fstatus"><span id="fcount" aria-live="polite"></span><span class="claim" id="fhint">الافتراضي: الخصومات الحقيقية المتاحة فقط · اضغط «الكل» لعرض البقية · ويمكنك اختيار أكثر من فئة ومتجر</span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
+    </div>
+    <div class="fstatus"><label class="sr" for="sortby">ترتيب النتائج</label><select id="sortby">
+      <option value="default">الترتيب: المتاح أولاً ثم الأعلى خصماً</option>
+      <option value="real">الأعلى خصماً حقيقياً (٪)</option>
+      <option value="save">الأكثر توفيراً (ر.س)</option>
+      <option value="plow">السعر: من الأقل</option>
+      <option value="phigh">السعر: من الأعلى</option>
+    </select><span id="fcount" aria-live="polite"></span><span class="claim" id="fhint">الافتراضي: الخصومات الحقيقية المتاحة فقط · اضغط «الكل» لعرض البقية · ويمكنك اختيار أكثر من فئة ومتجر</span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
   <div class="tbl"><table>
@@ -335,7 +356,17 @@ const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
 const data=D.map(d=>({s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:d[9]||'in',an:d[10]||'',rk:d[11]||'',bk:d[12]||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null}))
- .sort((a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999)||(b.claim-a.claim));
+ ;
+// Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
+// top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
+const SAVED=d=>d.r!=null?d.r-d.p:-1;
+const SORTS={
+ default:(a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999)||(b.claim-a.claim),
+ real:(a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999),
+ save:(a,b)=>(UN(a)-UN(b))||SAVED(b)-SAVED(a),
+ plow:(a,b)=>(UN(a)-UN(b))||a.p-b.p,
+ phigh:(a,b)=>(UN(a)-UN(b))||b.p-a.p
+};
 const cnt=k=>data.filter(x=>x.v===k&&!UN(x)).length;
 const missed=data.filter(x=>UN(x)).length;
 // threshold comes from config/rules.json (injected at build time) — the page never hardcodes it.
@@ -358,12 +389,14 @@ document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>صف�
  +` <br>ويُقاس الفرق إمّا من <b>سعره السابق</b> في سجل الأسعار، أو من سعر <b>نفس الموديل في متجر آخر</b>؛ مرجع كل صف مكتوب تحت الرقم في عمود «مرجع المقارنة». الصف المقاس على متجر آخر يُوصف بـ «أرخص من متجر آخر» لا بـ «خصم»، لأن المتجر لم يخفّض سعره بالضرورة.`;})();
 const DEF={a:'avail',v:'ok'};
 const MULTI={c:1,s:1};
-const F={a:'avail',v:'ok',c:[],s:[]};
+const F={a:'avail',v:'ok',c:[],s:[],pmin:null,pmax:null};
+let SORT='default';
 const matchV=(d,f)=>f.v==='all'||d.v===f.v;
 const matchA=(d,f)=>f.a==='all'?true:f.a==='avail'?!UN(d):f.a==='low'?d.a==='low':UN(d);
 const matchC=(d,f)=>!f.c.length||f.c.includes(d.c);
 const matchS=(d,f)=>!f.s.length||f.s.includes(d.s);
-const matchAll=(d,f)=>matchA(d,f)&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchQ(d);
+const matchP=(d,f)=>(f.pmin==null||d.p>=f.pmin)&&(f.pmax==null||d.p<=f.pmax);
+const matchAll=(d,f)=>matchA(d,f)&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&matchQ(d);
 const norm=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/\s+/g,' ').trim();
 const SYN=[['سامسونج','samsung'],['جالكسي','galaxy'],['ابل','apple'],['ايفون','iphone'],['ايباد','ipad'],['ماك بوك','macbook'],['ايربودز','airpods'],['سوني','sony'],['بلايستيشن','playstation','ps5'],['ال جي','lg'],['هواوي','huawei'],['شاومي','xiaomi'],['ريدمي','redmi'],['لينوفو','lenovo'],['اتش بي','hp'],['ديل','dell'],['اسوس','asus'],['بوش','bosch'],['فيليبس','philips'],['دايسون','dyson'],['هايسنس','hisense'],['تي سي ال','tcl'],['نينتندو','nintendo'],['جارمن','garmin'],['انكر','anker'],['تلفزيون','تلفاز','شاشه','tv'],['جوال','موبايل','هاتف','phone'],['لابتوب','laptop','notebook'],['سماعه','سماعات','headphones','earbuds'],['مكيف','تكييف','سبليت','split'],['ثلاجه','fridge','refrigerator'],['غساله','washer','washing'],['كنبه','كنب','sofa','couch'],['سرير','bed'],['طاوله','table'],['كرسي','chair'],['دولاب','خزانه','wardrobe']].map(g=>g.map(norm));
 const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -375,7 +408,7 @@ function setQ(){let qv=norm(qEl.value);SYN.forEach(g=>g.forEach(x=>{if(x.include
 let qT;qEl.addEventListener('input',()=>{clearTimeout(qT);qT=setTimeout(()=>{setQ();render();},150);});
 function render(){
   rows.innerHTML='';
-  const list=data.filter(d=>matchAll(d,F));
+  const list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);
   list.forEach(d=>{
     const tr=document.createElement('tr');
     if(UN(d))tr.className='unavail';
@@ -384,13 +417,14 @@ function render(){
     rows.appendChild(tr);
   });
   if(!list.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="7" class="empty">'+(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.')+'</td>';rows.appendChild(tr);}
-  const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0;
+  const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||SORT!=='default';
   syncChips();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
   document.getElementById('freset').hidden=!active;
   // what is selected stays visible even when the panel is folded away
   const sel=[...document.querySelectorAll('.filters .fbody button[data-g][aria-pressed="true"]')]
     .map(b=>b.textContent.replace(/\s*[\d٠-٩][\d٠-٩٬,]*\s*$/,'').trim()).filter(t=>t&&t!=='الكل');
+  if(F.pmin!=null||F.pmax!=null)sel.push((F.pmin!=null?fmt(F.pmin):'٠')+' — '+(F.pmax!=null?fmt(F.pmax):'∞')+' ر.س');
   if(Q.length)sel.unshift('«'+qEl.value.trim()+'»');
   document.getElementById('fsel').innerHTML=sel.map(t=>`<span>${esc(t)}</span>`).join('');
 }
@@ -402,7 +436,7 @@ function setF(g,f){
   render();
 }
 function chipCount(g,f){
-  const t={a:F.a,v:F.v,c:F.c,s:F.s};
+  const t={a:F.a,v:F.v,c:F.c,s:F.s,pmin:F.pmin,pmax:F.pmax};
   t[g]=MULTI[g]?(f==='all'?[]:[f]):f;
   return data.filter(d=>matchAll(d,t)).length;
 }
@@ -420,12 +454,17 @@ function syncChips(){
   });
 }
 document.querySelectorAll('.filters button[data-g]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)setF(b.dataset.g,b.dataset.f);}));
+const pminEl=document.getElementById('pmin'),pmaxEl=document.getElementById('pmax'),sortEl=document.getElementById('sortby');
+const readBudget=()=>{const n=el=>{const v=parseFloat(el.value);return isFinite(v)&&v>=0?v:null;};F.pmin=n(pminEl);F.pmax=n(pmaxEl);};
+let bT;[pminEl,pmaxEl].forEach(el=>el.addEventListener('input',()=>{clearTimeout(bT);bT=setTimeout(()=>{readBudget();render();},250);}));
+sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
 // «تصفية» panel (mobile only — the CSS keeps everything open above 760px)
 (()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle');
  t.addEventListener('click',()=>{const open=box.hasAttribute('data-open');
   if(open)box.removeAttribute('data-open');else box.setAttribute('data-open','');
   t.setAttribute('aria-expanded',String(!open));});})();
-document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];render();});
+document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];
+ F.pmin=F.pmax=null;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
 render();
 (()=>{const VT={clear:'✓ الشروط تطابق الإعلان',catch:'⚠ الإعلان أكبر من الشروط',vague:'تفاصيل غير كافية',pending:'لم يبدأ بعد'};
 const now=new Date(Date.now()+3*3600e3).toISOString().slice(0,10);
