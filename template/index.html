@@ -549,12 +549,12 @@ sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
  addEventListener('scroll',sync,{passive:true});
  sync();
  b.addEventListener('click',()=>{
-   // 'smooth' silently does nothing over very long distances, so only ask for it when it can deliver
-   const far=scrollY>3000||matchMedia('(prefers-reduced-motion: reduce)').matches;
-   scrollTo(far?{top:0}:{top:0,behavior:'smooth'});
+   // No smooth scrolling: it silently did nothing here at 1,900px and again at 10,000px, and a
+   // back-to-top that sometimes does not move is worse than one that always jumps.
+   scrollTo({top:0});
    // put keyboard focus back at the top too, without yanking the view or opening a phone keyboard
    const logo=document.querySelector('.brand .logo');
-   if(logo)setTimeout(()=>logo.focus({preventScroll:true}),far?0:420);
+   if(logo)logo.focus({preventScroll:true});
  });})();
 // «كيف نحسب الخصم الحقيقي» → scroll to the section heading, then highlight the rule line itself.
 // Jumping straight at the line left the heading ~200px above the viewport, so the reader landed
