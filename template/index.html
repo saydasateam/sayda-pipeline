@@ -138,7 +138,9 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 .evnote{font-size:13px;margin:10px 0 0}
 .evrule{font-size:12px;color:var(--muted);margin:6px 0 0}
 .evflag{display:block;font-size:11px;font-weight:400;color:var(--gold);margin-top:2px}
-#verdict-rule{scroll-margin-top:96px}
+#how{scroll-margin-top:16px}
+#verdict-rule{scroll-margin-top:96px;transition:background .3s,box-shadow .3s}
+#verdict-rule.flash{background:var(--chip);border-radius:8px;box-shadow:0 0 0 8px var(--chip)}
 #verdict-rule:target{background:var(--chip);border-radius:8px;box-shadow:0 0 0 8px var(--chip)}
 .sortnote{caption-side:top;text-align:right;font-size:12px;color:var(--muted);padding:0 12px 8px}
 .rk{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
@@ -332,7 +334,7 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
     </form>
   </section>
 
-  <h2>كيف تم التحقق</h2>
+  <h2 id="how">كيف تم التحقق</h2>
   <div class="method">
     <ol>
       <li><b>نون وأمازون وإكسترا</b>: السعر الحقيقي قبل = آخر سعر سجّله «كان بكام» للمنتج نفسه قبل العرض (أو متوسط السنة إذا كان السعر السابق نفسه عرضاً). أسعار إكسترا هي آخر رصد في «كان بكام» — تأكد من السعر في الموقع.</li>
@@ -520,6 +522,15 @@ const readBudget=()=>{const n=el=>{const v=parseFloat(el.value);return isFinite(
 let bT;[pminEl,pmaxEl].forEach(el=>el.addEventListener('input',()=>{clearTimeout(bT);bT=setTimeout(()=>{readBudget();render();},250);}));
 sortEl.addEventListener('change',()=>{SORT=sortEl.value;render();});
 // «تصفية» panel (mobile only — the CSS keeps everything open above 760px)
+// «كيف نحسب الخصم الحقيقي» → scroll to the section heading, then highlight the rule line itself.
+// Jumping straight at the line left the heading ~200px above the viewport, so the reader landed
+// mid-list with no idea which section they were in.
+document.addEventListener('click',e=>{const a=e.target.closest('.evrule a[href="#verdict-rule"]');if(!a)return;
+ const head=document.getElementById('how'),line=document.getElementById('verdict-rule');
+ if(!head||!line)return; e.preventDefault();
+ head.scrollIntoView({behavior:'smooth',block:'start'});
+ line.classList.remove('flash'); void line.offsetWidth; line.classList.add('flash');
+ history.replaceState(null,'','#verdict-rule');});
 (()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle'),h=document.getElementById('fthint');
  t.addEventListener('click',()=>{const open=box.hasAttribute('data-open');
   if(open)box.removeAttribute('data-open');else box.setAttribute('data-open','');
