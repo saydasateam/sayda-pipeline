@@ -94,6 +94,8 @@ tr.unavail .price .pv{text-decoration:line-through}
 .trap{background:var(--red-soft);border-radius:10px;padding:12px 14px}
 .trap b{color:var(--red)}
 footer{color:var(--muted);font-size:13px;margin-top:32px}
+.sortnote{caption-side:top;text-align:right;font-size:12px;color:var(--muted);padding:0 12px 8px}
+.rk{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
 .v{display:inline-block;font-size:12px;font-weight:600;padding:1px 9px;border-radius:999px;white-space:nowrap}
 .v.ok{background:var(--green-soft);color:var(--green)}
 .v.warn{background:var(--gold-soft);color:var(--gold)}
@@ -208,10 +210,10 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
       <span class="flabel" id="fl-v">نوع الخصم</span>
       <div class="fchips">
         <button data-g="v" data-f="all">الكل</button>
-        <button data-g="v" data-f="ok" aria-pressed="true">✓ خصم حقيقي</button>
+        <button data-g="v" data-f="ok" aria-pressed="true">✓ خصم مؤكّد</button>
         <button data-g="v" data-f="warn">خصم أصغر من المعلن</button>
-        <button data-g="v" data-f="bad">✗ وهمي أو أغلى</button>
-        <button data-g="v" data-f="na">غير متحقق</button>
+        <button data-g="v" data-f="bad">أغلى أو بلا توفير</button>
+        <button data-g="v" data-f="na">بلا سجل سعري</button>
       </div>
     </div>
     <div class="frow" role="group" aria-labelledby="fl-c">
@@ -232,7 +234,8 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
   </div>
 
   <div class="tbl"><table>
-    <thead><tr><th>التحقق</th><th>المنتج</th><th>السعر الآن</th><th>السعر الحقيقي / سعر السوق</th><th>الخصم الحقيقي ▼</th><th>الخصم المعلن</th><th>ماذا وجدنا</th></tr></thead>
+    <caption class="sortnote">مرتبة تلقائياً: المتاح أولاً، ثم الأعلى خصماً حقيقياً.</caption>
+    <thead><tr><th>التحقق</th><th>المنتج</th><th>السعر الآن</th><th>مرجع المقارنة</th><th>الخصم الحقيقي</th><th>الخصم المعلن</th><th>ماذا وجدنا</th></tr></thead>
     <tbody id="rows"></tbody>
   </table></div>
   </div>
@@ -274,7 +277,7 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
         <b>انتهى العرض</b> = عاد السعر إلى ما كان عليه قبل العرض أو اختفى الخصم ·
         <b>الرابط لا يعمل</b> = الصفحة غير موجودة أو تحوّل لصفحة أخرى.
         العروض غير المتاحة تبقى في القائمة للاطلاع لكنها مخفية افتراضياً ولا تُحسب في الأرقام. المخزون قد يختلف حسب المدينة (فحصنا على الرياض).</li>
-      <li><b>الحكم</b>: ✓ حقيقي = خصم فعلي ١٥٪+ · خصم أصغر = ٥–١٥٪ أو حقيقي لكن سبق أرخص · ✗ وهمي = أقل من ٥٪ أو السعر ارتفع أو يوجد أرخص في السوق.</li>
+      <li id="verdict-rule"><b>الحكم</b>: يُولَّد هذا السطر من نفس القواعد المطبَّقة على كل صف.</li>
     </ol>
     <p class="claim">حدود التحقق: «كان بكام» يسجل الأسعار دورياً وقد يفوته عرض قصير. المنتجات الجديدة بدون سجل مذكورة كـ «لا يوجد سجل».</p>
   </div>
@@ -291,11 +294,15 @@ const TNONE={{TNONE_JSON}};
 const TNO={{TNO_JSON}};
 const fmt=n=>n.toLocaleString('ar-SA',{maximumFractionDigits:0});
 const RULE={{RULE_JSON}};
-const VL={ok:'✓ خصم حقيقي',warn:'خصم أصغر',bad:'✗ وهمي / أغلى',na:'غير متحقق'};
+// Labels state what we measured, never what we think the store intended.
+// A bad row is one of three measurable things: cheaper elsewhere, price went up, or no real saving.
+const VL={ok:'✓ خصم مؤكّد',warn:'خصم أقل من المعلن',bad:'أغلى أو بلا توفير',na:'بلا سجل سعري'};
+const BL={c:'متوفر بسعر أقل',r:'السعر ارتفع',n:'لا توفير حقيقي'};
+const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:VL[x.v];
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>({s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:d[9]||'in',an:d[10]||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null}))
+const data=D.map(d=>({s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:d[9]||'in',an:d[10]||'',rk:d[11]||'',bk:d[12]||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null}))
  .sort((a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999)||(b.claim-a.claim));
 const cnt=k=>data.filter(x=>x.v===k&&!UN(x)).length;
 const missed=data.filter(x=>UN(x)).length;
@@ -306,7 +313,16 @@ const tierFloor=p=>{const t=(RULE.okSavingTiers||[]).find(t=>t.maxPrice==null||p
 const isReal=x=>x.real!=null&&(x.real>=RULE.okMin*100||(x.real>=RULE.warnMin*100&&(x.r-x.p)>=tierFloor(x.p)));
 const realN=data.filter(x=>!UN(x)&&isReal(x)).length;
 document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} متجراً، ${fmt(realN)} فقط أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص. كثير من «الأسعار قبل» لم يُبع بها المنتج أبداً، وبعض العروض أغلى من نفس الموديل في متجر آخر.`);
-document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>خصم حقيقي ومتاح</div><div><b>${fmt(cnt('warn'))}</b>أصغر من المعلن</div><div><b>${fmt(cnt('bad'))}</b>وهمي أو السعر ارتفع</div><div><b>${fmt(cnt('na'))}</b>بلا سجل</div>`+(missed?`<div><b>${fmt(missed)}</b>نفد أو انتهى</div>`:'');
+document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>خصم مؤكّد ومتاح</div><div><b>${fmt(cnt('warn'))}</b>أصغر من المعلن</div><div><b>${fmt(cnt('bad'))}</b>أغلى أو بلا توفير</div><div><b>${fmt(cnt('na'))}</b>بلا سجل</div>`+(missed?`<div><b>${fmt(missed)}</b>نفد أو انتهى</div>`:'');
+// The methodology sentence is generated from RULE — the same numbers the classifier uses —
+// so the published criteria can never drift from what the rows were actually judged by.
+(()=>{const el=document.getElementById('verdict-rule');if(!el)return;
+ const pct=n=>fmt(Math.round(n*100))+'٪';
+ const floors=(RULE.okSavingTiers||[]).map(t=>t.maxPrice==null?`${fmt(t.minSaving)} ر.س لما فوق ذلك`:`${fmt(t.minSaving)} ر.س حتى ${fmt(t.maxPrice)} ر.س`).join('، ');
+ el.innerHTML=`<b>الحكم</b>: <b>✓ خصم مؤكّد</b> = الفرق الحقيقي ${pct(RULE.okMin)} فأكثر، أو ${pct(RULE.warnMin)} فأكثر مع توفير يتجاوز حد فئته السعرية (${floors}).`
+ +` · <b>خصم أقل من المعلن</b> = دون ذلك، أو خصم حقيقي لكن سبق أن نزل أرخص.`
+ +` · <b>أغلى أو بلا توفير</b> = نفس الموديل متوفر بسعر أقل في متجر آخر، أو ارتفع سعره عمّا كان، أو لا فرق يُذكر عن مرجع المقارنة.`
+ +` · <b>بلا سجل سعري</b> = لا سجل أسعار ولا نفس الموديل في متجر آخر للمقارنة.`;})();
 const DEF={a:'avail',v:'ok'};
 const MULTI={c:1,s:1};
 const F={a:'avail',v:'ok',c:[],s:[]};
@@ -331,7 +347,7 @@ function render(){
     const tr=document.createElement('tr');
     if(UN(d))tr.className='unavail';
     const real=d.real==null?'<span class="claim">—</span>':`<span class="real ${d.real<0?'neg':''}">${d.real<0?'+'+fmt(-d.real)+'٪ ارتفاع':fmt(d.real)+'٪'}</span>`;
-    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${VL[d.v]}</span></td><td class="name"><span class="site">${d.s}</span> <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="السعر الحقيقي / سعر السوق">${d.r?fmt(d.r):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}</td>`;
+    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${vlabel(d)}</span></td><td class="name"><span class="site">${d.s}</span> <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="مرجع المقارنة">${d.r?fmt(d.r)+(d.rk?`<span class="rk">${d.rk==='h'?'سعره السابق':'متجر آخر'}</span>`:''):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}</td>`;
     rows.appendChild(tr);
   });
   if(!list.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="7" class="empty">'+(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.')+'</td>';rows.appendChild(tr);}
