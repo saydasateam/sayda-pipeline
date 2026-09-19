@@ -39,9 +39,10 @@ for (const r of st.rows) {
   if (cheaper && r.verdict !== 'bad') conflict.push([r, r.verdict, 'bad', 'نفس الموديل أرخص في متجر آخر']);
   else if (!cheaper && real < rules.verdict.warnMin && r.verdict !== 'bad') conflict.push([r, r.verdict, 'bad', `الفرق ${(real*100).toFixed(1)}٪ دون حد ${rules.verdict.warnMin*100}٪`]);
   else if (!cheaper && real >= rules.verdict.warnMin && soldLower && r.verdict === 'ok') conflict.push([r, 'ok', 'warn', `سبق ونزل ${min} — القاعدة تفرض warn`]);
-  // Rules say ok on the money track, the row says otherwise: a judgement call, not a bug.
+  // The money track is authoritative (ruled 2026-09-19): a low percentage that still saves real
+  // riyals against the reference counts, whether the reference is our history or another store.
   else if (!cheaper && r.verdict === 'warn' && isGoodDeal(r.price, real, rules) && !soldLower)
-    review.push([r, 'warn', 'ok', `${(real*100).toFixed(1)}٪ + توفير ${Math.round(r.ref-r.price)} ر.س يجتاز مسار المبلغ`]);
+    conflict.push([r, 'warn', 'ok', `${(real*100).toFixed(1)}٪ + توفير ${Math.round(r.ref-r.price)} ر.س يجتاز مسار المبلغ`]);
 }
 
 const show = (t, list) => { if (!list.length) return; console.log(`\n${t} (${list.length})`); for (const [r, a, b, why] of list) console.log(`  ${a} → ${b}  ${r.id}\n     ${why}\n     ${r.finding}`); };
