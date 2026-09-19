@@ -3,7 +3,7 @@
   "campaign": "اليوم الوطني ٩٦",
   "campaignEnd": "2026-09-30",
   "updated": "2026-09-19",
-  "checkedAt": "2026-09-19T10:39:46.381+03:00"
+  "checkedAt": "2026-09-19T11:10:10.397+03:00"
  },
  "rows": [
   {
@@ -19,7 +19,7 @@
    "url": "https://www.amazon.sa/dp/B0CP31L73X",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B01NBW4GMW",
@@ -34,7 +34,7 @@
    "url": "https://www.amazon.sa/dp/B01NBW4GMW",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N41179092A",
@@ -64,7 +64,7 @@
    "url": "https://www.amazon.sa/dp/B09VTJFBZC",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N13316224A",
@@ -304,7 +304,7 @@
    "url": "https://www.amazon.sa/dp/B0BZV4QFP8",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B01MTB55WH",
@@ -319,14 +319,14 @@
    "url": "https://www.amazon.sa/dp/B01MTB55WH",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70053123V",
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "سوار هواوي Band 9",
-   "price": 134,
+   "price": 139,
    "was": 249,
    "ref": 209,
    "verdict": "ok",
@@ -349,7 +349,7 @@
    "url": "https://www.amazon.sa/dp/B0C1P49WKF",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0FFT72CBX",
@@ -364,7 +364,7 @@
    "url": "https://www.amazon.sa/dp/B0FFT72CBX",
    "avail": "ended",
    "availNote": "أمازون: عاد السعر إلى 2,999 — انتهى العرض",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N51628022A",
@@ -408,8 +408,8 @@
    "finding": "كان 514 · ارتفع السعر اليوم إلى 480 · الخصم الحقيقي 7٪ فقط",
    "url": "https://www.amazon.sa/dp/B0D5H3YF9B",
    "avail": "low",
-   "availNote": "أمازون: «تبقى 3 فقط»",
-   "lastChecked": "2026-09-18"
+   "availNote": "أمازون: متبقي 3",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N51574509A",
@@ -619,7 +619,7 @@
    "url": "https://www.amazon.sa/dp/B0GZKZFKMT",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70177297V",
@@ -649,7 +649,7 @@
    "url": "https://www.amazon.sa/dp/B09BZR9JFG",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B08CKWYL3Z",
@@ -663,8 +663,8 @@
    "finding": "كان 1,449 · لكن سبق ونزل 699",
    "url": "https://www.amazon.sa/dp/B08CKWYL3Z",
    "avail": "low",
-   "availNote": "أمازون: «تبقى 2 فقط»",
-   "lastChecked": "2026-09-18"
+   "availNote": "أمازون: متبقي 1",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B08B8YCYFG",
@@ -678,8 +678,8 @@
    "finding": "كان 440 · سبق ونزل 232",
    "url": "https://www.amazon.sa/dp/B08B8YCYFG",
    "avail": "ended",
-   "availNote": "أمازون: عاد السعر إلى 535 — انتهى العرض",
-   "lastChecked": "2026-09-18"
+   "availNote": "أمازون: عاد السعر إلى 515 — انتهى العرض",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N40633049A",
@@ -753,8 +753,8 @@
    "finding": "كان 3,219 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0B1X7H6XS",
    "avail": "low",
-   "availNote": "أمازون: «تبقى 2 فقط»",
-   "lastChecked": "2026-09-18"
+   "availNote": "أمازون: متبقي 2",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N39359748A",
@@ -1592,9 +1592,9 @@
    "verdict": "bad",
    "finding": "كان 979 · سبق ونزل 599",
    "url": "https://www.amazon.sa/dp/B08CDLX7GK",
-   "avail": "low",
-   "availNote": "أمازون: «تبقى 1 فقط»",
-   "lastChecked": "2026-09-18"
+   "avail": "ended",
+   "availNote": "أمازون: عاد السعر إلى 979 — انتهى العرض",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "noon:N70356471V",
@@ -1646,15 +1646,15 @@
    "store": "amazon",
    "cat": "أزياء",
    "name": "New Balance 530",
-   "price": 315,
+   "price": 479,
    "was": 635,
    "ref": 222,
    "verdict": "bad",
    "finding": "السعر ارتفع 42٪ (كان 222)",
    "url": "https://www.amazon.sa/dp/B08BJ2119S",
-   "avail": "ended",
-   "availNote": "أمازون: عاد السعر إلى 479 — انتهى العرض",
-   "lastChecked": "2026-09-18"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "extra:100318219",
@@ -1721,7 +1721,7 @@
    "store": "amazon",
    "cat": "المنزل",
    "name": "مكنسة فيليبس PowerPro ‏2000 واط",
-   "price": 559,
+   "price": 941,
    "was": 1159,
    "ref": null,
    "verdict": "na",
@@ -1729,7 +1729,7 @@
    "url": "https://www.amazon.sa/dp/B0H95BDCF7",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "ikea:70447182",
@@ -2584,7 +2584,7 @@
    "url": "https://www.amazon.sa/dp/B0H5CY6LRM",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0CHFMFX7H",
@@ -2599,7 +2599,7 @@
    "url": "https://www.amazon.sa/dp/B0CHFMFX7H",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "amazon:B0F5NVZGLC",
@@ -2613,8 +2613,8 @@
    "finding": "الفرق الحقيقي 3٪ · سبق ونزل 2,379",
    "url": "https://www.amazon.sa/dp/B0F5NVZGLC",
    "avail": "low",
-   "availNote": "أمازون: «تبقى 2 فقط»",
-   "lastChecked": "2026-09-18"
+   "availNote": "أمازون: متبقي 2",
+   "lastChecked": "2026-09-19"
   },
   {
    "id": "jarir:sennheiser-headsets-664050",
@@ -2851,7 +2851,7 @@
    "ref": 29999,
    "verdict": "warn",
    "finding": "كان 29,999 · سبق ونزل 9,899",
-   "url": "https://www.extra.com/ar-sa/p/100458001",
+   "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-100-inch-neo-qled-4k-ai-upscaling-144hz-dolby-atmos/p/100458001",
    "avail": "in",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
@@ -2868,10 +2868,11 @@
    "verdict": "ok",
    "finding": "كان 13,999 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0DG96T6JN",
-   "avail": "in",
+   "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 1"
   },
   {
    "id": "amazon:B07XC2XGR9",
@@ -2886,7 +2887,8 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "noon:N53424690A",
@@ -2930,10 +2932,11 @@
    "verdict": "ok",
    "finding": "كان 11,949 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0CT2QGBP1",
-   "avail": "in",
+   "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»"
   },
   {
    "id": "noon:Z7D534EA91CB9AC4C25FDZ",
@@ -2964,7 +2967,8 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "noon:ZB15F6B1147C538A8B40FZ",
@@ -3007,7 +3011,7 @@
    "ref": 4499,
    "verdict": "ok",
    "finding": "كان 4,499 · أقل سعر مسجل",
-   "url": "https://www.extra.com/ar-sa/p/100410818",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818",
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
@@ -3043,7 +3047,8 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B07FF21NWZ",
@@ -3058,7 +3063,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B08FRTXGY1",
@@ -3073,7 +3079,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "noon:N70137331V",
@@ -3104,7 +3111,8 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B09DL3SMHF",
@@ -3116,10 +3124,11 @@
    "verdict": "ok",
    "finding": "كان 2,108 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B09DL3SMHF",
-   "avail": "in",
+   "avail": "gone",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: الصفحة غير موجودة"
   },
   {
    "id": "amazon:B078J5ZPG5",
@@ -3131,10 +3140,11 @@
    "verdict": "ok",
    "finding": "كان 1,819 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B078J5ZPG5",
-   "avail": "in",
+   "avail": "oos",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»"
   },
   {
    "id": "amazon:B0B5TPVY7Z",
@@ -3146,10 +3156,11 @@
    "verdict": "ok",
    "finding": "كان 1,462 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0B5TPVY7Z",
-   "avail": "in",
+   "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: الصفحة غير موجودة"
   },
   {
    "id": "extra:e100384100",
@@ -3160,7 +3171,7 @@
    "ref": 2149,
    "verdict": "ok",
    "finding": "كان 2,149 · أقل سعر مسجل",
-   "url": "https://www.extra.com/ar-sa/p/100384100",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-cellular-46mm-rose-gold-aluminium-case/p/100384100",
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
@@ -3193,10 +3204,11 @@
    "verdict": "ok",
    "finding": "كان 1,698 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0C7VXNWMC",
-   "avail": "in",
+   "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 3"
   },
   {
    "id": "amazon:B08KDJSHB1",
@@ -3208,10 +3220,11 @@
    "verdict": "ok",
    "finding": "كان 1,675 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B08KDJSHB1",
-   "avail": "in",
+   "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 3"
   },
   {
    "id": "amazon:B09R29S6FR",
@@ -3223,10 +3236,11 @@
    "verdict": "ok",
    "finding": "كان 1,620 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B09R29S6FR",
-   "avail": "in",
+   "avail": "gone",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: الصفحة غير موجودة"
   },
   {
    "id": "amazon:B083XDBQCQ",
@@ -3241,7 +3255,8 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B08JS16ZKY",
@@ -3253,10 +3268,11 @@
    "verdict": "ok",
    "finding": "كان 1,268 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B08JS16ZKY",
-   "avail": "in",
+   "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 1"
   },
   {
    "id": "amazon:B0B6ZR2GG6",
@@ -3268,10 +3284,11 @@
    "verdict": "ok",
    "finding": "كان 869 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0B6ZR2GG6",
-   "avail": "in",
+   "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: الصفحة غير موجودة"
   },
   {
    "id": "extra:e100328112",
@@ -3282,7 +3299,7 @@
    "ref": 1350,
    "verdict": "ok",
    "finding": "كان 1,350 · أقل سعر مسجل",
-   "url": "https://www.extra.com/ar-sa/p/100328112",
+   "url": "https://www.extra.com/ar-sa/electronic-games/device/playstation/playstation-vr2-horizon-call-of-the-mountain-voucher/p/100328112",
    "avail": "oos",
    "cat": "ألعاب",
    "firstSeen": "2026-09-18",
@@ -3302,7 +3319,8 @@
    "avail": "in",
    "cat": "عطور",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B0B5WB7LHP",
@@ -3314,10 +3332,11 @@
    "verdict": "ok",
    "finding": "كان 813 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0B5WB7LHP",
-   "avail": "in",
+   "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: الصفحة غير موجودة"
   },
   {
    "id": "amazon:B08JNCQYHM",
@@ -3329,25 +3348,27 @@
    "verdict": "ok",
    "finding": "كان 1,000 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B08JNCQYHM",
-   "avail": "in",
+   "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 3"
   },
   {
    "id": "amazon:B0BNWGY2F7",
    "store": "amazon",
    "name": "حذاء نسائي بكعب من كلاركس - Teresa Step",
-   "price": 249,
+   "price": 305,
    "was": 672.97,
    "ref": 673,
    "verdict": "ok",
    "finding": "كان 673",
    "url": "https://www.amazon.sa/dp/B0BNWGY2F7",
-   "avail": "in",
+   "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 1"
   },
   {
    "id": "amazon:B07ZHXMVJW",
@@ -3359,25 +3380,27 @@
    "verdict": "ok",
    "finding": "كان 640 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B07ZHXMVJW",
-   "avail": "in",
+   "avail": "gone",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: الصفحة غير موجودة"
   },
   {
    "id": "amazon:B0DCK5XGVR",
    "store": "amazon",
    "name": "صندل بروكلين بكعب عريض منخفض من الفلين للنساء، لون أسود، مقاس 36/37",
-   "price": 189.05,
+   "price": 267,
    "was": 519.37,
    "ref": 519.98,
    "verdict": "ok",
    "finding": "كان 520 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0DCK5XGVR",
-   "avail": "in",
+   "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 3"
   },
   {
    "id": "extra:e100095442",
@@ -3388,7 +3411,7 @@
    "ref": 549,
    "verdict": "ok",
    "finding": "كان 549 · أقل سعر مسجل",
-   "url": "https://www.extra.com/ar-sa/p/100095442",
+   "url": "https://www.extra.com/ar-sa/computer/networking-products/wlsconn/tplink-m7650-600mbps-4g-lte-advanced-mobile-wi-fi/p/100095442",
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
@@ -3408,22 +3431,24 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B0CDHCDQVF",
    "store": "amazon",
    "name": "سوار هيكسا اس اس من الجلد بلون بيج داكن من شيروتي، ستانلس ستيل",
-   "price": 200,
+   "price": 185,
    "was": 515.46,
    "ref": 515.54,
    "verdict": "ok",
    "finding": "كان 516 · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0CDHCDQVF",
-   "avail": "in",
+   "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 3"
   },
   {
    "id": "noon:ZDFF329D6287024F26AA4Z",
@@ -3445,7 +3470,7 @@
    "id": "amazon:B0DK8GF5GT",
    "store": "amazon",
    "name": "عقد نسائي من الذهب عيار 18 قيراط",
-   "price": 250.08,
+   "price": 134,
    "was": 554.5,
    "ref": 555.11,
    "verdict": "ok",
@@ -3454,7 +3479,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B01KWXZQ4O",
@@ -3469,7 +3495,8 @@
    "avail": "in",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B078RW9CZ5",
@@ -3481,10 +3508,11 @@
    "verdict": "ok",
    "finding": "كان 445",
    "url": "https://www.amazon.sa/dp/B078RW9CZ5",
-   "avail": "in",
+   "avail": "low",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": "أمازون: متبقي 2"
   },
   {
    "id": "amazon:B073X8KTJB",
@@ -3499,7 +3527,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B01MA1FO2E",
@@ -3514,7 +3543,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B0D7D6KL77",
@@ -3529,7 +3559,8 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B071RS31VS",
@@ -3544,13 +3575,14 @@
    "avail": "in",
    "cat": "عناية",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   },
   {
    "id": "amazon:B07G4JV76P",
    "store": "amazon",
    "name": "صدرية رياضية للتدريب من اديورو، سترة أوزان للجسم",
-   "price": 134.06,
+   "price": 105,
    "was": 363.31,
    "ref": 362.89,
    "verdict": "ok",
@@ -3559,7 +3591,8 @@
    "avail": "in",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-18"
+   "lastChecked": "2026-09-19",
+   "availNote": ""
   }
  ],
  "travel": [
