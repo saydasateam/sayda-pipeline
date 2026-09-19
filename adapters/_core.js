@@ -12,6 +12,23 @@
   // bounded parallel worker pool over a job list
   S.pool = async (jobs, n, fn) => { const q = jobs.slice(); const out = []; const w = async () => { while (q.length) { const j = q.shift(); try { out.push(await fn(j)); } catch (e) { out.push({ error: String(e && e.message || e).slice(0, 80), job: j }); } } }; await Promise.all(Array.from({ length: n }, w)); return out; };
 
+  // sequential per-row driver with an abortable per-row timeout.
+  // A row that does not answer in time is reported { unchecked: true } — verdict.js keeps the row's
+  // previous availability and lists it under report.unchecked. It is NEVER reported as found:false ('gone').
+  S.rowTimeout = 25000;
+  S.eachRow = async (rows, fn, ms, gapMs) => {
+    const out = [];
+    for (const r of rows) {
+      const ac = new AbortController(); const t = setTimeout(() => ac.abort(), ms ?? S.rowTimeout);
+      try { out.push(await fn(r, ac.signal)); }
+      catch (e) { const to = e && (e.name === 'AbortError' || ac.signal.aborted);
+        out.push({ id: r.id, unchecked: true, timeout: !!to, note: (to ? 'timeout' : String(e && e.message || e)).slice(0, 60) }); }
+      finally { clearTimeout(t); }
+      if (gapMs) await S.sleep(gapMs);
+    }
+    return out;
+  };
+
   S.fetchText = async (url, opt) => { const r = await fetch(url, opt); return { status: r.status, url: r.url, text: await r.text() }; };
   S.fetchJson = async (url, opt) => { const r = await fetch(url, opt); const t = await r.text(); try { return { status: r.status, url: r.url, json: JSON.parse(t) }; } catch (e) { return { status: r.status, url: r.url, json: null, text: t.slice(0, 200) }; } };
   S.dom = html => new DOMParser().parseFromString(html, 'text/html');

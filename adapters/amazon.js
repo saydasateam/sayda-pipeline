@@ -5,19 +5,17 @@
   const asinOf = u => (String(u).match(/\/dp\/([A-Z0-9]{10})/) || [])[1];
   S.adapters.amazon = {
     collect: null,
+    // row-by-row (never the shared pool): Amazon throttles concurrent product fetches into a hang.
     async check(rows) {
-      const out = [];
-      for (const r of rows) {
-        const { status, text } = await S.fetchText('/dp/' + asinOf(r.url) + '?language=ar_AE&psc=1');
+      return S.eachRow(rows, async (r, signal) => {
+        const { status, text } = await S.fetchText('/dp/' + asinOf(r.url) + '?language=ar_AE&psc=1', { signal });
         const d = S.dom(text); const btn = !!(d.querySelector('#add-to-cart-button') || d.querySelector('#buy-now-button'));
         const av = S.text(d.querySelector('#availability')).split('{')[0].trim();
         const pm = text.match(/"priceAmount"\s*:\s*([\d.]+)/);
         const captcha = !btn && /Enter the characters|أدخل الأحرف/i.test(text);
         const low = av.match(/تبقى (\d+)/);
-        out.push({ id: r.id, found: status === 200 && !captcha, captcha, live: pm ? +pm[1] : null, buyable: btn, stock: low ? +low[1] : (btn ? 99 : 0), note: av.slice(0, 40) });
-        await S.sleep(900);
-      }
-      return out;
+        return { id: r.id, found: status === 200 && !captcha, captcha, live: pm ? +pm[1] : null, buyable: btn, stock: low ? +low[1] : (btn ? 99 : 0), note: av.slice(0, 40) };
+      }, S.rowTimeout, 900);
     },
     async coupons() {
       const { text } = await S.fetchText('/-/ar/');

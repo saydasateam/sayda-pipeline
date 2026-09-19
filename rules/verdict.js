@@ -33,7 +33,11 @@ function isGoodDeal(price, real, rules) {
  * returns { avail, note, price (possibly updated), priceChanged } */
 function availability(obs, row, rules, storeLabel) {
   const R = rules.avail;
-  if (!obs || obs.captcha) return { avail: row.avail || 'in', note: `${storeLabel}: لم يُفحص (حجب مؤقت)`, price: row.price, priceChanged: false, unchecked: true };
+  // no observation / captcha / per-row timeout: keep the row as it was and report it unchecked.
+  if (!obs || obs.captcha || obs.unchecked) return { avail: row.avail || 'in',
+    note: `${storeLabel}: لم يُفحص (${obs && obs.timeout ? 'انتهت المهلة'
+      : obs && obs.unchecked ? 'تعذّر الفحص' : 'حجب مؤقت'})`,
+    price: row.price, priceChanged: false, unchecked: true };
   if (obs.found === false) return { avail: 'gone', note: `${storeLabel}: الصفحة غير موجودة`, price: row.price, priceChanged: false };
   const live = obs.live;
   // discount gone?
