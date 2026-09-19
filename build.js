@@ -16,17 +16,23 @@ const storeById = Object.fromEntries(cfg.stores.map(s=>[s.id,s]));
 const label = id => (storeById[id]||{}).label || id;
 
 // ---- rows → positional D array (page JS is unchanged) ----
-// positions: 0 store · 1 cat · 2 name · 3 price · 4 was · 5 ref · 6 verdict · 7 finding · 8 url
-//            9 avail · 10 availNote · 11 refKind (h=سعره السابق, m=متجر آخر) · 12 badKind (c/r/n)
-// 9..12 are emitted only when one of them carries something, so ordinary rows stay short.
+// positions 0..8 are fixed: store · cat · name · price · was · ref · verdict · finding · url
+// position 9 is an optional extras object, so new fields never renumber the ones before them:
+//   a availability · an note · rk refKind(h|m) · bk badKind(c|r|n) · lc lastChecked · ru compared-product url
 const RK = { history: 'h', market: 'm' }, BK = { cheaper: 'c', rose: 'r', nosaving: 'n' };
 const D = st.rows.map(r => {
   const a = [label(r.store), r.cat, r.name, r.price, r.was, r.ref ?? null, r.verdict, r.finding, r.url];
-  const rk = RK[r.refKind] || '', bk = BK[r.bk] || '';
-  if (r.avail && r.avail !== 'in' || r.availNote || rk || bk) { a.push(r.avail||'in'); a.push(r.availNote||''); }
-  if (rk || bk) { a.push(rk); a.push(bk); }
+  const x = {};
+  if (r.avail && r.avail !== 'in') x.a = r.avail;
+  if (r.availNote) x.an = r.availNote;
+  if (RK[r.refKind]) x.rk = RK[r.refKind];
+  if (BK[r.bk]) x.bk = BK[r.bk];
+  if (r.lastChecked) x.lc = r.lastChecked;
+  if (r.refUrl) x.ru = r.refUrl;
+  if (Object.keys(x).length) a.push(x);
   return a;
 });
+
 const T   = st.travel.map(t => [t.company,t.type,t.headline,t.code||'',t.bookStart||'',t.bookEnd||'',t.travelWindow,t.verdict,t.terms,t.url,t.checked]);
 const TNO = st.travelNone.map(t => [t.company,t.type]);
 // one row per line, like the hand-written page, so git diffs stay readable
