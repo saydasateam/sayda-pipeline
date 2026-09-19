@@ -1,5 +1,7 @@
 // verdict.js — the ONLY place that decides ok/warn/bad/na and in/low/oos/ended/gone. Pure functions, node + browser safe.
-const fmt = n => n == null ? '' : Math.round(n).toLocaleString('en-US');
+// One locale for every number this pipeline writes. The template renders with ar-SA too
+// (template/index.html), so findings and price cells must never disagree on digit shape.
+const fmt = n => n == null ? '' : Math.round(n).toLocaleString('ar-SA', { maximumFractionDigits: 0 });
 
 /** Pick the tier whose maxPrice (null = open-ended) covers `price`. */
 function tierFor(tiers, price) {
@@ -57,15 +59,15 @@ function verdict(price, claimed, ev, rules, opts = {}) {
   if (ref == null) return { verdict: 'na', ref: null, finding: opts.naFinding || 'لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة' };
   const real = 1 - price / ref;
   // market check: same model cheaper elsewhere → bad
-  if (ev.market && ev.market.price && ev.market.price < price * (1 - V.cheaperElsewhereTolerance)) return { verdict: 'bad', ref: ev.market.price, finding: `${ev.market.store} ${fmt(ev.market.price)} · أرخص من هنا` };
-  if (ev.prev != null && price > ev.prev * 1.02) return { verdict: 'bad', ref, finding: `السعر ارتفع (كان ${fmt(ev.prev)})${ev.min && ev.min < ev.prev ? ` · وأقل سعر مسجل ${fmt(ev.min)}` : ''}` };
-  if (real < V.warnMin) return { verdict: 'bad', ref, finding: ev.prev != null ? `الفرق الحقيقي ${Math.round(real * 100)}٪ فقط · «قبل» ${fmt(claimed)} ${ev.max && claimed > ev.max * 1.05 ? 'لم يُسجّل' : ''}`.trim() : `نفس سعر ${ev.market.store} (${fmt(ev.market.price)})` };
+  if (ev.market && ev.market.price && ev.market.price < price * (1 - V.cheaperElsewhereTolerance)) return { verdict: 'bad', kind: 'cheaper', refKind: 'market', ref: ev.market.price, finding: `${ev.market.store} ${fmt(ev.market.price)} · أرخص من هنا` };
+  if (ev.prev != null && price > ev.prev * 1.02) return { verdict: 'bad', kind: 'rose', refKind: 'history', ref, finding: `السعر ارتفع (كان ${fmt(ev.prev)})${ev.min && ev.min < ev.prev ? ` · وأقل سعر مسجل ${fmt(ev.min)}` : ''}` };
+  if (real < V.warnMin) return { verdict: 'bad', kind: 'nosaving', refKind: ev.prev != null ? 'history' : 'market', ref, finding: ev.prev != null ? `الفرق الحقيقي ${Math.round(real * 100)}٪ فقط · «قبل» ${fmt(claimed)} ${ev.max && claimed > ev.max * 1.05 ? 'لم يُسجّل' : ''}`.trim() : `نفس سعر ${ev.market.store} (${fmt(ev.market.price)})` };
   if (ev.prev != null) f.push(`كان ${fmt(ev.prev)}`); else if (ev.market) f.push(`أرخص من ${ev.market.store} (${fmt(ev.market.price)})`);
   const belowMin = ev.min != null && price <= ev.min * 1.01; const soldLower = ev.min != null && ev.min < price * 0.95;
   if (belowMin) f.push('أقل سعر مسجل'); if (soldLower) f.push(`سبق ونزل ${fmt(ev.min)}`);
   if (ev.max != null && claimed > ev.max * 1.05) f.push(`«قبل» ${fmt(claimed)} لم يُسجّل`);
   const v = isGoodDeal(price, real, rules) ? (soldLower ? 'warn' : 'ok') : 'warn';
-  return { verdict: v, ref, finding: f.join(' · ') };
+  return { verdict: v, refKind: ev.prev != null ? 'history' : 'market', ref, finding: f.join(' · ') };
 }
 
 /** Candidate pre-filter shared by all stores. */
