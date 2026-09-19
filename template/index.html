@@ -137,6 +137,9 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 .evgrid .val{font-size:13px;font-weight:600}
 .evnote{font-size:13px;margin:10px 0 0}
 .evrule{font-size:12px;color:var(--muted);margin:6px 0 0}
+.evflag{display:block;font-size:11px;font-weight:400;color:var(--gold);margin-top:2px}
+#verdict-rule{scroll-margin-top:96px}
+#verdict-rule:target{background:var(--chip);border-radius:8px;box-shadow:0 0 0 8px var(--chip)}
 .sortnote{caption-side:top;text-align:right;font-size:12px;color:var(--muted);padding:0 12px 8px}
 .rk{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
 .v{display:inline-block;font-size:12px;font-weight:600;padding:1px 9px;border-radius:999px;white-space:nowrap}
@@ -375,7 +378,7 @@ const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
+const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
  ;
 // Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
 // top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
@@ -440,9 +443,16 @@ function evidence(d){
       (d.real<0?'ارتفع '+fmt(-d.real)+'٪':fmt(d.real)+'٪')+(saved&&saved>0?` — ${fmt(saved)} ر.س`:'')));
   // 2. the store's own claim, and whether our record supports it
   if(d.w) f.push(evField('«قبل» المعلن من المتجر', fmt(d.w)+' ر.س'+(d.r!=null?(d.w>d.r*1.05?' — أعلى مما سجّلناه':' — مطابق لما سجّلناه'):'')));
+  // The recorded range is what stops a spike from reading as a discount: an item at 96 whose record
+  // runs 94–400 is at its usual floor, whatever the percentage against the previous price says.
+  if(d.ev&&(d.ev.mn!=null||d.ev.mx!=null))
+    f.push(evField('نطاق السجل', `${d.ev.mn!=null?fmt(d.ev.mn):'؟'} — ${d.ev.mx!=null?fmt(d.ev.mx):'؟'} ر.س`
+      +(d.ev.mn!=null&&d.p<=d.ev.mn*1.05?'<span class="evflag">السعر الآن عند أدنى مستوى مسجَّل</span>':'')));
   if(d.lc) f.push(evField('تاريخ آخر رصد', evDate(d.lc)));
-  f.push(evField('صفحة المنتج', `<a href="${d.u}" target="_blank" rel="noopener">افتح صفحة ${d.s} ↗</a>`));
-  if(d.ru) f.push(evField('المنتج المقارَن', `<a href="${d.ru}" target="_blank" rel="noopener">افتح المنتج المقارَن ↗</a>`));
+  // the link that matters here is the evidence, not the product — the row title already links the product
+  const refHref=d.ru||(d.ev&&d.ev.u)||'';
+  if(refHref) f.push(evField('صفحة المرجع', `<a href="${refHref}" target="_blank" rel="noopener">${d.ev&&d.ev.s==='kanbkam'?'سجل الأسعار في «كان بكام»':'المنتج المقارَن'} ↗</a>`));
+  else f.push(evField('صفحة المرجع', '<span class="claim">لا يوجد مصدر قابل للفتح لهذا الصف</span>'));
   const why=d.note?`<p class="evnote">${d.note}</p>`:'';
   return `<div class="evgrid">${f.join('')}</div>${why}<p class="evrule">الحكم مبني على القاعدة المنشورة — <a href="#verdict-rule">كيف نحسب الخصم الحقيقي</a>.</p>`;
 }
