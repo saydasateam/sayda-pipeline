@@ -94,6 +94,14 @@ tr.unavail .price .pv{text-decoration:line-through}
 .trap{background:var(--red-soft);border-radius:10px;padding:12px 14px}
 .trap b{color:var(--red)}
 footer{color:var(--muted);font-size:13px;margin-top:32px}
+.cp{text-decoration:none;font-size:13px;margin-inline-start:4px;vertical-align:1px}
+.cp:hover{filter:brightness(1.15)}
+.couponsec{margin:26px 0}
+.cplist li{scroll-margin-top:90px;padding:3px 0}
+.cplist li:target{background:var(--chip);border-radius:8px;box-shadow:0 0 0 6px var(--chip)}
+.cpfoot{color:var(--muted);font-size:13px;margin-top:8px}
+.how summary{cursor:pointer;color:var(--green);font-weight:600;font-size:14px;margin-bottom:6px}
+.how{margin-bottom:10px}
 .sortnote{caption-side:top;text-align:right;font-size:12px;color:var(--muted);padding:0 12px 8px}
 .rk{display:block;font-size:11px;color:var(--muted);font-weight:400;margin-top:2px}
 .v{display:inline-block;font-size:12px;font-weight:600;padding:1px 9px;border-radius:999px;white-space:nowrap}
@@ -178,7 +186,8 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
 <div class="wrap" dir="rtl" lang="ar">
   <h1>صيدات اليوم الوطني ٩٦: عروض حقيقية ومتحقق منها</h1>
   <p class="lede" id="updated"><b>آخر تحديث: {{UPDATED_AR}}</b> · مرتبة حسب <b>الخصم الحقيقي</b> بعد التحقق من سجل الأسعار · <b>آخر فحص للتوفر: {{CHECKED_AR}}</b></p>
-  <p class="lede">كل منتج تم فحصه بسجل الأسعار في <a href="https://www.kanbkam.com/sa/ar/home" target="_blank" rel="noopener">كان بكام</a> (نون وأمازون وإكسترا)، أو بمقارنته بسعر نفس الموديل في المتاجر الأخرى (جرير، بلاك بوكس، المنيع، ساكو، ترينديول، وأشلي مقابل ميداس في الأثاث). «الخصم الحقيقي» محسوب من السعر الذي كان يُباع به فعلاً قبل العرض، لا من «السعر قبل» الذي يكتبه البائع.</p>
+  <details class="how"><summary>كيف نحسب «الخصم الحقيقي»؟</summary>
+  <p class="lede">كل منتج تم فحصه بسجل الأسعار في <a href="https://www.kanbkam.com/sa/ar/home" target="_blank" rel="noopener">كان بكام</a> (نون وأمازون وإكسترا)، أو بمقارنته بسعر نفس الموديل في المتاجر الأخرى (جرير، بلاك بوكس، المنيع، ساكو، ترينديول، وأشلي مقابل ميداس في الأثاث). «الخصم الحقيقي» محسوب من السعر الذي كان يُباع به فعلاً قبل العرض، لا من «السعر قبل» الذي يكتبه البائع.</p></details>
 
   <div class="summary" id="summary"></div>
 
@@ -186,7 +195,6 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
     <div class="note" id="keynote"><b>النتيجة المهمة</b></div>
     <a class="note notelink" href="#travel"><b>✈️ عروض السفر</b>أكواد وحملات اليوم الوطني من شركات الطيران ومنصات الحجز، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السفر ↓</span></a>
     {{COUPONS_NOTE}}
-    {{FURNITURE_NOTE}}
     <div class="note" hidden><b>كود نون MEEM: خصم إضافي ٢٥٪</b>بطاقات ميم الائتمانية فقط، بحد أقصى ١٥٠ ريال، للطلبات ١٠٠ ريال فأكثر، طلبين كحد أقصى، حتى ٣٠ سبتمبر. هذا خصم حقيقي فوق السعر.</div>
   </div>
 
@@ -239,6 +247,9 @@ footer{color:var(--muted);font-size:13px;margin-top:32px}
     <tbody id="rows"></tbody>
   </table></div>
   </div>
+
+  {{COUPONS_SECTION}}
+  {{FURNITURE_NOTE}}
 
   <section class="travel" id="travel" aria-labelledby="tr-h">
     <h2 id="tr-h">✈️ عروض السفر: أكواد وحملات اليوم الوطني</h2>
@@ -294,6 +305,7 @@ const TNONE={{TNONE_JSON}};
 const TNO={{TNO_JSON}};
 const fmt=n=>n.toLocaleString('ar-SA',{maximumFractionDigits:0});
 const RULE={{RULE_JSON}};
+const CBY={{CBY_JSON}};  // store label -> coupon index, for the 🎟️ link on each row
 // Labels state what we measured, never what we think the store intended.
 // A bad row is one of three measurable things: cheaper elsewhere, price went up, or no real saving.
 const VL={ok:'✓ خصم مؤكّد',warn:'خصم أقل من المعلن',bad:'أغلى أو بلا توفير',na:'بلا سجل سعري'};
@@ -347,7 +359,7 @@ function render(){
     const tr=document.createElement('tr');
     if(UN(d))tr.className='unavail';
     const real=d.real==null?'<span class="claim">—</span>':`<span class="real ${d.real<0?'neg':''}">${d.real<0?'+'+fmt(-d.real)+'٪ ارتفاع':fmt(d.real)+'٪'}</span>`;
-    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${vlabel(d)}</span></td><td class="name"><span class="site">${d.s}</span> <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="مرجع المقارنة">${d.r?fmt(d.r)+(d.rk?`<span class="rk">${d.rk==='h'?'سعره السابق':'متجر آخر'}</span>`:''):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}</td>`;
+    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${vlabel(d)}</span></td><td class="name"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''} <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="مرجع المقارنة">${d.r?fmt(d.r)+(d.rk?`<span class="rk">${d.rk==='h'?'سعره السابق':'متجر آخر'}</span>`:''):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}</td>`;
     rows.appendChild(tr);
   });
   if(!list.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="7" class="empty">'+(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.')+'</td>';rows.appendChild(tr);}
