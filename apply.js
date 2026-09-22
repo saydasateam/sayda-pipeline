@@ -36,6 +36,7 @@ if (mode === 'check') {
     const isUn = ['oos', 'ended', 'gone'].includes(a.avail);
     if (isUn && !wasUn) report.newlyUnavailable.push([r.id, a.avail]); if (!isUn && wasUn) report.restocked.push([r.id, a.avail]);
     r.avail = a.avail; r.availNote = a.note; r.lastChecked = today;
+    if (r.needsCheck) { delete r.needsCheck; (report.firstChecked = report.firstChecked || []).push([r.id, a.avail]); }
     // record what we saw, for rows no public tracker covers (fashion, beauty, baby, furniture)
     if (!isUn) H.record(hist, r.id, r.price, today);
     // rows with no external reference: re-judge them against OUR OWN accumulated history
@@ -78,17 +79,37 @@ if (mode === 'check') {
   const verified = r => r.ref != null && r.ref > r.price;
   const saved = r => verified(r) ? r.ref - r.price : Math.max(0, (r.was || 0) - r.price);
   const fresh = add.filter(r => !ids.has(r.id));
-  fresh.sort((a, b) => (verified(b) - verified(a)) || (saved(b) - saved(a)));
-  if (fresh.length > capN) report.deferred = fresh.length - capN;
-  for (const r of fresh.slice(0, capN)) {
-    if (ids.has(r.id)) continue;
+  // categorise BEFORE ranking, so the per-chip reservation below can see each row's chip
+  for (const r of fresh) {
     if (!chipIds.has(r.cat)) {
       const slug = r.slug || r.cat;
       const m = catMap[slug];
       if (m) r.cat = m; else { report.uncategorised.push(`${r.id} (${slug || '—'})`); r.cat = fallback; }
     }
+  }
+  const rank = (a, b) => (verified(b) - verified(a)) || (saved(b) - saved(a));
+  fresh.sort(rank);
+  // Per-chip reservation (rules.page.reservedPerChip, 22 Sep): fill the under-represented chips
+  // first — best verified saving WITHIN each chip — then rank everything left together as before.
+  // Ranking only by money saved hands every slot to TVs and appliances, which is why the page read
+  // as "electronics and furniture" even after fashion, kids and pharmacy stores were collected.
+  const reserve = rules.page.reservedPerChip || {};
+  const taken = new Set(), order = [];
+  for (const [chip, n] of Object.entries(reserve)) {
+    for (const r of fresh.filter(r => r.cat === chip).slice(0, n)) { if (order.length >= capN) break; taken.add(r.id); order.push(r); }
+  }
+  for (const r of fresh) { if (order.length >= capN) break; if (!taken.has(r.id)) { taken.add(r.id); order.push(r); } }
+  if (fresh.length > order.length) report.deferred = fresh.length - order.length;
+  for (const r of order) {
+    if (ids.has(r.id)) continue;
     delete r.slug;
-    r.firstSeen = today; r.lastChecked = today; state.rows.push(r); report.added.push(r.id); touched.add(r.store);
+    // A new row's availability comes from wherever discovery saw it — a listing, a price tracker's
+    // inventory flag — and that is not the store saying "in stock". On 22 Sep an Extra tablet went
+    // up as available at 99 SAR on the tracker's word while Extra itself had it out of stock.
+    // needsCheck keeps the row OFF the page (build.js) until the store's own check() has seen it:
+    // `node scripts/inject.js <store> recheck` → work/check/<store>.json → `node apply.js check`.
+    r.needsCheck = true;
+    r.firstSeen = today; state.rows.push(r); report.added.push(r.id); touched.add(r.store);
   }
 }
 // write back only this slot's stores

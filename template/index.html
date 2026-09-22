@@ -250,6 +250,7 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
   <div class="notes">
     <div class="note" id="keynote"><b>النتيجة المهمة</b></div>
     <a class="note notelink" href="#travel"><b>✈️ عروض السفر</b>أكواد وحملات اليوم الوطني من شركات الطيران ومنصات الحجز، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السفر ↓</span></a>
+    <a class="note notelink" href="#cars"><b>🚗 عروض السيارات</b>عروض اليوم الوطني من وكلاء السيارات وجهات التمويل، مقروءة من صفحاتهم الرسمية، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السيارات ↓</span></a>
     {{COUPONS_NOTE}}
     <div class="note" hidden><b>كود نون MEEM: خصم إضافي ٢٥٪</b>بطاقات ميم الائتمانية فقط، بحد أقصى ١٥٠ ريال، للطلبات ١٠٠ ريال فأكثر، طلبين كحد أقصى، حتى ٣٠ سبتمبر. هذا خصم حقيقي فوق السعر.</div>
   </div>
@@ -334,6 +335,12 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
     <p class="claim" id="tnone"></p>
   </section>
 
+  <section class="travel" id="cars" aria-labelledby="cr-h">
+    <h2 id="cr-h">🚗 عروض السيارات: وكلاء وجهات تمويل</h2>
+    <p class="lede">قرأنا كل عرض في صفحة الوكيل أو جهة التمويل الرسمية نفسها، وقارنّا الإعلان بالشروط. أسعار السيارات تختلف حسب الفئة والتمويل، لذلك لا نحسب «خصماً حقيقياً» هنا — نوضح ماذا تحصل فعلاً، وما الذي يشترطه العرض (تمويل فقط، فئات محددة، حتى نفاد الكمية).</p>
+    <div class="tcards" id="crcards"></div>
+  </section>
+
   <section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">قول لنا: نضيف أو نعدّل إيش؟</h2>
     <p>متجر تبي نضيفه؟ منتج تنتظر عليه عرض؟ خطأ في سعر؟ اكتب لنا ونوصلها مباشرة.</p>
@@ -379,6 +386,9 @@ const T={{T_JSON}};
 const TNONE={{TNONE_JSON}};
 // airlines/platforms checked with NO published National Day offer: [company, type]
 const TNO={{TNO_JSON}};
+// cars: [company, type, brand, headline as advertised, code ('' = none), bookStart, bookEnd, models/period text, verdict clear|catch|vague|pending, what the terms actually say, official url, checked]
+const CR={{CR_JSON}};
+const CRNO={{CRNO_JSON}};
 const fmt=n=>n.toLocaleString('ar-SA',{maximumFractionDigits:0});
 const RULE={{RULE_JSON}};
 const CBY={{CBY_JSON}};  // store label -> coupon index, for the 🎟️ link on each row
@@ -588,6 +598,9 @@ const list=T.map(t=>({t,s:st(t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]);
 document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${t[2]}»</div><span class="tv ${t[7]}">${VT[t[7]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${t[8]}</div><div class="meta">${t[3]?`الكود: <span class="code" title="انسخ">${t[3]}</span> · `:'بدون كود · '}${t[6]} · فُحص ${arD(t[10])}</div><a class="go" href="${t[9]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
 +TNO.map(t=>`<article class="tcard nooffer"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً لليوم الوطني</div><div class="meta">فحصنا موقع الشركة الرسمي ولم نجد صفحة عرض أو كود خصم لليوم الوطني ٩٦ · فُحص ${arD(now)}</div></article>`).join('');
 const tn=document.getElementById('tnone');tn.textContent=TNONE;tn.hidden=!TNONE;
+// car offers reuse the travel card, status and verdict logic; t is remapped to the travel positions
+document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}${c[2]?' · '+c[2]:''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${c[3]}»</div><span class="tv ${c[8]}">${VT[c[8]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${c[9]}</div><div class="meta">${c[4]?`الكود: <span class="code" title="انسخ">${c[4]}</span> · `:''}${c[7]} · فُحص ${arD(c[11])}</div><a class="go" href="${c[10]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
++CRNO.map(c=>`<article class="tcard nooffer"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً لليوم الوطني</div><div class="meta">فحصنا الموقع الرسمي ولم نجد صفحة عرض لليوم الوطني ٩٦ · فُحص ${arD(now)}</div></article>`).join('');
 document.querySelectorAll('.tcard .code').forEach(c=>c.addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText(c.textContent).then(()=>{const o=c.textContent;c.textContent='✓ نُسخ';setTimeout(()=>c.textContent=o,1200);}).catch(()=>{});}));
 })();
 (()=>{const f=document.getElementById('sg-f'),b=document.getElementById('sg-b'),st=document.getElementById('sg-s'),t=document.getElementById('sg-t');

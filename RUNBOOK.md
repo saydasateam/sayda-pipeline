@@ -46,6 +46,50 @@ COMMITTED files, so pass a branch while testing: `node scripts/inject.js <id> bo
 
 Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUnavailable / restocked / priceChanged / fixedLinks / unchecked.
 
+## 2b. Re-check new rows BEFORE publishing (added 22 Sep — required)
+`apply.js new` marks every row it adds `needsCheck`, and `build.js` does not publish a `needsCheck` row. Discovery sees
+availability through a listing or a price tracker, and neither is the store saying «in stock»: on 22 Sep an Extra
+tablet went up as «متاح» at 99 SAR on the tracker's inventory flag while Extra had it out of stock.
+For each store that got new rows (`work/report.json → added`):
+```
+node scripts/inject.js <store> recheck      # self-contained: only this run's new rows, works on CSP stores too
+```
+run it in that store's tab, `SAYDA.show('check:<store>')` + `get_page_text`, save to `work/check/<store>.json`, then
+`node apply.js check`. The first check clears `needsCheck` (listed in `report.firstChecked`); the row is then published with
+the availability the STORE reported. A row still `needsCheck` at publish time stays off the page — `build.js` prints how many.
+Kanbkam's `inStock` is evidence for the price record only, never for `avail`.
+
+## 1b. Stores added 22 Sep 2026 (breadth: fashion, kids, pharmacy)
+Five stores joined so the page is not only electronics and furniture. All five boot and check exactly like
+the others (`node scripts/inject.js <id> boot check`, tab on `store.home`); tested live on 22 Sep.
+| id | adapter | how it reads | check |
+|---|---|---|---|
+| **namshi** (re-enabled) | namshi.js | fetch, server-rendered product boxes; open the tab on `/saudi-ar/` (the old `/saudi-ar/women/` landing client-redirects and killed the script — that is why it was parked) | product page |
+| **mumzworld** | mumzworld.js | fetch; the listing HTML carries the Magento product objects (price_range, stock_status). Only 24 per listing are server-rendered, so it reads eight National Day collection paths | product JSON-LD |
+| **mothercare** | mothercare.js | **rendered**: open `store.landing`, then `SAYDA.start('collect:mothercare', () => SAYDA.adapters.mothercare.collectRender(SAYDA.ctx.store, SAYDA.ctx.rules))` — it clicks the page's own «load more»/scrolls until ~300 cards | product JSON-LD (plain fetch) |
+| **nahdi** | nahdi.js | fetch; page 1 (20 hits) of each deal listing is server-rendered — breadth = more deal paths | product page JSON |
+| **aldawaa** | aldawaa.js | the storefront's own public OCC API (base read from the page's `<meta name="occ-backend-base-url">`); `price.value` = their «before», `simulatedDiscountPrice.value` = now | OCC product |
+**Toys R Us has no adapter and is `enabled: false`.** On 22 Sep www.toysrus.com.sa and toysrus.sa did not resolve,
+the Dynamics storefront returned 0 products for every search, and Noon's store page was 404. Re-check before
+each campaign; do not substitute a reseller's listing under Toys R Us's name.
+
+**Verification for the new stores** is the same written rule as everywhere else:
+- Branded items (Dyson, Philips Avent, Joie, Chicco, Avene, La Roche-Posay, CeraVe, Aptamil…) → `SAYDA.kanbkam.market(['brand model'])`
+  through `rules/match.js` (all four conditions; for beauty the size — «40 مل» — is part of the model). Nahdi ↔ Al-Dawaa is itself a
+  same-product comparison when brand, name and size match.
+- Everything else → `na` with the store's `naFinding`, and our own history re-judges it after `ownHistoryMinDays`.
+- **`intake.fillTo` stores (mumzworld, mothercare — Mahmoud's decision, 22 Sep): show the top 20 every run.** After the verified
+  rows for that store are applied, save its collect output to `work/collect/<id>.json` and run
+  `node scripts/fill-na.js <id> work/collect/<id>.json && node apply.js new work/fill-<id>.json`. It tops the store up to 20
+  *available* rows with `na` rows (ref null, the store's naFinding — they claim nothing and stay out of the default «verified»
+  filter). It never invents a reference; only `verdict()` does.
+
+**Intake reservation.** `apply.js new` now fills `rules.page.reservedPerChip` first (fashion, personal care, kids 15 each;
+perfume, sports, toys 8), best verified saving within each chip, then ranks the rest together as before. Shortlist for
+those chips on purpose — a run that collects only TVs cannot use the reservation.
+**Furniture cap.** `rules.page.maxPerChip` (أثاث: 25) is applied by `build.js` at render time: verified and available rows are
+shown first, na/unavailable are hidden first. Nothing is deleted from state.
+
 ## 2. FULL run only — discovery (≈ 12 calls)
 - **Almanea: collect RENDERED, not fetched.** Its pager calls an authenticated API, so the fetch collector only ever saw
   page 1 — 32 of ~1,009 National Day offers. Rendered on 22 Sep: 31 pages, 902 products, 798 gate-passing candidates, ~2.5 min.
@@ -110,6 +154,20 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
   reads back. Writing `new Date().toISOString()` and appending `+03:00` labels UTC digits as Riyadh and puts the page three hours
   behind, plausibly enough to ship unnoticed. A run that edits coupons or travel without a check phase changes no timestamp at all,
   and that is correct: nothing was re-checked.
+
+## 3a. FULL run only — car offers (same slot and rules as travel, ~4 calls)
+`data/state/_cars.json` → `{ cars: [...], carsNone: [...] }`, one writer: the slot that edits coupons and travel.
+The page shows a 🚗 pointer at the top and the cards below travel (template `#cars`).
+- For each `cars[].url` (agent or bank/leasing company's OWN page): `get_page_text`, update headline/terms/dates/verdict/checked.
+  Verdicts as for travel: `clear` terms match the headline · `catch` headline bigger than terms (finance-only, «حتى», selected
+  trims, until stock lasts) · `vague` no concrete terms · `pending` announced, not started. Drop a row whose `bookEnd` is more
+  than 3 days ago.
+- A news site, ad portal (saudiauto, syarah, motory) or a dealer's social post is a LEAD, never a source. An offer that is not
+  on the company's own page is not published. A September finance campaign that is not branded National Day is not an ND offer.
+- `carsNone` lists companies checked with no ND offer found; move one to `cars` when its own page publishes an offer.
+- Leads worth re-checking in the browser (22 Sep): Kia Aljabr's ND page (no year on it), Al Rajhi's ND auto-lease page
+  (blocked to non-browser fetches), Riyad Bank, Alinma, SAIB, Nayifat, Emkan (not yet checked).
+- Upload `data/state/_cars.json` in the same state commit as the other `_*.json` files.
 
 ## 3b. FULL run only — comparator sweep (the sidecar, ~6 calls)
 Only for the four `verify: "market"` stores (jarir, blackbox, almanea, saco). Everything else is
