@@ -42,6 +42,13 @@ if (st.rows.length > rules.page.maxRows) {
     console.log(`chip cap: showing ${n} of ${inChip.length} «${chip}» rows (hid ${before - st.rows.length})`);
   }
 }
+// Rows whose availability no store check has confirmed yet (apply.js new sets needsCheck; the
+// first apply.js check clears it) are not published: the page never says «متاح» on a price
+// tracker's or a listing's word. See RUNBOOK §2 «re-check new rows».
+{
+  const pending = st.rows.filter(r => r.needsCheck);
+  if (pending.length) { st.rows = st.rows.filter(r => !r.needsCheck); console.log(`held back ${pending.length} new rows not yet checked by their store: ${[...new Set(pending.map(r=>r.store))].join(', ')}`); }
+}
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
 const storeById = Object.fromEntries(cfg.stores.map(s=>[s.id,s]));

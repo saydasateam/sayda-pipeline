@@ -46,6 +46,19 @@ COMMITTED files, so pass a branch while testing: `node scripts/inject.js <id> bo
 
 Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUnavailable / restocked / priceChanged / fixedLinks / unchecked.
 
+## 2b. Re-check new rows BEFORE publishing (added 22 Sep — required)
+`apply.js new` marks every row it adds `needsCheck`, and `build.js` does not publish a `needsCheck` row. Discovery sees
+availability through a listing or a price tracker, and neither is the store saying «in stock»: on 22 Sep an Extra
+tablet went up as «متاح» at 99 SAR on the tracker's inventory flag while Extra had it out of stock.
+For each store that got new rows (`work/report.json → added`):
+```
+node scripts/inject.js <store> recheck      # self-contained: only this run's new rows, works on CSP stores too
+```
+run it in that store's tab, `SAYDA.show('check:<store>')` + `get_page_text`, save to `work/check/<store>.json`, then
+`node apply.js check`. The first check clears `needsCheck` (listed in `report.firstChecked`); the row is then published with
+the availability the STORE reported. A row still `needsCheck` at publish time stays off the page — `build.js` prints how many.
+Kanbkam's `inStock` is evidence for the price record only, never for `avail`.
+
 ## 1b. Stores added 22 Sep 2026 (breadth: fashion, kids, pharmacy)
 Five stores joined so the page is not only electronics and furniture. All five boot and check exactly like
 the others (`node scripts/inject.js <id> boot check`, tab on `store.home`); tested live on 22 Sep.
