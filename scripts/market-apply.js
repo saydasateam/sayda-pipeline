@@ -68,7 +68,7 @@ for (const res of sweep) {
   if (!row) continue;
   const q = M.queryFor(row);
   if (!q) continue;
-  const probe = { name: row.name, brand: q.brand, model: q.model, variant: q.variant, size: q.size, price: row.price };
+  const probe = { name: row.name, store: row.store, brand: q.brand, model: q.model, enName: q.enName || '', variant: q.variant, size: q.size, price: row.price };
   // the adapter hands back raw blocks; rules/listing.js turns them into listings, rules/match.js
   // decides which may be used. `res.listings` is accepted too, for a hand-assembled sweep.
   const listings = res.blocks ? fromBlocks(res.blocks) : (res.listings || []);
