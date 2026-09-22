@@ -22,7 +22,7 @@
     // can never be read as a price. The hand-listed category paths still run through collect() and are merged.
     harvest(cfg) {
       const out = new Map();
-      for (const a of document.querySelectorAll(`a[href*="${cfg.productPath}"]`)) {
+      for (const a of document.querySelectorAll(`a[href*="/product/"]`)) {   // productPath is "/ar/product/" on Blackbox but cards link "/product/…"
         const fk = Object.keys(a).find(k => k.startsWith('__reactFiber')); let f = fk && a[fk], d = 0;
         while (f && d < 14) { const pr = f.memoizedProps || {};
           const v = pr.product && (pr.product.prices_with_tax ? pr.product : (pr.product._source && pr.product._source.prices_with_tax ? pr.product._source : null));
@@ -34,9 +34,9 @@
     async collectRender(cfg, rules, opts = {}) {
       const mode = cfg.collect.render, maxSteps = opts.maxSteps || cfg.collect.renderMaxSteps || 40;
       const all = new Map(); const add = () => { for (const p of this.harvest(cfg)) all.set(p.rewrite_url, p); };
-      const firstHref = () => { const a = document.querySelector(`a[href*="${cfg.productPath}"]`); return a ? a.getAttribute('href') : ''; };
+      const firstHref = () => { const a = document.querySelector(`a[href*="/product/"]`); return a ? a.getAttribute('href') : ''; };
       const waitFor = async (ok, ms) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { if (ok()) return true; await S.sleep(250); } return false; };
-      await waitFor(() => this.harvest(cfg).length > 0, 10000); add();
+      await waitFor(() => this.harvest(cfg).length > 0, 25000); add();   // hydration can take >5 s after load
       let steps = 0, stall = 0, stop = 'maxSteps';
       for (; steps < maxSteps; steps++) {
         const before = all.size;

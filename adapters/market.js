@@ -45,32 +45,51 @@
     return out;
   }
 
+  // Nested DOM means a parent block repeats its children's text. Keep the innermost blocks only, so a
+  // saved result stays small: a block is dropped when a shorter kept block's lines all appear in it.
+  // Structural only — nothing here decides what a line means (that is rules/listing.js).
+  function innermost(blocks, cap) {
+    const uniq = [...new Map(blocks.map(b => [b.lines.join('\n'), b])).values()].sort((a, b) => a.lines.join('').length - b.lines.join('').length);
+    const kept = [];
+    for (const b of uniq) { const txt = b.lines.join('\n'); if (kept.some(k => k.lines.every(l => txt.includes(l)))) continue; kept.push(b); if (kept.length >= cap) break; }
+    return kept;
+  }
+  const CHALLENGE = /unusual traffic|not a robot|حركة (?:مرور|زيارات) غير (?:عادية|معتادة)/i;
+  const KEY = 'sayda-mkt';
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } };
+  const save = a => { try { localStorage.setItem(KEY, JSON.stringify(a)); return true; } catch (e) { return false; } };
+
   S.adapters.market = {
     blocksIn,   // exported so it can be run against a saved document
+    url: URL,
 
-    /** jobs: [{ id, q }] → [{ id, q, blocks, n, error? }].
-     *  Sequential with a pause. This is a shared index, not a storefront we have a relationship
-     *  with; a burst is both rude and the fastest way to be handed a challenge page. */
-    async sweep(jobs, opts = {}) {
-      const gap = opts.gapMs || 3000;
-      const out = [];
-      for (const j of jobs) {
-        try {
-          const { status, text } = await S.fetchText(URL(j.q));
-          if (/captcha|unusual traffic|حركة مرور غير عادية/i.test(text)) {
-            // stop the whole sweep: continuing past a challenge produces empty results that are
-            // indistinguishable from "no comparator exists", which is the one confusion to avoid
-            out.push({ id: j.id, q: j.q, blocks: [], n: 0, error: 'CHALLENGE PAGE — sweep stopped, report it' });
-            break;
-          }
-          const blocks = blocksIn(S.dom(text));
-          out.push({ id: j.id, q: j.q, status, blocks, n: blocks.length });
-        } catch (e) {
-          out.push({ id: j.id, q: j.q, blocks: [], n: 0, error: String(e && e.message || e).slice(0, 90) });
-        }
-        await S.sleep(gap);
-      }
-      return out;
+    /** RENDERED path — the only one that works (22 Sep). Google now serves a JavaScript wall to a
+     *  plain fetch, and the challenge check that used to scan fetched HTML matched the word "captcha"
+     *  inside Google's own scripts, stopping every sweep at query 1 as a false challenge. So the
+     *  driver navigates the tab to url(q), re-injects core + this file, and calls here(job): it reads
+     *  the RENDERED page, checks only the VISIBLE text for a challenge, and appends the result to
+     *  localStorage on google.com so results survive the next navigation. Returns a small receipt. */
+    here(job) {
+      const visible = (document.body && document.body.innerText) || '';
+      const all = load();
+      let rec;
+      if (/^\/sorry\//.test(location.pathname) || CHALLENGE.test(visible.slice(0, 3000)))
+        rec = { id: job.id, q: job.q, blocks: [], n: 0, error: 'CHALLENGE PAGE — sweep stopped, report it' };
+      else { const blocks = innermost(blocksIn(document), 40); rec = { id: job.id, q: job.q, status: 200, blocks, n: blocks.length }; }
+      const i = all.findIndex(x => x.id === job.id); if (i >= 0) all[i] = rec; else all.push(rec);
+      const ok = save(all);
+      return { id: job.id, n: rec.n, error: rec.error || (ok ? undefined : 'localStorage full'), saved: all.length };
+    },
+    /** Write the saved results for these ids onto the page as one JSON line, for get_page_text. */
+    dump(ids) { const want = ids ? new Set(ids) : null; const out = load().filter(x => !want || want.has(x.id));
+      document.body.innerHTML = '<pre id="sayda-out" style="white-space:pre-wrap;font:12px monospace"></pre>';
+      document.getElementById('sayda-out').textContent = 'SAYDA:mkt\n' + JSON.stringify(out); return out.length; },
+    clear() { try { localStorage.removeItem(KEY); } catch (e) {} return 'cleared'; },
+
+    /** FETCH path — retired. Kept only so an old driver gets an explicit error per job instead of an
+     *  empty result that reads as "no comparator exists", which is the one confusion to avoid. */
+    async sweep(jobs) {
+      return jobs.map(j => ({ id: j.id, q: j.q, blocks: [], n: 0, error: 'FETCH PATH RETIRED — Google requires a rendered page; use market.here() per query (RUNBOOK 3b)' }));
     },
   };
 })();
