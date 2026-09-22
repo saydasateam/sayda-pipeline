@@ -47,10 +47,19 @@ COMMITTED files, so pass a branch while testing: `node scripts/inject.js <id> bo
 Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUnavailable / restocked / priceChanged / fixedLinks / unchecked.
 
 ## 2. FULL run only — discovery (≈ 12 calls)
+- **Almanea: collect RENDERED, not fetched.** Its pager calls an authenticated API, so the fetch collector only ever saw
+  page 1 — 32 of ~1,009 National Day offers. Rendered on 22 Sep: 31 pages, 902 products, 798 gate-passing candidates, ~2.5 min.
+  (Blackbox stays fetch-collected for now — see `config/stores.json → blackbox.collect._render`.)
+  Open the tab on `store.landing` (the campaign category), wait until product cards show, inject core + `nextdata.js`, then
+  `SAYDA.start('collect:<id>', () => SAYDA.adapters['<id>'].collectRender(<store>, <rules>))`. It presses the store's own
+  «Next page», reads each card's React props (the same structured object `__NEXT_DATA__`
+  carries — never DOM price text), and merges the hand-listed category paths via `collect()`. `stats.stop` says why it
+  stopped (`lastPage` is the healthy answer for Almanea); `stats.reachable` is how many campaign products it saw.
+  Keep the tab in the foreground while it runs — background tabs throttle timers.
 - Same injection with action `collect` (for extra & amazon use the kanbkam tab: `node scripts/inject.js kanbkam` then
   `SAYDA.start('collect:extra', ()=>SAYDA.kanbkam.listing(13, <cats from config>, <rules>))`, seller 1 for amazon).
 - Read each store's candidates with `SAYDA.show('collect:<id>', r => r.candidates.slice(0,40).map(c=>[c.key,c.brand,c.name.slice(0,45),c.price,c.was,c.url].join('|')).join('\n'))` + `get_page_text`.
-- Shortlist **up to 8 per store — a ceiling, never a quota.** Take none from a store that has nothing worth taking; an empty
+- Shortlist **up to 20 per store — a ceiling, never a quota.** (Raised from 8 on 22 Sep with `maxNewPerRun` 60 → 150.) Take none from a store that has nothing worth taking; an empty
   store is a correct result, not a gap to fill. The old «~2–4 per store» capped good stores and flattered poor ones: a store with
   twenty genuine deals lost sixteen of them while a store with one weak deal still spent a slot. `apply.js new` then ranks ALL
   candidates together — verified savings first, then money saved — and keeps the top `rules.page.maxNewPerRun`, so the stores that
@@ -109,15 +118,22 @@ untouched by this phase.
 ```
 node scripts/market-apply.js --plan        # writes work/market/<store>.jobs.json, prints the work list
 ```
-- Open ONE tab on `https://www.google.com`, then bootstrap from raw GitHub rather than pasting:
+- **Rendered, one query per navigation** (22 Sep: Google serves a plain `fetch` a JavaScript wall, so `sweep()` is retired and
+  returns an explicit error per job). Start with `SAYDA.adapters.market.clear()` on a google.com tab. Then, for each job in
+  `work/market/<store>.jobs.json`, in `browser_batch` groups of ~5 jobs: `navigate` to
+  `https://www.google.com/search?tbm=shop&gl=sa&hl=en&num=20&q=<encoded q>` → wait 3 s → inject
   ```js
   const RAW='https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main';
   (0,eval)(await fetch(RAW+'/adapters/_core.js').then(r=>r.text()));
   (0,eval)(await fetch(RAW+'/adapters/market.js').then(r=>r.text()));
-  SAYDA.start('mkt:<store>', () => SAYDA.adapters.market.sweep(<jobs>));
+  JSON.stringify(SAYDA.adapters.market.here({id:'<row id>', q:'<q>'}))
   ```
-  Read it back with `SAYDA.show('mkt:<store>')` + `get_page_text`, save to `work/market/<store>.json`.
-- **If the sweep reports `CHALLENGE PAGE`, stop.** It halts itself on purpose. Continuing past a
+  `here()` reads the RENDERED page, checks only visible text for a challenge, and appends the result to localStorage on
+  google.com, so results survive the next navigation. It returns a small receipt `{id, n, error?, saved}`.
+  At the end: `SAYDA.adapters.market.dump(<ids of this store>)` + `get_page_text`, save the JSON after `SAYDA:mkt` to
+  `work/market/<store>.json`.
+- **Requires a Saudi, non-VPN connection.** From the VPN exit on 22 Sep Google answered the first query with a CAPTCHA.
+- **If any receipt reports `CHALLENGE PAGE`, stop the sweep.** Do not continue to the next query. Continuing past a
   challenge returns empty results, which are indistinguishable from "no comparator exists" — and
   that confusion is the one thing this phase must never introduce. Report it and move on.
 - `gl=sa` and `hl=en` are both load-bearing and are set in the adapter, not here. `gl=sa` keeps the
