@@ -229,7 +229,9 @@
           "/air-conditioners-accessories-c-657",
           "/personal-care-c-219"
         ],
-        "concurrency": 3
+        "concurrency": 3,
+        "render": "scroll",
+        "renderMaxSteps": 45
       }
     },
     {
@@ -260,7 +262,9 @@
           "/smartwatches-accessories-c-7433",
           "/home-theater-c-524"
         ],
-        "concurrency": 2
+        "concurrency": 2,
+        "render": "pager",
+        "renderMaxSteps": 40
       },
       "notes": "SSR pages are ~1 MB each; keep concurrency 2 and pages few — 42 parallel pages froze a tab in testing."
     },
