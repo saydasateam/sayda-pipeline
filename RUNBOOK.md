@@ -90,6 +90,35 @@ those chips on purpose — a run that collects only TVs cannot use the reservati
 **Furniture cap.** `rules.page.maxPerChip` (أثاث: 25) is applied by `build.js` at render time: verified and available rows are
 shown first, na/unavailable are hidden first. Nothing is deleted from state.
 
+## 1c. Stores added 22 Sep 2026 (toys: Mahmoud's replacement for Toys R Us)
+Both are `intake.fillTo: 20` and map to the «ألعاب» chip.
+| id | adapter | how it reads | check |
+|---|---|---|---|
+| **dabdoob** | dabdoob.js | fetch; `/ar-SA/product?category_id=<id>&page=<n>` is server-rendered — 20 products a page, each carrying the store's own `{id, slug, name, brand, skus[{price:{price, old_price}, buy_limit}]}`. Category ids are the number at the end of the slugs on `/ar-SA/categories`. | product page, same objects. **`buy_limit` is the availability signal** (0 = not buyable) and doubles as the stock count |
+| **firstcry** | firstcry.js | **rendered**, and unlike mothercare it cannot be injected from raw: see below | **rendered per row** — navigate, then read `#prod_price` |
+
+**FirstCry has two traps. Read this before touching it.**
+1. Its server HTML DOES contain `.prod-price` / `.prod-price-strike` nodes — they hold campaign
+   thresholds (1603 / 229 on every product page), not the product's price. A fetch parser reads those
+   and is confidently wrong. Prices exist only after the page renders.
+2. A listing bounces back to the home page roughly ten seconds after load, and its «load more» is a
+   link that navigates. So the collector only scrolls, and the driver cannot spend that window fetching
+   `_core.js` + the adapter from raw.githubusercontent — by the time they land the listing is gone.
+   On 22 Sep the working sequence was: navigate → wait 5 s → ONE call that reads `.list_block` cards
+   straight from the DOM (`.r1` now, `.r2` was, name from `img[alt]`, key = the hex id segment in the
+   product URL). Breadth comes from the configured paths, 20 cards each.
+Product pages are stable for longer, so the per-row check is fine: navigate, then poll for `#prod_price`
+(it IS the price element, not a container — `#prod_price .prod-price` matches nothing), read
+`.original_mrp_main` for the was and treat `.sizeaddtocart` as buyable. Batch 4 rows per `browser_batch`.
+
+**Dabdoob's long product objects** (the big outdoor sets) are split across several `self.__next_f`
+flight chunks, so bracket-matching one of them fails and the row comes back `found:false` on a 200.
+`check()` drops the chunk seams and reads the fields after the slug instead. If that ever regresses,
+the symptom is exactly that: a 200 with no product.
+
+**Toys R Us stays `enabled: false`** — still no storefront. Dabdoob and FirstCry are the replacement
+Mahmoud chose on 22 Sep, not a rename of that slot.
+
 ## 2. FULL run only — discovery (≈ 12 calls)
 - **Almanea: collect RENDERED, not fetched.** Its pager calls an authenticated API, so the fetch collector only ever saw
   page 1 — 32 of ~1,009 National Day offers. Rendered on 22 Sep: 31 pages, 902 products, 798 gate-passing candidates, ~2.5 min.
