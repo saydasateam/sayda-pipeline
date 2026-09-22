@@ -33,6 +33,20 @@
   const priceOf = sku => { const pr = sku && sku.price || {};
     return { price: S.num(pr.price != null ? pr.price : pr.raw_price), was: S.num(pr.old_price), limit: S.num(sku && sku.buy_limit) }; };
 
+  // Long product objects are split across several self.__next_f push chunks, so bracket-matching
+  // one of them fails (observed on the big outdoor sets, 22 Sep). For a page we already know the
+  // slug of, read the fields directly instead: drop the chunk seams, then scan the window after the
+  // slug for that product's own price block and buy_limit.
+  const clean = h => h.replace(/\\"/g, '"').replace(/"\]\)<\/script><script>self\.__next_f\.push\(\[1,"/g, '');
+  const fieldsFor = (html, slug) => {
+    const u = clean(html); const i = u.indexOf('"slug":"' + slug + '"'); if (i < 0) return null;
+    const w = u.slice(i, i + 40000); const j = w.indexOf('"price":{'); if (j < 0) return null;
+    const seg = w.slice(j, j + 400);
+    const om = seg.match(/"old_price":(?:null|(\d+(?:\.\d+)?))/);
+    const bl = w.match(/"buy_limit":(\d+)/);
+    return { price: S.num((seg.match(/"price":(\d+(?:\.\d+)?)/) || [])[1]), was: om && om[1] != null ? S.num(om[1]) : null,
+             limit: bl ? parseInt(bl[1], 10) : null }; };
+
   S.adapters.dabdoob = {
     async collect(cfg, rules) {
       const seen = new Set(), out = []; let pages = 0;
@@ -63,12 +77,10 @@
         const slug = r.url.split('/').filter(Boolean).pop();
         const { status, text } = await S.fetchText(r.url.replace(ORIGIN, ''));
         if (status === 404) return { id: r.id, found: false, status };
-        const p = productsIn(text).find(x => x.slug === slug);
-        const sku = p && skuOf(p);
-        if (!sku) return { id: r.id, found: false, status };
-        const { price, limit } = priceOf(sku);
-        const buyable = !(limit === 0);
-        return { id: r.id, found: true, live: price, buyable, stock: buyable ? (limit == null ? 99 : limit) : 0 };
+        const f = fieldsFor(text, slug);
+        if (!f || !(f.price > 0)) return { id: r.id, found: false, status };
+        const buyable = !(f.limit === 0);
+        return { id: r.id, found: true, live: f.price, buyable, stock: buyable ? (f.limit == null ? 99 : f.limit) : 0 };
       });
     }
   };
