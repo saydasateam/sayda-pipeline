@@ -33,7 +33,7 @@ starves the categories where a real deal is worth fewer riyals.
 Unknown slugs land in `fallback` and are listed in `work/report.json → uncategorised`. Adding a category
 is now one chip + its slugs, with no per-run judgement. (The array shape still loads, for older data.)
 
-**6. We keep our own price history.** `data/history.json` records every observed price per row
+**6. We keep our own price history.** `data/state/<store>.history.json` records every observed price per row
 (`[firstSeen, price, lastSeen]`, 60 points max). KanBkam only covers Noon/Amazon/Extra electronics, so
 fashion and furniture had no reference and landed as `na` forever. After `verdict.ownHistoryMinDays`
 distinct days, `apply.js check` re-judges `na` rows against what *we* measured — which also catches the

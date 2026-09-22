@@ -1,0 +1,5 @@
+# build output — rebuilt from data/ on every run, published to sayda-deals, never tracked here
+dist/
+# per-run scratch: collect/check/coupons/market sweeps and report.json
+work/
+node_modules/
