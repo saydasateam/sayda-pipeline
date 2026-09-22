@@ -30,23 +30,23 @@
 
   S.adapters.firstcry = {
     render: true,
+    // scroll-only: this store's «load more» control is a LINK to page 2, and clicking it navigates
+    // away and kills the injected script (observed 22 Sep). Breadth comes from the configured paths,
+    // 20 server-listed cards each, not from paging a single listing.
     async collectRender(cfg, rules, opts = {}) {
-      const want = opts.want || cfg.collect.want || 60; let last = -1, stuck = 0, steps = 0;
-      while (cardsNow().length < want && stuck < 3 && steps < 25) {
-        const more = [...document.querySelectorAll('button, a, div')]
-          .find(b => /عرض المزيد|المزيد|Load more|Show more|التالي/i.test((b.textContent || '').trim()) && (b.textContent || '').trim().length < 24);
-        if (more) more.click();
+      let last = -1, stuck = 0, steps = 0;
+      while (stuck < 2 && steps < 6) {
         window.scrollTo(0, document.body.scrollHeight);
-        await S.sleep(1800); steps++;
+        await S.sleep(1200); steps++;
         const n = cardsNow().length; if (n === last) stuck++; else { stuck = 0; last = n; }
       }
       const seen = new Set(), out = [];
       for (const c of cardsNow()) { const x = parseCard(c);
         if (!x.key || !x.url || seen.has(x.key)) continue; seen.add(x.key);
         if (!S.isCandidate(x.price, x.was, rules)) continue;
-        out.push({ ...x, brand: '', inStock: true, cat: cfg.collect.cat || 'firstcry' }); }
+        out.push({ ...x, brand: '', inStock: true, cat: cfg.collect && cfg.collect.cat || 'firstcry' }); }
       out.sort((a, b) => (b.was - b.price) - (a.was - a.price));
-      return { candidates: out, stats: { cards: cardsNow().length, steps, stop: stuck >= 3 ? 'listStoppedGrowing' : 'enough', passing: out.length } };
+      return { candidates: out, stats: { cards: cardsNow().length, steps, passing: out.length, path: location.pathname } };
     },
     async collect() { throw new Error('firstcry: prices render client-side — use collectRender() on a listing page'); },
     // rendered check: the tab must already be ON r.url (driver navigates, waits, then calls this)
