@@ -9,15 +9,29 @@
    "name": "ليبفروق - كرة أرضية الألعاب السحرية التفاعلية التعليمية",
    "price": 494.01,
    "was": 1128.64,
-   "ref": null,
-   "verdict": "na",
-   "finding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 494,
+   "verdict": "bad",
+   "finding": "نفس سعر Amazon.sa (٤٩٤)",
    "url": "https://www.firstcry.sa/leapfrog/leapfrog-magic-adventures-globe-interactive-educational-toy-with-bbc-videos-world-geography-learning-for-children-5-years/c57eduae20ab67/product-detail",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 494
+    },
+    "min": 494.01,
+    "max": 494.01,
+    "n": 1,
+    "src": "market",
+    "on": "2026-09-22"
+   },
+   "bk": "nosaving"
   },
   {
    "id": "firstcry:2bed1aefaa524",
@@ -121,15 +135,29 @@
    "name": "سكيب هوب - مركز الأنشطة لـ3 مراحل اكسبلور آند مور",
    "price": 719.25,
    "was": 959,
-   "ref": null,
-   "verdict": "na",
-   "finding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 742,
+   "verdict": "bad",
+   "finding": "نفس سعر Amazon.sa (٧٤٢)",
    "url": "https://www.firstcry.sa/skip-hop/skip-hop-explore-and-more-3-stage-activity-center-toddler-play-table-interactive-discovery-window-360-rotating-seat-25-developmental-activities-adjustable-height-easy-assembly-4-months-grey/ee031aeb6a090/product-detail",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 742
+    },
+    "min": 741.69,
+    "max": 741.69,
+    "n": 1,
+    "src": "market",
+    "on": "2026-09-22"
+   },
+   "bk": "nosaving"
   },
   {
    "id": "firstcry:68d97ae480520",
@@ -137,15 +165,28 @@
    "name": "ليبفروق - مكنسة بيك أب آند كاونت",
    "price": 268.92,
    "was": 508.45,
-   "ref": null,
-   "verdict": "na",
-   "finding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 313,
+   "verdict": "ok",
+   "finding": "أرخص من Amazon.sa (٣١٣)",
    "url": "https://www.firstcry.sa/leapfrog/leapfrog-pick-up-and-count-vacuum-educational-toy-for-motor-skills-tactile-and-auditory-learning-2-5-years-multicolor/68d97ae480520/product-detail",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 313
+    },
+    "min": 312.78,
+    "max": 312.78,
+    "n": 1,
+    "src": "market",
+    "on": "2026-09-22"
+   }
   },
   {
    "id": "firstcry:c3966uaeaefff1",
@@ -153,15 +194,29 @@
    "name": "ليبفروق - 2 في 1 لابتوب تاتش - وردي",
    "price": 187.01,
    "was": 416.68,
-   "ref": null,
-   "verdict": "na",
-   "finding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 176,
+   "verdict": "bad",
+   "finding": "Amazon.sa ١٧٦ · أرخص من هنا",
    "url": "https://www.firstcry.sa/leapfrog/leapfrog-2-in-1-leaptop-touch-pink-educational-toy-laptop-tablet-for-kids-2-with-abcs-numbers-games-music-learning-modes-and-handle/c3966uaeaefff1/product-detail",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 176
+    },
+    "min": 176.3,
+    "max": 199,
+    "n": 1,
+    "src": "market",
+    "on": "2026-09-22"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "firstcry:57c04ae3bbab9",
@@ -201,15 +256,29 @@
    "name": "ليبفروق - لابتوب تاتش 2 في 1 - أخضر",
    "price": 214,
    "was": 413.45,
-   "ref": null,
-   "verdict": "na",
-   "finding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 176,
+   "verdict": "bad",
+   "finding": "Amazon.sa ١٧٦ · أرخص من هنا",
    "url": "https://www.firstcry.sa/leapfrog/leapfrog-2-in-1-leaptop-touch-green/c3809ae694260/product-detail",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 176
+    },
+    "min": 176.3,
+    "max": 216.75,
+    "n": 2,
+    "src": "market",
+    "on": "2026-09-22"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "firstcry:1f6d3ae957fc9",
@@ -249,15 +318,29 @@
    "name": "هايب - جراج بارك آند جو الخشبي",
    "price": 246.01,
    "was": 369,
-   "ref": null,
-   "verdict": "na",
-   "finding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 221,
+   "verdict": "bad",
+   "finding": "dnalifestyle.sa ٢٢١ · أرخص من هنا",
    "url": "https://www.firstcry.sa/hape/hape-wooden-park-and-go-garage-playset-multilevel-parking-eco-friendly-toy-includes-cars-and-helicopter-ages-4/1c57cae9fed12/product-detail",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "dnalifestyle.sa",
+     "price": 221
+    },
+    "min": 221.4,
+    "max": 221.4,
+    "n": 1,
+    "src": "market",
+    "on": "2026-09-22"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "firstcry:cf130aedef1e3",

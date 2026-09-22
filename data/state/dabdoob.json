@@ -249,15 +249,28 @@
    "name": "أيفو - سكوتر لايت أب موف ان جروف لون وردي",
    "price": 142.11,
    "was": 217.5,
-   "ref": null,
-   "verdict": "na",
-   "finding": "دبدوب · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 165,
+   "verdict": "ok",
+   "finding": "أرخص من eXtra Stores (١٦٥)",
    "url": "https://dabdoob.com/ar-SA/product/evo-light-up-move-n-groove-scooter-pink-61975",
    "avail": "in",
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-22",
+   "refKind": "market",
+   "refUrl": null,
+   "ev": {
+    "market": {
+     "store": "eXtra Stores",
+     "price": 165
+    },
+    "min": 165,
+    "max": 165,
+    "n": 1,
+    "src": "market",
+    "on": "2026-09-22"
+   }
   },
   {
    "id": "dabdoob:ninjombie-action-figure-haz-mat-136827",
