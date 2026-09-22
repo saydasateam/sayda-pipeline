@@ -97,6 +97,14 @@ const mine = Object.fromEntries([...touched].map(id => [id, all[id] || []]));
 report.wrote = S.saveStores(ROOT, mine, { updated: today, checkedAt: mode === 'check' ? riy.toISOString().replace('Z', '+03:00') : null });
 const histWrote = hist ? H.save(ROOT, hist, [...touched]) : [];   // same rule: only this slot's history shards
 // the exact files this slot must upload — one directory, so one upload form and one commit
-report.upload = [...report.wrote.map(s => `data/state/${s}.json`), ...histWrote.map(s => `data/state/${s}.history.json`)];
+const mineNow = [...report.wrote.map(s => `data/state/${s}.json`), ...histWrote.map(s => `data/state/${s}.history.json`)];
+// A run calls apply.js more than once (check, then new), and each call rewrites work/report.json.
+// The upload list must survive that: it is the UNION of every call in this run, kept in
+// work/upload.json (work/ starts empty in every fresh clone). Uploading only the last call's list
+// would drop the check phase's shards — found 22 Sep, before the first sharded run.
+const UP = path.join(ROOT, 'work/upload.json');
+let prevUp = []; try { prevUp = JSON.parse(fs.readFileSync(UP, 'utf8')); } catch (e) {}
+report.upload = [...new Set([...prevUp, ...mineNow])].sort();
+fs.mkdirSync(path.join(ROOT, 'work'), { recursive: true }); fs.writeFileSync(UP, JSON.stringify(report.upload, null, 1));
 fs.mkdirSync(path.join(ROOT, 'work'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'work/report.json'), JSON.stringify(report, null, 1));
 console.log(JSON.stringify({ rows: state.rows.length, ...Object.fromEntries(Object.entries(report).filter(([k, v]) => Array.isArray(v)).map(([k, v]) => [k, v.length])) }));

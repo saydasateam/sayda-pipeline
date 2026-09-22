@@ -153,7 +153,7 @@ node build.js      # dist/index.html — note the "rows/available" counts it pri
 - Same for the data files into this repo. **State is sharded per store** — `data/state/<id>.json` and `data/state/<id>.history.json`, in ONE directory —
   so that overlapping slots cannot revert each other. Upload **only the shards this slot touched**, which `work/report.json → wrote`
   names explicitly, plus the matching history shards, **all in one commit**: select them in one `file_upload` call to
-  `https://github.com/saydasateam/sayda-pipeline/upload/main/data/state`. `work/report.json → upload` lists the exact paths.
+  `https://github.com/saydasateam/sayda-pipeline/upload/main/data/state`. `work/report.json → upload` lists the exact paths — it is the union of every `apply.js` call in this run (also kept in `work/upload.json`), so the check phase's shards are still listed after `apply.js new`.
   Everything a slot writes lives in `data/state/` precisely so this is possible: GitHub's upload form commits to one directory,
   so files in two folders would need two commits.
   - **Never upload a shard for a store this slot did not check.** That is the single-file clobber coming back through the
