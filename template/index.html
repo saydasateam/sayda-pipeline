@@ -435,9 +435,14 @@ document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>صف�
  +` · <b>أغلى أو بلا توفير</b> = نفس الموديل متوفر بسعر أقل في متجر آخر، أو ارتفع سعره عمّا كان، أو لا فرق يُذكر عن مرجع المقارنة.`
  +` · <b>بلا سجل سعري</b> = لا سجل أسعار ولا نفس الموديل في متجر آخر للمقارنة.`
  +` <br>ويُقاس الفرق إمّا من <b>سعره السابق</b> في سجل الأسعار، أو من سعر <b>نفس الموديل في متجر آخر</b>؛ مرجع كل صف مكتوب تحت الرقم في عمود «مرجع المقارنة». الصف المقاس على متجر آخر يُوصف بـ «أرخص من متجر آخر» لا بـ «خصم»، لأن المتجر لم يخفّض سعره بالضرورة.`;})();
-const DEF={a:'avail',v:'ok'};
+// Verdict filter opens on «الكل» (Mahmoud, 22 Sep). Opening on «ok» hid every row from a store with
+// no external price record — six furniture stores and both toy stores rendered as 0 — so the page
+// looked empty while 328 rows were live. Each row still carries its own verdict label and finding,
+// so nothing here claims a discount the row cannot back: `na` says it has no record, `bad` says it
+// is not cheaper. Availability still defaults to «متاح».
+const DEF={a:'avail',v:'all'};
 const MULTI={c:1,s:1};
-const F={a:'avail',v:'ok',c:[],s:[],pmin:null,pmax:null};
+const F={a:'avail',v:'all',c:[],s:[],pmin:null,pmax:null};
 let SORT='default';
 const matchV=(d,f)=>f.v==='all'||d.v===f.v;
 const matchA=(d,f)=>f.a==='all'?true:f.a==='avail'?!UN(d):f.a==='low'?d.a==='low':UN(d);
