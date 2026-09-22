@@ -19,19 +19,25 @@ const label = id => (storeById[id]||{}).label || id;
 // positions 0..8 are fixed: store · cat · name · price · was · ref · verdict · finding · url
 // position 9 is an optional extras object, so new fields never renumber the ones before them:
 //   a availability · an note · rk refKind(h|m) · bk badKind(c|r|n) · lc lastChecked · ru compared-product url
+// The price tracker we read history from is not named or linked anywhere on the public page
+// (decided 2026-09-22, after it began blocking our requests). Its data stays in state for the
+// pipeline; the page describes it generically. build fails if the name leaks back in.
+const TRACKER = /kanbkam/i, TRACKER_AR = /كان ?بكام/g;
+const pubUrl = u => (u && !TRACKER.test(u)) ? u : null;
+const pubText = t => typeof t === 'string' ? t.replace(TRACKER_AR, 'سجل الأسعار').replace(/kanbkam/gi, 'سجل الأسعار') : t;
 const RK = { history: 'h', market: 'm' }, BK = { cheaper: 'c', rose: 'r', nosaving: 'n' };
 const D = st.rows.map(r => {
-  const a = [label(r.store), r.cat, r.name, r.price, r.was, r.ref ?? null, r.verdict, r.finding, r.url];
+  const a = [label(r.store), r.cat, pubText(r.name), r.price, r.was, r.ref ?? null, r.verdict, pubText(r.finding), r.url];
   const x = {};
   if (r.avail && r.avail !== 'in') x.a = r.avail;
-  if (r.availNote) x.an = r.availNote;
+  if (r.availNote) x.an = pubText(r.availNote);
   if (RK[r.refKind]) x.rk = RK[r.refKind];
   if (BK[r.bk]) x.bk = BK[r.bk];
   if (r.lastChecked) x.lc = r.lastChecked;
-  if (r.refUrl) x.ru = r.refUrl;
+  if (pubUrl(r.refUrl)) x.ru = r.refUrl;
   // the evidence behind the comparison, so the page can show the recorded range and link to the source
   if (r.ev) { const e = {}; if (r.ev.prev != null) e.p = r.ev.prev; if (r.ev.min != null) e.mn = r.ev.min;
-    if (r.ev.max != null) e.mx = r.ev.max; if (r.ev.url) e.u = r.ev.url; if (r.ev.src) e.s = r.ev.src;
+    if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (r.ev.src && !TRACKER.test(r.ev.src)) e.s = r.ev.src;
     if (Object.keys(e).length) x.ev = e; }
   if (Object.keys(x).length) a.push(x);
   return a;
@@ -91,6 +97,7 @@ fill.STORE_COUNT_AR = countWord(cfg.stores.length); // "الستة عشر" etc. 
 let out = tpl;
 for (const [k,v] of Object.entries(fill)) out = out.split(`{{${k}}}`).join(v);
 const left = out.match(/{{[A-Z_]+}}/g); if (left) throw new Error('unfilled: '+left.join(','));
+if (TRACKER.test(out) || /كان ?بكام/.test(out)) throw new Error('build: the price tracker is named on the public page — scrub it (see TRACKER above)');
 
 fs.mkdirSync(path.join(ROOT,'dist'), {recursive:true});
 fs.writeFileSync(path.join(ROOT,'dist/index.html'), out);
