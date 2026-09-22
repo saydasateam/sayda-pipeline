@@ -2,8 +2,8 @@
  "meta": {
   "campaign": "اليوم الوطني ٩٦",
   "campaignEnd": "2026-09-30",
-  "updated": "2026-09-20",
-  "checkedAt": "2026-09-20T13:24:55.885+03:00"
+  "updated": "2026-09-22",
+  "checkedAt": "2026-09-22T09:16:46.652+03:00"
  },
  "rows": [
   {
@@ -19,7 +19,7 @@
    "url": "https://www.amazon.sa/dp/B0CP31L73X",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 729,
@@ -41,9 +41,9 @@
    "verdict": "ok",
    "finding": "كان ١٩٨ · نفس السعر في نون",
    "url": "https://www.amazon.sa/dp/B01NBW4GMW",
-   "avail": "ended",
-   "availNote": "أمازون: عاد السعر إلى ٤٧٥ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 198,
@@ -67,7 +67,7 @@
    "url": "https://www.noon.com/saudi-ar/N41179092A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 199,
@@ -89,9 +89,9 @@
    "verdict": "ok",
    "finding": "كان ٣٥٨ · أقل سعر مسجل تقريباً (٩٤)",
    "url": "https://www.amazon.sa/dp/B09VTJFBZC",
-   "avail": "ended",
-   "availNote": "أمازون: عاد السعر إلى ٣٥٨ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 358,
@@ -115,7 +115,7 @@
    "url": "https://www.noon.com/saudi-ar/N13316224A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 395,
@@ -139,7 +139,7 @@
    "url": "https://www.noon.com/saudi-ar/N12194963A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 468,
@@ -163,7 +163,7 @@
    "url": "https://www.noon.com/saudi-ar/N70215257V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 13377,
@@ -187,7 +187,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/bosch-climate-line-split-air-conditioner-21-000-btu-t3-inverter-compressor-heat-cold/p/100336309",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -212,7 +212,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/qled-tv/hisense-65-inch-qled-4k-smart-tv-144hz-8-years-os-update-ai/p/100485276",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 5199,
@@ -236,7 +236,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/bosch-split-air-conditioner-18-300-btu-cold-only-t3-rotary-polar-white/p/100336313",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -261,7 +261,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/dryers/european-dryer/lg-dual-inverter-heatpump-dryer-10kg-sensor-dry-allergy-care-white/p/100317889",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -286,7 +286,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 4499,
@@ -310,7 +310,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-cellular-46mm-rose-gold-aluminium-case/p/100384100",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 2149,
@@ -334,7 +334,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-46mm-silver-aluminium-case-with-denim-sport-band-m-l/p/100378961",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 1729,
@@ -358,7 +358,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-se-gps-40mm-starlight-aluminium-case-with-starlight-sport-band-s-m/p/100379085",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 899,
@@ -382,7 +382,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/lg-spilt-ac-21-500-btu-cool-win-dual-inverter-compressor/p/100363937",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 2675,
@@ -398,15 +398,15 @@
    "store": "extra",
    "cat": "إلكترونيات",
    "name": "جالاكسي S25 ‏256GB",
-   "price": 2299,
+   "price": 3402,
    "was": 3639,
    "ref": 3639,
-   "verdict": "ok",
-   "finding": "كان ٣٬٦٣٩ · نزول عام في السوق",
+   "verdict": "warn",
+   "finding": "كان ٣٬٦٣٩ · سبق ونزل ٢٬٢٩٩",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-5g-256-gb-navy/p/100392593",
-   "avail": "oos",
-   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "avail": "low",
+   "availNote": "إكسترا: متبقي 1",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 3639,
@@ -430,7 +430,7 @@
    "url": "https://www.extra.com/ar-sa/computer/laptops/clamshell/asus-vivobook-s16-clamshell-amd-ryzen-ai-7-16gb-1tb-16-inch-fhd-silver/p/100500820",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 6499,
@@ -454,7 +454,7 @@
    "url": "https://www.noon.com/saudi-ar/N53432096A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 299,
@@ -478,7 +478,7 @@
    "url": "https://www.amazon.sa/dp/B0BZV4QFP8",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 299,
@@ -502,7 +502,7 @@
    "url": "https://www.amazon.sa/dp/B01MTB55WH",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 199,
@@ -518,15 +518,15 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "سوار هواوي Band 9",
-   "price": 139,
+   "price": 223,
    "was": 249,
    "ref": 134,
    "verdict": "bad",
    "finding": "السعر ارتفع (كان ١٣٤)",
    "url": "https://www.noon.com/saudi-ar/N70053123V/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -551,7 +551,7 @@
    "url": "https://www.amazon.sa/dp/B0C1P49WKF",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 2759,
@@ -575,7 +575,7 @@
    "url": "https://www.amazon.sa/dp/B0FFT72CBX",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -592,7 +592,7 @@
    "store": "noon",
    "cat": "عطور",
    "name": "YSL Libre Intense ‏90مل",
-   "price": 328,
+   "price": 320,
    "was": 899,
    "ref": 420,
    "verdict": "ok",
@@ -600,7 +600,7 @@
    "url": "https://www.noon.com/saudi-ar/N51628022A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 420.4,
@@ -622,9 +622,9 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ٤٩٠",
    "url": "https://www.noon.com/saudi-ar/N11201185A/p/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -647,9 +647,9 @@
    "verdict": "bad",
    "finding": "السعر ارتفع (كان ٣٧٩)",
    "url": "https://www.amazon.sa/dp/B0D5H3YF9B",
-   "avail": "low",
-   "availNote": "أمازون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "أمازون: لا يوجد زر شراء — عروض بائعين آخرين فقط",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -674,7 +674,7 @@
    "url": "https://www.noon.com/saudi-ar/N51574509A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -697,9 +697,9 @@
    "verdict": "bad",
    "finding": "السعر ارتفع (كان ٢٢٩) · وأقل سعر مسجل ٢٠٢",
    "url": "https://www.noon.com/saudi-ar/N53378566A/p/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20",
+   "avail": "low",
+   "availNote": "نون: متبقي 1",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -716,15 +716,15 @@
    "store": "noon",
    "cat": "عطور",
    "name": "Gucci Flora Gorgeous Gardenia ‏100مل",
-   "price": 274,
+   "price": 347,
    "was": 795,
-   "ref": 356,
-   "verdict": "ok",
-   "finding": "كان ٣٥٦ · أقل سعر مسجل",
+   "ref": 355.85,
+   "verdict": "bad",
+   "finding": "الفرق الحقيقي 2٪ فقط · «قبل» ٧٩٥ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N50953184A/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 355.85,
@@ -748,7 +748,7 @@
    "url": "https://www.noon.com/saudi-ar/N70002048V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 449,
@@ -770,9 +770,9 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ٥٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70096217V/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -797,7 +797,7 @@
    "url": "https://www.noon.com/saudi-ar/N70098449V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -822,7 +822,7 @@
    "url": "https://www.noon.com/saudi-ar/N70189410V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 982,
@@ -838,15 +838,15 @@
    "store": "noon",
    "cat": "عطور",
    "name": "Armani Stronger With You Intensely ‏100مل",
-   "price": 260,
+   "price": 271,
    "was": 726,
    "ref": 340,
    "verdict": "ok",
    "finding": "كان ٣٤٠ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N32137438A/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 339.7,
@@ -870,7 +870,7 @@
    "url": "https://www.noon.com/saudi-ar/N41427645A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 414,
@@ -894,7 +894,7 @@
    "url": "https://www.noon.com/saudi-ar/N53335721A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 999,
@@ -917,8 +917,8 @@
    "finding": "كان ٤٬١٩٩ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70206847V/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "availNote": "نون: متبقي 2",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 4199,
@@ -942,7 +942,7 @@
    "url": "https://www.noon.com/saudi-ar/N70282500V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 419,
@@ -966,7 +966,7 @@
    "url": "https://www.noon.com/saudi-ar/N70028165V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 499,
@@ -990,7 +990,7 @@
    "url": "https://www.amazon.sa/dp/B0GZKZFKMT",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 3999,
@@ -1014,7 +1014,7 @@
    "url": "https://www.noon.com/saudi-ar/N70177297V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 4896,
@@ -1038,7 +1038,7 @@
    "url": "https://www.amazon.sa/dp/B09BZR9JFG",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -1061,9 +1061,9 @@
    "verdict": "warn",
    "finding": "كان ١٬٤٤٩ · لكن سبق ونزل ٦٩٩",
    "url": "https://www.amazon.sa/dp/B08CKWYL3Z",
-   "avail": "oos",
-   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 1",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 1449,
@@ -1087,7 +1087,7 @@
    "url": "https://www.amazon.sa/dp/B08B8YCYFG",
    "avail": "low",
    "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 467.99,
@@ -1103,15 +1103,15 @@
    "store": "noon",
    "cat": "ألعاب",
    "name": "يد DualSense بلايستيشن 5",
-   "price": 239,
+   "price": 229,
    "was": 484,
    "ref": 239.4,
    "verdict": "bad",
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ٤٨٤ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N40633049A/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -1136,7 +1136,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-55-inch-neo-qled-4k-ai-upscaling-144hz-airslim-design/p/100434138",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 5599,
@@ -1158,9 +1158,9 @@
    "verdict": "warn",
    "finding": "كان ٩٬٧٩٩ · لكن سبق ونزل ٣٬٣٣٣",
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-75-inch-neo-qled-4k-ai-upscaling-144hz-airslim-design/p/100434130",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20",
+   "avail": "low",
+   "availNote": "إكسترا: متبقي 2",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 9799,
@@ -1184,7 +1184,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/ipad/apple-ipad-air-m3-gen-2025-wi-fi-11-inch-128gb-space-grey/p/100396462",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 4165,
@@ -1208,7 +1208,7 @@
    "url": "https://www.amazon.sa/dp/B0B1X7H6XS",
    "avail": "low",
    "availNote": "أمازون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 3219,
@@ -1232,7 +1232,7 @@
    "url": "https://www.noon.com/saudi-ar/N39359748A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 3412,
@@ -1256,7 +1256,7 @@
    "url": "https://www.noon.com/saudi-ar/N70370387V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 1999,
@@ -1280,7 +1280,7 @@
    "url": "https://www.noon.com/saudi-ar/N70102694V/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٢٩٦ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -1305,7 +1305,7 @@
    "url": "https://www.noon.com/saudi-ar/N70188450V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 6220,
@@ -1329,7 +1329,7 @@
    "url": "https://www.noon.com/saudi-ar/N70136207V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 1699,
@@ -1353,7 +1353,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-tab-a11-tablet-pc-670881.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1369,7 +1369,7 @@
    "url": "https://www.jarir.com/samsung-u8-smart-tv-681233.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1385,7 +1385,7 @@
    "url": "https://www.jarir.com/huawei-watch-fit-4-smartwatch-657289.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1401,7 +1401,7 @@
    "url": "https://www.jarir.com/hisense-hisense-a6q-smart-tv-672673.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "history"
   },
@@ -1418,7 +1418,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s25-edge-smartphones-657472.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market",
    "bk": "nosaving"
   },
@@ -1427,7 +1427,7 @@
    "store": "jarir",
    "cat": "إلكترونيات",
    "name": "جالاكسي S25 Ultra ‏512GB",
-   "price": 3799,
+   "price": 3699,
    "was": 5899,
    "ref": 3799,
    "verdict": "bad",
@@ -1435,7 +1435,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s25-ultra-smartphones-650926.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market",
    "bk": "nosaving"
   },
@@ -1452,7 +1452,7 @@
    "url": "https://www.jarir.com/hisense-hisense-u7q-smart-tv-672703.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -1469,7 +1469,7 @@
    "url": "https://www.jarir.com/samsung-m1e-smart-tv-682548.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -1486,7 +1486,7 @@
    "url": "https://www.jarir.com/skyworth-x8700g-smart-tv-663712.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -1503,7 +1503,7 @@
    "url": "https://www.jarir.com/xiaomi-s-mini-pro-smart-tv-680357.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1520,7 +1520,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s26-ultra-smartphones-677535.html",
    "avail": "oos",
    "availNote": "جرير: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1529,7 +1529,7 @@
    "store": "jarir",
    "cat": "إلكترونيات",
    "name": "آيفون Air ‏512GB",
-   "price": 4499,
+   "price": 4799,
    "was": 5699,
    "ref": 4288,
    "verdict": "bad",
@@ -1537,7 +1537,7 @@
    "url": "https://www.jarir.com/apple-iphone-air-smartphones-666768.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1554,7 +1554,7 @@
    "url": "https://www.jarir.com/sony-headsets-614929.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1571,7 +1571,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-watch-8-40-smartwatch-662000.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1588,7 +1588,7 @@
    "url": "https://www.jarir.com/marshall-speaker-585510.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1605,7 +1605,7 @@
    "url": "https://www.jarir.com/huawei-headsets-628907.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1620,9 +1620,9 @@
    "verdict": "ok",
    "finding": "أرخص من نون (٧٬١٩٩) · نزل من ٥٬٩٩٩ أمس",
    "url": "https://www.blackbox.com.sa/ar/product/lg-75-inches-qned-evo-tv-web-os-25-smart-a8-gen-2-4-k-p-1411111391605007",
-   "avail": "low",
-   "availNote": "بلاك بوكس: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1638,7 +1638,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1653,7 +1653,7 @@
    "finding": "نون ١٥٬٩٩٩ · «قبل» ٢٥٬١٩٩ مبالغ",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004",
    "avail": "low",
-   "availNote": "بلاك بوكس: متبقي 3",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-09-20",
    "refKind": "market"
   },
@@ -1670,7 +1670,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/lg-86-inches-qned-evo-ai-tv-web-os-25-smart-a9-gen-8-4-p-1411111391715006",
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "history"
   },
@@ -1687,7 +1687,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1703,7 +1703,7 @@
    "finding": "أغلى من نون (٢٬٩٩٩) · كان ٣٬٢٤٩ أمس",
    "url": "https://www.blackbox.com.sa/ar/product/lg-65-inches-qned-tv-web-os-25-2025-smart-4-k-uhd-hdr-10-p-1411111391505002",
    "avail": "in",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-09-20",
    "bk": "cheaper",
    "refKind": "history"
@@ -1720,7 +1720,7 @@
    "finding": "هاير ٧٥ QLED في نون بـ ٢٬٥٩٩",
    "url": "https://www.blackbox.com.sa/ar/product/haier-75-inches-qled-tv-smart-4-k-uhd-dolby-audio-gaming-google-tv-75-p-141111626160503",
    "avail": "in",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-09-20",
    "bk": "cheaper",
    "refKind": "market"
@@ -1738,7 +1738,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/philips-air-fryer-3000-series-9-l-2750-w-dual-basket-black-na350-09-p-1552221120000003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1755,7 +1755,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/philips-fully-automatic-espresso-machine-1.8-l-2-beverages-touch-screen-gray-p-153412111000015",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1771,7 +1771,7 @@
    "finding": "لا يوجد في متجر آخر للمقارنة · «قبل» ٢٩٬٣٩٩ مبالغ جداً",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
    "avail": "in",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-09-20"
   },
   {
@@ -1787,7 +1787,7 @@
    "url": "https://www.almanea.sa/product/lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1803,7 +1803,7 @@
    "url": "https://www.almanea.sa/product/samsung-top-load-washing-machine-21-kg-hygiene-steam-black-wa21a8376gv-p-120300501121002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1819,7 +1819,7 @@
    "url": "https://www.almanea.sa/product/samsung-tv-85-inch-4k-uhd-smart-mini-led-hdr-tizen-ua85m70hauxsa-p-139900599485062",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1835,7 +1835,7 @@
    "url": "https://www.almanea.sa/product/samsung-tv-75-inch-4k-uhd-smart-mini-led-hdr-tizen-tv-ua75m80hauxsa-p-139900599475092",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -1851,7 +1851,7 @@
    "url": "https://www.almanea.sa/product/lg-100-inch-qned-evo-ai-qned86-mini-led-4k-smart-tv-144hz-vrr-ai-magic-remote-webos25-2025-p-139900799498006",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1866,9 +1866,9 @@
    "verdict": "bad",
    "finding": "أمازون ٤٬٦٩٩ · نزل من ٨٬٢٠٩ أمس",
    "url": "https://www.almanea.sa/product/lg-98-inch-4k-uhd-smart-led-tv-98ut90006la-p-139900799498005",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20",
+   "avail": "low",
+   "availNote": "المنيع: متبقي 1",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1885,7 +1885,7 @@
    "url": "https://www.almanea.sa/product/samsung-98-inch-4k-crystal-uhd-smart-tv-ua98du9000uxsa-p-139900599498005",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1902,7 +1902,7 @@
    "url": "https://www.almanea.sa/product/samsung-75-inch-4k-smart-neo-qled-tv-with-built-in-receiver-qa75qn70fauxsa-p-139900599475075",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1917,9 +1917,9 @@
    "verdict": "bad",
    "finding": "أمازون ٢٬٦٩٩",
    "url": "https://www.almanea.sa/product/samsung-75-inch-4k-uhd-smart-qled-tv-with-built-in-receiver-qa75q8faauxsa-p-139900599475077",
-   "avail": "low",
-   "availNote": "المنيع: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1936,7 +1936,7 @@
    "url": "https://www.almanea.sa/product/lg-86-inch-4k-uhd-smart-qned-tv-86qned70a6a-p-139900799486038",
    "avail": "low",
    "availNote": "المنيع: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1953,7 +1953,7 @@
    "url": "https://www.almanea.sa/product/tcl-tv-98-inch-4k-qd-mini-led-98q6c-p-139904799498011",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1970,7 +1970,7 @@
    "url": "https://www.almanea.sa/product/samsung-65-inch-4k-uhd-smart-oled-tv-qa65s85faexsa-p-139900599465102",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -1987,7 +1987,7 @@
    "url": "https://www.almanea.sa/product/lg-18-kg-front-load-washing-machine-black-with-dryer-wsn1810bmt-p-120300702118002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2004,7 +2004,7 @@
    "url": "https://www.almanea.sa/product/lg-front-loading-automatic-washing-machine-21-kg-silver-wf2111xmt-p-120300702121003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2021,7 +2021,7 @@
    "url": "https://www.almanea.sa/product/lg-dishwasher-stainless-steel-black-10-programs-14-place-dfc335hd-p-120500701814038",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2030,7 +2030,7 @@
    "store": "saco",
    "cat": "المنزل",
    "name": "ديلونجي Magnifica ECAM12.121",
-   "price": 1999,
+   "price": 1499,
    "was": 2699,
    "ref": null,
    "verdict": "na",
@@ -2038,7 +2038,7 @@
    "url": "https://www.saco.sa/product/delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "saco:dyson-v15-detect-extra-cordless-vacuum-cleaner-nickel-blue-476609-01-p-000000000000113865",
@@ -2053,7 +2053,7 @@
    "url": "https://www.saco.sa/product/dyson-v15-detect-extra-cordless-vacuum-cleaner-nickel-blue-476609-01-p-000000000000113865",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2070,7 +2070,7 @@
    "url": "https://www.saco.sa/product/dyson-v8-advanced-cordless-stick-vacuum-cleaner-grey-and-purple-231716970401-p-000000000000101580",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2087,7 +2087,7 @@
    "url": "https://www.saco.sa/product/philips-2000w-3000-series-rapidair-plus-technology-air-fryer-black-7-2-liter-na342-00-p-000000000000108809",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2096,7 +2096,7 @@
    "store": "saco",
    "cat": "المنزل",
    "name": "نسبريسو Vertuo Lattissima",
-   "price": 1949,
+   "price": 1849,
    "was": 2999,
    "ref": 1895,
    "verdict": "bad",
@@ -2104,7 +2104,7 @@
    "url": "https://www.saco.sa/product/nespresso-1500w-vertuo-lattissima-coffee-maker-black-1-6-liter-gdv5-bk-p-000000000000094494",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2121,7 +2121,7 @@
    "url": "https://www.saco.sa/product/philips-5000-series-cordless-stick-vacuum-cleaner-teal-and-black-xc5041-61-p-000000000000097481",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -2138,7 +2138,7 @@
    "url": "https://www.saco.sa/product/philips-airfryer-compact-with-see-through-window-1500w-60hz-4-2l-0-6kgs-touch-screen-13-functions-rapidair-technology-black-na220-00-p-000000000000094660",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -2155,7 +2155,7 @@
    "url": "https://www.saco.sa/product/bissell-330w-multiclean-spot-and-stain-proheat-portable-carpet-and-furniture-deep-vacuum-cleaner-black-and-red-4720e-p-000000000000072562",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -2172,7 +2172,7 @@
    "url": "https://www.saco.sa/product/blueair-comfortpure-t10i-most-powerful-3-in-1-hepasilent-air-purifier-white-blu-112644-p-000000000000100024",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "amazon:B08CDLX7GK",
@@ -2185,9 +2185,9 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ١٬٨٦٠ لم يُسجّل",
    "url": "https://www.amazon.sa/dp/B08CDLX7GK",
-   "avail": "low",
-   "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "أمازون: لا يوجد زر شراء — عروض بائعين آخرين فقط",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -2212,7 +2212,7 @@
    "url": "https://www.noon.com/saudi-ar/N70356471V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "rose",
    "refKind": "history",
    "ev": {
@@ -2237,7 +2237,7 @@
    "url": "https://www.noon.com/saudi-ar/N12582309A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -2254,7 +2254,7 @@
    "store": "noon",
    "cat": "عطور",
    "name": "Calvin Klein Beauty EDP ‏100مل",
-   "price": 119,
+   "price": 99,
    "was": 565,
    "ref": 93,
    "verdict": "bad",
@@ -2262,7 +2262,7 @@
    "url": "https://www.noon.com/saudi-ar/N11200560A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -2287,7 +2287,7 @@
    "url": "https://www.amazon.sa/dp/B08BJ2119S",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "rose",
    "refKind": "history",
    "ev": {
@@ -2304,7 +2304,7 @@
    "store": "extra",
    "cat": "المنزل",
    "name": "مجفف سامسونج مضخة حرارية 16 كجم",
-   "price": 5249,
+   "price": 4999,
    "was": 9549,
    "ref": 2999,
    "verdict": "bad",
@@ -2312,7 +2312,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/dryers/european-dryer/samsung-dryer-16kg-18-programs-inverter-heat-pump-wifi-black/p/100318219",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market",
    "ev": {
@@ -2337,7 +2337,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/home-entertainment/home-theater/yamaha-yas-209-sound-bar-black/p/100198154",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 1839,
@@ -2361,7 +2361,7 @@
    "url": "https://www.extra.com/ar-sa/large-tvs-/lg-98-inch-uhd-4k-smart-tv-120-hz/p/100386572",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market",
    "ev": {
@@ -2386,7 +2386,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/skyworth-75-inch-miniled-google-tv-144-hz/p/100394802",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market",
    "ev": {
@@ -2411,7 +2411,7 @@
    "url": "https://www.amazon.sa/dp/B0H95BDCF7",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "ev": {
     "prev": 559,
     "min": 559,
@@ -2434,7 +2434,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-upholstered-storage-bed-gunnared-dark-grey-70447182/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ikea:60372276",
@@ -2449,7 +2449,7 @@
    "url": "https://www.ikea.com/sa/ar/p/hemnes-day-bed-frame-with-3-drawers-grey-60372276/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ikea:00458895",
@@ -2464,7 +2464,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-bed-frame-dark-brown-stained-00458895/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ikea:20561858",
@@ -2479,7 +2479,7 @@
    "url": "https://www.ikea.com/sa/ar/p/tidtabell-rug-flatwoven-grey-20561858/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ikea:50438353",
@@ -2494,7 +2494,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vinliden-cover-for-3-seat-sofa-hakebo-dark-grey-50438353/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ikea:50542905",
@@ -2509,7 +2509,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vihals-shelving-unit-with-10-shelves-dark-grey-50542905/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ashley:bolanburg-dining-table",
@@ -2524,7 +2524,7 @@
    "url": "https://store.ashley.sa/products/bolanburg-dining-table",
    "avail": "ended",
    "availNote": "أشلي: عاد السعر إلى ٣٬٠٧١ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -2541,7 +2541,7 @@
    "url": "https://store.ashley.sa/products/skempton-dining-table-and-chairs-set-of-7",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -2557,7 +2557,7 @@
    "url": "https://store.ashley.sa/products/modmax-swivel-glider-chair-ashley-homestore",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -2573,7 +2573,7 @@
    "url": "https://store.ashley.sa/products/bolanburg-dining-server",
    "avail": "ended",
    "availNote": "أشلي: عاد السعر إلى ٣٬٧٦١ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -2590,7 +2590,7 @@
    "url": "https://store.ashley.sa/products/havalance-dresser",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ashley:barnsana-power-reclining-sofa-1",
@@ -2605,7 +2605,7 @@
    "url": "https://store.ashley.sa/products/barnsana-power-reclining-sofa-1",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "midas:bolanburg-dining-table",
@@ -2880,7 +2880,7 @@
    "url": "https://cityw.com.sa/product/peppo-2-seater-boucle-fabric-loveseat-warm-ivory/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "cityw:6-seater-fabric-sofa-set-warm-grey",
@@ -2895,7 +2895,7 @@
    "url": "https://cityw.com.sa/product/6-seater-fabric-sofa-set-warm-grey/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "cityw:king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey",
@@ -2908,9 +2908,9 @@
    "verdict": "na",
    "finding": "سيتي دبليو · ١٠٠٪ من الكتالوج «مخفّض» · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://cityw.com.sa/product/king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20"
+   "avail": "gone",
+   "availNote": "سيتي دبليو: الصفحة غير موجودة",
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "cityw:12-seater-ceramic-top-dining-table-set-charcoal-and-bronze",
@@ -2925,7 +2925,7 @@
    "url": "https://cityw.com.sa/product/12-seater-ceramic-top-dining-table-set-charcoal-and-bronze/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "cityw:4-seater-fabric-sectional-sofa-warm-taupe-brown",
@@ -2940,7 +2940,7 @@
    "url": "https://cityw.com.sa/product/4-seater-fabric-sectional-sofa-warm-taupe-brown/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "baytonia:طقم-غرفة-نوم-مزدوج-بوما-5-قطع",
@@ -2955,14 +2955,14 @@
    "url": "https://baytonia.com/طقم-غرفة-نوم-مزدوج-بوما-5-قطع.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "baytonia:طاولة-تزيين-أمانتي",
    "store": "baytonia",
    "cat": "أثاث",
    "name": "بيتونيا: تسريحة أمانتي مع مرآة",
-   "price": 2496,
+   "price": 2296,
    "was": 4299,
    "ref": null,
    "verdict": "na",
@@ -2970,7 +2970,7 @@
    "url": "https://baytonia.com/طاولة-تزيين-أمانتي.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "baytonia:dlr-0024-طاولة-تلفاز-مودرن-اليغانت-فيرنيتشر",
@@ -2985,7 +2985,7 @@
    "url": "https://baytonia.com/dlr-0024-طاولة-تلفاز-مودرن-اليغانت-فيرنيتشر.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "baytonia:طاولة-قهوة-رونار-خشبية-و-أرجل-ستيل-و-سطح-رخام-و-زجاج",
@@ -3000,7 +3000,7 @@
    "url": "https://baytonia.com/طاولة-قهوة-رونار-خشبية-و-أرجل-ستيل-و-سطح-رخام-و-زجاج.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "baytonia:كنب-سرير-زاوية-مع-شاحن-بورفال-كحلي",
@@ -3013,9 +3013,9 @@
    "verdict": "na",
    "finding": "بيتونيا · تقييم ١٠٠٪ (١٥) · لا يوجد سجل خارجي",
    "url": "https://baytonia.com/كنب-سرير-زاوية-مع-شاحن-بورفال-كحلي.html",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20"
+   "avail": "gone",
+   "availNote": "بيتونيا: الصفحة غير موجودة",
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:941983655",
@@ -3030,7 +3030,7 @@
    "url": "https://www.trendyol.sa/honor/choice-2i-smartwatch-kch-wb01-black-p-941983655",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -3047,7 +3047,7 @@
    "url": "https://www.trendyol.sa/samsung/galaxy-fit3-gray-smart-bracelet-p-812824444",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3063,7 +3063,7 @@
    "url": "https://www.trendyol.sa/huawei/watch-fit-4-smart-watch-1-82-display-fitness-health-tracker-emotion-wellbeing-assistant-up-to-10-day-battery-life-ios-android-black-p-936261954",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3079,7 +3079,7 @@
    "url": "https://www.trendyol.sa/honor/watch-x5i-rtos-smart-watch-1-97inch-white-p-1125290899",
    "avail": "ended",
    "availNote": "ترينديول: عاد السعر إلى ١٤٠ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3095,7 +3095,7 @@
    "url": "https://www.trendyol.sa/xiaomi/smart-band-10-mystic-rose-p-950075100",
    "avail": "ended",
    "availNote": "ترينديول: عاد السعر إلى ١٩٩ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3111,7 +3111,7 @@
    "url": "https://www.trendyol.sa/huawei/freeclip-2-wireless-earphones-bluetooth-earbuds-38-hours-long-battery-life-ios-android-saudi-arabia-version-free-freeclip-2-cases-and-care-and-earbuds-loss-care-1-year-white-p-1085805468",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3127,7 +3127,7 @@
    "url": "https://www.trendyol.sa/soundcore/by-anker-r50i-nc-wireless-bluetooth-earphones-powerful-and-smart-noise-cancelling-powerful-bass-45-hours-playtime-2-in-1-case-and-phone-stand-ip54-bluetooth-5-4-black-p-1064625978",
    "avail": "ended",
    "availNote": "ترينديول: عاد السعر إلى ٨٩ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3143,14 +3143,14 @@
    "url": "https://www.trendyol.sa/xiaomi/redmi-buds-8-active-blue-wireless-earbuds-37-hour-battery-life-2-hours-of-battery-life-on-a-10-minute-charge-2-mics-for-ai-clear-calls-ip54-dual-device-connectivity-noise-reduction-p-1115037737",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "noon:N70029332V",
    "store": "noon",
    "cat": "شاشات",
    "name": "TCL ‏65 بوصة C755 QD-Mini LED",
-   "price": 2999,
+   "price": 2909,
    "was": 6699,
    "ref": 4829,
    "verdict": "ok",
@@ -3158,7 +3158,7 @@
    "url": "https://www.noon.com/saudi-ar/N70029332V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 4829,
@@ -3182,7 +3182,7 @@
    "url": "https://www.noon.com/saudi-ar/N70118976V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 3299,
@@ -3206,7 +3206,7 @@
    "url": "https://www.noon.com/saudi-ar/N70293935V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 999,
@@ -3228,9 +3228,9 @@
    "verdict": "ok",
    "finding": "كان ٦٧٩ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N15097317A/p/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20",
+   "avail": "ended",
+   "availNote": "نون: عاد السعر إلى ٧٢٥ — انتهى العرض",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 679,
@@ -3246,15 +3246,15 @@
    "store": "noon",
    "cat": "المنزل",
    "name": "قلاية فيليبس 3000 بسلتين ‏9 لتر",
-   "price": 637,
+   "price": 579,
    "was": 1299,
    "ref": 740,
    "verdict": "ok",
    "finding": "كان ٧٤٠ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70106574V/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 740.05,
@@ -3278,7 +3278,7 @@
    "url": "https://www.noon.com/saudi-ar/N70088673V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -3303,7 +3303,7 @@
    "url": "https://www.noon.com/saudi-ar/N19200536A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -3328,7 +3328,7 @@
    "url": "https://www.noon.com/saudi-ar/N70153699V/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٣٬٧٩٦ — انتهى العرض",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "market",
    "ev": {
@@ -3345,15 +3345,15 @@
    "store": "noon",
    "cat": "المنزل",
    "name": "دايسون V12 ديتكت سليم أبسوليوت",
-   "price": 1695,
+   "price": 1639,
    "was": 2399,
    "ref": 1698,
    "verdict": "bad",
    "finding": "السعر شبه ثابت (١٬٦٩٨) · سبق ونزل ١٬٣٩٩ · ونفس السعر في أمازون",
    "url": "https://www.noon.com/saudi-ar/N53332704A/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -3376,9 +3376,9 @@
    "verdict": "ok",
    "finding": "كان ٢٬٣٩٩ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0H5CY6LRM",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-20",
+   "avail": "ended",
+   "availNote": "أمازون: عاد السعر إلى ٢٬٣٩٩ — انتهى العرض",
+   "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
     "prev": 2399,
@@ -3402,7 +3402,7 @@
    "url": "https://www.amazon.sa/dp/B0CHFMFX7H",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -3427,7 +3427,7 @@
    "url": "https://www.amazon.sa/dp/B0F5NVZGLC",
    "avail": "low",
    "availNote": "أمازون: متبقي 2",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -3452,7 +3452,7 @@
    "url": "https://www.jarir.com/sennheiser-headsets-664050.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3468,7 +3468,7 @@
    "url": "https://www.jarir.com/huawei-watch-fit-4-pro-smartwatch-657313.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3484,7 +3484,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-watch-ultra-2025-smartwatch-662013.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -3501,7 +3501,7 @@
    "url": "https://www.jarir.com/hisense-e8q-smart-tv-677953.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -3516,9 +3516,9 @@
    "verdict": "bad",
    "finding": "نفس الموديل في إكسترا بـ ٤٬٩٩٩",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-65-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241505003",
-   "avail": "low",
-   "availNote": "بلاك بوكس: متبقي 3",
-   "lastChecked": "2026-09-20",
+   "avail": "oos",
+   "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -3535,7 +3535,7 @@
    "url": "https://www.almanea.sa/product/mtc-tv-85-inch-4k-smart-dled-webos-built-in-receiver-mt85uh200wvwos-p-139900399485009",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3551,7 +3551,7 @@
    "url": "https://www.almanea.sa/product/lg-sc9s-soundbar-for-oled-c-series-with-3-1-3ch-400w-dolby-atmos-dts-x-ai-sound-pro-p-140100799999020",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -3568,7 +3568,7 @@
    "url": "https://www.saco.sa/product/panasonic-premium-side-by-side-refrigerator-silver-588-liter-nr-bs780mssa-p-000000000000100089",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -3585,7 +3585,7 @@
    "url": "https://www.saco.sa/product/philips-9000-series-aquatrio-cordless-stick-vacuum-and-wash-deep-black-xw9463-10-p-000000000000097483",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "refKind": "market"
   },
   {
@@ -3601,7 +3601,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-cabinet-with-bi-folding-doors-white-20458823/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "ikea:80496092",
@@ -3616,7 +3616,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vimle-cover-for-3-seat-section-hallarp-beige-80496092/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "homecentre:167411473",
@@ -3676,7 +3676,7 @@
    "avail": "low",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "نون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -3701,7 +3701,7 @@
    "avail": "in",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -3726,7 +3726,7 @@
    "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 1",
    "refKind": "history",
    "ev": {
@@ -3751,7 +3751,7 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -3767,7 +3767,7 @@
    "id": "noon:N53424690A",
    "store": "noon",
    "name": "سامسونج مكيف سبليت ذكي WindFree بتقنية العاكس الرقمي",
-   "price": 2099,
+   "price": 1999,
    "was": 6999,
    "ref": 2499,
    "verdict": "ok",
@@ -3776,7 +3776,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -3798,11 +3798,11 @@
    "verdict": "bad",
    "finding": "الفرق الحقيقي ١٪ فقط · «قبل» ٨٬٧٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70394786V/p/",
-   "avail": "low",
+   "avail": "ended",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
-   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-09-22",
+   "availNote": "نون: عاد السعر إلى ٤٬٥٥٩ — انتهى العرض",
    "bk": "nosaving",
    "refKind": "market",
    "ev": {
@@ -3827,8 +3827,8 @@
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
-   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
+   "availNote": "أمازون: لا يوجد زر شراء — عروض بائعين آخرين فقط",
    "refKind": "history",
    "ev": {
     "prev": 11949,
@@ -3852,7 +3852,7 @@
    "avail": "in",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "bk": "rose",
@@ -3878,7 +3878,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -3903,7 +3903,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "نون: متبقي 1",
    "refKind": "history",
    "bk": "nosaving",
@@ -3929,7 +3929,7 @@
    "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "نون: متبقي 3",
    "bk": "nosaving",
    "refKind": "market",
@@ -3955,7 +3955,7 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -3971,7 +3971,7 @@
    "id": "noon:ZE45C307F5C4894305A44Z",
    "store": "noon",
    "name": "واكيمي جهاز بيلاتيس ريفورمر القابل للطي للاستخدام المنزلي",
-   "price": 789,
+   "price": 839,
    "was": 2880,
    "ref": 679.95,
    "verdict": "bad",
@@ -3980,8 +3980,8 @@
    "avail": "low",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
-   "availNote": "نون: متبقي 2",
+   "lastChecked": "2026-09-22",
+   "availNote": "نون: متبقي 1",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -4006,7 +4006,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4031,7 +4031,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4056,7 +4056,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4081,7 +4081,7 @@
    "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "نون: متبقي 2",
    "refKind": "history",
    "bk": "nosaving",
@@ -4107,7 +4107,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4133,7 +4133,7 @@
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-20",
-   "availNote": "أمازون: الصفحة غير موجودة",
+   "availNote": "أمازون: لم يُفحص (حجب مؤقت)",
    "refKind": "history",
    "ev": {
     "prev": 2108,
@@ -4157,8 +4157,8 @@
    "avail": "oos",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
-   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
+   "availNote": "أمازون: لا يوجد زر شراء — عروض بائعين آخرين فقط",
    "refKind": "history",
    "ev": {
     "prev": 1819,
@@ -4182,7 +4182,7 @@
    "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -4207,7 +4207,7 @@
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
@@ -4232,7 +4232,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4257,7 +4257,7 @@
    "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -4279,11 +4279,11 @@
    "verdict": "ok",
    "finding": "كان ١٬٦٧٥ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B08KDJSHB1",
-   "avail": "low",
+   "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
-   "availNote": "أمازون: متبقي 3",
+   "lastChecked": "2026-09-22",
+   "availNote": "",
    "refKind": "history",
    "ev": {
     "prev": 1675,
@@ -4307,7 +4307,7 @@
    "avail": "gone",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -4332,7 +4332,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4357,7 +4357,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 1",
    "refKind": "history",
    "ev": {
@@ -4382,7 +4382,7 @@
    "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -4407,7 +4407,7 @@
    "avail": "oos",
    "cat": "ألعاب",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
@@ -4432,7 +4432,7 @@
    "avail": "in",
    "cat": "عطور",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4458,7 +4458,7 @@
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-20",
-   "availNote": "أمازون: الصفحة غير موجودة",
+   "availNote": "أمازون: لم يُفحص (حجب مؤقت)",
    "refKind": "history",
    "ev": {
     "prev": 812.82,
@@ -4482,7 +4482,7 @@
    "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -4507,7 +4507,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 1",
    "refKind": "history",
    "ev": {
@@ -4533,7 +4533,7 @@
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-20",
-   "availNote": "أمازون: الصفحة غير موجودة",
+   "availNote": "أمازون: لم يُفحص (حجب مؤقت)",
    "refKind": "history",
    "ev": {
     "prev": 640.43,
@@ -4557,7 +4557,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -4582,7 +4582,7 @@
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
@@ -4607,7 +4607,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4632,7 +4632,7 @@
    "avail": "ended",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: عاد السعر إلى ٢٠٠ — انتهى العرض",
    "refKind": "history",
    "ev": {
@@ -4657,7 +4657,7 @@
    "avail": "in",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4682,7 +4682,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4707,8 +4707,8 @@
    "avail": "oos",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
-   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22",
+   "availNote": "أمازون: لا يوجد زر شراء — عروض بائعين آخرين فقط",
    "refKind": "history",
    "ev": {
     "prev": 499,
@@ -4732,7 +4732,7 @@
    "avail": "low",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "أمازون: متبقي 2",
    "refKind": "history",
    "ev": {
@@ -4757,7 +4757,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4782,7 +4782,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4807,7 +4807,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4832,7 +4832,7 @@
    "avail": "in",
    "cat": "عناية",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4857,7 +4857,7 @@
    "avail": "in",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-20",
+   "lastChecked": "2026-09-22",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -4893,14 +4893,14 @@
     "url": "https://www.kanbkam.com/sa/en/denx-dx2081-air-fryer-for-healthy-fatfree-food-with-a-12liter-capacity-suitable-for-everyone-ZF76771A93AB859933180Z"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:34721833",
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء Puma Anzarun Lite Jr",
-   "price": 272.17,
+   "price": 222,
    "was": 476.94,
    "ref": 107,
    "refKind": "market",
@@ -4908,8 +4908,8 @@
    "verdict": "bad",
    "finding": "نون ١٠٧ · أرخص من هنا",
    "url": "https://www.trendyol.sa/puma/anzarun-lite-jr-unisex-black-sneakers-p-34721833",
-   "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ٤٧٧ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "bk": "cheaper",
    "ev": {
     "prev": null,
@@ -4920,7 +4920,7 @@
     "url": "https://www.kanbkam.com/sa/en/anzarun-lite-jr-ZAB5A3DACDB59C1CEEE0BZ"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:921225692",
@@ -4946,7 +4946,7 @@
     "url": "https://www.kanbkam.com/sa/en/jbl-tune-510bt-wireless-on-ear-headphones-blue-X533902"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1163776332",
@@ -4972,7 +4972,7 @@
     "url": "https://www.kanbkam.com/sa/en/huawei-watch-fit-5-smartwatch-mini-workout-modesadvanced-sleephealth-trackiosandroidfreeearbuds-watch-faceshealth-membership-black-12month-huaweicareamazon-exclusive-B0GY7YX1VH"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:900409499",
@@ -4998,7 +4998,7 @@
     "url": "https://www.kanbkam.com/sa/en/20l-wet-dry-vacuum-cleaner-dlc36362-black-ZF0E8DB1348B163C6A27AZ"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1188470113",
@@ -5024,7 +5024,7 @@
     "url": "https://www.kanbkam.com/sa/en/xiaomi-mi-smart-band-10-2025-172-amoled-display-21-days-battery-life-touchscreen-multisport-tracker-activity-tracker-heart-rate-monitor-bt54-midnight-black-B0FCM67L4X"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1138730230",
@@ -5050,14 +5050,14 @@
     "url": "https://www.kanbkam.com/sa/en/zoom-plus-extreme-ai-zpc140-140w-gan-fast-charger-with-digital-display-multiport-usbc-usba-includes-100w-typec-cable-ultrafast-smart-charging-adapter-Z49973C5F13967F5DB9B5Z"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:978618876",
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء سكيتشرز «GO WALK 8»",
-   "price": 189.58,
+   "price": 211,
    "was": 466.5,
    "ref": 146.25,
    "refKind": "market",
@@ -5076,14 +5076,14 @@
     "url": "https://www.kanbkam.com/sa/en/skechers-go-walk-8-women-white-38-B0G6F5KDSS"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1035311152",
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء سكيتشرز «FLEX APPEAL 5.0»",
-   "price": 167,
+   "price": 234,
    "was": 400.59,
    "ref": 132.65,
    "refKind": "market",
@@ -5102,7 +5102,7 @@
     "url": "https://www.kanbkam.com/sa/en/skechers-flex-appeal-50-womens-shoes-black-black-41-eu-B0CB1SKYYF"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1113980425",
@@ -5116,8 +5116,8 @@
    "verdict": "ok",
    "finding": "أقل سعر حديث ٦٩٨ · الفرق الحقيقي 45٪ · شارة «58٪» محسوبة من «سعر مقترح» ٩٢٥",
    "url": "https://www.trendyol.sa/dkny/giselle-large-tote-p-1113980425",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٦٩٨ — انتهى العرض",
    "ev": {
     "prev": 698,
     "min": 698,
@@ -5126,7 +5126,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:218166261",
@@ -5140,8 +5140,8 @@
    "verdict": "warn",
    "finding": "أقل سعر حديث ٦١٦ · الفرق الحقيقي 43٪ · والخصم يظهر في السلة/عند الدفع فقط",
    "url": "https://www.trendyol.sa/pierre-cardin/women-s-black-print-backpack-05po22y1553-p-218166261",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٦١٦ — انتهى العرض",
    "ev": {
     "prev": 615.63,
     "min": 615.63,
@@ -5150,7 +5150,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:940564543",
@@ -5164,8 +5164,8 @@
    "verdict": "warn",
    "finding": "أقل سعر حديث ٥٤٩ · الفرق الحقيقي 41٪ · والخصم يظهر في السلة/عند الدفع فقط",
    "url": "https://www.trendyol.sa/u-s-polo-assn/black-women-s-shoulder-bag-us25655-online-exclusive-p-940564543",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٥٤٩ — انتهى العرض",
    "ev": {
     "prev": 548.5,
     "min": 548.5,
@@ -5174,7 +5174,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1056447552",
@@ -5188,8 +5188,8 @@
    "verdict": "warn",
    "finding": "أقل سعر حديث ٣٩٨ · الفرق الحقيقي 54٪ · والخصم يظهر في السلة/عند الدفع فقط",
    "url": "https://www.trendyol.sa/adidas/galaxy-7-m-men-s-running-shoes-jq2623-gray-p-1056447552",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٦٦١ — انتهى العرض",
    "ev": {
     "prev": 398.02,
     "min": 398.02,
@@ -5198,7 +5198,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:679300230",
@@ -5212,8 +5212,8 @@
    "verdict": "warn",
    "finding": "أقل سعر حديث ٤٦١ · الفرق الحقيقي 40٪ · والخصم يظهر في السلة/عند الدفع فقط",
    "url": "https://www.trendyol.sa/lego/disney-up-house-43217-9-buildable-creative-set-598-pieces-p-679300230",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٤٧١ — انتهى العرض",
    "ev": {
     "prev": 461.44,
     "min": 461.44,
@@ -5222,7 +5222,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1089674288",
@@ -5236,8 +5236,8 @@
    "verdict": "ok",
    "finding": "أقل سعر حديث ٢٣٩ · الفرق الحقيقي 52٪ · شارة «57٪» محسوبة من «سعر مقترح» ٢٦٩",
    "url": "https://www.trendyol.sa/skechers/men-volann-slip-on-walking-shoes-gray-p-1089674288",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٢٣٩ — انتهى العرض",
    "ev": {
     "prev": 238.99,
     "min": 238.99,
@@ -5246,14 +5246,14 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1133720698",
    "store": "trendyol",
    "cat": "المنزل",
    "name": "مقلاة هوائية إديسون كرانشي 4.5 لتر 1500 واط",
-   "price": 209.01,
+   "price": 283,
    "was": 298.59,
    "ref": 298.59,
    "refKind": "history",
@@ -5270,7 +5270,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
   },
   {
    "id": "trendyol:1181173570",
@@ -5284,8 +5284,8 @@
    "verdict": "ok",
    "finding": "أقل سعر حديث ٢٧٤ · الفرق الحقيقي 30٪ · شارة «68٪» محسوبة من «سعر مقترح» ٦٠٠",
    "url": "https://www.trendyol.sa/babyjoy/baby-joy-diapers-size-5-offer-of-2-cartons-x-80-diapers-protection-and-comfort-for-the-child-p-1181173570",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٢٧٤ — انتهى العرض",
    "ev": {
     "prev": 274,
     "min": 274,
@@ -5294,7 +5294,199 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-20"
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:841499163",
+   "store": "trendyol",
+   "cat": "أزياء",
+   "name": "حقيبة كتف U.S. Polo Assn. US24732",
+   "price": 238.03,
+   "was": 513.56,
+   "ref": 513.56,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "أقل سعر حديث ٥١٤ · الفرق الحقيقي 54٪ · والخصم يظهر في السلة/عند الدفع فقط",
+   "url": "https://www.trendyol.sa/u-s-polo-assn/us24732-model-black-women-s-shoulder-bag-p-841499163",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 513.56,
+    "min": 513.56,
+    "max": 513.56,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:985295383",
+   "store": "trendyol",
+   "cat": "أزياء",
+   "name": "حقيبة يد نسائية Calvin Klein",
+   "price": 273.22,
+   "was": 496.77,
+   "ref": 496.77,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ٤٩٧ · الفرق الحقيقي 45٪ · شارة «70٪» محسوبة من «سعر مقترح» ٩٠٠",
+   "url": "https://www.trendyol.sa/calvin-klein/women-handbags-p-985295383",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 496.77,
+    "min": 496.77,
+    "max": 900,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:733527398",
+   "store": "trendyol",
+   "cat": "رياضة",
+   "name": "حذاء adidas Grand Court TD",
+   "price": 179,
+   "was": 325.45,
+   "ref": 325.45,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ٣٢٥ · الفرق الحقيقي 45٪ · شارة «49٪» محسوبة من «سعر مقترح» ٣٤٩",
+   "url": "https://www.trendyol.sa/adidas/grand-court-td-lifestyle-court-casual-shoes-p-733527398",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 325.45,
+    "min": 325.45,
+    "max": 349,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:1181172557",
+   "store": "trendyol",
+   "cat": "أطفال",
+   "name": "حفاضات BabyJoy ‏٢ كرتون × ٩٦",
+   "price": 191.8,
+   "was": 274,
+   "ref": 274,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ٢٧٤ · الفرق الحقيقي 30٪ · شارة «62٪» محسوبة من «سعر مقترح» ٥٠٠",
+   "url": "https://www.trendyol.sa/babyjoy/babyjoy-diaper-offer-of-2-cartons-x-96-diapers-protection-and-comfort-for-the-child-p-1181172557",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 274,
+    "min": 274,
+    "max": 500,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:1187888783",
+   "store": "trendyol",
+   "cat": "إلكترونيات",
+   "name": "ساعة Xiaomi Redmi Watch 5 Active",
+   "price": 119,
+   "was": 170,
+   "ref": 170,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ١٧٠ · الفرق الحقيقي 30٪ · شارة «60٪» محسوبة من «سعر مقترح» ٢٩٩",
+   "url": "https://www.trendyol.sa/xiaomi/redmi-watch-5-active-2-inch-lcd-display-18-days-autonomy-bluetooth-calls-health-monitoring-heart-rate-spo2-sleep-140-sports-modes-5-atm-black-p-1187888783",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 170,
+    "min": 170,
+    "max": 299,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:846409310",
+   "store": "trendyol",
+   "cat": "ألعاب",
+   "name": "LEGO Technic كونيجسيج جيسكو 42173",
+   "price": 167,
+   "was": 400.53,
+   "ref": 206.77,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ٢٠٧ · الفرق الحقيقي 19٪",
+   "url": "https://www.trendyol.sa/lego/technic-koenigsegg-jesko-absolut-gray-hyper-car-42173-10-toy-building-set-801-pieces-p-846409310",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 206.77,
+    "min": 206.77,
+    "max": 400.53,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:1047012021",
+   "store": "trendyol",
+   "cat": "المنزل",
+   "name": "مقلاة هوائية IMPEX AF4309 ‏9 لتر",
+   "price": 199,
+   "was": 584,
+   "ref": 238,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ٢٣٨ · الفرق الحقيقي 16٪",
+   "url": "https://www.trendyol.sa/impex/af4309-digital-air-fryer-with-viewing-window-8-presets-9l-1800w-black-p-1047012021",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 238,
+    "min": 238,
+    "max": 584,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "trendyol:970051980",
+   "store": "trendyol",
+   "cat": "ألعاب",
+   "name": "LEGO Speed Champions دودج تشالنجر 77237",
+   "price": 118.88,
+   "was": 182.88,
+   "ref": 153.44,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "أقل سعر حديث ١٥٣ · الفرق الحقيقي 23٪",
+   "url": "https://www.trendyol.sa/lego/speed-champions-dodge-challenger-srt-hellcat-sports-car-77237-9-toy-building-set-390-p-p-970051980",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 153.44,
+    "min": 153.44,
+    "max": 182.88,
+    "src": "trendyol",
+    "on": "2026-09-22"
+   },
+   "firstSeen": "2026-09-22",
+   "lastChecked": "2026-09-22"
   }
  ],
  "travel": [
@@ -5309,7 +5501,7 @@
    "verdict": "catch",
    "terms": "50٪ على درجة الأعمال فقط · البريميوم حتى 30٪ · السياحية حتى 15٪ · +2,300 نقطة سفير إضافية · الخصم تلقائي من الموقع أو التطبيق · ويوجد أيضاً خصم 10٪ على شبكة Air Europa بالرمز RXPROMO10 يُستخدم في aireuropa.com",
    "url": "https://www.riyadhair.com/ar/offers/saudi-national-day",
-   "checked": "2026-09-19"
+   "checked": "2026-09-22"
   },
   {
    "company": "المسافر",
@@ -5317,12 +5509,12 @@
    "headline": "خصم لغاية 960 ريال على الطيران والإقامة",
    "code": "SND96",
    "bookStart": "",
-   "bookEnd": "2026-09-25",
+   "bookEnd": "2026-09-21",
    "travelWindow": "تواريخ السفر مفتوحة",
    "verdict": "catch",
-   "terms": "الخصم الفعلي 7٪ على السعودية وناس وأديل وطيران الرياض، و3٪ على باقي الشركات · الفنادق 9٪ (3 ليالٍ فأكثر) أو 6٪ (ليلة أو ليلتين) · الأنشطة والتنقلات 10٪ · 960 ريال هو الحد الأقصى لا قيمة الخصم · يُطبَّق بإدخال بيانات البطاقة ثم الكود عند الدفع",
+   "terms": "الخصم الفعلي 7٪ على السعودية وناس وأديل وطيران الرياض، و3٪ على باقي الشركات · الفنادق 9٪ (3 ليالٍ فأكثر) أو 6٪ (ليلة أو ليلتين) · الأنشطة والتنقلات 10٪ · 960 ريال هو الحد الأقصى لا قيمة الخصم · يُطبَّق بإدخال بيانات البطاقة ثم الكود عند الدفع · سُحب العرض: الرابط يحوّل الآن إلى صفحة العروض المنتهية",
    "url": "https://www.almosafer.com/ar/offers/saudi-national-day-travel-offers",
-   "checked": "2026-09-19"
+   "checked": "2026-09-22"
   },
   {
    "company": "فلاي إن",
@@ -5335,7 +5527,7 @@
    "verdict": "catch",
    "terms": "في الشروط: حتى 20٪ على الطيران + حتى 20٪ على الإقامة — ليست 40٪ على نفس الحجز · وخصم الطيران على الرحلات الداخلية فقط · حسب التوفر ويختلف بمدينة المغادرة وشركة الطيران",
    "url": "https://www.flyin.com/ar/offers/saudi-national-day",
-   "checked": "2026-09-19"
+   "checked": "2026-09-22"
   },
   {
    "company": "فلاي إن",
@@ -5348,7 +5540,7 @@
    "verdict": "catch",
    "terms": "الـ96 ريال = 10٪ استرداد فوري بحد 60 ريال + 10٪ رصيد في محفظة فلاي إن بحد 36 ريال (ليس نقداً) · رحلات داخلية فقط",
    "url": "https://www.flyin.com/ar/offers/saudi-national-day-96",
-   "checked": "2026-09-19"
+   "checked": "2026-09-22"
   },
   {
    "company": "المطار",
@@ -5387,7 +5579,7 @@
    "verdict": "vague",
    "terms": "الصفحة الرسمية لا تذكر نسبة الخصم · الخصم مطبق مباشرة على الأسعار بدون كود · على عدد محدود من المقاعد والدرجات والفنادق · توجد تواريخ مستثناة · يشمل الوجهات الداخلية والدولية",
    "url": "https://booking.nasholidays.com/saudi_national_day/ar",
-   "checked": "2026-09-19"
+   "checked": "2026-09-22"
   },
   {
    "company": "طيران ناس",
@@ -5449,7 +5641,7 @@
    "label": "المنيع",
    "kind": "voucher",
    "text": "خصم <b>٩٦ ريال لكل ٤٩٩ ريال</b>، على المنتجات التي تحمل الشارة فقط وليس كل المتجر.",
-   "verified": "2026-09-19"
+   "verified": "2026-09-22"
   },
   {
    "stores": [
