@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-09-22",
- "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "checkedAt": "2026-09-22T16:03:18.182+03:00",
  "rows": [
   {
    "id": "amazon:B0CP31L73X",
@@ -402,8 +402,8 @@
    "verdict": "ok",
    "finding": "كان ٢٬٣٩٩ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0H5CY6LRM",
-   "avail": "ended",
-   "availNote": "أمازون: عاد السعر إلى ٢٬٣٩٩ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-22",
    "refKind": "history",
    "ev": {
@@ -475,11 +475,11 @@
    "verdict": "ok",
    "finding": "كان ١٣٬٩٩٩ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0DG96T6JN",
-   "avail": "low",
+   "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-22",
-   "availNote": "أمازون: متبقي 1",
+   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
    "refKind": "history",
    "ev": {
     "prev": 13999,
@@ -1301,8 +1301,8 @@
    "verdict": "ok",
    "finding": "كان ١٢٬٩٩٩ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B09HJYG6LC",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 3",
    "ev": {
     "prev": 12999,
     "min": 8399,
@@ -1326,8 +1326,8 @@
    "verdict": "ok",
    "finding": "كان ٤٬٥٩٩ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B099F9T8Y3",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 2",
    "ev": {
     "prev": 4599,
     "min": 2998,
@@ -1351,8 +1351,8 @@
    "verdict": "ok",
    "finding": "كان ٣٬٤٩٩",
    "url": "https://www.amazon.sa/dp/B0CGVPKKCP",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 1",
    "ev": {
     "prev": 3499,
     "min": 1999,
@@ -1376,8 +1376,8 @@
    "verdict": "ok",
    "finding": "كان ١٬٤٢٧",
    "url": "https://www.amazon.sa/dp/B083ZN5GBN",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 1",
    "ev": {
     "prev": 1427,
     "min": 551,
@@ -1401,8 +1401,8 @@
    "verdict": "ok",
    "finding": "كان ١٬٢٦٥ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B08ZNK452Y",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 1",
    "ev": {
     "prev": 1265,
     "min": 444,

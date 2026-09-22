@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-09-22",
- "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "checkedAt": "2026-09-22T16:03:18.182+03:00",
  "rows": [
   {
    "id": "extra:100336309",
@@ -570,7 +570,7 @@
    "id": "extra:100054442",
    "store": "extra",
    "name": "ثلاجة سامسونج 16.2 قدم",
-   "price": 4599,
+   "price": 4049,
    "was": 8198,
    "ref": 8199,
    "refKind": "history",
@@ -602,8 +602,8 @@
    "verdict": "warn",
    "finding": "كان ٥٬٥٩٩ · سبق ونزل ٢٬٠٤٩",
    "url": "https://www.extra.com/ar-sa/electronics/television/qled-tv/samsung-65-inch-qled-4k-upscaling-7-years-os-upgrade-airslim/p/100467471",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 5599,
     "min": 2049,
@@ -677,8 +677,8 @@
    "verdict": "ok",
    "finding": "كان ٤٬٨٩٩",
    "url": "https://www.extra.com/ar-sa/computer/laptops/clamshell/asus-vivobook-s16-intel-core-5-512gb-16gb-16-inch-wuxga-silver/p/100477173",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "إكسترا: متبقي 1",
    "ev": {
     "prev": 4899,
     "min": 2799,
@@ -702,8 +702,8 @@
    "verdict": "ok",
    "finding": "كان ٣٬٦٩٩ · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/apple-iphone-15-pro-max-5g-6-7-inch-256gb-natural-titanium/p/100345839",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 3699,
     "min": 1710,
@@ -727,8 +727,8 @@
    "verdict": "warn",
    "finding": "كان ٢٬٩٩٩ · سبق ونزل ١٬٨٨٩",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/android/honor-magic-pad-2-wi-fi-12-3-inch-oled-256gb-white-with-keyboard-pen/p/100382993",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 2999,
     "min": 1889,
@@ -802,8 +802,8 @@
    "verdict": "ok",
    "finding": "كان ٣٧٥ · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/android/lenovo-tab-m10-3rd-gen-4g-wi-fi-10-1-inch-64gb-storm-grey/p/100325520",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 375,
     "min": 225,
@@ -827,8 +827,8 @@
    "verdict": "ok",
    "finding": "كان ٢٤٠ · أقل سعر مسجل",
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/android/honor-pad-x9-wi-fi-128gb-11-5-inch-space-gray-with-flip-cover/p/100344718",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 240,
     "min": 99,

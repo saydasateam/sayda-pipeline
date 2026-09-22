@@ -1,7 +1,7 @@
 {
  "store": "almanea",
  "updated": "2026-09-22",
- "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "checkedAt": "2026-09-22T16:03:18.182+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
@@ -95,8 +95,8 @@
    "verdict": "bad",
    "finding": "أمازون ٤٬٦٩٩ · نزل من ٨٬٢٠٩ أمس",
    "url": "https://www.almanea.sa/product/lg-98-inch-4k-uhd-smart-led-tv-98ut90006la-p-139900799498005",
-   "avail": "low",
-   "availNote": "المنيع: متبقي 1",
+   "avail": "oos",
+   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
@@ -163,8 +163,8 @@
    "verdict": "bad",
    "finding": "نون ٣٬٧٩٩",
    "url": "https://www.almanea.sa/product/lg-86-inch-4k-uhd-smart-qned-tv-86qned70a6a-p-139900799486038",
-   "avail": "low",
-   "availNote": "المنيع: متبقي 1",
+   "avail": "oos",
+   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"
@@ -326,8 +326,8 @@
    "verdict": "bad",
    "finding": "أمازون ٤٬٧٢٦ · أرخص من هنا",
    "url": "https://www.almanea.sa/product/lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "src": "market",
     "on": "2026-09-22",

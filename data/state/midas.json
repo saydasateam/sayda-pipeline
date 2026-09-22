@@ -1,7 +1,7 @@
 {
  "store": "midas",
  "updated": "2026-09-22",
- "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "checkedAt": "2026-09-22T16:03:18.182+03:00",
  "rows": [
   {
    "id": "midas:bolanburg-dining-table",
@@ -30,8 +30,8 @@
    "verdict": "bad",
    "finding": "نفس الطقم في متجر أشلي بـ ٢٬٦٤٥ · (صُحّح الرابط اليوم)",
    "url": "https://midasfurniture.com/ksa_ar/skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia.html",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "ميداس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-22",
    "bk": "cheaper",
    "refKind": "market"

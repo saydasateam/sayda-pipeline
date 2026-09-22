@@ -1,7 +1,7 @@
 {
  "store": "homebox",
  "updated": "2026-09-22",
- "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "checkedAt": "2026-09-22T16:03:18.182+03:00",
  "rows": [
   {
    "id": "homebox:167133765",
@@ -59,8 +59,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · «خصم ٦٢٪» غير متحقق",
    "url": "https://www.homeboxstores.com/sa/ar/buy-fresno-2-seater-fabric-sofa/p/166973759",
-   "avail": "oos",
-   "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "low",
+   "availNote": "هوم بوكس: متبقي 2",
    "lastChecked": "2026-09-22"
   },
   {
