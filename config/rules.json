@@ -62,12 +62,12 @@
   "page": {
     "targetRows": [
       250,
-      400
+      900
     ],
-    "maxRows": 420,
+    "maxRows": 900,
     "defaultFilter": "verified",
-    "maxNewPerRun": 60,
-    "_maxNewPerRun": "Hard cap on rows added in a single run. Wider collection now surfaces many more candidates than the page needs; without this the check phase (and the model's review of candidates) grows unbounded and the run time regresses. Highest real saving wins; the rest are simply picked up by the next run."
+    "maxNewPerRun": 150,
+    "_maxNewPerRun": "Hard cap on rows added in a single run. Raised 60 -> 150 on 22 Sep (with maxRows 420 -> 900) when the rendered collectors opened Almanea's and Blackbox's full National Day catalogues. Highest verified saving wins; the rest are picked up by the next run."
   },
   "travel": {
     "dropAfterDays": 3

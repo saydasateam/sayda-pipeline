@@ -229,7 +229,8 @@
           "/air-conditioners-accessories-c-657",
           "/personal-care-c-219"
         ],
-        "concurrency": 3
+        "concurrency": 3,
+        "_render": "Not rendered yet (22 Sep): scrolling the campaign page loads no further products in an automated tab (allProducts stays at 30 of 898, no data request fires). Its sort offers price/position only, no discount. Still fetch-collected: page 1 of the campaign category plus 11 category paths (221 gate-passing candidates on 22 Sep after the floors were removed)."
       }
     },
     {
@@ -260,7 +261,9 @@
           "/smartwatches-accessories-c-7433",
           "/home-theater-c-524"
         ],
-        "concurrency": 2
+        "concurrency": 2,
+        "render": "pager",
+        "renderMaxSteps": 40
       },
       "notes": "SSR pages are ~1 MB each; keep concurrency 2 and pages few — 42 parallel pages froze a tab in testing."
     },
