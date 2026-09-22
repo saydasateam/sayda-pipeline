@@ -23,6 +23,18 @@ const USED = /\b(used|pre-?owned|refurb\w*|renewed|open box|second hand|for part
 //    Saudi comparison, whatever currency the index chose to display it in.
 const NON_KSA = /\b(egypt|eg\b|uae|dubai|emirates|kuwait|qatar|bahrain|oman|tunisia|jordan|lebanon|iraq|turkey|usa|united states|uk\b|india|china)\b|مصر|الإمارات|دبي|الكويت|قطر|البحرين|عُمان|تونس|الأردن|لبنان|العراق|تركيا|أمريكا/i;
 
+// 6b. cross-border marketplaces — the country regex is a net with holes. On 22 Sep a toys sweep
+//     returned eBay, desertcart.com.sa, Jomla.ae and Smallable as comparators for a Saudi row.
+//     None of them is a store the reader can buy from at that price here, and eBay's was a US
+//     dollar price converted for display. These are named and rejected.
+//
+//     Deliberately a DENY list, not an allow list: the first draft here was an allow list of Saudi
+//     retailers, and it rejected Al Rugaib Furniture — a real Riyadh store and a correct Ashley
+//     comparator that the test suite already covers. An allow list silently drops every legitimate
+//     merchant nobody thought to write down, and a dropped comparator looks exactly like no
+//     comparator, so the loss never shows up as an error.
+const BLOCKED_MERCHANT = /\b(ebay|aliexpress|alibaba|desertcart|jomla|smallable|etsy|walmart|temu|wish|shein|amazon\.(com|co\.uk|de|ae|eg)|banggood|joom|ubuy|mcgrocer|toybox\.ae|playanddream|finnegan)\b/i;
+
 const norm = s => String(s || '')
   .toLowerCase()
   .replace(/[ـً-ْ]/g, '')      // Arabic tatweel + diacritics
@@ -32,6 +44,11 @@ const norm = s => String(s || '')
 
 /** A model token is anything with a digit, or a 3+ char alphanumeric code. "band 10", "ecam12.121",
  *  "qn80f", "dlc36362" are model tokens; "smart", "tv", "بوصة" are not. */
+/** Words that carry no identity in a product name: colours, packaging, ages and filler. They are
+ *  dropped before the name comparison so that a colour word alone cannot reject a true match — the
+ *  identity has to come from the product words that remain. */
+const NAME_STOP = new Set(['the','and','for','with','of','in','a','an','to','kids','kid','children','child','toy','toys','baby','babies','years','year','age','ages','months','month','old','set','pcs','pieces','piece','multicolor','multicolour','assorted','colour','color','red','blue','green','pink','white','black','grey','gray','yellow','purple','orange','brown','new','free','packaging','edition','ver','version','sar','size','large','small','medium','boys','girls','learning','educational','interactive','plush','wooden','wood']);
+
 const isModelToken = t => /\d/.test(t) && t.length >= 2;
 
 /** Whole-word presence, with the run-together variant: "dlc 36362" matches "dlc36362" and back.
@@ -66,6 +83,42 @@ function sameModel(row, listing, opts = {}) {
   const where = `${listing.country || ''} ${listing.merchant || ''}`;
   if (listing.country && !/^(sa|ksa|saudi)/i.test(String(listing.country).trim())) return { ok: false, reason: `merchant outside KSA (${listing.country})` };
   if (!listing.country && NON_KSA.test(where)) return { ok: false, reason: `merchant looks non-KSA (${listing.merchant})` };
+  if (BLOCKED_MERCHANT.test(String(listing.merchant || ''))) return { ok: false, reason: `cross-border marketplace (${listing.merchant})` };
+
+  // — 0. the row's own store is not a comparator —
+  //   The shopping index lists the row's own store too, so the first toys sweep proposed
+  //   "same price as Dabdoob" for four Dabdoob rows and "same price as FirstCry" for two FirstCry
+  //   ones. A row cannot be evidence about itself, and a reader who clicked «دليل السعر» would have
+  //   landed back on the page they came from.
+  const rowStore = norm(row.store || '');
+  if (rowStore) {
+    const mnorm = norm(listing.merchant || '').replace(/\s+/g, '');
+    const alias = { firstcry: 'firstcry', dabdoob: 'dabdoob', mumzworld: 'mumzworld', mothercare: 'mothercare',
+                    noon: 'noon', amazon: 'amazon', jarir: 'jarir', extra: 'extra', namshi: 'namshi',
+                    trendyol: 'trendyol', nahdi: 'nahdi', aldawaa: 'dawaa', saco: 'saco', almanea: 'almanea' }[rowStore];
+    if (alias && mnorm.includes(alias)) return { ok: false, reason: `merchant is the row's own store (${listing.merchant})` };
+  }
+
+  // — 0b. product class: a powered toy and a static model are different products —
+  //   Maisto sells a 28-inch radio-controlled F-150 and a 1:21 diecast F-150. They share the model
+  //   code, sit 2.3× apart in price, and the first sweep proposed the diecast as the reference for
+  //   the RC truck — the same class of error as pricing a 75" against an 85".
+  const RC = /\b(remote control|remote-control|radio control|r\/?c|2\.4 ?ghz)\b|ريموت|بريموت|تحكم عن بعد/i;
+  const STATIC_MODEL = /\b(die-?\s?cast|diecast|scale model|1:\d{2,3}|collectible model)\b|مجسم|دايكاست/i;
+  const rowText = `${row.name || ''} ${row.enName || ''}`;
+  //   The requirement is positive, not "does not contradict": the first fix only rejected listings
+  //   that SAID diecast, so an untitled static model ("Maisto Ford F-150 SVT Lightning Pickup
+  //   Truck", 159) still priced a 323-riyal RC truck. If being remote-controlled is part of what the
+  //   row is, the comparator has to say so too.
+  if (RC.test(rowText) && !RC.test(title)) return { ok: false, reason: 'row is remote-controlled, listing does not say it is' };
+  if (STATIC_MODEL.test(rowText) && RC.test(title) && !STATIC_MODEL.test(title)) return { ok: false, reason: 'row is a static model, listing is remote-controlled' };
+
+  // — 0c. a converted price is not a Saudi price —
+  //   The index prints the original next to the converted figure ("(€85)", "($113)", "(AED 799)")
+  //   when the merchant sells in another currency. Whatever the display says in riyals, that is not
+  //   a price anyone pays here, and Milo Toys Shop at "SAR 365 (€85)" was about to become the
+  //   reference for a Dabdoob piano.
+  if (listing.foreign) return { ok: false, reason: `price converted from another currency (${listing.merchant})` };
 
   // — 1. accessory guard —
   if (ACCESSORY.test(title)) return { ok: false, reason: 'accessory, not the product' };
@@ -88,7 +141,30 @@ function sameModel(row, listing, opts = {}) {
   // the series word is what keeps "fit 4" off a "Band 4", and the number is what keeps it off a
   // "Fit 3". A single-part model must itself be a code — a bare word would be a brand-only match.
   const required = modelParts.length > 1 ? modelParts : modelParts.filter(isModelToken);
-  if (!required.length) return { ok: false, reason: 'row carries no model token — brand-only matches are rejected' };
+  if (!required.length) {
+    // NAME MATCH — for products that genuinely have no model code. Toys are the reason: a LeapTop
+    // Touch, a Park & Go garage and a 2000-piece New York puzzle carry no code anywhere, so the
+    // model rule rejects every one of them and the whole category is unverifiable.
+    //
+    // This is NOT a loosening into "the title looks right". It needs the row's own English product
+    // name — the store's own slug, not our paraphrase — and it requires EVERY distinctive word of
+    // it to appear in the listing as a whole word. "leaptop touch" therefore does not match
+    // "My Own Leaptop", and "new york 2000" does not match the 1000-piece New York. Fewer than two
+    // distinctive words is a brand-only match and stays rejected.
+    const nm = norm(row.enName || '');
+    if (!nm) return { ok: false, reason: 'row carries no model token — brand-only matches are rejected' };
+    const brandWords = new Set(brand.split(' ').filter(Boolean));
+    const words = nm.split(' ').filter(w => w && !brandWords.has(w) && !NAME_STOP.has(w) && w.length > 1);
+    if (words.length < 2) return { ok: false, reason: `name "${nm}" has fewer than two distinctive words` };
+    const missing = words.find(w => !hayTokens.includes(w));
+    if (missing) return { ok: false, reason: `name word "${missing}" not present as a whole word` };
+    if (row.size && !hayTokens.includes(String(row.size))) return { ok: false, reason: `row is ${row.size}", listing does not say so` };
+    const pn = Number(listing.price), rpn = Number(row.price);
+    if (!(pn > 0 && rpn > 0)) return { ok: false, reason: 'missing price' };
+    const rn = pn / rpn;
+    if (rn < minRatio || rn > maxRatio) return { ok: false, reason: `price ${pn} is ${rn.toFixed(2)}× the row (outside ${minRatio}–${maxRatio})` };
+    return { ok: true, reason: `same product by name (${words.length} words)` };
+  }
   // A multi-part model may carry its number as a bare digit ("fit 4"), which isModelToken rejects
   // on its own; paired with the series word it is specific enough.
   if (modelParts.length > 1 && !modelParts.some(p => /\d/.test(p))) return { ok: false, reason: 'model has no numeric part — too weak to match on' };
