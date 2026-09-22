@@ -632,6 +632,72 @@
       }
     },
     {
+      "id": "dabdoob",
+      "label": "دبدوب",
+      "group": "kids",
+      "adapter": "dabdoob",
+      "origin": "https://dabdoob.com",
+      "home": "https://dabdoob.com/ar-SA",
+      "landing": "https://dabdoob.com/ar-SA/product?category_id=1",
+      "verify": "self",
+      "naFinding": "دبدوب · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+      "intake": {
+        "fillTo": 20,
+        "allowNa": true,
+        "_why": "Kids/toys stores show their top 20 every run (Mahmoud, 22 Sep). Unverifiable rows publish as na."
+      },
+      "collect": {
+        "categories": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          11,
+          13,
+          19,
+          20,
+          26
+        ],
+        "pages": 2,
+        "cat": "dabdoob",
+        "cap": 400,
+        "_paging": "/ar-SA/product?category_id=<id>&page=<n> — 20 products per page, server-rendered in the RSC payload. Category ids come from the slugs on /ar-SA/categories (e.g. construction-5 → 5)."
+      }
+    },
+    {
+      "id": "firstcry",
+      "label": "فيرست كراي",
+      "group": "kids",
+      "adapter": "firstcry",
+      "origin": "https://www.firstcry.sa",
+      "home": "https://www.firstcry.sa/",
+      "landing": "https://www.firstcry.sa/toys/5/0/0",
+      "verify": "self",
+      "naFinding": "فيرست كراي · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+      "intake": {
+        "fillTo": 20,
+        "allowNa": true,
+        "_why": "Kids/toys stores show their top 20 every run (Mahmoud, 22 Sep). Unverifiable rows publish as na."
+      },
+      "collect": {
+        "paths": [
+          "/toys/5/0/0",
+          "/learning-toys/5/106",
+          "/toy-cars/5/94",
+          "/blocks-construction-toys/5/93",
+          "/soft-toys/5/101"
+        ],
+        "want": 60,
+        "cat": "firstcry",
+        "cap": 300,
+        "_render": true,
+        "_paging": "Listings AND product pages render client-side — collectRender() on each path, checkCurrent() per row. The server HTML holds promo template prices only; never fetch-parse this store."
+      }
+    },
+    {
       "id": "toysrus",
       "label": "تويز آر أص",
       "group": "kids",
