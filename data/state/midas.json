@@ -1,0 +1,57 @@
+{
+ "store": "midas",
+ "updated": "2026-09-22",
+ "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "rows": [
+  {
+   "id": "midas:bolanburg-dining-table",
+   "store": "midas",
+   "cat": "أثاث",
+   "name": "ميداس: طاولة طعام بولانبرغ (أشلي)",
+   "price": 2595,
+   "was": 3995,
+   "ref": 3071,
+   "verdict": "ok",
+   "finding": "أرخص من متجر أشلي (٣٬٠٧١) بعد ارتفاع سعره هناك اليوم",
+   "url": "https://midasfurniture.com/ksa_ar/bolanburg-dining-table.html",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
+   "refKind": "market"
+  },
+  {
+   "id": "midas:skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia",
+   "store": "midas",
+   "cat": "أثاث",
+   "name": "ميداس: طقم طعام سكيمبتون 6 كراسي (أشلي)",
+   "price": 3195,
+   "was": 4995,
+   "ref": 2645,
+   "verdict": "bad",
+   "finding": "نفس الطقم في متجر أشلي بـ ٢٬٦٤٥ · (صُحّح الرابط اليوم)",
+   "url": "https://midasfurniture.com/ksa_ar/skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia.html",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
+   "bk": "cheaper",
+   "refKind": "market"
+  },
+  {
+   "id": "midas:modmax-swivel-glider-recliner-blue-living-rooms-midas",
+   "store": "midas",
+   "cat": "أثاث",
+   "name": "ميداس: كرسي استرخاء دوار مودماكس (أشلي)",
+   "price": 1995,
+   "was": 3095,
+   "ref": 1795,
+   "verdict": "bad",
+   "finding": "متجر أشلي ١٬٧٩٥ · الألوان الأخرى في ميداس ٢٬٨٩٥",
+   "url": "https://midasfurniture.com/ksa_ar/modmax-swivel-glider-recliner-blue-living-rooms-midas.html",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22",
+   "bk": "cheaper",
+   "refKind": "market"
+  }
+ ]
+}

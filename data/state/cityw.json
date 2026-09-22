@@ -1,0 +1,82 @@
+{
+ "store": "cityw",
+ "updated": "2026-09-22",
+ "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "rows": [
+  {
+   "id": "cityw:peppo-2-seater-boucle-fabric-loveseat-warm-ivory",
+   "store": "cityw",
+   "cat": "أثاث",
+   "name": "كنبة مقعدين بوكليه بيبو",
+   "price": 3950,
+   "was": 12950,
+   "ref": null,
+   "verdict": "na",
+   "finding": "سيتي دبليو · ١٠٠٪ من كتالوج المتجر (٨٣٥ منتجاً) عليه سعر «قبل» مشطوب · «خصم ٦٩٪» غير متحقق",
+   "url": "https://cityw.com.sa/product/peppo-2-seater-boucle-fabric-loveseat-warm-ivory/",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "cityw:6-seater-fabric-sofa-set-warm-grey",
+   "store": "cityw",
+   "cat": "أثاث",
+   "name": "طقم كنب 6 مقاعد رمادي دافئ",
+   "price": 5950,
+   "was": 14950,
+   "ref": null,
+   "verdict": "na",
+   "finding": "سيتي دبليو · ١٠٠٪ من الكتالوج «مخفّض» · موديل خاص · لا يوجد سجل خارجي",
+   "url": "https://cityw.com.sa/product/6-seater-fabric-sofa-set-warm-grey/",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "cityw:king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey",
+   "store": "cityw",
+   "cat": "أثاث",
+   "name": "طقم غرفة نوم كينج 6 قطع منجد",
+   "price": 7450,
+   "was": 14950,
+   "ref": null,
+   "verdict": "na",
+   "finding": "سيتي دبليو · ١٠٠٪ من الكتالوج «مخفّض» · موديل خاص · لا يوجد سجل خارجي",
+   "url": "https://cityw.com.sa/product/king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey/",
+   "avail": "gone",
+   "availNote": "سيتي دبليو: الصفحة غير موجودة",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "cityw:12-seater-ceramic-top-dining-table-set-charcoal-and-bronze",
+   "store": "cityw",
+   "cat": "أثاث",
+   "name": "طقم طعام 12 مقعد بسطح سيراميك",
+   "price": 11950,
+   "was": 24950,
+   "ref": null,
+   "verdict": "na",
+   "finding": "سيتي دبليو · ١٠٠٪ من الكتالوج «مخفّض» · موديل خاص · لا يوجد سجل خارجي",
+   "url": "https://cityw.com.sa/product/12-seater-ceramic-top-dining-table-set-charcoal-and-bronze/",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "cityw:4-seater-fabric-sectional-sofa-warm-taupe-brown",
+   "store": "cityw",
+   "cat": "أثاث",
+   "name": "كنبة زاوية 4 مقاعد",
+   "price": 3550,
+   "was": 11450,
+   "ref": null,
+   "verdict": "na",
+   "finding": "سيتي دبليو · ١٠٠٪ من الكتالوج «مخفّض» · «خصم ٦٩٪» غير متحقق",
+   "url": "https://cityw.com.sa/product/4-seater-fabric-sectional-sofa-warm-taupe-brown/",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22"
+  }
+ ]
+}

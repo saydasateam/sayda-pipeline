@@ -1,0 +1,67 @@
+{
+ "store": "panhome",
+ "updated": "2026-09-22",
+ "checkedAt": "2026-09-22T11:19:12.638+03:00",
+ "rows": [
+  {
+   "id": "panhome:vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
+   "store": "panhome",
+   "cat": "أثاث",
+   "name": "طاولة طعام فينتج مانجو 14 مقعد",
+   "price": 6999,
+   "was": 13999,
+   "ref": null,
+   "verdict": "na",
+   "finding": "بان هوم · ٩٩٪ من الأثاث «مخفّض» دائماً تقريباً · «قبل» غير موثوق",
+   "url": "https://www.panhomestores.com/ksa_ar/vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
+   "avail": "oos",
+   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "panhome:sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
+   "store": "panhome",
+   "cat": "أثاث",
+   "name": "طقم طعام سوفانتي 8 كراسي",
+   "price": 5940,
+   "was": 13158,
+   "ref": null,
+   "verdict": "na",
+   "finding": "بان هوم · «خصم ٥٥٪» غير متحقق",
+   "url": "https://www.panhomestores.com/ksa_ar/sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
+   "avail": "oos",
+   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "panhome:eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
+   "store": "panhome",
+   "cat": "أثاث",
+   "name": "طقم طعام إيرين 8 كراسي",
+   "price": 8985,
+   "was": 17165,
+   "ref": null,
+   "verdict": "na",
+   "finding": "بان هوم · موديل خاص · لا يوجد سجل خارجي",
+   "url": "https://www.panhomestores.com/ksa_ar/eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
+   "avail": "oos",
+   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-22"
+  },
+  {
+   "id": "panhome:tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
+   "store": "panhome",
+   "cat": "أثاث",
+   "name": "طقم كنب تيلسلي 3+1+1",
+   "price": 10988,
+   "was": 18098,
+   "ref": null,
+   "verdict": "na",
+   "finding": "بان هوم · موديل خاص · لا يوجد سجل خارجي",
+   "url": "https://www.panhomestores.com/ksa_ar/tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-22"
+  }
+ ]
+}
