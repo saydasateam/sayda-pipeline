@@ -24,6 +24,24 @@ if (st.rows.length > rules.page.maxRows) {
     .slice(0, st.rows.length - rules.page.maxRows).map(r => r.id));
   if (drop.size) { st.rows = st.rows.filter(r => !drop.has(r.id)); console.log(`page cap: hid ${drop.size} unavailable rows over maxRows ${rules.page.maxRows}`); }
 }
+// Per-chip cap (rules.page.maxPerChip, 22 Sep), also at render time and also deleting nothing.
+// Furniture had 44 rows, 37 of them `na` and 3 verified-good: it filled the page without adding
+// proven deals. Keep the rows the page can stand behind first — verified and available — and hide
+// the rest of that chip beyond the cap: unavailable first, then na, then the smallest saving.
+{
+  const cap = rules.page.maxPerChip || {};
+  const dead = r => ['oos','ended','gone'].includes(r.avail);
+  const score = r => (dead(r) ? 0 : 4) + (r.verdict === 'ok' ? 3 : r.verdict === 'warn' ? 2 : r.verdict === 'bad' ? 1 : 0);
+  const saving = r => (r.ref != null && r.ref > r.price) ? r.ref - r.price : 0;
+  for (const [chip, n] of Object.entries(cap)) {
+    const inChip = st.rows.filter(r => r.cat === chip);
+    if (inChip.length <= n) continue;
+    const keep = new Set(inChip.slice().sort((a, b) => (score(b) - score(a)) || (saving(b) - saving(a))).slice(0, n).map(r => r.id));
+    const before = st.rows.length;
+    st.rows = st.rows.filter(r => r.cat !== chip || keep.has(r.id));
+    console.log(`chip cap: showing ${n} of ${inChip.length} «${chip}» rows (hid ${before - st.rows.length})`);
+  }
+}
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
 const storeById = Object.fromEntries(cfg.stores.map(s=>[s.id,s]));
@@ -59,15 +77,19 @@ const D = st.rows.map(r => {
 
 const T   = st.travel.map(t => [t.company,t.type,t.headline,t.code||'',t.bookStart||'',t.bookEnd||'',t.travelWindow,t.verdict,t.terms,t.url,t.checked]);
 const TNO = st.travelNone.map(t => [t.company,t.type]);
+// car offers (22 Sep): same card shape as travel, one extra field (brand) after type.
+// [company, type, brand, headline, code, bookStart, bookEnd, window, verdict, terms, url, checked]
+const CR  = (st.cars || []).map(c => [c.company,c.type,c.brand||'',c.headline,c.code||'',c.bookStart||'',c.bookEnd||'',c.window||'',c.verdict,c.terms,c.url,c.checked]);
+const CRNO = (st.carsNone || []).map(c => [c.company,c.type]);
 // one row per line, like the hand-written page, so git diffs stay readable
 const arr = rows => '[\n' + rows.map(r => JSON.stringify(r)).join(',\n') + '\n]';
 
 // ---- chips from config ----
 const catChips = cats.map(c => `        <button data-g="c" data-f="${c.id}">${c.label}</button>`).join('\n');
 const storeChips = cfg.groups.map(g => {
-  const btns = cfg.stores.filter(s=>s.group===g.id).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
+  const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
   const sub  = `<span class="fsub${g.cssClass?' '+g.cssClass:''}">${g.label}</span>`;
-  return `        <div class="sgrp">${sub}\n${btns.join('\n')}</div>`;
+  return btns.length ? `        <div class="sgrp">${sub}\n${btns.join('\n')}</div>` : '';
 }).join('\n');
 
 // ---- note cards ----
@@ -106,8 +128,9 @@ const fill = {
   CATEGORY_CHIPS: catChips,
   STORE_CHIPS: storeChips,
   CBY_JSON: JSON.stringify(couponBy), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
+  CR_JSON: arr(CR), CRNO_JSON: JSON.stringify(CRNO),
 };
-fill.STORE_COUNT_AR = countWord(cfg.stores.length); // "الستة عشر" etc. — the template keeps the word order "المتاجر {{n}}"
+fill.STORE_COUNT_AR = countWord(cfg.stores.filter(s=>s.enabled!==false).length); // disabled stores (no working storefront) are not counted // "الستة عشر" etc. — the template keeps the word order "المتاجر {{n}}"
 let out = tpl;
 for (const [k,v] of Object.entries(fill)) out = out.split(`{{${k}}}`).join(v);
 const left = out.match(/{{[A-Z_]+}}/g); if (left) throw new Error('unfilled: '+left.join(','));
@@ -126,4 +149,4 @@ art = art.replace(/<meta name="description"[\s\S]*?<meta name="twitter:image"[^>
 fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
-console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · coupons ${st.coupons.length}`);
+console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length}`);
