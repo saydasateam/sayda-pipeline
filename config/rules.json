@@ -67,7 +67,20 @@
     "maxRows": 900,
     "defaultFilter": "verified",
     "maxNewPerRun": 150,
-    "_maxNewPerRun": "Hard cap on rows added in a single run. Raised 60 -> 150 on 22 Sep (with maxRows 420 -> 900) when the rendered collectors opened Almanea's and Blackbox's full National Day catalogues. Highest verified saving wins; the rest are picked up by the next run."
+    "_maxNewPerRun": "Hard cap on rows added in a single run. Raised 60 -> 150 on 22 Sep (with maxRows 420 -> 900) when the rendered collectors opened Almanea's and Blackbox's full National Day catalogues. Highest verified saving wins; the rest are picked up by the next run.",
+    "reservedPerChip": {
+      "أزياء": 15,
+      "عناية": 15,
+      "أطفال": 15,
+      "عطور": 8,
+      "رياضة": 8,
+      "ألعاب": 8
+    },
+    "_reservedPerChip": "Added 2026-09-22. apply.js new fills these chips FIRST (best verified saving within each chip), then ranks everything left together as before. Without it a TV wins every intake slot on money saved and the page stays electronics + furniture.",
+    "maxPerChip": {
+      "أثاث": 25
+    },
+    "_maxPerChip": "Added 2026-09-22. Render-time cap in build.js: at most N rows per chip are shown. Furniture had 44 rows of which 3 were verified-good; verified and available rows are kept first, na and unavailable rows are hidden first. Nothing is deleted from state."
   },
   "travel": {
     "dropAfterDays": 3

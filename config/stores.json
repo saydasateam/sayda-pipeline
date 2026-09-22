@@ -13,6 +13,16 @@
       "id": "fashion",
       "label": "أزياء وتجميل",
       "cssClass": "fsub-fash"
+    },
+    {
+      "id": "kids",
+      "label": "أطفال وأمهات",
+      "cssClass": "fsub-kids"
+    },
+    {
+      "id": "pharmacy",
+      "label": "صيدليات وتجميل",
+      "cssClass": "fsub-pharm"
     }
   ],
   "stores": [
@@ -499,11 +509,11 @@
       "adapter": "namshi",
       "origin": "https://www.namshi.com",
       "home": "https://www.namshi.com/saudi-ar/",
-      "landing": "https://www.namshi.com/saudi-ar/women/",
+      "landing": "https://www.namshi.com/saudi-ar/",
       "verify": "self",
       "_verify_note": "No public price tracker covers Namshi in KSA. Rows start as 'na' and are verified against data/history.json once this pipeline has watched them for ownHistoryMinDays.",
       "productUrl": "https://www.namshi.com{path}",
-      "enabled": false,
+      "enabled": true,
       "collect": {
         "locale": "saudi-ar",
         "paths": [
@@ -521,7 +531,120 @@
         "cap": 200
       },
       "_styli_note": "Styli has no reachable own storefront (www.styli.com → DNS NXDOMAIN, 2026-09-18). It is covered as a brand path under Namshi instead. If a working Styli domain turns up, add it as its own store on the namshi.js pattern.",
-      "_parked": "Parked 2026-09-18 after the first live run. The DOM selectors are correct (verified: 189 product boxes parsed on women-clothing), but namshi.com client-side redirects (/saudi-ar/women/ → /saudi-ar/fashion/women-fashion/) tear down an injected script mid-execution, and the site's CSP blocks the eval-based loader. Fix: drive it with Playwright in run.js (which survives the redirect) rather than the Chrome extension, then flip enabled back to true."
+      "_unparked": "Re-enabled 2026-09-22. Tested live: the tab is opened on store.home (/saudi-ar/, which does not redirect), boot() + eval load fine, and collect() read 350 gate-passing products across the five paths (144 kept after the per-category quota) in ~250 s. The redirect that parked it only happens on /saudi-ar/women/ (the old landing), which the collector never navigates to."
+    },
+    {
+      "id": "mumzworld",
+      "label": "ممزورلد",
+      "group": "kids",
+      "adapter": "mumzworld",
+      "origin": "https://www.mumzworld.com",
+      "home": "https://www.mumzworld.com/sa-ar",
+      "landing": "https://www.mumzworld.com/sa-ar/c/collections/saudi-national-day",
+      "verify": "self",
+      "_verify_note": "Branded items (Dyson, Philips Avent, Joie, Chicco…) may be checked against the same model elsewhere with SAYDA.kanbkam.market + rules/match.js, exactly as for Almanea. Everything else starts na and is re-judged against our own history after ownHistoryMinDays.",
+      "naFinding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+      "intake": {
+        "fillTo": 20,
+        "allowNa": true,
+        "_why": "Decided 2026-09-22 (Mahmoud): kids stores show their top 20 every run; unverifiable rows are published as na (they claim nothing and stay out of the default verified filter)."
+      },
+      "collect": {
+        "paths": [
+          "/sa-ar/c/collections/saudi-national-day",
+          "/sa-ar/c/collections/snd-unmissable-deals",
+          "/sa-ar/c/collections/snd-strollers-prams",
+          "/sa-ar/c/collections/snd-car-seats-boosters",
+          "/sa-ar/c/collections/snd-appliances",
+          "/sa-ar/c/collections/snd-bottle-feeding",
+          "/sa-ar/c/collections/snd-breast-feeding",
+          "/sa-ar/c/sale"
+        ],
+        "pages": 1,
+        "cat": "mumzworld",
+        "cap": 400,
+        "_paging": "Only the first 24 products of a listing are server-rendered (?page=, ?p=, ?sort= are all ignored — tested 22 Sep); «عرض المزيد» pages client-side. Breadth comes from the eight National Day (snd-*) collection paths, 24 each."
+      }
+    },
+    {
+      "id": "mothercare",
+      "label": "مذركير",
+      "group": "kids",
+      "adapter": "mothercare",
+      "origin": "https://www.mothercare.com.sa",
+      "home": "https://www.mothercare.com.sa/ar/",
+      "landing": "https://www.mothercare.com.sa/ar/shop-sale/view-all",
+      "verify": "self",
+      "naFinding": "مذركير · منتجات بعلامة المتجر نفسه، لا توجد في متجر آخر للمقارنة",
+      "intake": {
+        "fillTo": 20,
+        "allowNa": true,
+        "_why": "Decided 2026-09-22 (Mahmoud): top 20 every run, na allowed."
+      },
+      "collect": {
+        "render": "scroll",
+        "want": 300,
+        "cat": "mothercare",
+        "_render": "Listings come from a keyed search service we do not use, so the collector reads the RENDERED sale page (collectRender). Product pages are server-rendered JSON-LD, so check() is a plain fetch."
+      }
+    },
+    {
+      "id": "nahdi",
+      "label": "النهدي",
+      "group": "pharmacy",
+      "adapter": "nahdi",
+      "origin": "https://www.nahdionline.com",
+      "home": "https://www.nahdionline.com/ar-sa",
+      "landing": "https://www.nahdionline.com/ar-sa/plp/beauty-deals",
+      "verify": "self",
+      "_verify_note": "Branded beauty and baby care (Avene, La Roche-Posay, CeraVe, Aptamil…) is often sold at Al-Dawaa, Noon and Amazon under the same name and size: check with SAYDA.kanbkam.market + rules/match.js. Otherwise na, then own history.",
+      "naFinding": "النهدي · لا يوجد سجل سعر خارجي ولا نفس المنتج بنفس الحجم في متجر آخر",
+      "collect": {
+        "paths": [
+          "beauty-deals",
+          "personal-care-all-deals",
+          "baby-milk-and-diapers-offers",
+          "vitamins-offers",
+          "manuka-honey-offers"
+        ],
+        "_paging": "Only page 1 (20 hits) of each deal listing is server-rendered; add deal paths for breadth."
+      }
+    },
+    {
+      "id": "aldawaa",
+      "label": "الدواء",
+      "group": "pharmacy",
+      "adapter": "aldawaa",
+      "origin": "https://www.al-dawaa.com",
+      "home": "https://www.al-dawaa.com/ar/",
+      "landing": "https://www.al-dawaa.com/ar/",
+      "verify": "self",
+      "_verify_note": "Same as Nahdi: branded items via kanbkam.market + rules/match.js; Nahdi ↔ Al-Dawaa is itself a same-product comparison when name and size match.",
+      "naFinding": "الدواء · لا يوجد سجل سعر خارجي ولا نفس المنتج بنفس الحجم في متجر آخر",
+      "collect": {
+        "queries": [
+          ":relevance"
+        ],
+        "pages": 10,
+        "pageSize": 100,
+        "maxPages": 10,
+        "_api": "Public OCC API the storefront itself calls (base from <meta name=occ-backend-base-url>). price.value = the store's «before», simulatedDiscountPrice.value = price now. Prescription items are skipped."
+      }
+    },
+    {
+      "id": "toysrus",
+      "label": "تويز آر أص",
+      "group": "kids",
+      "enabled": false,
+      "adapter": null,
+      "origin": "https://www.toysrus.com.sa",
+      "home": "https://www.toysrus.com.sa/",
+      "verify": "self",
+      "intake": {
+        "fillTo": 20,
+        "allowNa": true
+      },
+      "_blocked": "Checked 2026-09-22: www.toysrus.com.sa and toysrus.sa do not resolve (DNS NXDOMAIN); the Dynamics 365 storefront at toysrus.commerce.dynamics.com returns 0 products for any search; Noon's /toys_r_us/ store page is 404. There is no web catalogue to collect from, so no adapter. Re-check the domain before each campaign."
     }
   ],
   "verifyHosts": {
