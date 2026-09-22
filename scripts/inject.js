@@ -47,6 +47,11 @@ SAYDA.start('${act}:${name}', () => ${call});
 }
 let code = fs.readFileSync(path.join(ROOT, 'adapters/_core.js'), 'utf8') + '\n' + fs.readFileSync(path.join(ROOT, 'adapters', (name === 'kanbkam' ? 'kanbkam' : store.adapter || name) + '.js'), 'utf8') + '\n';
 const rows = state.rows.filter(r => r.store === store.id).map(r => ({ id: r.id, url: r.url, price: r.price }));
+// recheck: only the rows added this run that no store check has confirmed yet (needsCheck).
+// Self-contained on purpose — boot() reads the COMMITTED shard, where these rows do not exist yet.
+if (action === 'recheck') { const pend = state.rows.filter(r => r.store === store.id && r.needsCheck).map(r => ({ id: r.id, url: r.url, price: r.price }));
+  if (!pend.length) { process.stderr.write(`# ${store.id}: no rows waiting for a first check\n`); process.exit(3); }
+  code += `SAYDA.start('check:${store.id}', () => SAYDA.adapters['${store.id}'].check(${JSON.stringify(pend)}, ${JSON.stringify(store)}, ${JSON.stringify(rules)}));`; }
 if (action === 'check') code += `SAYDA.start('check:${store.id}', () => SAYDA.adapters['${store.id}'].check(${JSON.stringify(rows)}, ${JSON.stringify(store)}, ${JSON.stringify(rules)}));`;
 if (action === 'collect') code += `SAYDA.start('collect:${store.id}', () => SAYDA.adapters['${store.id}'].collect(${JSON.stringify(store)}, ${JSON.stringify(rules)}));`;
 if (action === 'coupons') code += `SAYDA.start('coupons:${store.id}', () => SAYDA.adapters['${store.id}'].coupons(${JSON.stringify(store)}));`;
