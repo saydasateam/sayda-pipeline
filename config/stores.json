@@ -198,8 +198,9 @@
       "collect": {
         "category": 1145,
         "pageSize": 100,
-        "maxFrom": 700
-      }
+        "maxFrom": 900
+      },
+      "notes": "One category code is CORRECT here, not a placeholder — do not 'widen' it. Measured 2026-09-20: code 1145 is Jarir's own offers category (865 hits → 594 distinct products, 486 discounted, 353 passing the tiered gate), and it is already read in full. We publish 20 rows from those 353, so the constraint is verification and the per-store intake ceiling, never category breadth. The 1100-band codes are medical textbooks. The API ignores query params (?min_discount, ?discountable) and has no discount sort — sort-price/asc|desc work, sort-discount/desc silently falls back to priority order — so the sort-then-truncate trick does not work at Jarir any more than at Almanea or Blackbox. maxFrom raised 700→900 only so the tail is not clipped if the category grows before 30 Sep."
     },
     {
       "id": "blackbox",

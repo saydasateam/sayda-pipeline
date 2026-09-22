@@ -8,7 +8,7 @@
       const seen = new Set(), out = [];
       await S.pool(jobs, cfg.collect.concurrency || 3, async u => { const { text } = await S.fetchText(u); const j = S.nextData(text); const ps = S.get(j, 'props.' + cfg.collect.productsAt) || [];
         for (const p0 of ps) { const p = cfg.collect.hitSource ? (p0._source || {}) : p0; const pw = p.prices_with_tax || {}; const price = pw.price, was = pw.original_price;
-          if (!S.isCandidate(price, was, rules, 100) || seen.has(p.rewrite_url)) continue; seen.add(p.rewrite_url);
+          if (!S.isCandidate(price, was, rules) || seen.has(p.rewrite_url)) continue; seen.add(p.rewrite_url);
           out.push({ key: p.rewrite_url, name: (p.name && p.name[0] || '').slice(0, 90), price: S.round(price), was: S.round(was), url: cfg.productUrl.replace('{slug}', p.rewrite_url), inStock: !!(p.stock && p.stock.is_in_stock), qty: p.stock && p.stock.qty }); } });
       out.sort((a, b) => (b.was - b.price) - (a.was - a.price)); return { candidates: out, stats: { pages: jobs.length } };
     },

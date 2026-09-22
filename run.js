@@ -9,7 +9,7 @@ const fs = require('fs'), path = require('path');
 const ROOT = __dirname;
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/stores.json'), 'utf8'));
 const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), 'utf8'));
-const state = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/state.json'), 'utf8'));
+const state = require('./lib/state.js').load(ROOT, cfg);   // merged from data/state/<store>.json
 const args = process.argv.slice(2); const phase = args[0] || 'check';
 const only = (args.includes('--store') ? args[args.indexOf('--store') + 1].split(',') : null);
 // `enabled: false` parks an adapter that has not been probed live yet — a normal run skips it,

@@ -5,7 +5,7 @@
     async collect(cfg, rules) {
       const out = []; for (let p = 1; p <= 4; p++) { const { json } = await S.fetchJson(`/collections/${cfg.collect.collection}/products.json?limit=${cfg.collect.limit}&page=${p}`); const ps = json && json.products || []; if (!ps.length) break;
         for (const pr of ps) { if ((pr.tags || []).some(t => (cfg.collect.skipTags || []).includes(String(t).toLowerCase()))) continue; const vs = (pr.variants || []).filter(v => v.available).sort((a, b) => +a.price - +b.price); const v = vs[0]; if (!v) continue;
-          const price = +v.price, was = +(v.compare_at_price || 0); if (!S.isCandidate(price, was, rules, 300)) continue;
+          const price = +v.price, was = +(v.compare_at_price || 0); if (!S.isCandidate(price, was, rules)) continue;
           out.push({ key: pr.handle, name: pr.title.slice(0, 80), price: S.round(price), was: S.round(was), url: `https://store.ashley.sa/products/${pr.handle}`, sku: v.sku, series: (pr.title.split(' ')[0] || '') }); } }
       out.sort((a, b) => (b.was - b.price) - (a.was - a.price)); return { candidates: out, stats: {} };
     },

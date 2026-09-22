@@ -9,7 +9,7 @@
       document.querySelectorAll('a[href*="-p-"]').forEach(a => { const h = a.getAttribute('href'); if (seen.has(h)) return;
         let el = a; for (let i = 0; i < 6; i++) { el = el.parentElement; if (!el) return; if (el.innerText && el.innerText.trim().length > 25) break; }
         const lines = (el.innerText || '').split('\n').map(x => x.trim()).filter(Boolean); const nums = lines.filter(x => /^[\d,]+(\.\d+)?$/.test(x)).map(S.num);
-        if (nums.length < 2) return; const [price, was] = nums; if (!S.isCandidate(price, was, rules, 100)) return; seen.add(h);
+        if (nums.length < 2) return; const [price, was] = nums; if (!S.isCandidate(price, was, rules)) return; seen.add(h);
         out.push({ key: h.split('/').pop(), name: (lines.find(x => x.length > 15 && !/^[\d,]/.test(x)) || '').slice(0, 80), price, was, url: cfg.origin + h, inStock: /متوفر/.test(el.innerText) && /أضف للسلة/.test(el.innerText), bought: (el.innerText.match(/(\d+)\+? كمية تم شراؤها/) || [])[1] }); });
       out.sort((a, b) => (b.was - b.price) - (a.was - a.price)); return { candidates: out, stats: { cards: seen.size } };
     },

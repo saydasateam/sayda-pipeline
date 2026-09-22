@@ -8,8 +8,22 @@ const cfg  = JSON.parse(fs.readFileSync(path.join(ROOT,'config/stores.json'),'ut
 const catsCfg = JSON.parse(fs.readFileSync(path.join(ROOT,'config/categories.json'),'utf8'));
 // categories.json may be a plain array (old shape) or { chips, map, fallback } (new shape)
 const cats = Array.isArray(catsCfg) ? catsCfg : catsCfg.chips;
-const st    = JSON.parse(fs.readFileSync(path.join(ROOT,'data/state.json'),'utf8'));
+// state is sharded per store (data/state/<id>.json) so overlapping cycles never write the same
+// file; lib/state.js merges the shards back into the single shape this file has always consumed.
+const st    = require('./lib/state.js').load(ROOT, cfg);
 const rules = JSON.parse(fs.readFileSync(path.join(ROOT,'config/rules.json'),'utf8'));
+
+// Page cap, applied at RENDER time rather than when observations are applied. apply.js used to
+// delete rows here, which meant one store's slot could delete another store's rows — exactly the
+// cross-slot write the sharding exists to prevent. Capping on read is deterministic, reversible,
+// and drops the least useful rows first: unavailable ones, oldest seen first.
+if (st.rows.length > rules.page.maxRows) {
+  const dead = r => ['oos','ended','gone'].includes(r.avail);
+  const drop = new Set(st.rows.filter(dead)
+    .sort((a,b) => String(a.firstSeen||'').localeCompare(String(b.firstSeen||'')))
+    .slice(0, st.rows.length - rules.page.maxRows).map(r => r.id));
+  if (drop.size) { st.rows = st.rows.filter(r => !drop.has(r.id)); console.log(`page cap: hid ${drop.size} unavailable rows over maxRows ${rules.page.maxRows}`); }
+}
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
 const storeById = Object.fromEntries(cfg.stores.map(s=>[s.id,s]));

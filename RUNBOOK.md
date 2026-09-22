@@ -20,16 +20,25 @@ certainly taken this branch; say so plainly in the summary so a 4-minute no-op i
 
 ## 1. CHECK phase — every row, all stores in parallel (≈ 12 calls)
 For each store id in `config/stores.json` (16), open one Chrome tab on `store.home` (for **saco** open `store.landing`;
-for **jarir** any jarir.com page works even if it 404s), then **bootstrap the adapter from raw GitHub** rather than pasting a
-bundle into the injection:
+for **jarir** any jarir.com page works even if it 404s), then **fetch the adapter AND the rows inside the browser** rather
+than pasting either into the injection. `node scripts/inject.js <id> boot check` prints the whole thing —
+355 bytes instead of 15.9 KB:
 ```js
-(0,eval)(await fetch('https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main/adapters/_core.js').then(r=>r.text()));
-(0,eval)(await fetch('https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main/adapters/<id>.js').then(r=>r.text()));
-SAYDA.start('check:<id>', () => SAYDA.adapters['<id>'].check(<rows>))
+const RAW='https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main';
+(0,eval)(await fetch(RAW+'/adapters/_core.js').then(r=>r.text()));
+(0,eval)(await fetch(RAW+'/adapters/<adapter>.js').then(r=>r.text()));
+await SAYDA.boot('<id>');
+SAYDA.start('check:<id>', () => SAYDA.adapters['<id>'].check(SAYDA.ctx.rows, SAYDA.ctx.store, SAYDA.ctx.rules));
 ```
-Two short lines instead of an 11 KB paste, and the adapter is always the committed version. `node scripts/inject.js <id> check`
-still prints the old self-contained bundle — keep it for **jarir, ikea and midas**, whose Content-Security-Policy blocks the
-`fetch` above. Do 2 stores per `browser_batch`: larger batches with heavy injections time out reliably.
+`SAYDA.boot()` fetches `config/stores.json`, `config/rules.json` and `data/state/<id>.json` and returns a
+one-line receipt. Across all 16 stores this is 241.6 KB of injection down to 43.7 KB — and injected bytes are
+the expensive kind, because everything pasted into a tab stays in context for every later call of the run.
+Per-store shards are what make the rows half affordable: it pulls one store's file, not the whole page's data.
+
+`node scripts/inject.js <id> check` still prints the old self-contained bundle — keep it for
+**jarir, ikea and midas**, whose Content-Security-Policy blocks the `fetch` above (`boot` refuses
+those three by name rather than emitting something that will fail in the tab). `boot` reads the
+COMMITTED files, so pass a branch while testing: `node scripts/inject.js <id> boot check <branch>`. Do 2 stores per `browser_batch`: larger batches with heavy injections time out reliably.
 - Stores whose adapter has `render: true` (**homecentre, homebox, panhome, trendyol**) have no fetch-based `check`: for each of their rows `navigate` → wait 4 s → inject core+adapter (`node scripts/inject.js <id>` without action) → `SAYDA.adapters['<id>'].checkCurrent({id, url})`. Batch 3 rows per call. (panhome: run the GraphQL `check` first, then render.)
 - Wait ~90 s, then per tab: `SAYDA.status('check:<id>')`. When done: `SAYDA.show('check:<id>')` then `get_page_text` on that tab → save the JSON after the `SAYDA:` line to `work/check/<id>.json`. (javascript results are truncated at ~1 KB; page text is not — that is what `show()` is for.)
 - Extra is slow by design (sequential, ~5 min for 18 rows). Start it first.
@@ -47,7 +56,7 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
   candidates together — verified savings first, then money saved — and keeps the top `rules.page.maxNewPerRun`, so the stores that
   actually earned the slots get them. The rest are re-collected next run, not lost.
   Qualifying gate comes from `config/rules.json → candidate.tiers` (tiered by live price) — never a number written here.
-  Also: well-known brand, not already in `data/state.json` (match by id `store:key`), one variant per model.
+  Also: well-known brand, not already in `data/state/<store>.json` (match by id `store:key`), one variant per model.
   Trendyol: skip cards with `plusOnly` unless instructive — that price needs a subscription. Trendyol candidates carrying
   `lowestRecent` can be judged with no extra lookup, so they are the cheapest to verify in the whole pipeline.
 - Evidence: noon/amazon/extra → `SAYDA.kanbkam.history(ids, mid)` on the kanbkam tab (mid from config; extra ids are `e<id>`). jarir/blackbox/almanea/saco/trendyol → `SAYDA.kanbkam.market(['brand model', …])`, keep only the SAME model. ashley ↔ midas: compare the same piece. ikea/homecentre/homebox/panhome/cityw/baytonia → verdict `na` with the store's discounted-share sentence.
@@ -80,14 +89,59 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
   avail from the collect output (inStock/qty) is provisional — mark `in` only if the collect data says in stock. Save as `work/new-rows.json`, then `node apply.js new work/new-rows.json`. Row budget comes from `rules.json → page` (`targetRows`, `maxRows`, `maxNewPerRun`) — never from a number written here.
 
 ## 3. FULL run only — coupons & travel (≈ 6 calls)
-- `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `state.coupons` in `data/state.json` (node one-liner): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
-- Travel: open each `state.travel[].url` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers. Keep `state.travelNone` accurate (Saudia / flyadeal today).
-- Update `state.notes.furnitureShare` from the collect stats (`sharePct`) when available.
-- **A hand edit of `data/state.json` must never touch `meta`.** `apply.js` owns `meta.checkedAt` and `meta.updated`, and it stamps
-  them as *Riyadh wall-clock digits carrying a `+03:00` suffix* (`new Date(Date.now()+3*3600e3).toISOString().replace('Z','+03:00')`)
-  — which is what `lib/ar.js → time12()` reads back. Writing `new Date().toISOString()` and appending `+03:00` labels UTC digits as
-  Riyadh and puts the page's "آخر فحص للتوفر" three hours behind, plausibly enough to ship unnoticed. If a run edits coupons or travel
-  without a check phase, re-stamp with that exact expression, and verify with `time12(state.meta.checkedAt)` before building.
+- `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `coupons` in `data/state/_coupons.json` (node one-liner; if the file does not exist yet, create it with `node -e "const S=require('./lib/state');const st=S.load('.');S.saveShared('.','coupons',{coupons:st.coupons});S.saveShared('.','travel',{travel:st.travel,travelNone:st.travelNone,travelNone_text:st.travelNone_text});S.saveShared('.','notes',{notes:st.notes})"` first): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
+- Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers. Keep `travelNone` accurate (Saudia / flyadeal today).
+- Update `notes.furnitureShare` in `data/state/_notes.json` from the collect stats (`sharePct`) when available.
+- **`data/state/_*.json` has exactly one writer: this slot.** These three files are the only non-per-store state left, which is why
+  coupons and travel ride along in one slot and one slot only. Two slots editing them reintroduces the clobber the sharding removed.
+- **Nothing hand-edits a timestamp any more.** `meta.checkedAt` is no longer stored: `lib/state.js` derives it from the
+  per-store `checkedAt` values at load time (newest = the page's «آخر فحص»; `meta.oldestCheckedAt` = the honest staleness
+  guarantee across all sixteen stores). `apply.js` stamps only the shards it wrote, as *Riyadh wall-clock digits carrying a
+  `+03:00` suffix* (`new Date(Date.now()+3*3600e3).toISOString().replace('Z','+03:00')`) — which is what `lib/ar.js → time12()`
+  reads back. Writing `new Date().toISOString()` and appending `+03:00` labels UTC digits as Riyadh and puts the page three hours
+  behind, plausibly enough to ship unnoticed. A run that edits coupons or travel without a check phase changes no timestamp at all,
+  and that is correct: nothing was re-checked.
+
+## 3b. FULL run only — comparator sweep (the sidecar, ~6 calls)
+Only for the four `verify: "market"` stores (jarir, blackbox, almanea, saco). Everything else is
+untouched by this phase.
+
+```
+node scripts/market-apply.js --plan        # writes work/market/<store>.jobs.json, prints the work list
+```
+- Open ONE tab on `https://www.google.com`, then bootstrap from raw GitHub rather than pasting:
+  ```js
+  const RAW='https://raw.githubusercontent.com/saydasateam/sayda-pipeline/main';
+  (0,eval)(await fetch(RAW+'/adapters/_core.js').then(r=>r.text()));
+  (0,eval)(await fetch(RAW+'/adapters/market.js').then(r=>r.text()));
+  SAYDA.start('mkt:<store>', () => SAYDA.adapters.market.sweep(<jobs>));
+  ```
+  Read it back with `SAYDA.show('mkt:<store>')` + `get_page_text`, save to `work/market/<store>.json`.
+- **If the sweep reports `CHALLENGE PAGE`, stop.** It halts itself on purpose. Continuing past a
+  challenge returns empty results, which are indistinguishable from "no comparator exists" — and
+  that confusion is the one thing this phase must never introduce. Report it and move on.
+- `gl=sa` and `hl=en` are both load-bearing and are set in the adapter, not here. `gl=sa` keeps the
+  merchants Saudi; `hl=en` keeps the model code in the title. With `hl=ar` the titles come back as
+  «تلفزيون سامسونج، ١٠٠ بوصة» and `rules/match.js` correctly rejects all of them, yielding nothing.
+
+```
+node scripts/market-apply.js work/market/<store>.json            # SHADOW — prints, changes nothing
+node scripts/market-apply.js work/market/<store>.json --apply    # writes the rows
+```
+- **Shadow is the default and stays the default until a full cycle has been run both ways.** The
+  hand-probed path has a measured 8% yield over 62 real queries; this one has unit tests and four
+  live probes. Compare the verdicts before trusting it.
+- The same-model filter is `rules/match.js`, with `scripts/test-match.js` covering all five of the
+  2026-09-19 false positives plus the near-miss and size cases. The parser is `rules/listing.js`,
+  with `scripts/test-listing.js` covering blocks captured verbatim from the live page. **Run both
+  before the sweep** — a green test suite is what makes a sweep result trustworthy.
+- `ref` on an applied row is whatever `rules/verdict.js` returned from the evidence. `market-apply`
+  never picks a number, and a row whose comparison was rejected is left exactly as it was.
+- **Expect the `bad` count to rise.** 54 of the 84 `bad` rows on 20 Sep were bad because a
+  competitor genuinely is cheaper; more comparators finds more of those. That is the filter working,
+  not failing. The page gets more trustworthy before it gets bigger.
+- Own-label stock (IKEA, Home Centre, Home Box, Pan Home, CityW, Baytonia, most Trendyol) has no
+  second seller anywhere. Those rows stay `na` permanently. That is the correct answer, not a gap.
 
 ## 4. Build & publish (≈ 5 calls)
 ```
@@ -96,11 +150,24 @@ node build.js      # dist/index.html — note the "rows/available" counts it pri
 - Upload `dist/index.html` to the site repo: navigate `https://github.com/saydasateam/sayda-deals/upload/main` → `find` the "Choose your files" input → `file_upload` with `<repo>/dist/index.html` → wait 7 s → set the commit message with the native setter and click the submit button, both in one `javascript_tool` call:
   `const i=document.querySelector('input[name="message"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'Update <YYYY-MM-DD HH:MM> Riyadh');i.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('button')].find(b=>/^Commit changes$/.test(b.innerText.trim())&&b.type==='submit').click();`
   → wait 10 s → `location.href` must be the repo root. Verify on `/commits/main` that the newest commit is yours.
-- Same for the data files into this repo: `https://github.com/saydasateam/sayda-pipeline/upload/main/data`.
-  Upload **both `data/state.json` and `data/history.json` in the same commit** — select the two files in one `file_upload` call.
-  `history.json` is the own-price-history store that `apply.js check` appends to every run. Each run clones `main` fresh, so a run that
-  uploads only `state.json` throws its observations away: the file can never accumulate the `verdict.ownHistoryMinDays` distinct days
-  that `na` rows (fashion, beauty, baby, furniture) need before they can be re-judged, and that re-judging silently never happens.
+- Same for the data files into this repo. **State is sharded per store** — `data/state/<id>.json` and `data/state/<id>.history.json`, in ONE directory —
+  so that overlapping slots cannot revert each other. Upload **only the shards this slot touched**, which `work/report.json → wrote`
+  names explicitly, plus the matching history shards, **all in one commit**: select them in one `file_upload` call to
+  `https://github.com/saydasateam/sayda-pipeline/upload/main/data/state`. `work/report.json → upload` lists the exact paths.
+  Everything a slot writes lives in `data/state/` precisely so this is possible: GitHub's upload form commits to one directory,
+  so files in two folders would need two commits.
+  - **Never upload a shard for a store this slot did not check.** That is the single-file clobber coming back through the
+    upload step: you would be writing a copy of another slot's file taken from a clone made before that slot committed.
+  - `data/state/<id>.history.json` is the own-price-history store that `apply.js check` appends to every run. A slot that uploads its
+    state shard but not its history shard throws its own observations away.
+  - A FULL run that also edited coupons, travel or notes uploads `data/state/_*.json` in the same commit.
+  - Wait until the form's «Uploading n of m files» line is gone before clicking Commit. On 22 Sep a click during the upload
+    produced an error page and no commit; the retry in a fresh tab worked.
+  - **During the migration `data/state.json` is still live — do not delete it.** The legacy file and the
+    shards coexist, and a shard wins for its own store, so each store moves across the first time its
+    slot runs. Nothing is missing at any point in between. `node scripts/unshard.js --check` says which
+    stores are still being served from the legacy file; only when it reports none may `data/state.json`
+    and `data/history.json` be deleted.
 - These two commits are the ONLY forms this run may submit. Never touch README.md via upload (GitHub refuses the overwrite).
 - Do not update the claude.ai artifact.
 
@@ -118,6 +185,38 @@ confirm the newest commit is this run's. Then:
   stale page revealed it. State what stopped it (no browser, adapter failures, budget) and how far the run got.
 PushNotification also when: a store failed, a commit failed, or ≥ 5 deals ended at once.
 If today is after 30 Sep 2026: say the sale is over and suggest pausing the task.
+
+## Rollback — how to undo the sharding change
+
+GitHub already keeps the old version: commit `6d7527b` ("Update 2026-09-20 09:22 Riyadh") is the
+last single-file state and stays in `main`'s history forever, as long as nobody force-pushes. So
+the code is never actually lost. What a plain revert DOES lose is the data, and that is the part
+this procedure exists for.
+
+`git revert` restores `data/state.json` as it was on the day of the change. Every row collected
+after that day would silently vanish. A rollback that loses four days of work is not a rollback, so
+the data comes back first and the code second.
+
+**In order. Do not reorder 1 and 3.**
+
+1. `node scripts/unshard.js` — rebuilds `data/state.json` and `data/history.json` from the LIVE
+   shards, so the restored files carry everything up to this minute, not up to 20 Sep. It also puts
+   the campaign facts back inside `meta`, where the old `build.js` expects them. (If the migration is
+   still part-way through, this is still correct: `load()` already merges the legacy file with
+   whatever shards exist, so the rebuilt file carries both.)
+2. Upload both files to `data/` on GitHub in one commit — the pre-change upload step.
+3. Revert the code: on the merged pull request, click **Revert**. GitHub opens a branch that undoes
+   the whole change; merge it. (If the change was pushed straight to `main` instead of through a PR,
+   use **History → the commit → Revert**.)
+4. `node build.js && node scripts/replay.js` — the page must build and replay clean before anyone
+   trusts it. Compare the row count against the last good run.
+5. Only once step 4 passes, delete `data/state/`.
+
+Step 1 before step 3 is not a style preference: after the revert, `scripts/unshard.js` no longer
+exists, because it is part of the change being reverted.
+
+**Verified 20 Sep:** shards → `unshard.js` → build through the legacy single-file path produces a
+page with the same 253 rows as the pre-change build. The round trip is tested, not assumed.
 
 ## Safety
 Never buy, add to cart, sign in, accept cookie banners, or submit any form other than the two GitHub commits. Never read or use tokens. Never curl store sites from the sandbox — adapters run in the browser only.

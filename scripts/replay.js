@@ -15,12 +15,37 @@
 const fs = require('fs');
 const { isGoodDeal, verdict } = require('../rules/verdict.js');
 const rules = JSON.parse(fs.readFileSync(__dirname + '/../config/rules.json'));
-const P = __dirname + '/../data/state.json';
-const st = JSON.parse(fs.readFileSync(P));
+const ROOT = __dirname + '/..';
+const ST = require('../lib/state.js');
+const cfgStores = JSON.parse(fs.readFileSync(ROOT + '/config/stores.json'));
+const st = ST.load(ROOT, cfgStores);
 const fix = process.argv.includes('--fix');
 
 const num = t => { const m = String(t).replace(/[٬,]/g, '').replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).match(/\d+(\.\d+)?/); return m ? +m[0] : null; };
 const after = (f, re) => { const m = (f || '').match(re); return m ? num(m[1]) : null; };
+
+// ── gate lint ───────────────────────────────────────────────────────────────
+// A collector may override the tiered candidate gate by passing isCandidate() a fourth argument.
+// That is legitimate ONLY when the number comes from config (cfg.minSaving — the furniture stores).
+// A numeric LITERAL there silently outranks config/rules.json and is invisible in any diff of the
+// rules: on 2026-09-20 nextdata.js and saco.js passed 100 and shopify.js passed 300, which excluded
+// every item under 83 SAR from the page and cost 34 of 201 qualifying Blackbox items. Caught here
+// because replay is the pre-publish gate, so the check actually runs.
+const path = require('path');
+const ADIR = path.join(__dirname, '..', 'adapters');
+const hardcoded = [];
+for (const f of fs.readdirSync(ADIR).filter(n => n.endsWith('.js'))) {
+  const src = fs.readFileSync(path.join(ADIR, f), 'utf8');
+  src.split('\n').forEach((line, i) => {
+    // isCandidate(a, b, rules, <number literal>) — cfg.minSaving and friends are fine
+    const m = line.match(/isCandidate\s*\([^)]*?,\s*(\d+(?:\.\d+)?)\s*\)/);
+    if (m && f !== '_core.js') hardcoded.push(`${f}:${i + 1}  passes ${m[1]} as minSaving — use config/rules.json tiers`);
+  });
+}
+if (hardcoded.length) {
+  console.log(`\nGATE LINT — hardcoded candidate floors override the tiers (${hardcoded.length})`);
+  for (const h of hardcoded) console.log('  ' + h);
+}
 
 const conflict = [], review = [];
 for (const r of st.rows) {
@@ -63,5 +88,12 @@ show('REVIEW — قرار تقديري، لم يُغيَّر', review);
 if (!conflict.length && !review.length) console.log('replay: all', st.rows.length, 'rows agree with rules/verdict.js');
 else console.log(`\nreplay: ${conflict.length} conflict, ${review.length} review, of ${st.rows.length} rows`);
 
-if (fix && conflict.length) { for (const [r, , want] of conflict) r.verdict = want; fs.writeFileSync(P, JSON.stringify(st, null, 2)); console.log(`written: ${conflict.length} verdicts corrected`); }
-process.exitCode = (!fix && conflict.length) ? 1 : 0;
+// --fix writes back only the shards that actually contained a corrected row, never the whole set
+if (fix && conflict.length) {
+  const touched = [...new Set(conflict.map(([r]) => r.store))];
+  for (const [r, , want] of conflict) r.verdict = want;
+  const all = ST.byStore(st.rows);
+  ST.saveStores(ROOT, Object.fromEntries(touched.map(id => [id, all[id] || []])), { updated: st.meta.updated, checkedAt: st.meta.checkedAt });
+  console.log(`written: ${conflict.length} verdicts corrected in ${touched.join(', ')}`);
+}
+process.exitCode = ((!fix && conflict.length) || hardcoded.length) ? 1 : 0;
