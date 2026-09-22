@@ -37,7 +37,9 @@
             if (!S.isCandidate(r.price, r.was, rules)) continue;
             const key = (r.brand || '') + '|' + r.name.replace(/[^؀-ۿA-Za-z0-9]/g, '').slice(0, 35);
             if (seen.has(key)) continue; seen.add(key);
-            out.push({ key: r.href.split('/').filter(Boolean).pop(), brand: r.brand, name: r.name,
+            // the product code is the segment before the trailing /p/ (…/buy-<slug>/<CODE>/p/); the last segment is always "p"
+            const seg = r.href.split('?')[0].split('/').filter(Boolean);
+            out.push({ key: seg[seg.length - 1] === 'p' ? seg[seg.length - 2] : seg[seg.length - 1], brand: r.brand, name: r.name,
                        price: r.price, was: r.was, url: 'https://www.namshi.com' + r.href, cat: p });
           }
           await S.sleep(400);
@@ -59,6 +61,12 @@
         const { status, text } = await S.fetchText(r.url.replace('https://www.namshi.com', ''));
         if (status === 404) { out.push({ id: r.id, found: false, status }); await S.sleep(500); continue; }
         const d = S.dom(text);
+        // Product pages carry schema.org Product JSON-LD (verified 22 Sep): read price and availability there.
+        // The CSS price classes below also match recommendation carousels, which on 22 Sep returned the same
+        // 622 SAR for twenty different products — so they are only a fallback when JSON-LD is missing.
+        const ld = S.ldProduct(d); const lo = ld && (Array.isArray(ld.offers) ? ld.offers[0] : ld.offers);
+        if (lo && lo.price != null) { const inS = /InStock|LimitedAvailability/.test(lo.availability || '');
+          out.push({ id: r.id, found: status === 200, live: S.num(lo.price), buyable: inS, stock: inS ? 99 : 0 }); await S.sleep(400); continue; }
         // product page reuses the same price classes; sold-out pages drop the add-to-bag control
         const price = S.num(txt(d, PRICE)), was = S.num(txt(d, WAS));
         const soldOut = /نفدت الكمية|Sold Out|out of stock/i.test(S.text(d.querySelector('main') || d.body).slice(0, 4000));
