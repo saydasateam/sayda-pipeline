@@ -1,7 +1,7 @@
 {
  "store": "aldawaa",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:10:46.209+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "aldawaa:247340",
@@ -17,7 +17,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:247493",
@@ -33,7 +33,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249494",
@@ -49,7 +49,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249016",
@@ -65,7 +65,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249470",
@@ -81,7 +81,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249468",
@@ -97,7 +97,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249461",
@@ -113,7 +113,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:247237",
@@ -129,7 +129,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249479",
@@ -145,7 +145,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:247246",
@@ -161,7 +161,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249440",
@@ -177,7 +177,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "aldawaa:249438",
@@ -193,7 +193,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

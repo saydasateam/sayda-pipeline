@@ -1,7 +1,7 @@
 {
  "store": "namshi",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:10:46.209+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "namshi:ZFA050EA7897E01463913Z",
@@ -17,7 +17,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:VA76B66109E89B18FE9F9V",
@@ -33,13 +33,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:Z0714AAA557884BAA4C6DZ",
    "store": "namshi",
    "name": "نيو بالانس سنيكرز ام 1000",
-   "price": 141,
+   "price": 321,
    "was": 895,
    "ref": null,
    "verdict": "na",
@@ -49,7 +49,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:ZE98B812E247CE2215B40Z",
@@ -61,17 +61,17 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.namshi.com/saudi-ar/buy-swarovski-dextera-steel-strap-analog-watch/ZE98B812E247CE2215B40Z/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:Z444C7A9A68EF146BE4F6Z",
    "store": "namshi",
    "name": "اغنر ساعة تناظرية بتصميم مميز",
-   "price": 1208,
+   "price": 1678,
    "was": 1875,
    "ref": null,
    "verdict": "na",
@@ -81,13 +81,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:ZD7E0CA6D216D13B86AE2Z",
    "store": "namshi",
    "name": "فالنتينو باي ماريو فالنتينو حذاء بكعب متوسط",
-   "price": 925,
+   "price": 1215,
    "was": 1539,
    "ref": null,
    "verdict": "na",
@@ -97,7 +97,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:ZFF3DFDD365472AF2F8AFZ",
@@ -109,17 +109,17 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.namshi.com/saudi-ar/buy-new-balance-740-sneakers/ZFF3DFDD365472AF2F8AFZ/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:Z7EDCB53BEF55A96C24BBZ",
    "store": "namshi",
    "name": "دي كي إن واي حقيبة بريانت بحمالة علوية وحزام",
-   "price": 455,
+   "price": 567,
    "was": 1050,
    "ref": null,
    "verdict": "na",
@@ -129,13 +129,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:Z45F879285527381DB8B8Z",
    "store": "namshi",
    "name": "نمشي x فستان سهرة بتصميم - مع ذيل",
-   "price": 315,
+   "price": 405,
    "was": 899,
    "ref": null,
    "verdict": "na",
@@ -145,7 +145,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:V0082DB09373F1EE095D8V",
@@ -157,17 +157,17 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.namshi.com/saudi-ar/buy-dkny-foster-small-satchel/V0082DB09373F1EE095D8V/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:V3BAEDD86C9869660D9CBV",
    "store": "namshi",
    "name": "تومي جينز قبعة مونوجرام منحنية",
-   "price": 178,
+   "price": 394,
    "was": 726,
    "ref": null,
    "verdict": "na",
@@ -177,13 +177,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:VB9EDDF14AA80C2600676V",
    "store": "namshi",
    "name": "كالفن كلاين جينز أحذية رياضية كاجوال",
-   "price": 183,
+   "price": 201,
    "was": 709,
    "ref": null,
    "verdict": "na",
@@ -193,13 +193,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:Z5B0C9D5AD9E590040311Z",
    "store": "namshi",
    "name": "نمشي x فستان سهرة ذيل سمكة بأكمام كاب مزين",
-   "price": 477,
+   "price": 657,
    "was": 1000,
    "ref": null,
    "verdict": "na",
@@ -209,13 +209,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:ZD6268E94D101F0F16FB9Z",
    "store": "namshi",
    "name": "جس جزمات كاجوال بطول الركبة",
-   "price": 310,
+   "price": 517,
    "was": 815,
    "ref": null,
    "verdict": "na",
@@ -225,7 +225,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "namshi:Z6C75A5825E04C953C6EDZ",
@@ -241,7 +241,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

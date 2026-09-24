@@ -1,7 +1,7 @@
 {
  "store": "almanea",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
@@ -16,7 +16,7 @@
    "url": "https://www.almanea.sa/product/lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -32,7 +32,7 @@
    "url": "https://www.almanea.sa/product/samsung-top-load-washing-machine-21-kg-hygiene-steam-black-wa21a8376gv-p-120300501121002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -48,7 +48,7 @@
    "url": "https://www.almanea.sa/product/samsung-tv-85-inch-4k-uhd-smart-mini-led-hdr-tizen-ua85m70hauxsa-p-139900599485062",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -64,7 +64,7 @@
    "url": "https://www.almanea.sa/product/samsung-tv-75-inch-4k-uhd-smart-mini-led-hdr-tizen-tv-ua75m80hauxsa-p-139900599475092",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -78,9 +78,9 @@
    "verdict": "bad",
    "finding": "نون ٦٬٩٩٩ · أغلى ٥٠٪",
    "url": "https://www.almanea.sa/product/lg-100-inch-qned-evo-ai-qned86-mini-led-4k-smart-tv-144hz-vrr-ai-magic-remote-webos25-2025-p-139900799498006",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22",
+   "avail": "low",
+   "availNote": "المنيع: متبقي 1",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -95,9 +95,9 @@
    "verdict": "bad",
    "finding": "أمازون ٤٬٦٩٩ · نزل من ٨٬٢٠٩ أمس",
    "url": "https://www.almanea.sa/product/lg-98-inch-4k-uhd-smart-led-tv-98ut90006la-p-139900799498005",
-   "avail": "oos",
-   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -114,7 +114,7 @@
    "url": "https://www.almanea.sa/product/samsung-98-inch-4k-crystal-uhd-smart-tv-ua98du9000uxsa-p-139900599498005",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -129,9 +129,9 @@
    "verdict": "bad",
    "finding": "نون ٣٬٤٩٩",
    "url": "https://www.almanea.sa/product/samsung-75-inch-4k-smart-neo-qled-tv-with-built-in-receiver-qa75qn70fauxsa-p-139900599475075",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22",
+   "avail": "low",
+   "availNote": "المنيع: متبقي 3",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -146,9 +146,9 @@
    "verdict": "bad",
    "finding": "أمازون ٢٬٦٩٩",
    "url": "https://www.almanea.sa/product/samsung-75-inch-4k-uhd-smart-qled-tv-with-built-in-receiver-qa75q8faauxsa-p-139900599475077",
-   "avail": "oos",
-   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22",
+   "avail": "low",
+   "availNote": "المنيع: متبقي 1",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -165,7 +165,7 @@
    "url": "https://www.almanea.sa/product/lg-86-inch-4k-uhd-smart-qned-tv-86qned70a6a-p-139900799486038",
    "avail": "oos",
    "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -182,7 +182,7 @@
    "url": "https://www.almanea.sa/product/tcl-tv-98-inch-4k-qd-mini-led-98q6c-p-139904799498011",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -199,7 +199,7 @@
    "url": "https://www.almanea.sa/product/samsung-65-inch-4k-uhd-smart-oled-tv-qa65s85faexsa-p-139900599465102",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -216,7 +216,7 @@
    "url": "https://www.almanea.sa/product/lg-18-kg-front-load-washing-machine-black-with-dryer-wsn1810bmt-p-120300702118002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -233,7 +233,7 @@
    "url": "https://www.almanea.sa/product/lg-front-loading-automatic-washing-machine-21-kg-silver-wf2111xmt-p-120300702121003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -250,7 +250,7 @@
    "url": "https://www.almanea.sa/product/lg-dishwasher-stainless-steel-black-10-programs-14-place-dfc335hd-p-120500701814038",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -267,7 +267,7 @@
    "url": "https://www.almanea.sa/product/mtc-tv-85-inch-4k-smart-dled-webos-built-in-receiver-mt85uh200wvwos-p-139900399485009",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -283,7 +283,7 @@
    "url": "https://www.almanea.sa/product/lg-sc9s-soundbar-for-oled-c-series-with-3-1-3ch-400w-dolby-atmos-dts-x-ai-sound-pro-p-140100799999020",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -312,7 +312,7 @@
    },
    "cat": "شاشات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "almanea:lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
@@ -326,8 +326,8 @@
    "verdict": "bad",
    "finding": "أمازون ٤٬٧٢٦ · أرخص من هنا",
    "url": "https://www.almanea.sa/product/lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
-   "avail": "oos",
-   "availNote": "المنيع: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "src": "market",
     "on": "2026-09-22",
@@ -339,7 +339,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

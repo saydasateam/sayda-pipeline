@@ -1,7 +1,7 @@
 {
  "store": "cityw",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "cityw:peppo-2-seater-boucle-fabric-loveseat-warm-ivory",
@@ -16,7 +16,7 @@
    "url": "https://cityw.com.sa/product/peppo-2-seater-boucle-fabric-loveseat-warm-ivory/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "cityw:6-seater-fabric-sofa-set-warm-grey",
@@ -31,7 +31,7 @@
    "url": "https://cityw.com.sa/product/6-seater-fabric-sofa-set-warm-grey/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "cityw:king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey",
@@ -46,14 +46,14 @@
    "url": "https://cityw.com.sa/product/king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey/",
    "avail": "gone",
    "availNote": "سيتي دبليو: الصفحة غير موجودة",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "cityw:12-seater-ceramic-top-dining-table-set-charcoal-and-bronze",
    "store": "cityw",
    "cat": "أثاث",
    "name": "طقم طعام 12 مقعد بسطح سيراميك",
-   "price": 11950,
+   "price": 9950,
    "was": 24950,
    "ref": null,
    "verdict": "na",
@@ -61,7 +61,7 @@
    "url": "https://cityw.com.sa/product/12-seater-ceramic-top-dining-table-set-charcoal-and-bronze/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "cityw:4-seater-fabric-sectional-sofa-warm-taupe-brown",
@@ -76,7 +76,7 @@
    "url": "https://cityw.com.sa/product/4-seater-fabric-sectional-sofa-warm-taupe-brown/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "store": "amazon",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "amazon:B0CP31L73X",
@@ -16,7 +16,7 @@
    "url": "https://www.amazon.sa/dp/B0CP31L73X",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 729,
@@ -39,8 +39,8 @@
    "finding": "كان ١٩٨ · نفس السعر في نون",
    "url": "https://www.amazon.sa/dp/B01NBW4GMW",
    "avail": "oos",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
-   "lastChecked": "2026-09-22",
+   "availNote": "أمازون: aod",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 198,
@@ -62,9 +62,9 @@
    "verdict": "ok",
    "finding": "كان ٣٥٨ · أقل سعر مسجل تقريباً (٩٤)",
    "url": "https://www.amazon.sa/dp/B09VTJFBZC",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22",
+   "avail": "oos",
+   "availNote": "أمازون: aod",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 358,
@@ -88,7 +88,7 @@
    "url": "https://www.amazon.sa/dp/B0BZV4QFP8",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 299,
@@ -112,7 +112,7 @@
    "url": "https://www.amazon.sa/dp/B01MTB55WH",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 199,
@@ -136,7 +136,7 @@
    "url": "https://www.amazon.sa/dp/B0C1P49WKF",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 2759,
@@ -160,7 +160,7 @@
    "url": "https://www.amazon.sa/dp/B0FFT72CBX",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -184,8 +184,8 @@
    "finding": "السعر ارتفع (كان ٣٧٩)",
    "url": "https://www.amazon.sa/dp/B0D5H3YF9B",
    "avail": "oos",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
-   "lastChecked": "2026-09-22",
+   "availNote": "أمازون: aod",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -210,7 +210,7 @@
    "url": "https://www.amazon.sa/dp/B0GZKZFKMT",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 3999,
@@ -234,7 +234,7 @@
    "url": "https://www.amazon.sa/dp/B09BZR9JFG",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -257,9 +257,9 @@
    "verdict": "warn",
    "finding": "كان ١٬٤٤٩ · لكن سبق ونزل ٦٩٩",
    "url": "https://www.amazon.sa/dp/B08CKWYL3Z",
-   "avail": "low",
-   "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-09-22",
+   "avail": "oos",
+   "availNote": "أمازون: aod",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 1449,
@@ -283,7 +283,7 @@
    "url": "https://www.amazon.sa/dp/B08B8YCYFG",
    "avail": "low",
    "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 467.99,
@@ -307,7 +307,7 @@
    "url": "https://www.amazon.sa/dp/B0B1X7H6XS",
    "avail": "low",
    "availNote": "أمازون: متبقي 2",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 3219,
@@ -330,8 +330,8 @@
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ١٬٨٦٠ لم يُسجّل",
    "url": "https://www.amazon.sa/dp/B08CDLX7GK",
    "avail": "oos",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
-   "lastChecked": "2026-09-22",
+   "availNote": "أمازون: aod",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -356,7 +356,7 @@
    "url": "https://www.amazon.sa/dp/B08BJ2119S",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "rose",
    "refKind": "history",
    "ev": {
@@ -373,7 +373,7 @@
    "store": "amazon",
    "cat": "المنزل",
    "name": "مكنسة فيليبس PowerPro ‏2000 واط",
-   "price": 559,
+   "price": 546,
    "was": 1159,
    "ref": null,
    "verdict": "na",
@@ -381,7 +381,7 @@
    "url": "https://www.amazon.sa/dp/B0H95BDCF7",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "ev": {
     "prev": 559,
     "min": 559,
@@ -404,7 +404,7 @@
    "url": "https://www.amazon.sa/dp/B0H5CY6LRM",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
     "prev": 2399,
@@ -428,7 +428,7 @@
    "url": "https://www.amazon.sa/dp/B0CHFMFX7H",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -445,15 +445,15 @@
    "store": "amazon",
    "cat": "شاشات",
    "name": "LG QNED86 ‏85 بوصة Mini LED",
-   "price": 3399,
+   "price": 3201,
    "was": 5299,
    "ref": 3498,
-   "verdict": "bad",
+   "verdict": "warn",
    "finding": "الفرق الحقيقي ٣٪ · سبق ونزل ٢٬٣٧٩",
    "url": "https://www.amazon.sa/dp/B0F5NVZGLC",
    "avail": "low",
    "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -475,11 +475,11 @@
    "verdict": "ok",
    "finding": "كان ١٣٬٩٩٩ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0DG96T6JN",
-   "avail": "oos",
+   "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
+   "lastChecked": "2026-09-25",
+   "availNote": "أمازون: متبقي 1",
    "refKind": "history",
    "ev": {
     "prev": 13999,
@@ -503,7 +503,7 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -528,8 +528,8 @@
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
+   "lastChecked": "2026-09-25",
+   "availNote": "أمازون: aod",
    "refKind": "history",
    "ev": {
     "prev": 11949,
@@ -553,7 +553,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -578,7 +578,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -603,7 +603,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -628,7 +628,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -653,7 +653,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -678,7 +678,7 @@
    "avail": "gone",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -703,8 +703,8 @@
    "avail": "oos",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
+   "lastChecked": "2026-09-25",
+   "availNote": "أمازون: aod",
    "refKind": "history",
    "ev": {
     "prev": 1819,
@@ -728,7 +728,7 @@
    "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -753,7 +753,7 @@
    "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -778,7 +778,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -803,7 +803,7 @@
    "avail": "gone",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -828,7 +828,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -853,7 +853,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: متبقي 1",
    "refKind": "history",
    "ev": {
@@ -878,7 +878,7 @@
    "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -903,7 +903,7 @@
    "avail": "in",
    "cat": "عطور",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -928,7 +928,7 @@
    "avail": "gone",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -953,7 +953,7 @@
    "avail": "low",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -978,7 +978,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: متبقي 1",
    "refKind": "history",
    "ev": {
@@ -1003,7 +1003,7 @@
    "avail": "gone",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: الصفحة غير موجودة",
    "refKind": "history",
    "ev": {
@@ -1019,7 +1019,7 @@
    "id": "amazon:B0DCK5XGVR",
    "store": "amazon",
    "name": "صندل بروكلين بكعب عريض منخفض من الفلين للنساء، لون أسود، مقاس 36/37",
-   "price": 267,
+   "price": 282,
    "was": 519.37,
    "ref": 519.98,
    "verdict": "warn",
@@ -1028,7 +1028,7 @@
    "avail": "low",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -1053,7 +1053,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1078,7 +1078,7 @@
    "avail": "ended",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: عاد السعر إلى ٢٠٠ — انتهى العرض",
    "refKind": "history",
    "ev": {
@@ -1100,11 +1100,11 @@
    "verdict": "ok",
    "finding": "كان ٢٥٠ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/dp/B0DK8GF5GT",
-   "avail": "in",
+   "avail": "oos",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
-   "availNote": "",
+   "lastChecked": "2026-09-25",
+   "availNote": "أمازون: aod",
    "refKind": "history",
    "ev": {
     "prev": 250.08,
@@ -1128,8 +1128,8 @@
    "avail": "oos",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
-   "availNote": "أمازون: P.when(\"A\", \"load\").execute(\"aod-assets-",
+   "lastChecked": "2026-09-25",
+   "availNote": "أمازون: aod",
    "refKind": "history",
    "ev": {
     "prev": 499,
@@ -1153,7 +1153,7 @@
    "avail": "low",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "أمازون: متبقي 2",
    "refKind": "history",
    "ev": {
@@ -1178,7 +1178,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1203,7 +1203,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1228,7 +1228,7 @@
    "avail": "in",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1253,7 +1253,7 @@
    "avail": "in",
    "cat": "عناية",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1269,7 +1269,7 @@
    "id": "amazon:B07G4JV76P",
    "store": "amazon",
    "name": "صدرية رياضية للتدريب من اديورو، سترة أوزان للجسم",
-   "price": 105,
+   "price": 87,
    "was": 363.31,
    "ref": 134.06,
    "verdict": "ok",
@@ -1278,7 +1278,7 @@
    "avail": "in",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1313,7 +1313,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "amazon:B099F9T8Y3",
@@ -1338,7 +1338,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "amazon:B0CGVPKKCP",
@@ -1351,8 +1351,8 @@
    "verdict": "ok",
    "finding": "كان ٣٬٤٩٩",
    "url": "https://www.amazon.sa/dp/B0CGVPKKCP",
-   "avail": "low",
-   "availNote": "أمازون: متبقي 1",
+   "avail": "ended",
+   "availNote": "أمازون: عاد السعر إلى ٣٬٤٩٩ — انتهى العرض",
    "ev": {
     "prev": 3499,
     "min": 1999,
@@ -1363,7 +1363,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "amazon:B083ZN5GBN",
@@ -1388,7 +1388,7 @@
    },
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "amazon:B08ZNK452Y",
@@ -1413,7 +1413,7 @@
    },
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "amazon:B08PDDSDHY",
@@ -1438,7 +1438,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

@@ -1,22 +1,22 @@
 {
  "store": "ashley",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "ashley:bolanburg-dining-table",
    "store": "ashley",
    "cat": "أثاث",
    "name": "أشلي: طاولة طعام بولانبرغ",
-   "price": 1960,
+   "price": 2230,
    "was": 3071,
    "ref": 2595,
    "verdict": "bad",
    "finding": "انتهى العرض: السعر عاد إلى ٣٬٠٧١ — وصار أغلى من ميداس (٢٬٥٩٥)",
    "url": "https://store.ashley.sa/products/bolanburg-dining-table",
-   "avail": "ended",
-   "availNote": "أشلي: عاد السعر إلى ٣٬٠٧١ — انتهى العرض",
-   "lastChecked": "2026-09-22",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -25,15 +25,15 @@
    "store": "ashley",
    "cat": "أثاث",
    "name": "أشلي: طقم طعام سكيمبتون (طاولة + 6 كراسي)",
-   "price": 2645,
+   "price": 3095,
    "was": 4060,
    "ref": 3195,
-   "verdict": "ok",
+   "verdict": "bad",
    "finding": "أرخص من ميداس (٣٬١٩٥) لنفس الطقم",
    "url": "https://store.ashley.sa/products/skempton-dining-table-and-chairs-set-of-7",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -49,7 +49,7 @@
    "url": "https://store.ashley.sa/products/modmax-swivel-glider-chair-ashley-homestore",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -63,9 +63,9 @@
    "verdict": "bad",
    "finding": "انتهى العرض: السعر عاد إلى ٣٬٧٦١ — وصار أغلى من ميداس (٢٬٨٥٠)",
    "url": "https://store.ashley.sa/products/bolanburg-dining-server",
-   "avail": "ended",
-   "availNote": "أشلي: عاد السعر إلى ٣٬٧٦١ — انتهى العرض",
-   "lastChecked": "2026-09-22",
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -82,7 +82,7 @@
    "url": "https://store.ashley.sa/products/havalance-dresser",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ashley:barnsana-power-reclining-sofa-1",
@@ -97,7 +97,7 @@
    "url": "https://store.ashley.sa/products/barnsana-power-reclining-sofa-1",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "store": "mumzworld",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:10:46.209+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "mumzworld:bugaboo-donkey-5-mono-complete-me-stroller-graphite-grey-1044558",
@@ -17,7 +17,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:kitchenaid-artisan-tilt-head-stand-mixer-cream-4-8-l-34525371-5ksm125bac",
@@ -33,7 +33,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:kinderkraft-nea-2-in-1-baby-stroller-and-carrycot-platinum-grey-34156323-ksnea002gry2000",
@@ -49,7 +49,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:nespresso-vertuo-lattissima-coffee-machine-black-43657205-gdv5-gb-bk-ne",
@@ -65,13 +65,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:doona-x-infant-car-seat-stroller-nitro-black-654-dn0005",
    "store": "mumzworld",
    "name": "دونا - مقعد سيارة وعربية أطفال أطفال X",
-   "price": 2499,
+   "price": 1899,
    "was": 3589,
    "ref": null,
    "verdict": "na",
@@ -81,7 +81,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:momcozy-kleanpal-pro-baby-bottle-washer-white-16131617-bs003-gw12nb-a",
@@ -97,7 +97,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:dyson-absolute-extra-vacuum-cleaner-v11",
@@ -113,7 +113,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:neobreez-duadx-double-stroller-black-44483883-p700-nbr207bk",
@@ -129,13 +129,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:teknum-air-1-travel-stroller-w-carry-backpack-black",
    "store": "mumzworld",
    "name": "تيكنوم - عربية أطفال للسفر إير 1 مع",
-   "price": 568,
+   "price": 430,
    "was": 1423,
    "ref": null,
    "verdict": "na",
@@ -145,13 +145,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:moon-gyro-pro-plus-i-size-360-degree-rotating-car-seat-grey-19468963-mnngrmt12",
    "store": "mumzworld",
    "name": "مون- كرسي سيارة للأطفال غايرو برو بلس",
-   "price": 1114,
+   "price": 1228,
    "was": 1954,
    "ref": null,
    "verdict": "na",
@@ -161,7 +161,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:teknum-travel-stroll-2-stroller-black",
@@ -177,7 +177,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:neobreez-octa-360-degree-rotating-seat-stroller-olive-green-black-44483883-f8-nbr181ogb",
@@ -193,13 +193,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:neobreez-i-guardia-360-degree-swivel-car-seat-black-44483883-lm318-nbr214bk-729619",
    "store": "mumzworld",
    "name": "نيوبريز - مقعد سيارة غارديا 360 درجة",
-   "price": 630,
+   "price": 729,
    "was": 1399,
    "ref": null,
    "verdict": "na",
@@ -209,13 +209,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:moon-gyro-car-seat-isofix-top-tether-360-rotation-black",
    "store": "mumzworld",
    "name": "مون - كرسي السيارة للأطفال غايرو أيزو",
-   "price": 669,
+   "price": 903,
    "was": 1437,
    "ref": null,
    "verdict": "na",
@@ -225,13 +225,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:moon-gyro-car-seat-isofix-top-tether-360-rotation-grey-226120",
    "store": "mumzworld",
    "name": "مون - مقعد سيارة جيرو متعدد الوظائف",
-   "price": 669,
+   "price": 903,
    "was": 1437,
    "ref": null,
    "verdict": "na",
@@ -241,13 +241,13 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:tineco-pure-one-station-5-cordless-smart-vacuum-175-w-39335956-vs1c1700sa",
    "store": "mumzworld",
    "name": "تينيكو - مكنسة بيور ون ستيشن 5",
-   "price": 1413,
+   "price": 1350,
    "was": 2132,
    "ref": null,
    "verdict": "na",
@@ -257,7 +257,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:bissell-spot-stain-carpet-upholstery-cleaner-4720e",
@@ -273,7 +273,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:baby-brezza-pro-advanced-formula-dispenser-machine-oatmeal-19468963-frp0247",
@@ -289,7 +289,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:uniqoo-5-portable-pram-grey",
@@ -305,7 +305,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "mumzworld:baby-brezza-pro-advanced-formula-dispenser-tc-frp0046",
@@ -321,7 +321,7 @@
    "availNote": "",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "store": "saco",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "saco:delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
@@ -14,9 +14,9 @@
    "verdict": "na",
    "finding": "لم نجد نفس الموديل في متجر آخر (Magnifica S في نون ٢٬٩٥٧)",
    "url": "https://www.saco.sa/product/delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22"
+   "avail": "ended",
+   "availNote": "ساكو: عاد السعر إلى ٢٬٦٩٩ — انتهى العرض",
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "saco:dyson-v15-detect-extra-cordless-vacuum-cleaner-nickel-blue-476609-01-p-000000000000113865",
@@ -31,7 +31,7 @@
    "url": "https://www.saco.sa/product/dyson-v15-detect-extra-cordless-vacuum-cleaner-nickel-blue-476609-01-p-000000000000113865",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -48,7 +48,7 @@
    "url": "https://www.saco.sa/product/dyson-v8-advanced-cordless-stick-vacuum-cleaner-grey-and-purple-231716970401-p-000000000000101580",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -65,7 +65,7 @@
    "url": "https://www.saco.sa/product/philips-2000w-3000-series-rapidair-plus-technology-air-fryer-black-7-2-liter-na342-00-p-000000000000108809",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -81,8 +81,8 @@
    "finding": "نون ١٬٨٩٥",
    "url": "https://www.saco.sa/product/nespresso-1500w-vertuo-lattissima-coffee-maker-black-1-6-liter-gdv5-bk-p-000000000000094494",
    "avail": "ended",
-   "availNote": "ساكو: عاد السعر إلى ١٬٩٤٩ — انتهى العرض",
-   "lastChecked": "2026-09-22",
+   "availNote": "ساكو: عاد السعر إلى ٢٬٩٩٩ — انتهى العرض",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -99,7 +99,7 @@
    "url": "https://www.saco.sa/product/philips-5000-series-cordless-stick-vacuum-cleaner-teal-and-black-xc5041-61-p-000000000000097481",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -108,7 +108,7 @@
    "store": "saco",
    "cat": "المنزل",
    "name": "فيليبس قلاية مع نافذة 4.2 لتر NA220",
-   "price": 299,
+   "price": 275,
    "was": 549,
    "ref": 275,
    "verdict": "bad",
@@ -116,7 +116,7 @@
    "url": "https://www.saco.sa/product/philips-airfryer-compact-with-see-through-window-1500w-60hz-4-2l-0-6kgs-touch-screen-13-functions-rapidair-technology-black-na220-00-p-000000000000094660",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -133,7 +133,7 @@
    "url": "https://www.saco.sa/product/bissell-330w-multiclean-spot-and-stain-proheat-portable-carpet-and-furniture-deep-vacuum-cleaner-black-and-red-4720e-p-000000000000072562",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -150,7 +150,7 @@
    "url": "https://www.saco.sa/product/blueair-comfortpure-t10i-most-powerful-3-in-1-hepasilent-air-purifier-white-blu-112644-p-000000000000100024",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "saco:panasonic-premium-side-by-side-refrigerator-silver-588-liter-nr-bs780mssa-p-000000000000100089",
@@ -165,7 +165,7 @@
    "url": "https://www.saco.sa/product/panasonic-premium-side-by-side-refrigerator-silver-588-liter-nr-bs780mssa-p-000000000000100089",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -182,7 +182,7 @@
    "url": "https://www.saco.sa/product/philips-9000-series-aquatrio-cordless-stick-vacuum-and-wash-deep-black-xw9463-10-p-000000000000097483",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   }
  ]

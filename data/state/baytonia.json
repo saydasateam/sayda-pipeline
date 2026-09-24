@@ -1,14 +1,14 @@
 {
  "store": "baytonia",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:19:26.408+03:00",
  "rows": [
   {
    "id": "baytonia:طقم-غرفة-نوم-مزدوج-بوما-5-قطع",
    "store": "baytonia",
    "cat": "أثاث",
    "name": "بيتونيا: طقم غرفة نوم كينج 5 قطع لوسو",
-   "price": 4296,
+   "price": 3996,
    "was": 12679,
    "ref": null,
    "verdict": "na",
@@ -16,14 +16,14 @@
    "url": "https://baytonia.com/طقم-غرفة-نوم-مزدوج-بوما-5-قطع.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "baytonia:طاولة-تزيين-أمانتي",
    "store": "baytonia",
    "cat": "أثاث",
    "name": "بيتونيا: تسريحة أمانتي مع مرآة",
-   "price": 2296,
+   "price": 1796,
    "was": 4299,
    "ref": null,
    "verdict": "na",
@@ -31,14 +31,14 @@
    "url": "https://baytonia.com/طاولة-تزيين-أمانتي.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "baytonia:dlr-0024-طاولة-تلفاز-مودرن-اليغانت-فيرنيتشر",
    "store": "baytonia",
    "cat": "أثاث",
    "name": "بيتونيا: طاولة تلفزيون اليغانت فيرنيتشر",
-   "price": 1996,
+   "price": 1696,
    "was": 4790,
    "ref": null,
    "verdict": "na",
@@ -46,7 +46,7 @@
    "url": "https://baytonia.com/dlr-0024-طاولة-تلفاز-مودرن-اليغانت-فيرنيتشر.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "baytonia:طاولة-قهوة-رونار-خشبية-و-أرجل-ستيل-و-سطح-رخام-و-زجاج",
@@ -61,7 +61,7 @@
    "url": "https://baytonia.com/طاولة-قهوة-رونار-خشبية-و-أرجل-ستيل-و-سطح-رخام-و-زجاج.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "baytonia:كنب-سرير-زاوية-مع-شاحن-بورفال-كحلي",
@@ -74,9 +74,9 @@
    "verdict": "na",
    "finding": "بيتونيا · تقييم ١٠٠٪ (١٥) · لا يوجد سجل خارجي",
    "url": "https://baytonia.com/كنب-سرير-زاوية-مع-شاحن-بورفال-كحلي.html",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22"
+   "avail": "gone",
+   "availNote": "بيتونيا: الصفحة غير موجودة",
+   "lastChecked": "2026-09-25"
   }
  ]
 }
