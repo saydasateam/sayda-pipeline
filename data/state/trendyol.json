@@ -1,7 +1,7 @@
 {
  "store": "trendyol",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:56:28.363+03:00",
  "rows": [
   {
    "id": "trendyol:941983655",
@@ -16,7 +16,7 @@
    "url": "https://www.trendyol.sa/honor/choice-2i-smartwatch-kch-wb01-black-p-941983655",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -33,7 +33,7 @@
    "url": "https://www.trendyol.sa/samsung/galaxy-fit3-gray-smart-bracelet-p-812824444",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -49,7 +49,7 @@
    "url": "https://www.trendyol.sa/huawei/watch-fit-4-smart-watch-1-82-display-fitness-health-tracker-emotion-wellbeing-assistant-up-to-10-day-battery-life-ios-android-black-p-936261954",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -65,7 +65,7 @@
    "url": "https://www.trendyol.sa/honor/watch-x5i-rtos-smart-watch-1-97inch-white-p-1125290899",
    "avail": "ended",
    "availNote": "ترينديول: عاد السعر إلى ١٤٠ — انتهى العرض",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -81,7 +81,7 @@
    "url": "https://www.trendyol.sa/xiaomi/smart-band-10-mystic-rose-p-950075100",
    "avail": "ended",
    "availNote": "ترينديول: عاد السعر إلى ١٩٩ — انتهى العرض",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -97,7 +97,7 @@
    "url": "https://www.trendyol.sa/huawei/freeclip-2-wireless-earphones-bluetooth-earbuds-38-hours-long-battery-life-ios-android-saudi-arabia-version-free-freeclip-2-cases-and-care-and-earbuds-loss-care-1-year-white-p-1085805468",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -113,7 +113,7 @@
    "url": "https://www.trendyol.sa/soundcore/by-anker-r50i-nc-wireless-bluetooth-earphones-powerful-and-smart-noise-cancelling-powerful-bass-45-hours-playtime-2-in-1-case-and-phone-stand-ip54-bluetooth-5-4-black-p-1064625978",
    "avail": "ended",
    "availNote": "ترينديول: عاد السعر إلى ٨٩ — انتهى العرض",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -129,7 +129,7 @@
    "url": "https://www.trendyol.sa/xiaomi/redmi-buds-8-active-blue-wireless-earbuds-37-hour-battery-life-2-hours-of-battery-life-on-a-10-minute-charge-2-mics-for-ai-clear-calls-ip54-dual-device-connectivity-noise-reduction-p-1115037737",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:920196065",
@@ -155,14 +155,14 @@
     "url": "https://www.kanbkam.com/sa/en/denx-dx2081-air-fryer-for-healthy-fatfree-food-with-a-12liter-capacity-suitable-for-everyone-ZF76771A93AB859933180Z"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:34721833",
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء Puma Anzarun Lite Jr",
-   "price": 132,
+   "price": 124,
    "was": 476.94,
    "ref": 107,
    "refKind": "market",
@@ -182,7 +182,7 @@
     "url": "https://www.kanbkam.com/sa/en/anzarun-lite-jr-ZAB5A3DACDB59C1CEEE0BZ"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:921225692",
@@ -197,8 +197,8 @@
    "verdict": "ok",
    "finding": "أرخص من إكس سايت (٢٤٩)",
    "url": "https://www.trendyol.sa/jbl/tune-510bt-wireless-on-ear-headphones-pure-bass-40h-battery-fast-usb-type-c-foldable-blue-p-921225692",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "ترينديول: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": null,
     "min": null,
@@ -208,7 +208,7 @@
     "url": "https://www.kanbkam.com/sa/en/jbl-tune-510bt-wireless-on-ear-headphones-blue-X533902"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1163776332",
@@ -234,7 +234,7 @@
     "url": "https://www.kanbkam.com/sa/en/huawei-watch-fit-5-smartwatch-mini-workout-modesadvanced-sleephealth-trackiosandroidfreeearbuds-watch-faceshealth-membership-black-12month-huaweicareamazon-exclusive-B0GY7YX1VH"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:900409499",
@@ -260,14 +260,14 @@
     "url": "https://www.kanbkam.com/sa/en/20l-wet-dry-vacuum-cleaner-dlc36362-black-ZF0E8DB1348B163C6A27AZ"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1188470113",
    "store": "trendyol",
    "cat": "إلكترونيات",
    "name": "سوار شاومي الذكي «سمارت باند ١٠» ١٫٧٢ بوصة AMOLED",
-   "price": 186,
+   "price": 184,
    "was": 399,
    "ref": 254.69,
    "refKind": "market",
@@ -286,7 +286,7 @@
     "url": "https://www.kanbkam.com/sa/en/xiaomi-mi-smart-band-10-2025-172-amoled-display-21-days-battery-life-touchscreen-multisport-tracker-activity-tracker-heart-rate-monitor-bt54-midnight-black-B0FCM67L4X"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1138730230",
@@ -312,14 +312,14 @@
     "url": "https://www.kanbkam.com/sa/en/zoom-plus-extreme-ai-zpc140-140w-gan-fast-charger-with-digital-display-multiport-usbc-usba-includes-100w-typec-cable-ultrafast-smart-charging-adapter-Z49973C5F13967F5DB9B5Z"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:978618876",
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء سكيتشرز «GO WALK 8»",
-   "price": 211,
+   "price": 216,
    "was": 466.5,
    "ref": 146.25,
    "refKind": "market",
@@ -338,14 +338,14 @@
     "url": "https://www.kanbkam.com/sa/en/skechers-go-walk-8-women-white-38-B0G6F5KDSS"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1035311152",
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء سكيتشرز «FLEX APPEAL 5.0»",
-   "price": 199,
+   "price": 179,
    "was": 400.59,
    "ref": 132.65,
    "refKind": "market",
@@ -364,7 +364,7 @@
     "url": "https://www.kanbkam.com/sa/en/skechers-flex-appeal-50-womens-shoes-black-black-41-eu-B0CB1SKYYF"
    },
    "firstSeen": "2026-09-19",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1113980425",
@@ -388,7 +388,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:218166261",
@@ -412,7 +412,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:940564543",
@@ -436,7 +436,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1056447552",
@@ -451,7 +451,7 @@
    "finding": "أقل سعر حديث ٣٩٨ · الفرق الحقيقي 54٪ · والخصم يظهر في السلة/عند الدفع فقط",
    "url": "https://www.trendyol.sa/adidas/galaxy-7-m-men-s-running-shoes-jq2623-gray-p-1056447552",
    "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ٦٦١ — انتهى العرض",
+   "availNote": "ترينديول: عاد السعر إلى ٣٩٨ — انتهى العرض",
    "ev": {
     "prev": 398.02,
     "min": 398.02,
@@ -460,7 +460,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:679300230",
@@ -475,7 +475,7 @@
    "finding": "أقل سعر حديث ٤٦١ · الفرق الحقيقي 40٪ · والخصم يظهر في السلة/عند الدفع فقط",
    "url": "https://www.trendyol.sa/lego/disney-up-house-43217-9-buildable-creative-set-598-pieces-p-679300230",
    "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ٤٦٨ — انتهى العرض",
+   "availNote": "ترينديول: عاد السعر إلى ٤٧١ — انتهى العرض",
    "ev": {
     "prev": 461.44,
     "min": 461.44,
@@ -484,7 +484,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1089674288",
@@ -508,7 +508,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1133720698",
@@ -532,22 +532,22 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1181173570",
    "store": "trendyol",
    "cat": "أطفال",
    "name": "حفاضات بيبي جوي مقاس ٥ — كرتونان (١٦٠ حفاضة)",
-   "price": 191.8,
+   "price": 273,
    "was": 274,
    "ref": 274,
    "refKind": "history",
    "verdict": "ok",
    "finding": "أقل سعر حديث ٢٧٤ · الفرق الحقيقي 30٪ · شارة «68٪» محسوبة من «سعر مقترح» ٦٠٠",
    "url": "https://www.trendyol.sa/babyjoy/baby-joy-diapers-size-5-offer-of-2-cartons-x-80-diapers-protection-and-comfort-for-the-child-p-1181173570",
-   "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ٢٧٤ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "prev": 274,
     "min": 274,
@@ -556,7 +556,7 @@
     "on": "2026-09-20"
    },
    "firstSeen": "2026-09-20",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:841499163",
@@ -580,7 +580,7 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:985295383",
@@ -604,7 +604,7 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:733527398",
@@ -619,7 +619,7 @@
    "finding": "أقل سعر حديث ٣٢٥ · الفرق الحقيقي 45٪ · شارة «49٪» محسوبة من «سعر مقترح» ٣٤٩",
    "url": "https://www.trendyol.sa/adidas/grand-court-td-lifestyle-court-casual-shoes-p-733527398",
    "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ٣٢٥ — انتهى العرض",
+   "availNote": "ترينديول: عاد السعر إلى ٣٤٩ — انتهى العرض",
    "ev": {
     "prev": 325.45,
     "min": 325.45,
@@ -628,22 +628,22 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1181172557",
    "store": "trendyol",
    "cat": "أطفال",
    "name": "حفاضات BabyJoy ‏٢ كرتون × ٩٦",
-   "price": 191.8,
+   "price": 273,
    "was": 274,
    "ref": 274,
    "refKind": "history",
    "verdict": "ok",
    "finding": "أقل سعر حديث ٢٧٤ · الفرق الحقيقي 30٪ · شارة «62٪» محسوبة من «سعر مقترح» ٥٠٠",
    "url": "https://www.trendyol.sa/babyjoy/babyjoy-diaper-offer-of-2-cartons-x-96-diapers-protection-and-comfort-for-the-child-p-1181172557",
-   "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ٢٧٤ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "prev": 274,
     "min": 274,
@@ -652,22 +652,22 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1187888783",
    "store": "trendyol",
    "cat": "إلكترونيات",
    "name": "ساعة Xiaomi Redmi Watch 5 Active",
-   "price": 119,
+   "price": 130,
    "was": 170,
    "ref": 170,
    "refKind": "history",
    "verdict": "ok",
    "finding": "أقل سعر حديث ١٧٠ · الفرق الحقيقي 30٪ · شارة «60٪» محسوبة من «سعر مقترح» ٢٩٩",
    "url": "https://www.trendyol.sa/xiaomi/redmi-watch-5-active-2-inch-lcd-display-18-days-autonomy-bluetooth-calls-health-monitoring-heart-rate-spo2-sleep-140-sports-modes-5-atm-black-p-1187888783",
-   "avail": "ended",
-   "availNote": "ترينديول: عاد السعر إلى ١٧٠ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "prev": 170,
     "min": 170,
@@ -676,7 +676,7 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:846409310",
@@ -700,7 +700,7 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:1047012021",
@@ -724,14 +724,14 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "trendyol:970051980",
    "store": "trendyol",
    "cat": "ألعاب",
    "name": "LEGO Speed Champions دودج تشالنجر 77237",
-   "price": 118.88,
+   "price": 109,
    "was": 182.88,
    "ref": 153.44,
    "refKind": "history",
@@ -748,7 +748,7 @@
     "on": "2026-09-22"
    },
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

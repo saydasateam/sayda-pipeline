@@ -1,7 +1,7 @@
 {
  "store": "panhome",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T01:56:28.363+03:00",
  "rows": [
   {
    "id": "panhome:vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
@@ -14,9 +14,9 @@
    "verdict": "na",
    "finding": "بان هوم · ٩٩٪ من الأثاث «مخفّض» دائماً تقريباً · «قبل» غير موثوق",
    "url": "https://www.panhomestores.com/ksa_ar/vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
-   "avail": "oos",
-   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "panhome:sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
@@ -29,9 +29,9 @@
    "verdict": "na",
    "finding": "بان هوم · «خصم ٥٥٪» غير متحقق",
    "url": "https://www.panhomestores.com/ksa_ar/sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
-   "avail": "oos",
-   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22"
+   "avail": "gone",
+   "availNote": "بان هوم: الصفحة غير موجودة",
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "panhome:eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
@@ -44,9 +44,9 @@
    "verdict": "na",
    "finding": "بان هوم · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://www.panhomestores.com/ksa_ar/eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
-   "avail": "oos",
-   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22"
+   "avail": "in",
+   "availNote": "",
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "panhome:tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
@@ -61,7 +61,7 @@
    "url": "https://www.panhomestores.com/ksa_ar/tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }
