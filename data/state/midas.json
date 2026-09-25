@@ -1,7 +1,7 @@
 {
  "store": "midas",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T12:50:17.540+03:00",
+ "checkedAt": "2026-09-25T17:16:22.203+03:00",
  "rows": [
   {
    "id": "midas:bolanburg-dining-table",
@@ -14,8 +14,8 @@
    "verdict": "ok",
    "finding": "أرخص من متجر أشلي (٣٬٠٧١) بعد ارتفاع سعره هناك اليوم",
    "url": "https://midasfurniture.com/ksa_ar/bolanburg-dining-table.html",
-   "avail": "oos",
-   "availNote": "ميداس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-25",
    "refKind": "market"
   },
@@ -30,8 +30,8 @@
    "verdict": "bad",
    "finding": "نفس الطقم في متجر أشلي بـ ٢٬٦٤٥ · (صُحّح الرابط اليوم)",
    "url": "https://midasfurniture.com/ksa_ar/skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia.html",
-   "avail": "oos",
-   "availNote": "ميداس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"

@@ -1,7 +1,7 @@
 {
  "store": "trendyol",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T12:50:17.540+03:00",
+ "checkedAt": "2026-09-25T17:16:22.203+03:00",
  "rows": [
   {
    "id": "trendyol:941983655",
@@ -162,7 +162,7 @@
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء Puma Anzarun Lite Jr",
-   "price": 207,
+   "price": 121,
    "was": 476.94,
    "ref": 107,
    "refKind": "market",
@@ -642,8 +642,8 @@
    "verdict": "ok",
    "finding": "أقل سعر حديث ٢٧٤ · الفرق الحقيقي 30٪ · شارة «62٪» محسوبة من «سعر مقترح» ٥٠٠",
    "url": "https://www.trendyol.sa/babyjoy/babyjoy-diaper-offer-of-2-cartons-x-96-diapers-protection-and-comfort-for-the-child-p-1181172557",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "ترينديول: عاد السعر إلى ٢٧٤ — انتهى العرض",
    "ev": {
     "prev": 274,
     "min": 274,

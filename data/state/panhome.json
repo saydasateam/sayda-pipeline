@@ -1,7 +1,7 @@
 {
  "store": "panhome",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T12:50:17.540+03:00",
+ "checkedAt": "2026-09-25T17:16:22.203+03:00",
  "rows": [
   {
    "id": "panhome:vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
@@ -29,8 +29,8 @@
    "verdict": "na",
    "finding": "بان هوم · «خصم ٥٥٪» غير متحقق",
    "url": "https://www.panhomestores.com/ksa_ar/sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
-   "avail": "gone",
-   "availNote": "بان هوم: الصفحة غير موجودة",
+   "avail": "oos",
+   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25"
   },
   {
