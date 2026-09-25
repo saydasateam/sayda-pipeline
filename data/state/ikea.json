@@ -1,7 +1,7 @@
 {
  "store": "ikea",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "ikea:70447182",
@@ -16,7 +16,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-upholstered-storage-bed-gunnared-dark-grey-70447182/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:60372276",
@@ -31,7 +31,7 @@
    "url": "https://www.ikea.com/sa/ar/p/hemnes-day-bed-frame-with-3-drawers-grey-60372276/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:00458895",
@@ -46,7 +46,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-bed-frame-dark-brown-stained-00458895/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:20561858",
@@ -61,7 +61,7 @@
    "url": "https://www.ikea.com/sa/ar/p/tidtabell-rug-flatwoven-grey-20561858/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:50438353",
@@ -76,7 +76,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vinliden-cover-for-3-seat-sofa-hakebo-dark-grey-50438353/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:50542905",
@@ -91,7 +91,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vihals-shelving-unit-with-10-shelves-dark-grey-50542905/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:20458823",
@@ -106,7 +106,7 @@
    "url": "https://www.ikea.com/sa/ar/p/idanaes-cabinet-with-bi-folding-doors-white-20458823/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   },
   {
    "id": "ikea:80496092",
@@ -121,7 +121,7 @@
    "url": "https://www.ikea.com/sa/ar/p/vimle-cover-for-3-seat-section-hallarp-beige-80496092/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-25"
   }
  ]
 }

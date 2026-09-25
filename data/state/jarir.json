@@ -1,7 +1,7 @@
 {
  "store": "jarir",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "jarir:samsung-galaxy-tab-a11-tablet-pc-670881",
@@ -16,7 +16,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-tab-a11-tablet-pc-670881.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -32,7 +32,7 @@
    "url": "https://www.jarir.com/samsung-u8-smart-tv-681233.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -48,7 +48,7 @@
    "url": "https://www.jarir.com/huawei-watch-fit-4-smartwatch-657289.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -64,7 +64,7 @@
    "url": "https://www.jarir.com/hisense-hisense-a6q-smart-tv-672673.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "history"
   },
@@ -81,7 +81,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s25-edge-smartphones-657472.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market",
    "bk": "nosaving"
   },
@@ -98,7 +98,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s25-ultra-smartphones-650926.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market",
    "bk": "nosaving"
   },
@@ -115,7 +115,7 @@
    "url": "https://www.jarir.com/hisense-hisense-u7q-smart-tv-672703.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -132,7 +132,7 @@
    "url": "https://www.jarir.com/samsung-m1e-smart-tv-682548.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -147,9 +147,9 @@
    "verdict": "bad",
    "finding": "نفس السعر في نون (٢٬٩٩٩) · «قبل» ٧٬٤٩٩ لم يُسجّل",
    "url": "https://www.jarir.com/skyworth-x8700g-smart-tv-663712.html",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22",
+   "avail": "oos",
+   "availNote": "جرير: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "market"
   },
@@ -166,7 +166,7 @@
    "url": "https://www.jarir.com/xiaomi-s-mini-pro-smart-tv-680357.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -183,7 +183,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-s26-ultra-smartphones-677535.html",
    "avail": "oos",
    "availNote": "جرير: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -200,7 +200,7 @@
    "url": "https://www.jarir.com/apple-iphone-air-smartphones-666768.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -217,7 +217,7 @@
    "url": "https://www.jarir.com/sony-headsets-614929.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -234,7 +234,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-watch-8-40-smartwatch-662000.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -251,7 +251,7 @@
    "url": "https://www.jarir.com/marshall-speaker-585510.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -268,7 +268,7 @@
    "url": "https://www.jarir.com/huawei-headsets-628907.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -285,7 +285,7 @@
    "url": "https://www.jarir.com/sennheiser-headsets-664050.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -301,7 +301,7 @@
    "url": "https://www.jarir.com/huawei-watch-fit-4-pro-smartwatch-657313.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -317,7 +317,7 @@
    "url": "https://www.jarir.com/samsung-galaxy-watch-ultra-2025-smartwatch-662013.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -334,7 +334,7 @@
    "url": "https://www.jarir.com/hisense-e8q-smart-tv-677953.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   }

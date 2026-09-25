@@ -1,7 +1,7 @@
 {
  "store": "almanea",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T01:56:28.363+03:00",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
@@ -95,8 +95,8 @@
    "verdict": "bad",
    "finding": "أمازون ٤٬٦٩٩ · نزل من ٨٬٢٠٩ أمس",
    "url": "https://www.almanea.sa/product/lg-98-inch-4k-uhd-smart-led-tv-98ut90006la-p-139900799498005",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "المنيع: متبقي 3",
    "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"

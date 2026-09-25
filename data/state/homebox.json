@@ -1,7 +1,7 @@
 {
  "store": "homebox",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T01:56:28.363+03:00",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "homebox:167133765",
@@ -44,8 +44,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://www.homeboxstores.com/sa/ar/buy-orro-ray-wing-smart-hydraulic-upholstered-queen-bed-160x200-cm/p/168296281",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25"
   },
   {
@@ -59,8 +59,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · «خصم ٦٢٪» غير متحقق",
    "url": "https://www.homeboxstores.com/sa/ar/buy-fresno-2-seater-fabric-sofa/p/166973759",
-   "avail": "low",
-   "availNote": "هوم بوكس: متبقي 2",
+   "avail": "oos",
+   "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25"
   },
   {
@@ -74,8 +74,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://www.homeboxstores.com/sa/ar/buy-mona-18-metre-large-tv-unit-for-tvs-up-to-75-inches/p/167611833",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25"
   },
   {
@@ -89,8 +89,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · ٦٢٪ من الأثاث «مخفّض» · لا يوجد سجل خارجي",
    "url": "https://www.homeboxstores.com/sa/ar/buy-cavon-seoul-16-meter-genuine-marble-top-tv-unit-for-tvs-up-to-70-inch/p/167267265",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25"
   }
  ]

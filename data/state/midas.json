@@ -1,7 +1,7 @@
 {
  "store": "midas",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T16:03:18.182+03:00",
+ "updated": "2026-09-25",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "midas:bolanburg-dining-table",
@@ -14,9 +14,9 @@
    "verdict": "ok",
    "finding": "أرخص من متجر أشلي (٣٬٠٧١) بعد ارتفاع سعره هناك اليوم",
    "url": "https://midasfurniture.com/ksa_ar/bolanburg-dining-table.html",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-22",
+   "avail": "oos",
+   "availNote": "ميداس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-25",
    "refKind": "market"
   },
   {
@@ -32,7 +32,7 @@
    "url": "https://midasfurniture.com/ksa_ar/skempton-dining-table-set-6-chairs-dining-rooms-midas-saudi-arabia.html",
    "avail": "oos",
    "availNote": "ميداس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -49,7 +49,7 @@
    "url": "https://midasfurniture.com/ksa_ar/modmax-swivel-glider-recliner-blue-living-rooms-midas.html",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"
   }

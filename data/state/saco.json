@@ -1,21 +1,21 @@
 {
  "store": "saco",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T01:56:28.363+03:00",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "saco:delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
    "store": "saco",
    "cat": "المنزل",
    "name": "ديلونجي Magnifica ECAM12.121",
-   "price": 1999,
+   "price": 1499,
    "was": 2699,
    "ref": null,
    "verdict": "na",
    "finding": "لم نجد نفس الموديل في متجر آخر (Magnifica S في نون ٢٬٩٥٧)",
    "url": "https://www.saco.sa/product/delonghi-1450w-magnifica-automatic-coffee-machine-black-1-8-liter-ecam12-121-b-p-000000000000092995",
-   "avail": "ended",
-   "availNote": "ساكو: عاد السعر إلى ٢٬٦٩٩ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-25"
   },
   {
@@ -80,8 +80,8 @@
    "verdict": "bad",
    "finding": "نون ١٬٨٩٥",
    "url": "https://www.saco.sa/product/nespresso-1500w-vertuo-lattissima-coffee-maker-black-1-6-liter-gdv5-bk-p-000000000000094494",
-   "avail": "ended",
-   "availNote": "ساكو: عاد السعر إلى ٢٬٩٩٩ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-25",
    "bk": "cheaper",
    "refKind": "market"

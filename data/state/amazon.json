@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-09-25",
- "checkedAt": "2026-09-25T01:56:28.363+03:00",
+ "checkedAt": "2026-09-25T12:50:17.540+03:00",
  "rows": [
   {
    "id": "amazon:B0CP31L73X",
@@ -39,7 +39,7 @@
    "finding": "كان ١٩٨ · نفس السعر في نون",
    "url": "https://www.amazon.sa/dp/B01NBW4GMW",
    "avail": "oos",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
@@ -63,7 +63,7 @@
    "finding": "كان ٣٥٨ · أقل سعر مسجل تقريباً (٩٤)",
    "url": "https://www.amazon.sa/dp/B09VTJFBZC",
    "avail": "oos",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
@@ -184,7 +184,7 @@
    "finding": "السعر ارتفع (كان ٣٧٩)",
    "url": "https://www.amazon.sa/dp/B0D5H3YF9B",
    "avail": "oos",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25",
    "refKind": "history",
    "bk": "rose",
@@ -258,7 +258,7 @@
    "finding": "كان ١٬٤٤٩ · لكن سبق ونزل ٦٩٩",
    "url": "https://www.amazon.sa/dp/B08CKWYL3Z",
    "avail": "oos",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25",
    "refKind": "history",
    "ev": {
@@ -330,7 +330,7 @@
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ١٬٨٦٠ لم يُسجّل",
    "url": "https://www.amazon.sa/dp/B08CDLX7GK",
    "avail": "oos",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-09-25",
    "bk": "nosaving",
    "refKind": "history",
@@ -529,7 +529,7 @@
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-25",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
     "prev": 11949,
@@ -704,7 +704,7 @@
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-25",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
     "prev": 1819,
@@ -1104,7 +1104,7 @@
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-25",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
     "prev": 250.08,
@@ -1129,7 +1129,7 @@
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
    "lastChecked": "2026-09-25",
-   "availNote": "أمازون: aod",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
     "prev": 499,
