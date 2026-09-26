@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
- "updated": "2026-09-25",
- "checkedAt": "2026-09-25T17:16:22.203+03:00",
+ "updated": "2026-09-26",
+ "checkedAt": "2026-09-26T09:44:54.132+03:00",
  "rows": [
   {
    "id": "blackbox:lg-75-inches-qned-evo-tv-web-os-25-smart-a8-gen-2-4-k-p-1411111391605007",
@@ -16,7 +16,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/lg-75-inches-qned-evo-tv-web-os-25-smart-a8-gen-2-4-k-p-1411111391605007",
    "avail": "oos",
    "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "market"
   },
   {
@@ -32,7 +32,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "market"
   },
   {
@@ -48,7 +48,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004",
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 3",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "market"
   },
   {
@@ -64,7 +64,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/lg-86-inches-qned-evo-ai-tv-web-os-25-smart-a9-gen-8-4-p-1411111391715006",
    "avail": "oos",
    "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "history"
   },
@@ -81,7 +81,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -98,7 +98,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/lg-65-inches-qned-tv-web-os-25-2025-smart-4-k-uhd-hdr-10-p-1411111391505002",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "history"
   },
@@ -115,7 +115,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/haier-75-inches-qled-tv-smart-4-k-uhd-dolby-audio-gaming-google-tv-75-p-141111626160503",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -132,7 +132,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/philips-air-fryer-3000-series-9-l-2750-w-dual-basket-black-na350-09-p-1552221120000003",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -149,7 +149,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/philips-fully-automatic-espresso-machine-1.8-l-2-beverages-touch-screen-gray-p-153412111000015",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market"
   },
@@ -164,9 +164,9 @@
    "verdict": "na",
    "finding": "لا يوجد في متجر آخر للمقارنة · «قبل» ٢٩٬٣٩٩ مبالغ جداً",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-25"
+   "avail": "low",
+   "availNote": "بلاك بوكس: متبقي 2",
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "blackbox:samsung-65-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241505003",
@@ -181,7 +181,7 @@
    "url": "https://www.blackbox.com.sa/ar/product/samsung-65-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241505003",
    "avail": "oos",
    "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market"
   }

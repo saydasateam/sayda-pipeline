@@ -1,7 +1,7 @@
 {
  "store": "homecentre",
- "updated": "2026-09-25",
- "checkedAt": "2026-09-25T17:16:22.203+03:00",
+ "updated": "2026-09-26",
+ "checkedAt": "2026-09-26T09:44:54.132+03:00",
  "rows": [
   {
    "id": "homecentre:165286579",
@@ -16,7 +16,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-foresta-5-piece-king-bedroom-set-180x200-cm/p/165286579",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homecentre:167286134",
@@ -31,7 +31,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-heritage-6-door-wardrobe-with-drawer/p/167286134",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homecentre:168405741",
@@ -46,7 +46,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-maritus-8-seater-dining-table/p/168405741",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homecentre:168405022",
@@ -61,7 +61,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-roanne-4-seater-fabric-left-corner-sofa/p/168405022",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homecentre:167598477",
@@ -76,7 +76,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-chloe-fabric-armchair/p/167598477",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homecentre:167411473",
@@ -91,7 +91,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-otath-6-seater-fabric-left-corner-sofa/p/167411473",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homecentre:167716601",
@@ -106,7 +106,7 @@
    "url": "https://www.homecentre.com/sa/ar/buy-gradient-8-seater-dining-table/p/167716601",
    "avail": "low",
    "availNote": "هوم سنتر: متبقي 3",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   }
  ]
 }

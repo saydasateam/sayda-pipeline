@@ -1,7 +1,7 @@
 {
  "store": "namshi",
- "updated": "2026-09-25",
- "checkedAt": "2026-09-25T17:16:22.203+03:00",
+ "updated": "2026-09-26",
+ "checkedAt": "2026-09-26T09:44:54.132+03:00",
  "rows": [
   {
    "id": "namshi:ZFA050EA7897E01463913Z",
@@ -17,7 +17,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:VA76B66109E89B18FE9F9V",
@@ -33,7 +33,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:Z0714AAA557884BAA4C6DZ",
@@ -49,7 +49,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:ZE98B812E247CE2215B40Z",
@@ -65,7 +65,7 @@
    "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:Z444C7A9A68EF146BE4F6Z",
@@ -77,17 +77,17 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.namshi.com/saudi-ar/buy-aigner-shaped-analogue-watch/Z444C7A9A68EF146BE4F6Z/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "نمشي: عاد السعر إلى ١٬٨٧٥ — انتهى العرض",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:ZD7E0CA6D216D13B86AE2Z",
    "store": "namshi",
    "name": "فالنتينو باي ماريو فالنتينو حذاء بكعب متوسط",
-   "price": 939,
+   "price": 1215,
    "was": 1539,
    "ref": null,
    "verdict": "na",
@@ -97,7 +97,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:ZFF3DFDD365472AF2F8AFZ",
@@ -113,13 +113,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:Z7EDCB53BEF55A96C24BBZ",
    "store": "namshi",
    "name": "دي كي إن واي حقيبة بريانت بحمالة علوية وحزام",
-   "price": 478,
+   "price": 567,
    "was": 1050,
    "ref": null,
    "verdict": "na",
@@ -129,7 +129,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:Z45F879285527381DB8B8Z",
@@ -145,7 +145,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:V0082DB09373F1EE095D8V",
@@ -161,13 +161,13 @@
    "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:V3BAEDD86C9869660D9CBV",
    "store": "namshi",
    "name": "تومي جينز قبعة مونوجرام منحنية",
-   "price": 263,
+   "price": 422,
    "was": 726,
    "ref": null,
    "verdict": "na",
@@ -177,7 +177,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:VB9EDDF14AA80C2600676V",
@@ -193,13 +193,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:Z5B0C9D5AD9E590040311Z",
    "store": "namshi",
    "name": "نمشي x فستان سهرة ذيل سمكة بأكمام كاب مزين",
-   "price": 477,
+   "price": 657,
    "was": 1000,
    "ref": null,
    "verdict": "na",
@@ -209,13 +209,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:ZD6268E94D101F0F16FB9Z",
    "store": "namshi",
    "name": "جس جزمات كاجوال بطول الركبة",
-   "price": 287,
+   "price": 466,
    "was": 815,
    "ref": null,
    "verdict": "na",
@@ -225,7 +225,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "namshi:Z6C75A5825E04C953C6EDZ",
@@ -241,7 +241,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   }
  ]
 }

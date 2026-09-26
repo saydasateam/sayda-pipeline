@@ -1,7 +1,7 @@
 {
  "store": "extra",
- "updated": "2026-09-25",
- "checkedAt": "2026-09-25T17:16:22.203+03:00",
+ "updated": "2026-09-26",
+ "checkedAt": "2026-09-26T09:44:54.132+03:00",
  "rows": [
   {
    "id": "extra:100336309",
@@ -16,7 +16,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/bosch-climate-line-split-air-conditioner-21-000-btu-t3-inverter-compressor-heat-cold/p/100336309",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -41,7 +41,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/qled-tv/hisense-65-inch-qled-4k-smart-tv-144hz-8-years-os-update-ai/p/100485276",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 5199,
@@ -65,7 +65,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/bosch-split-air-conditioner-18-300-btu-cold-only-t3-rotary-polar-white/p/100336313",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -90,7 +90,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/dryers/european-dryer/lg-dual-inverter-heatpump-dryer-10kg-sensor-dry-allergy-care-white/p/100317889",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -115,7 +115,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 4499,
@@ -139,7 +139,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-cellular-46mm-rose-gold-aluminium-case/p/100384100",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 2149,
@@ -163,7 +163,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-series-10-gps-46mm-silver-aluminium-case-with-denim-sport-band-m-l/p/100378961",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 1729,
@@ -187,7 +187,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/wearable/smart-watches/apple-watch-se-gps-40mm-starlight-aluminium-case-with-starlight-sport-band-s-m/p/100379085",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 899,
@@ -211,7 +211,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/air-conditioner/split-air-conditioner/lg-spilt-ac-21-500-btu-cool-win-dual-inverter-compressor/p/100363937",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 2675,
@@ -235,7 +235,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-5g-256-gb-navy/p/100392593",
    "avail": "low",
    "availNote": "إكسترا: متبقي 3",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 3639,
@@ -259,7 +259,7 @@
    "url": "https://www.extra.com/ar-sa/computer/laptops/clamshell/asus-vivobook-s16-clamshell-amd-ryzen-ai-7-16gb-1tb-16-inch-fhd-silver/p/100500820",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 6499,
@@ -283,7 +283,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-55-inch-neo-qled-4k-ai-upscaling-144hz-airslim-design/p/100434138",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 5599,
@@ -307,7 +307,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/samsung-75-inch-neo-qled-4k-ai-upscaling-144hz-airslim-design/p/100434130",
    "avail": "low",
    "availNote": "إكسترا: متبقي 2",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 9799,
@@ -331,7 +331,7 @@
    "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/ipad/apple-ipad-air-m3-gen-2025-wi-fi-11-inch-128gb-space-grey/p/100396462",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 4165,
@@ -355,7 +355,7 @@
    "url": "https://www.extra.com/ar-sa/large-appliances-/dryers/european-dryer/samsung-dryer-16kg-18-programs-inverter-heat-pump-wifi-black/p/100318219",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market",
    "ev": {
@@ -380,7 +380,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/home-entertainment/home-theater/yamaha-yas-209-sound-bar-black/p/100198154",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "refKind": "history",
    "ev": {
     "prev": 1839,
@@ -404,7 +404,7 @@
    "url": "https://www.extra.com/ar-sa/large-tvs-/lg-98-inch-uhd-4k-smart-tv-120-hz/p/100386572",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market",
    "ev": {
@@ -429,7 +429,7 @@
    "url": "https://www.extra.com/ar-sa/electronics/television/miniled/skyworth-75-inch-miniled-google-tv-144-hz/p/100394802",
    "avail": "oos",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "bk": "cheaper",
    "refKind": "market",
    "ev": {
@@ -454,7 +454,7 @@
    "avail": "in",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -479,7 +479,7 @@
    "avail": "in",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -504,7 +504,7 @@
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
@@ -529,7 +529,7 @@
    "avail": "oos",
    "cat": "ألعاب",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
@@ -554,7 +554,7 @@
    "avail": "oos",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-25",
+   "lastChecked": "2026-09-26",
    "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "refKind": "history",
    "ev": {
@@ -589,7 +589,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100467471",
@@ -614,7 +614,7 @@
    },
    "cat": "شاشات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100310665",
@@ -639,7 +639,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100054446",
@@ -664,7 +664,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100477173",
@@ -689,7 +689,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100345839",
@@ -714,7 +714,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100382993",
@@ -739,7 +739,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100385401",
@@ -764,7 +764,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100277459",
@@ -789,7 +789,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100325520",
@@ -814,7 +814,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "extra:100344718",
@@ -839,7 +839,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   }
  ]
 }

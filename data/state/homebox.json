@@ -1,7 +1,7 @@
 {
  "store": "homebox",
- "updated": "2026-09-25",
- "checkedAt": "2026-09-25T17:16:22.203+03:00",
+ "updated": "2026-09-26",
+ "checkedAt": "2026-09-26T09:44:54.132+03:00",
  "rows": [
   {
    "id": "homebox:167133765",
@@ -16,7 +16,7 @@
    "url": "https://www.homeboxstores.com/sa/ar/buy-bellmont-3-seater-reversible-sleeper-corner-sofa-bed-with-memory-foam-mattress-and-4-cushions/p/167133765",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homebox:166777050",
@@ -31,7 +31,7 @@
    "url": "https://www.homeboxstores.com/sa/ar/buy-lucca-6-door-wardrobe-with-2-drawers-and-mirrors/p/166777050",
    "avail": "oos",
    "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homebox:168296281",
@@ -46,7 +46,7 @@
    "url": "https://www.homeboxstores.com/sa/ar/buy-orro-ray-wing-smart-hydraulic-upholstered-queen-bed-160x200-cm/p/168296281",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homebox:166973759",
@@ -61,7 +61,7 @@
    "url": "https://www.homeboxstores.com/sa/ar/buy-fresno-2-seater-fabric-sofa/p/166973759",
    "avail": "low",
    "availNote": "هوم بوكس: متبقي 2",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homebox:167611833",
@@ -76,7 +76,7 @@
    "url": "https://www.homeboxstores.com/sa/ar/buy-mona-18-metre-large-tv-unit-for-tvs-up-to-75-inches/p/167611833",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "homebox:167267265",
@@ -91,7 +91,7 @@
    "url": "https://www.homeboxstores.com/sa/ar/buy-cavon-seoul-16-meter-genuine-marble-top-tv-unit-for-tvs-up-to-70-inch/p/167267265",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   }
  ]
 }

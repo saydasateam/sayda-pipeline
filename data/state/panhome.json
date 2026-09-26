@@ -1,7 +1,7 @@
 {
  "store": "panhome",
- "updated": "2026-09-25",
- "checkedAt": "2026-09-25T17:16:22.203+03:00",
+ "updated": "2026-09-26",
+ "checkedAt": "2026-09-26T09:44:54.132+03:00",
  "rows": [
   {
    "id": "panhome:vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
@@ -16,7 +16,7 @@
    "url": "https://www.panhomestores.com/ksa_ar/vintage-1-14-dining-table-mango-wood-brown-021mka1900002",
    "avail": "oos",
    "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "panhome:sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
@@ -29,9 +29,9 @@
    "verdict": "na",
    "finding": "بان هوم · «خصم ٥٥٪» غير متحقق",
    "url": "https://www.panhomestores.com/ksa_ar/sovanti-1-8-seater-dining-set-with-sovanti-dining-chair-package-beige-021bundle220",
-   "avail": "oos",
-   "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25"
+   "avail": "gone",
+   "availNote": "بان هوم: الصفحة غير موجودة",
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "panhome:eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
@@ -46,7 +46,7 @@
    "url": "https://www.panhomestores.com/ksa_ar/eren-1-8-seater-dining-table-with-arno-dining-chairs-package-brown-and-black-021bundle264",
    "avail": "oos",
    "availNote": "بان هوم: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   },
   {
    "id": "panhome:tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
@@ -61,7 +61,7 @@
    "url": "https://www.panhomestores.com/ksa_ar/tillsley-3-1-1-with-arm-seater-sofa-package-brown-099bundle0134",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-25"
+   "lastChecked": "2026-09-26"
   }
  ]
 }
