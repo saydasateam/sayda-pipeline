@@ -1,7 +1,7 @@
 {
  "store": "cityw",
- "updated": "2026-09-26",
- "checkedAt": "2026-09-26T09:44:54.132+03:00",
+ "updated": "2026-09-28",
+ "checkedAt": "2026-09-28T19:56:03.634+03:00",
  "rows": [
   {
    "id": "cityw:peppo-2-seater-boucle-fabric-loveseat-warm-ivory",
@@ -16,14 +16,14 @@
    "url": "https://cityw.com.sa/product/peppo-2-seater-boucle-fabric-loveseat-warm-ivory/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-26"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "cityw:6-seater-fabric-sofa-set-warm-grey",
    "store": "cityw",
    "cat": "أثاث",
    "name": "طقم كنب 6 مقاعد رمادي دافئ",
-   "price": 5950,
+   "price": 4950,
    "was": 14950,
    "ref": null,
    "verdict": "na",
@@ -31,7 +31,7 @@
    "url": "https://cityw.com.sa/product/6-seater-fabric-sofa-set-warm-grey/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-26"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "cityw:king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey",
@@ -46,7 +46,7 @@
    "url": "https://cityw.com.sa/product/king-6-piece-upholstered-bedroom-set-white-and-charcoal-grey/",
    "avail": "gone",
    "availNote": "سيتي دبليو: الصفحة غير موجودة",
-   "lastChecked": "2026-09-26"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "cityw:12-seater-ceramic-top-dining-table-set-charcoal-and-bronze",
@@ -61,7 +61,7 @@
    "url": "https://cityw.com.sa/product/12-seater-ceramic-top-dining-table-set-charcoal-and-bronze/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-26"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "cityw:4-seater-fabric-sectional-sofa-warm-taupe-brown",
@@ -74,9 +74,9 @@
    "verdict": "na",
    "finding": "سيتي دبليو · ١٠٠٪ من الكتالوج «مخفّض» · «خصم ٦٩٪» غير متحقق",
    "url": "https://cityw.com.sa/product/4-seater-fabric-sectional-sofa-warm-taupe-brown/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-26"
+   "avail": "gone",
+   "availNote": "سيتي دبليو: الصفحة غير موجودة",
+   "lastChecked": "2026-09-28"
   }
  ]
 }
