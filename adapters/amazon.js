@@ -14,7 +14,10 @@
         const pm = text.match(/"priceAmount"\s*:\s*([\d.]+)/);
         const captcha = !btn && /Enter the characters|أدخل الأحرف/i.test(text);
         const low = av.match(/تبقى (\d+)/);
-        out.push({ id: r.id, found: status === 200 && !captcha, captcha, live: pm ? +pm[1] : null, buyable: btn, stock: low ? +low[1] : (btn ? 99 : 0), note: av.slice(0, 40) });
+        // #availability sometimes yields an inline-script fragment (P.when("A","load")…).
+        // verdict.js publishes obs.note verbatim as Arabic page text, so only pass real Arabic through.
+        const noteOf = t => (/[\u0600-\u06FF]/.test(t) && !/P\.when|execute\(|\bfunction\b|=>|aod-assets/.test(t)) ? t.slice(0, 40) : '';
+        out.push({ id: r.id, found: status === 200 && !captcha, captcha, live: pm ? +pm[1] : null, buyable: btn, stock: low ? +low[1] : (btn ? 99 : 0), note: noteOf(av) });
         await S.sleep(900);
       }
       return out;

@@ -5,7 +5,7 @@
 // against the RENDERED page, like mothercare/homecentre.
 //   listing card  .list_block → .r1 price now · .r2 store's own «before» · img[alt] full name
 //                 product link a[href*="/product-detail"]; the key is the hex id segment in that URL
-//   product page  #prod_price .prod-price now · .original_mrp_main was · .sizeaddtocart = buyable
+//   product page  #prod_price now · .original_mrp_main was · .sizeaddtocart = buyable
 // Verified live 2026-09-22 on /toys/5/0/0.
 (function(){
   const S = window.SAYDA;
@@ -53,7 +53,7 @@
     async checkCurrent(r) {
       const here = keyFrom(location.href), want = keyFrom(r.url);
       if (want && here && here !== want) return { id: r.id, found: false, status: 'wrongPage' };
-      const live = S.num(S.text(document.querySelector('#prod_price .prod-price')));
+      const live = S.num(S.text(document.querySelector('#prod_price')));
       if (live == null) return { id: r.id, found: false, status: 'noPrice' };
       const buyable = !oosNow();
       return { id: r.id, found: true, live, buyable, stock: buyable ? 99 : 0,
