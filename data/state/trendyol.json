@@ -1,7 +1,7 @@
 {
  "store": "trendyol",
  "updated": "2026-09-28",
- "checkedAt": "2026-09-28T19:56:03.634+03:00",
+ "checkedAt": "2026-09-28T22:47:47.800+03:00",
  "rows": [
   {
    "id": "trendyol:941983655",
@@ -319,7 +319,7 @@
    "store": "trendyol",
    "cat": "أزياء",
    "name": "حذاء سكيتشرز «GO WALK 8»",
-   "price": 206,
+   "price": 202,
    "was": 466.5,
    "ref": 146.25,
    "refKind": "market",

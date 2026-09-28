@@ -1,7 +1,7 @@
 {
  "store": "firstcry",
- "updated": "2026-09-22",
- "checkedAt": "2026-09-22T23:06:46.266+03:00",
+ "updated": "2026-09-28",
+ "checkedAt": "2026-09-28T22:47:47.800+03:00",
  "rows": [
   {
    "id": "firstcry:c57eduae20ab67",
@@ -17,7 +17,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-28",
    "refKind": "market",
    "refUrl": null,
    "ev": {
@@ -47,7 +47,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:1f57aksa8a0e64",
@@ -63,7 +63,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:4b235ae9fc659",
@@ -79,7 +79,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:fbff2aeb47dc2",
@@ -95,13 +95,13 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:6c679aec3d0e9",
    "store": "firstcry",
    "name": "ليبفروق - مجموعة ألعاب فيديو ليب موف",
-   "price": 345.96,
+   "price": 327,
    "was": 658.98,
    "ref": null,
    "verdict": "na",
@@ -111,7 +111,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:5d5a1ae202ee9",
@@ -127,7 +127,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:ee031aeb6a090",
@@ -143,7 +143,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-28",
    "refKind": "market",
    "refUrl": null,
    "ev": {
@@ -173,7 +173,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-28",
    "refKind": "market",
    "refUrl": null,
    "ev": {
@@ -192,7 +192,7 @@
    "id": "firstcry:c3966uaeaefff1",
    "store": "firstcry",
    "name": "ليبفروق - 2 في 1 لابتوب تاتش - وردي",
-   "price": 187.01,
+   "price": 216,
    "was": 416.68,
    "ref": 176,
    "verdict": "bad",
@@ -202,7 +202,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-28",
    "refKind": "market",
    "refUrl": null,
    "ev": {
@@ -232,7 +232,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:19287062",
@@ -248,13 +248,13 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:c3809ae694260",
    "store": "firstcry",
    "name": "ليبفروق - لابتوب تاتش 2 في 1 - أخضر",
-   "price": 214,
+   "price": 199,
    "was": 413.45,
    "ref": 176,
    "verdict": "bad",
@@ -264,7 +264,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-28",
    "refKind": "market",
    "refUrl": null,
    "ev": {
@@ -284,7 +284,7 @@
    "id": "firstcry:1f6d3ae957fc9",
    "store": "firstcry",
    "name": "ليبفروق - كتاب التعلم 100 كلمة عربي إنجليزي",
-   "price": 229,
+   "price": 239,
    "was": 424.15,
    "ref": null,
    "verdict": "na",
@@ -294,7 +294,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:6a7c2ae191aa4",
@@ -310,7 +310,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:1c57cae9fed12",
@@ -326,7 +326,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22",
+   "lastChecked": "2026-09-28",
    "refKind": "market",
    "refUrl": null,
    "ev": {
@@ -356,7 +356,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:eb3faksaae8736",
@@ -372,7 +372,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:19287060",
@@ -388,7 +388,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   },
   {
    "id": "firstcry:a9b44ae611299",
@@ -404,7 +404,7 @@
    "availNote": "",
    "cat": "ألعاب",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-22"
+   "lastChecked": "2026-09-28"
   }
  ]
 }

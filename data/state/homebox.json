@@ -1,7 +1,7 @@
 {
  "store": "homebox",
  "updated": "2026-09-28",
- "checkedAt": "2026-09-28T19:56:03.634+03:00",
+ "checkedAt": "2026-09-28T22:47:47.800+03:00",
  "rows": [
   {
    "id": "homebox:167133765",
@@ -14,8 +14,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · ٦٢٪ من الأثاث «مخفّض» · لا يوجد سجل خارجي",
    "url": "https://www.homeboxstores.com/sa/ar/buy-bellmont-3-seater-reversible-sleeper-corner-sofa-bed-with-memory-foam-mattress-and-4-cushions/p/167133765",
-   "avail": "oos",
-   "availNote": "هوم بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-28"
   },
   {
@@ -44,8 +44,8 @@
    "verdict": "na",
    "finding": "هوم بوكس · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://www.homeboxstores.com/sa/ar/buy-orro-ray-wing-smart-hydraulic-upholstered-queen-bed-160x200-cm/p/168296281",
-   "avail": "gone",
-   "availNote": "هوم بوكس: الصفحة غير موجودة",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-28"
   },
   {

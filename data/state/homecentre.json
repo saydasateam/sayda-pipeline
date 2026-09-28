@@ -1,7 +1,7 @@
 {
  "store": "homecentre",
  "updated": "2026-09-28",
- "checkedAt": "2026-09-28T19:56:03.634+03:00",
+ "checkedAt": "2026-09-28T22:47:47.800+03:00",
  "rows": [
   {
    "id": "homecentre:165286579",
@@ -29,8 +29,8 @@
    "verdict": "na",
    "finding": "هوم سنتر · موديل خاص · لا يوجد سجل خارجي",
    "url": "https://www.homecentre.com/sa/ar/buy-heritage-6-door-wardrobe-with-drawer/p/167286134",
-   "avail": "oos",
-   "availNote": "هوم سنتر: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-28"
   },
   {
@@ -74,8 +74,8 @@
    "verdict": "na",
    "finding": "هوم سنتر · «خصم ٥٠٪» غير متحقق",
    "url": "https://www.homecentre.com/sa/ar/buy-chloe-fabric-armchair/p/167598477",
-   "avail": "gone",
-   "availNote": "هوم سنتر: الصفحة غير موجودة",
+   "avail": "in",
+   "availNote": "",
    "lastChecked": "2026-09-28"
   },
   {
