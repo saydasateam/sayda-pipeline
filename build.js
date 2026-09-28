@@ -126,7 +126,20 @@ const furnitureNote = `<div class="note"><b>متاجر الأثاث: «الخص�
 const fill = {
   UPDATED_AR: longDate(st.meta.updated),
   UPDATED_AR_SHORT: shortDate(st.meta.updated),
-  CHECKED_AR: `${time12(st.meta.checkedAt)} (الرياض)`,
+  // lib/state.js derives BOTH the newest and the oldest per-store checkedAt. Rendering only the
+  // newest lets the page advertise a fresh check over rows that are days old, which is the exact
+  // claim this site exists not to make. Show the floor too whenever the spread is over 6 hours.
+  CHECKED_AR: (() => {
+    const newest = st.meta.checkedAt, oldest = st.meta.oldestCheckedAt;
+    const head = `${time12(newest)} (الرياض)`;
+    if (!newest || !oldest) return head;
+    const t = x => new Date(String(x).replace('+03:00', 'Z')).getTime();
+    const spreadH = (t(newest) - t(oldest)) / 3600e3;
+    if (!(spreadH > 6)) return head;
+    const sameDay = String(newest).slice(0, 10) === String(oldest).slice(0, 10);
+    const old = sameDay ? time12(oldest) : `${shortDate(oldest)} ${time12(oldest)}`;
+    return `${head} · وأقدم صف فُحص في ${old}`;
+  })(),
   STORE_COUNT_AR: countWord(cfg.stores.length) + ' عشر'.replace(/.*/, m => cfg.stores.length>=11 && cfg.stores.length<=19 ? '' : '') , // placeholder, fixed below
   COUPONS_NOTE: couponsNote,
   COUPONS_SECTION: couponsSection,

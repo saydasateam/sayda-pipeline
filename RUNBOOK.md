@@ -18,6 +18,27 @@ common case and a single probe at :30 gives a false negative. Only after the thi
 «التحديث لم يعمل: لا يوجد متصفح متاح» with the exact tool error, and stop. A run that ends inside ten minutes has almost
 certainly taken this branch; say so plainly in the summary so a 4-minute no-op is never mistaken for a clean run.
 
+## 0b. Tab hygiene — the run's memory budget (added 28 Sep 2026, and it is not optional)
+
+Chrome, not the row count, is what has killed runs. Measured: Chromium is 0.7–1.1 GB before any page
+opens, and each heavy SPA page (Trendyol, Home Centre, Amazon, Noon) adds 150–400 MB — so the budget is
+**two or three store pages open at once**. The 28 Sep 23:07 run held 12 tabs for about 40 minutes and
+peaked over 4 GB: Extra finished at minute 8 and its tab was still open at minute 45. Every "tab went
+unresponsive" and "Browser extension is not connected" failure in the 23–28 Sep runs is consistent with
+this and with nothing else.
+
+- **Close a tab the moment its result is harvested** — `tabs_close_mcp` straight after the
+  `get_page_text` that reads its JSON. Never keep a finished store's tab open "in case".
+- **Reuse a pool of at most 3–4 tabs.** Navigate a free tab to the next store instead of opening a new
+  one. `window.SAYDA` dies on navigation and core + adapter are re-injected per store anyway, so reuse
+  costs nothing and keeps peak memory independent of how many stores the run covers.
+- **Never hold more than 4 store tabs open at once**, per-row render tabs included.
+- **Between render rows, navigate the tab to `about:blank`** before the next product URL, so the previous
+  page is torn down first. This matters most for firstcry (20 rows) and the landmark stores.
+- Budget the tabs before opening any: 3–4 in flight, not one per store. 23 stores do not need 23 tabs.
+- If Chrome drops mid-run, treat memory pressure as the first suspect: close every tab you are not
+  using before the ~75 s retry, then re-inject.
+
 ## 1. CHECK phase — every row, all stores in parallel (≈ 12 calls)
 For each store id in `config/stores.json` (16), open one Chrome tab on `store.home` (for **saco** open `store.landing`;
 for **jarir** any jarir.com page works even if it 404s), then **fetch the adapter AND the rows inside the browser** rather
