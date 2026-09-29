@@ -1,7 +1,7 @@
 {
  "store": "namshi",
- "updated": "2026-09-28",
- "checkedAt": "2026-09-28T22:47:47.800+03:00",
+ "updated": "2026-09-29",
+ "checkedAt": "2026-09-29T18:24:06.770+03:00",
  "rows": [
   {
    "id": "namshi:ZFA050EA7897E01463913Z",
@@ -17,7 +17,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:VA76B66109E89B18FE9F9V",
@@ -33,13 +33,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:Z0714AAA557884BAA4C6DZ",
    "store": "namshi",
    "name": "نيو بالانس سنيكرز ام 1000",
-   "price": 241,
+   "price": 222,
    "was": 895,
    "ref": null,
    "verdict": "na",
@@ -49,7 +49,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:ZE98B812E247CE2215B40Z",
@@ -65,7 +65,7 @@
    "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:Z444C7A9A68EF146BE4F6Z",
@@ -81,13 +81,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:ZD7E0CA6D216D13B86AE2Z",
    "store": "namshi",
    "name": "فالنتينو باي ماريو فالنتينو حذاء بكعب متوسط",
-   "price": 847,
+   "price": 831,
    "was": 1539,
    "ref": null,
    "verdict": "na",
@@ -97,7 +97,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:ZFF3DFDD365472AF2F8AFZ",
@@ -113,7 +113,7 @@
    "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:Z7EDCB53BEF55A96C24BBZ",
@@ -129,13 +129,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:Z45F879285527381DB8B8Z",
    "store": "namshi",
    "name": "نمشي x فستان سهرة بتصميم - مع ذيل",
-   "price": 405,
+   "price": 225,
    "was": 899,
    "ref": null,
    "verdict": "na",
@@ -145,7 +145,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:V0082DB09373F1EE095D8V",
@@ -161,7 +161,7 @@
    "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:V3BAEDD86C9869660D9CBV",
@@ -177,13 +177,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:VB9EDDF14AA80C2600676V",
    "store": "namshi",
    "name": "كالفن كلاين جينز أحذية رياضية كاجوال",
-   "price": 243,
+   "price": 275,
    "was": 709,
    "ref": null,
    "verdict": "na",
@@ -193,7 +193,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:Z5B0C9D5AD9E590040311Z",
@@ -209,7 +209,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:ZD6268E94D101F0F16FB9Z",
@@ -225,13 +225,13 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "namshi:Z6C75A5825E04C953C6EDZ",
    "store": "namshi",
    "name": "ريبوك بريمير رود ألترا",
-   "price": 535,
+   "price": 415,
    "was": 1038,
    "ref": null,
    "verdict": "na",
@@ -241,7 +241,7 @@
    "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   }
  ]
 }

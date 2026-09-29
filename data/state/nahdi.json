@@ -1,7 +1,7 @@
 {
  "store": "nahdi",
- "updated": "2026-09-28",
- "checkedAt": "2026-09-28T22:47:47.800+03:00",
+ "updated": "2026-09-29",
+ "checkedAt": "2026-09-29T18:24:06.770+03:00",
  "rows": [
   {
    "id": "nahdi:101746792",
@@ -17,7 +17,7 @@
    "availNote": "النهدي: عاد السعر إلى ٦٠٠ — انتهى العرض",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:101746805",
@@ -33,7 +33,7 @@
    "availNote": "النهدي: عاد السعر إلى ٦٠٠ — انتهى العرض",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:102308612",
@@ -49,7 +49,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:103090651",
@@ -65,7 +65,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:102691826",
@@ -81,7 +81,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:102691834",
@@ -97,7 +97,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:101363599",
@@ -113,7 +113,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:103100961",
@@ -129,7 +129,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:103100952",
@@ -145,7 +145,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:103773971",
@@ -161,7 +161,7 @@
    "availNote": "",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:101746709",
@@ -177,7 +177,7 @@
    "availNote": "النهدي: عاد السعر إلى ٢٦٠ — انتهى العرض",
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:103526654",
@@ -193,7 +193,7 @@
    "availNote": "النهدي: عاد السعر إلى ١٦٥ — انتهى العرض",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "nahdi:103526662",
@@ -209,7 +209,7 @@
    "availNote": "النهدي: عاد السعر إلى ١٦٥ — انتهى العرض",
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   }
  ]
 }

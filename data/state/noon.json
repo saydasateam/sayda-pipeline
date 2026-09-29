@@ -1,7 +1,7 @@
 {
  "store": "noon",
- "updated": "2026-09-28",
- "checkedAt": "2026-09-28T22:47:47.800+03:00",
+ "updated": "2026-09-29",
+ "checkedAt": "2026-09-29T18:24:06.770+03:00",
  "rows": [
   {
    "id": "noon:N41179092A",
@@ -14,9 +14,9 @@
    "verdict": "ok",
    "finding": "كان ١٩٩ · أقل سعر مسجل · نفس السعر في أمازون",
    "url": "https://www.noon.com/saudi-ar/N41179092A/p/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-28",
+   "avail": "oos",
+   "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 199,
@@ -40,7 +40,7 @@
    "url": "https://www.noon.com/saudi-ar/N13316224A/p/",
    "avail": "oos",
    "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 395,
@@ -64,7 +64,7 @@
    "url": "https://www.noon.com/saudi-ar/N12194963A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 468,
@@ -88,7 +88,7 @@
    "url": "https://www.noon.com/saudi-ar/N70215257V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 13377,
@@ -112,7 +112,7 @@
    "url": "https://www.noon.com/saudi-ar/N53432096A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 299,
@@ -136,7 +136,7 @@
    "url": "https://www.noon.com/saudi-ar/N70053123V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -161,7 +161,7 @@
    "url": "https://www.noon.com/saudi-ar/N51628022A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 420.4,
@@ -177,15 +177,15 @@
    "store": "noon",
    "cat": "عطور",
    "name": "My Burberry Black ‏90مل",
-   "price": 173,
+   "price": 170,
    "was": 490,
    "ref": 183.2,
    "verdict": "warn",
    "finding": "الفرق الحقيقي 0٪ فقط · «قبل» ٤٩٠",
    "url": "https://www.noon.com/saudi-ar/N11201185A/p/",
-   "avail": "in",
-   "availNote": "",
-   "lastChecked": "2026-09-28",
+   "avail": "low",
+   "availNote": "نون: متبقي 2",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -210,7 +210,7 @@
    "url": "https://www.noon.com/saudi-ar/N51574509A/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٣٢٩ — انتهى العرض",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -235,7 +235,7 @@
    "url": "https://www.noon.com/saudi-ar/N53378566A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -260,7 +260,7 @@
    "url": "https://www.noon.com/saudi-ar/N50953184A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 355.85,
@@ -284,7 +284,7 @@
    "url": "https://www.noon.com/saudi-ar/N70002048V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 1",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 449,
@@ -308,7 +308,7 @@
    "url": "https://www.noon.com/saudi-ar/N70096217V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -333,7 +333,7 @@
    "url": "https://www.noon.com/saudi-ar/N70098449V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -358,7 +358,7 @@
    "url": "https://www.noon.com/saudi-ar/N70189410V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 982,
@@ -382,7 +382,7 @@
    "url": "https://www.noon.com/saudi-ar/N32137438A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 339.7,
@@ -406,7 +406,7 @@
    "url": "https://www.noon.com/saudi-ar/N41427645A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 414,
@@ -430,7 +430,7 @@
    "url": "https://www.noon.com/saudi-ar/N53335721A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 999,
@@ -454,7 +454,7 @@
    "url": "https://www.noon.com/saudi-ar/N70206847V/p/",
    "avail": "oos",
    "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 4199,
@@ -477,8 +477,8 @@
    "finding": "كان ٤١٩ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70282500V/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-28",
+   "availNote": "نون: متبقي 1",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 419,
@@ -502,7 +502,7 @@
    "url": "https://www.noon.com/saudi-ar/N70028165V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 499,
@@ -526,7 +526,7 @@
    "url": "https://www.noon.com/saudi-ar/N70177297V/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٤٬٨٩٦ — انتهى العرض",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 4896,
@@ -542,7 +542,7 @@
    "store": "noon",
    "cat": "ألعاب",
    "name": "يد DualSense بلايستيشن 5",
-   "price": 239,
+   "price": 230,
    "was": 484,
    "ref": 239.4,
    "verdict": "bad",
@@ -550,7 +550,7 @@
    "url": "https://www.noon.com/saudi-ar/N40633049A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -575,7 +575,7 @@
    "url": "https://www.noon.com/saudi-ar/N39359748A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 3412,
@@ -599,7 +599,7 @@
    "url": "https://www.noon.com/saudi-ar/N70370387V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 1999,
@@ -623,7 +623,7 @@
    "url": "https://www.noon.com/saudi-ar/N70102694V/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٢٩٦ — انتهى العرض",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "bk": "nosaving",
    "ev": {
@@ -648,7 +648,7 @@
    "url": "https://www.noon.com/saudi-ar/N70188450V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 6220,
@@ -672,7 +672,7 @@
    "url": "https://www.noon.com/saudi-ar/N70136207V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 1699,
@@ -688,15 +688,15 @@
    "store": "noon",
    "cat": "شاشات",
    "name": "TCL ‏75 بوصة QD-Mini LED ‏(Google TV)",
-   "price": 3920,
+   "price": 3869,
    "was": 6999,
    "ref": 3687,
    "verdict": "bad",
    "finding": "السعر ارتفع (كان ٣٬٦٨٧) · وأقل سعر مسجل ٣٬٢١٧",
    "url": "https://www.noon.com/saudi-ar/N70356471V/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-28",
+   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-09-29",
    "bk": "rose",
    "refKind": "history",
    "ev": {
@@ -721,7 +721,7 @@
    "url": "https://www.noon.com/saudi-ar/N12582309A/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -746,7 +746,7 @@
    "url": "https://www.noon.com/saudi-ar/N11200560A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -771,7 +771,7 @@
    "url": "https://www.noon.com/saudi-ar/N70029332V/p/",
    "avail": "oos",
    "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 4829,
@@ -795,7 +795,7 @@
    "url": "https://www.noon.com/saudi-ar/N70118976V/p/",
    "avail": "oos",
    "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 3299,
@@ -819,7 +819,7 @@
    "url": "https://www.noon.com/saudi-ar/N70293935V/p/",
    "avail": "low",
    "availNote": "نون: متبقي 2",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 999,
@@ -843,7 +843,7 @@
    "url": "https://www.noon.com/saudi-ar/N15097317A/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٧٢٥ — انتهى العرض",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 679,
@@ -867,7 +867,7 @@
    "url": "https://www.noon.com/saudi-ar/N70106574V/p/",
    "avail": "in",
    "availNote": "",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "refKind": "history",
    "ev": {
     "prev": 740.05,
@@ -891,7 +891,7 @@
    "url": "https://www.noon.com/saudi-ar/N70088673V/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٢٬٧١٢ — انتهى العرض",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "bk": "cheaper",
    "refKind": "history",
    "ev": {
@@ -916,7 +916,7 @@
    "url": "https://www.noon.com/saudi-ar/N19200536A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -941,7 +941,7 @@
    "url": "https://www.noon.com/saudi-ar/N70153699V/p/",
    "avail": "ended",
    "availNote": "نون: عاد السعر إلى ٣٬٧٩٦ — انتهى العرض",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "bk": "nosaving",
    "refKind": "market",
    "ev": {
@@ -966,7 +966,7 @@
    "url": "https://www.noon.com/saudi-ar/N53332704A/p/",
    "avail": "low",
    "availNote": "نون: متبقي 3",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "bk": "nosaving",
    "refKind": "history",
    "ev": {
@@ -991,7 +991,7 @@
    "avail": "low",
    "cat": "شاشات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "نون: متبقي 3",
    "refKind": "history",
    "ev": {
@@ -1007,17 +1007,17 @@
    "id": "noon:N53424690A",
    "store": "noon",
    "name": "سامسونج مكيف سبليت ذكي WindFree بتقنية العاكس الرقمي",
-   "price": 1848,
+   "price": 1999,
    "was": 6999,
    "ref": 2499,
    "verdict": "ok",
    "finding": "كان ٢٬٤٩٩ · أقل سعر مسجل · «قبل» ٦٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53424690A/p/",
-   "avail": "low",
+   "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
-   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-09-29",
+   "availNote": "",
    "refKind": "history",
    "ev": {
     "prev": 2499,
@@ -1041,7 +1041,7 @@
    "avail": "ended",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "نون: عاد السعر إلى ٤٬٥٠٧ — انتهى العرض",
    "bk": "nosaving",
    "refKind": "market",
@@ -1058,17 +1058,17 @@
    "id": "noon:Z7D534EA91CB9AC4C25FDZ",
    "store": "noon",
    "name": "إيلان مضرب تنس الريشة نانو برو 29 خفيف الوزن بإطار نانو",
-   "price": 28,
+   "price": 29,
    "was": 3900,
    "ref": 27.24,
    "verdict": "bad",
    "finding": "السعر ارتفع (كان ٢٧)",
    "url": "https://www.noon.com/saudi-ar/Z7D534EA91CB9AC4C25FDZ/p/",
-   "avail": "low",
+   "avail": "in",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
-   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-09-29",
+   "availNote": "",
    "refKind": "history",
    "bk": "rose",
    "ev": {
@@ -1093,7 +1093,7 @@
    "avail": "ended",
    "cat": "أزياء",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "نون: عاد السعر إلى ١٬٥٦٩ — انتهى العرض",
    "refKind": "history",
    "bk": "nosaving",
@@ -1119,7 +1119,7 @@
    "avail": "ended",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "نون: عاد السعر إلى ٥٬٨٩٩ — انتهى العرض",
    "bk": "nosaving",
    "refKind": "market",
@@ -1145,7 +1145,7 @@
    "avail": "oos",
    "cat": "رياضة",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "bk": "cheaper",
    "refKind": "history",
@@ -1171,7 +1171,7 @@
    "avail": "low",
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "نون: متبقي 2",
    "refKind": "history",
    "bk": "nosaving",
@@ -1197,7 +1197,7 @@
    "avail": "in",
    "cat": "المنزل",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1222,7 +1222,7 @@
    "avail": "in",
    "cat": "أطفال",
    "firstSeen": "2026-09-18",
-   "lastChecked": "2026-09-28",
+   "lastChecked": "2026-09-29",
    "availNote": "",
    "refKind": "history",
    "ev": {
@@ -1257,7 +1257,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N70188431V",
@@ -1282,7 +1282,7 @@
    },
    "cat": "شاشات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N52135064A",
@@ -1307,7 +1307,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N70051226V",
@@ -1332,7 +1332,7 @@
    },
    "cat": "عناية",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N70003614V",
@@ -1357,7 +1357,7 @@
    },
    "cat": "المنزل",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N70140493V",
@@ -1382,7 +1382,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N70055228V",
@@ -1407,7 +1407,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N70298687V",
@@ -1432,7 +1432,7 @@
    },
    "cat": "أطفال",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N31126632A",
@@ -1457,7 +1457,7 @@
    },
    "cat": "عطور",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   },
   {
    "id": "noon:N25554653A",
@@ -1482,7 +1482,7 @@
    },
    "cat": "عطور",
    "firstSeen": "2026-09-22",
-   "lastChecked": "2026-09-28"
+   "lastChecked": "2026-09-29"
   }
  ]
 }
