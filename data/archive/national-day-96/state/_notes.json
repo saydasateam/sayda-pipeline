@@ -1,0 +1,22 @@
+{
+ "notes": {
+  "furnitureShare": {
+   "cityw": {
+    "pct": 100,
+    "detail": "٨٣٥ من ٨٣٥"
+   },
+   "panhome": {
+    "pct": 99
+   },
+   "homecentre": {
+    "pct": 84
+   },
+   "homebox": {
+    "pct": 62
+   },
+   "baytonia": {
+    "pct": 25
+   }
+  }
+ }
+}
