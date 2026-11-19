@@ -21,12 +21,16 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   `data/history.json` and the eight furniture `*.history.json` files are still at their old paths as
   well as in the archive. They supply nothing, because every store has a shard. Delete them when there
   is push access.)
-- **Before the FIRST run, in the browser:** the `landing` and campaign `collect` paths in
-  `config/stores.json` still point at National Day pages for noon (`ksa-national`), extra (`cp/8025`),
-  blackbox (`c-475`), almanea (`c-7647`), saco (`c-134436`) and mumzworld (`collections/saudi-national-day`),
-  and `travelSources` lists National Day airline pages. Open each store's home page, find its own
-  White Friday / Yellow Friday campaign page, and update the config from what the store links to.
-  A store with no campaign page yet is collected from its standing offers listing; never guess a URL.
+- **Campaign pages, read from each store's own home page on 20 Nov 2026** (`_landing` beside each
+  in `config/stores.json`): noon `yellow-friday-sale-offers/`, almanea `mega-sale-c-7665`, mumzworld
+  `collections/mumznovember-mega-deals` (plus three more collections its home page links). **extra,
+  blackbox and saco link no White Friday page yet**: they are collected from their standing offer
+  listings (extra `hot-deals/cp/8016`, saco `limitedtimeoffer-c-134736`, blackbox's offer and category
+  paths). Blackbox's National Day category still answers 200 under its old title and is NOT collected.
+  At the start of each run, look at those three home pages once; when a campaign page appears, say so
+  in the summary so the config can be updated. Never guess a URL.
+- `travelSources` now lists each airline's and platform's standing offers or home page, not National
+  Day pages. An offer is published only when the company's own page names it for this campaign.
 - `build.js` refuses to build while there are 0 rows and no store has been checked. That is the
   guard against publishing an empty table under the campaign headline.
 
