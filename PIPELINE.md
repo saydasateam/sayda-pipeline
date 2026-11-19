@@ -48,3 +48,31 @@ committed without it breaking a scheduled run.
 
 **Adding a store is still:** one entry in `stores.json` + one adapter file.
 **Adding a category is still:** one chip + its slugs in `categories.json`.
+
+---
+
+## v2.2 — campaigns are config (2026-11-19, White Friday)
+
+The pipeline was built during National Day and said so in eight places in the template, in the
+artifact title and in the runbook's end date. White Friday is the second campaign, so the campaign
+became data:
+
+**1. `config/campaign.json` carries the campaign.** `id`, `campaign`, `campaignShort`,
+`campaignStart`, `campaignEnd`, `searchPlaceholder`, `theme` (light and dark) and `archive` links.
+`build.js` fills the template from it; with an old two-field file it builds the National Day page
+exactly as before.
+
+**2. The theme is the campaign's, the verified green is not.** `--green` did two jobs: brand colour
+and the «✓ خصم مؤكّد» colour. They are now `--accent` (from the theme) and `--ok` (fixed). White
+Friday is ink on white, so the only colour on the page is the verdict.
+
+**3. Furniture wording follows the enabled stores.** The furniture note, the two methodology items
+and the «أشلي مقابل ميداس» clause render only while those stores are enabled. A category chip with
+no rows is not rendered. Travel and cars pointers and sections render only when they have entries.
+
+**4. `scripts/new-campaign.js`** archives the previous campaign's rows to `data/archive/<id>/` and
+starts the state empty, keeping each enabled store's price-history shard. `build.js` refuses to
+build an empty page.
+
+**Starting a campaign is now:** edit two config files, run one script, run the pipeline.
+

@@ -51,6 +51,14 @@ if (st.rows.length > rules.page.maxRows) {
 }
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
+// A campaign that has just been reset (scripts/new-campaign.js) has no rows and no check time.
+// That is not a page: publishing it would put an empty table under a campaign headline. Stop here
+// with a sentence instead of a TypeError further down, and leave dist/ as it was.
+if (!st.rows.length && !st.meta.checkedAt) {
+  console.error(`build: 0 rows and no store checked yet for «${st.meta.campaign || ''}» — nothing to publish. Run the first collection, then build.`);
+  process.exit(1);
+}
+
 const storeById = Object.fromEntries(cfg.stores.map(s=>[s.id,s]));
 const label = id => (storeById[id]||{}).label || id;
 
@@ -92,7 +100,8 @@ const CRNO = (st.carsNone || []).map(c => [c.company,c.type]);
 const arr = rows => '[\n' + rows.map(r => JSON.stringify(r)).join(',\n') + '\n]';
 
 // ---- chips from config ----
-const catChips = cats.map(c => `        <button data-g="c" data-f="${c.id}">${c.label}</button>`).join('\n');
+const liveCats = cats.filter(c => !st.rows.length || st.rows.some(r => r.cat === c.id));
+const catChips = liveCats.map(c => `        <button data-g="c" data-f="${c.id}">${c.label}</button>`).join('\n');
 const storeChips = cfg.groups.map(g => {
   const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
   const sub  = `<span class="fsub${g.cssClass?' '+g.cssClass:''}">${g.label}</span>`;
@@ -117,13 +126,47 @@ const couponBy = {};
 const SAVES = new Set(['code', 'voucher', 'bank', 'auto']);
 st.coupons.forEach((c, i) => { if (!SAVES.has(c.kind)) return; (c.stores || []).forEach(id => { if (couponBy[label(id)] == null) couponBy[label(id)] = i; }); });
 
-const fs_ = st.notes.furnitureShare || {};
+const on = id => storeById[id] && storeById[id].enabled !== false;
+const fs_ = Object.fromEntries(Object.entries(st.notes.furnitureShare || {}).filter(([id]) => on(id)));
 const shareList = Object.entries(fs_).sort((a,b)=>b[1].pct-a[1].pct)
   .map(([id,v]) => `${label(id)} ${arNum(v.pct)}٪${v.detail?` (${v.detail})`:''}`).join('، ');
-const furnitureNote = `<div class="note"><b>متاجر الأثاث: «الخصم» على كل شيء تقريباً</b>نسبة المنتجات التي عليها سعر «قبل» مشطوب، محسوبة من كتالوج كل متجر: ${shareList}. عندما يكون كل شيء «مخفّضاً» فالسعر «قبل» لا يعني شيئاً — قارن الأسعار الفعلية.</div>`;
+const furnitureNote = !shareList ? '' : `<div class="note"><b>متاجر الأثاث: «الخصم» على كل شيء تقريباً</b>نسبة المنتجات التي عليها سعر «قبل» مشطوب، محسوبة من كتالوج كل متجر: ${shareList}. عندما يكون كل شيء «مخفّضاً» فالسعر «قبل» لا يعني شيئاً — قارن الأسعار الفعلية.</div>`;
+
+// ---- campaign wording and colour: config/campaign.json, never the template ----
+// (19 Nov 2026) The template used to say «اليوم الوطني ٩٦» in eight places and was green throughout.
+// A new campaign is now a config edit. Defaults below are the National Day values, so an old
+// campaign.json still builds the page it always built.
+const M = st.meta;
+const campAr    = M.campaign || 'اليوم الوطني ٩٦';
+const campShort = M.campaignShort || campAr;
+const forAr = t => t.startsWith('ال') ? 'لل' + t.slice(2) : 'ل' + t;   // لـ + الجمعة = للجمعة
+const th = (M.theme && M.theme.light) || {}, thd = (M.theme && M.theme.dark) || {};
+const hasFurn = cfg.stores.some(s => s.group === 'furniture' && s.enabled !== false);
+const travelOn = st.travel.length + st.travelNone.length > 0;
+const carsOn = (st.cars || []).length + (st.carsNone || []).length > 0;
+const campaignFill = {
+  CAMPAIGN_AR: campAr, CAMPAIGN_SHORT_AR: campShort,
+  CAMPAIGN_FOR_AR: forAr(campAr), CAMPAIGN_FOR_SHORT_AR: forAr(campShort),
+  SEARCH_PH: M.searchPlaceholder || 'ابحث: سامسونج، آيفون، كنبة، مكيف…',
+  TH_ACCENT: th.accent || '#0B6E4F', TH_ACCENT_HEX: (th.accent || '#0B6E4F').slice(1), TH_ACCENT_SOFT: th.accentSoft || '#E1F0E8',
+  TH_BG: th.bg || '#F4F6F2', TH_INK: th.ink || '#132019', TH_MUTED: th.muted || '#5B6B61', TH_LINE: th.line || '#DDE3DC', TH_CHIP: th.chip || '#EAEEE8',
+  TH_ACCENT_DARK: thd.accent || '#4FC596', TH_ACCENT_SOFT_DARK: thd.accentSoft || '#173A2B',
+  TH_BG_DARK: thd.bg || '#0F1512', TH_SURFACE_DARK: thd.surface || '#17201B', TH_INK_DARK: thd.ink || '#E6EDE8',
+  TH_MUTED_DARK: thd.muted || '#9AABA0', TH_LINE_DARK: thd.line || '#2A362F', TH_CHIP_DARK: thd.chip || '#223029',
+  // the two pointers and their sections exist only when there is something behind them
+  TRAVEL_NOTE: !travelOn ? '' : `    <a class="note notelink" href="#travel"><b>✈️ عروض السفر</b>أكواد وحملات ${campShort} من شركات الطيران ومنصات الحجز، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السفر ↓</span></a>\n`,
+  CARS_NOTE: !carsOn ? '' : `    <a class="note notelink" href="#cars"><b>🚗 عروض السيارات</b>عروض ${campShort} من وكلاء السيارات وجهات التمويل، مقروءة من صفحاتهم الرسمية، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السيارات ↓</span></a>\n`,
+  TRAVEL_HIDDEN: travelOn ? '' : ' hidden', CARS_HIDDEN: carsOn ? '' : ' hidden',
+  // furniture wording follows the enabled stores, so a campaign without them does not describe them
+  HOW_FURNITURE: (on('ashley') && on('midas')) ? '، وأشلي مقابل ميداس في الأثاث' : '',
+  METHOD_IKEA: !on('ikea') ? '' : `<li><b>إيكيا</b>: منتجاتها لا تُباع في متاجر أخرى ولا يوجد لها سجل أسعار عام، لذلك تظهر كـ «غير متحقق» مع مدة العرض الرسمية.</li>\n      `,
+  METHOD_FURNITURE: !hasFurn ? '' : `      <li><b>متاجر الأثاث</b>: أشلي وميداس تبيعان نفس سلاسل أشلي (بولانبرغ، سكيمبتون، مودماكس…)، فقارنّا سعر القطعة نفسها بين المتجرين. هوم سنتر وهوم بوكس وبان هوم وسيتي دبليو وبيتونيا تبيع موديلات خاصة بها لا توجد في متاجر أخرى ولا يوجد لها سجل أسعار عام، فتظهر كـ «غير متحقق» مع نسبة المنتجات «المخفّضة» في المتجر.</li>\n`,
+  ARCHIVE_LINKS: !(M.archive || []).length ? '' : ' · الأرشيف: ' + M.archive.map(a => `<a href="${a.href}">${a.label}</a>`).join(' · '),
+};
 
 // ---- fill ----
 const fill = {
+  ...campaignFill,
   UPDATED_AR: longDate(st.meta.updated),
   UPDATED_AR_SHORT: shortDate(st.meta.updated),
   // lib/state.js derives BOTH the newest and the oldest per-store checkedAt. Rendering only the
@@ -160,7 +203,7 @@ fs.mkdirSync(path.join(ROOT,'dist'), {recursive:true});
 fs.writeFileSync(path.join(ROOT,'dist/index.html'), out);
 
 // artifact variant: no doctype/html/head/body, starts at <title>, no brand header/about section
-let art = out.slice(out.indexOf('<title>')).replace(/^<title>[^<]*<\/title>/, '<title>'+(st.meta.artifactTitle||'صيدات اليوم الوطني ٩٦')+'</title>');
+let art = out.slice(out.indexOf('<title>')).replace(/^<title>[^<]*<\/title>/, '<title>'+(st.meta.artifactTitle||('صيدات '+campAr))+'</title>');
 art = art.replace(/<header class="brand"[\s\S]*?<\/header>\n/, '')
          .replace(/<section class="about"[\s\S]*?<\/section>\n/, '')
          .replace(/<\/body>\s*<\/html>\s*$/, '');

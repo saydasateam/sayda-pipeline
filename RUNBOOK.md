@@ -2,6 +2,41 @@
 
 Read this top to bottom, then execute. Target: ≤ 60 min, ≤ 110 tool calls. Never improvise a parser — every store has an adapter.
 
+## Current campaign — White Friday 2026 (set 19 Nov 2026)
+
+`config/campaign.json` is the only place the campaign lives: name, dates, colour theme, archive links.
+The page wording and colours follow it; nothing in `template/index.html` names a campaign any more.
+
+- **Window:** 19–30 November 2026 (the Friday is 27 Nov). After `campaignEnd`, say the sale is over
+  and do not refresh.
+- **Stores: 15 enabled.** All eight furniture stores are `enabled: false` (Mahmoud, 19 Nov): ikea,
+  homecentre, homebox, panhome, cityw, baytonia, ashley, midas. Skip every instruction below that
+  names them — the rendered per-row check for the landmark stores, the CSP bundle for ikea and midas,
+  the ashley ↔ midas comparison, `notes.furnitureShare`. **jarir is now the only CSP-blocked store.**
+  firstcry is the only per-row render store left.
+- **The state started empty.** `scripts/new-campaign.js national-day-96` moved the 410 National Day
+  rows to `data/archive/national-day-96/`. Every row on this page is collected and judged inside this
+  campaign; never copy a row or its `ev` back from the archive.
+  (Landed through GitHub's upload form, which cannot move or delete: the old `data/state.json`,
+  `data/history.json` and the eight furniture `*.history.json` files are still at their old paths as
+  well as in the archive. They supply nothing, because every store has a shard. Delete them when there
+  is push access.)
+- **Before the FIRST run, in the browser:** the `landing` and campaign `collect` paths in
+  `config/stores.json` still point at National Day pages for noon (`ksa-national`), extra (`cp/8025`),
+  blackbox (`c-475`), almanea (`c-7647`), saco (`c-134436`) and mumzworld (`collections/saudi-national-day`),
+  and `travelSources` lists National Day airline pages. Open each store's home page, find its own
+  White Friday / Yellow Friday campaign page, and update the config from what the store links to.
+  A store with no campaign page yet is collected from its standing offers listing; never guess a URL.
+- `build.js` refuses to build while there are 0 rows and no store has been checked. That is the
+  guard against publishing an empty table under the campaign headline.
+
+### New campaign (how this one was started, and how the next one is)
+1. Edit `config/campaign.json` (id, names, dates, theme, archive links) and `config/stores.json`
+   (`enabled`, landings, campaign collect paths).
+2. `node scripts/new-campaign.js <archive-id>` — dry run; add `--apply` to do it. It archives the
+   row shards and shared files, writes empty shards, and keeps the price-history shards of enabled stores.
+3. First run as below, then `node build.js && node scripts/replay.js`.
+
 ## 0. Setup (2 calls)
 ```
 git clone https://github.com/saydasateam/sayda-pipeline.git && cd sayda-pipeline && node build.js   # sanity
@@ -308,7 +343,7 @@ confirm the newest commit is this run's. Then:
   SUCCEEDED either way. On 2026-09-19 all four runs ended in ~4 minutes having committed nothing; only the user noticing the
   stale page revealed it. State what stopped it (no browser, adapter failures, budget) and how far the run got.
 PushNotification also when: a store failed, a commit failed, or ≥ 5 deals ended at once.
-If today is after 30 Sep 2026: say the sale is over and suggest pausing the task.
+If today is after `config/campaign.json → campaignEnd`: say the sale is over and suggest pausing the task.
 
 ## Rollback — how to undo the sharding change
 
