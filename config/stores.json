@@ -33,7 +33,8 @@
       "adapter": "noon",
       "origin": "https://www.noon.com",
       "home": "https://www.noon.com/saudi-ar/",
-      "landing": "https://www.noon.com/saudi-ar/ksa-national/",
+      "landing": "https://www.noon.com/saudi-ar/yellow-friday-sale-offers/",
+      "_landing": "Read from noon's home page 20 Nov 2026 (Yellow Friday). National Day was ksa-national/.",
       "verify": "kanbkam",
       "kanbkamMid": 3,
       "productUrl": "https://www.noon.com/saudi-ar/{sku}/p/",
@@ -65,7 +66,7 @@
           "sports-and-outdoors",
           "sports-and-outdoors/exercise-and-fitness",
           "home-and-kitchen/bedding-16171",
-          "ksa-national"
+          "yellow-friday-sale-offers"
         ],
         "perCat": 40,
         "cap": 600,
@@ -153,7 +154,8 @@
       "adapter": "extra",
       "origin": "https://www.extra.com",
       "home": "https://www.extra.com/ar-sa/",
-      "landing": "https://www.extra.com/ar-sa/saudi-national-day-offers/cp/8025",
+      "landing": "https://www.extra.com/ar-sa/hot-deals/cp/8016",
+      "_landing": "20 Nov 2026: extra's home page links no White Friday page, only «أقوى العروض» (hot-deals). Re-read the home page each run and switch when a campaign page appears.",
       "verify": "kanbkam",
       "kanbkamMid": 13,
       "kanbkamPrefix": "e",
@@ -219,14 +221,14 @@
       "adapter": "nextdata",
       "origin": "https://www.blackbox.com.sa",
       "home": "https://www.blackbox.com.sa/",
-      "landing": "https://www.blackbox.com.sa/saudi-national-day-offers-c-475",
+      "landing": "https://www.blackbox.com.sa/",
+      "_landing": "20 Nov 2026: no White Friday page linked from the home page; the National Day category still answers 200 with its old title and must not be collected. Collection is the standing offer and category paths below.",
       "verify": "market",
       "productUrl": "https://www.blackbox.com.sa/ar/product/{slug}",
       "productPath": "/ar/product/",
       "collect": {
         "productsAt": "pageProps.products",
         "pages": [
-          "/saudi-national-day-offers-c-475",
           "/offer-under-199-sr-c-645",
           "/offer-under-499-sr-c-601",
           "/offer-under-999-sr-c-602",
@@ -250,7 +252,8 @@
       "adapter": "nextdata",
       "origin": "https://www.almanea.sa",
       "home": "https://www.almanea.sa/",
-      "landing": "https://www.almanea.sa/national-day-offers-c-7647",
+      "landing": "https://www.almanea.sa/mega-sale-c-7665",
+      "_landing": "Read from almanea's home page 20 Nov 2026 (Mega Sale).",
       "verify": "market",
       "productUrl": "https://www.almanea.sa/product/{slug}",
       "productPath": "/product/",
@@ -260,7 +263,7 @@
         "pageParam": "?page=",
         "pagesPerCat": 1,
         "pages": [
-          "/national-day-offers-c-7647",
+          "/mega-sale-c-7665",
           "/best-sellers-c-7698",
           "/tvs-c-526",
           "/split-acs-c-539",
@@ -284,7 +287,8 @@
       "adapter": "saco",
       "origin": "https://www.saco.sa",
       "home": "https://www.saco.sa/",
-      "landing": "https://www.saco.sa/nationals-day-c-134436",
+      "landing": "https://www.saco.sa/limitedtimeoffer-c-134736",
+      "_landing": "20 Nov 2026: saco's home page links no White Friday page; this is its own limited-time-offers listing («عرض الكل»).",
       "verify": "market",
       "productUrl": "https://www.saco.sa/product/{slug}",
       "collect": {
@@ -334,6 +338,8 @@
     },
     {
       "id": "ikea",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "إيكيا",
       "group": "furniture",
       "adapter": "ikea",
@@ -355,6 +361,8 @@
     },
     {
       "id": "homecentre",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "هوم سنتر",
       "group": "furniture",
       "adapter": "landmark",
@@ -384,6 +392,8 @@
     },
     {
       "id": "homebox",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "هوم بوكس",
       "group": "furniture",
       "adapter": "landmark",
@@ -413,6 +423,8 @@
     },
     {
       "id": "panhome",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "بان هوم",
       "group": "furniture",
       "adapter": "magento",
@@ -434,6 +446,8 @@
     },
     {
       "id": "cityw",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "سيتي دبليو",
       "group": "furniture",
       "adapter": "woo",
@@ -450,6 +464,8 @@
     },
     {
       "id": "baytonia",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "بيتونيا",
       "group": "furniture",
       "adapter": "magento",
@@ -471,6 +487,8 @@
     },
     {
       "id": "ashley",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "أشلي",
       "group": "furniture",
       "adapter": "shopify",
@@ -489,6 +507,8 @@
     },
     {
       "id": "midas",
+      "enabled": false,
+      "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "ميداس",
       "group": "furniture",
       "adapter": "midas",
@@ -540,7 +560,8 @@
       "adapter": "mumzworld",
       "origin": "https://www.mumzworld.com",
       "home": "https://www.mumzworld.com/sa-ar",
-      "landing": "https://www.mumzworld.com/sa-ar/c/collections/saudi-national-day",
+      "landing": "https://www.mumzworld.com/sa-ar/c/collections/mumznovember-mega-deals",
+      "_landing": "Read from mumzworld's home page 20 Nov 2026 (November Mega Deals strip banner).",
       "verify": "self",
       "_verify_note": "Branded items (Dyson, Philips Avent, Joie, Chicco…) may be checked against the same model elsewhere with SAYDA.kanbkam.market + rules/match.js, exactly as for Almanea. Everything else starts na and is re-judged against our own history after ownHistoryMinDays.",
       "naFinding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
@@ -551,19 +572,16 @@
       },
       "collect": {
         "paths": [
-          "/sa-ar/c/collections/saudi-national-day",
-          "/sa-ar/c/collections/snd-unmissable-deals",
-          "/sa-ar/c/collections/snd-strollers-prams",
-          "/sa-ar/c/collections/snd-car-seats-boosters",
-          "/sa-ar/c/collections/snd-appliances",
-          "/sa-ar/c/collections/snd-bottle-feeding",
-          "/sa-ar/c/collections/snd-breast-feeding",
+          "/sa-ar/c/collections/mumznovember-mega-deals",
+          "/sa-ar/c/collections/november-deals-large-appliances",
+          "/sa-ar/c/collections/mumz-savers",
+          "/sa-ar/c/collections/mega-bundles",
           "/sa-ar/c/sale"
         ],
         "pages": 1,
         "cat": "mumzworld",
         "cap": 400,
-        "_paging": "Only the first 24 products of a listing are server-rendered (?page=, ?p=, ?sort= are all ignored — tested 22 Sep); «عرض المزيد» pages client-side. Breadth comes from the eight National Day (snd-*) collection paths, 24 each."
+        "_paging": "Only the first 24 products of a listing are server-rendered (?page=, ?p=, ?sort= are all ignored — tested 22 Sep); «عرض المزيد» pages client-side. Breadth comes from the campaign collection paths, 24 each (five on 20 Nov 2026, all linked from the home page)."
       }
     },
     {
@@ -720,15 +738,12 @@
     }
   },
   "travelSources": [
-    "https://www.riyadhair.com/ar/offers/saudi-national-day",
-    "https://www.saudia.com/ar-SA/offers",
-    "https://www.flynas.com/ar/saudi-national-day",
-    "https://www.flynas.com/ar/national-day-domestic-offer",
-    "https://www.flynas.com/ar/national-day-international-offer",
-    "https://booking.nasholidays.com/saudi_national_day/ar",
-    "https://www.flyadeal.com/ar",
-    "https://www.almosafer.com/ar/offers",
-    "https://almatar.com/ar/sa/offers/",
-    "https://www.flyin.com/ar/offers"
+      "https://www.riyadhair.com/ar",
+      "https://www.saudia.com/ar-SA/offers",
+      "https://www.flynas.com/ar",
+      "https://www.flyadeal.com/ar",
+      "https://www.almosafer.com/ar/offers",
+      "https://almatar.com/ar/sa/offers/",
+      "https://www.flyin.com/ar/offers"
   ]
 }

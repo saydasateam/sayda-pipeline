@@ -1,4 +1,39 @@
 {
- "campaign": "اليوم الوطني ٩٦",
- "campaignEnd": "2026-09-30"
+ "_doc": "Static facts of the CURRENT campaign. Never written by a run. Starting a new campaign = edit this file, then `node scripts/new-campaign.js <archive-id>` (see RUNBOOK → New campaign).",
+ "id": "white-friday-2026",
+ "campaign": "الجمعة البيضاء ٢٠٢٦",
+ "campaignShort": "الجمعة البيضاء",
+ "campaignStart": "2026-11-19",
+ "campaignEnd": "2026-11-30",
+ "_dates": "Friday itself is 27 Nov 2026. Amazon.sa runs 19–30 Nov and Noon (Yellow Friday) 20–30 Nov per Time Out Riyadh, read 19 Nov 2026; other stores differ and each store's own page wins. campaignEnd is the last day a run refreshes.",
+ "artifactTitle": "صيدات الجمعة البيضاء ٢٠٢٦",
+ "searchPlaceholder": "ابحث: سامسونج، آيفون، عطر، مكيف…",
+ "theme": {
+  "_doc": "Each campaign carries its own colour (Mahmoud, Oct 2026): green was National Day, blue was Blue Week. White Friday is ink on white. The verified/ok green is semantic and is NOT part of the theme.",
+  "light": {
+   "accent": "#111111",
+   "accentSoft": "#ECECE8",
+   "bg": "#F5F5F3",
+   "ink": "#111111",
+   "muted": "#5F5F5A",
+   "line": "#DEDEDA",
+   "chip": "#EDEDE9"
+  },
+  "dark": {
+   "accent": "#FFFFFF",
+   "accentSoft": "#262624",
+   "bg": "#0E0E0E",
+   "surface": "#181818",
+   "ink": "#F2F2F0",
+   "muted": "#A3A39E",
+   "line": "#2C2C2A",
+   "chip": "#232321"
+  }
+ },
+ "archive": [
+  {
+   "label": "صيدات اليوم الوطني ٩٦",
+   "href": "/archive/national-day-96"
+  }
+ ]
 }
