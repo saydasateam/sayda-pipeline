@@ -224,6 +224,43 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
   tr.evrow[data-open]{display:block}
   tr.evrow td{padding:0}
 }
+
+/* product grid (20 Nov 2026): the page reads as a shop, the verdict stays the loudest thing on each card */
+.sortnote{color:var(--muted);font-size:13px;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}
+@media (min-width:720px){.grid{grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:14px}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.cimg{position:relative;display:block;aspect-ratio:1/1;background:#fff;border-bottom:1px solid var(--line)}
+.cimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:10px;background:#fff}
+.ph{position:absolute;inset:0;display:grid;place-items:center;font:700 46px "Readex Pro","IBM Plex Sans Arabic",sans-serif;color:#C9C9C4;background:#F1F1EE}
+.badge{position:absolute;top:8px;inset-inline-start:8px;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px;line-height:1.7;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.badge.ok{background:var(--ok);color:var(--surface)}
+.badge.warn{background:var(--gold);color:var(--surface)}
+.badge.bad{background:var(--red);color:var(--surface)}
+.badge.na{background:#fff;color:#5F5F5A;border:1px solid #DEDEDA}
+.cbody{padding:10px 12px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;flex:1;min-width:0}
+.cstore{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.cname{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:3.1em}
+.cname:hover{text-decoration:underline}
+.cprice{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.cprice .pv{font:700 19px "Readex Pro","IBM Plex Sans Arabic",sans-serif;font-variant-numeric:tabular-nums}
+.cprice s{color:var(--muted);font-size:12.5px;font-variant-numeric:tabular-nums}
+.cref{font-size:12px;color:var(--muted)}
+.cwhy{margin:0;font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cact{display:flex;gap:6px;margin-top:auto;padding-top:6px;align-self:stretch}
+.buy{flex:1;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--surface);font-weight:700;font-size:13px;text-decoration:none;border-radius:10px;padding:6px 8px;min-height:40px}
+.cact .evbtn{margin:0;border-radius:10px;min-height:40px;white-space:nowrap;padding:0 10px}
+@media (max-width:719px){.cact{flex-direction:column}.cact .evbtn{width:100%}.buy{flex:none}}
+.card.unavail .cimg img,.card.unavail .ph{opacity:.4}
+.card.unavail .pv{text-decoration:line-through;color:var(--muted)}
+.grid .empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:22px 16px;text-align:center;color:var(--muted)}
+dialog.evdlg{border:0;border-radius:16px;padding:0;width:min(560px,92vw);max-height:86vh;background:var(--surface);color:var(--ink)}
+dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
+.evin{padding:16px 18px 18px}
+.evhead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.evhead h3{margin:0;font-size:16px;line-height:1.55}
+.dx{flex:none;font:inherit;font-size:16px;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+#evbody .buy{margin-top:12px}
 </style>
 <style>
 .brand{max-width:1040px;margin:0 auto;padding:16px 16px 0;display:flex;align-items:baseline;gap:10px}
@@ -315,11 +352,9 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
     </select><span id="fcount" aria-live="polite"></span><span class="claim" id="fhint">الافتراضي: الخصومات الحقيقية المتاحة فقط · اضغط «الكل» لعرض البقية · ويمكنك اختيار أكثر من فئة ومتجر</span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
-  <div class="tbl"><table>
-    <caption class="sortnote">مرتبة تلقائياً: المتاح أولاً، ثم الأعلى خصماً حقيقياً.</caption>
-    <thead><tr><th>التحقق</th><th>المنتج</th><th>السعر الآن</th><th>مرجع المقارنة</th><th>الخصم الحقيقي</th><th>الخصم المعلن</th><th>ماذا وجدنا</th></tr></thead>
-    <tbody id="rows"></tbody>
-  </table></div>
+  <p class="sortnote">مرتبة تلقائياً: المتاح أولاً، ثم الأعلى خصماً حقيقياً.</p>
+  <div class="grid" id="rows"></div>
+  <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="إغلاق">✕</button></div><div id="evbody"></div></div></dialog>
   </div>
 
   {{COUPONS_SECTION}}
@@ -398,7 +433,7 @@ const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
+const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
  ;
 // Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
 // top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
@@ -486,22 +521,28 @@ function render(){
   rows.innerHTML='';
   const list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);
   list.forEach(d=>{
-    const tr=document.createElement('tr');
-    if(UN(d))tr.className='unavail';
-    const real=d.real==null?'<span class="claim">—</span>':`<span class="real ${d.real<0?'neg':''}">${d.real<0?'+'+fmt(-d.real)+'٪ ارتفاع':fmt(d.real)+'٪'}</span>`;
-    tr.innerHTML=`<td class="vcell"><span class="v ${d.v}">${vlabel(d)}</span></td><td class="name"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''} <a href="${d.u}" target="_blank" rel="noopener">${d.n}</a><span class="av ${d.a}">${AL[d.a]}</span>${d.an?`<span class="avnote">${d.an}</span>`:''}</td><td class="num price" data-l="السعر الآن"><span class="pv">${fmt(d.p)} ر.س</span></td><td class="num" data-l="مرجع المقارنة">${d.r?fmt(d.r)+(d.rk?`<span class="rk">${d.rk==='h'?'سعره السابق':'متجر آخر'}</span>`:''):'—'}</td><td class="num" data-l="الخصم الحقيقي">${real}</td><td class="num claim" data-l="الخصم المعلن"><s>${fmt(d.w)}</s> · ${fmt(d.claim)}٪</td><td class="why">${d.note}<button type="button" class="evbtn" aria-expanded="false">📄 دليل السعر</button></td>`;
-    rows.appendChild(tr);
-    const er=document.createElement('tr');er.className='evrow';
-    er.innerHTML=`<td colspan="7">${evidence(d)}</td>`;
-    rows.appendChild(er);
-    tr.querySelector('.evbtn').addEventListener('click',e=>{
-      const open=er.hasAttribute('data-open');
-      if(open){er.removeAttribute('data-open');}else{er.setAttribute('data-open','');}
-      e.currentTarget.setAttribute('aria-expanded',String(!open));
-      e.currentTarget.textContent=open?'📄 دليل السعر':'✕ إخفاء الدليل';
+    const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');
+    // The badge is OUR number, never the store's: real discount, or what we could not confirm.
+    const badge=d.real==null?['na','بلا سجل سعري']:d.real<0?['bad','أغلى '+fmt(-d.real)+'٪']:[d.v==='bad'?'bad':d.v==='warn'?'warn':'ok','خصم حقيقي '+fmt(d.real)+'٪'];
+    const pic=d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'';
+    c.innerHTML=`<a class="cimg" href="${d.u}" target="_blank" rel="noopener" aria-label="${esc(d.n)}"><span class="ph" aria-hidden="true">${esc(d.s.slice(0,1))}</span>${pic}<span class="badge ${badge[0]}">${badge[1]}</span></a>`
+      +`<div class="cbody"><div class="cstore"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''}<span class="av ${d.a}">${AL[d.a]}</span></div>`
+      +`<a class="cname" href="${d.u}" target="_blank" rel="noopener">${d.n}</a>`
+      +`<div class="cprice"><span class="pv">${fmt(d.p)} ر.س</span>${d.w?`<s title="السعر «قبل» المعلن من المتجر">${fmt(d.w)}</s>`:''}</div>`
+      +`<div class="cref">${d.r?(d.rk==='m'?'في متجر آخر ':'كان فعلاً ')+fmt(d.r)+' ر.س':'لا يوجد مرجع للمقارنة'}${d.w?` · المعلن ${fmt(d.claim)}٪`:''}</div>`
+      +`<span class="v ${d.v}">${vlabel(d)}</span>`
+      +(d.an?`<span class="avnote">${d.an}</span>`:'')
+      +`<p class="cwhy">${d.note}</p>`
+      +`<div class="cact"><a class="buy" href="${d.u}" target="_blank" rel="noopener">للمتجر ←</a><button type="button" class="evbtn" aria-haspopup="dialog">دليل السعر</button></div></div>`;
+    const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>im.remove());
+    c.querySelector('.evbtn').addEventListener('click',()=>{
+      document.getElementById('evttl').textContent=d.n;
+      document.getElementById('evbody').innerHTML=evidence(d)+`<a class="buy" href="${d.u}" target="_blank" rel="noopener">افتح المنتج في ${d.s} ←</a>`;
+      const g=document.getElementById('evdlg');if(g.showModal)g.showModal();else g.setAttribute('open','');
     });
+    rows.appendChild(c);
   });
-  if(!list.length){const tr=document.createElement('tr');tr.innerHTML='<td colspan="7" class="empty">'+(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.')+'</td>';rows.appendChild(tr);}
+  if(!list.length){const tr=document.createElement('div');tr.className='empty';tr.innerHTML=(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.');rows.appendChild(tr);}
   const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||SORT!=='default';
   syncChips();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
@@ -588,6 +629,7 @@ document.addEventListener('click',e=>{const a=e.target.closest('.evrule a[href="
   h.textContent=open?'(اضغط هنا)':'(اضغط للإخفاء)';});})();
 document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];
  F.pmin=F.pmax=null;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
+(()=>{const g=document.getElementById('evdlg');const shut=()=>{if(g.close)g.close();else g.removeAttribute('open');};document.getElementById('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});})();
 render();
 (()=>{const VT={clear:'✓ الشروط تطابق الإعلان',catch:'⚠ الإعلان أكبر من الشروط',vague:'تفاصيل غير كافية',pending:'لم يبدأ بعد'};
 const now=new Date(Date.now()+3*3600e3).toISOString().slice(0,10);
