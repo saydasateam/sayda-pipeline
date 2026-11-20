@@ -107,11 +107,30 @@
   // Latin script, so a wrong rewrite yields null, never a wrong name. Returns [{id, name_en}] for
   // `node scripts/apply-names.js`.
   //   SAYDA.start('en:<store>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en), SAYDA.ctx.store));
+  // The site's own wrapper around the product name is removed; the name itself is never touched.
+  // Seen 20 Nov 2026: «Buy <name> in KSA | Mumzworld», «<name> | Mothercare Saudi Arabia»,
+  // «<name> | Nahdi», «<name> | Best Price KSA» (Namshi), «<name> | BlackBox».
+  // A tail after «|» goes when it starts with the site's own name (the host label) or is one of the
+  // stock phrases. A tail after a dash keeps the older, narrower test, because product names end in
+  // « - Black» and « - White» and Blackbox's host starts with «black».
+  S.siteTail = (x, host) => {
+    if (/\.(com|sa)|extra|noon|amazon|jarir|store|shop|online/i.test(x)) return true;
+    if (!/^\s*\|/.test(x)) return false;
+    const s = x.replace(/^[\s|]+/, '').toLowerCase(), w = (s.split(/\s+/)[0] || '').replace(/[^a-z0-9]/g, '');
+    return (w.length >= 5 && String(host || '').startsWith(w)) || /^best price\b|saudi arabia$|\bksa$/.test(s);
+  };
+  S.cleanTitle = (raw, host) => {
+    let t = String(raw || '').replace(/\s+/g, ' ').trim();
+    t = t.replace(/\s*[|–-]\s*[^|–-]{0,30}$/, x => S.siteTail(x, host) ? '' : x).trim();
+    const buy = t.match(/^Buy\s+(.+?)\s+in\s+(?:KSA|Saudi Arabia)$/i); if (buy) t = buy[1].trim();
+    return t;
+  };
   S.titleOf = html => {
     const pick = [/id="productTitle"[^>]*>([^<]+)</, /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i,
       /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i, /<h1[^>]*>([^<]{4,200})<\/h1>/i, /<title>([^<]+)</i];
+    const host = location.hostname.replace(/^www\./, '').split('.')[0].toLowerCase();
     for (const re of pick) { const m = html.match(re); if (!m) continue; const d = document.createElement('textarea'); d.innerHTML = m[1];
-      const t = d.value.replace(/\s+/g, ' ').replace(/\s*[|–-]\s*[^|–-]{0,30}$/, x => /\.(com|sa)|extra|noon|amazon|jarir|store|shop|online/i.test(x) ? '' : x).trim();
+      const t = S.cleanTitle(d.value, host);
       if (t && !/[؀-ۿ]/.test(t)) return t; }
     return null;
   };
