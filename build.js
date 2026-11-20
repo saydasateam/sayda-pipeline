@@ -108,6 +108,7 @@ const D = st.rows.map(r => {
   // product picture (20 Nov 2026): the store's own image URL, read from its product page. Shown by
   // hotlink with no referrer; a card without one falls back to a neutral tile.
   if (r.img && /^https:\/\//.test(r.img)) x.im = r.img;
+  if (r.id) x.id = r.id;   // for the share link (?d=<id>) that opens the page on this card
   // the evidence behind the comparison, so the page can show the recorded range and link to the source
   if (r.ev) { const e = {}; if (r.ev.prev != null) e.p = r.ev.prev; if (r.ev.min != null) e.mn = r.ev.min;
     if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (r.ev.src && !TRACKER.test(r.ev.src)) e.s = r.ev.src;
@@ -265,7 +266,7 @@ const E = st.rows.map(r => {
   if (!r.name_en) o.ar = 1;
   const an = availEn(r); if (an) o.an = an;
   if (RK[r.refKind]) o.rk = RK[r.refKind]; if (BK[r.bk]) o.bk = BK[r.bk]; if (r.lastChecked) o.lc = r.lastChecked;
-  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store];
+  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id;
   if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
   return o;
 });

@@ -81,6 +81,15 @@ this and with nothing else.
   product: do not add a paragraph or a pointer card above the products. All of this is `template/` and
   `build.js`; a run changes none of it. To name the other store on a cross-store card, write the row's
   `refUrl` (already required) as that store's own product URL.
+- **Price bar, lowest-price filter, share link (20 Nov 2026, second review).** A history-referenced row with
+  `ev.min` and a `ref` above the live price gets a bar: lowest recorded price at the start, the previous
+  recorded price at the end, today's price as the dot (green = saved, amber = above the lowest). It is
+  drawn from `ev` alone, which is one more reason `ev` is stored with every row. «عند أقل سعر مسجّل» counts
+  rows whose live price is at or under `ev.min` (1% tolerance). Each card has a share button; its link is
+  the page with `?d=<row id>`, so a row's `id` must stay stable across runs. Category pills sit above the
+  products and the filter bar sticks to the top while folded. Not on the page, on purpose: a countdown,
+  per-product coupon pills, bank-card or membership matching, and any count of «rejected» or «fake»
+  discounts. None of them has data behind it that a run verifies.
 - **Close a tab the moment its result is harvested** — `tabs_close_mcp` straight after the
   `get_page_text` that reads its JSON. Never keep a finished store's tab open "in case".
 - **Reuse a pool of at most 3–4 tabs.** Navigate a free tab to the next store instead of opening a new
