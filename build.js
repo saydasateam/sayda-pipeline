@@ -73,8 +73,30 @@ const TRACKER = /kanbkam/i, TRACKER_AR = /كان ?بكام/g;
 const pubUrl = u => (u && !TRACKER.test(u)) ? u : null;
 const pubText = t => typeof t === 'string' ? t.replace(TRACKER_AR, 'سجل الأسعار').replace(/kanbkam/gi, 'سجل الأسعار') : t;
 const RK = { history: 'h', market: 'm' }, BK = { cheaper: 'c', rose: 'r', nosaving: 'n' };
+// Which store a cross-store reference came from, for «نفس الموديل لدى …» on the card. Read from the
+// row's refStore if the pipeline wrote one, else from the host of its refUrl. Never guessed: with
+// neither, the card says «في متجر آخر» and the finding carries the name.
+const hostOf = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+const refStore = (r, lab) => {
+  if (r.refKind !== 'market') return '';
+  if (r.refStore && storeById[r.refStore]) return lab(r.refStore);
+  const h = hostOf(pubUrl(r.refUrl) || ''); if (!h) return '';
+  const s = cfg.stores.find(s => s.id !== r.store && s.origin && hostOf(s.origin) === h);
+  return s ? lab(s.id) : '';
+};
+// The card's finding, for display. Where the record shows a lower price than today's, say how much
+// lower in riyals (20 Nov review: «سبق ونزل ١٬٤٩٩» did not tell a shopper why the row is a caveat).
+// Built from ev.min and the live price; the stored finding is left as written if its number is not ev.min.
+const arN = v => Number(v).toLocaleString('ar-SA', { maximumFractionDigits: 0 });
+const latin = t => String(t).replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٬,]/g, '');
+const findingAr = r => {
+  const f = pubText(r.finding), mn = r.ev && r.ev.min;
+  if (typeof f !== 'string' || r.refKind === 'market' || mn == null || !(mn < r.price)) return f;
+  return f.replace(/سبق ونزل\s*([\d٠-٩][\d٠-٩٬,]*)(\s*ر\.س)?/, (m, n) => Number(latin(n)) === Math.round(mn)
+    ? `سبق أن وصل إلى ${arN(mn)} ر.س، أي أقل من سعر اليوم بـ ${arN(Math.round(r.price - mn))} ر.س` : m);
+};
 const D = st.rows.map(r => {
-  const a = [label(r.store), r.cat, pubText(r.name), r.price, r.was, r.ref ?? null, r.verdict, pubText(r.finding), r.url];
+  const a = [label(r.store), r.cat, pubText(r.name), r.price, r.was, r.ref ?? null, r.verdict, findingAr(r), r.url];
   const x = {};
   if (r.avail && r.avail !== 'in') x.a = r.avail;
   if (r.availNote) x.an = pubText(r.availNote);
@@ -82,6 +104,7 @@ const D = st.rows.map(r => {
   if (BK[r.bk]) x.bk = BK[r.bk];
   if (r.lastChecked) x.lc = r.lastChecked;
   if (pubUrl(r.refUrl)) x.ru = r.refUrl;
+  { const rs = refStore(r, label); if (rs) x.rs = rs; }
   // product picture (20 Nov 2026): the store's own image URL, read from its product page. Shown by
   // hotlink with no referrer; a card without one falls back to a neutral tile.
   if (r.img && /^https:\/\//.test(r.img)) x.im = r.img;
@@ -106,7 +129,7 @@ const arr = rows => '[\n' + rows.map(r => JSON.stringify(r)).join(',\n') + '\n]'
 const liveCats = cats.filter(c => !st.rows.length || st.rows.some(r => r.cat === c.id));
 const catChips = liveCats.map(c => `        <button data-g="c" data-f="${c.id}">${c.label}</button>`).join('\n');
 const storeChips = cfg.groups.map(g => {
-  const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
+  const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false && (!st.rows.length || st.rows.some(r=>r.store===s.id))).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
   const sub  = `<span class="fsub${g.cssClass?' '+g.cssClass:''}">${g.label}</span>`;
   return btns.length ? `        <div class="sgrp">${sub}\n${btns.join('\n')}</div>` : '';
 }).join('\n');
@@ -116,12 +139,12 @@ const b = t => `<b style="display:inline">${t}</b>`;
 const inl = t => t.replace(/<b>/g,'<b style="display:inline">');
 // Each coupon gets its own anchor so a product row can point straight at it (🎟️ beside the store).
 const couponLis = st.coupons.map((c, i) => {
-  const code = c.code ? ` — كود ${b(c.code)}: ` : ' — ';
+  const code = c.code ? ` — كود ${b(c.code)} <button type="button" class="cpy" data-code="${String(c.code).replace(/[&<>"]/g, '')}">نسخ الكود</button> ` : ' — ';
   return `<li id="coupon-${i}">${b(c.label)}${code}${inl(c.text)}</li>`;
 }).join('');
 // Top of page: a one-line pointer, same shape as the travel one. The list itself lives below the table.
-const couponsNote = `<a class="note notelink" href="#coupons"><b>🎟️ قسائم وأكواد إضافية</b>خصومات فوق سعر الجدول: أكواد المتاجر وعروض البطاقات البنكية، وما تشترطه فعلاً.<span class="cta">اضغط هنا لعرض القسائم ↓</span></a>`;
-const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">🎟️ قسائم وأكواد إضافية</h2><ul class="cplist">${couponLis}</ul><p class="cpfoot">أسعار الجدول ${b('قبل')} هذه الخصومات الإضافية.</p></section>`;
+const couponsNote = `<a class="note notelink" href="#coupons"><b>🎟️ قسائم وأكواد إضافية</b>خصومات فوق السعر المعروض: أكواد المتاجر وعروض البطاقات البنكية، وما تشترطه فعلاً.<span class="cta">اضغط هنا لعرض القسائم ↓</span></a>`;
+const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">🎟️ قسائم وأكواد إضافية</h2><ul class="cplist">${couponLis}</ul><p class="cpfoot">أسعار المنتجات المعروضة ${b('قبل')} تطبيق هذه القسائم.</p></section>`;
 // store label -> index of the first coupon that applies, so the table can link to it
 const couponBy = {};
 // only real savings earn the 🎟️ — a 'none' entry ('we found no code') or the Trendyol
@@ -160,6 +183,9 @@ const campaignFill = {
   TRAVEL_NOTE: !travelOn ? '' : `    <a class="note notelink" href="#travel"><b>✈️ عروض السفر</b>أكواد وحملات ${campShort} من شركات الطيران ومنصات الحجز، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السفر ↓</span></a>\n`,
   CARS_NOTE: !carsOn ? '' : `    <a class="note notelink" href="#cars"><b>🚗 عروض السيارات</b>عروض ${campShort} من وكلاء السيارات وجهات التمويل، مقروءة من صفحاتهم الرسمية، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السيارات ↓</span></a>\n`,
   TRAVEL_HIDDEN: travelOn ? '' : ' hidden', CARS_HIDDEN: carsOn ? '' : ' hidden',
+  // quick links under the stamp: one short line instead of the three pointer cards that used to push the products down
+  TOP_LINKS: (st.coupons.length ? `<a href="#coupons">🎟️ القسائم (${Number(st.coupons.length).toLocaleString('ar-SA')})</a>` : '')
+    + (travelOn ? '<a href="#travel">✈️ عروض السفر</a>' : '') + (carsOn ? '<a href="#cars">🚗 عروض السيارات</a>' : ''),
   // furniture wording follows the enabled stores, so a campaign without them does not describe them
   HOW_FURNITURE: (on('ashley') && on('midas')) ? '، وأشلي مقابل ميداس في الأثاث' : '',
   METHOD_IKEA: !on('ikea') ? '' : `<li><b>إيكيا</b>: منتجاتها لا تُباع في متاجر أخرى ولا يوجد لها سجل أسعار عام، لذلك تظهر كـ «غير متحقق» مع مدة العرض الرسمية.</li>\n      `,
@@ -225,7 +251,7 @@ const findingEn = r => {
   if (r.refKind === 'market') parts.push(`Same model at another store: ${enN(r.ref)} SAR`);
   else parts.push(`Sold at ${enN(r.ref)} SAR before the sale`);
   const mn = r.ev && r.ev.min;
-  if (r.refKind !== 'market' && mn != null) parts.push(r.price <= mn * 1.01 ? 'lowest recorded price' : (mn < r.price ? `has been as low as ${enN(mn)} SAR` : ''));
+  if (r.refKind !== 'market' && mn != null) parts.push(r.price <= mn * 1.01 ? 'lowest recorded price' : (mn < r.price ? `has been as low as ${enN(mn)} SAR, ${enN(Math.round(r.price - mn))} SAR below today’s price` : ''));
   if (r.bk === 'cheaper') parts.push('cheaper elsewhere'); if (r.bk === 'rose') parts.push('the price went up'); if (r.bk === 'nosaving') parts.push('no real saving');
   if (r.refKind !== 'market' && r.was && r.was > r.ref * 1.05) parts.push(`the advertised “before” of ${enN(r.was)} SAR is not in the record`);
   return parts.filter(Boolean).join(' · ');
@@ -239,7 +265,7 @@ const E = st.rows.map(r => {
   if (!r.name_en) o.ar = 1;
   const an = availEn(r); if (an) o.an = an;
   if (RK[r.refKind]) o.rk = RK[r.refKind]; if (BK[r.bk]) o.bk = BK[r.bk]; if (r.lastChecked) o.lc = r.lastChecked;
-  if (pubUrl(r.refUrl)) o.ru = r.refUrl; if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store];
+  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store];
   if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
   return o;
 });

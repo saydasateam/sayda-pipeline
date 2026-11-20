@@ -71,6 +71,16 @@ peaked over 4 GB: Extra finished at minute 8 and its tab was still open at minut
 unresponsive" and "Browser extension is not connected" failure in the 23–28 Sep runs is consistent with
 this and with nothing else.
 
+- **What a card says (20 Nov 2026, after the page review).** Beside the price: the saving against the
+  VERIFIED reference, in riyals and percent («توفّر ٢٣٠ ر.س · ٢٣٪»; «أرخص بـ …» for a cross-store row).
+  Under it: the reference named for what it is («السعر السابق المسجّل …» or «نفس الموديل لدى <متجر> بـ …»).
+  The store's own «قبل» is never struck through beside our price; its claimed percentage appears as one
+  small attributed line («المتجر يعلن خصم ٤٩٪») only where it differs from what we measured, and the
+  full claim sits in «دليل السعر» under «ما أعلنه المتجر». On a phone a card is one full-width row with a
+  small picture; from 600px up it is a grid. The first screen is counts, stamp, search and the first
+  product: do not add a paragraph or a pointer card above the products. All of this is `template/` and
+  `build.js`; a run changes none of it. To name the other store on a cross-store card, write the row's
+  `refUrl` (already required) as that store's own product URL.
 - **Close a tab the moment its result is harvested** — `tabs_close_mcp` straight after the
   `get_page_text` that reads its JSON. Never keep a finished store's tab open "in case".
 - **Reuse a pool of at most 3–4 tabs.** Navigate a free tab to the next store instead of opening a new
