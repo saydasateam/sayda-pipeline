@@ -23,7 +23,9 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   is push access.)
 - **Campaign pages, read from each store's own home page on 20 Nov 2026** (`_landing` beside each
   in `config/stores.json`): noon `yellow-friday-sale-offers/`, almanea `mega-sale-c-7665`, mumzworld
-  `collections/mumznovember-mega-deals` (plus three more collections its home page links). **extra,
+  `collections/mumznovember-mega-deals` (plus `mumz-savers`, `mega-bundles` and `sale`; the
+  `november-deals-large-appliances` collection was removed on 20 Nov because `fill-na` gave all 20
+  of the store's slots to Miele and Smeg appliances). **extra,
   blackbox and saco link no White Friday page yet**: they are collected from their standing offer
   listings (extra `hot-deals/cp/8016`, saco `limitedtimeoffer-c-134736`, blackbox's offer and category
   paths). Blackbox's National Day category still answers 200 under its old title and is NOT collected.
@@ -304,6 +306,11 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
   summary and a PushNotification so the config is corrected. Do not edit config yourself.
 - A row with no `name_en` still publishes; the English page shows its Arabic name. `build.js` prints
   how many and for which stores. Name those stores in the summary every run until it is zero.
+- **The site's wrapper is not part of the name** (20 Nov 2026). `SAYDA.titleOf` removes it:
+  «Buy … in KSA | Mumzworld», «… | Mothercare Saudi Arabia», «… | Nahdi», «… | Best Price KSA»
+  (Namshi), «… | BlackBox». The product name between is stored exactly as the store wrote it. If a
+  new store's titles come back wrapped, add its phrase to `S.siteTail` in `adapters/_core.js`;
+  never trim a name by hand in a run.
 - **Everything else you write in Arabic, you also write in English, in the same step:**
   - `finding_en` on a row is REQUIRED whenever its Arabic `finding` states a condition (a code or
     coupon, Trendyol Plus, a basket threshold, a price that only appears at checkout). `build.js`
