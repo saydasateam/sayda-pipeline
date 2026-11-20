@@ -8,7 +8,9 @@
    "kind": "code",
    "code": "مكانك120",
    "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «لك رصيد مسترجع حتى 120 ريال | استخدم كود: مكانك120». اللافتة لا تذكر الحد الأدنى للطلب ولا الفئات المشمولة، فالشروط تظهر عند إدخال الكود.",
-   "verified": "2026-11-20"
+   "verified": "2026-11-20",
+   "label_en": "Noon",
+   "text_en": "From a banner on Noon’s home page today: “Up to 120 SAR back as credit | use code مكانك120”. The banner states no minimum order and no eligible categories; the terms appear when the code is entered."
   },
   {
    "stores": [
@@ -18,7 +20,9 @@
    "kind": "code",
    "code": "مكانك50",
    "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «خصم إضافي 10% | استخدم كود: مكانك50». اللافتة لا تذكر الحد الأدنى للطلب ولا الفئات المشمولة، فالشروط تظهر عند إدخال الكود.",
-   "verified": "2026-11-20"
+   "verified": "2026-11-20",
+   "label_en": "Noon",
+   "text_en": "From a banner on Noon’s home page today: “Extra 10% off | use code مكانك50”. The banner states no minimum order and no eligible categories; the terms appear when the code is entered."
   },
   {
    "stores": [
@@ -28,7 +32,9 @@
    "kind": "code",
    "code": "مرح150",
    "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «رصيد مسترجع 30% | إستخدم كود: مرح150». اللافتة لا تذكر الحد الأدنى للطلب ولا الفئات المشمولة، فالشروط تظهر عند إدخال الكود.",
-   "verified": "2026-11-20"
+   "verified": "2026-11-20",
+   "label_en": "Noon",
+   "text_en": "From a banner on Noon’s home page today: “30% back as credit | use code مرح150”. The banner states no minimum order and no eligible categories; the terms appear when the code is entered."
   },
   {
    "stores": [
@@ -38,7 +44,9 @@
    "kind": "code",
    "code": "EXCHANGE",
    "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «خصم حتى 250 ريال | استخدم كود: EXCHANGE». اللافتة لا تذكر الحد الأدنى للطلب ولا الفئات المشمولة، فالشروط تظهر عند إدخال الكود.",
-   "verified": "2026-11-20"
+   "verified": "2026-11-20",
+   "label_en": "Noon",
+   "text_en": "From a banner on Noon’s home page today: “Up to 250 SAR off | use code EXCHANGE”. The banner states no minimum order and no eligible categories; the terms appear when the code is entered."
   }
  ]
 }
