@@ -98,7 +98,11 @@ this and with nothing else.
   The finding is printed on a card only when it says something the strip does not. What this asks of a run:
   - **Coupon code pill.** A product card shows its store's first saving coupon that has a `code`, labelled as
     the store's code. So order `_coupons.json` with the broadest code for each store first, and keep the
-    conditions in `text` / `text_en` exactly as the store states them.
+    conditions in `text` / `text_en` exactly as the store states them. **A coupon that carries `wallet`
+    is never the pill** (`general()` in `build.js`, 20 Nov 2026): a code that works only with one bank's
+    card is not the store's code. It reaches a card through the wallet line, for the visitor who picked
+    that card, so its `perk` / `perk_en` must name the card, the condition and the code, and say «على
+    منتجات مختارة» / “on selected products” when the store does not show it on every product.
   - **Wallet (`config/wallet.json`).** When the store's own page names a bank, card scheme, payment wallet or
     membership for an offer, record it as a coupon and add `wallet: ["<id>", …]` using ids from
     `config/wallet.json`, plus a short `perk` and `perk_en` in the store's own terms (for example
@@ -107,6 +111,16 @@ this and with nothing else.
     id that is not in the file: report the missing bank or card in the summary so the file can be extended.
     Look for these offers on each store's home page, its offers or bank-offers page and its checkout
     banners, in the same pass as the coupon codes.
+    **Amazon prints its card offers on PRODUCT pages, not on its home page** (found 20 Nov 2026, after two
+    runs reported «no card offer at Amazon» from the home page and `/whitefriday` alone). They sit in the
+    «توفير» / “Savings” box: «خصم 20% حتى SAR100 | بطاقة راجحي للائتمان. أدخل الرمز ARB20 عند إتمام
+    الشراء». Every run, in the Amazon tab, fetch three or four of its product pages in both languages
+    (`/dp/<asin>?language=ar_AE` and `en_AE`) and search the text for «أدخل الرمز» / “Enter code”. The
+    terms (cap, minimum spend, who is eligible, dates) are on `/promotion/psp/<promotion id>`, which
+    renders in the browser only: navigate to it and read `document.body.textContent`; a `fetch` returns
+    an empty shell. Record how many of the pages you read showed the offer. When an offer needs two
+    things at once (Prime AND an Al Rajhi credit card), tag the one that separates it from the store's
+    other offers and name the other in `perk`, because the wallet matches on any one id.
   - **Saved deals** live in the visitor's browser and key on the row `id`, one more reason ids stay stable.
 - **One filter bar, two languages (Mahmoud, 20 Nov 2026).** The three lines under the campaign band are
   the same on `/` and `/en/`: (1) the summary pills, (2) «تصفية» / “Filters” with the sort and the

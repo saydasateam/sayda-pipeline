@@ -177,7 +177,12 @@ const couponBy = {};
 // only real savings earn the 🎟️ — a 'none' entry ('we found no code') or the Trendyol
 // 'note' caveat would send a shopper to something that saves them nothing.
 const SAVES = new Set(['code', 'voucher', 'bank', 'auto']);
-st.coupons.forEach((c, i) => { if (!SAVES.has(c.kind)) return; (c.stores || []).forEach(id => { if (couponBy[label(id)] == null) couponBy[label(id)] = i; }); });
+// A coupon tied to a card, a wallet or a membership (it carries `wallet`) is NOT the store's own
+// code: Amazon's ARB20 works only with an Al Rajhi credit card, and printing it on every Amazon
+// card as «the store's code» would send everyone else to a code that does nothing. Those offers
+// reach a product card through the wallet line, for the visitor who picked that card (20 Nov 2026).
+const general = c => SAVES.has(c.kind) && !(c.wallet || []).length;
+st.coupons.forEach((c, i) => { if (!general(c)) return; (c.stores || []).forEach(id => { if (couponBy[label(id)] == null) couponBy[label(id)] = i; }); });
 
 const on = id => storeById[id] && storeById[id].enabled !== false;
 const fs_ = Object.fromEntries(Object.entries(st.notes.furnitureShare || {}).filter(([id]) => on(id)));
@@ -289,7 +294,7 @@ const findingEn = r => {
 const availEn = r => { if (r.availNote_en) return r.availNote_en; const m = String(r.availNote || '').match(/متبقي\s*([\d٠-٩]+)/); return m ? `${m[1].replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))} left` : ''; };
 const labelEn = id => (storeById[id] || {}).label_en || id;
 const cpEn = st.coupons.map((c, i) => ({ c, i })).filter(x => x.c.text_en);
-const cpIdx = {}; cpEn.forEach((x, k) => { if (SAVES.has(x.c.kind)) (x.c.stores || []).forEach(id => { if (cpIdx[id] == null) cpIdx[id] = k; }); });
+const cpIdx = {}; cpEn.forEach((x, k) => { if (general(x.c)) (x.c.stores || []).forEach(id => { if (cpIdx[id] == null) cpIdx[id] = k; }); });
 const E = st.rows.map(r => {
   const o = { s: labelEn(r.store), c: r.cat, n: r.name_en || pubText(r.name), p: r.price, w: r.was, r: r.ref ?? null, v: r.verdict, f: findingEn(r), u: r.url, a: r.avail || 'in' };
   if (!r.name_en) o.ar = 1;
