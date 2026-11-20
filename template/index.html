@@ -230,8 +230,8 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}
 @media (min-width:720px){.grid{grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:14px}}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
-.cimg{position:relative;display:block;aspect-ratio:1/1;background:#fff;border-bottom:1px solid var(--line)}
-.cimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:10px;background:#fff}
+.cimg{position:relative;display:block;aspect-ratio:1/1;background:#fff;border-bottom:1px solid var(--line);overflow:hidden;flex:none}
+.cimg img{position:absolute;top:10px;left:10px;width:calc(100% - 20px);height:calc(100% - 20px);box-sizing:border-box;object-fit:contain;background:#fff}
 .ph{position:absolute;inset:0;display:grid;place-items:center;font:700 46px "Readex Pro","IBM Plex Sans Arabic",sans-serif;color:#C9C9C4;background:#F1F1EE}
 .badge{position:absolute;top:8px;inset-inline-start:8px;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px;line-height:1.7;box-shadow:0 1px 2px rgba(0,0,0,.18)}
 .badge.ok{background:var(--ok);color:var(--surface)}
