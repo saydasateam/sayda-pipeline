@@ -1,4 +1,4 @@
-# RUNBOOK — one scheduled run (interim mode: Claude session + your Chrome)
+# RUNBOOK — one scheduled run (Claude session + Chrome on the Sayda server)
 
 Read this top to bottom, then execute. Target: ≤ 60 min, ≤ 110 tool calls. Never improvise a parser — every store has an adapter.
 
@@ -35,7 +35,7 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   Day pages. An offer is published only when the company's own page names it for this campaign.
 - **Two languages, every publish (Mahmoud, 20 Nov 2026).** The English page at `/en/` is as much a
   part of a refresh as the Arabic one: `build.js` writes `dist/index.html` AND `dist/en/index.html`,
-  and a publish pushes both in one commit (§4a). A run that publishes Arabic alone has not published. See §2d and §4.
+  and a publish writes both (§4a-form in scheduled runs, §4a-push from a chat). A run that publishes Arabic alone has not published. See §2d and §4.
 - **The page is a product grid with pictures** (20 Nov 2026), not a table. Every published row should
   carry `img` (§2c) and `name_en` (§2d).
 - `build.js` refuses to build while there are 0 rows and no store has been checked. That is the
@@ -430,13 +430,33 @@ node scripts/market-apply.js work/market/<store>.json --apply    # writes the ro
 ```
 node build.js      # dist/index.html AND dist/en/index.html; note the counts and the english: line
 ```
-**Two writes since 20 Nov 2026, 22:30 Riyadh: the site is pushed, the state is uploaded.** Claude's cloud sessions act on
-GitHub as `mahmoudkie`, which has write access to the private site repo `saydasateam/sayda-deals` and none to this repo
-(this repo is public so that the browser can load the adapters from raw.githubusercontent.com, and it stays that way).
-So both pages go out together as one ordinary `git push` from the sandbox (§4a), and the state shards still go through
-GitHub's upload form in Chrome, signed in as saydasateam (§4b). Do §4a first: it is what visitors see.
+**Two writes per run: the site first, then the state.** How the site goes depends on how the run was started (21 Nov 2026):
+- **Scheduled run on the Sayda server, the normal case: §4a-form.** A scheduled task that uses the server's computer has no
+  GitHub repositories attached: `gh api` answers 403 «a run cannot add repositories» and `git clone` of sayda-deals asks for
+  credentials (proven twice on 21 Nov 2026). So both pages go through GitHub's upload form in the server's Chrome, signed in
+  as saydasateam, as two commits. First proved end to end at 01:16 Riyadh on 21 Nov 2026 (sayda-deals 19cbc7a and 1f4997b,
+  state 784fba9).
+- **Run started by hand from a chat: §4a-push.** A chat session acts on GitHub as `mahmoudkie`, which has write access to the
+  private site repo `saydasateam/sayda-deals`, so both pages go out as one `git push`.
+Either way the state goes through the upload form to this repo (§4b). This repo stays public so that the browser can load the
+adapters from raw.githubusercontent.com, and nobody pushes to it.
 
-### 4a. Site: both pages, one commit, one push
+### 4a-form. Site by upload form (scheduled runs on the server)
+1. Arabic page: navigate `https://github.com/saydasateam/sayda-deals/upload/main`, find the «Choose your files» input,
+   `file_upload` `dist/index.html`, wait until «Uploading n of m files» is gone, then set the message and click Commit in
+   ONE javascript_tool call:
+   ```js
+   const i=document.querySelector('input[name="message"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'Update <YYYY-MM-DD HH:MM> Riyadh (Arabic + English)');i.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('button')].find(b=>/^Commit changes$/.test(b.innerText.trim())&&b.type==='submit').click();
+   ```
+   Wait 10 s; `location.href` must be the repo root.
+2. English page, straight after, the same way at `https://github.com/saydasateam/sayda-deals/upload/main/en` with
+   `dist/en/index.html` and the message «Update <YYYY-MM-DD HH:MM> Riyadh (English)». A publish without this commit is not a
+   publish: if (1) landed and (2) did not, retry (2) once in a fresh tab and notify if it still fails.
+3. If GitHub reports no change or offers no Commit button, the file equals the live one: commit nothing for it and say so.
+4. Verify on `https://github.com/saydasateam/sayda-deals/commits/main` (get_page_text): the two newest commits are this run's.
+   `gh` does not work in these runs.
+
+### 4a-push. Site by git push (runs started from a chat)
 1. Attach the site repo: call `add_repo` with owner `saydasateam`, repo `sayda-deals`, access `push`, and clone it the way
    that tool says, shallow, into a NEW directory named for this run: `SITE=/home/claude/site-<HHMM>`. Never `cd` into it;
    use `git -C "$SITE"` (the stop-hook reason in the refresh task applies here too). Never reuse, reset or delete an
@@ -453,18 +473,27 @@ GitHub's upload form in Chrome, signed in as saydasateam (§4b). Do §4a first: 
      directory and repeat steps 2 to 5 once. If that is rejected too, stop and notify. Never `--force`, never push a run
      to any other branch, never delete a branch.
 6. Verify: `gh api repos/saydasateam/sayda-deals/commits/main --jq .sha` must equal `git -C "$SITE" rev-parse HEAD`.
-   About a minute later (Cloudflare Pages deploys each push), WebFetch `https://saydadeals.com/?v=<HHMM>` and
-   `https://saydadeals.com/en/?v=<HHMM>`; both must carry this run's update stamp. Keep the `?v=`: on 20 Nov the bare
-   address served a stale cached copy.
+
+### Checking the live pages (both paths)
+About a minute after the site commit(s) (Cloudflare Pages deploys each commit and reports a «Cloudflare Pages» check on it),
+open `https://saydadeals.com/` in Chrome and fetch `/` and `/en/` with `{cache:'no-store'}` in one javascript_tool call; both
+must carry this run's check time. **Do not use WebFetch for this.** It keeps its own old copies of the site: on 21 Nov 2026 at
+01:25 it returned the 00:40 build for three never-used `?v=` addresses while Cloudflare was serving the 01:16 build.
+Cloudflare itself does not cache these pages (`cf-cache-status: DYNAMIC`, `cache-control: public, max-age=0, must-revalidate`),
+so the bare address is current within a minute of the deploy; the 20 Nov note that «the edge serves a stale copy» was the
+fetch tool, not the site. If the browser also shows an old stamp, read the «Cloudflare Pages» check on the commit before
+calling it a failure. From a cloud session with no browser, read the committed file instead:
+`gh api repos/saydasateam/sayda-deals/contents/index.html --jq .content | base64 -d | grep -oE 'آخر فحص للتوفر[^<]{0,40}'`.
 
 **Rules for the site repo, in every session, not only scheduled runs:**
 - A run writes exactly two files to `main`: `index.html` and `en/index.html`. Never `archive/`, `src/`, `functions/`,
   `brand/`, `README.md`, the share images or anything else.
-- Only a refresh (the scheduled task, or a run Mahmoud asks for in chat) pushes to `main`. Any other change to the site
+- Only a refresh (the scheduled task, or a run Mahmoud asks for in chat) writes to `main`. Any other change to the site
   goes to a branch named `claude/<topic>` and waits for Mahmoud's yes before it reaches `main`.
-- The push is authenticated by Claude's own GitHub connection through the session's proxy. Never set `GH_TOKEN` or
-  `GITHUB_TOKEN`, never paste, print or read a credential.
-- The `sayda-deals/upload/...` forms are retired. Chrome no longer touches the site repo.
+- A push is authenticated by Claude's own GitHub connection through the session's proxy. Never set `GH_TOKEN` or
+  `GITHUB_TOKEN`, never paste, print or read a credential. Never call `add_repo` from a scheduled run.
+- The upload forms `sayda-deals/upload/main` and `sayda-deals/upload/main/en` are used only by scheduled runs, and only for
+  those two files.
 
 ### 4b. State: one upload-form commit to this repo (Chrome, as saydasateam)
 - **State is sharded per store** — `data/state/<id>.json` and `data/state/<id>.history.json`, in ONE directory —
@@ -485,8 +514,8 @@ GitHub's upload form in Chrome, signed in as saydasateam (§4b). Do §4a first: 
     slot runs. Nothing is missing at any point in between. `node scripts/unshard.js --check` says which
     stores are still being served from the legacy file; only when it reports none may `data/state.json`
     and `data/history.json` be deleted.
-- The site push (§4a) and this state upload (§4b) are the only writes a run makes, and this upload is the only form it may
-  submit. If §4a landed and §4b failed, the page is live but the next run starts without this run's rows: notify.
+- The site commits (§4a) and this state upload (§4b) are the only writes a run makes, and these upload forms are the only
+  forms it may submit. If §4a landed and §4b failed, the page is live but the next run starts without this run's rows: notify.
   Never touch README.md via upload (GitHub refuses the overwrite).
 - Do not update the claude.ai artifact.
 
@@ -497,7 +526,9 @@ the build's `english:` line (store names n of n, coupons n of n), the site commi
 
 **Prove the run did something before calling it done.** Run
 `gh api 'repos/saydasateam/sayda-deals/commits?per_page=1' --jq '.[0]|[.sha[0:7],.commit.committer.date,.commit.message]'`
-(attach the repo as in §4a step 1 first if this run never reached §4) and confirm the newest commit is this run's. Then:
+(attach the repo as in §4a-push step 1 first if this run never reached §4) and confirm the newest commit is this run's.
+In a scheduled run on the server `gh` has no repositories: read `https://github.com/saydasateam/sayda-deals/commits/main`
+in Chrome instead (get_page_text). Then:
 - newest commit is this run's → clean run, stay silent.
 - **no commit from this run, for any reason** → PushNotification. This is not optional and it outranks «stay silent»: a run
   that publishes nothing and says nothing is indistinguishable from a healthy one in the schedule's own record, which reports

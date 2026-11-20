@@ -97,6 +97,9 @@ travel and cars need `*_en` fields. Stores, categories and the campaign carry `l
 `template/en.html` shares the Arabic page's CSS (lifted from the built page) and has its own small
 script; when the Arabic page gains a section, add it there too.
 
-**4. A publish is two writes (20 Nov 2026):** one `git push` to the private site repo carrying `index.html`
-and `en/index.html` in a single commit, then one upload-form commit of the state shards to this repo. See RUNBOOK §4.
+**4. A publish is two writes (21 Nov 2026):** the site, then the state. A scheduled run on the Sayda server
+has no GitHub repositories attached, so it writes `index.html` and `en/index.html` to the private site repo
+through GitHub's upload form in the server's Chrome, as two commits; a run started from a chat may instead
+push both in one commit. The state shards always go to this repo in one upload-form commit. Check the live
+pages in a browser, not with WebFetch, which keeps old copies of the site. See RUNBOOK §4.
 
