@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-20",
- "checkedAt": "2026-11-20T03:25:30.384+03:00",
+ "checkedAt": "2026-11-20T06:27:54.605+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -272,6 +272,114 @@
    "lastChecked": "2026-11-20",
    "img": "https://media.extra.com/s/aurora/100395303_800/Huawei-Band-10%2C-Fluoroelastomer-Strap%2C-43MM%2C-Black?locale=en-GB,ar-*,*",
    "name_en": "Huawei Band 10, Fluoroelastomer Strap, 43MM, Black"
+  },
+  {
+   "id": "extra:100392400",
+   "store": "extra",
+   "name": "بنك طاقة زيندور سوبر ميني ٢٠٠٠٠ مللي أمبير فضي",
+   "price": 97,
+   "was": 198,
+   "ref": 198,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ١٩٨ · سبق ونزل ٧٩",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/accessories/power-bank/zendure-super-mini-20-credit-card-size-power-bank-20-000mah-silver/p/100392400",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 198,
+    "min": 79,
+    "max": 198,
+    "src": "kanbkam",
+    "on": "2026-11-20",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100392400"
+   },
+   "cat": "إلكترونيات",
+   "firstSeen": "2026-11-20",
+   "lastChecked": "2026-11-20",
+   "img": "https://media.extra.com/s/aurora/100392400_800/ZENDURE-Super-Mini-20%2B-Credit-Card-Size-Power-Bank%2C-20%2C000mAh%2C-Silver?locale=en-GB,ar-*,*",
+   "name_en": "ZENDURE Super Mini 20+ Credit Card Size Power Bank, 20, 000mAh, Silver"
+  },
+  {
+   "id": "extra:100337188",
+   "store": "extra",
+   "name": "بنك طاقة جووي كيجو ٢٠٠٠٠ مللي أمبير أسود",
+   "price": 58,
+   "was": 124,
+   "ref": 124,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ١٢٤ · سبق ونزل ٥٣",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/accessories/power-bank/goui-kigo-power-bank-20-000-mah-black/p/100337188",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 124,
+    "min": 53,
+    "max": 199,
+    "src": "kanbkam",
+    "on": "2026-11-20",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100337188"
+   },
+   "cat": "إلكترونيات",
+   "firstSeen": "2026-11-20",
+   "lastChecked": "2026-11-20",
+   "img": "https://media.extra.com/s/aurora/100337188_800/Goui-KIGO-POWER-BANK-20%2C000-mAh-Black?locale=en-GB,ar-*,*",
+   "name_en": "Goui KIGO POWER BANK 20, 000 mAh-Black"
+  },
+  {
+   "id": "extra:100387067",
+   "store": "extra",
+   "name": "بنك طاقة أوكي سبارك ٢٠٠٠٠ مللي أمبير رمادي",
+   "price": 96,
+   "was": 158,
+   "ref": 158,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ١٥٨ · سبق ونزل ٦٩",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/accessories/power-bank/aukey-power-bank-spark-20-000-mah-gray/p/100387067",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 158,
+    "min": 69,
+    "max": 158,
+    "src": "kanbkam",
+    "on": "2026-11-20",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100387067"
+   },
+   "cat": "إلكترونيات",
+   "firstSeen": "2026-11-20",
+   "lastChecked": "2026-11-20",
+   "img": "https://media.extra.com/s/aurora/100387067_800/AUKEY-Power-Bank-Spark%2C-20%2C000-mAh%2C-Gray?locale=en-GB,ar-*,*",
+   "name_en": "AUKEY Power Bank Spark, 20, 000 mAh, Gray"
+  },
+  {
+   "id": "extra:100135734",
+   "store": "extra",
+   "name": "بنك طاقة جووي لوكس ١٠٠٠٠ مللي أمبير لاسلكي أسود",
+   "price": 44,
+   "was": 99,
+   "ref": 99,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٩٩ · سبق ونزل ٣٩",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/accessories/power-bank/goui-lux-10000mah-qi-power-bank-type-c-rubber-suction-cup-7-black/p/100135734",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 99,
+    "min": 39,
+    "max": 219,
+    "src": "kanbkam",
+    "on": "2026-11-20",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100135734"
+   },
+   "cat": "إلكترونيات",
+   "firstSeen": "2026-11-20",
+   "lastChecked": "2026-11-20",
+   "img": "https://media.extra.com/s/aurora/100135734_800/Goui-LUX-10000mAh-QI-Power-Bank-Type-C-Rubber-Suction-Cup-7%2C-Black?locale=en-GB,ar-*,*",
+   "name_en": "Goui LUX 10000mAh QI Power Bank Type C Rubber Suction Cup 7, Black"
   }
  ]
 }
