@@ -90,6 +90,22 @@ this and with nothing else.
   products and the filter bar sticks to the top while folded. Not on the page, on purpose: a countdown,
   per-product coupon pills, bank-card or membership matching, and any count of «rejected» or «fake»
   discounts. None of them has data behind it that a run verifies.
+- **Third pass, 20 Nov 2026 (Mahmoud chose the designer's layout, wallet and code pill).** The page now has a
+  sticky bar with the search, a dark campaign band with a countdown to `campaignEnd`, and one card layout at
+  every width: store and verdict mark, picture with name and price, the evidence strip, then the store button.
+  The finding is printed on a card only when it says something the strip does not. What this asks of a run:
+  - **Coupon code pill.** A product card shows its store's first saving coupon that has a `code`, labelled as
+    the store's code. So order `_coupons.json` with the broadest code for each store first, and keep the
+    conditions in `text` / `text_en` exactly as the store states them.
+  - **Wallet (`config/wallet.json`).** When the store's own page names a bank, card scheme, payment wallet or
+    membership for an offer, record it as a coupon and add `wallet: ["<id>", …]` using ids from
+    `config/wallet.json`, plus a short `perk` and `perk_en` in the store's own terms (for example
+    «خصم ١٠٪ حتى ١٠٠ ريال» / “10% off, up to 100 SAR”). A wallet option appears on the page only while a
+    published coupon carries its id. Never tag from a news site, a social post or a guess, and never add an
+    id that is not in the file: report the missing bank or card in the summary so the file can be extended.
+    Look for these offers on each store's home page, its offers or bank-offers page and its checkout
+    banners, in the same pass as the coupon codes.
+  - **Saved deals** live in the visitor's browser and key on the row `id`, one more reason ids stay stable.
 - **Close a tab the moment its result is harvested** — `tabs_close_mcp` straight after the
   `get_page_text` that reads its JSON. Never keep a finished store's tab open "in case".
 - **Reuse a pool of at most 3–4 tabs.** Navigate a free tab to the next store instead of opening a new

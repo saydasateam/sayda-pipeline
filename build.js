@@ -8,6 +8,11 @@ const cfg  = JSON.parse(fs.readFileSync(path.join(ROOT,'config/stores.json'),'ut
 const catsCfg = JSON.parse(fs.readFileSync(path.join(ROOT,'config/categories.json'),'utf8'));
 // categories.json may be a plain array (old shape) or { chips, map, fallback } (new shape)
 const cats = Array.isArray(catsCfg) ? catsCfg : catsCfg.chips;
+// Wallet vocabulary (20 Nov 2026): the cards and memberships a coupon may be tagged with. A wallet
+// option reaches the page only when a published coupon carries its id, so an empty wallet shows nothing.
+const walletPath = path.join(ROOT,'config/wallet.json');
+const walletCfg = fs.existsSync(walletPath) ? JSON.parse(fs.readFileSync(walletPath,'utf8')).items : [];
+const walletById = Object.fromEntries(walletCfg.map(w => [w.id, w]));
 // state is sharded per store (data/state/<id>.json) so overlapping cycles never write the same
 // file; lib/state.js merges the shards back into the single shape this file has always consumed.
 const st    = require('./lib/state.js').load(ROOT, cfg);
@@ -109,6 +114,9 @@ const D = st.rows.map(r => {
   // hotlink with no referrer; a card without one falls back to a neutral tile.
   if (r.img && /^https:\/\//.test(r.img)) x.im = r.img;
   if (r.id) x.id = r.id;   // for the share link (?d=<id>) that opens the page on this card
+  // q = the finding is the plain default («كان X», optionally «أقل سعر مسجل»): the card's strip already
+  // says it, so the card does not repeat it. Anything else (a caveat, a condition) is always printed.
+  if (r.verdict === 'ok' && r.refKind === 'history' && /^كان\s*[\d٠-٩٬,.]+(\s*·\s*أقل سعر مسجل)?$/.test(String(r.finding || '').trim())) x.q = 1;
   // the evidence behind the comparison, so the page can show the recorded range and link to the source
   if (r.ev) { const e = {}; if (r.ev.prev != null) e.p = r.ev.prev; if (r.ev.min != null) e.mn = r.ev.min;
     if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (r.ev.src && !TRACKER.test(r.ev.src)) e.s = r.ev.src;
@@ -145,7 +153,7 @@ const couponLis = st.coupons.map((c, i) => {
 }).join('');
 // Top of page: a one-line pointer, same shape as the travel one. The list itself lives below the table.
 const couponsNote = `<a class="note notelink" href="#coupons"><b>🎟️ قسائم وأكواد إضافية</b>خصومات فوق السعر المعروض: أكواد المتاجر وعروض البطاقات البنكية، وما تشترطه فعلاً.<span class="cta">اضغط هنا لعرض القسائم ↓</span></a>`;
-const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">🎟️ قسائم وأكواد إضافية</h2><ul class="cplist">${couponLis}</ul><p class="cpfoot">أسعار المنتجات المعروضة ${b('قبل')} تطبيق هذه القسائم.</p></section>`;
+const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">قسائم وأكواد إضافية</h2><ul class="cplist">${couponLis}</ul><p class="cpfoot">أسعار المنتجات المعروضة ${b('قبل')} تطبيق هذه القسائم.</p></section>`;
 // store label -> index of the first coupon that applies, so the table can link to it
 const couponBy = {};
 // only real savings earn the 🎟️ — a 'none' entry ('we found no code') or the Trendyol
@@ -185,8 +193,8 @@ const campaignFill = {
   CARS_NOTE: !carsOn ? '' : `    <a class="note notelink" href="#cars"><b>🚗 عروض السيارات</b>عروض ${campShort} من وكلاء السيارات وجهات التمويل، مقروءة من صفحاتهم الرسمية، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السيارات ↓</span></a>\n`,
   TRAVEL_HIDDEN: travelOn ? '' : ' hidden', CARS_HIDDEN: carsOn ? '' : ' hidden',
   // quick links under the stamp: one short line instead of the three pointer cards that used to push the products down
-  TOP_LINKS: (st.coupons.length ? `<a href="#coupons">🎟️ القسائم (${Number(st.coupons.length).toLocaleString('ar-SA')})</a>` : '')
-    + (travelOn ? '<a href="#travel">✈️ عروض السفر</a>' : '') + (carsOn ? '<a href="#cars">🚗 عروض السيارات</a>' : ''),
+  TOP_LINKS: (st.coupons.length ? `<a href="#coupons">القسائم (${Number(st.coupons.length).toLocaleString('ar-SA')})</a>` : '')
+    + (travelOn ? '<a href="#travel">عروض السفر</a>' : '') + (carsOn ? '<a href="#cars">عروض السيارات</a>' : ''),
   // furniture wording follows the enabled stores, so a campaign without them does not describe them
   HOW_FURNITURE: (on('ashley') && on('midas')) ? '، وأشلي مقابل ميداس في الأثاث' : '',
   METHOD_IKEA: !on('ikea') ? '' : `<li><b>إيكيا</b>: منتجاتها لا تُباع في متاجر أخرى ولا يوجد لها سجل أسعار عام، لذلك تظهر كـ «غير متحقق» مع مدة العرض الرسمية.</li>\n      `,
@@ -220,7 +228,10 @@ const fill = {
   RULE_JSON: JSON.stringify({ okMin: rules.verdict.okMin, warnMin: rules.verdict.warnMin, okSavingTiers: rules.verdict.okSavingTiers || [] }),
   CATEGORY_CHIPS: catChips,
   STORE_CHIPS: storeChips,
-  CBY_JSON: JSON.stringify(couponBy), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
+  CBY_JSON: JSON.stringify(couponBy),
+  CPX_JSON: JSON.stringify(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), p: pubText(c.perk || '') }))),
+  WALLET_JSON: JSON.stringify(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
+  CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
   CR_JSON: arr(CR), CRNO_JSON: JSON.stringify(CRNO),
 };
 fill.STORE_COUNT_AR = countWord(cfg.stores.filter(s=>s.enabled!==false).length); // disabled stores (no working storefront) are not counted // "الستة عشر" etc. — the template keeps the word order "المتاجر {{n}}"
@@ -266,7 +277,7 @@ const E = st.rows.map(r => {
   if (!r.name_en) o.ar = 1;
   const an = availEn(r); if (an) o.an = an;
   if (RK[r.refKind]) o.rk = RK[r.refKind]; if (BK[r.bk]) o.bk = BK[r.bk]; if (r.lastChecked) o.lc = r.lastChecked;
-  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id;
+  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id; if (!r.finding_en && r.verdict === 'ok' && r.refKind === 'history') o.q = 1;
   if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
   return o;
 });
@@ -284,7 +295,9 @@ const enFill = {
   CHECKED_EN: dEn(st.meta.checkedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' }),
   STORE_COUNT: String(cfg.stores.filter(s => s.enabled !== false).length), TH_ACCENT: campaignFill.TH_ACCENT, TH_ACCENT_HEX: campaignFill.TH_ACCENT_HEX,
   E_JSON: arr(E), CATS_JSON: JSON.stringify(cats.map(c => [c.id, c.label_en || c.id])),
-  COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en) }))),
+  COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), p: enText(x.c.perk_en || '') }))),
+  WALLET_JSON: JSON.stringify(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
+  CAMPAIGN_END: String(M.campaignEnd || ''),
   TRAVEL_JSON: JSON.stringify(trEn), CARS_JSON: JSON.stringify(crEn),
   RULE_JSON: fill.RULE_JSON,
   ARCHIVE_EN: !(M.archive || []).length ? '' : ' · Archive: ' + M.archive.map(a => `<a href="${a.href}">${a.label_en || a.href}</a>`).join(' · '),
