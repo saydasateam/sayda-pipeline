@@ -31,6 +31,11 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   in the summary so the config can be updated. Never guess a URL.
 - `travelSources` now lists each airline's and platform's standing offers or home page, not National
   Day pages. An offer is published only when the company's own page names it for this campaign.
+- **Two languages, every publish (Mahmoud, 20 Nov 2026).** The English page at `/en/` is as much a
+  part of a refresh as the Arabic one: `build.js` writes `dist/index.html` AND `dist/en/index.html`,
+  and a publish uploads both. A run that publishes Arabic alone has not published. See §2d and §4.
+- **The page is a product grid with pictures** (20 Nov 2026), not a table. Every published row should
+  carry `img` (§2c) and `name_en` (§2d).
 - `build.js` refuses to build while there are 0 rows and no store has been checked. That is the
   guard against publishing an empty table under the campaign headline.
 
@@ -247,6 +252,33 @@ them to `work/upload.json` so they ride in the state commit, and leaves `checked
   picture read from the rendered page during its per-row check: `document.querySelector('meta[property="og:image"]').content`.
 - Budget: one call per store. If the run is short on time, pictures come after coverage and before coupons.
 
+## 2d. English names (added 20 Nov 2026 — required, the English page is half of every publish)
+Every row needs `name_en`: **the store's own English product title**, read from the English version of
+its product page. It is never translated, by you or by anything else: all these stores publish an
+English catalogue, and a name we wrote could describe a different variant from the one we priced.
+For each store that has rows with no `name_en` (new rows always), in that store's tab after core + boot:
+```js
+SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en), SAYDA.ctx.store));
+```
+`SAYDA.show('en:<id>')` + `get_page_text` → `work/en/<id>.json` → `node scripts/apply-names.js work/en/<id>.json`.
+- `store.en` in `config/stores.json` says how to reach the English page: `{api:"noon"}` or
+  `{try:[[from,to],…]}` URL rewrites. noon, amazon and extra are verified (50 of 50 on 20 Nov). The
+  other twelve are candidate rules marked `_en`: the reader only accepts a Latin-script title from a
+  200 page, so a wrong rule returns `null`, never a wrong name. When a store returns all `null`, open
+  one product, use the site's own language switch, note the English URL form, and report it in the
+  summary and a PushNotification so the config is corrected. Do not edit config yourself.
+- A row with no `name_en` still publishes; the English page shows its Arabic name. `build.js` prints
+  how many and for which stores. Name those stores in the summary every run until it is zero.
+- **Everything else you write in Arabic, you also write in English, in the same step:**
+  - `finding_en` on a row is REQUIRED whenever its Arabic `finding` states a condition (a code or
+    coupon, Trendyol Plus, a basket threshold, a price that only appears at checkout). `build.js`
+    exits 1 if such a row has none, because the English page would drop the condition. For all other
+    rows leave `finding_en` out: the English finding is generated from the same stored numbers.
+  - every coupon: `label_en`, `text_en` · every travel or car offer: `company_en` (if the name
+    differs), `type_en`, `headline_en`, `terms_en`. An entry without them is left off the English page
+    and counted in the build's `english:` line. That count must be `n of n`.
+  - codes, prices and percentages are copied, never re-typed from memory.
+
 ## 3. FULL run only — coupons & travel (≈ 6 calls)
 - `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `coupons` in `data/state/_coupons.json` (node one-liner; if the file does not exist yet, create it with `node -e "const S=require('./lib/state');const st=S.load('.');S.saveShared('.','coupons',{coupons:st.coupons});S.saveShared('.','travel',{travel:st.travel,travelNone:st.travelNone,travelNone_text:st.travelNone_text});S.saveShared('.','notes',{notes:st.notes})"` first): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
 - Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers. Keep `travelNone` accurate (Saudia / flyadeal today).
@@ -327,6 +359,10 @@ node scripts/market-apply.js work/market/<store>.json --apply    # writes the ro
 ```
 node build.js      # dist/index.html — note the "rows/available" counts it prints
 ```
+- **Three commits, not two (20 Nov 2026):** Arabic page, English page, state. Upload `dist/en/index.html` to
+  `https://github.com/saydasateam/sayda-deals/upload/main/en` the same way as the Arabic page, straight after it, with the
+  same commit message plus « (English)». Verify both `https://saydadeals.com/` and `https://saydadeals.com/en/` carry the
+  new update stamp.
 - Upload `dist/index.html` to the site repo: navigate `https://github.com/saydasateam/sayda-deals/upload/main` → `find` the "Choose your files" input → `file_upload` with `<repo>/dist/index.html` → wait 7 s → set the commit message with the native setter and click the submit button, both in one `javascript_tool` call:
   `const i=document.querySelector('input[name="message"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'Update <YYYY-MM-DD HH:MM> Riyadh');i.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('button')].find(b=>/^Commit changes$/.test(b.innerText.trim())&&b.type==='submit').click();`
   → wait 10 s → `location.href` must be the repo root. Verify on `/commits/main` that the newest commit is yours.
@@ -348,13 +384,13 @@ node build.js      # dist/index.html — note the "rows/available" counts it pri
     slot runs. Nothing is missing at any point in between. `node scripts/unshard.js --check` says which
     stores are still being served from the legacy file; only when it reports none may `data/state.json`
     and `data/history.json` be deleted.
-- These two commits are the ONLY forms this run may submit. Never touch README.md via upload (GitHub refuses the overwrite).
+- These three commits (Arabic page, English page, state) are the ONLY forms this run may submit. Never touch README.md via upload (GitHub refuses the overwrite).
 - Do not update the claude.ai artifact.
 
 ## 5. Report
 Final message in Arabic, concise: top 7 verified deals available now (store, price, real vs claimed), new rows, newly
 unavailable / restocked / price changes (from work/report.json), coupon and travel changes, stores skipped and why, and
-confirmation of both commits.
+the build's `english:` line (store names n of n, coupons n of n), and confirmation of all three commits.
 
 **Prove the run did something before calling it done.** Read `https://github.com/saydasateam/sayda-deals/commits/main` and
 confirm the newest commit is this run's. Then:

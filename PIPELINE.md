@@ -76,3 +76,26 @@ build an empty page.
 
 **Starting a campaign is now:** edit two config files, run one script, run the pipeline.
 
+---
+
+## v2.3 — a shop page in two languages (2026-11-20)
+
+**1. Product cards.** The table became a grid of cards: picture, store, name, price now, the store's
+struck-through «قبل», the verified reference, verdict, finding, and a button to the store. The badge
+on the picture is our measured discount, never the store's claim. Evidence opens in a dialog.
+
+**2. Pictures.** Rows carry `img`: the store's own picture, read in the browser by `SAYDA.images`
+(`og:image`; Amazon `hiRes`; Noon's catalog image key) and written by `scripts/apply-images.js`.
+Hotlinked with no referrer; a failed picture falls back to a neutral tile.
+
+**3. English is half of every build.** `build.js` writes `dist/en/index.html` from `template/en.html`
+on every build and fails if it cannot. Product names are the stores' own English titles (`name_en`,
+`SAYDA.names`, `scripts/apply-names.js`, `store.en` rules in `config/stores.json`); nothing is
+translated. English findings are generated at build time from the same stored numbers as the Arabic
+ones; `finding_en` overrides and is required when the Arabic finding states a condition. Coupons,
+travel and cars need `*_en` fields. Stores, categories and the campaign carry `label_en` / `campaign_en`.
+`template/en.html` shares the Arabic page's CSS (lifted from the built page) and has its own small
+script; when the Arabic page gains a section, add it there too.
+
+**4. A publish is three commits:** `index.html`, `en/index.html`, and the state shards.
+

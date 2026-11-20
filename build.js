@@ -205,6 +205,74 @@ if (TRACKER.test(out) || /كان ?بكام/.test(out)) throw new Error('build: t
 fs.mkdirSync(path.join(ROOT,'dist'), {recursive:true});
 fs.writeFileSync(path.join(ROOT,'dist/index.html'), out);
 
+// ---- English page (20 Nov 2026): a required half of every build, not an extra ----
+// Mahmoud, 20 Nov: «the english version become an essential part now … it needs to be there every
+// refresh as essential as arabic». So this is not optional and not best-effort: if the English page
+// cannot be built, the build fails and nothing is published in either language.
+//   · product names are the stores' own English titles (row.name_en, scripts/apply-names.js);
+//     a row without one shows its Arabic name and is counted below
+//   · the finding is generated HERE from the same stored numbers the Arabic finding came from, so
+//     the two pages cannot disagree; row.finding_en overrides it and is REQUIRED whenever the
+//     Arabic finding states a condition (coupon, Plus, basket, checkout-only)
+//   · coupons, travel and cars appear in English only when the run wrote their *_en fields;
+//     one without them is left off the English page and counted, never shown in Arabic
+const enN = v => Number(v).toLocaleString('en-US', { maximumFractionDigits: 0 });
+const enText = t => typeof t === 'string' ? t.replace(/kanbkam/gi, 'the price record') : t;
+const findingEn = r => {
+  if (r.finding_en) return enText(r.finding_en);
+  if (r.ref == null) return 'No price record and no same model at another store to compare with.';
+  const parts = [];
+  if (r.refKind === 'market') parts.push(`Same model at another store: ${enN(r.ref)} SAR`);
+  else parts.push(`Sold at ${enN(r.ref)} SAR before the sale`);
+  const mn = r.ev && r.ev.min;
+  if (r.refKind !== 'market' && mn != null) parts.push(r.price <= mn * 1.01 ? 'lowest recorded price' : (mn < r.price ? `has been as low as ${enN(mn)} SAR` : ''));
+  if (r.bk === 'cheaper') parts.push('cheaper elsewhere'); if (r.bk === 'rose') parts.push('the price went up'); if (r.bk === 'nosaving') parts.push('no real saving');
+  if (r.refKind !== 'market' && r.was && r.was > r.ref * 1.05) parts.push(`the advertised “before” of ${enN(r.was)} SAR is not in the record`);
+  return parts.filter(Boolean).join(' · ');
+};
+const availEn = r => { if (r.availNote_en) return r.availNote_en; const m = String(r.availNote || '').match(/متبقي\s*([\d٠-٩]+)/); return m ? `${m[1].replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d))} left` : ''; };
+const labelEn = id => (storeById[id] || {}).label_en || id;
+const cpEn = st.coupons.map((c, i) => ({ c, i })).filter(x => x.c.text_en);
+const cpIdx = {}; cpEn.forEach((x, k) => { if (SAVES.has(x.c.kind)) (x.c.stores || []).forEach(id => { if (cpIdx[id] == null) cpIdx[id] = k; }); });
+const E = st.rows.map(r => {
+  const o = { s: labelEn(r.store), c: r.cat, n: r.name_en || pubText(r.name), p: r.price, w: r.was, r: r.ref ?? null, v: r.verdict, f: findingEn(r), u: r.url, a: r.avail || 'in' };
+  if (!r.name_en) o.ar = 1;
+  const an = availEn(r); if (an) o.an = an;
+  if (RK[r.refKind]) o.rk = RK[r.refKind]; if (BK[r.bk]) o.bk = BK[r.bk]; if (r.lastChecked) o.lc = r.lastChecked;
+  if (pubUrl(r.refUrl)) o.ru = r.refUrl; if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store];
+  if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
+  return o;
+});
+const offerEn = o => ({ company: o.company_en || o.company, type: o.type_en || '', headline: o.headline_en, terms: enText(o.terms_en), code: o.code || '', url: o.url });
+const trEn = st.travel.filter(t => t.headline_en && t.terms_en).map(offerEn), crEn = (st.cars || []).filter(c => c.headline_en && c.terms_en).map(offerEn);
+const enTplPath = path.join(ROOT, 'template/en.html');
+if (!fs.existsSync(enTplPath)) throw new Error('build: template/en.html is missing — the English page is required');
+let en = fs.readFileSync(enTplPath, 'utf8');
+if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build: template/en.html contains Arabic text other than the language switch');
+const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^<style>|<\/style>$/g, '')).join('\n');
+const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
+const enFill = {
+  CSS: css, CAMPAIGN_EN: M.campaign_en || 'Sale', CAMPAIGN_SHORT_EN: M.campaignShort_en || M.campaign_en || 'Sale',
+  UPDATED_EN: dEn(st.meta.updated).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' }),
+  CHECKED_EN: dEn(st.meta.checkedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' }),
+  STORE_COUNT: String(cfg.stores.filter(s => s.enabled !== false).length), TH_ACCENT: campaignFill.TH_ACCENT, TH_ACCENT_HEX: campaignFill.TH_ACCENT_HEX,
+  E_JSON: arr(E), CATS_JSON: JSON.stringify(cats.map(c => [c.id, c.label_en || c.id])),
+  COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en) }))),
+  TRAVEL_JSON: JSON.stringify(trEn), CARS_JSON: JSON.stringify(crEn),
+  RULE_JSON: fill.RULE_JSON,
+  ARCHIVE_EN: !(M.archive || []).length ? '' : ' · Archive: ' + M.archive.map(a => `<a href="${a.href}">${a.label_en || a.href}</a>`).join(' · '),
+};
+for (const [k, v] of Object.entries(enFill)) en = en.split(`{{${k}}}`).join(v);
+const enLeft = en.match(/{{[A-Z_]+}}/g); if (enLeft) throw new Error('build (english): unfilled ' + enLeft.join(','));
+if (TRACKER.test(en)) throw new Error('build (english): the price tracker is named on the public page');
+fs.mkdirSync(path.join(ROOT, 'dist/en'), { recursive: true });
+fs.writeFileSync(path.join(ROOT, 'dist/en/index.html'), en);
+const noName = st.rows.filter(r => !r.name_en), warnNoEn = st.rows.filter(r => r.verdict === 'warn' && !r.finding_en && /كود|كوبون|قسيمة|Plus|بلس|السلة|عند الدفع|اشتراك/.test(r.finding || ''));
+console.log(`english: dist/en/index.html (${en.length} chars) · store names ${st.rows.length - noName.length} of ${st.rows.length}`
+  + (noName.length ? ` — ${noName.length} show the Arabic name: ${[...new Set(noName.map(r => r.store))].join(', ')}` : '')
+  + ` · coupons ${cpEn.length} of ${st.coupons.length} · travel ${trEn.length} of ${st.travel.length} · cars ${crEn.length} of ${(st.cars || []).length}`);
+if (warnNoEn.length) { console.error(`build (english): ${warnNoEn.length} row(s) state a condition in Arabic and have no finding_en — the English page would drop the condition: ${warnNoEn.slice(0, 8).map(r => r.id).join(', ')}`); process.exit(1); }
+
 // artifact variant: no doctype/html/head/body, starts at <title>, no brand header/about section
 let art = out.slice(out.indexOf('<title>')).replace(/^<title>[^<]*<\/title>/, '<title>'+(st.meta.artifactTitle||('صيدات '+campAr))+'</title>');
 art = art.replace(/<header class="brand"[\s\S]*?<\/header>\n/, '')
