@@ -317,7 +317,7 @@
       }
     },
     {
-      "id": "trendyol",
+      "id": "trendyol", "enabled": false, "_dropped": "Paused 20 Nov 2026 (Mahmoud: forget about trendyol for now). Its listing price is a checkout or basket discount, so no row could be written; it needs a ruling and a change to the check before it can publish. Adapter and config kept. Re-enable by removing enabled:false.",
       "label_en": "Trendyol",
       "en": { "try": [[".sa/ar/", ".sa/en/"], [".sa/", ".sa/en/"]] },
       "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
