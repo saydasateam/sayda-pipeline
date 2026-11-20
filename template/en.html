@@ -19,11 +19,11 @@
 <meta property="og:image" content="https://saydadeals.com/og.jpg?v=2">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Readex+Pro:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Readex+Pro:wght@500;700&display=swap">
 <style>
 {{CSS}}
 /* English page only */
-body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
 .totop{inset-inline-end:auto;inset-inline-start:16px}
 .ebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 4px}
 .ebar select{font:inherit;font-size:14px;min-height:42px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);max-width:100%}
@@ -34,6 +34,8 @@ body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
 .ecount[hidden]{display:none}
 .ebar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:2;padding-block:6px;border-bottom:1px solid var(--line)}
 .ebar.open{position:static}
+.ebar{top:var(--toph)}
+.etog svg{flex:none}
 .fcats{flex-basis:100%}
 .fcats button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--chip);color:var(--ink);min-height:36px;padding:0 14px;display:inline-flex;align-items:center;border-radius:999px;cursor:pointer;white-space:nowrap}
 .fcats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
@@ -46,8 +48,12 @@ body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
   .ebar #so{grid-column:2;grid-row:1;min-height:46px}
   .efin{display:none;grid-column:1/-1;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
   .ebar.open .efin{display:grid}
-  .fcats{grid-column:1/-1;grid-row:2}
+  .ebar{grid-template-columns:auto minmax(0,1fr)}
+  .etog{min-height:40px;border-radius:999px;font-size:14px;padding:0 13px;gap:7px;justify-content:flex-start}
+  .fcats{grid-column:2;grid-row:1}
   .fcats button{min-height:40px}
+  .ebar #so{grid-column:1/-1;grid-row:auto}
+  .ebar:not(.open) #so{display:none}
 }
 .cname[lang="ar"]{direction:rtl;text-align:right}
 .elist{display:grid;gap:10px;padding:0;list-style:none}
@@ -55,16 +61,28 @@ body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
 </style>
 </head>
 <body>
-<header class="brand" dir="ltr"><a href="/en/" class="logo">Sayda</a><span class="tag">Real discounts only</span><a class="lang" href="/" lang="ar" hreflang="ar">العربية</a></header>
+<header class="top"><div class="brand" dir="ltr">
+  <a href="/en/" class="logo">Sayda</a><span class="tag">Real discounts only</span>
+  <div class="search" role="search"><label for="q" class="sr">Search the deals</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume…" autocomplete="off" enterkeyhint="search"></div>
+  <button type="button" class="hbtn" id="walletbtn" hidden aria-pressed="false" title="Show what matches my cards and memberships"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg><span class="hl">My wallet</span><b id="walletn">0</b></button>
+  <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="Deals you saved"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">Saved</span><b id="favn">0</b></button>
+  <a class="lang" href="/" lang="ar" hreflang="ar">العربية</a>
+</div></header>
 <button type="button" id="totop" class="totop" hidden aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
+<section class="hero" dir="ltr" lang="en"><div class="heroin">
+  <div>
+    <h1>{{CAMPAIGN_EN}} deals</h1>
+    <p class="herosub">Every deal here is checked against a price record or the same model at another store, not against the “before” price the store prints.</p>
+    <p class="stamp" id="updated"><b>Last updated: {{UPDATED_EN}}</b> · <b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></p>
+    <nav class="toplinks" aria-label="Quick links"><a href="#coupons" id="cpnote" hidden></a><a href="#travel" id="trnote" hidden>Travel offers</a><a href="#cars" id="crnote" hidden>Car offers</a><a href="#how">How we check</a></nav>
+  </div>
+  <div class="count" id="count" hidden><span class="countl">The campaign ends in</span><div class="countb"><span><b id="cd-d">0</b>days</span><span><b id="cd-h">0</b>hours</span><span><b id="cd-m">0</b>min</span><span><b id="cd-s">0</b>sec</span></div></div>
+  <div class="wallet" id="wallet" hidden><span class="walletl">My cards and memberships</span><div class="walletc" id="walletc"></div></div>
+</div></section>
 <div class="wrap" dir="ltr" lang="en">
-  <h1>{{CAMPAIGN_EN}} deals</h1>
   <div class="statrow"><div class="stats" id="stats" role="group" aria-label="Summary of the deals"></div><span class="sfact" id="sfact"></span></div>
-  <p class="lede stamp" id="updated"><b>Last updated: {{UPDATED_EN}}</b> · <b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></p>
-  <nav class="toplinks" aria-label="Quick links"><a href="#coupons" id="cpnote" hidden></a><a href="#travel" id="trnote" hidden>✈️ Travel offers</a><a href="#cars" id="crnote" hidden>🚗 Car offers</a><a href="#how">How we check</a></nav>
-  <div class="search" role="search"><label for="q" class="sr">Search the deals</label><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume, laptop…" autocomplete="off" enterkeyhint="search"></div>
   <div class="ebar" id="ebar">
-    <button type="button" class="etog" id="etog" aria-expanded="false" aria-controls="efin">⚙ Filters</button>
+    <button type="button" class="etog" id="etog" aria-expanded="false" aria-controls="efin">Filters</button>
     <div class="efin" id="efin">
     <label class="chk"><input type="checkbox" id="fa" checked> In stock only</label>
     <select id="fv" aria-label="Verdict"><option value="all">All checked deals</option><option value="ok">✓ Confirmed discount</option><option value="warn">Smaller than advertised</option><option value="bad">Dearer or no saving</option><option value="na">No price record</option></select>
@@ -79,9 +97,9 @@ body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
   <div class="grid" id="rows"></div>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="Close">✕</button></div><div id="evbody"></div></div></dialog>
 
-  <section class="couponsec" id="coupons" aria-labelledby="cp-h" hidden><h2 id="cp-h">🎟️ Extra coupons and codes</h2><ul class="cplist" id="cplist"></ul><p class="cpfoot">The prices shown are <b style="display:inline">before</b> these coupons are applied.</p></section>
-  <section class="travel" id="travel" aria-labelledby="tr-h" hidden><h2 id="tr-h">✈️ Travel offers: {{CAMPAIGN_SHORT_EN}} codes and campaigns</h2><p class="lede">We read each offer’s terms on the company’s own site and compared the advert with what the terms actually say.</p><ul class="elist" id="tlist"></ul></section>
-  <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">🚗 Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><ul class="elist" id="crlist"></ul></section>
+  <section class="couponsec" id="coupons" aria-labelledby="cp-h" hidden><h2 id="cp-h">Extra coupons and codes</h2><ul class="cplist" id="cplist"></ul><p class="cpfoot">The prices shown are <b style="display:inline">before</b> these coupons are applied.</p></section>
+  <section class="travel" id="travel" aria-labelledby="tr-h" hidden><h2 id="tr-h">Travel offers: {{CAMPAIGN_SHORT_EN}} codes and campaigns</h2><p class="lede">We read each offer’s terms on the company’s own site and compared the advert with what the terms actually say.</p><ul class="elist" id="tlist"></ul></section>
+  <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><ul class="elist" id="crlist"></ul></section>
 
   <section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">Tell us what to add or fix</h2>
@@ -115,9 +133,20 @@ const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSO
 const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);
+const WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
+const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
+// Saved deals and wallet choices live in this browser only (localStorage). Nothing is sent anywhere.
+const FAV=new Set(LS.get('sayda.fav')), WAL=new Set(LS.get('sayda.wallet').filter(id=>WALLET.some(w=>w.id===id)));let FV=false,WL=false;
+const IC={"share": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg>", "heart": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z\"/></svg>", "copy": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"11\" height=\"11\" rx=\"2\"/><path d=\"M5 15V6a2 2 0 0 1 2-2h9\"/></svg>", "filter": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>"};
+const SAVEK={code:1,voucher:1,bank:1,auto:1};
+function walletHit(d){if(!WAL.size)return null;for(let i=0;i<CP.length;i++){const x=CP[i];if(!SAVEK[x.k]||!x.s.includes(d.s))continue;const id=(x.w||[]).find(w=>WAL.has(w));if(id)return{i,x,w:WALLET.find(w=>w.id===id)};}return null;}
+let toastEl,toastT;function toast(m){if(!toastEl){toastEl=document.createElement('div');toastEl.className='toast';toastEl.setAttribute('role','status');document.body.appendChild(toastEl);}toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toastEl.classList.remove('on'),1900);}
+function syncHead(){$('favn').textContent=fmt(E.filter(d=>FAV.has(d.id)).length);$('favbtn').setAttribute('aria-pressed',String(FV));$('walletbtn').hidden=!WALLET.length;$('walletn').textContent=fmt(WAL.size);$('walletbtn').setAttribute('aria-pressed',String(WL));}
+function toggleFav(d,b){if(FAV.has(d.id)){FAV.delete(d.id);toast('Removed from saved');}else{FAV.add(d.id);toast('Saved in this browser');}LS.set('sayda.fav',[...FAV]);
+  if(FV){if(!E.some(x=>FAV.has(x.id)))FV=false;render();}else{const on=FAV.has(d.id);b.setAttribute('aria-pressed',String(on));b.querySelector('span').textContent=on?'Saved':'Save';syncHead();}}
 const VL={ok:'✓ Confirmed discount',warn:'Smaller than advertised',bad:'Dearer or no saving',na:'No price record'},OKM='✓ Cheaper than another store';
 const BL={c:'Cheaper elsewhere',r:'Price went up',n:'No real saving'};
-const AL={in:'✓ In stock',low:'⚠ Low stock',oos:'⛔ Out of stock',ended:'⏱ Offer ended',gone:'Link broken'};
+const AL={in:'In stock',low:'Low stock',oos:'Out of stock',ended:'Offer ended',gone:'Link broken'};
 const UN=d=>['oos','ended','gone'].includes(d.a);
 E.forEach(d=>{d.claim=d.w?Math.round(100*(1-d.p/d.w)):null;d.real=d.r?Math.round(100*(1-d.p/d.r)):null;d.h=(d.n+' '+d.s+' '+(CATS.find(c=>c[0]===d.c)||[])[1]).toLowerCase();});
 const isLow=d=>d.rk!=='m'&&d.ev&&d.ev.mn!=null&&d.p<=d.ev.mn*1.01;let LO=false;
@@ -136,33 +165,42 @@ function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeUR
   const text=`${d.n}: ${fmt(d.p)} SAR at ${d.s}`+(saved>0&&d.real>0?(d.rk==='m'?` · ${fmt(saved)} SAR (${fmt(d.real)}%) cheaper than the same model at another store`:` · save ${fmt(saved)} SAR (${fmt(d.real)}%) against the recorded previous price`):'')+' · checked by Sayda';
   if(navigator.share)navigator.share({title:'Sayda',text,url}).catch(()=>{});else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url),'_blank','noopener');}
 function render(){const q=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boolean),fa=$('fa').checked,fv=$('fv').value,fc=$('fc').value,fs=$('fs').value;
-  const list=E.filter(d=>(!fa||!UN(d))&&(fv==='all'||d.v===fv)&&(fc==='all'||d.c===fc)&&(fs==='all'||d.s===fs)&&(!LO||isLow(d))&&q.every(w=>d.h.includes(w))).sort(SORTS[$('so').value]);
+  const list=E.filter(d=>(FV?FAV.has(d.id):(!fa||!UN(d)))&&(!WL||!!walletHit(d))&&(fv==='all'||d.v===fv)&&(fc==='all'||d.c===fc)&&(fs==='all'||d.s===fs)&&(!LO||isLow(d))&&q.every(w=>d.h.includes(w))).sort(SORTS[$('so').value]);
   const rows=$('rows');rows.innerHTML='';
   list.forEach(d=>{const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
-    const saved=d.r!=null?Math.round(d.r-d.p):null,mk=d.rk==='m';
-    const save=d.real==null?'':d.real<0?`<span class="csave bad">${fmt(-saved)} SAR dearer · ${fmt(-d.real)}%</span>`:saved>0?`<span class="csave ${d.v==='bad'?'bad':d.v==='warn'?'warn':'ok'}">${mk?'':'Save '}${fmt(saved)} SAR${mk?' cheaper':''} · ${fmt(d.real)}%</span>`:'';
-    const ref=d.r==null?'Nothing to compare with':mk?`Same model at ${d.rs?esc(d.rs):'another store'}: ${fmt(d.r)} SAR`:`Recorded previous price: ${fmt(d.r)} SAR`;
+    const saved=d.r!=null?Math.round(d.r-d.p):null,mk=d.rk==='m',low=isLow(d),mn=d.ev&&d.ev.mn;
+    const cls=d.real!=null&&d.real<0?'bad':d.v;
+    const tag=d.real==null?['na',VL.na]:(d.real<0||d.v==='bad')?['bad',vlabel(d)]:d.v==='warn'?['warn',(!mk&&mn!=null&&mn<d.p*0.99)?'Was cheaper before':VL.warn]:low?['low','✓ Lowest recorded']:['ok',vlabel(d)];
+    const save=d.real==null?'':d.real<0?`<span class="csave bad">${fmt(-saved)} SAR dearer (${fmt(-d.real)}%)</span>`:saved>0?`<span class="csave ${cls}">${mk?'':'Save '}${fmt(saved)} SAR${mk?' cheaper':''} (${fmt(d.real)}%)</span>`:'';
     const claim=d.w&&d.claim>0&&(d.r==null||mk||d.w>d.r*1.05)?`<div class="cclaim">The store advertises ${fmt(d.claim)}% off</div>`:'';
-    const mn=d.ev&&d.ev.mn;
-    const bar=(!mk&&d.r!=null&&mn!=null&&d.r>d.p)?(()=>{const lo=Math.min(mn,d.p),t=Math.max(0,Math.min(100,Math.round(100*(d.p-lo)/(d.r-lo)))),low=isLow(d);
-      return `<div class="pbar" role="img" aria-label="${low?'Today’s price is the lowest recorded':'Lowest recorded price '+fmt(mn)+' SAR'}, recorded previous price ${fmt(d.r)} SAR"><div class="ptrack"><span class="pgap" style="width:${t}%"></span><span class="pfill" style="inset-inline-start:${t}%"></span><span class="pdot" style="inset-inline-start:${t}%"></span></div>`
-        +`<div class="plab"><span${low?' class="lowhit"':''}>${low?'✓ Lowest recorded':'Lowest <b>'+fmt(mn)+'</b>'}</span><span>Previously <b>${fmt(d.r)} SAR</b></span></div></div>`;})():'';
-    const badge=d.real==null?['na','No price record']:d.real<0?['bad',fmt(-d.real)+'% dearer']:[d.v==='bad'?'bad':d.v==='warn'?'warn':'ok','Real discount '+fmt(d.real)+'%'];
-    c.innerHTML=`<a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" aria-label="${esc(d.n)}"><span class="ph" aria-hidden="true">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}<span class="badge ${badge[0]}">${badge[1]}</span></a>`
-      +`<div class="cbody"><div class="cstore"><span class="site">${esc(d.s)}</span>${d.cp!=null?`<a class="cp" href="#coupon-${d.cp}" title="This store has a coupon or code" aria-label="Coupon for ${esc(d.s)}">🎟️</a>`:''}<span class="av ${d.a}">${AL[d.a]}</span></div>`
-      +`<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a>`
-      +`<div class="cprice"><span class="pv">${fmt(d.p)} SAR</span>${save}</div>`
-      +`${bar?'':`<div class="cref">${ref}</div>`}${claim}</div>`
-      +`<div class="cfoot">${bar}<span class="v ${d.v}">${vlabel(d)}</span>${d.an?`<span class="avnote">${esc(d.an)}</span>`:''}<p class="cwhy">${esc(d.f)}</p>`
-      +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Go to store →</a><button type="button" class="evbtn" aria-haspopup="dialog">Price evidence</button>${d.id?`<button type="button" class="shbtn" aria-label="Share this deal" title="Share"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>`:''}</div></div>`;
+    const refL=mk?(d.rs?'At '+esc(d.rs):'Elsewhere'):'Previously';
+    const strip=d.r==null?'':(()=>{const three=!mk&&mn!=null&&d.r>d.p,lo=three?Math.min(mn,d.p):d.p,t=three?Math.max(0,Math.min(100,Math.round(100*(d.p-lo)/(d.r-lo)))):0;
+      const track=d.r>d.p?`<div class="ptrack">${t>0?`<span class="pgap" style="width:${t}%"></span>`:''}<span class="pfill" style="inset-inline-start:${t}%"></span><span class="pend"></span><span class="pdot" style="inset-inline-start:${t}%"></span></div>`:'';
+      const cols=(three?`<span${low?' class="hit"':''}>Lowest<b>${fmt(lo)}</b></span>`:'')+`<span>Today<b>${fmt(d.p)}</b></span><span>${refL}<b>${fmt(d.r)}</b></span>`;
+      return `<div class="strip ${cls}${track?'':' flat'}" role="img" aria-label="${three?'Lowest recorded price '+fmt(lo)+' SAR, ':''}today ${fmt(d.p)} SAR, ${mk?'same model '+refL.toLowerCase():'recorded previous price'} ${fmt(d.r)} SAR">${track}<div class="pcols${three?'':' two'}">${cols}</div></div>`;})();
+    const note=(d.v!=='ok'||!d.q)&&d.f?`<p class="cnote${d.v==='warn'||d.v==='bad'?' '+d.v:''}">${esc(d.f)}</p>`:'';
+    const cp=d.cp!=null?CP[d.cp]:null,ncodes=cp?CP.filter(x=>SAVEK[x.k]&&x.code&&x.s.includes(d.s)).length:0;
+    const code=cp&&cp.code?`<button type="button" class="code" data-code="${esc(cp.code)}" aria-label="Copy the ${esc(d.s)} code ${esc(cp.code)}" title="A code for the whole store; it may not cover this product. Terms are in the coupons section.">${esc(cp.code)}${IC.copy}</button>`:'';
+    const wh=walletHit(d);
+    const perk=wh?`<a class="cperk" href="#coupon-${wh.i}">${esc(wh.w.l)}: ${wh.x.p?esc(wh.x.p):'an offer at '+esc(d.s)+', read the terms'}</a>`:'';
+    const isFav=FAV.has(d.id);
+    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${d.a}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}</span></div>`
+      +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}</a>`
+      +`<div class="cinfo"><a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>SAR</small></span>${save}</div>${claim}</div></div>`
+      +strip+note+perk
+      +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Open at ${esc(d.s)}</a>${code}</div>`
+      +`<div class="clinks"><button type="button" class="ev" aria-haspopup="dialog">Price evidence</button>`
+      +(d.id?`<button type="button" class="sh">${IC.share}Share</button><button type="button" class="fav" aria-pressed="${isFav}">${IC.heart}<span>${isFav?'Saved':'Save'}</span></button>`:'')
+      +(cp?`<a class="terms" href="#coupon-${d.cp}">${ncodes>1?esc(d.s)+' codes ('+ncodes+')':'Code terms'}</a>`:'')+`</div>`;
     const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>im.remove());
-    c.querySelector('.evbtn').addEventListener('click',()=>{$('evttl').textContent=d.n;$('evbody').innerHTML=evidence(d)+`<a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Open the product at ${esc(d.s)} →</a>`;const g=$('evdlg');g.showModal?g.showModal():g.setAttribute('open','');});
-    const sh=c.querySelector('.shbtn');if(sh)sh.addEventListener('click',()=>shareDeal(d));
+    c.querySelector('.ev').addEventListener('click',()=>{$('evttl').textContent=d.n;$('evbody').innerHTML=evidence(d)+`<a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Open the product at ${esc(d.s)}</a>`;const g=$('evdlg');g.showModal?g.showModal():g.setAttribute('open','');});
+    const sh=c.querySelector('.sh');if(sh)sh.addEventListener('click',()=>shareDeal(d));
+    const fv=c.querySelector('.fav');if(fv)fv.addEventListener('click',()=>toggleFav(d,fv));
     rows.appendChild(c);});
   if(!list.length)rows.innerHTML='<div class="empty">No deals match these filters. Try another store or category, or untick “In stock only”.</div>';
   document.querySelectorAll('#stats button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lo?LO:fv===b.dataset.sv)));
   document.querySelectorAll('#ecats button').forEach(b=>b.setAttribute('aria-pressed',String(fc===b.dataset.c)));
-  const nf=(fa?0:1)+(fv!=='all')+(fc!=='all')+(fs!=='all');$('etog').innerHTML='<span>⚙ Filters'+(nf?' ('+nf+')':'')+'</span><span aria-hidden="true">▾</span>';
+  const nf=(fa?0:1)+(fv!=='all')+(fc!=='all')+(fs!=='all');$('etog').innerHTML=IC.filter+'<span>Filters'+(nf?' ('+nf+')':'')+'</span>';syncHead();
   const gone=E.filter(UN).length;$('ecount').hidden=list.length===E.length;$('ecount').textContent=`Showing ${fmt(list.length)} of ${fmt(E.length)} deals`+(fa&&gone?` · ${fmt(gone)} out of stock or ended (hidden)`:'');}
 (()=>{const used=new Set(E.map(d=>d.c));CATS.filter(c=>used.has(c[0])).forEach(c=>$('fc').add(new Option(c[1],c[0])));[...new Set(E.map(d=>d.s))].forEach(s=>$('fs').add(new Option(s,s)));
   $('etog').addEventListener('click',()=>{const o=$('ebar').classList.toggle('open');$('etog').setAttribute('aria-expanded',String(o));});
@@ -180,7 +218,7 @@ function render(){const q=$('q').value.trim().toLowerCase().split(/\s+/).filter(
   $('keynote').insertAdjacentHTML('beforeend',`Of ${fmt(E.length)} deals at ${fmt(new Set(E.map(d=>d.s)).size)} stores, ${fmt(realN)} are cheaper by a margin that matters against their previous price or the market price, and ${fmt(cnt('ok'))} passed every check.`+(overN?` Advertised “before” prices that are above what was recorded before the sale: ${fmt(overN)}.`:'')+(cnt('bad')?` Deals that are not cheaper (the same model costs less elsewhere, the price went up, or there is no real saving): ${fmt(cnt('bad'))}.`:''));
   const pct=n=>fmt(Math.round(n*100))+'%',floors=(RULE.okSavingTiers||[]).map(t=>t.maxPrice==null?`${fmt(t.minSaving)} SAR above that`:`${fmt(t.minSaving)} SAR up to ${fmt(t.maxPrice)} SAR`).join(', ');
   $('verdict-rule').innerHTML=`<b>The verdict</b>: <b>✓ Confirmed discount</b> = a real difference of ${pct(RULE.okMin)} or more, or ${pct(RULE.warnMin)} or more with a saving above its price band’s floor (${floors}). · <b>Smaller than advertised</b> = below that, or a real discount on an item that has been cheaper before. · <b>Dearer or no saving</b> = the same model costs less at another store, the price went up, or there is no meaningful difference. · <b>No price record</b> = no record and no same model elsewhere to compare with.`;
-  if(CP.length){$('coupons').hidden=false;$('cpnote').hidden=false;$('cpnote').textContent=`🎟️ Coupons (${CP.length})`;$('cplist').innerHTML=CP.map((c,i)=>`<li id="coupon-${i}"><b style="display:inline">${esc(c.label)}</b>${c.code?` — code <b style="display:inline">${esc(c.code)}</b> <button type="button" class="cpy" data-code="${esc(c.code)}">Copy code</button> `:' — '}${esc(c.text)}</li>`).join('');}
+  if(CP.length){$('coupons').hidden=false;$('cpnote').hidden=false;$('cpnote').textContent=`Coupons (${CP.length})`;$('cplist').innerHTML=CP.map((c,i)=>`<li id="coupon-${i}"><b style="display:inline">${esc(c.label)}</b>${c.code?` — code <b style="display:inline">${esc(c.code)}</b> <button type="button" class="cpy" data-code="${esc(c.code)}">Copy code</button> `:' — '}${esc(c.text)}</li>`).join('');}
   document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.cpy');if(!b)return;const t=b.dataset.code,done=()=>{b.textContent='Copied ✓';setTimeout(()=>{b.textContent='Copy code';},1600);};
     if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});else{const i=document.createElement('textarea');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');done();}catch(_){}i.remove();}});
   const card=o=>`<li><b>${esc(o.company)}</b>${o.type?' · '+esc(o.type):''}<br>“${esc(o.headline)}”<br><b>What the terms say:</b> ${esc(o.terms)}${o.code?` · code <span class="code">${esc(o.code)}</span>`:''}<br><a href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></li>`;
@@ -191,13 +229,23 @@ function render(){const q=$('q').value.trim().toLowerCase().split(/\s+/).filter(
   const f=$('sg-f'),sb=$('sg-b'),ss=$('sg-s'),say=(m,c)=>{ss.textContent=m;ss.className='sg-note '+(c||'')};
   f.addEventListener('submit',async e=>{e.preventDefault();const msg=$('sg-t').value.trim();if(!msg){say('Write your suggestion first','err');return;}sb.disabled=true;say('Sending…');
     try{const api=/(^|\.)saydadeals\.com$/.test(location.hostname)?'/api/suggest':'https://saydadeals.com/api/suggest';const r=await fetch(api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,contact:$('sg-c').value.trim(),website:$('sg-w').value,page:location.pathname})});const j=await r.json().catch(()=>({}));if(r.ok&&j.ok){f.reset();say('Got it, thank you!','ok');}else say('Could not send right now, please try again shortly.','err');}catch(_){say('Could not send right now, please try again shortly.','err');}sb.disabled=false;});
+  $('favbtn').addEventListener('click',()=>{if(!FV&&!E.some(d=>FAV.has(d.id))){toast('Nothing saved yet. Tap “Save” on any deal.');return;}FV=!FV;render();});
+  $('walletbtn').addEventListener('click',()=>{if(!WAL.size){$('wallet').scrollIntoView({block:'center'});toast('Pick your cards and memberships first');return;}WL=!WL;render();});
+  if(WALLET.length){$('wallet').hidden=false;$('walletc').innerHTML=WALLET.map(w=>`<button type="button" data-w="${esc(w.id)}" aria-pressed="${WAL.has(w.id)}">${esc(w.l)}</button>`).join('');
+    $('walletc').addEventListener('click',e=>{const b=e.target.closest('button[data-w]');if(!b)return;const id=b.dataset.w;if(WAL.has(id))WAL.delete(id);else WAL.add(id);b.setAttribute('aria-pressed',String(WAL.has(id)));LS.set('sayda.wallet',[...WAL]);if(!WAL.size)WL=false;render();});}
+  document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.code');if(!b)return;const t=b.dataset.code,done=()=>{b.classList.add('done');toast('Copied the code '+t);setTimeout(()=>b.classList.remove('done'),1600);};
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});else{const i=document.createElement('textarea');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');done();}catch(_){}i.remove();}});
+  (()=>{const end=new Date(CAMPAIGN_END+'T23:59:59+03:00').getTime()+1000;if(!isFinite(end))return;const two=n=>String(n).padStart(2,'0');
+    const tick=()=>{const s=Math.floor((end-Date.now())/1000);if(s<=0){$('count').hidden=true;return false;}$('count').hidden=false;[['d',Math.floor(s/86400)],['h',Math.floor(s%86400/3600)],['m',Math.floor(s%3600/60)],['s',s%60]].forEach(p=>{$('cd-'+p[0]).textContent=two(p[1]);});return true;};
+    if(tick()){const t=setInterval(()=>{if(!tick())clearInterval(t);},1000);}})();
+  (()=>{const t=document.querySelector('.top'),set=()=>document.documentElement.style.setProperty('--toph',t.offsetHeight+'px');set();addEventListener('resize',set);})();
   render();
   (()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(!id)return;const d=E.find(x=>x.id===id),note=$('sharednote');
     if(!d){note.textContent='The deal this link was opened for is no longer on the list. These are the deals checked now.';note.hidden=false;return;}
-    if(UN(d))$('fa').checked=false;$('fv').value='all';$('fc').value='all';$('fs').value='all';LO=false;render();
+    if(UN(d))$('fa').checked=false;$('fv').value='all';$('fc').value='all';$('fs').value='all';LO=false;FV=false;WL=false;render();
     const el=[...$('rows').children].find(c=>c.dataset&&c.dataset.id===id);if(el){el.classList.add('hit');el.scrollIntoView({block:'center'});}})();
 })();
 </script>
-<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: we use Cloudflare analytics, which sets no cookies and collects no personal data. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: we use Cloudflare analytics, which sets no cookies and collects no personal data. Deals you save and cards you pick stay in your browser and are never sent to us. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
 </body>
 </html>
