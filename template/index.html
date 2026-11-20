@@ -68,7 +68,10 @@ h2{font-size:20px;margin-block:36px 12px}
 .filters .freset{background:none;border:0;color:var(--accent);padding:0 4px;min-height:44px;text-decoration:underline}
 .empty{text-align:center;color:var(--muted);padding:28px 12px}
 @media (max-width:760px){
-  .filters{position:static}
+  .filters{padding-block:6px}
+  .fcats{grid-column:1/-1;grid-row:2}
+  .fcats button{min-height:40px}
+  .filters:not([data-active]) #fcount{display:none}
   /* Detailed filters fold away behind «تصفية»; what is currently selected stays on screen. */
   .filters .ftoggle{display:inline-flex;align-items:center;gap:8px;min-height:50px;padding:0 16px;font:inherit;font-size:15px;font-weight:700;
            border:1px solid var(--accent);background:var(--accent);color:var(--surface);border-radius:12px;cursor:pointer;width:100%;justify-content:space-between;
@@ -100,17 +103,18 @@ h2{font-size:20px;margin-block:36px 12px}
 }
 .fsel:empty{display:none}
 @media (min-width:761px){
-  .filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:14px}
+  .filters{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-top:8px;padding-block:6px}
   .filters .ftoggle{order:1;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;border:1px solid var(--accent);background:var(--accent);color:var(--surface);border-radius:10px;cursor:pointer}
   .filters .ftoggle .fthint{display:none}
   .filters .ftoggle .ftright{display:inline-flex;align-items:center;gap:8px}
   .filters .ftoggle .ftn{background:var(--surface);color:var(--accent);font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px}
   .filters[data-open] .ftoggle .fcaret{transform:rotate(180deg)}
   .fstatus{order:2;flex:1;padding-inline-start:0}
-  .fsel{order:3;flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px}
+  .fcats{order:3;flex-basis:100%}
+  .fsel{order:4;flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px}
   .fsel span{font-size:12px;background:var(--accent-soft);color:var(--ink);border-radius:999px;padding:4px 10px}
   .filters[data-open] .fsel{display:none}
-  .fbody{order:4;flex-basis:100%;display:grid;gap:6px}
+  .fbody{order:5;flex-basis:100%;display:grid;gap:6px}
   .filters:not([data-open]) .fbody{display:none}
 }
 .tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
@@ -275,12 +279,38 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 .csave.warn{color:var(--gold)}
 .csave.bad{color:var(--red)}
 .cclaim{font-size:11.5px;color:var(--muted)}
+/* price bar (20 Nov, second review): where today's price sits between the lowest price in the record
+   (start) and the previous recorded price (end). Green = what is saved, amber = how far above the
+   lowest. Drawn only from stored evidence; a row without a recorded minimum gets the text line. */
+.pbar{align-self:stretch;margin:4px 0 2px}
+.ptrack{position:relative;height:6px;border-radius:999px;background:var(--line)}
+.pgap,.pfill{position:absolute;inset-block:0;border-radius:999px}
+.pgap{inset-inline-start:0;background:var(--gold)}
+.pfill{inset-inline-end:0;background:var(--ok)}
+.pdot{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--ink);border:2px solid var(--surface);box-shadow:0 0 0 1px var(--ink);transform:translate(-50%,-50%)}
+[dir="rtl"] .pdot{transform:translate(50%,-50%)}
+.plab{display:flex;justify-content:space-between;gap:8px;margin-top:6px;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.plab b{color:var(--ink);font-weight:600}
+.plab .lowhit{color:var(--ok);font-weight:700}
+.shbtn{flex:none;width:40px;min-height:40px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:grid;place-items:center;padding:0}
+.card.hit{outline:2px solid var(--accent);outline-offset:2px}
+.sharednote{background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;color:var(--muted);font-size:13.5px;margin:10px 0 0}
+.sharednote[hidden]{display:none}
+@media (hover:hover){.card{transition:transform .15s,box-shadow .15s}.card:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.08)}}
+/* category pills: always on screen, one swipeable line */
+.fcats{min-width:0}
+.fcats .fchips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding-block:2px}
+.fcats .fchips::-webkit-scrollbar{display:none}
+.fcats button{flex:none;scroll-snap-align:start}
+[dir="rtl"] .fcats .fchips{-webkit-mask-image:linear-gradient(to right,transparent 0,#000 28px);mask-image:linear-gradient(to right,transparent 0,#000 28px)}
+[dir="ltr"] .fcats .fchips{-webkit-mask-image:linear-gradient(to left,transparent 0,#000 28px);mask-image:linear-gradient(to left,transparent 0,#000 28px)}
+.filters[data-open]{position:static}
 .cref{font-size:12px;color:var(--muted)}
 .cwhy{margin:0;font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .cact{display:flex;gap:6px;margin-top:auto;padding-top:6px;align-self:stretch}
 .buy{flex:1;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--surface);font-weight:700;font-size:13px;text-decoration:none;border-radius:10px;padding:6px 8px;min-height:40px}
 .cact .evbtn{margin:0;border-radius:10px;min-height:40px;white-space:nowrap;padding:0 10px}
-@media (min-width:600px){.cimg{aspect-ratio:4/3}.wrap{padding-block-start:16px}}
+@media (min-width:600px){.cimg{aspect-ratio:4/3}.wrap{padding-block-start:10px}}
 /* phones: one full-width card per row, small picture beside the name and price, the finding and
    the two buttons across the full width below. Two 159px columns could not hold the explanation. */
 @media (max-width:599px){
@@ -298,12 +328,14 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
   h1{font-size:24px}
 }
 /* first screen: counts, stamp and quick links in three short lines, then search and the products */
-.stats{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:10px 0 0;font-size:14px}
+.statrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:10px 0 0}
+.stats{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;font-size:14px;min-width:0;max-width:100%}
+.sfact:empty{display:none}
 .stats button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer;white-space:nowrap}
 .stats button b{font-family:"Readex Pro",sans-serif;font-variant-numeric:tabular-nums;margin-inline-end:6px}
 .stats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-.stats .sfact{color:var(--muted);font-size:13px}
-@media (max-width:599px){.stats button{padding:0 11px}}
+.sfact{color:var(--muted);font-size:13px}
+@media (max-width:599px){.stats{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}.stats::-webkit-scrollbar{display:none}.stats button{flex:none;padding:0 11px}}
 @media (pointer:coarse){.stats button{min-height:40px}}
 .lede.stamp{font-size:12.5px;margin-top:8px}
 .toplinks{display:flex;flex-wrap:wrap;gap:4px 16px;margin:6px 0 0;font-size:13.5px}
@@ -340,7 +372,7 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 </button>
 <div class="wrap" dir="rtl" lang="ar">
   <h1>صيدات {{CAMPAIGN_AR}}</h1>
-  <div class="stats" id="stats" role="group" aria-label="ملخص العروض"></div>
+  <div class="statrow"><div class="stats" id="stats" role="group" aria-label="ملخص العروض"></div><span class="sfact" id="sfact"></span></div>
   <p class="lede stamp" id="updated"><b>آخر تحديث: {{UPDATED_AR}}</b> · <b>آخر فحص للتوفر: {{CHECKED_AR}}</b></p>
   <nav class="toplinks" aria-label="روابط سريعة">{{TOP_LINKS}}<a href="#how">كيف نحسب «الخصم الحقيقي»؟</a></nav>
 
@@ -352,6 +384,10 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
   <div class="dealsblock">
   <div class="filters" aria-label="تصفية العروض" id="filters">
     <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span class="ftlabel">⚙ تصفية <span class="fthint" id="fthint">(اضغط هنا)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
+    <div class="fcats" role="group" aria-label="الفئة"><div class="fchips">
+        <button data-g="c" data-f="all" aria-pressed="true">كل الفئات</button>
+{{CATEGORY_CHIPS}}
+    </div></div>
     <div class="fsel" id="fsel" aria-hidden="true"></div>
     <div class="fbody" id="fbody">
     <div class="frow" role="group" aria-labelledby="fl-a">
@@ -371,13 +407,6 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
         <button data-g="v" data-f="warn">خصم أصغر من المعلن</button>
         <button data-g="v" data-f="bad">أغلى أو بلا توفير</button>
         <button data-g="v" data-f="na">بلا سجل سعري</button>
-      </div>
-    </div>
-    <div class="frow" role="group" aria-labelledby="fl-c">
-      <span class="flabel" id="fl-c">الفئة</span>
-      <div class="fchips">
-        <button data-g="c" data-f="all" aria-pressed="true">الكل</button>
-{{CATEGORY_CHIPS}}
       </div>
     </div>
     <div class="frow" role="group" aria-labelledby="fl-s">
@@ -407,6 +436,7 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
     </select><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
+  <p class="sharednote" id="sharednote" hidden></p>
   <div class="grid" id="rows"></div>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="إغلاق">✕</button></div><div id="evbody"></div></div></dialog>
   </div>
@@ -490,11 +520,13 @@ const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',rs:x.rs||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
+const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',rs:x.rs||'',id:x.id||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
  ;
 // Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
 // top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
 const SAVED=d=>d.r!=null?d.r-d.p:-1;
+// at its lowest recorded price: history-referenced, and today's price is at or under the record's minimum (1% tolerance)
+const isLow=d=>d.rk!=='m'&&d.ev&&d.ev.mn!=null&&d.p<=d.ev.mn*1.01;
 const SORTS={
  default:(a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999)||(b.claim-a.claim),
  real:(a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999),
@@ -516,7 +548,9 @@ const avN=data.filter(x=>!UN(x)).length;
 // a store «قبل» more than 5% above the previous price in the record (history-referenced rows only)
 const overN=data.filter(x=>!UN(x)&&x.w&&x.r!=null&&x.rk!=='m'&&x.w>x.r*1.05).length;
 document.getElementById('stats').innerHTML=`<button type="button" data-sv="all"><b>${fmt(avN)}</b>كل العروض المفحوصة</button><button type="button" data-sv="ok"><b>${fmt(cnt('ok'))}</b>الصفقات المؤكّدة</button>`
-  +(overN?`<span class="sfact">أسعار «قبل» معلنة أعلى مما سجّلناه: <b>${fmt(overN)}</b></span>`:'');
+  +(data.some(x=>!UN(x)&&isLow(x))?`<button type="button" data-lo="1"><b>${fmt(data.filter(x=>!UN(x)&&isLow(x)).length)}</b>عند أقل سعر مسجّل</button>`:'')
+;
+if(overN)document.getElementById('sfact').innerHTML=`أسعار «قبل» معلنة أعلى مما سجّلناه: <b>${fmt(overN)}</b>`;
 document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} ${(n=>n>=3&&n<=10?'متاجر':'متجراً')(new Set(data.map(x=>x.s)).size)}، ${fmt(realN)} أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص.`
   +(overN?` عدد الأسعار «قبل» المعلنة التي تزيد على ما سجّلناه قبل العرض: ${fmt(overN)}.`:'')
   +(cnt('bad')?` وعدد العروض التي ليست أرخص (متوفرة بسعر أقل في متجر آخر، أو ارتفع سعرها، أو بلا توفير يُذكر): ${fmt(cnt('bad'))}.`:''));
@@ -538,14 +572,14 @@ document.getElementById('summary').innerHTML=[[cnt('ok'),'صفقة مؤكّدة 
 // is not cheaper. Availability still defaults to «متاح».
 const DEF={a:'avail',v:'all'};
 const MULTI={c:1,s:1};
-const F={a:'avail',v:'all',c:[],s:[],pmin:null,pmax:null};
+const F={a:'avail',v:'all',c:[],s:[],pmin:null,pmax:null,lo:false};
 let SORT='default';
 const matchV=(d,f)=>f.v==='all'||d.v===f.v;
 const matchA=(d,f)=>f.a==='all'?true:f.a==='avail'?!UN(d):f.a==='low'?d.a==='low':UN(d);
 const matchC=(d,f)=>!f.c.length||f.c.includes(d.c);
 const matchS=(d,f)=>!f.s.length||f.s.includes(d.s);
 const matchP=(d,f)=>(f.pmin==null||d.p>=f.pmin)&&(f.pmax==null||d.p<=f.pmax);
-const matchAll=(d,f)=>matchA(d,f)&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&matchQ(d);
+const matchAll=(d,f)=>matchA(d,f)&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&(!f.lo||isLow(d))&&matchQ(d);
 const norm=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/\s+/g,' ').trim();
 const SYN=[['سامسونج','samsung'],['جالكسي','galaxy'],['ابل','apple'],['ايفون','iphone'],['ايباد','ipad'],['ماك بوك','macbook'],['ايربودز','airpods'],['سوني','sony'],['بلايستيشن','playstation','ps5'],['ال جي','lg'],['هواوي','huawei'],['شاومي','xiaomi'],['ريدمي','redmi'],['لينوفو','lenovo'],['اتش بي','hp'],['ديل','dell'],['اسوس','asus'],['بوش','bosch'],['فيليبس','philips'],['دايسون','dyson'],['هايسنس','hisense'],['تي سي ال','tcl'],['نينتندو','nintendo'],['جارمن','garmin'],['انكر','anker'],['تلفزيون','تلفاز','شاشه','tv'],['جوال','موبايل','هاتف','phone'],['لابتوب','laptop','notebook'],['سماعه','سماعات','headphones','earbuds'],['مكيف','تكييف','سبليت','split'],['ثلاجه','fridge','refrigerator'],['غساله','washer','washing'],['كنبه','كنب','sofa','couch'],['سرير','bed'],['طاوله','table'],['كرسي','chair'],['دولاب','خزانه','wardrobe']].map(g=>g.map(norm));
 const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -587,7 +621,7 @@ function render(){
   rows.innerHTML='';
   const list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);
   list.forEach(d=>{
-    const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');
+    const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
     // The badge is OUR number, never the store's: real discount, or what we could not confirm.
     const badge=d.real==null?['na','بلا سجل سعري']:d.real<0?['bad','أغلى '+fmt(-d.real)+'٪']:[d.v==='bad'?'bad':d.v==='warn'?'warn':'ok','خصم حقيقي '+fmt(d.real)+'٪'];
     // Beside the price: what the shopper saves against the VERIFIED reference, in riyals and percent.
@@ -598,29 +632,35 @@ function render(){
       :saved>0?`<span class="csave ${d.v==='bad'?'bad':d.v==='warn'?'warn':'ok'}">${mk?'أرخص بـ':'توفّر'} ${fmt(saved)} ر.س · ${fmt(d.real)}٪</span>`:'';
     const ref=d.r==null?'لا يوجد مرجع للمقارنة':mk?`نفس الموديل ${d.rs?'لدى '+esc(d.rs):'في متجر آخر'} بـ ${fmt(d.r)} ر.س`:`السعر السابق المسجّل ${fmt(d.r)} ر.س`;
     const claim=d.w&&d.claim>0&&(d.r==null||mk||d.w>d.r*1.05)?`<div class="cclaim">المتجر يعلن خصم ${fmt(d.claim)}٪</div>`:'';
+    const mn=d.ev&&d.ev.mn;
+    const bar=(!mk&&d.r!=null&&mn!=null&&d.r>d.p)?(()=>{const lo=Math.min(mn,d.p),t=Math.max(0,Math.min(100,Math.round(100*(d.p-lo)/(d.r-lo)))),low=isLow(d);
+      return `<div class="pbar" role="img" aria-label="${low?'سعر اليوم هو أقل سعر مسجّل':'أقل سعر مسجّل '+fmt(mn)+' ر.س'}، السعر السابق المسجّل ${fmt(d.r)} ر.س"><div class="ptrack"><span class="pgap" style="width:${t}%"></span><span class="pfill" style="inset-inline-start:${t}%"></span><span class="pdot" style="inset-inline-start:${t}%"></span></div>`
+        +`<div class="plab"><span${low?' class="lowhit"':''}>${low?'✓ أقل سعر مسجّل':'أقل مسجّل <b>'+fmt(mn)+'</b>'}</span><span>السابق المسجّل <b>${fmt(d.r)} ر.س</b></span></div></div>`;})():'';
     const pic=d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'';
     c.innerHTML=`<a class="cimg" href="${d.u}" target="_blank" rel="noopener" aria-label="${esc(d.n)}"><span class="ph" aria-hidden="true">${esc(d.s.slice(0,1))}</span>${pic}<span class="badge ${badge[0]}">${badge[1]}</span></a>`
       +`<div class="cbody"><div class="cstore"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''}<span class="av ${d.a}">${AL[d.a]}</span></div>`
       +`<a class="cname" href="${d.u}" target="_blank" rel="noopener">${d.n}</a>`
       +`<div class="cprice"><span class="pv">${fmt(d.p)} ر.س</span>${save}</div>`
-      +`<div class="cref">${ref}</div>${claim}</div>`
-      +`<div class="cfoot"><span class="v ${d.v}">${vlabel(d)}</span>`
+      +`${bar?'':`<div class="cref">${ref}</div>`}${claim}</div>`
+      +`<div class="cfoot">${bar}<span class="v ${d.v}">${vlabel(d)}</span>`
       +(d.an?`<span class="avnote">${d.an}</span>`:'')
       +`<p class="cwhy">${d.note}</p>`
-      +`<div class="cact"><a class="buy" href="${d.u}" target="_blank" rel="noopener">للمتجر ←</a><button type="button" class="evbtn" aria-haspopup="dialog">دليل السعر</button></div></div>`;
+      +`<div class="cact"><a class="buy" href="${d.u}" target="_blank" rel="noopener">للمتجر ←</a><button type="button" class="evbtn" aria-haspopup="dialog">دليل السعر</button>${d.id?`<button type="button" class="shbtn" aria-label="شارك هذا العرض" title="شارك"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></button>`:''}</div></div>`;
     const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>im.remove());
     c.querySelector('.evbtn').addEventListener('click',()=>{
       document.getElementById('evttl').textContent=d.n;
       document.getElementById('evbody').innerHTML=evidence(d)+`<a class="buy" href="${d.u}" target="_blank" rel="noopener">افتح المنتج في ${d.s} ←</a>`;
       const g=document.getElementById('evdlg');if(g.showModal)g.showModal();else g.setAttribute('open','');
     });
+    const sh=c.querySelector('.shbtn');if(sh)sh.addEventListener('click',()=>shareDeal(d));
     rows.appendChild(c);
   });
   if(!list.length){const tr=document.createElement('div');tr.className='empty';tr.innerHTML=(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.');rows.appendChild(tr);}
-  const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||SORT!=='default';
+  const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||F.lo||SORT!=='default';
   syncChips();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
   document.getElementById('freset').hidden=!active;
+  document.getElementById('filters').toggleAttribute('data-active',active);
   // what is selected stays visible even when the panel is folded away
   const sel=[...document.querySelectorAll('.filters .fbody button[data-g][aria-pressed="true"]')]
     .filter(b=>b.dataset.f!=='all'&&DEF[b.dataset.g]!==b.dataset.f)   // defaults are not "applied filters"
@@ -639,12 +679,12 @@ function setF(g,f){
   render();
 }
 function chipCount(g,f){
-  const t={a:F.a,v:F.v,c:F.c,s:F.s,pmin:F.pmin,pmax:F.pmax};
+  const t={a:F.a,v:F.v,c:F.c,s:F.s,pmin:F.pmin,pmax:F.pmax,lo:F.lo};
   t[g]=MULTI[g]?(f==='all'?[]:[f]):f;
   return data.filter(d=>matchAll(d,t)).length;
 }
 function syncChips(){
-  document.querySelectorAll('#stats button').forEach(b=>b.setAttribute('aria-pressed',String(F.v===b.dataset.sv)));
+  document.querySelectorAll('#stats button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lo?F.lo:F.v===b.dataset.sv)));
   document.querySelectorAll('.filters button[data-g]').forEach(b=>{
     const g=b.dataset.g,f=b.dataset.f;
     const on=MULTI[g]?(f==='all'?F[g].length===0:F[g].includes(f)):F[g]===f;
@@ -658,7 +698,7 @@ function syncChips(){
   });
 }
 document.querySelectorAll('.filters button[data-g]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)setF(b.dataset.g,b.dataset.f);}));
-document.querySelectorAll('#stats button').forEach(b=>b.addEventListener('click',()=>setF('v',b.dataset.sv)));
+document.querySelectorAll('#stats button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lo){F.lo=!F.lo;render();}else setF('v',b.dataset.sv);}));
 // «نسخ الكود» on each coupon
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.cpy');if(!b)return;const t=b.dataset.code,o=b.dataset.o||(b.dataset.o=b.textContent),done=()=>{b.textContent='تم النسخ ✓';setTimeout(()=>{b.textContent=o;},1600);};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});
@@ -709,7 +749,17 @@ document.addEventListener('click',e=>{const a=e.target.closest('.evrule a[href="
   t.setAttribute('aria-expanded',String(!open));
   h.textContent=open?'(اضغط هنا)':'(اضغط للإخفاء)';});})();
 document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];
- F.pmin=F.pmax=null;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
+ F.pmin=F.pmax=null;F.lo=false;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
+// Share one deal. The link is this page with ?d=<row id>; opening it scrolls to that card and outlines it.
+function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeURIComponent(d.id),saved=d.r!=null?Math.round(d.r-d.p):0;
+ const text=`${d.n} بـ ${fmt(d.p)} ر.س في ${d.s}`+(saved>0&&d.real>0?(d.rk==='m'?` · أرخص بـ ${fmt(saved)} ر.س (${fmt(d.real)}٪) من نفس الموديل في متجر آخر`:` · توفّر ${fmt(saved)} ر.س (${fmt(d.real)}٪) عن السعر السابق المسجّل`):'')+' · فحصته صيدة';
+ if(navigator.share)navigator.share({title:'صيدة',text,url}).catch(()=>{});
+ else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url),'_blank','noopener');}
+setTimeout(()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(!id)return;
+ const d=data.find(x=>x.id===id),note=document.getElementById('sharednote');
+ if(!d){note.textContent='العرض الذي فُتح هذا الرابط من أجله لم يعد في القائمة. هذه العروض المفحوصة الآن.';note.hidden=false;return;}
+ if(!matchAll(d,F)){F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;F.lo=false;render();}
+ const el=[...rows.children].find(c=>c.dataset&&c.dataset.id===id);if(el){el.classList.add('hit');el.scrollIntoView({block:'center'});}},0);
 (()=>{const g=document.getElementById('evdlg');const shut=()=>{if(g.close)g.close();else g.removeAttribute('open');};document.getElementById('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});})();
 render();
 (()=>{const VT={clear:'✓ الشروط تطابق الإعلان',catch:'⚠ الإعلان أكبر من الشروط',vague:'تفاصيل غير كافية',pending:'لم يبدأ بعد'};
