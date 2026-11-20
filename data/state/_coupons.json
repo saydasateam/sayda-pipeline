@@ -6,18 +6,6 @@
    ],
    "label": "نون",
    "kind": "code",
-   "code": "مكانك120",
-   "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «لك رصيد مسترجع حتى 120 ريال | استخدم كود: مكانك120». اللافتة لا تذكر الحد الأدنى للطلب ولا الفئات المشمولة، فالشروط تظهر عند إدخال الكود.",
-   "verified": "2026-11-20",
-   "label_en": "Noon",
-   "text_en": "From a banner on Noon’s home page today: “Up to 120 SAR back as credit | use code مكانك120”. The banner states no minimum order and no eligible categories; the terms appear when the code is entered."
-  },
-  {
-   "stores": [
-    "noon"
-   ],
-   "label": "نون",
-   "kind": "code",
    "code": "مكانك50",
    "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «خصم إضافي 10% | استخدم كود: مكانك50». اللافتة لا تذكر الحد الأدنى للطلب ولا الفئات المشمولة، فالشروط تظهر عند إدخال الكود.",
    "verified": "2026-11-20",
@@ -50,12 +38,24 @@
   },
   {
    "stores": [
+    "noon"
+   ],
+   "label": "نون",
+   "kind": "code",
+   "code": "FRAGRANCE10",
+   "text": "بنصّ لافتة في الصفحة الرئيسية لنون اليوم: «نوّنها على 2 ولك خصم 10% على العطور | استخدم الكود: FRAGRANCE10». الخصم للعطور عند شراء قطعتين بحسب اللافتة، وباقي الشروط تظهر عند إدخال الكود.",
+   "verified": "2026-11-20",
+   "label_en": "Noon",
+   "text_en": "From a banner on Noon’s home page today: “Buy 2 and get 10% off fragrances | use code FRAGRANCE10”. Per the banner the discount is for fragrances when buying two; the other terms appear when the code is entered."
+  },
+  {
+   "stores": [
     "amazon"
    ],
    "label": "أمازون",
    "kind": "bank",
    "code": "ARB30",
-   "text": "بنصّ صفحة المنتج في أمازون اليوم: «التوفير مع خدمة برايم: خصم 30% حتى SAR150 | بطاقة راجحي للائتمان. أدخل الرمز ARB30 عند إتمام الشراء. خصم من أمازون». لأعضاء برايم حاملي بطاقة الراجحي الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 5 من 6 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء. الشروط الكاملة في رابط «الشروط» بجانب العرض.",
+   "text": "بنصّ صفحة المنتج في أمازون اليوم: «التوفير مع خدمة برايم: خصم 30% حتى SAR150 | بطاقة راجحي للائتمان. أدخل الرمز ARB30 عند إتمام الشراء. خصم من أمازون». لأعضاء برايم حاملي بطاقة الراجحي الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 9 من 10 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء. الشروط الكاملة في رابط «الشروط» بجانب العرض.",
    "verified": "2026-11-20",
    "wallet": [
     "prime"
@@ -64,7 +64,7 @@
    "perk": "خصم 30% حتى 150 ريال ببطاقة الراجحي الائتمانية على منتجات مختارة · الرمز ARB30",
    "perk_en": "30% off up to 150 SAR with an Al Rajhi credit card, on selected products · code ARB30",
    "label_en": "Amazon",
-   "text_en": "From the Amazon product page today: “Prime Savings: 30% off up to SAR150 | Rajhi Credit Card. Enter code ARB30 at checkout. Discount by Amazon.” For Prime members who hold an Al Rajhi credit card. It appears in the “Savings” box on Amazon product pages (5 of the 6 pages we checked today, so not every product), and the code is entered at checkout. The full terms are behind “Terms” beside the offer."
+   "text_en": "From the Amazon product page today: “Prime Savings: 30% off up to SAR150 | Rajhi Credit Card. Enter code ARB30 at checkout. Discount by Amazon.” For Prime members who hold an Al Rajhi credit card. It appears in the “Savings” box on Amazon product pages (9 of the 10 pages we checked today, so not every product), and the code is entered at checkout. The full terms are behind “Terms” beside the offer."
   },
   {
    "stores": [
@@ -73,7 +73,7 @@
    "label": "أمازون",
    "kind": "bank",
    "code": "ARB20",
-   "text": "بنصّ صفحة العرض في أمازون اليوم: «خصم 20% بحد أقصى 100 ريال سعودي لطلب واحد || حد أدنى للإنفاق 100 ريال سعودي · العملاء المؤهلون: أعضاء غير برايم على Amazon.sa · البطاقات المؤهلة: بطاقات مصرف الراجحي الائتمانية · رمز الخصم: ARB20 · فترة العرض: من 20 نوفمبر 2026 إلى 24 نوفمبر 2026». يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 5 من 6 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء.",
+   "text": "بنصّ صفحة العرض في أمازون اليوم: «خصم 20% بحد أقصى 100 ريال سعودي لطلب واحد || حد أدنى للإنفاق 100 ريال سعودي · العملاء المؤهلون: أعضاء غير برايم على Amazon.sa · البطاقات المؤهلة: بطاقات مصرف الراجحي الائتمانية · رمز الخصم: ARB20 · فترة العرض: من 20 نوفمبر 2026 إلى 24 نوفمبر 2026». يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 9 من 10 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء.",
    "verified": "2026-11-20",
    "wallet": [
     "alrajhi"
@@ -82,7 +82,7 @@
    "perk": "خصم 20% حتى 100 ريال بالبطاقة الائتمانية لغير أعضاء برايم على منتجات مختارة · الرمز ARB20",
    "perk_en": "20% off up to 100 SAR with the credit card, for non-Prime members, on selected products · code ARB20",
    "label_en": "Amazon",
-   "text_en": "From Amazon’s offer page today: 20% off, at most 100 SAR on one order, minimum spend 100 SAR · eligible customers: non-Prime members on Amazon.sa · eligible cards: Al Rajhi Bank credit cards · code ARB20 · offer period: 20 November 2026 to 24 November 2026. It appears in the “Savings” box on Amazon product pages (5 of the 6 pages we checked today, so not every product), and the code is entered at checkout."
+   "text_en": "From Amazon’s offer page today: 20% off, at most 100 SAR on one order, minimum spend 100 SAR · eligible customers: non-Prime members on Amazon.sa · eligible cards: Al Rajhi Bank credit cards · code ARB20 · offer period: 20 November 2026 to 24 November 2026. It appears in the “Savings” box on Amazon product pages (9 of the 10 pages we checked today, so not every product), and the code is entered at checkout."
   },
   {
    "stores": [
@@ -91,7 +91,7 @@
    "label": "أمازون",
    "kind": "bank",
    "code": "ARB15",
-   "text": "بنصّ صفحة العرض في أمازون اليوم: «خصم 15% بحد أقصى 75 ريال سعودي لطلب واحد || حد أدنى للإنفاق 100 ريال سعودي · العملاء المؤهلون: جميع عملاء Amazon.sa · البطاقات المؤهلة: بطاقات مصرف الراجحي مسبقة الدفع · رمز الخصم: ARB15 · فترة العرض: من 19 نوفمبر 2026 إلى 24 نوفمبر 2026». يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 5 من 6 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء.",
+   "text": "بنصّ صفحة العرض في أمازون اليوم: «خصم 15% بحد أقصى 75 ريال سعودي لطلب واحد || حد أدنى للإنفاق 100 ريال سعودي · العملاء المؤهلون: جميع عملاء Amazon.sa · البطاقات المؤهلة: بطاقات مصرف الراجحي مسبقة الدفع · رمز الخصم: ARB15 · فترة العرض: من 19 نوفمبر 2026 إلى 24 نوفمبر 2026». يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 9 من 10 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء.",
    "verified": "2026-11-20",
    "wallet": [
     "alrajhi"
@@ -99,7 +99,7 @@
    "perk": "خصم 15% حتى 75 ريال بالبطاقة مسبقة الدفع على منتجات مختارة · الرمز ARB15",
    "perk_en": "15% off up to 75 SAR with the prepaid card, on selected products · code ARB15",
    "label_en": "Amazon",
-   "text_en": "From Amazon’s offer page today: 15% off, at most 75 SAR on one order, minimum spend 100 SAR · eligible customers: all Amazon.sa customers · eligible cards: Al Rajhi Bank prepaid cards · code ARB15 · offer period: 19 November 2026 to 24 November 2026. It appears in the “Savings” box on Amazon product pages (5 of the 6 pages we checked today, so not every product), and the code is entered at checkout.",
+   "text_en": "From Amazon’s offer page today: 15% off, at most 75 SAR on one order, minimum spend 100 SAR · eligible customers: all Amazon.sa customers · eligible cards: Al Rajhi Bank prepaid cards · code ARB15 · offer period: 19 November 2026 to 24 November 2026. It appears in the “Savings” box on Amazon product pages (9 of the 10 pages we checked today, so not every product), and the code is entered at checkout.",
    "url": "https://www.amazon.sa/promotion/psp/A1OATG09V9WR00"
   },
   {

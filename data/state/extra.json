@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-20",
- "checkedAt": "2026-11-20T06:27:54.605+03:00",
+ "checkedAt": "2026-11-20T20:13:49.061+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -380,6 +380,33 @@
    "lastChecked": "2026-11-20",
    "img": "https://media.extra.com/s/aurora/100135734_800/Goui-LUX-10000mAh-QI-Power-Bank-Type-C-Rubber-Suction-Cup-7%2C-Black?locale=en-GB,ar-*,*",
    "name_en": "Goui LUX 10000mAh QI Power Bank Type C Rubber Suction Cup 7, Black"
+  },
+  {
+   "id": "extra:100410818",
+   "store": "extra",
+   "name": "سامسونج جالاكسي S25 إيدج 256 جيجا أزرق",
+   "price": 2299,
+   "was": 4499,
+   "ref": 4499,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٤٬٤٩٩ · أقل سعر مسجل",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 4499,
+    "min": 2299,
+    "max": 4499,
+    "src": "kanbkam",
+    "on": "2026-11-20",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100410818"
+   },
+   "cat": "إلكترونيات",
+   "firstSeen": "2026-11-20",
+   "lastChecked": "2026-11-20",
+   "img": "https://media.extra.com/s/aurora/100410818_800/SAMSUNG-Galaxy-S25-Edge%2C-5G%2C-256-GB%2C-Titanium-Icyblue?locale=en-GB,ar-*,*",
+   "name_en": "SAMSUNG Galaxy S25 Edge, 5G, 256 GB, Titanium Icyblue"
   }
  ]
 }
