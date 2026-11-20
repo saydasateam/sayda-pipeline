@@ -230,6 +230,23 @@ Mahmoud chose on 22 Sep, not a rename of that slot.
   fails the run if a stored `ref` disagrees with it.
   avail from the collect output (inStock/qty) is provisional — mark `in` only if the collect data says in stock. Save as `work/new-rows.json`, then `node apply.js new work/new-rows.json`. Row budget comes from `rules.json → page` (`targetRows`, `maxRows`, `maxNewPerRun`) — never from a number written here.
 
+## 2c. Pictures (added 20 Nov 2026 — every published row should have one)
+The page shows products as cards, and a card without a picture shows a blank tile. After §2b, for each
+store that has rows with no `img` (new rows always, older rows once):
+```js
+// in that store's tab, after core + boot (jarir: paste core, then pass the rows inline)
+SAYDA.start('img:<id>', () => SAYDA.images(SAYDA.ctx.rows.filter(r => !r.img)));
+```
+`SAYDA.show('img:<id>')` + `get_page_text` → save the JSON to `work/img/<id>.json` →
+`node scripts/apply-images.js work/img/<id>.json`. It writes only the shards that gained a picture, adds
+them to `work/upload.json` so they ride in the state commit, and leaves `checkedAt` alone.
+- The picture is the STORE'S OWN image for that product, read from its product page. Never take one from
+  a search engine, a price tracker or another store. `img: null` is a correct result; the card keeps the tile.
+- Works by plain fetch for amazon, extra and most stores (`og:image`); noon is read from its catalog API
+  inside `SAYDA.images`. A store whose product page only renders in the browser (firstcry) needs the
+  picture read from the rendered page during its per-row check: `document.querySelector('meta[property="og:image"]').content`.
+- Budget: one call per store. If the run is short on time, pictures come after coverage and before coupons.
+
 ## 3. FULL run only — coupons & travel (≈ 6 calls)
 - `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `coupons` in `data/state/_coupons.json` (node one-liner; if the file does not exist yet, create it with `node -e "const S=require('./lib/state');const st=S.load('.');S.saveShared('.','coupons',{coupons:st.coupons});S.saveShared('.','travel',{travel:st.travel,travelNone:st.travelNone,travelNone_text:st.travelNone_text});S.saveShared('.','notes',{notes:st.notes})"` first): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
 - Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers. Keep `travelNone` accurate (Saudia / flyadeal today).

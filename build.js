@@ -82,6 +82,9 @@ const D = st.rows.map(r => {
   if (BK[r.bk]) x.bk = BK[r.bk];
   if (r.lastChecked) x.lc = r.lastChecked;
   if (pubUrl(r.refUrl)) x.ru = r.refUrl;
+  // product picture (20 Nov 2026): the store's own image URL, read from its product page. Shown by
+  // hotlink with no referrer; a card without one falls back to a neutral tile.
+  if (r.img && /^https:\/\//.test(r.img)) x.im = r.img;
   // the evidence behind the comparison, so the page can show the recorded range and link to the source
   if (r.ev) { const e = {}; if (r.ev.prev != null) e.p = r.ev.prev; if (r.ev.min != null) e.mn = r.ev.min;
     if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (r.ev.src && !TRACKER.test(r.ev.src)) e.s = r.ev.src;
