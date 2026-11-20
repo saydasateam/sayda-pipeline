@@ -54,6 +54,17 @@ if (st.rows.length > rules.page.maxRows) {
   const pending = st.rows.filter(r => r.needsCheck);
   if (pending.length) { st.rows = st.rows.filter(r => !r.needsCheck); console.log(`held back ${pending.length} new rows not yet checked by their store: ${[...new Set(pending.map(r=>r.store))].join(', ')}`); }
 }
+// A row is published only when it has a name in BOTH languages (Mahmoud, 20 Nov 2026). The Arabic
+// name comes from the store's Arabic page and the English one from its English page; neither is
+// ever translated, so a row with one of them missing would show the wrong language on one of the
+// two pages. It is held back from both pages, stays in state so the next run reads its name again,
+// and is counted here and in the `english:` line. See RUNBOOK §2d.
+let heldNoName = [];
+const heldByStore = () => { const by = {}; heldNoName.forEach(r => { by[r.store] = (by[r.store] || 0) + 1; }); return Object.entries(by).map(([s, n]) => `${s} ${n}`).join(', '); };
+{
+  heldNoName = st.rows.filter(r => !String(r.name || '').trim() || !String(r.name_en || '').trim());
+  if (heldNoName.length) { st.rows = st.rows.filter(r => !heldNoName.includes(r)); console.log(`held back ${heldNoName.length} rows with no name in both languages: ${heldByStore()}`); }
+}
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
 // A campaign that has just been reset (scripts/new-campaign.js) has no rows and no check time.
@@ -140,6 +151,13 @@ const catChips = liveCats.map(c => `        <button data-g="c" data-f="${c.id}">
 const storeChips = cfg.groups.map(g => {
   const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false && (!st.rows.length || st.rows.some(r=>r.store===s.id))).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
   const sub  = `<span class="fsub${g.cssClass?' '+g.cssClass:''}">${g.label}</span>`;
+  return btns.length ? `        <div class="sgrp">${sub}\n${btns.join('\n')}</div>` : '';
+}).join('\n');
+// The English page gets the same grouped store chips. data-f is the English store label, which is
+// what its rows carry (E[].s).
+const storeChipsEn = cfg.groups.map(g => {
+  const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false && (!st.rows.length || st.rows.some(r=>r.store===s.id))).map(s=>`        <button type="button" data-g="s" data-f="${s.label_en || s.id}">${s.label_en || s.id}</button>`);
+  const sub  = `<span class="fsub${g.cssClass?' '+g.cssClass:''}">${g.label_en || g.id}</span>`;
   return btns.length ? `        <div class="sgrp">${sub}\n${btns.join('\n')}</div>` : '';
 }).join('\n');
 
@@ -287,6 +305,19 @@ const enTplPath = path.join(ROOT, 'template/en.html');
 if (!fs.existsSync(enTplPath)) throw new Error('build: template/en.html is missing — the English page is required');
 let en = fs.readFileSync(enTplPath, 'utf8');
 if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build: template/en.html contains Arabic text other than the language switch');
+// The filter bar is ONE design in two languages (Mahmoud, 20 Nov 2026): the three lines under the
+// campaign band (summary pills · «تصفية» / Filters with the sort and the count · category pills) and
+// the folded panel behind them. The English template must carry the same controls as the Arabic
+// one; a control added to one and not the other stops the build instead of shipping two layouts.
+{
+  const arTpl = fs.readFileSync(path.join(ROOT, 'template/index.html'), 'utf8');
+  const ids = ['stats', 'sfact', 'filters', 'ftoggle', 'fthint', 'ftn', 'fsel', 'fbody', 'pmin', 'pmax', 'sortby', 'fcount', 'freset'];
+  const chips = t => [...t.matchAll(/data-g="([av])" data-f="([a-z]+)"/g)].map(m => m[1] + ':' + m[2]).join(' ');
+  const sorts = t => ((t.match(/<select id="sortby">[\s\S]*?<\/select>/) || [''])[0].match(/<option/g) || []).length;
+  const miss = ids.filter(id => !en.includes(`id="${id}"`) || !arTpl.includes(`id="${id}"`));
+  if (miss.length || chips(arTpl) !== chips(en) || sorts(arTpl) !== sorts(en) || !en.includes('{{STORE_CHIPS_EN}}'))
+    throw new Error(`build: the filter bar differs between template/index.html and template/en.html — ids missing: ${miss.join(', ') || 'none'} · chips ar [${chips(arTpl)}] en [${chips(en)}] · sort options ar ${sorts(arTpl)} en ${sorts(en)}`);
+}
 const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^<style>|<\/style>$/g, '')).join('\n');
 const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
 const enFill = {
@@ -294,7 +325,7 @@ const enFill = {
   UPDATED_EN: dEn(st.meta.updated).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' }),
   CHECKED_EN: dEn(st.meta.checkedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' }),
   STORE_COUNT: String(cfg.stores.filter(s => s.enabled !== false).length), TH_ACCENT: campaignFill.TH_ACCENT, TH_ACCENT_HEX: campaignFill.TH_ACCENT_HEX,
-  E_JSON: arr(E), CATS_JSON: JSON.stringify(cats.map(c => [c.id, c.label_en || c.id])),
+  E_JSON: arr(E), CATS_JSON: JSON.stringify(cats.map(c => [c.id, c.label_en || c.id])), STORE_CHIPS_EN: storeChipsEn,
   COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), p: enText(x.c.perk_en || '') }))),
   WALLET_JSON: JSON.stringify(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
   CAMPAIGN_END: String(M.campaignEnd || ''),
@@ -310,6 +341,7 @@ fs.writeFileSync(path.join(ROOT, 'dist/en/index.html'), en);
 const noName = st.rows.filter(r => !r.name_en), warnNoEn = st.rows.filter(r => r.verdict === 'warn' && !r.finding_en && /كود|كوبون|قسيمة|Plus|بلس|السلة|عند الدفع|اشتراك/.test(r.finding || ''));
 console.log(`english: dist/en/index.html (${en.length} chars) · store names ${st.rows.length - noName.length} of ${st.rows.length}`
   + (noName.length ? ` — ${noName.length} show the Arabic name: ${[...new Set(noName.map(r => r.store))].join(', ')}` : '')
+  + (heldNoName.length ? ` · held back, no name in both languages: ${heldNoName.length} (${heldByStore()})` : '')
   + ` · coupons ${cpEn.length} of ${st.coupons.length} · travel ${trEn.length} of ${st.travel.length} · cars ${crEn.length} of ${(st.cars || []).length}`);
 if (warnNoEn.length) { console.error(`build (english): ${warnNoEn.length} row(s) state a condition in Arabic and have no finding_en — the English page would drop the condition: ${warnNoEn.slice(0, 8).map(r => r.id).join(', ')}`); process.exit(1); }
 

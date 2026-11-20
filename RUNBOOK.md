@@ -108,6 +108,15 @@ this and with nothing else.
     Look for these offers on each store's home page, its offers or bank-offers page and its checkout
     banners, in the same pass as the coupon codes.
   - **Saved deals** live in the visitor's browser and key on the row `id`, one more reason ids stay stable.
+- **One filter bar, two languages (Mahmoud, 20 Nov 2026).** The three lines under the campaign band are
+  the same on `/` and `/en/`: (1) the summary pills, (2) «تصفية» / “Filters” with the sort and the
+  «يعرض … من …» / “Showing … of …” count, (3) the category pills. Behind the button is the same folded
+  panel: availability, discount type, stores grouped as in `config/stores.json → groups` (each group
+  has `label` and `label_en`), budget. Same defaults, same counts on the chips, same «مسح الفلاتر» /
+  “Clear filters”. `template/en.html` uses the Arabic page's markup and its stylesheet; only the words
+  differ. A change to the bar in `template/index.html` is made in `template/en.html` in the same
+  commit. `build.js` stops with «the filter bar differs…» when the two templates do not carry the
+  same controls, availability and discount-type chips and sort options.
 - **Close a tab the moment its result is harvested** — `tabs_close_mcp` straight after the
   `get_page_text` that reads its JSON. Never keep a finished store's tab open "in case".
 - **Reuse a pool of at most 3–4 tabs.** Navigate a free tab to the next store instead of opening a new
@@ -304,8 +313,14 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
   200 page, so a wrong rule returns `null`, never a wrong name. When a store returns all `null`, open
   one product, use the site's own language switch, note the English URL form, and report it in the
   summary and a PushNotification so the config is corrected. Do not edit config yourself.
-- A row with no `name_en` still publishes; the English page shows its Arabic name. `build.js` prints
-  how many and for which stores. Name those stores in the summary every run until it is zero.
+- **No name in both languages, no card (Mahmoud, 20 Nov 2026).** A row is published only when it has
+  both `name` (the store's Arabic title) and `name_en` (the store's English title). `build.js` holds
+  a row with either one missing back from BOTH pages and prints
+  `held back N rows with no name in both languages: <store> <n>, …`; the same count is in the
+  `english:` line. The row stays in its shard, so the next run reads its name again and `fill-na`
+  does not pick the same product a second time. Never delete it by hand, never translate a name to
+  fill the gap, and never publish it on one page only. Name the stores with held-back rows in the
+  summary and in a PushNotification every run until it is zero.
 - **The site's wrapper is not part of the name** (20 Nov 2026). `SAYDA.titleOf` removes it:
   «Buy … in KSA | Mumzworld», «… | Mothercare Saudi Arabia», «… | Nahdi», «… | Best Price KSA»
   (Namshi), «… | BlackBox». The product name between is stored exactly as the store wrote it. If a
