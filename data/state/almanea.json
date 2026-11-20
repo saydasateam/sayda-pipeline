@@ -1,6 +1,75 @@
 {
  "store": "almanea",
- "updated": null,
- "checkedAt": null,
- "rows": []
+ "updated": "2026-11-21",
+ "checkedAt": "2026-11-21T01:33:53.886+03:00",
+ "rows": [
+  {
+   "id": "almanea:lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
+   "store": "almanea",
+   "cat": "المنزل",
+   "name": "ثلاجة إل جي بابين ٢١٫٦ قدم انفرتر فضي LT23HBHSIV",
+   "price": 4359,
+   "was": 8399,
+   "ref": 4418,
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/-/ar/dp/B0DLH8CQSM",
+   "verdict": "bad",
+   "finding": "نفس سعر amazon (٤٬٤١٨)",
+   "url": "https://www.almanea.sa/product/lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "market": {
+     "store": "amazon",
+     "price": 4418,
+     "url": "https://www.amazon.sa/-/ar/dp/B0DLH8CQSM"
+    },
+    "min": 4418,
+    "max": 4418,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-21",
+    "url": "https://www.amazon.sa/-/ar/dp/B0DLH8CQSM"
+   },
+   "bk": "nosaving",
+   "firstSeen": "2026-11-21",
+   "lastChecked": "2026-11-21",
+   "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_top_freezer_refrigerator_21.6_l_inverter_silver_-_lt23hbhsiv_1_.jpg?width=600",
+   "name_en": "LG Top Freezer Refrigerator, 21.6 L, Inverter, Silver - LT23HBHSIV"
+  },
+  {
+   "id": "almanea:lg-17-9-cu-ft-top-freezer-refrigerator-inverter-silver-lt19hbhsin-p-120100702217013",
+   "store": "almanea",
+   "cat": "المنزل",
+   "name": "ثلاجة إل جي بابين ١٧٫٩ قدم انفرتر فضي LT19HBHSIN",
+   "price": 3999,
+   "was": 7199,
+   "ref": 3484,
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/-/ar/dp/B0FXH36G1R",
+   "verdict": "bad",
+   "finding": "amazon ٣٬٤٨٤ · أرخص من هنا",
+   "url": "https://www.almanea.sa/product/lg-17-9-cu-ft-top-freezer-refrigerator-inverter-silver-lt19hbhsin-p-120100702217013",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "market": {
+     "store": "amazon",
+     "price": 3484,
+     "url": "https://www.amazon.sa/-/ar/dp/B0FXH36G1R"
+    },
+    "min": 3484,
+    "max": 3484,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-21",
+    "url": "https://www.amazon.sa/-/ar/dp/B0FXH36G1R"
+   },
+   "bk": "cheaper",
+   "firstSeen": "2026-11-21",
+   "lastChecked": "2026-11-21",
+   "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_17.9_cu.ft_top_freezer_refrigerator_inverter_silver_-_lt19hbhsin_3_.jpg?width=600",
+   "name_en": "LG 17.9 Cu.Ft, Top Freezer Refrigerator, Inverter, Silver - LT19HBHSIN"
+  }
+ ]
 }

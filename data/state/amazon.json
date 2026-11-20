@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-11-21",
- "checkedAt": "2026-11-21T01:16:21.641+03:00",
+ "checkedAt": "2026-11-21T01:38:46.158+03:00",
  "rows": [
   {
    "id": "amazon:B09M7B4BQZ",
@@ -920,6 +920,114 @@
    "lastChecked": "2026-11-21",
    "img": "https://m.media-amazon.com/images/I/61IzCixK4ZL._AC_SL500_.jpg",
    "name_en": "Home Master 220V Food Processor - HM-895"
+  },
+  {
+   "id": "amazon:B07SNGMP5L",
+   "store": "amazon",
+   "cat": "أزياء",
+   "name": "حقيبة لافي فارو ساتشيل للنساء بني",
+   "price": 69.68,
+   "was": 408.22,
+   "ref": 567.32,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٥٦٧ · أقل سعر مسجل",
+   "url": "https://www.amazon.sa/-/ar/dp/B07SNGMP5L",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 567.32,
+    "min": 316.4,
+    "max": 660,
+    "src": "kanbkam",
+    "on": "2026-11-21",
+    "url": "https://www.kanbkam.com/sa/ar/p-B07SNGMP5L"
+   },
+   "img": "https://m.media-amazon.com/images/I/71aQOuXDD7L._AC_SL1500_.jpg",
+   "name_en": "Lavie Womens Faroe Satchel Tote",
+   "firstSeen": "2026-11-21",
+   "lastChecked": "2026-11-21"
+  },
+  {
+   "id": "amazon:B0DND7C9KT",
+   "store": "amazon",
+   "cat": "أزياء",
+   "name": "صندل كروكس غيتاواي بلاتفورم للنساء أسود",
+   "price": 154.7,
+   "was": 443.45,
+   "ref": 464,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٤٦٤ · أقل سعر مسجل",
+   "url": "https://www.amazon.sa/-/ar/dp/B0DND7C9KT",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 2",
+   "ev": {
+    "prev": 464,
+    "min": 158.01,
+    "max": 464,
+    "src": "kanbkam",
+    "on": "2026-11-21",
+    "url": "https://www.kanbkam.com/sa/ar/p-B0DND7C9KT"
+   },
+   "img": "https://m.media-amazon.com/images/I/71kzuL2oa8L._AC_SL1500_.jpg",
+   "name_en": "Crocs Women'S 210834-6Zq Sandals",
+   "firstSeen": "2026-11-21",
+   "lastChecked": "2026-11-21"
+  },
+  {
+   "id": "amazon:B09WXTK6M6",
+   "store": "amazon",
+   "cat": "أزياء",
+   "name": "قلادة إسبريت إليسا فضة استرليني للنساء",
+   "price": 141,
+   "was": 388.43,
+   "ref": 394,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٣٩٤ · أقل سعر مسجل",
+   "url": "https://www.amazon.sa/-/ar/dp/B09WXTK6M6",
+   "avail": "in",
+   "availNote": "",
+   "ev": {
+    "prev": 394,
+    "min": 147,
+    "max": 394,
+    "src": "kanbkam",
+    "on": "2026-11-21",
+    "url": "https://www.kanbkam.com/sa/ar/p-B09WXTK6M6"
+   },
+   "img": "https://m.media-amazon.com/images/I/41LlVco0OmL._AC_SL1500_.jpg",
+   "name_en": "ESPRIT Necklace, Elisa, Silver Color, women standard, Sterling Silver, No Gemstone",
+   "firstSeen": "2026-11-21",
+   "lastChecked": "2026-11-21"
+  },
+  {
+   "id": "amazon:B0C82QVWZL",
+   "store": "amazon",
+   "cat": "أزياء",
+   "name": "حذاء كالفن كلاين غابريانا للنساء عاجي",
+   "price": 235,
+   "was": 477.21,
+   "ref": 477.5,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٤٧٨ · سبق ونزل ١٧٥",
+   "url": "https://www.amazon.sa/-/ar/dp/B0C82QVWZL",
+   "avail": "low",
+   "availNote": "أمازون: متبقي 1",
+   "ev": {
+    "prev": 477.5,
+    "min": 174.66,
+    "max": 477.5,
+    "src": "kanbkam",
+    "on": "2026-11-21",
+    "url": "https://www.kanbkam.com/sa/ar/p-B0C82QVWZL"
+   },
+   "img": "https://m.media-amazon.com/images/I/61qVgMza6kL._AC_SL1500_.jpg",
+   "name_en": "Calvin Klein womens Gabrianna",
+   "firstSeen": "2026-11-21",
+   "lastChecked": "2026-11-21"
   }
  ]
 }
