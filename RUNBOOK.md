@@ -35,7 +35,7 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   Day pages. An offer is published only when the company's own page names it for this campaign.
 - **Two languages, every publish (Mahmoud, 20 Nov 2026).** The English page at `/en/` is as much a
   part of a refresh as the Arabic one: `build.js` writes `dist/index.html` AND `dist/en/index.html`,
-  and a publish uploads both. A run that publishes Arabic alone has not published. See §2d and §4.
+  and a publish pushes both in one commit (§4a). A run that publishes Arabic alone has not published. See §2d and §4.
 - **The page is a product grid with pictures** (20 Nov 2026), not a table. Every published row should
   carry `img` (§2c) and `name_en` (§2d).
 - `build.js` refuses to build while there are 0 rows and no store has been checked. That is the
@@ -426,18 +426,48 @@ node scripts/market-apply.js work/market/<store>.json --apply    # writes the ro
 - Own-label stock (IKEA, Home Centre, Home Box, Pan Home, CityW, Baytonia, most Trendyol) has no
   second seller anywhere. Those rows stay `na` permanently. That is the correct answer, not a gap.
 
-## 4. Build & publish (≈ 5 calls)
+## 4. Build & publish (≈ 8 calls)
 ```
-node build.js      # dist/index.html — note the "rows/available" counts it prints
+node build.js      # dist/index.html AND dist/en/index.html; note the counts and the english: line
 ```
-- **Three commits, not two (20 Nov 2026):** Arabic page, English page, state. Upload `dist/en/index.html` to
-  `https://github.com/saydasateam/sayda-deals/upload/main/en` the same way as the Arabic page, straight after it, with the
-  same commit message plus « (English)». Verify both `https://saydadeals.com/` and `https://saydadeals.com/en/` carry the
-  new update stamp.
-- Upload `dist/index.html` to the site repo: navigate `https://github.com/saydasateam/sayda-deals/upload/main` → `find` the "Choose your files" input → `file_upload` with `<repo>/dist/index.html` → wait 7 s → set the commit message with the native setter and click the submit button, both in one `javascript_tool` call:
-  `const i=document.querySelector('input[name="message"]');Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set.call(i,'Update <YYYY-MM-DD HH:MM> Riyadh');i.dispatchEvent(new Event('input',{bubbles:true}));[...document.querySelectorAll('button')].find(b=>/^Commit changes$/.test(b.innerText.trim())&&b.type==='submit').click();`
-  → wait 10 s → `location.href` must be the repo root. Verify on `/commits/main` that the newest commit is yours.
-- Same for the data files into this repo. **State is sharded per store** — `data/state/<id>.json` and `data/state/<id>.history.json`, in ONE directory —
+**Two writes since 20 Nov 2026, 22:30 Riyadh: the site is pushed, the state is uploaded.** Claude's cloud sessions act on
+GitHub as `mahmoudkie`, which has write access to the private site repo `saydasateam/sayda-deals` and none to this repo
+(this repo is public so that the browser can load the adapters from raw.githubusercontent.com, and it stays that way).
+So both pages go out together as one ordinary `git push` from the sandbox (§4a), and the state shards still go through
+GitHub's upload form in Chrome, signed in as saydasateam (§4b). Do §4a first: it is what visitors see.
+
+### 4a. Site: both pages, one commit, one push
+1. Attach the site repo: call `add_repo` with owner `saydasateam`, repo `sayda-deals`, access `push`, and clone it the way
+   that tool says, shallow, into a NEW directory named for this run: `SITE=/home/claude/site-<HHMM>`. Never `cd` into it;
+   use `git -C "$SITE"` (the stop-hook reason in the refresh task applies here too). Never reuse, reset or delete an
+   older clone.
+2. `cp dist/index.html "$SITE/index.html" && cp dist/en/index.html "$SITE/en/index.html"`
+3. `git -C "$SITE" status --porcelain` must list `index.html` and/or `en/index.html` and NOTHING else. If it lists
+   anything else: stop, commit nothing, and send a PushNotification quoting what it listed. If it lists NOTHING, the
+   build is byte-identical to the live site (the stamps come from the state, so this means the run changed nothing a
+   visitor sees): do not commit, skip to §4b, and §5 treats the run as one that published nothing.
+4. `git -C "$SITE" add index.html en/index.html && git -C "$SITE" commit -m "Update <YYYY-MM-DD HH:MM> Riyadh (Arabic + English)"`
+5. `git -C "$SITE" -c push.negotiate=true push origin HEAD:main`
+   - A «push negotiation failed» warning is not a failure. Step 6 decides.
+   - Rejected because `main` moved after the clone (another run or a manual fix landed): clone again into a second new
+     directory and repeat steps 2 to 5 once. If that is rejected too, stop and notify. Never `--force`, never push a run
+     to any other branch, never delete a branch.
+6. Verify: `gh api repos/saydasateam/sayda-deals/commits/main --jq .sha` must equal `git -C "$SITE" rev-parse HEAD`.
+   About a minute later (Cloudflare Pages deploys each push), WebFetch `https://saydadeals.com/?v=<HHMM>` and
+   `https://saydadeals.com/en/?v=<HHMM>`; both must carry this run's update stamp. Keep the `?v=`: on 20 Nov the bare
+   address served a stale cached copy.
+
+**Rules for the site repo, in every session, not only scheduled runs:**
+- A run writes exactly two files to `main`: `index.html` and `en/index.html`. Never `archive/`, `src/`, `functions/`,
+  `brand/`, `README.md`, the share images or anything else.
+- Only a refresh (the scheduled task, or a run Mahmoud asks for in chat) pushes to `main`. Any other change to the site
+  goes to a branch named `claude/<topic>` and waits for Mahmoud's yes before it reaches `main`.
+- The push is authenticated by Claude's own GitHub connection through the session's proxy. Never set `GH_TOKEN` or
+  `GITHUB_TOKEN`, never paste, print or read a credential.
+- The `sayda-deals/upload/...` forms are retired. Chrome no longer touches the site repo.
+
+### 4b. State: one upload-form commit to this repo (Chrome, as saydasateam)
+- **State is sharded per store** — `data/state/<id>.json` and `data/state/<id>.history.json`, in ONE directory —
   so that overlapping slots cannot revert each other. Upload **only the shards this slot touched**, which `work/report.json → wrote`
   names explicitly, plus the matching history shards, **all in one commit**: select them in one `file_upload` call to
   `https://github.com/saydasateam/sayda-pipeline/upload/main/data/state`. `work/report.json → upload` lists the exact paths — it is the union of every `apply.js` call in this run (also kept in `work/upload.json`), so the check phase's shards are still listed after `apply.js new`.
@@ -455,22 +485,25 @@ node build.js      # dist/index.html — note the "rows/available" counts it pri
     slot runs. Nothing is missing at any point in between. `node scripts/unshard.js --check` says which
     stores are still being served from the legacy file; only when it reports none may `data/state.json`
     and `data/history.json` be deleted.
-- These three commits (Arabic page, English page, state) are the ONLY forms this run may submit. Never touch README.md via upload (GitHub refuses the overwrite).
+- The site push (§4a) and this state upload (§4b) are the only writes a run makes, and this upload is the only form it may
+  submit. If §4a landed and §4b failed, the page is live but the next run starts without this run's rows: notify.
+  Never touch README.md via upload (GitHub refuses the overwrite).
 - Do not update the claude.ai artifact.
 
 ## 5. Report
 Final message in Arabic, concise: top 7 verified deals available now (store, price, real vs claimed), new rows, newly
 unavailable / restocked / price changes (from work/report.json), coupon and travel changes, stores skipped and why, and
-the build's `english:` line (store names n of n, coupons n of n), and confirmation of all three commits.
+the build's `english:` line (store names n of n, coupons n of n), the site commit (short sha) and the state commit.
 
-**Prove the run did something before calling it done.** Read `https://github.com/saydasateam/sayda-deals/commits/main` and
-confirm the newest commit is this run's. Then:
+**Prove the run did something before calling it done.** Run
+`gh api 'repos/saydasateam/sayda-deals/commits?per_page=1' --jq '.[0]|[.sha[0:7],.commit.committer.date,.commit.message]'`
+(attach the repo as in §4a step 1 first if this run never reached §4) and confirm the newest commit is this run's. Then:
 - newest commit is this run's → clean run, stay silent.
 - **no commit from this run, for any reason** → PushNotification. This is not optional and it outranks «stay silent»: a run
   that publishes nothing and says nothing is indistinguishable from a healthy one in the schedule's own record, which reports
   SUCCEEDED either way. On 2026-09-19 all four runs ended in ~4 minutes having committed nothing; only the user noticing the
   stale page revealed it. State what stopped it (no browser, adapter failures, budget) and how far the run got.
-PushNotification also when: a store failed, a commit failed, or ≥ 5 deals ended at once.
+PushNotification also when: a store failed, the site push or the state upload failed, or ≥ 5 deals ended at once.
 If today is after `config/campaign.json → campaignEnd`: say the sale is over and suggest pausing the task.
 
 ## Rollback — how to undo the sharding change

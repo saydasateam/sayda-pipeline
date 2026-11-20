@@ -97,5 +97,6 @@ travel and cars need `*_en` fields. Stores, categories and the campaign carry `l
 `template/en.html` shares the Arabic page's CSS (lifted from the built page) and has its own small
 script; when the Arabic page gains a section, add it there too.
 
-**4. A publish is three commits:** `index.html`, `en/index.html`, and the state shards.
+**4. A publish is two writes (20 Nov 2026):** one `git push` to the private site repo carrying `index.html`
+and `en/index.html` in a single commit, then one upload-form commit of the state shards to this repo. See RUNBOOK §4.
 
