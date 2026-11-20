@@ -2,26 +2,31 @@
   "groups": [
     {
       "id": "electronics",
-      "label": "إلكترونيات ومتاجر عامة"
+      "label": "إلكترونيات ومتاجر عامة",
+      "label_en": "Electronics and general stores"
     },
     {
       "id": "furniture",
       "label": "أثاث",
+      "label_en": "Furniture",
       "cssClass": "fsub-furn"
     },
     {
       "id": "fashion",
       "label": "أزياء وتجميل",
+      "label_en": "Fashion and beauty",
       "cssClass": "fsub-fash"
     },
     {
       "id": "kids",
       "label": "أطفال وأمهات",
+      "label_en": "Kids and mothers",
       "cssClass": "fsub-kids"
     },
     {
       "id": "pharmacy",
       "label": "صيدليات وتجميل",
+      "label_en": "Pharmacies and beauty",
       "cssClass": "fsub-pharm"
     }
   ],
