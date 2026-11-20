@@ -1,4 +1,56 @@
 {
- "cars": [],
- "carsNone": []
+ "cars": [
+  {
+   "company": "سيارة (syarah.com)",
+   "type": "منصة بيع سيارات",
+   "brand": "سيارات جديدة ومستعملة",
+   "headline": "عروض الجمعة البيضاء: كوبونات خصم تصل إلى 1,500 ريال",
+   "code": "",
+   "bookStart": "2026-11-08",
+   "bookEnd": "2026-11-27",
+   "window": "السيارات المشمولة بالحملة فقط: أكثر من 3,000 مستعملة وأكثر من 150 جديدة",
+   "verdict": "catch",
+   "terms": "كوبون 1,500 ريال عند الشراء كاش على السيارات المشمولة بالحملة فقط (أكثر من 3,000 مستعملة وأكثر من 150 جديدة)؛ وعند التمويل تتحمل سيارة القسط الأول بحد أقصى 1,200 ريال ويخضع لشروط جهات التمويل المعتمدة؛ العروض لا تشمل جميع السيارات",
+   "url": "https://syarah.com/carsguide/syarah-white-friday-2026/",
+   "checked": "2026-11-21",
+   "company_en": "Syarah (syarah.com)",
+   "type_en": "Car marketplace",
+   "brand_en": "New and used cars",
+   "headline_en": "White Friday offers: discount coupons of up to SAR 1,500",
+   "terms_en": "SAR 1,500 coupon when paying cash, on campaign cars only (3,000+ used and 150+ new); when financing, Syarah pays the first instalment up to SAR 1,200, subject to the approved financier's terms; the offers do not cover all cars",
+   "window_en": "Campaign cars only: 3,000+ used and 150+ new"
+  }
+ ],
+ "carsNone": [
+  {
+   "company": "عبداللطيف جميل (تويوتا)",
+   "type": "وكيل",
+   "company_en": "Abdul Latif Jameel (Toyota)",
+   "type_en": "Dealer"
+  },
+  {
+   "company": "بترومين (نيسان)",
+   "type": "وكيل",
+   "company_en": "Petromin (Nissan)",
+   "type_en": "Dealer"
+  },
+  {
+   "company": "المجدوعي (شانجان)",
+   "type": "وكيل",
+   "company_en": "Almajdouie (Changan)",
+   "type_en": "Dealer"
+  },
+  {
+   "company": "العيسائي (ميتسوبيشي)",
+   "type": "وكيل",
+   "company_en": "Alesayi (Mitsubishi)",
+   "type_en": "Dealer"
+  },
+  {
+   "company": "مصرف الراجحي",
+   "type": "تمويل بنكي",
+   "company_en": "Al Rajhi Bank",
+   "type_en": "Bank finance"
+  }
+ ]
 }

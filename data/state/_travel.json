@@ -1,5 +1,43 @@
 {
  "travel": [],
- "travelNone": [],
- "travelNone_text": ""
+ "travelNone": [
+  {
+   "company": "طيران ناس",
+   "type": "طيران",
+   "company_en": "flynas",
+   "type_en": "Airline"
+  },
+  {
+   "company": "الخطوط السعودية",
+   "type": "طيران",
+   "company_en": "Saudia",
+   "type_en": "Airline"
+  },
+  {
+   "company": "طيران الرياض",
+   "type": "طيران",
+   "company_en": "Riyadh Air",
+   "type_en": "Airline"
+  },
+  {
+   "company": "المسافر",
+   "type": "منصة سفر",
+   "company_en": "Almosafer",
+   "type_en": "Travel platform"
+  },
+  {
+   "company": "المطار",
+   "type": "منصة سفر",
+   "company_en": "Almatar",
+   "type_en": "Travel platform"
+  },
+  {
+   "company": "فلاي إن",
+   "type": "منصة سفر",
+   "company_en": "Flyin",
+   "type_en": "Travel platform"
+  }
+ ],
+ "travelNone_text": "فحصنا هذه المواقع في ٢١ نوفمبر: عروضها الحالية أسعار عادية أو أكواد شتوية لا تربطها بالجمعة البيضاء. موقع طيران أديل لم يُفتح وقت الفحص، فلم نُدرجه.",
+ "travelNone_text_en": "Checked on 21 November: their current offers are standing fares or winter codes not tied to White Friday. The flyadeal site did not load during the check, so it is not listed."
 }
