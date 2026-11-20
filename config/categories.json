@@ -3,43 +3,53 @@
   "chips": [
     {
       "id": "شاشات",
-      "label": "شاشات"
+      "label": "شاشات",
+      "label_en": "TVs & Screens"
     },
     {
       "id": "إلكترونيات",
-      "label": "إلكترونيات"
+      "label": "إلكترونيات",
+      "label_en": "Electronics"
     },
     {
       "id": "ألعاب",
-      "label": "ألعاب"
+      "label": "ألعاب",
+      "label_en": "Games & Toys"
     },
     {
       "id": "المنزل",
-      "label": "أجهزة منزلية"
+      "label": "أجهزة منزلية",
+      "label_en": "Home Appliances"
     },
     {
       "id": "أثاث",
-      "label": "أثاث"
+      "label": "أثاث",
+      "label_en": "Furniture"
     },
     {
       "id": "عطور",
-      "label": "عطور"
+      "label": "عطور",
+      "label_en": "Perfumes"
     },
     {
       "id": "عناية",
-      "label": "عناية شخصية"
+      "label": "عناية شخصية",
+      "label_en": "Personal Care"
     },
     {
       "id": "أزياء",
-      "label": "أزياء وحقائب"
+      "label": "أزياء وحقائب",
+      "label_en": "Fashion & Bags"
     },
     {
       "id": "أطفال",
-      "label": "أطفال ومستلزماتهم"
+      "label": "أطفال ومستلزماتهم",
+      "label_en": "Kids & Baby"
     },
     {
       "id": "رياضة",
-      "label": "رياضة"
+      "label": "رياضة",
+      "label_en": "Sports"
     }
   ],
   "map": {

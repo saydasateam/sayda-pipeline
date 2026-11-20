@@ -2,7 +2,9 @@
  "_doc": "Static facts of the CURRENT campaign. Never written by a run. Starting a new campaign = edit this file, then `node scripts/new-campaign.js <archive-id>` (see RUNBOOK → New campaign).",
  "id": "white-friday-2026",
  "campaign": "الجمعة البيضاء ٢٠٢٦",
+ "campaign_en": "White Friday 2026",
  "campaignShort": "الجمعة البيضاء",
+ "campaignShort_en": "White Friday",
  "campaignStart": "2026-11-19",
  "campaignEnd": "2026-11-30",
  "_dates": "Friday itself is 27 Nov 2026. Amazon.sa runs 19–30 Nov and Noon (Yellow Friday) 20–30 Nov per Time Out Riyadh, read 19 Nov 2026; other stores differ and each store's own page wins. campaignEnd is the last day a run refreshes.",
@@ -33,11 +35,13 @@
  "archive": [
   {
    "label": "صيدات اليوم الوطني ٩٦",
-   "href": "/archive/national-day-96"
+   "href": "/archive/national-day-96",
+   "label_en": "National Day 96 deals (Arabic)"
   },
   {
    "label": "عروض الأسبوع الأزرق",
-   "href": "/archive/blue-week-2026"
+   "href": "/archive/blue-week-2026",
+   "label_en": "Al Rajhi Blue Week offers (Arabic)"
   }
  ]
 }

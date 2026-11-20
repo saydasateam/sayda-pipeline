@@ -28,6 +28,9 @@
   "stores": [
     {
       "id": "noon",
+      "label_en": "Noon",
+      "en": { "api": "noon" },
+      "_en": "verified 20 Nov 2026",
       "label": "نون",
       "group": "electronics",
       "adapter": "noon",
@@ -79,6 +82,9 @@
     },
     {
       "id": "amazon",
+      "label_en": "Amazon",
+      "en": { "try": [["/dp/", "/-/en/dp/"]] },
+      "_en": "verified 20 Nov 2026",
       "label": "أمازون",
       "group": "electronics",
       "adapter": "amazon",
@@ -149,6 +155,9 @@
     },
     {
       "id": "extra",
+      "label_en": "Extra",
+      "en": { "try": [["/ar-sa/", "/en-sa/"]] },
+      "_en": "verified 20 Nov 2026",
       "label": "إكسترا",
       "group": "electronics",
       "adapter": "extra",
@@ -199,6 +208,9 @@
     },
     {
       "id": "jarir",
+      "label_en": "Jarir",
+      "en": { "try": [["/sa-ar/", "/sa-en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "جرير",
       "group": "electronics",
       "adapter": "jarir",
@@ -216,6 +228,9 @@
     },
     {
       "id": "blackbox",
+      "label_en": "Blackbox",
+      "en": { "try": [[".com.sa/", ".com.sa/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "بلاك بوكس",
       "group": "electronics",
       "adapter": "nextdata",
@@ -247,6 +262,9 @@
     },
     {
       "id": "almanea",
+      "label_en": "Almanea",
+      "en": { "try": [[".sa/", ".sa/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "المنيع",
       "group": "electronics",
       "adapter": "nextdata",
@@ -282,6 +300,9 @@
     },
     {
       "id": "saco",
+      "label_en": "SACO",
+      "en": { "try": [[".sa/", ".sa/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "ساكو",
       "group": "electronics",
       "adapter": "saco",
@@ -297,6 +318,9 @@
     },
     {
       "id": "trendyol",
+      "label_en": "Trendyol",
+      "en": { "try": [[".sa/ar/", ".sa/en/"], [".sa/", ".sa/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "ترينديول",
       "group": "electronics",
       "adapter": "trendyol",
@@ -338,6 +362,7 @@
     },
     {
       "id": "ikea",
+      "label_en": "IKEA",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "إيكيا",
@@ -361,6 +386,7 @@
     },
     {
       "id": "homecentre",
+      "label_en": "Home Centre",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "هوم سنتر",
@@ -392,6 +418,7 @@
     },
     {
       "id": "homebox",
+      "label_en": "Home Box",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "هوم بوكس",
@@ -423,6 +450,7 @@
     },
     {
       "id": "panhome",
+      "label_en": "Pan Home",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "بان هوم",
@@ -446,6 +474,7 @@
     },
     {
       "id": "cityw",
+      "label_en": "CityW",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "سيتي دبليو",
@@ -464,6 +493,7 @@
     },
     {
       "id": "baytonia",
+      "label_en": "Baytonia",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "بيتونيا",
@@ -487,6 +517,7 @@
     },
     {
       "id": "ashley",
+      "label_en": "Ashley",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "أشلي",
@@ -507,6 +538,7 @@
     },
     {
       "id": "midas",
+      "label_en": "Midas",
       "enabled": false,
       "_dropped": "2026-11-19 — White Friday: all furniture stores dropped (Mahmoud). Adapter and config kept; re-enable per campaign.",
       "label": "ميداس",
@@ -524,6 +556,9 @@
     },
     {
       "id": "namshi",
+      "label_en": "Namshi",
+      "en": { "try": [["/saudi-ar/", "/saudi-en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "نمشي",
       "group": "fashion",
       "adapter": "namshi",
@@ -555,6 +590,9 @@
     },
     {
       "id": "mumzworld",
+      "label_en": "Mumzworld",
+      "en": { "try": [["/sa-ar/", "/sa-en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "ممزورلد",
       "group": "kids",
       "adapter": "mumzworld",
@@ -586,6 +624,9 @@
     },
     {
       "id": "mothercare",
+      "label_en": "Mothercare",
+      "en": { "try": [["/ar/", "/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "مذركير",
       "group": "kids",
       "adapter": "mothercare",
@@ -608,6 +649,9 @@
     },
     {
       "id": "nahdi",
+      "label_en": "Nahdi",
+      "en": { "try": [["/ar-sa/", "/en-sa/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "النهدي",
       "group": "pharmacy",
       "adapter": "nahdi",
@@ -630,6 +674,9 @@
     },
     {
       "id": "aldawaa",
+      "label_en": "Al-Dawaa",
+      "en": { "try": [["/ar/", "/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "الدواء",
       "group": "pharmacy",
       "adapter": "aldawaa",
@@ -651,6 +698,9 @@
     },
     {
       "id": "dabdoob",
+      "label_en": "Dabdoob",
+      "en": { "try": [["/ar-SA/", "/en-SA/"], ["/ar-SA/", "/en/"]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "دبدوب",
       "group": "kids",
       "adapter": "dabdoob",
@@ -687,6 +737,9 @@
     },
     {
       "id": "firstcry",
+      "label_en": "FirstCry",
+      "en": { "try": [["/ar/", "/"], ["", ""]] },
+      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
       "label": "فيرست كراي",
       "group": "kids",
       "adapter": "firstcry",
@@ -717,6 +770,7 @@
     },
     {
       "id": "toysrus",
+      "label_en": "Toys R Us",
       "label": "تويز آر أص",
       "group": "kids",
       "enabled": false,
