@@ -13,23 +13,23 @@
  "theme": {
   "_doc": "Each campaign carries its own colour (Mahmoud, Oct 2026): green was National Day, blue was Blue Week. White Friday is ink on white. The verified/ok green is semantic and is NOT part of the theme.",
   "light": {
-   "accent": "#111111",
-   "accentSoft": "#ECECE8",
-   "bg": "#F5F5F3",
-   "ink": "#111111",
-   "muted": "#5F5F5A",
-   "line": "#DEDEDA",
-   "chip": "#EDEDE9"
+   "accent": "#0B0F19",
+   "accentSoft": "#EEF0F3",
+   "bg": "#F6F7F9",
+   "ink": "#0B0F19",
+   "muted": "#5B6472",
+   "line": "#E3E6EA",
+   "chip": "#EFF1F4"
   },
   "dark": {
    "accent": "#FFFFFF",
-   "accentSoft": "#262624",
-   "bg": "#0E0E0E",
-   "surface": "#181818",
-   "ink": "#F2F2F0",
-   "muted": "#A3A39E",
-   "line": "#2C2C2A",
-   "chip": "#232321"
+   "accentSoft": "#232733",
+   "bg": "#0B0F19",
+   "surface": "#141925",
+   "ink": "#EEF0F4",
+   "muted": "#9AA3B2",
+   "line": "#252B38",
+   "chip": "#1C2230"
   }
  },
  "archive": [

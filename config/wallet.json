@@ -1,0 +1,105 @@
+{
+ "_doc": "Cards and memberships a coupon may be tagged with (coupon.wallet = [ids]). A run tags a coupon ONLY when the store's own page names that bank, card scheme, wallet or membership for the offer. An option appears on the page only while a published coupon carries its id.",
+ "items": [
+  {
+   "id": "alrajhi",
+   "label": "بطاقات الراجحي",
+   "label_en": "Al Rajhi cards"
+  },
+  {
+   "id": "snb",
+   "label": "بطاقات الأهلي",
+   "label_en": "SNB cards"
+  },
+  {
+   "id": "riyadbank",
+   "label": "بطاقات بنك الرياض",
+   "label_en": "Riyad Bank cards"
+  },
+  {
+   "id": "alinma",
+   "label": "بطاقات الإنماء",
+   "label_en": "Alinma cards"
+  },
+  {
+   "id": "sab",
+   "label": "بطاقات ساب",
+   "label_en": "SAB cards"
+  },
+  {
+   "id": "bsf",
+   "label": "بطاقات السعودي الفرنسي",
+   "label_en": "BSF cards"
+  },
+  {
+   "id": "anb",
+   "label": "بطاقات العربي الوطني",
+   "label_en": "ANB cards"
+  },
+  {
+   "id": "albilad",
+   "label": "بطاقات البلاد",
+   "label_en": "Bank Albilad cards"
+  },
+  {
+   "id": "aljazira",
+   "label": "بطاقات الجزيرة",
+   "label_en": "Bank AlJazira cards"
+  },
+  {
+   "id": "enbd",
+   "label": "بطاقات الإمارات دبي الوطني",
+   "label_en": "Emirates NBD cards"
+  },
+  {
+   "id": "mada",
+   "label": "مدى",
+   "label_en": "mada"
+  },
+  {
+   "id": "visa",
+   "label": "فيزا",
+   "label_en": "Visa"
+  },
+  {
+   "id": "mastercard",
+   "label": "ماستركارد",
+   "label_en": "Mastercard"
+  },
+  {
+   "id": "amex",
+   "label": "أمريكان إكسبريس",
+   "label_en": "American Express"
+  },
+  {
+   "id": "stcpay",
+   "label": "stc pay",
+   "label_en": "stc pay"
+  },
+  {
+   "id": "urpay",
+   "label": "urpay",
+   "label_en": "urpay"
+  },
+  {
+   "id": "tabby",
+   "label": "تابي",
+   "label_en": "Tabby"
+  },
+  {
+   "id": "tamara",
+   "label": "تمارا",
+   "label_en": "Tamara"
+  },
+  {
+   "id": "prime",
+   "label": "أمازون برايم",
+   "label_en": "Amazon Prime"
+  },
+  {
+   "id": "noonone",
+   "label": "نون ون",
+   "label_en": "noon One"
+  }
+ ]
+}
