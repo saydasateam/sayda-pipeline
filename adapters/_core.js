@@ -70,5 +70,34 @@
   // show(): replace the page body with a job's (compact) result so a driver can read it with one get_page_text call
   // (the Chrome extension truncates javascript results at ~1 KB; page text is not truncated). fn maps result → string.
   S.show = (name, fn) => { const j = S.jobs[name]; const r = j ? j.result : null; const txt = fn ? fn(r) : JSON.stringify(r); document.body.innerHTML = '<pre id="sayda-out" style="white-space:pre-wrap;font:12px monospace"></pre>'; document.getElementById('sayda-out').textContent = 'SAYDA:' + name + '\n' + txt; return txt.length; };
+  // ── pictures (20 Nov 2026) ─────────────────────────────────────────────────────────────────────
+  // One reader for every store. From a tab on the store's own origin, fetch each row's product page
+  // and take the picture the store itself declares for it. Returns [{id, img}] for
+  // `node scripts/apply-images.js`. A row with no confident picture gets img:null and keeps the
+  // neutral tile: never fill the gap from a search engine or another store.
+  //   SAYDA.start('img:<store>', () => SAYDA.images(SAYDA.ctx.rows.filter(r => !r.img)));
+  S.imageOf = html => {
+    const pick = [/"hiRes":"(https:[^"]+)"/, /id="landingImage"[^>]+src="(https:[^"]+)"/, /data-old-hires="(https:[^"]+)"/,
+      /<meta[^>]+property=["']og:image(?::secure_url)?["'][^>]+content=["']([^"']+)["']/i,
+      /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i,
+      /<link[^>]+rel=["']image_src["'][^>]+href=["']([^"']+)["']/i];
+    for (const re of pick) { const m = html.match(re); if (m && /^https:\/\//.test(m[1])) return m[1].replace(/&amp;/g, '&'); }
+    return null;
+  };
+  S.images = async (rows, workers) => {
+    const out = []; let i = 0;
+    const noon = /(^|\.)noon\.com$/.test(location.hostname);   // product pages are a JS shell to fetch; the catalog API carries image keys
+    const one = async r => {
+      try {
+        if (noon) { const sku = (r.url.match(/\/([A-Z0-9]+)\/p\/?/) || [])[1]; const t = await (await fetch(`/_svc/catalog/api/v3/u/${sku}/p/`, { headers: { 'x-locale': 'ar-sa' } })).text();
+          const m = t.match(/"image_keys?":\s*\[?\s*"([^"]+)"/); return { id: r.id, img: m ? m[1] : null }; }
+        const u = new URL(r.url, location.href); const res = await fetch(u.origin === location.origin ? u.pathname + u.search : r.url, { credentials: 'omit' });
+        return { id: r.id, img: res.status === 200 ? S.imageOf(await res.text()) : null, status: res.status };
+      } catch (e) { return { id: r.id, img: null, error: String(e).slice(0, 80) }; }
+    };
+    const work = async () => { while (i < rows.length) out.push(await one(rows[i++])); };
+    await Promise.all(Array.from({ length: workers || 3 }, work));
+    return out;
+  };
   S.result = (name, from, len) => { const j = S.jobs[name]; if (!j || !j.done) return null; const s = JSON.stringify(j.result); return from == null ? s : s.slice(from, from + (len || 30000)); };
 })();
