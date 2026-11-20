@@ -273,7 +273,12 @@ body{margin:0}
 .hbtn[aria-pressed="true"] b{background:var(--surface);color:var(--accent)}
 .hbtn svg{flex:none}
 /* campaign band */
-.hero{background:var(--accent);color:var(--surface)}
+/* Band background from the designer's demo (20 Nov 2026): near-black base, a green glow behind the
+   title, a blue glow at the far side, and a faint 32px grid. Always dark, in both colour schemes. */
+.hero{color:#fff;border-bottom:1px solid #1F2937;background-color:#0B0F19;
+  background-image:radial-gradient(circle at 18% 20%,rgba(5,150,105,.18),transparent 42%),radial-gradient(circle at 85% 15%,rgba(37,99,235,.16),transparent 40%),linear-gradient(to right,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:100% 100%,100% 100%,32px 32px,32px 32px}
+.hero[dir="rtl"]{background-image:radial-gradient(circle at 82% 20%,rgba(5,150,105,.18),transparent 42%),radial-gradient(circle at 15% 15%,rgba(37,99,235,.16),transparent 40%),linear-gradient(to right,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.03) 1px,transparent 1px)}
 .heroin{max-width:1072px;margin:0 auto;padding:24px 16px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 32px;align-items:center;box-sizing:border-box}
 .hero h1{font-size:clamp(24px,3.6vw,38px);line-height:1.2;color:inherit}
 .herosub{margin:8px 0 0;max-width:58ch;font-size:15px;opacity:.82}
@@ -285,14 +290,15 @@ body{margin:0}
 .count[hidden]{display:none}
 .countl{display:block;font-size:12.5px;opacity:.75;margin-bottom:7px}
 .countb{display:flex;gap:8px}
-.countb span{min-width:56px;box-sizing:border-box;padding:9px 6px 6px;border:1px solid rgba(128,128,128,.45);border-radius:12px;font-size:11.5px;display:grid;gap:2px}
-.countb b{font:700 22px "Readex Pro",sans-serif;font-variant-numeric:tabular-nums;line-height:1.1}
-.wallet{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:14px;border-top:1px solid rgba(128,128,128,.35)}
+.countb span{min-width:56px;box-sizing:border-box;padding:9px 6px 6px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.1);border-radius:12px;font-size:11.5px;color:#9CA3AF;display:grid;gap:2px}
+.countb b{font:700 22px "Readex Pro",sans-serif;font-variant-numeric:tabular-nums;line-height:1.1;color:#fff}
+.countb span:last-child b{color:#34D399}
+.wallet{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1)}
 .wallet[hidden]{display:none}
 .walletl{font-size:13px;opacity:.8}
 .walletc{display:flex;flex-wrap:wrap;gap:6px}
-.walletc button{font:inherit;font-size:13px;min-height:34px;padding:0 13px;border-radius:999px;border:1px solid rgba(128,128,128,.55);background:transparent;color:inherit;cursor:pointer}
-.walletc button[aria-pressed="true"]{background:var(--surface);color:var(--accent);border-color:var(--surface);font-weight:600}
+.walletc button{font:inherit;font-size:13px;min-height:34px;padding:0 13px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.1);color:inherit;cursor:pointer}
+.walletc button[aria-pressed="true"]{background:#fff;color:#0B0F19;border-color:#fff;font-weight:600}
 .wrap{padding-block-start:14px}
 /* counts row */
 .statrow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0}
