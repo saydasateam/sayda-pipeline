@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://saydadeals.com/og.jpg?v=2">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Readex+Pro:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Readex+Pro:wght@500;700&display=swap">
 <style>
 {{CSS}}
 /* English page only */
@@ -36,6 +36,8 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 .ebar.open{position:static}
 .ebar{top:var(--toph)}
 .etog svg{flex:none}
+.hero h1{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}
+@media (min-width:600px){.hero h1{font-size:clamp(24px,3.6vw,38px);line-height:1.2}}
 .fcats{flex-basis:100%}
 .fcats button{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--chip);color:var(--ink);min-height:36px;padding:0 14px;display:inline-flex;align-items:center;border-radius:999px;cursor:pointer;white-space:nowrap}
 .fcats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
@@ -71,7 +73,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 <button type="button" id="totop" class="totop" hidden aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
 <section class="hero" dir="ltr" lang="en"><div class="heroin">
   <div>
-    <h1>{{CAMPAIGN_EN}} deals</h1>
+    <h1>{{CAMPAIGN_EN}}: <span class="hacc">real discounts only.</span></h1>
     <p class="herosub">Every deal here is checked against a price record or the same model at another store, not against the “before” price the store prints.</p>
     <p class="stamp" id="updated"><b>Last updated: {{UPDATED_EN}}</b> · <b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></p>
     <nav class="toplinks" aria-label="Quick links"><a href="#coupons" id="cpnote" hidden></a><a href="#travel" id="trnote" hidden>Travel offers</a><a href="#cars" id="crnote" hidden>Car offers</a><a href="#how">How we check</a></nav>

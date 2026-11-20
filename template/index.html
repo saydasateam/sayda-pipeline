@@ -280,7 +280,8 @@ body{margin:0}
   background-size:100% 100%,100% 100%,32px 32px,32px 32px}
 .hero[dir="rtl"]{background-image:radial-gradient(circle at 82% 20%,rgba(5,150,105,.18),transparent 42%),radial-gradient(circle at 15% 15%,rgba(37,99,235,.16),transparent 40%),linear-gradient(to right,rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.03) 1px,transparent 1px)}
 .heroin{max-width:1072px;margin:0 auto;padding:24px 16px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 32px;align-items:center;box-sizing:border-box}
-.hero h1{font-size:clamp(24px,3.6vw,38px);line-height:1.2;color:inherit}
+.hero h1{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;font-size:clamp(23px,3.1vw,32px);line-height:1.3;color:inherit}
+.hero h1 .hacc{color:#34D399}
 .herosub{margin:8px 0 0;max-width:58ch;font-size:15px;opacity:.82}
 .hero .stamp{margin:10px 0 0;font-size:12.5px;opacity:.72}
 .hero .stamp b{font-weight:500}
@@ -345,9 +346,9 @@ body{margin:0}
 .ctag.warn{background:var(--gold-soft);color:var(--gold)}
 .ctag.bad{background:var(--red-soft);color:var(--red)}
 .ctag.na{background:var(--chip);color:var(--muted)}
-.cmain{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:start}
-.cimg{position:relative;display:block;width:88px;height:88px;border:1px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
-.cimg img{position:absolute;top:6px;left:6px;width:calc(100% - 12px);height:calc(100% - 12px);object-fit:contain;background:#fff}
+.cmain{display:grid;grid-template-columns:108px minmax(0,1fr);gap:12px;align-items:start}
+.cimg{position:relative;display:block;width:108px;height:108px;border-radius:10px;background:#fff;overflow:hidden}
+.cimg img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;background:#fff}
 .ph{position:absolute;inset:0;display:grid;place-items:center;font:700 28px "Readex Pro","IBM Plex Sans Arabic",sans-serif;color:#C4C8CF;background:#F1F3F5}
 .cinfo{min-width:0;display:flex;flex-direction:column;gap:5px}
 .cname{color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -421,7 +422,8 @@ body{margin:0}
   .grid{grid-template-columns:1fr;gap:12px}
   .heroin{grid-template-columns:1fr;padding:16px 16px 14px;gap:10px}
   .herosub{display:none}
-  .hero h1{font-size:24px}
+  .hero h1{font-size:23px}
+  .hero h1 .hacc{display:block}
   .count{justify-self:stretch;display:flex;align-items:center;justify-content:space-between;gap:10px;text-align:start}
   .countl{margin:0}
   .countb{gap:6px}
@@ -464,7 +466,7 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 </button>
 <section class="hero" dir="rtl" lang="ar"><div class="heroin">
   <div>
-    <h1>صيدات {{CAMPAIGN_AR}}</h1>
+    <h1>صيدات {{CAMPAIGN_AR}}: <span class="hacc">خصومات حقيقية فقط.</span></h1>
     <p class="herosub">كل عرض هنا مفحوص بسجل الأسعار أو بسعر نفس الموديل في متجر آخر، لا بسعر «قبل» الذي يكتبه المتجر.</p>
     <p class="stamp" id="updated"><b>آخر تحديث: {{UPDATED_AR}}</b> · <b>آخر فحص للتوفر: {{CHECKED_AR}}</b></p>
     <nav class="toplinks" aria-label="روابط سريعة">{{TOP_LINKS}}<a href="#how">كيف نحسب «الخصم الحقيقي»؟</a></nav>
