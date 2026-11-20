@@ -64,6 +64,7 @@ h2{font-size:20px;margin-block:36px 12px}
 .pdash{color:var(--muted)}
 #sortby{font:inherit;font-size:13px;min-height:36px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);cursor:pointer}
 @media (pointer:coarse){.fbudget input,#sortby{min-height:44px;font-size:14px}}
+.filters .freset[hidden]{display:none}
 .filters .freset{background:none;border:0;color:var(--accent);padding:0 4px;min-height:44px;text-decoration:underline}
 .empty{text-align:center;color:var(--muted);padding:28px 12px}
 @media (max-width:760px){
@@ -89,6 +90,28 @@ h2{font-size:20px;margin-block:36px 12px}
   .fbreak{display:none}
   .fsub-furn{margin-inline-start:2px}
   .sgrp{flex:1 0 100%}
+  .filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:12px}
+  .filters .ftoggle{grid-column:1;grid-row:1;width:auto;min-height:46px;padding:0 12px}
+  .filters .ftoggle .fthint{display:none}
+  .fstatus{display:contents}
+  #sortby{grid-column:2;grid-row:1;min-width:0;width:100%;min-height:46px}
+  .fsel,.fbody,#fcount,.filters .freset{grid-column:1/-1}
+  .fsel{margin-top:0}
+}
+.fsel:empty{display:none}
+@media (min-width:761px){
+  .filters{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:14px}
+  .filters .ftoggle{order:1;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;font:inherit;font-size:14px;font-weight:700;border:1px solid var(--accent);background:var(--accent);color:var(--surface);border-radius:10px;cursor:pointer}
+  .filters .ftoggle .fthint{display:none}
+  .filters .ftoggle .ftright{display:inline-flex;align-items:center;gap:8px}
+  .filters .ftoggle .ftn{background:var(--surface);color:var(--accent);font-size:12px;font-weight:700;border-radius:999px;padding:2px 9px}
+  .filters[data-open] .ftoggle .fcaret{transform:rotate(180deg)}
+  .fstatus{order:2;flex:1;padding-inline-start:0}
+  .fsel{order:3;flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px}
+  .fsel span{font-size:12px;background:var(--accent-soft);color:var(--ink);border-radius:999px;padding:4px 10px}
+  .filters[data-open] .fsel{display:none}
+  .fbody{order:4;flex-basis:100%;display:grid;gap:6px}
+  .filters:not([data-open]) .fbody{display:none}
 }
 .tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
 table{width:100%;border-collapse:collapse;min-width:720px}
@@ -178,7 +201,7 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 
 .linkbtn{font:inherit;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.search{margin-top:18px}
+.search{margin-top:12px}
 .search input{width:100%;box-sizing:border-box;font:inherit;font-size:16px;padding:11px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink)}
 .search input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
 .travel .lede{margin-bottom:12px}
@@ -229,8 +252,7 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 
 /* product grid (20 Nov 2026): the page reads as a shop, the verdict stays the loudest thing on each card */
 .sortnote{color:var(--muted);font-size:13px;margin:10px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}
-@media (min-width:720px){.grid{grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:14px}}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:14px;margin-top:12px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
 .cimg{position:relative;display:block;aspect-ratio:1/1;background:#fff;border-bottom:1px solid var(--line);overflow:hidden;flex:none}
 .cimg img{position:absolute;top:10px;left:10px;width:calc(100% - 20px);height:calc(100% - 20px);box-sizing:border-box;object-fit:contain;background:#fff}
@@ -240,19 +262,56 @@ tr.evrow td{background:var(--bg);padding:14px 16px}
 .badge.warn{background:var(--gold);color:var(--surface)}
 .badge.bad{background:var(--red);color:var(--surface)}
 .badge.na{background:#fff;color:#5F5F5A;border:1px solid #DEDEDA}
-.cbody{padding:10px 12px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;flex:1;min-width:0}
+.cbody{padding:10px 12px 6px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-width:0}
+.cfoot{padding:0 12px 12px;display:flex;flex-direction:column;align-items:flex-start;gap:6px;flex:1;min-width:0}
 .cstore{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
 .cname{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:3.1em}
 .cname:hover{text-decoration:underline}
 .cprice{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .cprice .pv{font:700 19px "Readex Pro","IBM Plex Sans Arabic",sans-serif;font-variant-numeric:tabular-nums}
-.cprice s{color:var(--muted);font-size:12.5px;font-variant-numeric:tabular-nums}
+/* 20 Nov review: the number beside the price is OUR saving against the verified reference. The
+   store's own "before" is never struck through here; it reads as a real former price. */
+.csave{font-size:13px;font-weight:700;color:var(--ok);font-variant-numeric:tabular-nums}
+.csave.warn{color:var(--gold)}
+.csave.bad{color:var(--red)}
+.cclaim{font-size:11.5px;color:var(--muted)}
 .cref{font-size:12px;color:var(--muted)}
 .cwhy{margin:0;font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .cact{display:flex;gap:6px;margin-top:auto;padding-top:6px;align-self:stretch}
 .buy{flex:1;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--surface);font-weight:700;font-size:13px;text-decoration:none;border-radius:10px;padding:6px 8px;min-height:40px}
 .cact .evbtn{margin:0;border-radius:10px;min-height:40px;white-space:nowrap;padding:0 10px}
-@media (max-width:719px){.cact{flex-direction:column}.cact .evbtn{width:100%}.buy{flex:none}}
+@media (min-width:600px){.cimg{aspect-ratio:4/3}.wrap{padding-block-start:16px}}
+/* phones: one full-width card per row, small picture beside the name and price, the finding and
+   the two buttons across the full width below. Two 159px columns could not hold the explanation. */
+@media (max-width:599px){
+  .grid{grid-template-columns:1fr;gap:10px}
+  .card{display:grid;grid-template-columns:112px minmax(0,1fr);grid-template-areas:"img body" "foot foot"}
+  .cimg{grid-area:img;aspect-ratio:auto;width:100px;height:100px;margin:10px;margin-inline-end:0;border:1px solid var(--line);border-radius:10px;align-self:start}
+  .cimg img{top:6px;left:6px;width:calc(100% - 12px);height:calc(100% - 12px)}
+  .cimg .badge{display:none}
+  .ph{font-size:30px}
+  .cbody{grid-area:body;padding:10px 12px 4px;gap:4px}
+  .cname{min-height:0}
+  .cfoot{grid-area:foot;padding:6px 12px 12px}
+  .cwhy{-webkit-line-clamp:3}
+  .wrap{padding-block-start:14px}
+  h1{font-size:24px}
+}
+/* first screen: counts, stamp and quick links in three short lines, then search and the products */
+.stats{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:10px 0 0;font-size:14px}
+.stats button{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;min-height:36px;padding:0 14px;cursor:pointer;white-space:nowrap}
+.stats button b{font-family:"Readex Pro",sans-serif;font-variant-numeric:tabular-nums;margin-inline-end:6px}
+.stats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.stats .sfact{color:var(--muted);font-size:13px}
+@media (max-width:599px){.stats button{padding:0 11px}}
+@media (pointer:coarse){.stats button{min-height:40px}}
+.lede.stamp{font-size:12.5px;margin-top:8px}
+.toplinks{display:flex;flex-wrap:wrap;gap:4px 16px;margin:6px 0 0;font-size:13.5px}
+.toplinks a{color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;padding-block:4px}
+.toplinks a[hidden]{display:none}
+.cpy{font:inherit;font-size:12px;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--accent);border-radius:999px;padding:2px 12px;min-height:30px;cursor:pointer;margin-inline:4px}
+#summary{margin-top:12px}
+#keynote{margin-top:12px;max-width:80ch}
 .card.unavail .cimg img,.card.unavail .ph{opacity:.4}
 .card.unavail .pv{text-decoration:line-through;color:var(--muted)}
 .grid .empty{grid-column:1/-1;background:var(--surface);border:1px dashed var(--line);border-radius:12px;padding:22px 16px;text-align:center;color:var(--muted)}
@@ -280,17 +339,10 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
   <span aria-hidden="true">↑</span>
 </button>
 <div class="wrap" dir="rtl" lang="ar">
-  <h1>صيدات {{CAMPAIGN_AR}}: عروض حقيقية ومتحقق منها</h1>
-  <p class="lede" id="updated"><b>آخر تحديث: {{UPDATED_AR}}</b> · مرتبة حسب <b>الخصم الحقيقي</b> بعد التحقق من سجل الأسعار · <b>آخر فحص للتوفر: {{CHECKED_AR}}</b></p>
-  <details class="how"><summary>كيف نحسب «الخصم الحقيقي»؟</summary>
-  <p class="lede">كل منتج تم فحصه بسجل أسعار عام مستقل (نون وأمازون وإكسترا)، أو بمقارنته بسعر نفس الموديل في المتاجر الأخرى (جرير، بلاك بوكس، المنيع، ساكو، ترينديول{{HOW_FURNITURE}}). «الخصم الحقيقي» محسوب من السعر الذي كان يُباع به فعلاً قبل العرض، لا من «السعر قبل» الذي يكتبه البائع.</p></details>
-
-  <div class="summary" id="summary"></div>
-
-  <div class="notes">
-    <div class="note" id="keynote"><b>النتيجة المهمة</b></div>
-{{TRAVEL_NOTE}}{{CARS_NOTE}}    {{COUPONS_NOTE}}
-  </div>
+  <h1>صيدات {{CAMPAIGN_AR}}</h1>
+  <div class="stats" id="stats" role="group" aria-label="ملخص العروض"></div>
+  <p class="lede stamp" id="updated"><b>آخر تحديث: {{UPDATED_AR}}</b> · <b>آخر فحص للتوفر: {{CHECKED_AR}}</b></p>
+  <nav class="toplinks" aria-label="روابط سريعة">{{TOP_LINKS}}<a href="#how">كيف نحسب «الخصم الحقيقي»؟</a></nav>
 
   <div class="search" role="search">
     <label for="q" class="sr">ابحث في العروض</label>
@@ -299,7 +351,7 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 
   <div class="dealsblock">
   <div class="filters" aria-label="تصفية العروض" id="filters">
-    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span class="ftlabel">⚙ تصفية النتائج <span class="fthint" id="fthint">(اضغط هنا)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
+    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><span class="ftlabel">⚙ تصفية <span class="fthint" id="fthint">(اضغط هنا)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
     <div class="fsel" id="fsel" aria-hidden="true"></div>
     <div class="fbody" id="fbody">
     <div class="frow" role="group" aria-labelledby="fl-a">
@@ -314,8 +366,8 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
     <div class="frow" role="group" aria-labelledby="fl-v">
       <span class="flabel" id="fl-v">نوع الخصم</span>
       <div class="fchips">
-        <button data-g="v" data-f="all">الكل</button>
-        <button data-g="v" data-f="ok" aria-pressed="true">✓ صفقة مؤكّدة</button>
+        <button data-g="v" data-f="all" aria-pressed="true">كل العروض المفحوصة</button>
+        <button data-g="v" data-f="ok">✓ صفقة مؤكّدة</button>
         <button data-g="v" data-f="warn">خصم أصغر من المعلن</button>
         <button data-g="v" data-f="bad">أغلى أو بلا توفير</button>
         <button data-g="v" data-f="na">بلا سجل سعري</button>
@@ -352,10 +404,9 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
       <option value="save">الأكثر توفيراً (ر.س)</option>
       <option value="plow">السعر: من الأقل</option>
       <option value="phigh">السعر: من الأعلى</option>
-    </select><span id="fcount" aria-live="polite"></span><span class="claim" id="fhint">الافتراضي: الخصومات الحقيقية المتاحة فقط · اضغط «الكل» لعرض البقية · ويمكنك اختيار أكثر من فئة ومتجر</span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
+    </select><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
-  <p class="sortnote">مرتبة تلقائياً: المتاح أولاً، ثم الأعلى خصماً حقيقياً.</p>
   <div class="grid" id="rows"></div>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="إغلاق">✕</button></div><div id="evbody"></div></div></dialog>
   </div>
@@ -390,6 +441,9 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
   </section>
 
   <h2 id="how">كيف تم التحقق</h2>
+  <p class="lede">كل منتج تم فحصه بسجل أسعار عام مستقل (نون وأمازون وإكسترا)، أو بمقارنته بسعر نفس الموديل في المتاجر الأخرى (جرير، بلاك بوكس، المنيع، ساكو، ترينديول{{HOW_FURNITURE}}). «الخصم الحقيقي» محسوب من السعر الذي كان يُباع به فعلاً قبل العرض، لا من «السعر قبل» الذي يكتبه البائع.</p>
+  <div class="summary" id="summary"></div>
+  <div class="note" id="keynote"><b>النتيجة المهمة</b></div>
   <div class="method">
     <ol>
       <li><b>نون وأمازون وإكسترا</b>: السعر الحقيقي قبل = آخر سعر مسجّل للمنتج نفسه في سجل الأسعار قبل العرض (أو متوسط السنة إذا كان السعر السابق نفسه عرضاً). أسعار إكسترا هي آخر رصد في سجل الأسعار — تأكد من السعر في الموقع.</li>
@@ -436,7 +490,7 @@ const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'✓ متاح',low:'⚠ كمية محدودة',oos:'⛔ نفد المخزون',ended:'⏱ انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
+const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',rs:x.rs||'',claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
  ;
 // Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
 // top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
@@ -456,8 +510,17 @@ const missed=data.filter(x=>UN(x)).length;
 const tierFloor=p=>{const t=(RULE.okSavingTiers||[]).find(t=>t.maxPrice==null||p<=t.maxPrice);return t?t.minSaving:Infinity};
 const isReal=x=>x.real!=null&&(x.real>=RULE.okMin*100||(x.real>=RULE.warnMin*100&&(x.r-x.p)>=tierFloor(x.p)));
 const realN=data.filter(x=>!UN(x)&&isReal(x)).length;
-document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} متجراً، ${fmt(realN)} فقط أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص. كثير من «الأسعار قبل» لم يُبع بها المنتج أبداً، وبعض العروض أغلى من نفس الموديل في متجر آخر.`);
-document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>صفقة مؤكّدة ومتاحة</div><div><b>${fmt(cnt('warn'))}</b>أصغر من المعلن</div><div><b>${fmt(cnt('bad'))}</b>أغلى أو بلا توفير</div><div><b>${fmt(cnt('na'))}</b>بلا سجل</div>`+(missed?`<div><b>${fmt(missed)}</b>نفد أو انتهى</div>`:'');
+// Counts are generated from the rows on every build. Nothing here is a fixed sentence: a claim the
+// rows do not back ("some deals cost more elsewhere" while that count is zero) is not printed.
+const avN=data.filter(x=>!UN(x)).length;
+// a store «قبل» more than 5% above the previous price in the record (history-referenced rows only)
+const overN=data.filter(x=>!UN(x)&&x.w&&x.r!=null&&x.rk!=='m'&&x.w>x.r*1.05).length;
+document.getElementById('stats').innerHTML=`<button type="button" data-sv="all"><b>${fmt(avN)}</b>كل العروض المفحوصة</button><button type="button" data-sv="ok"><b>${fmt(cnt('ok'))}</b>الصفقات المؤكّدة</button>`
+  +(overN?`<span class="sfact">أسعار «قبل» معلنة أعلى مما سجّلناه: <b>${fmt(overN)}</b></span>`:'');
+document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} ${(n=>n>=3&&n<=10?'متاجر':'متجراً')(new Set(data.map(x=>x.s)).size)}، ${fmt(realN)} أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص.`
+  +(overN?` عدد الأسعار «قبل» المعلنة التي تزيد على ما سجّلناه قبل العرض: ${fmt(overN)}.`:'')
+  +(cnt('bad')?` وعدد العروض التي ليست أرخص (متوفرة بسعر أقل في متجر آخر، أو ارتفع سعرها، أو بلا توفير يُذكر): ${fmt(cnt('bad'))}.`:''));
+document.getElementById('summary').innerHTML=[[cnt('ok'),'صفقة مؤكّدة ومتاحة'],[cnt('warn'),'أصغر من المعلن'],[cnt('bad'),'أغلى أو بلا توفير'],[cnt('na'),'بلا سجل'],[missed,'نفد أو انتهى']].filter(t=>t[0]>0).map(t=>`<div><b>${fmt(t[0])}</b>${t[1]}</div>`).join('');
 // The methodology sentence is generated from RULE — the same numbers the classifier uses —
 // so the published criteria can never drift from what the rows were actually judged by.
 (()=>{const el=document.getElementById('verdict-rule');if(!el)return;
@@ -467,7 +530,7 @@ document.getElementById('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>صف�
  +` · <b>خصم أقل من المعلن</b> = دون ذلك، أو خصم حقيقي لكن سبق أن نزل أرخص.`
  +` · <b>أغلى أو بلا توفير</b> = نفس الموديل متوفر بسعر أقل في متجر آخر، أو ارتفع سعره عمّا كان، أو لا فرق يُذكر عن مرجع المقارنة.`
  +` · <b>بلا سجل سعري</b> = لا سجل أسعار ولا نفس الموديل في متجر آخر للمقارنة.`
- +` <br>ويُقاس الفرق إمّا من <b>سعره السابق</b> في سجل الأسعار، أو من سعر <b>نفس الموديل في متجر آخر</b>؛ مرجع كل صف مكتوب تحت الرقم في عمود «مرجع المقارنة». الصف المقاس على متجر آخر يُوصف بـ «أرخص من متجر آخر» لا بـ «خصم»، لأن المتجر لم يخفّض سعره بالضرورة.`;})();
+ +` <br>ويُقاس الفرق إمّا من <b>سعره السابق</b> في سجل الأسعار، أو من سعر <b>نفس الموديل في متجر آخر</b>؛ مرجع كل عرض مكتوب تحت سعره في البطاقة. العرض المقاس على متجر آخر يُوصف بـ «أرخص من متجر آخر» لا بـ «خصم»، لأن المتجر لم يخفّض سعره بالضرورة.`;})();
 // Verdict filter opens on «الكل» (Mahmoud, 22 Sep). Opening on «ok» hid every row from a store with
 // no external price record — six furniture stores and both toy stores rendered as 0 — so the page
 // looked empty while 328 rows were live. Each row still carries its own verdict label and finding,
@@ -505,7 +568,7 @@ function evidence(d){
   if(d.real!=null) f.push(evField(d.real<0?'الفرق':'الفرق الحقيقي',
       (d.real<0?'ارتفع '+fmt(-d.real)+'٪':fmt(d.real)+'٪')+(saved&&saved>0?` — ${fmt(saved)} ر.س`:'')));
   // 2. the store's own claim, and whether our record supports it
-  if(d.w) f.push(evField('«قبل» المعلن من المتجر', fmt(d.w)+' ر.س'+(d.r!=null?(d.w>d.r*1.05?' — أعلى مما سجّلناه':' — مطابق لما سجّلناه'):'')));
+  if(d.w) f.push(evField('ما أعلنه المتجر', 'قبل '+fmt(d.w)+' ر.س'+(d.claim>0?' · خصم '+fmt(d.claim)+'٪':'')+(d.r!=null&&d.rk!=='m'?(d.w>d.r*1.05?' (أعلى مما سجّلناه)':' (مطابق لما سجّلناه)'):'')));
   // The recorded range is what stops a spike from reading as a discount: an item at 96 whose record
   // runs 94–400 is at its usual floor, whatever the percentage against the previous price says.
   if(d.ev&&(d.ev.mn!=null||d.ev.mx!=null))
@@ -527,13 +590,21 @@ function render(){
     const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');
     // The badge is OUR number, never the store's: real discount, or what we could not confirm.
     const badge=d.real==null?['na','بلا سجل سعري']:d.real<0?['bad','أغلى '+fmt(-d.real)+'٪']:[d.v==='bad'?'bad':d.v==='warn'?'warn':'ok','خصم حقيقي '+fmt(d.real)+'٪'];
+    // Beside the price: what the shopper saves against the VERIFIED reference, in riyals and percent.
+    // Under it: that reference, named for what it is. The store's own claim appears only where it
+    // differs from what we measured, attributed to the store and never struck through.
+    const saved=d.r!=null?Math.round(d.r-d.p):null, mk=d.rk==='m';
+    const save=d.real==null?'':d.real<0?`<span class="csave bad">أغلى بـ ${fmt(-saved)} ر.س · ${fmt(-d.real)}٪</span>`
+      :saved>0?`<span class="csave ${d.v==='bad'?'bad':d.v==='warn'?'warn':'ok'}">${mk?'أرخص بـ':'توفّر'} ${fmt(saved)} ر.س · ${fmt(d.real)}٪</span>`:'';
+    const ref=d.r==null?'لا يوجد مرجع للمقارنة':mk?`نفس الموديل ${d.rs?'لدى '+esc(d.rs):'في متجر آخر'} بـ ${fmt(d.r)} ر.س`:`السعر السابق المسجّل ${fmt(d.r)} ر.س`;
+    const claim=d.w&&d.claim>0&&(d.r==null||mk||d.w>d.r*1.05)?`<div class="cclaim">المتجر يعلن خصم ${fmt(d.claim)}٪</div>`:'';
     const pic=d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'';
     c.innerHTML=`<a class="cimg" href="${d.u}" target="_blank" rel="noopener" aria-label="${esc(d.n)}"><span class="ph" aria-hidden="true">${esc(d.s.slice(0,1))}</span>${pic}<span class="badge ${badge[0]}">${badge[1]}</span></a>`
       +`<div class="cbody"><div class="cstore"><span class="site">${d.s}</span>${CBY[d.s]!=null?`<a class="cp" href="#coupon-${CBY[d.s]}" title="توجد قسيمة أو كود لهذا المتجر — اضغط للتفاصيل" aria-label="قسيمة ${d.s}">🎟️</a>`:''}<span class="av ${d.a}">${AL[d.a]}</span></div>`
       +`<a class="cname" href="${d.u}" target="_blank" rel="noopener">${d.n}</a>`
-      +`<div class="cprice"><span class="pv">${fmt(d.p)} ر.س</span>${d.w?`<s title="السعر «قبل» المعلن من المتجر">${fmt(d.w)}</s>`:''}</div>`
-      +`<div class="cref">${d.r?(d.rk==='m'?'في متجر آخر ':'كان فعلاً ')+fmt(d.r)+' ر.س':'لا يوجد مرجع للمقارنة'}${d.w?` · المعلن ${fmt(d.claim)}٪`:''}</div>`
-      +`<span class="v ${d.v}">${vlabel(d)}</span>`
+      +`<div class="cprice"><span class="pv">${fmt(d.p)} ر.س</span>${save}</div>`
+      +`<div class="cref">${ref}</div>${claim}</div>`
+      +`<div class="cfoot"><span class="v ${d.v}">${vlabel(d)}</span>`
       +(d.an?`<span class="avnote">${d.an}</span>`:'')
       +`<p class="cwhy">${d.note}</p>`
       +`<div class="cact"><a class="buy" href="${d.u}" target="_blank" rel="noopener">للمتجر ←</a><button type="button" class="evbtn" aria-haspopup="dialog">دليل السعر</button></div></div>`;
@@ -552,7 +623,8 @@ function render(){
   document.getElementById('freset').hidden=!active;
   // what is selected stays visible even when the panel is folded away
   const sel=[...document.querySelectorAll('.filters .fbody button[data-g][aria-pressed="true"]')]
-    .map(b=>b.textContent.replace(/\s*[\d٠-٩][\d٠-٩٬,]*\s*$/,'').trim()).filter(t=>t&&t!=='الكل');
+    .filter(b=>b.dataset.f!=='all'&&DEF[b.dataset.g]!==b.dataset.f)   // defaults are not "applied filters"
+    .map(b=>(b.dataset.lbl||b.textContent).replace(/\s*[\d٠-٩][\d٠-٩٬,]*\s*$/,'').trim()).filter(Boolean);
   if(F.pmin!=null||F.pmax!=null)sel.push((F.pmin!=null?fmt(F.pmin):'٠')+' — '+(F.pmax!=null?fmt(F.pmax):'∞')+' ر.س');
   if(Q.length)sel.unshift('«'+qEl.value.trim()+'»');
   document.getElementById('fsel').innerHTML=sel.map(t=>`<span>${esc(t)}</span>`).join('');
@@ -572,19 +644,25 @@ function chipCount(g,f){
   return data.filter(d=>matchAll(d,t)).length;
 }
 function syncChips(){
+  document.querySelectorAll('#stats button').forEach(b=>b.setAttribute('aria-pressed',String(F.v===b.dataset.sv)));
   document.querySelectorAll('.filters button[data-g]').forEach(b=>{
     const g=b.dataset.g,f=b.dataset.f;
     const on=MULTI[g]?(f==='all'?F[g].length===0:F[g].includes(f)):F[g]===f;
     b.setAttribute('aria-pressed',String(on));
-    if(g!=='c'&&g!=='s')return;
+    if(g!=='c'&&g!=='s'&&g!=='v')return;
     if(b.dataset.lbl===undefined)b.dataset.lbl=b.textContent.trim();
     const n=chipCount(g,f);
-    b.innerHTML=b.dataset.lbl+(f==='all'?'':'<span class="cn">'+fmt(n)+'</span>');
+    b.innerHTML=b.dataset.lbl+(f==='all'&&g!=='v'?'':'<span class="cn">'+fmt(n)+'</span>');
     b.disabled=(n===0&&!on);
     b.title=n===0?'لا توجد نتائج مع الفلاتر الحالية':'';
   });
 }
 document.querySelectorAll('.filters button[data-g]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)setF(b.dataset.g,b.dataset.f);}));
+document.querySelectorAll('#stats button').forEach(b=>b.addEventListener('click',()=>setF('v',b.dataset.sv)));
+// «نسخ الكود» on each coupon
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.cpy');if(!b)return;const t=b.dataset.code,o=b.dataset.o||(b.dataset.o=b.textContent),done=()=>{b.textContent='تم النسخ ✓';setTimeout(()=>{b.textContent=o;},1600);};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});
+ else{const i=document.createElement('textarea');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');done();}catch(_){}i.remove();}});
 const pminEl=document.getElementById('pmin'),pmaxEl=document.getElementById('pmax'),sortEl=document.getElementById('sortby');
 const readBudget=()=>{const n=el=>{const v=parseFloat(el.value);return isFinite(v)&&v>=0?v:null;};F.pmin=n(pminEl);F.pmax=n(pmaxEl);};
 let bT;[pminEl,pmaxEl].forEach(el=>el.addEventListener('input',()=>{clearTimeout(bT);bT=setTimeout(()=>{readBudget();render();},250);}));
