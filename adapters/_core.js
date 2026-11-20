@@ -99,5 +99,41 @@
     await Promise.all(Array.from({ length: workers || 3 }, work));
     return out;
   };
+  // ── English names (20 Nov 2026) ────────────────────────────────────────────────────────────────
+  // The English page is not a translation of the Arabic one: each product's English name is the
+  // store's OWN English title, read from the English version of its product page. `store.en` in
+  // config/stores.json says how to reach that version: {api:'noon'} or {try:[[from,to],…]} — URL
+  // rewrites tried in order. A title is accepted only when the page answers 200 and the title is in
+  // Latin script, so a wrong rewrite yields null, never a wrong name. Returns [{id, name_en}] for
+  // `node scripts/apply-names.js`.
+  //   SAYDA.start('en:<store>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en), SAYDA.ctx.store));
+  S.titleOf = html => {
+    const pick = [/id="productTitle"[^>]*>([^<]+)</, /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i,
+      /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i, /<h1[^>]*>([^<]{4,200})<\/h1>/i, /<title>([^<]+)</i];
+    for (const re of pick) { const m = html.match(re); if (!m) continue; const d = document.createElement('textarea'); d.innerHTML = m[1];
+      const t = d.value.replace(/\s+/g, ' ').replace(/\s*[|–-]\s*[^|–-]{0,30}$/, x => /\.(com|sa)|extra|noon|amazon|jarir|store|shop|online/i.test(x) ? '' : x).trim();
+      if (t && !/[؀-ۿ]/.test(t)) return t; }
+    return null;
+  };
+  S.names = async (rows, cfg, workers) => {
+    const rule = (cfg && cfg.en) || {}, out = []; let i = 0;
+    const one = async r => {
+      try {
+        if (rule.api === 'noon') { const sku = (r.url.match(/\/([A-Z0-9]+)\/p\/?/) || [])[1]; const j = await (await fetch(`/_svc/catalog/api/v3/u/${sku}/p/`, { headers: { 'x-locale': 'en-sa' } })).json();
+          const p = (j && j.product) || j || {}, t = (p.product_title || '').trim(), b = (p.brand || '').trim();
+          return { id: r.id, name_en: t ? (b && !t.toLowerCase().includes(b.toLowerCase()) ? b + ' ' + t : t) : null }; }
+        for (const [from, to] of (rule.try || [])) {
+          const u = from ? r.url.replace(from, to) : r.url; if (from && u === r.url) continue;
+          const x = new URL(u, location.href); if (x.origin !== location.origin) continue;
+          const res = await fetch(x.pathname + x.search, { credentials: 'omit' }); if (res.status !== 200) continue;
+          const t = S.titleOf(await res.text()); if (t) return { id: r.id, name_en: t, via: to };
+        }
+        return { id: r.id, name_en: null };
+      } catch (e) { return { id: r.id, name_en: null, error: String(e).slice(0, 80) }; }
+    };
+    const work = async () => { while (i < rows.length) out.push(await one(rows[i++])); };
+    await Promise.all(Array.from({ length: workers || 3 }, work));
+    return out;
+  };
   S.result = (name, from, len) => { const j = S.jobs[name]; if (!j || !j.done) return null; const s = JSON.stringify(j.result); return from == null ? s : s.slice(from, from + (len || 30000)); };
 })();
