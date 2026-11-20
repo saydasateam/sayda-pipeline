@@ -611,15 +611,15 @@
       "collect": {
         "paths": [
           "/sa-ar/c/collections/mumznovember-mega-deals",
-          "/sa-ar/c/collections/november-deals-large-appliances",
           "/sa-ar/c/collections/mumz-savers",
           "/sa-ar/c/collections/mega-bundles",
           "/sa-ar/c/sale"
         ],
+        "_removed": "20 Nov 2026 (Mahmoud): /sa-ar/c/collections/november-deals-large-appliances was dropped. fill-na ranks by the store's claimed saving, so Miele, Smeg and Liebherr appliances took all 20 slots of a kids store. Do not add it back without a price or category cap.",
         "pages": 1,
         "cat": "mumzworld",
         "cap": 400,
-        "_paging": "Only the first 24 products of a listing are server-rendered (?page=, ?p=, ?sort= are all ignored — tested 22 Sep); «عرض المزيد» pages client-side. Breadth comes from the campaign collection paths, 24 each (five on 20 Nov 2026, all linked from the home page)."
+        "_paging": "Only the first 24 products of a listing are server-rendered (?page=, ?p=, ?sort= are all ignored — tested 22 Sep); «عرض المزيد» pages client-side. Breadth comes from the campaign collection paths, 24 each (four since 20 Nov 2026, all linked from the home page)."
       }
     },
     {
