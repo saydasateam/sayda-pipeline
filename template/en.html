@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sayda | {{CAMPAIGN_EN}} deals, checked: real discounts only</title>
+<meta name="description" content="{{CAMPAIGN_EN}} deals from Saudi stores, checked every day: is the discount real, and is the item in stock?">
+<meta name="theme-color" content="{{TH_ACCENT}}">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23{{TH_ACCENT_HEX}}'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='white' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://saydadeals.com/en/">
+<link rel="alternate" hreflang="ar" href="https://saydadeals.com/">
+<link rel="alternate" hreflang="en" href="https://saydadeals.com/en/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sayda">
+<meta property="og:title" content="Sayda | {{CAMPAIGN_EN}} deals: real discounts only">
+<meta property="og:description" content="Deals from Saudi stores, checked every day: is the discount real, and is the item in stock?">
+<meta property="og:url" content="https://saydadeals.com/en/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://saydadeals.com/og.jpg?v=2">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Readex+Pro:wght@500;700&display=swap">
+<style>
+{{CSS}}
+/* English page only */
+body{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+.totop{inset-inline-end:auto;inset-inline-start:16px}
+.ebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 4px}
+.ebar select{font:inherit;font-size:14px;min-height:42px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);max-width:100%}
+.ebar label.chk{display:flex;align-items:center;gap:6px;font-size:14px;min-height:42px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.ecount{color:var(--muted);font-size:13px;margin:6px 0 10px}
+.cname[lang="ar"]{direction:rtl;text-align:right}
+.elist{display:grid;gap:10px;padding:0;list-style:none}
+.elist li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+</style>
+</head>
+<body>
+<header class="brand" dir="ltr"><a href="/en/" class="logo">Sayda</a><span class="tag">Real discounts only</span><a class="lang" href="/" lang="ar" hreflang="ar">العربية</a></header>
+<button type="button" id="totop" class="totop" hidden aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
+<div class="wrap" dir="ltr" lang="en">
+  <h1>Sayda {{CAMPAIGN_EN}} deals: real and checked</h1>
+  <p class="lede" id="updated"><b>Last updated: {{UPDATED_EN}}</b> · sorted by <b>real discount</b>, measured against the price record · <b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></p>
+  <details class="how"><summary>How do we work out the “real discount”?</summary>
+  <p class="lede">Every product is checked against an independent public price record, or against the price of the same model at other stores. The real discount is measured from the price the item actually sold at before the sale, not from the “before” price the seller prints.</p></details>
+  <div class="summary" id="summary"></div>
+  <div class="notes"><div class="note" id="keynote"><b>The headline</b></div><a class="note notelink" href="#coupons" id="cpnote" hidden><b>🎟️ Extra coupons and codes</b>Savings on top of the listed price: store codes and bank-card offers, and what they actually require.<span class="cta">See the coupons ↓</span></a></div>
+  <div class="search" role="search"><label for="q" class="sr">Search the deals</label><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume, laptop…" autocomplete="off" enterkeyhint="search"></div>
+  <div class="ebar">
+    <label class="chk"><input type="checkbox" id="fa" checked> In stock only</label>
+    <select id="fv" aria-label="Verdict"><option value="all">All verdicts</option><option value="ok">✓ Confirmed discount</option><option value="warn">Smaller than advertised</option><option value="bad">Dearer or no saving</option><option value="na">No price record</option></select>
+    <select id="fc" aria-label="Category"><option value="all">All categories</option></select>
+    <select id="fs" aria-label="Store"><option value="all">All stores</option></select>
+    <select id="so" aria-label="Sort"><option value="d">Sort: in stock first, then biggest real discount</option><option value="pct">Biggest real discount (%)</option><option value="sav">Most money saved (SAR)</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select>
+  </div>
+  <p class="ecount" id="ecount" aria-live="polite"></p>
+  <div class="grid" id="rows"></div>
+  <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="Close">✕</button></div><div id="evbody"></div></div></dialog>
+
+  <section class="couponsec" id="coupons" aria-labelledby="cp-h" hidden><h2 id="cp-h">🎟️ Extra coupons and codes</h2><ul class="cplist" id="cplist"></ul><p class="cpfoot">Listed prices are <b style="display:inline">before</b> these extra savings.</p></section>
+  <section class="travel" id="travel" aria-labelledby="tr-h" hidden><h2 id="tr-h">✈️ Travel offers: {{CAMPAIGN_SHORT_EN}} codes and campaigns</h2><p class="lede">We read each offer’s terms on the company’s own site and compared the advert with what the terms actually say.</p><ul class="elist" id="tlist"></ul></section>
+  <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">🚗 Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><ul class="elist" id="crlist"></ul></section>
+
+  <section class="suggest" id="suggest" aria-labelledby="sg-h">
+    <h2 id="sg-h">Tell us what to add or fix</h2>
+    <p>A store you want added? A product you are waiting on? A wrong price? Write to us and it reaches us directly.</p>
+    <form id="sg-f" novalidate>
+      <label for="sg-t" class="sr">Your suggestion</label>
+      <textarea id="sg-t" name="message" rows="3" maxlength="2000" required placeholder="For example: add another store, or the price at Jarir changed…"></textarea>
+      <label for="sg-c" class="sr">Contact (optional)</label>
+      <input id="sg-c" name="contact" type="text" maxlength="200" autocomplete="email" placeholder="Your email or phone if you would like a reply (optional)">
+      <input type="text" name="website" id="sg-w" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+      <div class="sg-row"><button type="submit" id="sg-b">Send</button><span class="sg-note" id="sg-s" role="status" aria-live="polite"></span></div>
+    </form>
+  </section>
+
+  <h2 id="how">How each deal was checked</h2>
+  <div class="method"><ol>
+    <li><b>Price record</b>: for stores a public price record covers, the real “before” is the last price recorded for that same product before the sale. If it has been cheaper in the past, we say so.</li>
+    <li><b>Same model elsewhere</b>: where no record exists, the reference is the price of the same model at another Saudi store today. Such a deal is described as cheaper than another store, not as a discount, because the store did not necessarily cut its own price.</li>
+    <li><b>No reference</b>: when neither exists the deal is shown as “no price record” and claims nothing.</li>
+    <li><b>Stock check, every deal, every refresh</b>: we open the product page and read what a buyer sees. <b>In stock</b> = the add-to-cart button is active at the price shown here · <b>Low stock</b> = the store shows 3 or fewer left · <b>Out of stock</b> · <b>Offer ended</b> = the price went back up · <b>Link broken</b>. Stock can differ by city (checked for Riyadh).</li>
+    <li id="verdict-rule"><b>The verdict</b></li>
+  </ol><p class="claim">Limits: a price record samples prices periodically and can miss a short offer. Product names are each store’s own English names.</p></div>
+  <footer>Data: the {{STORE_COUNT}} stores’ own sites (live prices) and a public price record (previous price and store comparison), {{UPDATED_EN}}. Prices change; check before you buy.{{ARCHIVE_EN}}</footer>
+</div>
+<script>
+const E={{E_JSON}};
+const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSON}}, RULE={{RULE_JSON}};
+const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+const VL={ok:'✓ Confirmed discount',warn:'Smaller than advertised',bad:'Dearer or no saving',na:'No price record'},OKM='✓ Cheaper than another store';
+const BL={c:'Cheaper elsewhere',r:'Price went up',n:'No real saving'};
+const AL={in:'✓ In stock',low:'⚠ Low stock',oos:'⛔ Out of stock',ended:'⏱ Offer ended',gone:'Link broken'};
+const UN=d=>['oos','ended','gone'].includes(d.a);
+E.forEach(d=>{d.claim=d.w?Math.round(100*(1-d.p/d.w)):null;d.real=d.r?Math.round(100*(1-d.p/d.r)):null;d.h=(d.n+' '+d.s+' '+(CATS.find(c=>c[0]===d.c)||[])[1]).toLowerCase();});
+const vlabel=d=>d.v==='bad'&&BL[d.bk]?BL[d.bk]:(d.v==='ok'&&d.rk==='m'?OKM:VL[d.v]);
+function evidence(d){const f=[],row=(k,v)=>f.push(`<div class="f"><span class="k">${k}</span><span class="val">${v}</span></div>`);const saved=d.r!=null?Math.round(d.r-d.p):null;
+  if(d.r!=null)row(d.rk==='m'?'Same model at another store':'Its previous price in the price record',fmt(d.r)+' SAR');
+  if(d.real!=null)row(d.real<0?'Difference':'Real difference',(d.real<0?'up '+fmt(-d.real)+'%':fmt(d.real)+'%')+(saved>0?` — ${fmt(saved)} SAR`:''));
+  if(d.w)row('The store’s advertised “before”',fmt(d.w)+' SAR'+(d.r!=null?(d.w>d.r*1.05?' — higher than what was recorded':' — matches what was recorded'):''));
+  if(d.ev&&(d.ev.mn!=null||d.ev.mx!=null))row('Recorded range',`${d.ev.mn!=null?fmt(d.ev.mn):'?'} — ${d.ev.mx!=null?fmt(d.ev.mx):'?'} SAR`+(d.ev.mn!=null&&d.p<=d.ev.mn*1.05?'<span class="evflag">Now at the lowest recorded level</span>':''));
+  if(d.lc)row('Last checked',new Date(d.lc+'T12:00:00+03:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'Asia/Riyadh'}));
+  const ref=d.ru||(d.ev&&d.ev.u)||'';
+  if(ref)row('Reference page',`<a href="${esc(ref)}" target="_blank" rel="noopener">The compared product ↗</a>`);else if(d.rk!=='m'&&d.r!=null)row('Reference source','A public price record: the previous price before the sale');else row('Reference page','<span class="claim">No openable source for this deal</span>');
+  return `<div class="evgrid">${f.join('')}</div><p class="evnote">${esc(d.f)}</p><p class="evrule">The verdict follows the published rule: <a href="#verdict-rule" onclick="document.getElementById('evdlg').close()">how we work out the real discount</a>.</p>`;}
+const SORTS={d:(a,b)=>UN(a)-UN(b)||(b.real??-999)-(a.real??-999),pct:(a,b)=>(b.real??-999)-(a.real??-999),sav:(a,b)=>((b.r||b.p)-b.p)-((a.r||a.p)-a.p),lo:(a,b)=>a.p-b.p,hi:(a,b)=>b.p-a.p};
+function render(){const q=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boolean),fa=$('fa').checked,fv=$('fv').value,fc=$('fc').value,fs=$('fs').value;
+  const list=E.filter(d=>(!fa||!UN(d))&&(fv==='all'||d.v===fv)&&(fc==='all'||d.c===fc)&&(fs==='all'||d.s===fs)&&q.every(w=>d.h.includes(w))).sort(SORTS[$('so').value]);
+  const rows=$('rows');rows.innerHTML='';
+  list.forEach(d=>{const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');
+    const badge=d.real==null?['na','No price record']:d.real<0?['bad',fmt(-d.real)+'% dearer']:[d.v==='bad'?'bad':d.v==='warn'?'warn':'ok','Real discount '+fmt(d.real)+'%'];
+    c.innerHTML=`<a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" aria-label="${esc(d.n)}"><span class="ph" aria-hidden="true">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}<span class="badge ${badge[0]}">${badge[1]}</span></a>`
+      +`<div class="cbody"><div class="cstore"><span class="site">${esc(d.s)}</span>${d.cp!=null?`<a class="cp" href="#coupon-${d.cp}" title="This store has a coupon or code" aria-label="Coupon for ${esc(d.s)}">🎟️</a>`:''}<span class="av ${d.a}">${AL[d.a]}</span></div>`
+      +`<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a>`
+      +`<div class="cprice"><span class="pv">${fmt(d.p)} SAR</span>${d.w?`<s title="The store’s advertised “before” price">${fmt(d.w)}</s>`:''}</div>`
+      +`<div class="cref">${d.r?(d.rk==='m'?'At another store: ':'Really sold at ')+fmt(d.r)+' SAR':'Nothing to compare with'}${d.w?` · advertised ${fmt(d.claim)}%`:''}</div>`
+      +`<span class="v ${d.v}">${vlabel(d)}</span>${d.an?`<span class="avnote">${esc(d.an)}</span>`:''}<p class="cwhy">${esc(d.f)}</p>`
+      +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Go to store →</a><button type="button" class="evbtn" aria-haspopup="dialog">Price evidence</button></div></div>`;
+    const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>im.remove());
+    c.querySelector('.evbtn').addEventListener('click',()=>{$('evttl').textContent=d.n;$('evbody').innerHTML=evidence(d)+`<a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Open the product at ${esc(d.s)} →</a>`;const g=$('evdlg');g.showModal?g.showModal():g.setAttribute('open','');});
+    rows.appendChild(c);});
+  if(!list.length)rows.innerHTML='<div class="empty">No deals match these filters. Try another store or category, or untick “In stock only”.</div>';
+  const gone=E.filter(UN).length;$('ecount').textContent=`Showing ${fmt(list.length)} of ${fmt(E.length)} deals`+(fa&&gone?` · ${fmt(gone)} out of stock or ended (hidden)`:'');}
+(()=>{const used=new Set(E.map(d=>d.c));CATS.filter(c=>used.has(c[0])).forEach(c=>$('fc').add(new Option(c[1],c[0])));[...new Set(E.map(d=>d.s))].forEach(s=>$('fs').add(new Option(s,s)));
+  ['q','fa','fv','fc','fs','so'].forEach(id=>$(id).addEventListener(id==='q'?'input':'change',render));
+  const av=E.filter(d=>!UN(d)),cnt=v=>av.filter(d=>d.v===v).length;
+  $('summary').innerHTML=`<div><b>${fmt(cnt('ok'))}</b>confirmed and in stock</div><div><b>${fmt(cnt('warn'))}</b>smaller than advertised</div><div><b>${fmt(cnt('bad'))}</b>dearer or no saving</div><div><b>${fmt(cnt('na'))}</b>no price record</div>`+(E.length-av.length?`<div><b>${fmt(E.length-av.length)}</b>out of stock or ended</div>`:'');
+  const realN=av.filter(d=>d.v==='ok'||d.v==='warn').length;
+  $('keynote').insertAdjacentHTML('beforeend',`Of ${fmt(E.length)} deals at ${fmt(new Set(E.map(d=>d.s)).size)} stores, ${fmt(realN)} are really cheaper than their previous price or the market price, and ${fmt(cnt('ok'))} passed every check. Many “before” prices were never the selling price.`);
+  const pct=n=>fmt(Math.round(n*100))+'%',floors=(RULE.okSavingTiers||[]).map(t=>t.maxPrice==null?`${fmt(t.minSaving)} SAR above that`:`${fmt(t.minSaving)} SAR up to ${fmt(t.maxPrice)} SAR`).join(', ');
+  $('verdict-rule').innerHTML=`<b>The verdict</b>: <b>✓ Confirmed discount</b> = a real difference of ${pct(RULE.okMin)} or more, or ${pct(RULE.warnMin)} or more with a saving above its price band’s floor (${floors}). · <b>Smaller than advertised</b> = below that, or a real discount on an item that has been cheaper before. · <b>Dearer or no saving</b> = the same model costs less at another store, the price went up, or there is no meaningful difference. · <b>No price record</b> = no record and no same model elsewhere to compare with.`;
+  if(CP.length){$('coupons').hidden=false;$('cpnote').hidden=false;$('cplist').innerHTML=CP.map((c,i)=>`<li id="coupon-${i}"><b style="display:inline">${esc(c.label)}</b>${c.code?` — code <b style="display:inline">${esc(c.code)}</b>: `:' — '}${esc(c.text)}</li>`).join('');}
+  const card=o=>`<li><b>${esc(o.company)}</b>${o.type?' · '+esc(o.type):''}<br>“${esc(o.headline)}”<br><b>What the terms say:</b> ${esc(o.terms)}${o.code?` · code <span class="code">${esc(o.code)}</span>`:''}<br><a href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></li>`;
+  if(TR.length){$('travel').hidden=false;$('tlist').innerHTML=TR.map(card).join('');}
+  if(CR.length){$('cars').hidden=false;$('crlist').innerHTML=CR.map(card).join('');}
+  const g=$('evdlg'),shut=()=>g.close?g.close():g.removeAttribute('open');$('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});
+  const b=$('totop');b.hidden=false;const t=()=>{scrollY>600?b.setAttribute('data-show',''):b.removeAttribute('data-show')};addEventListener('scroll',t,{passive:true});t();b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+  const f=$('sg-f'),sb=$('sg-b'),ss=$('sg-s'),say=(m,c)=>{ss.textContent=m;ss.className='sg-note '+(c||'')};
+  f.addEventListener('submit',async e=>{e.preventDefault();const msg=$('sg-t').value.trim();if(!msg){say('Write your suggestion first','err');return;}sb.disabled=true;say('Sending…');
+    try{const api=/(^|\.)saydadeals\.com$/.test(location.hostname)?'/api/suggest':'https://saydadeals.com/api/suggest';const r=await fetch(api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:msg,contact:$('sg-c').value.trim(),website:$('sg-w').value,page:location.pathname})});const j=await r.json().catch(()=>({}));if(r.ok&&j.ok){f.reset();say('Got it, thank you!','ok');}else say('Could not send right now, please try again shortly.','err');}catch(_){say('Could not send right now, please try again shortly.','err');}sb.disabled=false;});
+  render();})();
+</script>
+<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: we use Cloudflare analytics, which sets no cookies and collects no personal data. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+</body>
+</html>
