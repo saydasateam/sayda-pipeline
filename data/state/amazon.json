@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-11-21",
- "checkedAt": "2026-11-21T01:38:46.158+03:00",
+ "checkedAt": "2026-11-21T14:38:11.446+03:00",
  "rows": [
   {
    "id": "amazon:B09M7B4BQZ",
@@ -420,8 +420,8 @@
    "verdict": "ok",
    "finding": "كان ٣٬٠٢٥",
    "url": "https://www.amazon.sa/dp/B0DLBLP3HN",
-   "avail": "low",
-   "availNote": "أمازون: متبقي 1",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "prev": 3025,
     "min": 1496,
@@ -763,7 +763,7 @@
    "id": "amazon:B0CXJCF1N4",
    "store": "amazon",
    "name": "ساعة كاسيو رجالية MTD-125D-9AVDF",
-   "price": 240,
+   "price": 230,
    "was": 792,
    "ref": 791.82,
    "refKind": "history",

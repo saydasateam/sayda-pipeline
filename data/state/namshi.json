@@ -1,13 +1,13 @@
 {
  "store": "namshi",
  "updated": "2026-11-21",
- "checkedAt": "2026-11-21T01:16:21.641+03:00",
+ "checkedAt": "2026-11-21T14:38:11.446+03:00",
  "rows": [
   {
    "id": "namshi:ZB7E9D54E03B360638A35Z",
    "store": "namshi",
    "name": "كارلتون حقيبة سفر كبيرة الحجم من نيوبري بلس سوفت سايد 8W - أ",
-   "price": 809,
+   "price": 770,
    "was": 2167,
    "ref": null,
    "verdict": "na",
@@ -79,7 +79,7 @@
    "id": "namshi:Z45E2372E8415E00DD0D2Z",
    "store": "namshi",
    "name": "شيروتي 1881 ساعة يد نسائية دائرية من الستانلس ستيل بعقارب فض",
-   "price": 1219,
+   "price": 650,
    "was": 1625,
    "ref": null,
    "verdict": "na",
@@ -151,7 +151,7 @@
    "id": "namshi:Z4B3E658DA3A35AD93AB4Z",
    "store": "namshi",
    "name": "كارلتون حقيبة أمتعة \"ميريديان\" (Meridian) صلبة الهيكل بمقاس ",
-   "price": 514,
+   "price": 489,
    "was": 1372,
    "ref": null,
    "verdict": "na",

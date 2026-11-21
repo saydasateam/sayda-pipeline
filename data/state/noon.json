@@ -1,7 +1,7 @@
 {
  "store": "noon",
  "updated": "2026-11-21",
- "checkedAt": "2026-11-21T01:16:21.641+03:00",
+ "checkedAt": "2026-11-21T14:38:11.446+03:00",
  "rows": [
   {
    "id": "noon:Z33E7618590057C356494Z",
@@ -62,15 +62,15 @@
    "store": "noon",
    "cat": "أطفال",
    "name": "بيبي بريزا Formula Pro Advanced لتحضير الحليب",
-   "price": 695,
+   "price": 548,
    "was": 1399,
    "ref": 897.9,
    "refKind": "history",
-   "verdict": "warn",
+   "verdict": "ok",
    "finding": "كان ٨٩٨ · أقل سعر مسجل · «قبل» ١٬٣٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N47872656A/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 3",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "prev": 897.9,
     "min": 549,
@@ -205,7 +205,7 @@
    "finding": "كان ٣٬٦٠٠ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70377976V/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 1",
    "ev": {
     "prev": 3600,
     "min": 2836,
@@ -312,8 +312,8 @@
    "verdict": "warn",
    "finding": "كان ١٬١٩٩ · سبق ونزل ٥١٢",
    "url": "https://www.noon.com/saudi-ar/N70109287V/p/",
-   "avail": "low",
-   "availNote": "نون: متبقي 2",
+   "avail": "oos",
+   "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 1199,
     "min": 511.8,
@@ -663,7 +663,7 @@
    "finding": "كان ٤٬٢٩٩ · أقل سعر مسجل · «قبل» ١١٬٢٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53405070A/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 2",
    "ev": {
     "prev": 4299,
     "min": 3399,
