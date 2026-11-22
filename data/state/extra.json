@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-22",
- "checkedAt": "2026-11-22T08:29:12.862+03:00",
+ "checkedAt": "2026-11-22T12:34:36.344+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -407,6 +407,33 @@
    "lastChecked": "2026-11-22",
    "img": "https://media.extra.com/s/aurora/100410818_800/SAMSUNG-Galaxy-S25-Edge%2C-5G%2C-256-GB%2C-Titanium-Icyblue?locale=en-GB,ar-*,*",
    "name_en": "SAMSUNG Galaxy S25 Edge, 5G, 256 GB, Titanium Icyblue"
+  },
+  {
+   "id": "extra:100474360",
+   "store": "extra",
+   "cat": "إلكترونيات",
+   "name": "تي سي أل تاب 11 اف اي، واي فاي، 128 جيجا، رمادي",
+   "name_en": "TCL Tab 11 FE, Wi-Fi, 128 GB, Grey with Flip case",
+   "price": 599,
+   "was": 998.33,
+   "ref": 999,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٩٩٩ · أقل سعر مسجل",
+   "url": "https://www.extra.com/ar-sa/mobiles-tablets/tablets/android/tcl-tab-11-fe-wi-fi-128-gb-grey-with-flip-case/p/100474360",
+   "avail": "in",
+   "ev": {
+    "prev": 999,
+    "min": 599,
+    "max": 999,
+    "src": "kanbkam",
+    "on": "2026-11-22",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100474360"
+   },
+   "img": "https://media.extra.com/s/aurora/100474360_800/TCL-Tab-11-FE%2C-Wi-Fi%2C-128-GB%2C-Grey-with-Flip-case?locale=en-GB,ar-*,*",
+   "firstSeen": "2026-11-22",
+   "availNote": "",
+   "lastChecked": "2026-11-22"
   }
  ]
 }
