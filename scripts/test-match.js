@@ -135,6 +135,13 @@ const cases = [
   { want: true, why: 'capacity: a listing that prints no capacity is judged on the other conditions',
     row: { name: 'سامسونج جالكسي S25 FE 256 جيجا', brand: 'samsung', model: 's25', variant: 'fe', price: 2199 },
     listing: { title: 'Samsung Galaxy S25 FE 5G Navy', price: 2250, merchant: 'Amazon.sa', country: 'sa' } },
+  // ── size in millimetres, added 2026-11-22 after the 14:46 test run (Cerruti 30 mm vs a 26 mm listing) ──
+  { want: false, why: 'capacity: a 30 mm watch must not take the 26 mm watch of the same line',
+    row: { name: 'ساعة شيروتي 1881 للنساء بمينا أبيض 30 مم', enName: '1881 watch for women white dial', brand: 'cerruti', model: '', price: 1150 },
+    listing: { title: 'Cerruti 1881 Watch for Women White Dial 26 mm Stainless Steel', price: 844, merchant: 'Amazon.sa', country: 'sa' } },
+  { want: true, why: 'capacity: the same 47mm watch, written with and without a space, still matches',
+    row: { name: 'ساعة سامسونج جالكسي ووتش 7 ألترا 47 مم L705', brand: 'samsung', model: 'l705', variant: 'ultra', price: 1899 },
+    listing: { title: 'Samsung Galaxy Watch Ultra L705 47mm Titanium', price: 1799, merchant: 'noon', country: 'sa' } },
 ];
 
 let pass = 0, fail = 0;
