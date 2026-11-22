@@ -58,7 +58,8 @@
    "text": "بنصّ صفحة المنتج في أمازون اليوم: «التوفير مع خدمة برايم: خصم 30% حتى SAR150 | بطاقة راجحي للائتمان. أدخل الرمز ARB30 عند إتمام الشراء. خصم من أمازون». لأعضاء برايم حاملي بطاقة الراجحي الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 9 من 10 صفحات فحصناها اليوم، فلا يشمل كل المنتجات)، ويُدخل الرمز عند إتمام الشراء. الشروط الكاملة في رابط «الشروط» بجانب العرض.",
    "verified": "2026-11-20",
    "wallet": [
-    "prime"
+    "prime",
+    "alrajhi"
    ],
    "_wallet": "The offer needs BOTH Prime and an Al Rajhi credit card. It is tagged prime only so that a visitor who picked Al Rajhi without Prime is shown ARB20, the non-Prime offer; the perk line names the card.",
    "perk": "خصم 30% حتى 150 ريال ببطاقة الراجحي الائتمانية على منتجات مختارة · الرمز ARB30",
@@ -82,7 +83,10 @@
    "perk": "خصم 20% حتى 100 ريال بالبطاقة الائتمانية لغير أعضاء برايم على منتجات مختارة · الرمز ARB20",
    "perk_en": "20% off up to 100 SAR with the credit card, for non-Prime members, on selected products · code ARB20",
    "label_en": "Amazon",
-   "text_en": "From Amazon’s offer page today: 20% off, at most 100 SAR on one order, minimum spend 100 SAR · eligible customers: non-Prime members on Amazon.sa · eligible cards: Al Rajhi Bank credit cards · code ARB20 · offer period: 20 November 2026 to 24 November 2026. It appears in the “Savings” box on Amazon product pages (9 of the 10 pages we checked today, so not every product), and the code is entered at checkout."
+   "text_en": "From Amazon’s offer page today: 20% off, at most 100 SAR on one order, minimum spend 100 SAR · eligible customers: non-Prime members on Amazon.sa · eligible cards: Al Rajhi Bank credit cards · code ARB20 · offer period: 20 November 2026 to 24 November 2026. It appears in the “Savings” box on Amazon product pages (9 of the 10 pages we checked today, so not every product), and the code is entered at checkout.",
+   "walletNot": [
+    "prime"
+   ]
   },
   {
    "stores": [
