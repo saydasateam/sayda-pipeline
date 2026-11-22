@@ -11,10 +11,10 @@
  "artifactTitle": "صيدات الجمعة البيضاء ٢٠٢٦",
  "searchPlaceholder": "ابحث: سامسونج، آيفون، عطر، مكيف…",
  "theme": {
-  "_doc": "Each campaign carries its own colour (Mahmoud, Oct 2026): green was National Day, blue was Blue Week. White Friday is ink on white. The verified/ok green is semantic and is NOT part of the theme.",
+  "_doc": "Each campaign carries its own colour (Mahmoud, Oct 2026): green was National Day, blue was Blue Week. White Friday is ink on white with the logo blue (#2347E6) for buttons and the active chip since 22 Nov 2026 (BLD-15, direction A); the hero gradient and the category colours are in template/index.html and config/categories.json. The verified/ok green is semantic and is NOT part of the theme.",
   "light": {
-   "accent": "#0B0F19",
-   "accentSoft": "#EEF0F3",
+   "accent": "#2347E6",
+   "accentSoft": "#EAF0FF",
    "bg": "#F6F7F9",
    "ink": "#0B0F19",
    "muted": "#5B6472",
@@ -22,8 +22,8 @@
    "chip": "#EFF1F4"
   },
   "dark": {
-   "accent": "#FFFFFF",
-   "accentSoft": "#232733",
+   "accent": "#A9BBFF",
+   "accentSoft": "#1B2440",
    "bg": "#0B0F19",
    "surface": "#141925",
    "ink": "#EEF0F4",

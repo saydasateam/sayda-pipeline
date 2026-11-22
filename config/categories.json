@@ -1,25 +1,33 @@
 {
-  "_doc": "chips = the filter buttons on the page, in order. map = collect-path slug → chip id, so a newly collected product lands in the right category deterministically instead of by model judgement. Add a category by adding one chip + its slugs here.",
+  "_doc": "chips = the filter buttons on the page, in order. tint and accent (BLD-15, 22 Nov 2026) = the category's colour pair: its card at the top, the dot on its chip, the header inside the category and the tag on each product card; a chip without them stays neutral. No category may use a green hue (green is for verified only), and build.js stops when an accent reads below 4.5 to 1 on its tint. map = collect-path slug → chip id, so a newly collected product lands in the right category deterministically instead of by model judgement. Add a category by adding one chip + its slugs here.",
   "chips": [
     {
       "id": "شاشات",
       "label": "شاشات",
-      "label_en": "TVs & Screens"
+      "label_en": "TVs & Screens",
+      "tint": "#E9F1FD",
+      "accent": "#005DCA"
     },
     {
       "id": "إلكترونيات",
       "label": "إلكترونيات",
-      "label_en": "Electronics"
+      "label_en": "Electronics",
+      "tint": "#EFEEFF",
+      "accent": "#6346C7"
     },
     {
       "id": "ألعاب",
       "label": "ألعاب",
-      "label_en": "Games & Toys"
+      "label_en": "Games & Toys",
+      "tint": "#FEEDDF",
+      "accent": "#905203"
     },
     {
       "id": "المنزل",
       "label": "أجهزة منزلية",
-      "label_en": "Home Appliances"
+      "label_en": "Home Appliances",
+      "tint": "#D8F7FF",
+      "accent": "#0A6F82"
     },
     {
       "id": "أثاث",
@@ -29,27 +37,37 @@
     {
       "id": "عطور",
       "label": "عطور",
-      "label_en": "Perfumes"
+      "label_en": "Perfumes",
+      "tint": "#FEE9F3",
+      "accent": "#A91E76"
     },
     {
       "id": "عناية",
       "label": "عناية شخصية",
-      "label_en": "Personal Care"
+      "label_en": "Personal Care",
+      "tint": "#FEEAED",
+      "accent": "#B4144E"
     },
     {
       "id": "أزياء",
       "label": "أزياء وحقائب",
-      "label_en": "Fashion & Bags"
+      "label_en": "Fashion & Bags",
+      "tint": "#FBE9FE",
+      "accent": "#922FA1"
     },
     {
       "id": "أطفال",
       "label": "أطفال ومستلزماتهم",
-      "label_en": "Kids & Baby"
+      "label_en": "Kids & Baby",
+      "tint": "#F8F0D7",
+      "accent": "#786101"
     },
     {
       "id": "رياضة",
       "label": "رياضة",
-      "label_en": "Sports"
+      "label_en": "Sports",
+      "tint": "#FFEBE7",
+      "accent": "#B71D00"
     }
   ],
   "map": {

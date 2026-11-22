@@ -65,6 +65,10 @@
       900
     ],
     "maxRows": 900,
+    "categoryCardMinRows": 10,
+    "_categoryCardMinRows": "BLD-15, 22 Nov 2026. A category gets a card at the top of the page only when it has at least this many available rows; below it the category stays a chip. 10, not 8, since 23 Nov: Mahmoud's decision of 22 Nov keeps Furniture (9 rows that day) a chip, and with it the small cards fill one row of six, as in demo A. The three categories with the most available rows get the large cards with pictures.",
+    "tickerItems": 12,
+    "_tickerItems": "BLD-15. How many confirmed, available rows the strip under the hero carries, in the page's best-value order. Fewer than 4 and the strip is not drawn.",
     "defaultFilter": "verified",
     "maxNewPerRun": 150,
     "_maxNewPerRun": "Hard cap on rows added in a single run. Raised 60 -> 150 on 22 Sep (with maxRows 420 -> 900) when the rendered collectors opened Almanea's and Blackbox's full National Day catalogues. Highest verified saving wins; the rest are picked up by the next run.",
