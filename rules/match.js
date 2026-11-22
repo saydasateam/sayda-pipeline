@@ -41,10 +41,12 @@ const BLOCKED_MERCHANT = /\b(ebay|aliexpress|alibaba|desertcart|jomla|smallable|
 //     tells them apart, so when the row and the listing both print a quantity in the same unit, the
 //     largest figure in that unit must agree within 2%. A listing that prints no capacity is not
 //     rejected here; the other conditions still apply to it.
-const QTY = /(\d[\d,٬.]*)\s*(btu|وحدة|طن|tons?|liters?|litres?|لتر|l|kg|كجم|كيلو(?:غرام|جرام)?|watts?|واط|w|mah|gb|جيجا(?:بايت)?|tb|تيرا(?:بايت)?|ml|مل)(?![\p{L}])/giu;
+const QTY = /(\d[\d,٬.]*)\s*(btu|وحدة|طن|tons?|liters?|litres?|لتر|l|kg|كجم|كيلو(?:غرام|جرام)?|watts?|واط|w|mah|gb|جيجا(?:بايت)?|tb|تيرا(?:بايت)?|mm|ملم|مم|ml|مل)(?![\p{L}])/giu;
 const UNIT = { 'btu': 'btu', 'وحدة': 'btu', 'طن': 'ton', 'ton': 'ton', 'tons': 'ton', 'liter': 'l', 'liters': 'l', 'litre': 'l', 'litres': 'l', 'لتر': 'l', 'l': 'l',
   'kg': 'kg', 'كجم': 'kg', 'كيلو': 'kg', 'كيلوغرام': 'kg', 'كيلوجرام': 'kg', 'watt': 'w', 'watts': 'w', 'واط': 'w', 'w': 'w', 'mah': 'mah',
-  'gb': 'gb', 'جيجا': 'gb', 'جيجابايت': 'gb', 'tb': 'tb', 'تيرا': 'tb', 'تيرابايت': 'tb', 'ml': 'ml', 'مل': 'ml' };
+  'gb': 'gb', 'جيجا': 'gb', 'جيجابايت': 'gb', 'tb': 'tb', 'تيرا': 'tb', 'تيرابايت': 'tb', 'ml': 'ml', 'مل': 'ml',
+  // mm since 22 Nov 2026: a 30 mm Cerruti watch matched a 26 mm listing of the same line (14:46 test run)
+  'mm': 'mm', 'ملم': 'mm', 'مم': 'mm' };
 function quantities(text) {
   const t = String(text || '').toLowerCase().replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
   const out = {};
