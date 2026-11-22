@@ -1,0 +1,207 @@
+{
+ "namshi:Z342A6BB341EA48A06043Z": {
+  "q": "swarovski matrix bangle mb analog watch",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 832,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Swarovski Women's Matrix Mb Sts/White/Sts, Watch, 5743680",
+    "why": "name word \"bangle\" not present as a whole word"
+   },
+   {
+    "title": "Swarovski Matrix Bangle Watch, Swiss Made, Crystal Bracelet, Silver To",
+    "why": "name word \"mb\" not present as a whole word"
+   },
+   {
+    "title": "[Official] [Swarovski] Matrix Bangle Watch, Swiss Made Bracelet, Gray,",
+    "why": "name word \"mb\" not present as a whole word"
+   }
+  ]
+ },
+ "namshi:V34AC1CDD80ECE0D01DB4V": {
+  "q": "swarovski matrix bangle mb sts wht sts",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 903,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Swarovski Women's Matrix Mb Sts/White/Sts, Watch, 5743680",
+    "why": "name word \"bangle\" not present as a whole word"
+   }
+  ]
+ },
+ "namshi:Z2BD83109ABE14CE6CE26Z": {
+  "q": "swarovski constella bracelet",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 659,
+  "n": 2,
+  "merchantCount": 1,
+  "min": 445,
+  "avg": 445,
+  "max": 445.61,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 445,
+   "url": "https://www.kanbkam.com/sa/en/swarovski-women-constella-bracelet-white-rhodium-plated-B0CN351CWC"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 445,
+    "url": "https://www.kanbkam.com/sa/en/swarovski-women-constella-bracelet-white-rhodium-plated-B0CN351CWC"
+   },
+   {
+    "merchant": "Amazon.sa",
+    "price": 446,
+    "url": "https://www.kanbkam.com/sa/en/swarovski-constella-collection-medium-crystal-crystal-B09ZBD2FJQ"
+   }
+  ],
+  "rejected": []
+ },
+ "namshi:Z5547C5A2792E17445B33Z": {
+  "q": "dkny avril small satchel",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 945,
+  "n": 2,
+  "merchantCount": 1,
+  "min": 666,
+  "avg": 749,
+  "max": 831,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 666,
+   "url": "https://www.kanbkam.com/sa/en/dkny-women-avril-sm-satchel-cbody-satchel-bag-B0D9P975ZP"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 831,
+    "url": "https://www.kanbkam.com/sa/en/dkny-womens-avril-sm-satchel-cbody-handbag-B0F13T7TYK"
+   },
+   {
+    "merchant": "Amazon.sa",
+    "price": 666,
+    "url": "https://www.kanbkam.com/sa/en/dkny-women-avril-sm-satchel-cbody-satchel-bag-B0D9P975ZP"
+   }
+  ],
+  "rejected": []
+ },
+ "namshi:ZA5B900A4E3AD63824E80Z": {
+  "q": "dkny avril top zip shoulder bag",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 895,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "DKNY Women Avril Tz Shoulder Shoulder Bag",
+    "why": "name word \"top\" not present as a whole word"
+   },
+   {
+    "title": "DKNY Women Avril Tz Shoulder Bag",
+    "why": "name word \"top\" not present as a whole word"
+   }
+  ]
+ },
+ "namshi:ZC078346AECA9A7D155ECZ": {
+  "q": "coach quartz movement analog watch stainless steel",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 505,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Coach Women's Analog Round Stainless Steel Wrist Watch",
+    "why": "name word \"quartz\" not present as a whole word"
+   }
+  ]
+ },
+ "namshi:ZB7E9D54E03B360638A35Z": {
+  "q": "carlton newbury plus softside 8w large check",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 745,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "namshi:Z4416BB66F9D59F5FFE53Z": {
+  "q": "dkny marcia medium th satchel",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 545,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "namshi:Z45E2372E8415E00DD0D2Z": {
+  "q": "cerruti CIWLH2205501",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 1219,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "namshi:Z4B3E658DA3A35AD93AB4Z": {
+  "q": "carlton meridian hard shell 8w cabin carry",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 479,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "namshi:Z7A44D10F5E0B2F5FD367Z": {
+  "q": "dkny avril top handle flap crossbody bag",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 895,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}

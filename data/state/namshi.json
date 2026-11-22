@@ -1,7 +1,7 @@
 {
  "store": "namshi",
  "updated": "2026-11-22",
- "checkedAt": "2026-11-22T13:59:02.661+03:00",
+ "checkedAt": "2026-11-22T14:46:59.076+03:00",
  "rows": [
   {
    "id": "namshi:ZB7E9D54E03B360638A35Z",
@@ -45,9 +45,9 @@
    "name": "سواروفسكي سوار كونستيلا",
    "price": 659,
    "was": 1535,
-   "ref": null,
-   "verdict": "na",
-   "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
+   "ref": 445,
+   "verdict": "bad",
+   "finding": "Amazon.sa ٤٤٥ · أرخص من هنا",
    "url": "https://www.namshi.com/saudi-ar/buy-swarovski-constella-bracelet/Z2BD83109ABE14CE6CE26Z/p/",
    "avail": "in",
    "availNote": "",
@@ -55,7 +55,23 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-22",
    "img": "https://f.nooncdn.com/p/pzsku/Z2BD83109ABE14CE6CE26Z/45/1759821898/ae17e564-398e-406d-9078-171a916debd8.jpg?format=webp&width=800",
-   "name_en": "Swarovski Constella Bracelet for Women"
+   "name_en": "Swarovski Constella Bracelet for Women",
+   "refKind": "market",
+   "refUrl": "https://www.kanbkam.com/sa/en/swarovski-women-constella-bracelet-white-rhodium-plated-B0CN351CWC",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 445,
+     "url": "https://www.kanbkam.com/sa/en/swarovski-women-constella-bracelet-white-rhodium-plated-B0CN351CWC"
+    },
+    "min": 445,
+    "max": 445.61,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-22",
+    "url": "https://www.kanbkam.com/sa/en/swarovski-women-constella-bracelet-white-rhodium-plated-B0CN351CWC"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "namshi:Z4416BB66F9D59F5FFE53Z",
@@ -171,9 +187,9 @@
    "name": "د ك ن ي AVRIL SMALL SATCHEL",
    "price": 945,
    "was": 1350,
-   "ref": null,
-   "verdict": "na",
-   "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
+   "ref": 666,
+   "verdict": "bad",
+   "finding": "Amazon.sa ٦٦٦ · أرخص من هنا",
    "url": "https://www.namshi.com/saudi-ar/buy-dkny-avril-small-satchel/Z5547C5A2792E17445B33Z/p/",
    "avail": "in",
    "availNote": "",
@@ -181,7 +197,23 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-22",
    "img": "https://f.nooncdn.com/p/pzsku/Z5547C5A2792E17445B33Z/45/_/1794305059/3bf632ba-1f0c-46cd-92bc-6a314666db21.jpg?format=webp&width=800",
-   "name_en": "DKNY AVRIL SMALL SATCHEL for Women"
+   "name_en": "DKNY AVRIL SMALL SATCHEL for Women",
+   "refKind": "market",
+   "refUrl": "https://www.kanbkam.com/sa/en/dkny-women-avril-sm-satchel-cbody-satchel-bag-B0D9P975ZP",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 666,
+     "url": "https://www.kanbkam.com/sa/en/dkny-women-avril-sm-satchel-cbody-satchel-bag-B0D9P975ZP"
+    },
+    "min": 666,
+    "max": 831,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-22",
+    "url": "https://www.kanbkam.com/sa/en/dkny-women-avril-sm-satchel-cbody-satchel-bag-B0D9P975ZP"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "namshi:ZA5B900A4E3AD63824E80Z",

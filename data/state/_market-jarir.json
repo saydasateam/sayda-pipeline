@@ -1,0 +1,505 @@
+{
+ "jarir:skyworth-smart-tv-674575": {
+  "q": "skyworth Q7800H 100",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 7999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "SKYWORTH 100-Inch QLED+ Smart TV, 4K UHD, 144Hz Refresh Rate, Matte Sc",
+    "why": "accessory, not the product"
+   }
+  ]
+ },
+ "jarir:samsung-ls03-smart-tv-682577": {
+  "q": "samsung LS03 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Samsung the frame 75-inch 4k smart tv (qa75ls03aauxum)",
+    "why": "model part \"ls03\" not present as a whole word, and \"ls03\" not present fused"
+   }
+  ]
+ },
+ "jarir:tcl-p7l-smart-tv-682032": {
+  "q": "tcl P7L 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "TCL 85P71L 85 Inch P71L 4K Premium QLED Smart TV (2026 Model Google TV",
+    "why": "model part \"p7l\" not present as a whole word, and \"p7l\" not present fused"
+   },
+   {
+    "title": "TCL 85 Inch P71L 4K Premium QLED Smart TV (2026 Model Google TV - UAE ",
+    "why": "model part \"p7l\" not present as a whole word, and \"p7l\" not present fused"
+   }
+  ]
+ },
+ "jarir:samsung-m1e-smart-tv-682540": {
+  "q": "samsung M1EH 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3199,
+  "n": 2,
+  "merchantCount": 2,
+  "min": 2599,
+  "avg": 2599,
+  "max": 2599,
+  "market": {
+   "store": "noon",
+   "price": 2599,
+   "url": "https://www.kanbkam.com/sa/en/75-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua75m1ehauxsa-black-N70370639V"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 2599,
+    "url": "https://www.kanbkam.com/sa/en/75-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua75m1ehauxsa-black-N70370639V"
+   },
+   {
+    "merchant": "Amazon.sa",
+    "price": 2599,
+    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-tv-m1eh-4k-120hz-dlg-hdr-10-motion-xcelerator-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua75m1ehauxsa-2026-ksa-version-B0GZL49LZT"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:hisense-hisense-a6q-smart-tv-672673": {
+  "q": "hisense A6Q 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 2599,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2749,
+  "avg": 2749,
+  "max": 2749,
+  "market": {
+   "store": "noon",
+   "price": 2749,
+   "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 2749,
+    "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Hisense 75A6Q 4K 3840 x 2160 UHD 75-Inch Smart TV",
+    "why": "model part \"a6q\" not present as a whole word, and \"a6q\" not present fused"
+   }
+  ]
+ },
+ "jarir:hisense-hisense-q61q-smart-tv-672682": {
+  "q": "hisense Q61Q 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 2099,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2239,
+  "avg": 2239,
+  "max": 2239,
+  "market": {
+   "store": "noon",
+   "price": 2239,
+   "url": "https://www.kanbkam.com/sa/en/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black-N70376270V"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 2239,
+    "url": "https://www.kanbkam.com/sa/en/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black-N70376270V"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:haier-haier-m80fux-smart-tv-669302": {
+  "q": "haier M80F 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Haier 85 Inch Mini LED, Google TV, Dolby Vision-Atmos, Gaming 120Hz, H",
+    "why": "model part \"m80f\" not present as a whole word, and \"m80f\" not present fused"
+   }
+  ]
+ },
+ "jarir:skyworth-x8700g-smart-tv-663715": {
+  "q": "skyworth X8700G 86",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Skyworth 86X8700G 86-inch MiniLED Google TV delivers stunning visuals ",
+    "why": "model part \"x8700g\" not present as a whole word, and \"x8700g\" not present fused"
+   }
+  ]
+ },
+ "jarir:samsung-s85h-smart-tv-682561": {
+  "q": "samsung S85H 55",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4599,
+  "n": 2,
+  "merchantCount": 2,
+  "min": 5199,
+  "avg": 5449,
+  "max": 5699,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 5199,
+   "url": "https://www.kanbkam.com/sa/en/samsung-55-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-smart-tv-qa55s85haexsa-2026-ksa-version-B0GZKRMYRS"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 5199,
+    "url": "https://www.kanbkam.com/sa/en/samsung-55-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-smart-tv-qa55s85haexsa-2026-ksa-version-B0GZKRMYRS"
+   },
+   {
+    "merchant": "noon",
+    "price": 5699,
+    "url": "https://www.kanbkam.com/sa/en/55-inch-oled-tv-4k-ai-upscaling-120hz-antireflection-os-tizen-model-year-2026-2-years-warranty-qa55s85haexsa-graphite-black-N70390102V"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:samsung-qn70h-smart-tv-690756": {
+  "q": "samsung QN70H 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5999,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 7399,
+  "avg": 7399,
+  "max": 7399,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 7399,
+   "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-neo-qled-smart-tv-samsung-vision-ai-qn70h-4k120hz-dlg-quantum-mini-led-airslim-real-colors-real-qled-nq4-ai-processor-tizen-os-qa85qn70hauxsa-2026-ksa-version-B0H872ZJ9V"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 7399,
+    "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-neo-qled-smart-tv-samsung-vision-ai-qn70h-4k120hz-dlg-quantum-mini-led-airslim-real-colors-real-qled-nq4-ai-processor-tizen-os-qa85qn70hauxsa-2026-ksa-version-B0H872ZJ9V"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:samsung-m80h-smart-tv-690173": {
+  "q": "samsung M80H 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4399,
+  "n": 2,
+  "merchantCount": 2,
+  "min": 4199,
+  "avg": 4349,
+  "max": 4499,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 4199,
+   "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-tv-m80h-4k-hdr-10-motion-xcelerator-144hz-adpative-sound-ai-football-mode-nq4-ai-gen2-processor-smart-tv-ua75m80hauxzn-2026-ksa-version-B0HD8ZT7P1"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 4199,
+    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-tv-m80h-4k-hdr-10-motion-xcelerator-144hz-adpative-sound-ai-football-mode-nq4-ai-gen2-processor-smart-tv-ua75m80hauxzn-2026-ksa-version-B0HD8ZT7P1"
+   },
+   {
+    "merchant": "noon",
+    "price": 4499,
+    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-tv-m80h-4k-hdr-10-motion-xcelerator-144hz-adpative-sound-ai-football-mode-nq4-ai-gen2-processor-smart-tv-ua75m80ha-2026-international-version-ua75m80ha-black-N70380979V"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:samsung-galaxy-s25-edge-smartphones-657513": {
+  "q": "samsung S25 edge",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 2299,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2299,
+  "avg": 2299,
+  "max": 2299,
+  "market": {
+   "store": "eXtra",
+   "price": 2299,
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818"
+  },
+  "sources": [
+   {
+    "merchant": "eXtra",
+    "price": 2299,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "SAMSUNG Galaxy S25 Edge Phone, 512 GB AI Smartphone, Unlocked Android",
+    "why": "capacity differs: row says 256 gb, listing says 512 gb"
+   }
+  ]
+ },
+ "jarir:samsung-galaxy-s25-ultra-smartphones-650928": {
+  "q": "samsung S25 ultra",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3749,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 3749,
+  "avg": 3749,
+  "max": 3749,
+  "market": {
+   "store": "eXtra",
+   "price": 3749,
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-silverblue-e100392606"
+  },
+  "sources": [
+   {
+    "merchant": "eXtra",
+    "price": 3749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-silverblue-e100392606"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Samsung Galaxy S25 Ultra, 256GB (International Version)",
+    "why": "capacity differs: row says 512 gb, listing says 256 gb"
+   }
+  ]
+ },
+ "jarir:lenovo-thinkbook-laptops-669661": {
+  "q": "lenovo thinkbook laptops",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 8999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:skyworth-skyworth-q6800h-smart-tv-657007": {
+  "q": "skyworth Q6800H 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:haier-h6f-smart-tv-688119": {
+  "q": "haier S80 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:lg-lg-oledb-smart-tv-656445": {
+  "q": "lg B5 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:msi-crosshair-16-laptops-682811": {
+  "q": "msi 275HX ultra 16",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 8699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-c7l-smart-tv-681448": {
+  "q": "tcl C7L 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5149,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:hisense-u7s-smart-tv-682072": {
+  "q": "hisense U7S 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-qn1ef-smart-tv-682103": {
+  "q": "samsung QN70F 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-c8l-smart-tv-683688": {
+  "q": "tcl C8L 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 10449,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:xiaomi-s-mini-smart-tv-680341": {
+  "q": "xiaomi s mini smart tv",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 2199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:lg-qned84-smart-tv-683092": {
+  "q": "lg QNED84 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:xiaomi-s-mini-smart-tv-680349": {
+  "q": "xiaomi s mini smart tv",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-c7l-smart-tv-681855": {
+  "q": "tcl C7L 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 7999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:xiaomi-s-mini-smart-tv-680346": {
+  "q": "xiaomi s mini smart tv",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-t8d-smart-tv-683672": {
+  "q": "tcl T8D 98",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}
