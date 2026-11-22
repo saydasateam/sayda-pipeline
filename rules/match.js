@@ -35,6 +35,36 @@ const NON_KSA = /\b(egypt|eg\b|uae|dubai|emirates|kuwait|qatar|bahrain|oman|tuni
 //     comparator, so the loss never shows up as an error.
 const BLOCKED_MERCHANT = /\b(ebay|aliexpress|alibaba|desertcart|jomla|smallable|etsy|walmart|temu|wish|shein|amazon\.(com|co\.uk|de|ae|eg)|banggood|joom|ubuy|mcgrocer|toybox\.ae|playanddream|finnegan)\b/i;
 
+// 3d. capacity, when both sides state one (added 2026-11-22). A model token can match as a prefix
+//     of a different series: on 21 Nov Blackbox's TCL «Save in Neo T4» 22,100 BTU (TAC-24CSU) passed
+//     conditions 1 to 4 against noon's TCL JetMax+ 24,000 BTU (TAC24CSUJETW). The capacity is what
+//     tells them apart, so when the row and the listing both print a quantity in the same unit, the
+//     largest figure in that unit must agree within 2%. A listing that prints no capacity is not
+//     rejected here; the other conditions still apply to it.
+const QTY = /(\d[\d,٬.]*)\s*(btu|وحدة|طن|tons?|liters?|litres?|لتر|l|kg|كجم|كيلو(?:غرام|جرام)?|watts?|واط|w|mah|gb|جيجا(?:بايت)?|tb|تيرا(?:بايت)?|ml|مل)(?![\p{L}])/giu;
+const UNIT = { 'btu': 'btu', 'وحدة': 'btu', 'طن': 'ton', 'ton': 'ton', 'tons': 'ton', 'liter': 'l', 'liters': 'l', 'litre': 'l', 'litres': 'l', 'لتر': 'l', 'l': 'l',
+  'kg': 'kg', 'كجم': 'kg', 'كيلو': 'kg', 'كيلوغرام': 'kg', 'كيلوجرام': 'kg', 'watt': 'w', 'watts': 'w', 'واط': 'w', 'w': 'w', 'mah': 'mah',
+  'gb': 'gb', 'جيجا': 'gb', 'جيجابايت': 'gb', 'tb': 'tb', 'تيرا': 'tb', 'تيرابايت': 'tb', 'ml': 'ml', 'مل': 'ml' };
+function quantities(text) {
+  const t = String(text || '').toLowerCase().replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d));
+  const out = {};
+  for (const m of t.matchAll(QTY)) {
+    const u = UNIT[m[2]]; if (!u) continue;
+    const v = parseFloat(m[1].replace(/[,٬]/g, '')); if (!(v > 0)) continue;
+    (out[u] = out[u] || []).push(v);
+  }
+  return out;
+}
+function capacityClash(rowText, title) {
+  const a = quantities(rowText), b = quantities(title);
+  for (const u of Object.keys(a)) {
+    if (!b[u]) continue;
+    const x = Math.max(...a[u]), y = Math.max(...b[u]);
+    if (Math.abs(x - y) / Math.max(x, y) > 0.02) return `row says ${x} ${u}, listing says ${y} ${u}`;
+  }
+  return null;
+}
+
 const norm = s => String(s || '')
   .toLowerCase()
   .replace(/[ـً-ْ]/g, '')      // Arabic tatweel + diacritics
@@ -159,6 +189,7 @@ function sameModel(row, listing, opts = {}) {
     const missing = words.find(w => !hayTokens.includes(w));
     if (missing) return { ok: false, reason: `name word "${missing}" not present as a whole word` };
     if (row.size && !hayTokens.includes(String(row.size))) return { ok: false, reason: `row is ${row.size}", listing does not say so` };
+    { const clash = capacityClash(rowText, title); if (clash) return { ok: false, reason: `capacity differs: ${clash}` }; }
     const pn = Number(listing.price), rpn = Number(row.price);
     if (!(pn > 0 && rpn > 0)) return { ok: false, reason: 'missing price' };
     const rn = pn / rpn;
@@ -193,6 +224,9 @@ function sameModel(row, listing, opts = {}) {
   //   share the model code and sit ~1.4× apart, which is comfortably inside the sanity band below.
   //   Nothing else in this filter separates them.
   if (row.size && !hayTokens.includes(String(row.size))) return { ok: false, reason: `row is ${row.size}", listing does not say so` };
+
+  // — 3d. capacity —
+  { const clash = capacityClash(rowText, title); if (clash) return { ok: false, reason: `capacity differs: ${clash}` }; }
 
   // — 4. sanity band —
   const p = Number(listing.price), rp = Number(row.price);
