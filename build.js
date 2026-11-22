@@ -171,7 +171,11 @@ const couponLis = st.coupons.map((c, i) => {
 }).join('');
 // Top of page: a one-line pointer, same shape as the travel one. The list itself lives below the table.
 const couponsNote = `<a class="note notelink" href="#coupons"><b>🎟️ قسائم وأكواد إضافية</b>خصومات فوق السعر المعروض: أكواد المتاجر وعروض البطاقات البنكية، وما تشترطه فعلاً.<span class="cta">اضغط هنا لعرض القسائم ↓</span></a>`;
-const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">قسائم وأكواد إضافية</h2><ul class="cplist">${couponLis}</ul><p class="cpfoot">أسعار المنتجات المعروضة ${b('قبل')} تطبيق هذه القسائم.</p></section>`;
+// (21 Nov 2026) cards, drawn in the page from CPX like the travel cards; the list above stays for the artifact variant only
+const couponsSection = `<section class="couponsec" id="coupons" aria-labelledby="cp-h"><h2 id="cp-h">قسائم وأكواد إضافية</h2><p class="lede">كل كود وعرض بطاقة هنا منقول من صفحة المتجر نفسه اليوم، مع ما يشترطه فعلاً. اضغط على الكود لنسخه.</p><div class="tcards cpcards" id="cpcards"></div><noscript><ul class="cplist">${couponLis}</ul></noscript><p class="cpfoot">أسعار المنتجات المعروضة ${b('قبل')} تطبيق هذه القسائم.</p></section>`;
+// A coupon card's headline: the short perk, or the store's own quoted words without the «use code X» tail (the code has its own button).
+const cpHead = (perk, text) => { if (perk) return String(perk).replace(/\s*·\s*(الرمز|الكود|code)\s+\S+\s*$/i, '').trim();
+  const m = String(text || '').match(/[«“"]([^»”"]{3,160})[»”"]/); return m ? m[1].replace(/\s*\|\s*(?:(?:إ|ا)?ستخدم|use)[^|]*$/i, '').trim() : ''; };
 // store label -> index of the first coupon that applies, so the table can link to it
 const couponBy = {};
 // only real savings earn the 🎟️ — a 'none' entry ('we found no code') or the Trendyol
@@ -216,14 +220,47 @@ const campaignFill = {
   CARS_NOTE: !carsOn ? '' : `    <a class="note notelink" href="#cars"><b>🚗 عروض السيارات</b>عروض ${campShort} من وكلاء السيارات وجهات التمويل، مقروءة من صفحاتهم الرسمية، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السيارات ↓</span></a>\n`,
   TRAVEL_HIDDEN: travelOn ? '' : ' hidden', CARS_HIDDEN: carsOn ? '' : ' hidden',
   // quick links under the stamp: one short line instead of the three pointer cards that used to push the products down
-  TOP_LINKS: (st.coupons.length ? `<a href="#coupons">القسائم (${Number(st.coupons.length).toLocaleString('ar-SA')})</a>` : '')
-    + (travelOn ? '<a href="#travel">عروض السفر</a>' : '') + (carsOn ? '<a href="#cars">عروض السيارات</a>' : ''),
+  TOP_LINKS: '',
   // furniture wording follows the enabled stores, so a campaign without them does not describe them
   HOW_FURNITURE: (on('ashley') && on('midas')) ? '، وأشلي مقابل ميداس في الأثاث' : '',
   METHOD_IKEA: !on('ikea') ? '' : `<li><b>إيكيا</b>: منتجاتها لا تُباع في متاجر أخرى ولا يوجد لها سجل أسعار عام، لذلك تظهر كـ «غير متحقق» مع مدة العرض الرسمية.</li>\n      `,
   METHOD_FURNITURE: !hasFurn ? '' : `      <li><b>متاجر الأثاث</b>: أشلي وميداس تبيعان نفس سلاسل أشلي (بولانبرغ، سكيمبتون، مودماكس…)، فقارنّا سعر القطعة نفسها بين المتجرين. هوم سنتر وهوم بوكس وبان هوم وسيتي دبليو وبيتونيا تبيع موديلات خاصة بها لا توجد في متاجر أخرى ولا يوجد لها سجل أسعار عام، فتظهر كـ «غير متحقق» مع نسبة المنتجات «المخفّضة» في المتجر.</li>\n`,
   ARCHIVE_LINKS: !(M.archive || []).length ? '' : ' · الأرشيف: ' + M.archive.map(a => `<a href="${a.href}">${a.label}</a>`).join(' · '),
 };
+
+// ---- brand mark and the three hero panels (21 Nov 2026) ----
+// template/logo.svg is the brand mark, the same in every campaign: the header shows it beside the name and the tab uses it as the icon.
+const LOGO = fs.readFileSync(path.join(ROOT, 'template/logo.svg'), 'utf8').trim().replace('<svg ', '<svg aria-hidden="true" focusable="false" ');
+const FAVICON = 'data:image/svg+xml,' + encodeURIComponent(fs.readFileSync(path.join(ROOT, 'template/logo.svg'), 'utf8').trim());
+// Coupons, travel and cars sit as three panels in the hero (Mahmoud, 21 Nov 2026: «why there's no panel for them at the
+// beginning», as on the National Day page). A panel says what is behind it; one with nothing checked yet says so and links nowhere.
+const PIC = {
+  cp: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 0 0 5V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5a2.5 2.5 0 0 0 0-5z"/><path d="M14 5v2M14 11v2M14 17v2"/></svg>',
+  tr: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5 3 11l1.5-1.5 7.5 1L16.5 6a2 2 0 0 1 3 3l-4.5 4.5 1 7.5-1.5 1.5-2.5-7.5-3 3V21l-1.5 1-1.5-3-3-1.5 1-1.5h2.5z"/></svg>',
+  cr: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4.5l-2-5A1.5 1.5 0 0 0 15.6 6.5H8.4A1.5 1.5 0 0 0 7 7.5l-2 5z"/><path d="M5 12.5h14"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>',
+};
+const panel = (on, href, icon, title, status) => on
+  ? `<a class="panel" href="${href}"><span class="pic">${icon}</span><span class="ptx"><b>${title}</b><span>${status}</span></span><span class="parr" aria-hidden="true">↓</span></a>`
+  : `<div class="panel off"><span class="pic">${icon}</span><span class="ptx"><b>${title}</b><span>${status}</span></span></div>`;
+const arCount = (n, one, two, few, many) => n === 1 ? one : n === 2 ? two : n <= 10 ? `${arN(n)} ${few}` : `${arN(n)} ${many}`;
+const andAr = xs => xs.length < 2 ? (xs[0] || '') : xs.slice(0, -1).join('، ') + ' و' + xs[xs.length - 1];
+const andEn = xs => xs.length < 2 ? (xs[0] || '') : xs.slice(0, -1).join(', ') + ' and ' + xs[xs.length - 1];
+const cpSave = st.coupons.filter(c => SAVES.has(c.kind));
+const cpStores = [...new Set(cpSave.flatMap(c => c.stores || []))];
+const trOn = st.travel.length, trChecked = st.travelNone.length, crOn = (st.cars || []).length, crChecked = (st.cars || []).length + (st.carsNone || []).length;
+const forShort = forAr(campShort);
+const panelsAr = `<nav class="panels" aria-label="القسائم وعروض السفر والسيارات">`
+  + panel(cpSave.length > 0, '#coupons', PIC.cp, 'القسائم والأكواد', cpSave.length ? `${arCount(cpSave.length, 'عرض واحد', 'عرضان', 'أكواد وعروض بطاقات', 'كوداً وعرض بطاقة')} · ${andAr(cpStores.map(label))}` : `لا أكواد مؤكدة ${forShort} بعد`)
+  + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'عروض السفر', trOn ? `${arCount(trOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} من شركات الطيران والحجز` : trChecked ? `فحصنا ${arCount(trChecked, 'شركة واحدة', 'شركتين', 'شركات', 'شركة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
+  + panel(crChecked > 0, '#cars', PIC.cr, 'عروض السيارات', crOn ? `${arCount(crOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} (${andAr(st.cars.map(c => c.company.replace(/\s*\(.*\)$/, '')))})${(st.carsNone || []).length ? ` · فحصنا ${arCount(st.carsNone.length, 'جهة أخرى', 'جهتين أخريين', 'جهات أخرى', 'جهة أخرى')}` : ''}` : crChecked ? `فحصنا ${arCount(crChecked, 'جهة واحدة', 'جهتين', 'جهات', 'جهة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
+  + `</nav>`;
+const enCount = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const cpSaveEn = cpSave.filter(c => c.text_en), campShortEn = M.campaignShort_en || M.campaign_en || 'sale';
+const panelsEn = `<nav class="panels" aria-label="Coupons, travel and car offers">`
+  + panel(cpSaveEn.length > 0, '#coupons', PIC.cp, 'Coupons and codes', cpSaveEn.length ? `${cpSaveEn.length} codes and card offers · ${andEn([...new Set(cpSaveEn.flatMap(c => c.stores || []))].map(id => (storeById[id] || {}).label_en || id))}` : `No confirmed ${campShortEn} codes yet`)
+  + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'Travel offers', trOn ? `${enCount(trOn, 'offer')} from airlines and booking sites` : trChecked ? `Checked ${enCount(trChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
+  + panel(crChecked > 0, '#cars', PIC.cr, 'Car offers', crOn ? `${enCount(crOn, 'offer')} (${andEn(st.cars.map(c => (c.company_en || c.company).replace(/\s*\(.*\)$/, '')))})${(st.carsNone || []).length ? ` · ${st.carsNone.length} more checked` : ''}` : crChecked ? `Checked ${enCount(crChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
+  + `</nav>`;
 
 // ---- fill ----
 const fill = {
@@ -252,7 +289,8 @@ const fill = {
   CATEGORY_CHIPS: catChips,
   STORE_CHIPS: storeChips,
   CBY_JSON: JSON.stringify(couponBy),
-  CPX_JSON: JSON.stringify(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), p: pubText(c.perk || '') }))),
+  CPX_JSON: JSON.stringify(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), nw: (c.walletNot || []).filter(id => walletById[id]), p: pubText(c.perk || ''), l: pubText(c.label || ''), h: pubText(cpHead(c.perk, c.text)), t: pubText(c.text || '') }))),
+  LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS: panelsAr,
   WALLET_JSON: JSON.stringify(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
   CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
   CR_JSON: arr(CR), CRNO_JSON: JSON.stringify(CRNO),
@@ -304,7 +342,7 @@ const E = st.rows.map(r => {
   if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
   return o;
 });
-const offerEn = o => ({ company: o.company_en || o.company, type: o.type_en || '', headline: o.headline_en, terms: enText(o.terms_en), code: o.code || '', url: o.url });
+const offerEn = o => ({ company: o.company_en || o.company, type: o.type_en || '', headline: o.headline_en, terms: enText(o.terms_en), code: o.code || '', url: o.url, v: o.verdict || '', bs: o.bookStart || '', be: o.bookEnd || '', ck: o.checked || '', win: o.travelWindow_en || o.window_en || '' });
 const trEn = st.travel.filter(t => t.headline_en && t.terms_en).map(offerEn), crEn = (st.cars || []).filter(c => c.headline_en && c.terms_en).map(offerEn);
 const enTplPath = path.join(ROOT, 'template/en.html');
 if (!fs.existsSync(enTplPath)) throw new Error('build: template/en.html is missing — the English page is required');
@@ -331,7 +369,9 @@ const enFill = {
   CHECKED_EN: dEn(st.meta.checkedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' }),
   STORE_COUNT: String(cfg.stores.filter(s => s.enabled !== false).length), TH_ACCENT: campaignFill.TH_ACCENT, TH_ACCENT_HEX: campaignFill.TH_ACCENT_HEX,
   E_JSON: arr(E), CATS_JSON: JSON.stringify(cats.map(c => [c.id, c.label_en || c.id])), STORE_CHIPS_EN: storeChipsEn,
-  COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), p: enText(x.c.perk_en || '') }))),
+  COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), nw: (x.c.walletNot || []).filter(id => walletById[id]), p: enText(x.c.perk_en || ''), h: enText(cpHead(x.c.perk_en, x.c.text_en)) }))),
+  TRNO_JSON: JSON.stringify(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || ''])), CRNO_JSON: JSON.stringify((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || ''])),
+  TNONE_EN_JSON: JSON.stringify(st.travelNone_text_en || ''), LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS_EN: panelsEn,
   WALLET_JSON: JSON.stringify(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
   CAMPAIGN_END: String(M.campaignEnd || ''),
   TRAVEL_JSON: JSON.stringify(trEn), CARS_JSON: JSON.stringify(crEn),

@@ -1,6 +1,6 @@
 # RUNBOOK — one scheduled run (Claude session + Chrome on the Sayda server)
 
-Read this top to bottom, then execute. Target: ≤ 60 min, ≤ 110 tool calls. Never improvise a parser — every store has an adapter.
+Read this top to bottom, then execute. Target: ≤ 55 min and `config/rules.json → discovery.toolCallBudget` tool calls (150 since 22 Nov 2026). Never improvise a parser — every store has an adapter.
 
 ## Current campaign — White Friday 2026 (set 19 Nov 2026)
 
@@ -25,12 +25,13 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   in `config/stores.json`): noon `yellow-friday-sale-offers/`, almanea `mega-sale-c-7665`, mumzworld
   `collections/mumznovember-mega-deals` (plus `mumz-savers`, `mega-bundles` and `sale`; the
   `november-deals-large-appliances` collection was removed on 20 Nov because `fill-na` gave all 20
-  of the store's slots to Miele and Smeg appliances). **extra,
-  blackbox and saco link no White Friday page yet**: they are collected from their standing offer
-  listings (extra `hot-deals/cp/8016`, saco `limitedtimeoffer-c-134736`, blackbox's offer and category
-  paths). Blackbox's National Day category still answers 200 under its old title and is NOT collected.
-  At the start of each run, look at those three home pages once; when a campaign page appears, say so
-  in the summary so the config can be updated. Never guess a URL.
+  of the store's slots to Miele and Smeg appliances). **Extra** `white-friday/cp/8040` (linked from its
+  home page since 22 Nov 08:21; `campaignPage` in config, read with `SAYDA.adapters.extra.collectPage()`,
+  see §2) and **SACO** `whitef-c-135199` (since 22 Nov 12:21) are in config since 22 Nov. **Blackbox links
+  no White Friday page yet**: it is collected from its offer and category paths. Blackbox's National Day
+  category still answers 200 under its old title and is NOT collected. At the start of each run, look at
+  Blackbox's home page once; when a campaign page appears, say so in the summary so the config can be
+  updated. Never guess a URL.
 - `travelSources` now lists each airline's and platform's standing offers or home page, not National
   Day pages. An offer is published only when the company's own page names it for this campaign.
 - **Two languages, every publish (Mahmoud, 20 Nov 2026).** The English page at `/en/` is as much a
@@ -245,6 +246,41 @@ the symptom is exactly that: a 200 with no product.
 Mahmoud chose on 22 Sep, not a rename of that slot.
 
 ## 2. FULL run only — discovery (≈ 12 calls)
+
+**Discovery plan, every run (22 Nov 2026, Mahmoud approved the review «selection, volume and sorting»).**
+The numbers live in `config/rules.json → discovery`; nothing below repeats them.
+1. `node scripts/rotation.js` prints this run's slot, its **market** store, its **no-record** store, the
+   per-store ceilings and the minute at which discovery stops. Write that line into the run log.
+2. **noon, Amazon and Extra, every run**, up to `ceilingPerStore` each (60 since 22 Nov; it was 20, and on
+   21 Nov Amazon had 86 qualifying candidates of which 18 got in). Extra comes from its own campaign page,
+   not the KanBkam listing (below).
+3. **The rotation's market store** (SACO, Jarir, Almanea or Blackbox): collect from `store.landing` with its
+   adapter as in §1/§1b, then `SAYDA.kanbkam.market([...])` saved as `work/market/<store>.json`, then
+   `node scripts/market-apply.js work/market/<store>.json` (read the shadow output) and the same with
+   `--apply`. `rules/match.js` decides every comparison and `rules/verdict.js` every verdict; `--apply` only
+   writes what they returned. (The §3b sweep over EXISTING market rows stays shadow.) Expect 5 to 10% of candidates to survive; an empty result is a correct result.
+   Blackbox's air conditioners are safe to compare now: `match.js` condition 3d rejects a listing whose
+   capacity (BTU, وحدة, litres, kg, W, GB, mAh, ml) differs from the row's.
+4. **The rotation's no-record store** (Nahdi, Al-Dawaa, Mumzworld, Mothercare, FirstCry, Dabdoob, Namshi):
+   take its `na` rows that carry a brand and a model, size or capacity, look them up with
+   `SAYDA.kanbkam.market([...])` and run `node scripts/market-apply.js work/market/<store>.json`, then the same
+   with `--apply`: a row that matches becomes a
+   `market` row with `refUrl`; a row that does not stays `na`, unchanged. §1b's «Verification for the new
+   stores» applies (size is part of the model for beauty). This never touches `intake.fillTo`.
+5. **Empty chips first** (`emptyChipsFirst`): when shortlisting from noon/Amazon/Extra, take the categories
+   of chips that have no verified row yet (toys, sports, perfume, personal care, kids) before the rest.
+   `rules.page.reservedPerChip` then keeps their slots at intake.
+6. **Stop discovery at `stopDiscoveryAtMinute`** (40) counted from the run's start, whatever is left. The
+   check (§1), pictures and names (§2c, §2d), the build and the publish (§4) must always fit. Coverage is
+   never dropped for discovery.
+
+**Extra from its campaign page.** Open a tab on `store.campaignPage`, inject core + `extra.js`, then
+`SAYDA.start('collect:extra', () => SAYDA.adapters.extra.collectPage())`. It scrolls so every carousel loads
+and returns `{key, kid: 'e<id>', brand, slug, url}` for each product (111 on 22 Nov). Tile prices are not
+read. Evidence: `SAYDA.kanbkam.history(<kids>, 13)` on the KanBkam tab, joined by id, never by index. Use
+the KanBkam listing (`SAYDA.kanbkam.listing(13, …)`) only if the campaign page gives nothing: on 21 and 22 Nov
+it produced 37 out-of-stock picks out of 38.
+
 - **Almanea: collect RENDERED, not fetched.** Its pager calls an authenticated API, so the fetch collector only ever saw
   page 1 — 32 of ~1,009 National Day offers. Rendered on 22 Sep: 31 pages, 902 products, 798 gate-passing candidates, ~2.5 min.
   (Blackbox stays fetch-collected for now — see `config/stores.json → blackbox.collect._render`.)
@@ -257,13 +293,16 @@ Mahmoud chose on 22 Sep, not a rename of that slot.
 - Same injection with action `collect` (for extra & amazon use the kanbkam tab: `node scripts/inject.js kanbkam` then
   `SAYDA.start('collect:extra', ()=>SAYDA.kanbkam.listing(13, <cats from config>, <rules>))`, seller 1 for amazon).
 - Read each store's candidates with `SAYDA.show('collect:<id>', r => r.candidates.slice(0,40).map(c=>[c.key,c.brand,c.name.slice(0,45),c.price,c.was,c.url].join('|')).join('\n'))` + `get_page_text`.
-- Shortlist **up to 20 per store — a ceiling, never a quota.** (Raised from 8 on 22 Sep with `maxNewPerRun` 60 → 150.) Take none from a store that has nothing worth taking; an empty
+- Shortlist **up to `rules.discovery.ceilingPerStore` per store — a ceiling, never a quota.** (8 until 22 Sep, then 20; since 22 Nov 2026, 60 for noon, Amazon and Extra and 20 for the rest.) Take none from a store that has nothing worth taking; an empty
   store is a correct result, not a gap to fill. The old «~2–4 per store» capped good stores and flattered poor ones: a store with
   twenty genuine deals lost sixteen of them while a store with one weak deal still spent a slot. `apply.js new` then ranks ALL
   candidates together — verified savings first, then money saved — and keeps the top `rules.page.maxNewPerRun`, so the stores that
   actually earned the slots get them. The rest are re-collected next run, not lost.
   Qualifying gate comes from `config/rules.json → candidate.tiers` (tiered by live price) — never a number written here.
-  Also: well-known brand, not already in `data/state/<store>.json` (match by id `store:key`), one variant per model.
+  Also: the brand rule in `rules.discovery.brandRule` (the listing names a brand and the store shows reviews or ratings;
+  generic or unbranded listings are dropped; how famous a brand is is not a test — replaced «well-known brand» on 22 Nov 2026,
+  when that judgement cut noon's 40 qualifying items to 11), not already in `data/state/<store>.json` (match by id `store:key`),
+  one variant per model.
   Trendyol: skip cards with `plusOnly` unless instructive — that price needs a subscription. Trendyol candidates carrying
   `lowestRecent` can be judged with no extra lookup, so they are the cheapest to verify in the whole pipeline.
 - Evidence: noon/amazon/extra → `SAYDA.kanbkam.history(ids, mid)` on the kanbkam tab (mid from config; extra ids are `e<id>`). jarir/blackbox/almanea/saco/trendyol → `SAYDA.kanbkam.market(['brand model', …])`, keep only the SAME model. ashley ↔ midas: compare the same piece. ikea/homecentre/homebox/panhome/cityw/baytonia → verdict `na` with the store's discounted-share sentence.
