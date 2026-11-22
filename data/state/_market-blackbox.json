@@ -1,0 +1,275 @@
+{
+ "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001": {
+  "q": "samsung QA100QN80FUXSA 100",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 12999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004": {
+  "q": "samsung QA83S90FAEXSA 83",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 14349,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-qled-85-inch-tv-2025-smart-4-k-upscaling-air-slim-desgin-qa-85-p-1411118261705007": {
+  "q": "samsung QA85Q8FAAUXSA 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5949,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-83-inch-oled-tv-smart-4-k-ai-upscaling-dolby-atmos-120-hz-qa-p-1411118241685003": {
+  "q": "samsung QA83S85FAEXSA 83",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 14449,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-qled-85-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824170501": {
+  "q": "samsung QA85LS03HEUXSA 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 8199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "85 inch, QLED 4K Upscaling, Glare free, 144Hz, Art Mode QA85LS03HEUXSA",
+    "why": "brand word \"samsung\" not present as a whole word"
+   }
+  ]
+ },
+ "blackbox:samsung-mini-led-100-inches-smart-4-k-ai-upscaling-samsung-vision-ai-144-hz-p-141111821185501": {
+  "q": "samsung UA100M90HUXSA 100",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 9799,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 8399,
+  "avg": 8399,
+  "max": 8399,
+  "market": {
+   "store": "noon",
+   "price": 8399,
+   "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 8399,
+    "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V"
+   }
+  ],
+  "rejected": []
+ },
+ "blackbox:samsung-led-98-inches-smart-4-k-crystal-uhd-144-hz-samsung-vision-ai-ua-p-141111823183502": {
+  "q": "samsung UA98U9000HUXSA 98",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-85-inches-neo-qled-tv-smart-120-hz-dlg-4-k-ai-upscaling-slim-p-141111822170505": {
+  "q": "samsung QA85QN70HAUXSA 85",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 7399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-oled-55-inches-tv-smart-4-k-ai-upscaling-glare-free-g-sync-165-p-141111824140505": {
+  "q": "samsung QA55S90HAUXSA 55",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-qled-75-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824160501": {
+  "q": "samsung QA75LS03HEUXSA 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 6299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-oled-55-inches-tv-smart-4-k-ai-upscaling-samsung-vision-ai-120-hz-p-141111824140506": {
+  "q": "samsung QA55S85HAEXSA 55",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-led-65-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828150501": {
+  "q": "samsung MRA65R85HAUXSA 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 5499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "65 Inch, Micro RGB 4K Upscaling, Dolby Atmos, 144Hz MRA65R85HAUXSA bla",
+    "why": "brand word \"samsung\" not present as a whole word"
+   }
+  ]
+ },
+ "blackbox:lg-65-inches-qned-evo-ai-qned-91-tv-smart-4-k-uhd-a8-ai-p-1411111391505005": {
+  "q": "lg 65QNED91A6A 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-65-inch-neo-qled-tv-smart-144-hz-4-k-ai-upscaling-dolby-atmos-p-1411118221505005": {
+  "q": "samsung QA65QN80FAUXSA 65",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 4299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504": {
+  "q": "samsung UA75M70HAUXSA 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3699,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2749,
+  "avg": 2749,
+  "max": 2749,
+  "market": {
+   "store": "amazon",
+   "price": 2749,
+   "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
+  },
+  "sources": [
+   {
+    "merchant": "amazon",
+    "price": 2749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
+   }
+  ],
+  "rejected": []
+ },
+ "blackbox:tcl-75-inches-qled-tv-smart-4-k-uhd-dolby-vision-atmos-google-tv-75-p-141111256160509": {
+  "q": "tcl 75P71L 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502": {
+  "q": "samsung UA55M80HAUXSA 55",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 2799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "55 inch, Mini LED 4K AI Upscaling, 144Hz, AI soccer mode UA55M80HAUXSA",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "55 inch, Mini LED 4K AI Upscaling, 144Hz, AI soccer mode UA55M80HAUXSA",
+    "why": "brand word \"samsung\" not present as a whole word"
+   }
+  ]
+ },
+ "blackbox:samsung-led-75-inches-tv-smart-crystal-processor-4-k-uhd-secured-by-knox-ua-p-141111823160505": {
+  "q": "samsung UA75U8000HUXSA 75",
+  "sampledAt": "2026-11-22",
+  "rowPrice": 3099,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}

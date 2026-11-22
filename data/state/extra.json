@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-22",
- "checkedAt": "2026-11-22T16:46:59.865+03:00",
+ "checkedAt": "2026-11-22T20:36:07.155+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -231,8 +231,8 @@
    "verdict": "warn",
    "finding": "كان ٣٬٩٩٩ · سبق ونزل ٢٬٣٧٤",
    "url": "https://www.extra.com/ar-sa/computer/laptops/clamshell/huawei-matebook-d16-intel-core-i5-16gb-1tb-ssd-16-inch-ips-mystic-silver/p/100498812",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "إكسترا: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "ev": {
     "prev": 3999,
     "min": 2374,
@@ -959,7 +959,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٦٤٩ · سبق ونزل ٢٩٦",
-   "url": "https://www.extra.com/ar-sa/p/100392324",
+   "url": "https://www.extra.com/ar-sa/small-appliances/personal-care/epilator/braun-silk-epil-5-epilator-with-4-accessories/p/100392324",
    "avail": "in",
    "ev": {
     "prev": 649,
@@ -986,7 +986,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٥٩ · سبق ونزل ٦٦",
-   "url": "https://www.extra.com/ar-sa/p/100003888",
+   "url": "https://www.extra.com/ar-sa/small-appliances/personal-care/hair-styler/phlips-stylecare-curler-ceramic-130-200-c-8-settings-auto-shutoff/p/100003888",
    "avail": "in",
    "ev": {
     "prev": 159,
@@ -1013,7 +1013,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٧٬٩٩٩ · سبق ونزل ٥٬٥٩٩",
-   "url": "https://www.extra.com/ar-sa/p/100342299",
+   "url": "https://www.extra.com/ar-sa/small-appliances/food-and-beverage-appliances/cappuccino-makers/ecam450-65-s-delonghi-eletta-explore-latte-crema-hot-cool-cold-extraction-technology/p/100342299",
    "avail": "in",
    "ev": {
     "prev": 7999,
@@ -1040,7 +1040,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٬٣٩٩ · سبق ونزل ٩٧٩",
-   "url": "https://www.extra.com/ar-sa/p/100464303",
+   "url": "https://www.extra.com/ar-sa/large-appliances-/washing-machines/topload/toshiba-top-load-washer-7kg-silver/p/100464303",
    "avail": "in",
    "ev": {
     "prev": 1399,
@@ -1067,7 +1067,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٤٬٩٩٩ · سبق ونزل ٣٬٥٩٩",
-   "url": "https://www.extra.com/ar-sa/p/100261655",
+   "url": "https://www.extra.com/ar-sa/large-appliances-/refrigerators/side-by-side-refrigerator/haier-sbs-4-door-refrigerator-14-9cu-ft-freezer-5-7cu-ft-twin-inverter-black-glass/p/100261655",
    "avail": "in",
    "ev": {
     "prev": 4999,
@@ -1094,7 +1094,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٬١٩٩ · سبق ونزل ٩٤٩",
-   "url": "https://www.extra.com/ar-sa/p/100363762",
+   "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/air-treatment/levoit-h13-hepa-air-purifier-for-smoking-rooms-allergy-sufferers-white/p/100363762",
    "avail": "in",
    "ev": {
     "prev": 1199,
@@ -1121,7 +1121,7 @@
    "refKind": "history",
    "verdict": "ok",
    "finding": "كان ١٬٨٧٩ · أقل سعر مسجل",
-   "url": "https://www.extra.com/ar-sa/p/100478013",
+   "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/vacuum-cleaner/eufy-omni-c28-robot-vacuum-2-online-black/p/100478013",
    "avail": "in",
    "ev": {
     "prev": 1879,
@@ -1148,7 +1148,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٬٥٩٩ · سبق ونزل ١٬٢٥٨",
-   "url": "https://www.extra.com/ar-sa/p/100397353",
+   "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/irons/philips-perfectcare-7000-series-steam-generator-iron/p/100397353",
    "avail": "in",
    "ev": {
     "prev": 1599,
@@ -1175,7 +1175,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٬٠٣٩ · سبق ونزل ٦٤٩",
-   "url": "https://www.extra.com/ar-sa/p/100369669",
+   "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/irons/class-pro-large-ironing-surface-with-ceramic-coating-1000ml-removable-water-tank-1600w/p/100369669",
    "avail": "in",
    "ev": {
     "prev": 1039,
@@ -1202,7 +1202,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٩٤٩ · سبق ونزل ٧٨٩",
-   "url": "https://www.extra.com/ar-sa/p/100354204",
+   "url": "https://www.extra.com/ar-sa/accessories/recliners/rocking-swivel/homez-recliner-chair-with-rocking-and-swivel-function-light-grey/p/100354204",
    "avail": "in",
    "ev": {
     "prev": 949,
@@ -1229,7 +1229,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٩٤٩ · سبق ونزل ٧٨٩",
-   "url": "https://www.extra.com/ar-sa/p/100354208",
+   "url": "https://www.extra.com/ar-sa/accessories/recliners/rocking-swivel/homez-recliner-chair-with-rocking-and-swivel-function-brown/p/100354208",
    "avail": "in",
    "ev": {
     "prev": 949,
@@ -1256,7 +1256,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٥٥٩ · سبق ونزل ٣٨٠",
-   "url": "https://www.extra.com/ar-sa/p/100196642",
+   "url": "https://www.extra.com/ar-sa/small-appliances/food-and-beverage-appliances/microwave/classpro-42l-microwave-oven-with-grill-1100w/p/100196642",
    "avail": "in",
    "ev": {
     "prev": 559,
@@ -1283,7 +1283,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٤٨٩ · سبق ونزل ٢٩٩",
-   "url": "https://www.extra.com/ar-sa/p/100023758",
+   "url": "https://www.extra.com/ar-sa/small-appliances/food-and-beverage-appliances/ovens/classpro-electric-oven-70l-stainless-steel/p/100023758",
    "avail": "in",
    "ev": {
     "prev": 489,
@@ -1310,7 +1310,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٥٢٩ · سبق ونزل ٤١٩",
-   "url": "https://www.extra.com/ar-sa/p/100202742",
+   "url": "https://www.extra.com/ar-sa/accessories/automotive/pressure-washers/classpro-high-pressure-washer-160-bar-2000w/p/100202742",
    "avail": "in",
    "ev": {
     "prev": 529,
@@ -1337,7 +1337,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٣١٩ · سبق ونزل ١٧٧",
-   "url": "https://www.extra.com/ar-sa/p/100238357",
+   "url": "https://www.extra.com/ar-sa/small-appliances/food-and-beverage-appliances/mincer/kenwood-meat-grinder-2100w-kebbe-maker-sausage-maker-white/p/100238357",
    "avail": "in",
    "ev": {
     "prev": 319,
