@@ -46,16 +46,18 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 <button type="button" id="totop" class="totop" hidden aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
 <section class="hero" dir="ltr" lang="en"><div class="heroin">
   <div>
+    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></span><span class="upd"><b>Last updated: {{UPDATED_EN}}</b></span></p>
     <h1>{{CAMPAIGN_EN}}: <span class="hacc">real discounts only.</span></h1>
     <p class="herosub">Every deal here is checked against a price record or the same model at another store, not against the “before” price the store prints.</p>
-    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></span><span class="upd"><b>Last updated: {{UPDATED_EN}}</b></span></p>
     <nav class="toplinks" aria-label="Quick links"><a href="#how">How we check</a></nav>
   </div>
   <div class="count" id="count" hidden><span class="countl">The campaign ends in</span><div class="countb"><span><b id="cd-d">0</b>days</span><span><b id="cd-h">0</b>hours</span><span><b id="cd-m">0</b>min</span><span><b id="cd-s">0</b>sec</span></div></div>
   {{TOP_PANELS_EN}}
-  <div class="wallet" id="wallet" hidden><span class="walletl">My cards and memberships</span><div class="walletc" id="walletc"></div></div>
-</div></section>
+</div>
+{{TICKER}}
+</section>
 <div class="wrap" dir="ltr" lang="en">
+  {{KAT_CARDS}}
   <div class="statrow"><div class="stats" id="stats" role="group" aria-label="Summary of the deals"></div><span class="sfact" id="sfact"></span></div>
   <div class="filters" aria-label="Filter the deals" id="filters">
     <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="ftlabel">Filters <span class="fthint" id="fthint">(tap here)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
@@ -74,6 +76,8 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
     </div>
     <div class="fstatus"><label class="sr" for="sortby">Sort the results</label><select id="sortby"><option value="d">Sort: best value first</option><option value="pct">Biggest real discount (%)</option><option value="sav">Most money saved (SAR)</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select><span class="sorthow" id="sorthow">Best value: confirmed discounts first, ranked by the real discount weighted by the riyals saved, with no more than two cards in a row from one store or category.</span><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>Clear filters</button></div>
   </div>
+  {{KAT_HEADS}}
+  <div class="wallet" id="wallet" hidden><span class="walletl">My cards and memberships</span><div class="walletc" id="walletc"></div></div>
   <p class="sharednote" id="sharednote" hidden></p>
   <div class="grid" id="rows"></div>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="Close">✕</button></div><div id="evbody"></div></div></dialog>
@@ -115,6 +119,8 @@ const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
 // (22 Nov 2026 audit) the same esc() as the Arabic page: null and undefined give '', and the single quote is escaped too
 const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=id=>document.getElementById(id);
+// (BLD-15) category id -> its label and colour class, for the chip's dot and the tag on each card. Written by build.js from config/categories.json.
+const KAT={{KAT_JSON}};
 const WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
 const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
 // Saved deals and wallet choices live in this browser only (localStorage). Nothing is sent anywhere.
@@ -163,6 +169,9 @@ const DEF={a:'avail',v:'all'},MULTI={c:1,s:1},F={a:'avail',v:'all',c:[],s:[],pmi
 const matchA=(d,f)=>f.a==='all'?true:f.a==='avail'?!UN(d):f.a==='low'?d.a==='low':UN(d),matchV=(d,f)=>f.v==='all'||d.v===f.v,matchC=(d,f)=>!f.c.length||f.c.includes(d.c),matchS=(d,f)=>!f.s.length||f.s.includes(d.s),matchP=(d,f)=>(f.pmin==null||d.p>=f.pmin)&&(f.pmax==null||d.p<=f.pmax);
 // The saved list shows a saved deal even after it sold out, so it bypasses the stock filter.
 const matchAll=(d,f)=>(FV?FAV.has(d.id):matchA(d,f))&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&(!LO||isLow(d))&&(!WL||!!walletHit(d))&&QW.every(w=>d.h.includes(w));
+// (BLD-15) Inside one category the grid carries that category's header, written by build.js; the card at the top shows as pressed.
+function syncKat(){const one=F.c.length===1?F.c[0]:'';document.querySelectorAll('.khead').forEach(h=>{h.hidden=h.dataset.cat!==one;});
+  document.querySelectorAll('.kcard').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cat===one)));}
 function setF(g,f){if(MULTI[g]){if(f==='all')F[g]=[];else{const i=F[g].indexOf(f);i<0?F[g].push(f):F[g].splice(i,1);}}else F[g]=f;render();}
 function chipCount(g,f){const t={a:F.a,v:F.v,c:F.c,s:F.s,pmin:F.pmin,pmax:F.pmax};t[g]=MULTI[g]?(f==='all'?[]:[f]):f;return E.filter(d=>matchAll(d,t)).length;}
 function syncChips(){document.querySelectorAll('#stats button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lo?LO:F.v===b.dataset.sv)));
@@ -193,7 +202,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     const isFav=FAV.has(d.id);
     c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
       +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}</a>`
-      +`<div class="cinfo"><a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>SAR</small></span>${save}</div>${claim}</div></div>`
+      +`<div class="cinfo">${KAT[d.c]?`<span class="ckat kc${esc(KAT[d.c].k)}">${esc(KAT[d.c].l)}</span>`:''}<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>SAR</small></span>${save}</div>${claim}</div></div>`
       +strip+note+perk
       +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">Open at ${esc(d.s)}</a>${code}</div>`
       +`<div class="clinks"><button type="button" class="ev" aria-haspopup="dialog">Price evidence</button>`
@@ -206,7 +215,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     rows.appendChild(c);});
   if(!list.length)rows.innerHTML='<div class="empty">No deals match these filters. Try another store or category, or “Clear filters”.</div>';
   const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||QW.length>0||F.pmin!=null||F.pmax!=null||LO||FV||WL||$('sortby').value!=='d';
-  syncChips();syncHead();
+  syncChips();syncHead();syncKat();
   const gone=E.filter(UN).length;$('fcount').textContent=`Showing ${fmt(list.length)} of ${fmt(E.length)} deals`+(F.a==='avail'&&gone?` · ${fmt(gone)} out of stock or ended (hidden)`:'');
   $('freset').hidden=!active;$('filters').toggleAttribute('data-active',active);
   // what is selected stays visible even when the panel is folded away
@@ -227,7 +236,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   const realN=av.filter(d=>d.real!=null&&(d.real>=RULE.okMin*100||(d.real>=RULE.warnMin*100&&(d.r-d.p)>=tier(d.p)))).length,overN=av.filter(d=>d.w&&d.r!=null&&d.rk!=='m'&&d.w>d.r*1.05).length;
   $('stats').innerHTML=`<button type="button" data-sv="all"><b>${fmt(av.length)}</b>checked deals</button><button type="button" data-sv="ok"><b>${fmt(cnt('ok'))}</b>confirmed discounts</button>`+(av.some(isLow)?`<button type="button" data-lo="1"><b>${fmt(av.filter(isLow).length)}</b>at lowest recorded price</button>`:'');if(overN)$('sfact').innerHTML=`Advertised “before” prices above the recorded one: <b>${fmt(overN)}</b>`;
   document.querySelectorAll('#stats button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lo){LO=!LO;render();}else setF('v',b.dataset.sv);}));
-  $('ecats').innerHTML=[['all','All categories']].concat(CATS.filter(c=>used.has(c[0]))).map(c=>`<button type="button" data-g="c" data-f="${esc(c[0])}">${esc(c[1])}</button>`).join('');
+  $('ecats').innerHTML=[['all','All categories']].concat(CATS.filter(c=>used.has(c[0]))).map(c=>`<button type="button" data-g="c" data-f="${esc(c[0])}"${KAT[c[0]]?` class="kc${esc(KAT[c[0]].k)}"`:''}>${esc(c[1])}</button>`).join('');
   $('filters').addEventListener('click',e=>{const b=e.target.closest('button[data-g]');if(b&&!b.disabled)setF(b.dataset.g,b.dataset.f);});
   $('keynote').insertAdjacentHTML('beforeend',`Of ${fmt(E.length)} deals at ${fmt(new Set(E.map(d=>d.s)).size)} stores, ${fmt(realN)} are cheaper by a margin that matters against their previous price or the market price, and ${fmt(cnt('ok'))} passed every check.`+(overN?` Advertised “before” prices that are above what was recorded before the sale: ${fmt(overN)}.`:'')+(cnt('bad')?` Deals that are not cheaper (the same model costs less elsewhere, the price went up, or there is no real saving): ${fmt(cnt('bad'))}.`:''));
   const pct=n=>fmt(Math.round(n*100))+'%',floors=(RULE.okSavingTiers||[]).map(t=>t.maxPrice==null?`${fmt(t.minSaving)} SAR above that`:`${fmt(t.minSaving)} SAR up to ${fmt(t.maxPrice)} SAR`).join(', ');
@@ -268,10 +277,22 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     if(tick()){const t=setInterval(()=>{if(!tick())clearInterval(t);},1000);}})();
   (()=>{const t=document.querySelector('.top'),set=()=>document.documentElement.style.setProperty('--toph',t.offsetHeight+'px');set();addEventListener('resize',set);})();
   render();
-  (()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(!id)return;const d=E.find(x=>x.id===id),note=$('sharednote');
+  // Open the page on one card: a shared link (?d=<id>) and a tap on a ticker item both end here.
+  const openDeal=id=>{const d=E.find(x=>x.id===id),note=$('sharednote');
     if(!d){note.textContent='The deal this link was opened for is no longer on the list. These are the deals checked now.';note.hidden=false;return;}
-    F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;$('pmin').value='';$('pmax').value='';LO=false;FV=false;WL=false;render();
-    const el=[...$('rows').children].find(c=>c.dataset&&c.dataset.id===id);if(el){el.classList.add('hit');el.scrollIntoView({block:'center'});}})();
+    if(!matchAll(d,F)){$('q').value='';QW=[];F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;$('pmin').value='';$('pmax').value='';LO=false;FV=false;WL=false;render();}
+    const el=[...$('rows').children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));el.classList.add('hit');el.scrollIntoView({block:'center'});}};
+  (()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id);})();
+  // (BLD-15) Category cards, the way back from a category, and the ticker. A card sets the same filter as its chip and moves to
+  // the grid; a ticker item opens the page on that card. None of them leaves the page, so none is an outbound_store_click.
+  document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
+    const k=t.closest('.kcard');if(k){F.c=[k.dataset.cat];render();const s=document.querySelector('.statrow');if(s)s.scrollIntoView({block:'start'});return;}
+    if(t.closest('.khback')){F.c=[];render();const s=$('kats');if(s)s.scrollIntoView({block:'center'});return;}
+    const i=t.closest('.ti[data-d]');if(i)openDeal(i.dataset.d);});
+  (()=>{const tk=$('tick');if(!tk)return;const off=()=>tk.classList.remove('paused');
+    tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));})();
+  // a store picture that does not load is removed; the white tile behind it stays
+  document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 })();
 // ---- measurement events for Google Tag Manager (22 Nov 2026) ----
 // Three events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used.

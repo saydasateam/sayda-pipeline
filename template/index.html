@@ -481,6 +481,172 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 .evhead h3{margin:0;font-size:16px;line-height:1.55}
 .dx{flex:none;font:inherit;font-size:16px;width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
 #evbody .buy{margin-top:12px}
+/* ---- Direction A (BLD-15, Mahmoud's decisions of 22 and 23 Nov 2026). The hero, the ticker and the fonts follow the demo
+   file Mahmoud supplied on 23 Nov («Sayda Deals - Vibrant White Friday Demo»), value for value: a slowly flowing indigo-to-
+   emerald gradient with two soft glows, a glass status pill with a pinging dot, amber on the highlighted phrase, a glass
+   countdown read left to right with colons and an amber seconds box, and the ticker as glass pills on a dark strip at the
+   bottom of the hero. Type is the page's own two families and nothing else in these parts: IBM Plex Sans Arabic on the
+   Arabic page, Plus Jakarta Sans on the English one. The words are the page's own, not the demo's. Below the hero: static
+   category cards with the stores' own photos, and a coloured header inside a category with the wallet under it. Outside the
+   hero, green stays for verified and lowest recorded only: no category colour is a green. ---- */
+:root{--kt:var(--chip);--ka:var(--muted)}
+{{KAT_CSS}}
+@keyframes heroflow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes sping{75%,100%{transform:scale(2);opacity:0}}
+.hero{border-bottom:0;position:relative;overflow:hidden;color:#fff}
+.hero,.hero[dir="rtl"],.hero[dir="ltr"]{background:linear-gradient(125deg,#1E1B4B 0%,#312E81 28%,#0F766E 68%,#059669 100%);background-size:220% 220%;animation:heroflow 14s ease infinite}
+.hero::before,.hero::after{content:"";position:absolute;pointer-events:none;border-radius:50%;-webkit-filter:blur(64px);filter:blur(64px)}
+.hero::before{top:-80px;inset-inline-start:-64px;width:288px;height:288px;background:rgba(52,211,153,.2)}
+.hero::after{bottom:-96px;inset-inline-end:-64px;width:320px;height:320px;background:rgba(129,140,248,.25)}
+@media (prefers-reduced-motion:reduce){.hero,.hero[dir="rtl"],.hero[dir="ltr"]{animation:none}.hero .stamp .dot::after{animation:none;display:none}}
+.heroin{position:relative;z-index:1;padding:28px 16px 24px;gap:12px 28px}
+.hero .stamp{margin:0 0 12px;display:inline-flex;flex-wrap:wrap;align-items:center;gap:2px 14px;padding:6px 14px;border-radius:9999px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 1px 2px rgba(0,0,0,.05);font-size:14px;font-weight:700;line-height:1.45;color:#fff}
+.hero .stamp .chk{gap:10px;color:#fff}
+.hero .stamp .chk b{font-weight:700}
+.hero .stamp .dot{position:relative;width:10px;height:10px;background:#34D399;box-shadow:none;animation:none}
+.hero .stamp .dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#6EE7B7;opacity:.85;animation:sping 1s cubic-bezier(0,0,.2,1) infinite}
+.hero .stamp .upd{color:#E0E7FF;font-size:13px}
+.hero .stamp .upd b{font-weight:600}
+.hero h1{font-size:36px;font-weight:800;letter-spacing:-.025em;line-height:1.25;color:#fff}
+.hero[dir="ltr"] h1{font-size:36px}
+.hero h1 .hacc{color:#FCD34D}
+.herosub{margin:12px 0 0;max-width:36rem;font-size:16px;line-height:1.625;opacity:1;color:#E0E7FF}
+.hero .toplinks{margin:8px 0 0;font-size:13px}
+.hero .toplinks a{color:#fff}
+a.panel:focus-visible,.hero a:focus-visible{outline:2px solid #FCD34D;outline-offset:2px}
+.countl{color:#A7F3D0;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;opacity:1;margin-bottom:8px}
+.countb{direction:ltr;gap:22px;font-variant-numeric:tabular-nums}
+.countb span{position:relative;min-width:58px;padding:10px 14px;border-radius:16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);text-align:center;font-size:10px;font-weight:600;color:#E0E7FF;gap:4px}
+.countb span:not(:last-child)::after{content:":";position:absolute;right:-14px;top:50%;transform:translateY(-56%);font-size:18px;font-weight:800;line-height:1;color:rgba(255,255,255,.6)}
+.countb b{font-family:inherit;font-size:24px;font-weight:800;line-height:1;color:#fff}
+.countb span:last-child{background:rgba(251,191,36,.2);border-color:rgba(252,211,77,.4);color:#FEF3C7}
+.countb span:last-child b{color:#FCD34D}
+.panels{gap:8px}
+.panel{min-height:0;padding:6px 12px 6px 8px;border-radius:9999px;gap:8px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+[dir="rtl"] .panel{padding:6px 8px 6px 12px}
+a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)}
+.panel .pic{width:28px;height:28px;border-radius:50%;background:rgba(252,211,77,.18);color:#FCD34D}
+.panel .pic svg{width:16px;height:16px}
+.panel .ptx{flex-direction:row;align-items:baseline;gap:8px;white-space:nowrap;overflow:hidden}
+.panel .ptx b{font-family:inherit;font-size:14px;flex:none}
+.panel .ptx span{font-size:12.5px;color:#E0E7FF;overflow:hidden;text-overflow:ellipsis}
+.panel .parr{font-size:14px;opacity:.8}
+@media (max-width:760px){.panel{flex:0 0 auto;max-width:86%}}
+/* the wallet left the hero: it sits above the grid, under the category header, on the page's own background */
+.wallet{padding:10px 0 0;border-top:0}
+.walletl{opacity:1;color:var(--muted);font-weight:600}
+.walletc button{border:1px solid color-mix(in srgb,var(--wal) 34%,transparent);background:var(--wal-soft);color:var(--wal)}
+.walletc button[aria-pressed="true"]{background:var(--wal);color:var(--surface);border-color:var(--wal);font-weight:600}
+@media (pointer:coarse){.walletc button{min-height:40px}}
+/* ticker: flush at the bottom of the hero on a dark translucent navy strip, each deal in its own glass pill, white
+   text, no underline. CSS only. Two copies of the items make the loop; the second is hidden from screen readers.
+   It stops under the pointer, on touch and on keyboard focus; with reduced motion it does not move and scrolls by hand. */
+.tick{position:relative;z-index:1;display:flex;align-items:center;background:rgba(2,6,23,.35);border-top:1px solid rgba(255,255,255,.15);padding:10px 0;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);font-size:14px;font-weight:600;color:rgba(255,255,255,.95)}
+.tickl{flex:none;margin:0;display:flex;flex-direction:column;justify-content:center;padding:0 16px;line-height:1.3;border-inline-end:1px solid rgba(255,255,255,.15)}
+.tickl b{font-size:13px;font-weight:700;color:#fff}
+.tickl small{font-size:11.5px;font-weight:500;color:#E0E7FF}
+.tickv{flex:1;min-width:0;overflow:hidden;white-space:nowrap}
+.tickt{display:flex;align-items:center;width:max-content;animation:tickx 95s linear infinite}
+[dir="rtl"] .tickt{animation-name:tickxr}
+.tickg{display:flex;align-items:center;flex:none;gap:24px;padding-inline-start:24px}
+.ti{font:inherit;font-weight:600;display:inline-flex;align-items:center;flex:none;gap:8px;padding:2px 12px;border-radius:9999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.95);text-decoration:none;white-space:nowrap;cursor:pointer}
+.ti:hover{background:rgba(255,255,255,.18)}
+.ti .tn{max-width:26ch;overflow:hidden;text-overflow:ellipsis}
+.ti .tp{font-weight:700}
+.ti .tpr{font-weight:600;font-variant-numeric:tabular-nums}
+.ti .ts{color:#E0E7FF;font-weight:500}
+.ti:focus-visible{outline:2px solid #FCD34D;outline-offset:2px}
+/* Pauses that end by themselves (23 Nov): under a real pointer only (a finger leaves :hover stuck on phones), while a finger
+   is down (.paused, set by the script), and on keyboard focus only (a clicked pill keeps focus, and :focus-within kept it paused). */
+.tick.paused .tickt{animation-play-state:paused}
+.tick:has(:focus-visible) .tickt{animation-play-state:paused}
+@media (hover:hover){.tick:hover .tickt{animation-play-state:paused}}
+@keyframes tickx{to{transform:translateX(-50%)}}
+@keyframes tickxr{to{transform:translateX(50%)}}
+@media (prefers-reduced-motion:reduce){.tick .tickt,.tick[dir="rtl"] .tickt{animation:none}.tickv{overflow-x:auto;scrollbar-width:thin}.tickg[aria-hidden]{display:none}}
+@media (max-width:639px){.tick{font-size:12px}.tickl{padding-inline:12px 10px}.tickl small{font-size:11px}.ti .tn{max-width:20ch}}
+@media print{.tick{display:none}}
+/* category cards: the cards of demo A, «Blue and gold, soft tints» (Mahmoud, 23 Nov 2026), static as he decided on 22 Nov.
+   Per category from build.js: --kt tint, --ka accent, --kk text, --ks small labels, --kp count pill, --kb button text.
+   The pictures are the stores' own, on white tiles; they lift a little under a pointer and stand still otherwise. */
+.kats{display:flex;flex-direction:column;gap:14px;margin:0 0 22px}
+.kathd{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 8px}
+.kathd h2{margin:0;font-family:inherit;font-size:24px;font-weight:700;color:var(--ink)}
+.kathd span{font-size:13.5px;color:var(--muted)}
+.kbig{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px}
+.ksmall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(158px,100%),1fr));gap:14px}
+.kcard{font:inherit;text-align:start;display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-width:0;min-height:204px;padding:16px;box-sizing:border-box;border:0;border-radius:18px;background:var(--kt);color:var(--kk);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+.kcard.big{gap:14px;min-height:292px;padding:20px;border-radius:22px}
+@media (hover:hover){.kcard:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(11,15,25,.18)}}
+.kcard:focus-visible{outline:2px solid var(--accent);outline-offset:3px;transform:translateY(-5px);box-shadow:0 16px 32px rgba(11,15,25,.18)}
+.kcard[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ka)}
+.khd{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.ksmall .khd{align-items:flex-start;gap:8px}
+.ktx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kn{font-weight:700;font-size:17px;line-height:1.35;color:var(--kk)}
+.kcard.big .kn{font-size:22px;line-height:1.3}
+.kcount{font-size:13px;color:var(--ks)}
+.kcard.big .kcount{flex:none;padding:5px 12px;border-radius:999px;background:var(--kp);font-weight:600;color:var(--kk)}
+.kmid{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.kmx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.kml{font-size:13px;color:var(--ks)}
+.kpct{font-weight:700;font-size:26px;line-height:1.1;color:var(--ka);font-variant-numeric:tabular-nums}
+.kcard.big .kpct{font-size:60px;line-height:1;letter-spacing:-1px}
+.knone{font-size:15px;line-height:1.75;color:var(--ka)}
+[dir="ltr"] .ksmall .kpct{font-size:22px;white-space:nowrap}
+.kstack{position:relative;display:block;width:132px;height:112px;flex:none}
+.kim{position:absolute;display:block;overflow:hidden;background:#fff;box-sizing:border-box;transition:transform .3s ease}
+.kim img{display:block;width:100%;height:100%;object-fit:contain}
+.kim.kback1{inset-inline-start:0;top:18px;width:70px;height:78px;border-radius:14px;border:3px solid var(--kp);transform:rotate(-9deg)}
+.kim.kback2{inset-inline-end:0;top:22px;width:70px;height:78px;border-radius:14px;border:3px solid var(--kp);transform:rotate(8deg)}
+.kim.kfront{inset-inline-start:24px;top:4px;z-index:1;width:84px;height:100px;border-radius:16px;padding:6px;box-shadow:0 8px 18px rgba(11,15,25,.14)}
+@media (hover:hover){.kcard:hover .kim.kfront{transform:translateY(-5px)}.kcard:hover .kim.kback1{transform:translateY(-3px) rotate(-9deg)}.kcard:hover .kim.kback2{transform:translateY(-4px) rotate(8deg)}}
+@media (prefers-reduced-motion:reduce){.kcard,.kim{transition:none}.kcard:hover,.kcard:focus-visible,.kcard:hover .kim{transform:none!important}.kcard:hover .kim.kback1{transform:rotate(-9deg)!important}.kcard:hover .kim.kback2{transform:rotate(8deg)!important}}
+.ktile{display:flex;align-items:center;justify-content:center;width:46px;height:46px;flex:none;border-radius:14px;background:#fff;overflow:hidden;padding:4px;box-sizing:border-box}
+.ktile img{display:block;width:100%;height:100%;object-fit:contain}
+.kdeal{display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:54px;padding:6px 14px;border-radius:12px;background:var(--surface);box-sizing:border-box;min-width:0}
+.kcard.big .kdeal{min-height:58px}
+.kdn{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kcard.big .kdn{font-size:14px}
+.kdm{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kdm b{color:var(--ok)}
+.kft{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.kconf{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--kk)}
+.kconf i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--surface)}
+.kgo{display:flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--ka);color:var(--kb);font-size:14px;font-weight:700}
+@media (max-width:760px){
+  .kbig,.ksmall{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch;margin-inline:-16px;padding:2px 16px 8px;scrollbar-width:none;gap:12px}
+  .kbig::-webkit-scrollbar,.ksmall::-webkit-scrollbar{display:none}
+  .kbig .kcard{flex:0 0 86%;scroll-snap-align:start}
+  .ksmall .kcard{flex:0 0 46%;scroll-snap-align:start}
+}
+/* the dot on a category chip, the tag on a product card, and the header inside a category */
+.fcats button[class*="kc"]::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ka);margin-inline-end:7px}
+.fcats button[class*="kc"][aria-pressed="true"]::before{background:currentColor}
+.ckat{display:block;width:fit-content;max-width:100%;font-size:11px;font-weight:700;line-height:1.7;padding:0 8px;border-radius:999px;background:var(--kt);color:var(--ka);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.statrow{scroll-margin-top:calc(var(--toph) + 8px)}
+.khead{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--kt);border:1px solid color-mix(in srgb,var(--ka) 30%,transparent);border-inline-start:5px solid var(--ka);border-radius:14px;padding:12px 16px;margin-top:12px}
+.khead[hidden]{display:none}
+.khm{min-width:0}
+.khead .khn{margin:0;font-family:inherit;font-size:19px;line-height:1.4;color:var(--ka)}
+.khc,.khs{margin:2px 0 0;font-size:13px;line-height:1.55}
+.khc b{color:var(--ka)}
+.khback{font:inherit;font-size:13px;font-weight:600;flex:none;min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--ka);background:var(--surface);color:var(--ka);cursor:pointer;white-space:nowrap}
+@media (pointer:coarse){.khback{min-height:44px}}
+@media (max-width:599px){
+  .heroin{padding:20px 16px 18px;gap:12px}
+  .hero h1,.hero[dir="ltr"] h1{font-size:24px}
+  .hero h1 .hacc{display:inline}
+  .herosub{display:block;font-size:14px}
+  .hero .stamp{border-radius:16px;font-size:12px;padding:6px 12px}
+  .hero .stamp .upd{font-size:11.5px}
+  .count{display:block;justify-self:start;text-align:start}
+  .countl{margin-bottom:8px}
+  .countb{gap:22px}
+  .countb span{min-width:58px;padding:10px 14px;font-size:10px}
+  .countb b{font-size:20px}
+  .khead{align-items:flex-start;padding:10px 12px}
+}
 </style>
 <style>
 .brand{max-width:1072px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px;min-height:var(--toph);box-sizing:border-box}
@@ -507,16 +673,18 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 </button>
 <section class="hero" dir="rtl" lang="ar"><div class="heroin">
   <div>
+    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>آخر فحص للتوفر: {{CHECKED_AR}}</b></span><span class="upd"><b>آخر تحديث: {{UPDATED_AR}}</b></span></p>
     <h1>صيدات {{CAMPAIGN_AR}}: <span class="hacc">خصومات حقيقية فقط.</span></h1>
     <p class="herosub">كل عرض هنا مفحوص بسجل الأسعار أو بسعر نفس الموديل في متجر آخر، لا بسعر «قبل» الذي يكتبه المتجر.</p>
-    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>آخر فحص للتوفر: {{CHECKED_AR}}</b></span><span class="upd"><b>آخر تحديث: {{UPDATED_AR}}</b></span></p>
     <nav class="toplinks" aria-label="روابط سريعة">{{TOP_LINKS}}<a href="#how">كيف نحسب «الخصم الحقيقي»؟</a></nav>
   </div>
   <div class="count" id="count" hidden><span class="countl">تنتهي الحملة خلال</span><div class="countb"><span><b id="cd-d">٠</b>يوم</span><span><b id="cd-h">٠</b>ساعة</span><span><b id="cd-m">٠</b>دقيقة</span><span><b id="cd-s">٠</b>ثانية</span></div></div>
   {{TOP_PANELS}}
-  <div class="wallet" id="wallet" hidden><span class="walletl">بطاقاتي واشتراكاتي</span><div class="walletc" id="walletc"></div></div>
-</div></section>
+</div>
+{{TICKER}}
+</section>
 <div class="wrap" dir="rtl" lang="ar">
+  {{KAT_CARDS}}
   <div class="statrow"><div class="stats" id="stats" role="group" aria-label="ملخص العروض"></div><span class="sfact" id="sfact"></span></div>
 
   <div class="dealsblock">
@@ -574,6 +742,8 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
     </select><span class="sorthow" id="sorthow">الأفضل قيمة: الخصومات المؤكدة أولاً، مرتبة بالخصم الحقيقي مع التوفير بالريال، ولا تتتابع أكثر من بطاقتين من متجر أو فئة واحدة.</span><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
+  {{KAT_HEADS}}
+  <div class="wallet" id="wallet" hidden><span class="walletl">بطاقاتي واشتراكاتي</span><div class="walletc" id="walletc"></div></div>
   <p class="sharednote" id="sharednote" hidden></p>
   <div class="grid" id="rows"></div>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="إغلاق">✕</button></div><div id="evbody"></div></div></dialog>
@@ -650,6 +820,8 @@ const fmt=n=>Number(n).toLocaleString('ar-SA',{maximumFractionDigits:0});
 // A value added to a card later must do the same; scripts/test-escape.js builds a page from hostile rows and fails if one does not.
 const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const RULE={{RULE_JSON}};
+// (BLD-15) category id -> its label and colour class, for the tag on each card. Written by build.js from config/categories.json.
+const KAT={{KAT_JSON}};
 const CBY={{CBY_JSON}};
 const CPX={{CPX_JSON}}, WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
 const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
@@ -816,7 +988,7 @@ function render(){
     const isFav=FAV.has(d.id);
     c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+'، ')+esc(d.an.replace(/^[^:]{1,14}:\s*/,'')):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
       +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${pic}</a>`
-      +`<div class="cinfo"><a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener">${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>ر.س</small></span>${save}</div>${claim}</div></div>`
+      +`<div class="cinfo">${KAT[d.c]?`<span class="ckat kc${esc(KAT[d.c].k)}">${esc(KAT[d.c].l)}</span>`:''}<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener">${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>ر.س</small></span>${save}</div>${claim}</div></div>`
       +strip+note+perk
       +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">افتح في ${esc(d.s)}</a>${code}</div>`
       +`<div class="clinks"><button type="button" class="ev" aria-haspopup="dialog">دليل السعر</button>`
@@ -834,7 +1006,7 @@ function render(){
   });
   if(!list.length){const tr=document.createElement('div');tr.className='empty';tr.innerHTML=(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.');rows.appendChild(tr);}
   const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||F.lo||F.fv||F.wl||SORT!=='default';
-  syncChips();syncHead();
+  syncChips();syncHead();syncKat();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
   document.getElementById('freset').hidden=!active;
   document.getElementById('filters').toggleAttribute('data-active',active);
@@ -848,6 +1020,9 @@ function render(){
   const ftn=document.getElementById('ftn');ftn.hidden=!sel.length;ftn.textContent=fmt(sel.length);
   ftn.title=sel.length?'عدد الفلاتر المطبّقة':'';
 }
+// (BLD-15) Inside one category the grid carries that category's header, written by build.js; the card at the top shows as pressed.
+function syncKat(){const one=F.c.length===1?F.c[0]:'';document.querySelectorAll('.khead').forEach(h=>{h.hidden=h.dataset.cat!==one;});
+  document.querySelectorAll('.kcard').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cat===one)));}
 function setF(g,f){
   if(MULTI[g]){
     if(f==='all')F[g]=[];
@@ -966,11 +1141,22 @@ function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeUR
  const text=`${d.n} بـ ${fmt(d.p)} ر.س في ${d.s}`+(saved>0&&d.real>0?(d.rk==='m'?` · أرخص بـ ${fmt(saved)} ر.س (${fmt(d.real)}٪) من نفس الموديل في متجر آخر`:` · توفّر ${fmt(saved)} ر.س (${fmt(d.real)}٪) عن السعر السابق المسجّل`):'')+' · فحصته صيدة';
  if(navigator.share)navigator.share({title:'صيدة',text,url}).catch(()=>{});
  else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url),'_blank','noopener');}
-setTimeout(()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(!id)return;
- const d=data.find(x=>x.id===id),note=document.getElementById('sharednote');
+// Open the page on one card: a shared link (?d=<id>) and a tap on a ticker item both end here.
+function openDeal(id){const d=data.find(x=>x.id===id),note=document.getElementById('sharednote');
  if(!d){note.textContent='العرض الذي فُتح هذا الرابط من أجله لم يعد في القائمة. هذه العروض المفحوصة الآن.';note.hidden=false;return;}
- if(!matchAll(d,F)){F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;F.lo=false;F.fv=false;F.wl=false;render();}
- const el=[...rows.children].find(c=>c.dataset&&c.dataset.id===id);if(el){el.classList.add('hit');el.scrollIntoView({block:'center'});}},0);
+ if(!matchAll(d,F)){qEl.value='';Q=[];F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;F.lo=false;F.fv=false;F.wl=false;render();}
+ const el=[...rows.children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));el.classList.add('hit');el.scrollIntoView({block:'center'});}}
+setTimeout(()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id);},0);
+// (BLD-15) Category cards, the way back from a category, and the ticker. A card sets the same filter as its chip and moves to
+// the grid; a ticker item opens the page on that card. None of them leaves the page, so none is an outbound_store_click.
+document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
+ const k=t.closest('.kcard');if(k){F.c=[k.dataset.cat];render();const s=document.querySelector('.statrow');if(s)s.scrollIntoView({block:'start'});return;}
+ if(t.closest('.khback')){F.c=[];render();const s=document.getElementById('kats');if(s)s.scrollIntoView({block:'center'});return;}
+ const i=t.closest('.ti[data-d]');if(i)openDeal(i.dataset.d);});
+(()=>{const tk=document.getElementById('tick');if(!tk)return;const off=()=>tk.classList.remove('paused');
+ tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));})();
+// a store picture that does not load is removed; the white tile behind it stays
+document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 (()=>{const g=document.getElementById('evdlg');const shut=()=>{if(g.close)g.close();else g.removeAttribute('open');};document.getElementById('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});})();
 render();
 (()=>{const VT={clear:'✓ الشروط تطابق الإعلان',catch:'⚠ الإعلان أكبر من الشروط',vague:'تفاصيل غير كافية',pending:'لم يبدأ بعد'};
