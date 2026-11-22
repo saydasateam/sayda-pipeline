@@ -1,7 +1,7 @@
 {
  "store": "almanea",
- "updated": "2026-11-21",
- "checkedAt": "2026-11-21T20:27:46.858+03:00",
+ "updated": "2026-11-22",
+ "checkedAt": "2026-11-22T08:29:12.862+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
@@ -16,8 +16,8 @@
    "verdict": "bad",
    "finding": "نفس سعر amazon (٤٬٤١٨)",
    "url": "https://www.almanea.sa/product/lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "المنيع: عاد السعر إلى ٤٬٩٩٩ — انتهى العرض",
    "ev": {
     "market": {
      "store": "amazon",
@@ -33,7 +33,7 @@
    },
    "bk": "nosaving",
    "firstSeen": "2026-11-21",
-   "lastChecked": "2026-11-21",
+   "lastChecked": "2026-11-22",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_top_freezer_refrigerator_21.6_l_inverter_silver_-_lt23hbhsiv_1_.jpg?width=600",
    "name_en": "LG Top Freezer Refrigerator, 21.6 L, Inverter, Silver - LT23HBHSIV"
   },
@@ -42,7 +42,7 @@
    "store": "almanea",
    "cat": "المنزل",
    "name": "ثلاجة إل جي بابين ١٧٫٩ قدم انفرتر فضي LT19HBHSIN",
-   "price": 3999,
+   "price": 4099,
    "was": 7199,
    "ref": 3484,
    "refKind": "market",
@@ -67,7 +67,7 @@
    },
    "bk": "cheaper",
    "firstSeen": "2026-11-21",
-   "lastChecked": "2026-11-21",
+   "lastChecked": "2026-11-22",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_17.9_cu.ft_top_freezer_refrigerator_inverter_silver_-_lt19hbhsin_3_.jpg?width=600",
    "name_en": "LG 17.9 Cu.Ft, Top Freezer Refrigerator, Inverter, Silver - LT19HBHSIN"
   }
