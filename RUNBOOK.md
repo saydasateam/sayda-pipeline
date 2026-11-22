@@ -260,6 +260,15 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
 2. **noon, Amazon and Extra, every run**, up to `ceilingPerStore` each (60 since 22 Nov; it was 20, and on
    21 Nov Amazon had 86 qualifying candidates of which 18 got in). Extra comes from its own campaign page,
    not the KanBkam listing (below).
+   **Amazon product pages (tested 22 Nov 2026, 14:45, in the server's Chrome).** The KanBkam item id is the
+   ASIN. From an amazon.sa tab, `/dp/<asin>?language=ar_AE&psc=1` returned the full page (buy button, price,
+   #availability) for 19 of 24 listing candidates, fetched one by one, eight in parallel and without cookies
+   alike. The other 5 answered **404: the product is not sold on amazon.sa any more. Drop it; it is not an
+   empty page and not a reason to stop.** The 14:01 run reported «most product pages came back empty» and
+   stopped discovery at minute 21 with 7 of 120 candidates; keep reading candidates with
+   `SAYDA.adapters.amazon.check(rows)` (as a `SAYDA.start` job, read with `SAYDA.result`) until the ceiling
+   or the stop minute. English titles come from `SAYDA.names` with `config/stores.json → amazon.en`, which
+   since 22 Nov also handles the `/-/ar/dp/` address form (before, it failed on 59 of 93 rows).
 3. **The rotation's market store** (SACO, Jarir, Almanea or Blackbox): collect from `store.landing` with its
    adapter as in §1/§1b, then `SAYDA.kanbkam.market([...])` saved as `work/market/<store>.json`, then
    `node scripts/market-apply.js work/market/<store>.json` (read the shadow output) and the same with
