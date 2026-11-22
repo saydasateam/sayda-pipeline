@@ -119,9 +119,15 @@ this and with nothing else.
     (`/dp/<asin>?language=ar_AE` and `en_AE`) and search the text for «أدخل الرمز» / “Enter code”. The
     terms (cap, minimum spend, who is eligible, dates) are on `/promotion/psp/<promotion id>`, which
     renders in the browser only: navigate to it and read `document.body.textContent`; a `fetch` returns
-    an empty shell. Record how many of the pages you read showed the offer. When an offer needs two
-    things at once (Prime AND an Al Rajhi credit card), tag the one that separates it from the store's
-    other offers and name the other in `perk`, because the wallet matches on any one id.
+    an empty shell. Record how many of the pages you read showed the offer.
+    **Tag every requirement, and every exclusion (changed 22 Nov 2026).** When an offer needs two things
+    at once (Prime AND an Al Rajhi credit card), `wallet` lists both: `["prime","alrajhi"]`. The page
+    shows it as a full match only to a visitor who picked both, and as a one-line hint to a visitor who
+    picked one. When the store's terms exclude someone (an Al Rajhi offer «لغير مشتركي برايم» / “for
+    non-Prime customers”), add `walletNot: ["prime"]`, and the offer is hidden from a visitor who picked
+    Prime. Keep each store's card offers biggest saving first in `_coupons.json`. The old rule (tag the
+    one id that separates the offer and name the other in `perk`) made Al Rajhi always show 20% and hide
+    the 30% Prime offer; do not go back to it.
   - **Saved deals** live in the visitor's browser and key on the row `id`, one more reason ids stay stable.
 - **One filter bar, two languages (Mahmoud, 20 Nov 2026).** The three lines under the campaign band are
   the same on `/` and `/en/`: (1) the summary pills, (2) «تصفية» / “Filters” with the sort and the
