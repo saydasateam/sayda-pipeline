@@ -161,5 +161,30 @@ const ev = marketEvidence(
 const evOk = ev.market.price === 7998 && ev.merchantCount === 2 && ev.rejected.length === 2;
 if (evOk) pass++; else { fail++; console.log('FAIL  marketEvidence:', JSON.stringify({ market: ev.market, merchantCount: ev.merchantCount, rejected: ev.rejected.length })); }
 
+// lib/market.js → queryFor: the query and the brand/model the filter checks against (22 Nov 2026).
+// The first market sweep of Jarir and the first no-record check of Namshi produced no usable query:
+// Jarir's ".html" and product id became required words, and Namshi's "/saudi-ar/" became the brand.
+{
+  const M = require('../lib/market.js');
+  const qcases = [
+    { row: { url: 'https://www.jarir.com/tcl-c7l-smart-tv-681855.html', name: 'تلفزيون تي سي إل ٨٥ بوصة', name_en: 'TCL C7L 85" SQD Mini-LED Mini-LED Smart TV' },
+      want: q => q && q.brand === 'tcl' && q.model === 'C7L' && q.size === '85', why: 'Jarir: model code read from the store\'s English title' },
+    { row: { url: 'https://www.jarir.com/xiaomi-s-mini-smart-tv-680349.html', name: 'تلفزيون شاومي', name_en: 'Xiaomi S MINI 98" Mini-LED Smart TV' },
+      want: q => q && !/680349|html/.test(q.q + ' ' + q.enName), why: 'Jarir: neither the id nor ".html" is a word of the name' },
+    { row: { url: 'https://www.namshi.com/saudi-ar/buy-dkny-avril-small-satchel/Z123/p/', name: 'حقيبة', name_en: 'DKNY AVRIL SMALL SATCHEL for Women' },
+      want: q => q && q.brand === 'dkny' && !/saudi|buy/.test(q.q), why: 'Namshi: the locale segment is not the brand, "buy" is not a word' },
+    { row: { url: 'https://www.namshi.com/saudi-ar/buy-cerruti-1881-watch/Z9/p/', name: 'ساعة', name_en: 'CERRUTI 1881 Womens Watch CIWLH2205501 30 mm' },
+      want: q => q && q.model === 'CIWLH2205501', why: 'Namshi: a model code in the English title is used' },
+    { row: { url: 'https://www.jarir.com/samsung-galaxy-s25-ultra-690756.html', name: 'سامسونج جالكسي', name_en: 'Samsung Galaxy S25 Ultra 512 GB Titanium Grey' },
+      want: q => q && q.model === 'S25' && q.variant === 'ultra', why: 'variant from the English title, so an Ultra is never priced against a base S25' },
+    { row: { url: 'https://www.almanea.sa/product/lg-top-freezer-refrigerator-lt23hbhsiv-p-120100702221008', name: 'ثلاجة ال جي LT23HBHSIV' },
+      want: q => q && q.model === 'LT23HBHSIV', why: 'Almanea: an Arabic name with a code still wins' },
+  ];
+  for (const c of qcases) {
+    const q = M.queryFor(c.row);
+    if (c.want(q)) pass++; else { fail++; console.log(`FAIL  queryFor — ${c.why}\n      got: ${JSON.stringify(q)}`); }
+  }
+}
+
 console.log(`\nmatch filter: ${pass} passed, ${fail} failed`);
 process.exitCode = fail ? 1 : 0;
