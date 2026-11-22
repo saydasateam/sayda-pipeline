@@ -7,7 +7,7 @@
 // on 2026-09-20 a DOM harvester that "looked right" returned "18.6 / 18,999" as a price pair, and
 // nothing could catch it because the parser only existed inside a browser.
 //
-// Results are cached per product in data/market/<store>.json (lib/market.js), so this runs once per
+// Results are cached per product in data/state/_market-<store>.json (lib/market.js; data/market/ until 22 Nov 2026), so this runs once per
 // product, not once per run: seconds per NEW row rather than minutes per cycle.
 //
 // NON-NEGOTIABLE, restated here because this is the one adapter that leaves the storefronts:
