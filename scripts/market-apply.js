@@ -19,6 +19,7 @@ const M = require('../lib/market.js');
 const R = require('../rules/verdict.js');
 const { marketEvidence } = require('../rules/match.js');
 const { fromBlocks } = require('../rules/listing.js');
+const { cleanHttps } = require('../lib/safe.js');
 
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/stores.json'), 'utf8'));
 const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), 'utf8'));
@@ -110,18 +111,25 @@ if (!apply) {
   process.exit(0);
 }
 
+const dropped = [];
 for (const c of changes) {
   const row = byId[c.id];
   row.verdict = c._v.verdict;
   row.ref = c._v.ref;                      // whatever verdict() returned — never a hand-picked number
   row.refKind = 'market';
-  row.refUrl = c._ev.market.url || null;   // the compared product, so «دليل السعر» can be checked
+  // The compared product's link is kept only as a clean https address (lib/safe.js, 22 Nov 2026 audit, SEC-F3). A link that
+  // is anything else is not written into the row at all, exactly as when the listing came with no link: the verdict is the
+  // same, and the page says the comparison has no source that can be opened. The row is named below so it can be looked at.
+  const raw = c._ev.market.url, dirty = !!raw && !cleanHttps(raw);
+  if (dirty) dropped.push(c.id);
+  row.refUrl = dirty ? null : (raw || null);   // the compared product, so «دليل السعر» can be checked
   row.finding = c._v.finding;
-  row.ev = { market: c._ev.market, min: c._ev.min, max: c._ev.max, n: c._ev.merchantCount, src: 'market', on: today, url: c._ev.market.url };
+  row.ev = { market: dirty ? { ...c._ev.market, url: null } : c._ev.market, min: c._ev.min, max: c._ev.max, n: c._ev.merchantCount, src: 'market', on: today, url: dirty ? null : raw };
   if (c._v.kind) row.bk = c._v.kind;
 }
 const all = S.byStore(state.rows);
 const wrote = S.saveStores(ROOT, Object.fromEntries([...touched].map(id => [id, all[id] || []])), { updated: today, checkedAt: null });
 M.save(ROOT, cache, [...touched]);
 console.log(`\nwritten: ${changes.length} rows in ${wrote.join(', ')} · comparator cache updated`);
+if (dropped.length) console.log(`comparator link not kept (not a clean https address), row written without one: ${dropped.join(', ')}`);
 console.log('Now run `node scripts/replay.js` before building — a conflict means fix the row, not publish over it.');
