@@ -84,5 +84,39 @@
   },
   "travel": {
     "dropAfterDays": 3
+  },
+  "discovery": {
+    "_doc": "Added 22 Nov 2026 (Mahmoud approved the review «selection, volume and sorting»). The run reads these numbers here; RUNBOOK §2 and the task prompt carry no numbers of their own.",
+    "ceilingPerStore": {
+      "default": 20,
+      "noon": 60,
+      "amazon": 60,
+      "extra": 60
+    },
+    "_ceiling": "A ceiling, never a quota. Raised for the KanBkam-tracked stores on 22 Nov: at 20:36 on 21 Nov Amazon had 86 candidates with a recorded price at least 5% above today's and 18 got in.",
+    "brandRule": "The listing names a brand (the store's brand field, or the first word of its English title or slug) and the store shows reviews or ratings for it. Generic or unbranded listings are dropped. How famous the brand is is NOT a test: it says nothing about whether the discount is real.",
+    "emptyChipsFirst": true,
+    "_emptyChipsFirst": "Shortlist from the categories of chips that have no verified row (toys, sports, perfume, personal care, kids) before the rest; rules.page.reservedPerChip then keeps their slots at intake.",
+    "rotation": {
+      "market": [
+        "saco",
+        "jarir",
+        "almanea",
+        "blackbox"
+      ],
+      "selfVerify": [
+        "nahdi",
+        "aldawaa",
+        "mumzworld",
+        "mothercare",
+        "firstcry",
+        "dabdoob",
+        "namshi"
+      ],
+      "_doc": "node scripts/rotation.js prints which market store and which no-record store this run works on. Market: one per slot (08:21 saco, 12:21 jarir, 16:21 almanea, 20:21 blackbox). No-record stores: one per run in turn, branded items only, checked against Amazon/noon through rules/match.js with size and capacity."
+    },
+    "stopDiscoveryAtMinute": 40,
+    "toolCallBudget": 150,
+    "_budget": "Runs took about 15 of 55 minutes on 21-22 Nov. Discovery stops at minute 40 so the check and the publish always fit. Watch plan usage: the usage limit stopped a refresh on 20 Nov 21:45."
   }
 }
