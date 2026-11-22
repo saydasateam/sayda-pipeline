@@ -6,7 +6,7 @@
 <title>Sayda | {{CAMPAIGN_EN}} deals, checked: real discounts only</title>
 <meta name="description" content="{{CAMPAIGN_EN}} deals from Saudi stores, checked every day: is the discount real, and is the item in stock?">
 <meta name="theme-color" content="{{TH_ACCENT}}">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23{{TH_ACCENT_HEX}}'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='white' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="{{FAVICON}}">
 <link rel="canonical" href="https://saydadeals.com/en/">
 <link rel="alternate" hreflang="ar" href="https://saydadeals.com/">
 <link rel="alternate" hreflang="en" href="https://saydadeals.com/en/">
@@ -37,7 +37,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 </head>
 <body>
 <header class="top"><div class="brand" dir="ltr">
-  <a href="/en/" class="logo">Sayda</a><span class="tag">Real discounts only</span>
+  <a href="/en/" class="logo" aria-label="Sayda: home">{{LOGO_SVG}}<span>Sayda</span></a><span class="tag">Real discounts only</span>
   <div class="search" role="search"><label for="q" class="sr">Search the deals</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume…" autocomplete="off" enterkeyhint="search"></div>
   <button type="button" class="hbtn" id="walletbtn" hidden aria-pressed="false" title="Show what matches my cards and memberships"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg><span class="hl">My wallet</span><b id="walletn">0</b></button>
   <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="Deals you saved"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">Saved</span><b id="favn">0</b></button>
@@ -48,10 +48,11 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
   <div>
     <h1>{{CAMPAIGN_EN}}: <span class="hacc">real discounts only.</span></h1>
     <p class="herosub">Every deal here is checked against a price record or the same model at another store, not against the “before” price the store prints.</p>
-    <p class="stamp" id="updated"><b>Last updated: {{UPDATED_EN}}</b> · <b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></p>
-    <nav class="toplinks" aria-label="Quick links"><a href="#coupons" id="cpnote" hidden></a><a href="#travel" id="trnote" hidden>Travel offers</a><a href="#cars" id="crnote" hidden>Car offers</a><a href="#how">How we check</a></nav>
+    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>stock last checked: {{CHECKED_EN}} (Riyadh)</b></span><span class="upd"><b>Last updated: {{UPDATED_EN}}</b></span></p>
+    <nav class="toplinks" aria-label="Quick links"><a href="#how">How we check</a></nav>
   </div>
   <div class="count" id="count" hidden><span class="countl">The campaign ends in</span><div class="countb"><span><b id="cd-d">0</b>days</span><span><b id="cd-h">0</b>hours</span><span><b id="cd-m">0</b>min</span><span><b id="cd-s">0</b>sec</span></div></div>
+  {{TOP_PANELS_EN}}
   <div class="wallet" id="wallet" hidden><span class="walletl">My cards and memberships</span><div class="walletc" id="walletc"></div></div>
 </div></section>
 <div class="wrap" dir="ltr" lang="en">
@@ -71,15 +72,15 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
       </div></div>
     <div class="frow" role="group" aria-labelledby="fl-p"><span class="flabel" id="fl-p">Budget</span><div class="fchips fbudget"><label class="sr" for="pmin">Lowest price</label><input type="number" id="pmin" inputmode="numeric" min="0" step="10" placeholder="From (SAR)"><span class="pdash" aria-hidden="true">—</span><label class="sr" for="pmax">Highest price</label><input type="number" id="pmax" inputmode="numeric" min="0" step="10" placeholder="To (SAR)"></div></div>
     </div>
-    <div class="fstatus"><label class="sr" for="sortby">Sort the results</label><select id="sortby"><option value="d">Sort: in stock first, then biggest real discount</option><option value="pct">Biggest real discount (%)</option><option value="sav">Most money saved (SAR)</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>Clear filters</button></div>
+    <div class="fstatus"><label class="sr" for="sortby">Sort the results</label><select id="sortby"><option value="d">Sort: best value first</option><option value="pct">Biggest real discount (%)</option><option value="sav">Most money saved (SAR)</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option></select><span class="sorthow" id="sorthow">Best value: confirmed discounts first, ranked by the real discount weighted by the riyals saved, with no more than two cards in a row from one store or category.</span><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>Clear filters</button></div>
   </div>
   <p class="sharednote" id="sharednote" hidden></p>
   <div class="grid" id="rows"></div>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="Close">✕</button></div><div id="evbody"></div></div></dialog>
 
-  <section class="couponsec" id="coupons" aria-labelledby="cp-h" hidden><h2 id="cp-h">Extra coupons and codes</h2><ul class="cplist" id="cplist"></ul><p class="cpfoot">The prices shown are <b style="display:inline">before</b> these coupons are applied.</p></section>
-  <section class="travel" id="travel" aria-labelledby="tr-h" hidden><h2 id="tr-h">Travel offers: {{CAMPAIGN_SHORT_EN}} codes and campaigns</h2><p class="lede">We read each offer’s terms on the company’s own site and compared the advert with what the terms actually say.</p><ul class="elist" id="tlist"></ul></section>
-  <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><ul class="elist" id="crlist"></ul></section>
+  <section class="couponsec" id="coupons" aria-labelledby="cp-h" hidden><h2 id="cp-h">Extra coupons and codes</h2><p class="lede">Every code and card offer here is copied from the store’s own page today, with what it actually requires. Tap a code to copy it.</p><div class="tcards cpcards" id="cplist"></div><p class="cpfoot">The prices shown are <b style="display:inline">before</b> these coupons are applied.</p></section>
+  <section class="travel" id="travel" aria-labelledby="tr-h" hidden><h2 id="tr-h">Travel offers: {{CAMPAIGN_SHORT_EN}} codes and campaigns</h2><p class="lede">We read each offer’s terms on the company’s own site and compared the advert with what the terms actually say.</p><div class="tcards" id="tlist"></div><p class="claim" id="tnone" hidden></p></section>
+  <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><div class="tcards" id="crlist"></div></section>
 
   <section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">Tell us what to add or fix</h2>
@@ -109,7 +110,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 </div>
 <script>
 const E={{E_JSON}};
-const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSON}}, RULE={{RULE_JSON}};
+const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSON}}, TRNO={{TRNO_JSON}}, CRNO={{CRNO_JSON}}, TNONE_EN={{TNONE_EN_JSON}}, RULE={{RULE_JSON}};
 const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);
@@ -119,7 +120,10 @@ const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Ar
 const FAV=new Set(LS.get('sayda.fav')), WAL=new Set(LS.get('sayda.wallet').filter(id=>WALLET.some(w=>w.id===id)));let FV=false,WL=false;
 const IC={"share": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg>", "heart": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z\"/></svg>", "copy": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"11\" height=\"11\" rx=\"2\"/><path d=\"M5 15V6a2 2 0 0 1 2-2h9\"/></svg>", "filter": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>"};
 const SAVEK={code:1,voucher:1,bank:1,auto:1};
-function walletHit(d){if(!WAL.size)return null;for(let i=0;i<CP.length;i++){const x=CP[i];if(!SAVEK[x.k]||!x.s.includes(d.s))continue;const id=(x.w||[]).find(w=>WAL.has(w));if(id)return{i,x,w:WALLET.find(w=>w.id===id)};}return null;}
+// (21 Nov 2026) same rule as the Arabic page: a coupon matches only when every need in w is picked and nothing in nw is.
+function walletHits(d){const r={full:[],near:null};if(!WAL.size)return r;for(let i=0;i<CP.length;i++){const x=CP[i];if(!SAVEK[x.k]||!x.s.includes(d.s))continue;const need=x.w||[];if(!need.length||(x.nw||[]).some(w=>WAL.has(w)))continue;const miss=need.filter(w=>!WAL.has(w));if(!miss.length)r.full.push({i,x});else if(miss.length===1&&!r.full.length&&!r.near&&need.some(w=>WAL.has(w)))r.near={i,x,miss:miss[0]};}return r;}
+function walletHit(d){return walletHits(d).full[0]||null;}
+const wlab=id=>(WALLET.find(w=>w.id===id)||{l:id}).l;
 let toastEl,toastT;function toast(m){if(!toastEl){toastEl=document.createElement('div');toastEl.className='toast';toastEl.setAttribute('role','status');document.body.appendChild(toastEl);}toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toastEl.classList.remove('on'),1900);}
 function syncHead(){$('favn').textContent=fmt(E.filter(d=>FAV.has(d.id)).length);$('favbtn').setAttribute('aria-pressed',String(FV));$('walletbtn').hidden=!WALLET.length;$('walletn').textContent=fmt(WAL.size);$('walletbtn').setAttribute('aria-pressed',String(WL));}
 function toggleFav(d,b){if(FAV.has(d.id)){FAV.delete(d.id);toast('Removed from saved');}else{FAV.add(d.id);toast('Saved in this browser');}LS.set('sayda.fav',[...FAV]);
@@ -140,7 +144,16 @@ function evidence(d){const f=[],row=(k,v)=>f.push(`<div class="f"><span class="k
   const ref=d.ru||(d.ev&&d.ev.u)||'';
   if(ref)row('Reference page',`<a href="${esc(ref)}" target="_blank" rel="noopener">The compared product ↗</a>`);else if(d.rk!=='m'&&d.r!=null)row('Reference source','A public price record: the previous price before the sale');else row('Reference page','<span class="claim">No openable source for this deal</span>');
   return `<div class="evgrid">${f.join('')}</div><p class="evnote">${esc(d.f)}</p><p class="evrule">The verdict follows the published rule: <a href="#verdict-rule" onclick="document.getElementById('evdlg').close()">how we work out the real discount</a>.</p>`;}
-const SORTS={d:(a,b)=>UN(a)-UN(b)||(b.real??-999)-(a.real??-999),pct:(a,b)=>(b.real??-999)-(a.real??-999),sav:(a,b)=>((b.r||b.p)-b.p)-((a.r||a.p)-a.p),lo:(a,b)=>a.p-b.p,hi:(a,b)=>b.p-a.p};
+// (22 Nov 2026, Mahmoud approved) The default order is a VALUE score, not the discount % alone. By % alone the first
+// 30 cards were 29 Amazon items (median 207 SAR, 11 of them «smaller than advertised») and the TVs and phones people
+// come for sat far below. Confirmed before smaller-than-advertised; within that, the real % weighted by the riyals
+// saved, with a small lift at the lowest recorded price. Rows with no reference come after every verified row.
+// diversify() then allows at most two cards in a row from one store or one chip, and only ever swaps cards of the
+// same tier, so an unverified or unavailable card can never rise above a verified one.
+const VAL=d=>{if(d.real==null||d.real<=0||d.v==='bad')return -1e9+(d.claim||0);return (d.v==='ok'?1:0.55)*d.real*Math.log10(10+(d.r-d.p))*(isLow(d)?1.15:1);};
+const TIER=d=>(UN(d)?2:0)+(VAL(d)<=-1e8?1:0);
+const diversify=l=>{const out=[],pool=l.slice();while(pool.length){let i=0;const n=out.length;if(n>=2){const a=out[n-1],b=out[n-2],t=TIER(pool[0]);const j=pool.findIndex(r=>TIER(r)===t&&!(r.s===a.s&&r.s===b.s)&&!(r.c===a.c&&r.c===b.c));if(j>0)i=j;}out.push(pool.splice(i,1)[0]);}return out;};
+const SORTS={d:(a,b)=>UN(a)-UN(b)||VAL(b)-VAL(a),pct:(a,b)=>(b.real??-999)-(a.real??-999),sav:(a,b)=>((b.r||b.p)-b.p)-((a.r||a.p)-a.p),lo:(a,b)=>a.p-b.p,hi:(a,b)=>b.p-a.p};
 function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeURIComponent(d.id),saved=d.r!=null?Math.round(d.r-d.p):0;
   const text=`${d.n}: ${fmt(d.p)} SAR at ${d.s}`+(saved>0&&d.real>0?(d.rk==='m'?` · ${fmt(saved)} SAR (${fmt(d.real)}%) cheaper than the same model at another store`:` · save ${fmt(saved)} SAR (${fmt(d.real)}%) against the recorded previous price`):'')+' · checked by Sayda';
   if(navigator.share)navigator.share({title:'Sayda',text,url}).catch(()=>{});else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url),'_blank','noopener');}
@@ -156,7 +169,7 @@ function syncChips(){document.querySelectorAll('#stats button').forEach(b=>b.set
     if(g!=='c'&&g!=='s'&&g!=='v')return;if(b.dataset.lbl===undefined)b.dataset.lbl=b.textContent.trim();const n=chipCount(g,f);
     b.innerHTML=esc(b.dataset.lbl)+(f==='all'&&g!=='v'?'':'<span class="cn">'+fmt(n)+'</span>');b.disabled=(n===0&&!on);b.title=n===0?'No results with the current filters':'';});}
 function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-  const list=E.filter(d=>matchAll(d,F)).sort(SORTS[$('sortby').value]);
+  let list=E.filter(d=>matchAll(d,F)).sort(SORTS[$('sortby').value]);if($('sortby').value==='d')list=diversify(list);$('sorthow').hidden=$('sortby').value!=='d';
   const rows=$('rows');rows.innerHTML='';
   list.forEach(d=>{const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
     const saved=d.r!=null?Math.round(d.r-d.p):null,mk=d.rk==='m',low=isLow(d),mn=d.ev&&d.ev.mn;
@@ -172,8 +185,8 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     const note=(d.v!=='ok'||!d.q)&&d.f?`<p class="cnote${d.v==='warn'||d.v==='bad'?' '+d.v:''}">${esc(d.f)}</p>`:'';
     const cp=d.cp!=null?CP[d.cp]:null,ncodes=cp?CP.filter(x=>SAVEK[x.k]&&x.code&&x.s.includes(d.s)).length:0;
     const code=cp&&cp.code?`<button type="button" class="code" data-code="${esc(cp.code)}" aria-label="Copy the ${esc(d.s)} code ${esc(cp.code)}" title="A code for the whole store; it may not cover this product. Terms are in the coupons section.">${esc(cp.code)}${IC.copy}</button>`:'';
-    const wh=walletHit(d);
-    const perk=wh?`<a class="cperk" href="#coupon-${wh.i}">${esc(wh.w.l)}: ${wh.x.p?esc(wh.x.p):'an offer at '+esc(d.s)+', read the terms'}</a>`:'';
+    const wh=walletHits(d),pl=x=>x.p?esc(x.p):'an offer at '+esc(d.s)+', read the terms';
+    const perk=wh.full.slice(0,3).map(h=>`<a class="cperk" href="#coupon-${h.i}">${esc(h.x.w.map(wlab).join(' + '))}: ${pl(h.x)}</a>`).join('')+(wh.near?`<a class="cperk near" href="#coupon-${wh.near.i}">${wh.full.length?'And with':'With'} ${esc(wlab(wh.near.miss))} too: ${pl(wh.near.x)}</a>`:'');
     const isFav=FAV.has(d.id);
     c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${d.a}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}</span></div>`
       +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}</a>`
@@ -216,12 +229,26 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   $('keynote').insertAdjacentHTML('beforeend',`Of ${fmt(E.length)} deals at ${fmt(new Set(E.map(d=>d.s)).size)} stores, ${fmt(realN)} are cheaper by a margin that matters against their previous price or the market price, and ${fmt(cnt('ok'))} passed every check.`+(overN?` Advertised “before” prices that are above what was recorded before the sale: ${fmt(overN)}.`:'')+(cnt('bad')?` Deals that are not cheaper (the same model costs less elsewhere, the price went up, or there is no real saving): ${fmt(cnt('bad'))}.`:''));
   const pct=n=>fmt(Math.round(n*100))+'%',floors=(RULE.okSavingTiers||[]).map(t=>t.maxPrice==null?`${fmt(t.minSaving)} SAR above that`:`${fmt(t.minSaving)} SAR up to ${fmt(t.maxPrice)} SAR`).join(', ');
   $('verdict-rule').innerHTML=`<b>The verdict</b>: <b>✓ Confirmed discount</b> = a real difference of ${pct(RULE.okMin)} or more, or ${pct(RULE.warnMin)} or more with a saving above its price band’s floor (${floors}). · <b>Smaller than advertised</b> = below that, or a real discount on an item that has been cheaper before. · <b>Dearer or no saving</b> = the same model costs less at another store, the price went up, or there is no meaningful difference. · <b>No price record</b> = no record and no same model elsewhere to compare with.`;
-  if(CP.length){$('coupons').hidden=false;$('cpnote').hidden=false;$('cpnote').textContent=`Coupons (${CP.length})`;$('cplist').innerHTML=CP.map((c,i)=>`<li id="coupon-${i}"><b style="display:inline">${esc(c.label)}</b>${c.code?` — code <b style="display:inline">${esc(c.code)}</b> <button type="button" class="cpy" data-code="${esc(c.code)}">Copy code</button> `:' — '}${esc(c.text)}</li>`).join('');}
+  const KD={code:'Code',voucher:'Voucher',bank:'Card offer',auto:'Automatic',none:'No code',note:'Note'};
+  if(CP.length){$('coupons').hidden=false;$('cplist').innerHTML=CP.map((x,i)=>`<article class="tcard cpcard${SAVEK[x.k]?'':' nooffer'}" id="coupon-${i}"><div class="th"><span class="co">${esc(x.label)}<span class="ty">${KD[x.k]||''}</span></span></div>`
+    +((x.w||[]).length?`<div class="wtags">${x.w.map(w=>`<span class="wtag">${esc(wlab(w))}</span>`).join('<span aria-hidden="true">+</span>')}</div>`:'')
+    +(x.h?`<div class="hl">${esc(x.h)}</div>`:'')
+    +(x.code?`<button type="button" class="code" data-code="${esc(x.code)}" aria-label="Copy the code ${esc(x.code)}">${esc(x.code)}${IC.copy}</button>`:'')
+    +`<div class="real"><b>What the store’s page says:</b> ${esc(x.text)}</div><button type="button" class="more" aria-expanded="false">Full terms</button></article>`).join('');
+    $('cplist').addEventListener('click',e=>{const b=e.target.closest('.more');if(!b)return;const c=b.closest('.cpcard');c.classList.toggle('open');const o=c.classList.contains('open');b.setAttribute('aria-expanded',String(o));b.textContent=o?'Hide terms':'Full terms';});
+    requestAnimationFrame(()=>$('cplist').querySelectorAll('.cpcard').forEach(c=>{const r=c.querySelector('.real');if(r.scrollHeight<=r.clientHeight+2)c.querySelector('.more').hidden=true;}));}
   document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.cpy');if(!b)return;const t=b.dataset.code,done=()=>{b.textContent='Copied ✓';setTimeout(()=>{b.textContent='Copy code';},1600);};
     if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});else{const i=document.createElement('textarea');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');done();}catch(_){}i.remove();}});
-  const card=o=>`<li><b>${esc(o.company)}</b>${o.type?' · '+esc(o.type):''}<br>“${esc(o.headline)}”<br><b>What the terms say:</b> ${esc(o.terms)}${o.code?` · code <span class="code">${esc(o.code)}</span>`:''}<br><a href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></li>`;
-  if(TR.length){$('travel').hidden=false;$('trnote').hidden=false;$('tlist').innerHTML=TR.map(card).join('');}
-  if(CR.length){$('cars').hidden=false;$('crnote').hidden=false;$('crlist').innerHTML=CR.map(card).join('');}
+  // travel and car offers (21 Nov 2026): the Arabic page's card, status and verdict, and its «no offer» cards too
+  const VT={clear:'✓ The terms match the advert',catch:'⚠ The advert is bigger than the terms',vague:'Not enough detail',pending:'Not started yet'};
+  const today=new Date(Date.now()+3*3600e3).toISOString().slice(0,10),enD=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long'});
+  const ost=o=>o.v==='pending'?['pend','Not published yet']:(o.bs&&today<o.bs)?['soon','Starts '+enD(o.bs)]:(o.be&&today>o.be)?['end','Ended']:['on',o.be?'Until '+enD(o.be):'On now'];
+  const rank={on:0,soon:1,pend:2,end:3};
+  const card=o=>{const s=ost(o);return `<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(o.company)}<span class="ty">${esc(o.type)}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">“${esc(o.headline)}”</div>${VT[o.v]?`<span class="tv ${esc(o.v)}">${VT[o.v]}</span>`:''}<div class="real"><b>What the terms say:</b> ${esc(o.terms)}</div><div class="meta">${o.code?`Code: <span class="code" data-code="${esc(o.code)}" title="Copy">${esc(o.code)}</span> · `:'No code · '}${o.win?esc(o.win)+' · ':''}checked ${o.ck?enD(o.ck):''}</div><a class="go" href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></article>`;};
+  const none=(o,site)=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(o[0])}<span class="ty">${esc(o[1])}</span></span><span class="tst end">No offer</span></div><div class="hl">No {{CAMPAIGN_SHORT_EN}} offer found</div><div class="meta">We checked ${site} and found no offer page or code for {{CAMPAIGN_SHORT_EN}} · checked ${enD(today)}</div></article>`;
+  const sorted=a=>a.map(o=>({o,s:ost(o)})).sort((x,y)=>rank[x.s[0]]-rank[y.s[0]]).map(x=>x.o);
+  if(TR.length||TRNO.length){$('travel').hidden=false;$('tlist').innerHTML=sorted(TR).map(card).join('')+TRNO.map(o=>none(o,'the company’s own site')).join('');if(TNONE_EN){$('tnone').textContent=TNONE_EN;$('tnone').hidden=false;}}
+  if(CR.length||CRNO.length){$('cars').hidden=false;$('crlist').innerHTML=sorted(CR).map(card).join('')+CRNO.map(o=>none(o,'its official site')).join('');}
   const g=$('evdlg'),shut=()=>g.close?g.close():g.removeAttribute('open');$('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});
   const b=$('totop');b.hidden=false;const t=()=>{scrollY>600?b.setAttribute('data-show',''):b.removeAttribute('data-show')};addEventListener('scroll',t,{passive:true});t();b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   const f=$('sg-f'),sb=$('sg-b'),ss=$('sg-s'),say=(m,c)=>{ss.textContent=m;ss.className='sg-note '+(c||'')};

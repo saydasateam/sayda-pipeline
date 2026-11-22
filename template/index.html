@@ -6,7 +6,7 @@
 <title>صيدة | عروض حقيقية فقط من المتاجر السعودية</title>
 <meta name="description" content="أفضل عروض المتاجر السعودية، نفحصها كل يوم: هل الخصم حقيقي؟ وهل المنتج متوفر؟">
 <meta name="theme-color" content="{{TH_ACCENT}}">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23{{TH_ACCENT_HEX}}'/%3E%3Ctext x='50' y='70' font-size='58' text-anchor='middle' fill='white' font-family='Arial'%3E%D8%B5%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="{{FAVICON}}">
 <link rel="canonical" href="https://saydadeals.com/">
 <link rel="alternate" hreflang="ar" href="https://saydadeals.com/">
 <link rel="alternate" hreflang="en" href="https://saydadeals.com/en/">
@@ -59,6 +59,8 @@ h2{font-size:20px;margin-block:36px 12px}
 .filters button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .fstatus{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:13px;color:var(--muted);padding-inline-start:88px}
 #fhint{font-size:12px;opacity:.85}
+.sorthow{font-size:12px;color:var(--muted);line-height:1.5;flex-basis:100%;grid-column:1/-1}
+.sorthow[hidden]{display:none}
 .fbudget input{font:inherit;font-size:13px;width:110px;min-height:36px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
 .fbudget input:focus{outline:2px solid var(--accent);outline-offset:1px}
 .pdash{color:var(--muted)}
@@ -283,8 +285,39 @@ body{margin:0}
 .hero h1{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:700;font-size:clamp(23px,3.1vw,32px);line-height:1.3;color:inherit}
 .hero h1 .hacc{color:#34D399}
 .herosub{margin:8px 0 0;max-width:58ch;font-size:15px;opacity:.82}
-.hero .stamp{margin:10px 0 0;font-size:12.5px;opacity:.72}
-.hero .stamp b{font-weight:500}
+.hero .stamp{margin:14px 0 0;display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 16px;font-size:14.5px;line-height:1.45;padding:8px 14px;border-radius:12px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.34)}
+.hero .stamp .chk{display:inline-flex;align-items:center;gap:8px;color:#fff}
+.hero .stamp .chk b{font-weight:700;display:inline-block}
+.hero .stamp .chk b::first-letter{text-transform:uppercase}
+.hero .stamp .upd{color:rgba(255,255,255,.78);font-size:13.5px}
+.hero .stamp .upd b{font-weight:500}
+.hero .stamp .dot{width:9px;height:9px;border-radius:50%;background:#34D399;flex:none;animation:sdot 2.4s ease-out infinite}
+@keyframes sdot{0%{box-shadow:0 0 0 0 rgba(52,211,153,.6)}70%{box-shadow:0 0 0 9px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+@media (prefers-reduced-motion:reduce){.hero .stamp .dot{animation:none}}
+.panels{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.panel{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#fff;text-decoration:none;min-height:64px;box-sizing:border-box;transition:background .15s,border-color .15s}
+a.panel:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.26)}
+a.panel:focus-visible{outline:2px solid #34D399;outline-offset:2px}
+.panel .pic{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:rgba(247,192,74,.14);color:#F7C04A}
+.panel .ptx{display:flex;flex-direction:column;min-width:0;gap:1px}
+.panel .ptx b{font-family:"Readex Pro","IBM Plex Sans Arabic",sans-serif;font-size:15.5px;font-weight:700}
+.panel .ptx span{font-size:13px;color:rgba(255,255,255,.74);line-height:1.4}
+.panel .parr{margin-inline-start:auto;opacity:.55;font-size:17px;flex:none}
+.panel.off{opacity:.7}
+@media (max-width:760px){.panels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:8px;margin-inline:-16px;padding-inline:16px;scrollbar-width:none}.panels::-webkit-scrollbar{display:none}.panel{flex:0 0 80%;scroll-snap-align:start}}
+.cpcards{margin-top:12px}
+.cpcard{scroll-margin-top:90px}
+.cpcard:target{box-shadow:0 0 0 3px var(--wal)}
+.cpcard .wtags{display:flex;flex-wrap:wrap;gap:6px}
+.cpcard .wtag{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--wal-soft);color:var(--wal)}
+.cpcard .code{max-width:100%;align-self:flex-start;min-height:40px;font-family:inherit;font-weight:700;font-size:15px;letter-spacing:normal;unicode-bidi:plaintext;background:var(--surface);border:1.5px dashed var(--muted);border-radius:12px;padding:0 12px}
+.cpcard .real{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.cpcard.open .real{display:block}
+.cpcard .more{font:inherit;font-size:12.5px;font-weight:600;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;align-self:flex-start;text-decoration:underline}
+.cperk+.cperk{margin-top:6px}
+.cperk.near{background:transparent;border:1px dashed var(--wal);font-weight:500}
+.brand .logo{display:inline-flex;align-items:center;gap:8px}
+.brand .logo svg{width:32px;height:32px;flex:none;display:block}
 .hero .toplinks{margin-top:6px}
 .hero .toplinks a{color:inherit}
 .count{justify-self:end;text-align:center}
@@ -412,6 +445,7 @@ body{margin:0}
   .fcats button{min-height:40px}
   #sortby{grid-column:1/-1;grid-row:auto;width:100%;min-height:44px}
   .filters:not([data-open]) #sortby{display:none}
+  .filters:not([data-open]) .sorthow{display:none}
   .fsel,.fbody,#fcount,.filters .freset{grid-column:1/-1}
   .filters:not([data-active]) #fcount{display:none}
 }
@@ -455,7 +489,7 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 </head>
 <body>
 <header class="top"><div class="brand" dir="rtl">
-  <a href="/" class="logo">صيدة</a><span class="tag">الخصم الحقيقي فقط</span>
+  <a href="/" class="logo" aria-label="صيدة: الصفحة الرئيسية">{{LOGO_SVG}}<span>صيدة</span></a><span class="tag">الخصم الحقيقي فقط</span>
   <div class="search" role="search"><label for="q" class="sr">ابحث في العروض</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="{{SEARCH_PH}}" autocomplete="off" enterkeyhint="search"></div>
   <button type="button" class="hbtn" id="walletbtn" hidden aria-pressed="false" title="اعرض ما يطابق بطاقاتي واشتراكاتي"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg><span class="hl">محفظتي</span><b id="walletn">٠</b></button>
   <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="العروض التي حفظتها"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">المحفوظة</span><b id="favn">٠</b></button>
@@ -468,10 +502,11 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
   <div>
     <h1>صيدات {{CAMPAIGN_AR}}: <span class="hacc">خصومات حقيقية فقط.</span></h1>
     <p class="herosub">كل عرض هنا مفحوص بسجل الأسعار أو بسعر نفس الموديل في متجر آخر، لا بسعر «قبل» الذي يكتبه المتجر.</p>
-    <p class="stamp" id="updated"><b>آخر تحديث: {{UPDATED_AR}}</b> · <b>آخر فحص للتوفر: {{CHECKED_AR}}</b></p>
+    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>آخر فحص للتوفر: {{CHECKED_AR}}</b></span><span class="upd"><b>آخر تحديث: {{UPDATED_AR}}</b></span></p>
     <nav class="toplinks" aria-label="روابط سريعة">{{TOP_LINKS}}<a href="#how">كيف نحسب «الخصم الحقيقي»؟</a></nav>
   </div>
   <div class="count" id="count" hidden><span class="countl">تنتهي الحملة خلال</span><div class="countb"><span><b id="cd-d">٠</b>يوم</span><span><b id="cd-h">٠</b>ساعة</span><span><b id="cd-m">٠</b>دقيقة</span><span><b id="cd-s">٠</b>ثانية</span></div></div>
+  {{TOP_PANELS}}
   <div class="wallet" id="wallet" hidden><span class="walletl">بطاقاتي واشتراكاتي</span><div class="walletc" id="walletc"></div></div>
 </div></section>
 <div class="wrap" dir="rtl" lang="ar">
@@ -524,12 +559,12 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
     </div>
     </div>
     <div class="fstatus"><label class="sr" for="sortby">ترتيب النتائج</label><select id="sortby">
-      <option value="default">الترتيب: المتاح أولاً ثم الأعلى خصماً</option>
+      <option value="default">الترتيب: الأفضل قيمة أولاً</option>
       <option value="real">الأعلى خصماً حقيقياً (٪)</option>
       <option value="save">الأكثر توفيراً (ر.س)</option>
       <option value="plow">السعر: من الأقل</option>
       <option value="phigh">السعر: من الأعلى</option>
-    </select><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
+    </select><span class="sorthow" id="sorthow">الأفضل قيمة: الخصومات المؤكدة أولاً، مرتبة بالخصم الحقيقي مع التوفير بالريال، ولا تتتابع أكثر من بطاقتين من متجر أو فئة واحدة.</span><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
   <p class="sharednote" id="sharednote" hidden></p>
@@ -612,7 +647,13 @@ const FAV=new Set(LS.get('sayda.fav')), WAL=new Set(LS.get('sayda.wallet').filte
 const IC={"share": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg>", "heart": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z\"/></svg>", "copy": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"11\" height=\"11\" rx=\"2\"/><path d=\"M5 15V6a2 2 0 0 1 2-2h9\"/></svg>", "filter": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>"};
 const SAVEK={code:1,voucher:1,bank:1,auto:1};
 // A wallet match is a coupon the run tagged with a card or membership the visitor picked, for this row's store.
-function walletHit(d){if(!WAL.size)return null;for(let i=0;i<CPX.length;i++){const x=CPX[i];if(!SAVEK[x.k]||!x.s.includes(d.s))continue;const id=(x.w||[]).find(w=>WAL.has(w));if(id)return{i,x,w:WALLET.find(w=>w.id===id)};}return null;}  // store label -> coupon index, for the 🎟️ link on each row
+// (21 Nov 2026) A coupon lists EVERYTHING it needs in w (Prime AND an Al Rajhi credit card) and what rules it out in nw
+// (ARB20 is for non-Prime members). It matches only when the visitor picked all of w and none of nw. The card lists
+// every match, biggest first (the run keeps _coupons.json in that order), plus one hint for a bigger offer that is
+// one pick away, so the visitor sees the best offer without being told they get it when they do not.
+function walletHits(d){const r={full:[],near:null};if(!WAL.size)return r;for(let i=0;i<CPX.length;i++){const x=CPX[i];if(!SAVEK[x.k]||!x.s.includes(d.s))continue;const need=x.w||[];if(!need.length||(x.nw||[]).some(w=>WAL.has(w)))continue;const miss=need.filter(w=>!WAL.has(w));if(!miss.length)r.full.push({i,x});else if(miss.length===1&&!r.full.length&&!r.near&&need.some(w=>WAL.has(w)))r.near={i,x,miss:miss[0]};}return r;}
+function walletHit(d){return walletHits(d).full[0]||null;}
+const wlab=id=>(WALLET.find(w=>w.id===id)||{l:id}).l;  // store label -> coupon index, for the 🎟️ link on each row
 // Labels state what we measured, never what we think the store intended.
 // A bad row is one of three measurable things: cheaper elsewhere, price went up, or no real saving.
 const VL={ok:'✓ خصم مؤكّد',warn:'خصم أقل من المعلن',bad:'أغلى أو بلا توفير',na:'بلا سجل سعري'};
@@ -631,8 +672,17 @@ const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],
 const SAVED=d=>d.r!=null?d.r-d.p:-1;
 // at its lowest recorded price: history-referenced, and today's price is at or under the record's minimum (1% tolerance)
 const isLow=d=>d.rk!=='m'&&d.ev&&d.ev.mn!=null&&d.p<=d.ev.mn*1.01;
+// (22 Nov 2026, Mahmoud approved) The default order is a VALUE score, not the discount % alone. By % alone the first
+// 30 cards were 29 Amazon items (median 207 SAR, 11 of them «smaller than advertised») and the TVs and phones people
+// come for sat far below. Confirmed before smaller-than-advertised; within that, the real % weighted by the riyals
+// saved, with a small lift at the lowest recorded price. Rows with no reference come after every verified row.
+// diversify() then allows at most two cards in a row from one store or one chip, and only ever swaps cards of the
+// same tier, so an unverified or unavailable card can never rise above a verified one.
+const VAL=d=>{if(d.real==null||d.real<=0||d.v==='bad')return -1e9+(d.claim||0);return (d.v==='ok'?1:0.55)*d.real*Math.log10(10+(d.r-d.p))*(isLow(d)?1.15:1);};
+const TIER=d=>(UN(d)?2:0)+(VAL(d)<=-1e8?1:0);
+const diversify=l=>{const out=[],pool=l.slice();while(pool.length){let i=0;const n=out.length;if(n>=2){const a=out[n-1],b=out[n-2],t=TIER(pool[0]);const j=pool.findIndex(r=>TIER(r)===t&&!(r.s===a.s&&r.s===b.s)&&!(r.c===a.c&&r.c===b.c));if(j>0)i=j;}out.push(pool.splice(i,1)[0]);}return out;};
 const SORTS={
- default:(a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999)||(b.claim-a.claim),
+ default:(a,b)=>(UN(a)-UN(b))||VAL(b)-VAL(a),
  real:(a,b)=>(UN(a)-UN(b))||(b.real??-999)-(a.real??-999),
  save:(a,b)=>(UN(a)-UN(b))||SAVED(b)-SAVED(a),
  plow:(a,b)=>(UN(a)-UN(b))||a.p-b.p,
@@ -724,7 +774,8 @@ function evidence(d){
 }
 function render(){
   rows.innerHTML='';
-  const list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);
+  let list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);if(!SORTS[SORT]||SORT==='default')list=diversify(list);
+  {const h=document.getElementById('sorthow');if(h)h.hidden=!(!SORTS[SORT]||SORT==='default');}
   list.forEach(d=>{
     const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
     const saved=d.r!=null?Math.round(d.r-d.p):null, mk=d.rk==='m', low=isLow(d), mn=d.ev&&d.ev.mn;
@@ -746,8 +797,8 @@ function render(){
     // The store's code, as the store's: it covers the store, not necessarily this product. Terms are one tap away.
     const ci=CBY[d.s],cp=ci!=null?CPX[ci]:null,ncodes=cp?CPX.filter(x=>SAVEK[x.k]&&x.c&&x.s.includes(d.s)).length:0;
     const code=cp&&cp.c?`<button type="button" class="code" data-code="${esc(cp.c)}" aria-label="انسخ كود ${esc(d.s)}: ${esc(cp.c)}" title="كود للمتجر كله، وقد لا يشمل هذا المنتج. الشروط في قسم القسائم.">${esc(cp.c)}${IC.copy}</button>`:'';
-    const wh=walletHit(d);
-    const perk=wh?`<a class="cperk" href="#coupon-${wh.i}">${esc(wh.w.l)}: ${wh.x.p?esc(wh.x.p):'عرض لدى '+esc(d.s)+'، اقرأ الشروط'}</a>`:'';
+    const wh=walletHits(d),pl=x=>x.p?esc(x.p):'عرض لدى '+esc(d.s)+'، اقرأ الشروط';
+    const perk=wh.full.slice(0,3).map(h=>`<a class="cperk" href="#coupon-${h.i}">${esc(h.x.w.map(wlab).join(' + '))}: ${pl(h.x)}</a>`).join('')+(wh.near?`<a class="cperk near" href="#coupon-${wh.near.i}">${wh.full.length?'ومع':'مع'} ${esc(wlab(wh.near.miss))} أيضاً: ${pl(wh.near.x)}</a>`:'');
     const pic=d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'';
     const isFav=FAV.has(d.id);
     c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${d.s}</span><span class="cstock ${d.a}">${d.an?(d.a==='low'?'':AL[d.a]+'، ')+d.an.replace(/^[^:]{1,14}:\s*/,''):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}</span></div>`
@@ -915,13 +966,21 @@ const arD=d=>new Date(d+'T12:00:00Z').toLocaleDateString('ar-SA-u-ca-gregory-nu-
 const st=t=>t[7]==='pending'?['pend','بانتظار النشر']:(t[4]&&now<t[4])?['soon','يبدأ '+arD(t[4])]:(t[5]&&now>t[5])?['end','انتهى']:['on',t[5]?'متاح حتى '+arD(t[5]):'متاح'];
 const rank={on:0,soon:1,pend:2,end:3};
 const list=T.map(t=>({t,s:st(t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]);
-document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${t[2]}»</div><span class="tv ${t[7]}">${VT[t[7]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${t[8]}</div><div class="meta">${t[3]?`الكود: <span class="code" title="انسخ">${t[3]}</span> · `:'بدون كود · '}${t[6]} · فُحص ${arD(t[10])}</div><a class="go" href="${t[9]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
+document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${t[2]}»</div><span class="tv ${t[7]}">${VT[t[7]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${t[8]}</div><div class="meta">${t[3]?`الكود: <span class="code" data-code="${t[3]}" title="انسخ">${t[3]}</span> · `:'بدون كود · '}${t[6]} · فُحص ${arD(t[10])}</div><a class="go" href="${t[9]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
 +TNO.map(t=>`<article class="tcard nooffer"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا موقع الشركة الرسمي ولم نجد صفحة عرض أو كود خصم {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
 const tn=document.getElementById('tnone');tn.textContent=TNONE;tn.hidden=!TNONE;
 // car offers reuse the travel card, status and verdict logic; t is remapped to the travel positions
-document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}${c[2]?' · '+c[2]:''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${c[3]}»</div><span class="tv ${c[8]}">${VT[c[8]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${c[9]}</div><div class="meta">${c[4]?`الكود: <span class="code" title="انسخ">${c[4]}</span> · `:''}${c[7]} · فُحص ${arD(c[11])}</div><a class="go" href="${c[10]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
+document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}${c[2]?' · '+c[2]:''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${c[3]}»</div><span class="tv ${c[8]}">${VT[c[8]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${c[9]}</div><div class="meta">${c[4]?`الكود: <span class="code" data-code="${c[4]}" title="انسخ">${c[4]}</span> · `:''}${c[7]} · فُحص ${arD(c[11])}</div><a class="go" href="${c[10]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
 +CRNO.map(c=>`<article class="tcard nooffer"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا الموقع الرسمي ولم نجد صفحة عرض {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
-document.querySelectorAll('.tcard .code').forEach(c=>c.addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText(c.textContent).then(()=>{const o=c.textContent;c.textContent='✓ نُسخ';setTimeout(()=>c.textContent=o,1200);}).catch(()=>{});}));
+// coupon cards (21 Nov 2026): the same card as travel, the code copied by the page's one .code handler
+(()=>{const box=document.getElementById('cpcards');if(!box)return;const KD={code:'كود',voucher:'قسيمة',bank:'عرض بطاقة',auto:'خصم تلقائي',none:'بلا كود',note:'ملاحظة'};
+box.innerHTML=CPX.map((x,i)=>`<article class="tcard cpcard${SAVEK[x.k]?'':' nooffer'}" id="coupon-${i}"><div class="th"><span class="co">${esc(x.l)}<span class="ty">${KD[x.k]||''}</span></span></div>`
+ +((x.w||[]).length?`<div class="wtags">${x.w.map(w=>`<span class="wtag">${esc(wlab(w))}</span>`).join('<span aria-hidden="true">+</span>')}</div>`:'')
+ +(x.h?`<div class="hl">${esc(x.h)}</div>`:'')
+ +(x.c?`<button type="button" class="code" data-code="${esc(x.c)}" aria-label="انسخ الكود ${esc(x.c)}">${esc(x.c)}${IC.copy}</button>`:'')
+ +`<div class="real"><b>ماذا تقول صفحة المتجر:</b> ${esc(x.t)}</div><button type="button" class="more" aria-expanded="false">الشروط كاملة</button></article>`).join('');
+box.addEventListener('click',e=>{const b=e.target.closest('.more');if(!b)return;const c=b.closest('.cpcard');c.classList.toggle('open');const o=c.classList.contains('open');b.setAttribute('aria-expanded',String(o));b.textContent=o?'إخفاء الشروط':'الشروط كاملة';});
+requestAnimationFrame(()=>box.querySelectorAll('.cpcard').forEach(c=>{const r=c.querySelector('.real');if(r.scrollHeight<=r.clientHeight+2)c.querySelector('.more').hidden=true;}));})();
 })();
 (()=>{const f=document.getElementById('sg-f'),b=document.getElementById('sg-b'),st=document.getElementById('sg-s'),t=document.getElementById('sg-t');
 const say=(m,c)=>{st.textContent=m;st.className='sg-note '+(c||'');};
