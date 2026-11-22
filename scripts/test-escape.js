@@ -55,6 +55,8 @@ for (const f of ['build.js', 'apply.js']) fs.copyFileSync(path.join(ROOT, f), pa
 const W = (rel, v) => { const p = path.join(TMP, rel); fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, JSON.stringify(v, null, 1)); };
 // the hostile build runs with measurement off: with a container id, Google's head snippet is a second script block by design
 W('config/site.json', { gtmId: '' });
+// (BLD-15) every category with a row gets its card, whatever the threshold on main is
+{ const r = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), 'utf8')); r.page.categoryCardMinRows = 1; W('config/rules.json', r); }
 
 const M = 'SAYDAXSS';                                   // every hostile value carries this marker
 const img = n => `<img src=x onerror=${M}(${n})>`;
@@ -73,6 +75,10 @@ const rows = [
     lastChecked: `"><img src=x onerror=${M}(9)>` }),
   base('t-price', { price: img(10), was: img(17), ref: 470 }),
   base('t-img', { img: `javascript:${M}(14)` }),
+  // (BLD-15) two more confirmed rows, so the ticker strip is drawn (it needs four) and the category card has a second picture:
+  // a hostile name in both languages, a hostile row id, a picture address that tries to break out of its attribute
+  base('t-tick', { name: img(110), name_en: img(111), price: 200, ref: 470, img: 'https://images.example.com/b.jpg?w=400&h=400' }),
+  base('t-tick2', { id: `${plain.id}:t-tick2"><img src=x onerror=${M}(112)>`, name: `"><script>${M}(113)</script>`, name_en: `' onfocus='${M}(114)`, price: 250, ref: 470, img: `https://images.example.com/c.jpg"onerror="${M}(115)` }),
   base('t-market', { refKind: 'market', ref: 400, verdict: 'ok', finding: `أرخص من ${img(16)} (٤٠٠)`, refUrl: 'https://www.example.com/p?a=1&b=2', ev: { market: { store: img(18), price: 400 }, min: 400, max: 400, src: 'market', on: '2026-11-22', url: 'https://www.example.com/p?a=1&b=2' } }),
   // links that are not clean https addresses: each of these four rows must be held back from both pages
   base('t-jsurl', { url: `javascript:${M}(11)` }),
@@ -190,7 +196,14 @@ for (const [file, lang, nameMark] of [['dist/index.html', 'arabic', `&lt;img src
   ok(`${lang}: no javascript: or data:text link anywhere in the file`, !/javascript:|data:text/i.test(html));
   ok(`${lang}: the four rows with a bad link are not in the file`, !['t-jsurl', 't-refurl', 't-evurl', 't-quoteurl'].some(k => html.includes(k)));
   ok(`${lang}: the offers with a bad link are not in the file`, !html.includes('bad link travel') && !html.includes('bad link car') && !html.includes('insecure.example.com'));
-  ok(`${lang}: the hostile rows that should be on the page are in the file`, ['t-clean', 't-name', 't-attrs', 't-price', 't-img', 't-market'].every(k => html.includes(k)));
+  ok(`${lang}: the hostile rows that should be on the page are in the file`, ['t-clean', 't-name', 't-attrs', 't-price', 't-img', 't-market', 't-tick', 't-tick2'].every(k => html.includes(k)));
+  // (BLD-15) the ticker strip, the category card and the header inside a category are static HTML written by build.js
+  ok(`${lang}: the ticker strip, a category card and a category header are in the static HTML`, stat.includes('class="tick"') && /<button type="button" class="kcard big kc\d+"/.test(stat) && /<div class="khead kc\d+"/.test(stat));
+  ok(`${lang}: the ticker carries the hostile product name as text, twice (the strip and its hidden copy)`, stat.split(`<span class="tn">${escHtml(lang === 'arabic' ? img(110) : img(111))}</span>`).length - 1 === 2);
+  ok(`${lang}: the hostile row id is an escaped attribute value on its ticker item`, stat.includes(`data-d="${escHtml(`${plain.id}:t-tick2"><img src=x onerror=${M}(112)>`)}"`));
+  ok(`${lang}: the category card shows the store pictures with the hostile name as escaped alt text`, stat.includes(`<img src="https://images.example.com/b.jpg?w=400&amp;h=400" alt="${escHtml(lang === 'arabic' ? img(110) : img(111))}"`));
+  ok(`${lang}: a picture address that is not a clean https address is on no category card`, !stat.includes("images.example.com/c.jpg") && (stat.match(/<span class="kim /g) || []).length === 2, (stat.match(/<span class="kim /g) || []).length);
+  ok(`${lang}: the ticker holds only confirmed rows (not the warn row, not the row whose verdict or price is not ours)`, (stat.match(/class="ti"/g) || []).length === 10 && !/class="ti" data-d="[^"]*t-(name|attrs|price)"/.test(stat), (stat.match(/class="ti"/g) || []).length);
   ok(`${lang}: static HTML holds no tag, attribute, handler or link made from outside text`, faults(stat, staticLink, true).length === 0, faults(stat, staticLink, true).join(' | '));
   ok(`${lang}: no data line in the script holds a raw < beside the marker`, !script.split('\n').some(l => l.includes(M) && l.includes('<')));
   ok(`${lang}: no {{…}} left for a later fill`, !/{{[A-Z_]+}}/.test(html));
@@ -201,7 +214,7 @@ for (const [file, lang, nameMark] of [['dist/index.html', 'arabic', `&lt;img src
   ok(`${lang}: the page script runs to the end on hostile data`, !err, err && (err.stack || err));
   if (!out) continue;
   const all = out.sinks.join('\n');
-  ok(`${lang}: the script drew the seven cards and opened their evidence dialogs`, out.dialogs === 7 && out.sinks.length > 12, `dialogs ${out.dialogs}, pieces of HTML ${out.sinks.length}`);
+  ok(`${lang}: the script drew the nine cards and opened their evidence dialogs`, out.dialogs === 9 && out.sinks.length > 12, `dialogs ${out.dialogs}, pieces of HTML ${out.sinks.length}`);
   const f = out.sinks.flatMap(h => faults(h, pageLink, false));
   ok(`${lang}: nothing the script wrote holds a tag, attribute, handler or link made from outside text`, f.length === 0, [...new Set(f)].slice(0, 6).join(' | '));
   ok(`${lang}: the script wrote links, and every one is a clean https address or in-page`, out.sinks.flatMap(h => tags(h)).filter(t => t.attrs.some(([n]) => n === 'href')).length >= 20);
