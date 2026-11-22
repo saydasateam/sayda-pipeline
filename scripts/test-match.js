@@ -121,6 +121,20 @@ const cases = [
   { want: true, why: 'Ashley Havalance: exact match at the same price',
     row: { name: 'أشلي: تسريحة هافالانس', brand: 'ashley', model: 'havalance b814', price: 1900 },
     listing: { title: 'Ashley Havalance B814-31 Dresser', price: 1900, merchant: 'Al Rugaib Furniture', country: 'sa' } },
+
+  // ── capacity, added 2026-11-22 after the Blackbox TCL near-miss of 21 Nov ───────────────────
+  { want: false, why: 'capacity: 22,100 BTU row must not take a 24,000 BTU listing that shares the model prefix',
+    row: { name: 'تي سي ال مكيف سبليت Save in Neo T4 22,100 وحدة', brand: 'tcl', model: 'tac 24csu', price: 2799 },
+    listing: { title: 'TCL JetMax+ Split AC 24,000 BTU Cold TAC-24CSU/JETW', price: 2899, merchant: 'noon', country: 'sa' } },
+  { want: true, why: 'capacity: the same 24,000 BTU unit, written with and without a comma, still matches',
+    row: { name: 'تي سي ال مكيف سبليت 24000 وحدة TAC-24CSU', brand: 'tcl', model: 'tac 24csu', price: 2799 },
+    listing: { title: 'TCL Split AC 24,000 BTU Cold TAC-24CSU', price: 2899, merchant: 'noon', country: 'sa' } },
+  { want: false, why: 'capacity: a 256GB row must not take the 512GB listing of the same phone',
+    row: { name: 'سامسونج جالكسي S25 FE 256 جيجا', enName: 'samsung galaxy s25 fe 256gb', brand: 'samsung', model: 's25', variant: 'fe', price: 2199 },
+    listing: { title: 'Samsung Galaxy S25 FE 5G 512GB Navy', price: 2599, merchant: 'Amazon.sa', country: 'sa' } },
+  { want: true, why: 'capacity: a listing that prints no capacity is judged on the other conditions',
+    row: { name: 'سامسونج جالكسي S25 FE 256 جيجا', brand: 'samsung', model: 's25', variant: 'fe', price: 2199 },
+    listing: { title: 'Samsung Galaxy S25 FE 5G Navy', price: 2250, merchant: 'Amazon.sa', country: 'sa' } },
 ];
 
 let pass = 0, fail = 0;
