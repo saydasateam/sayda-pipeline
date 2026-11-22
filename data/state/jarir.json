@@ -1,7 +1,7 @@
 {
  "store": "jarir",
- "updated": "2026-11-22",
- "checkedAt": "2026-11-22T20:36:07.155+03:00",
+ "updated": "2026-11-23",
+ "checkedAt": "2026-11-23T01:36:24.413+03:00",
  "rows": [
   {
    "id": "jarir:haier-haier-m80fux-smart-tv-669302",
@@ -20,7 +20,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/4/c/a/9/4ca96b0ec68f1e58fecfeef4e59e64ae795b2254_669302.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:xiaomi-s-mini-smart-tv-680349",
@@ -39,7 +39,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/2/f/2/f/2f2f6e272a498d19d80b85f54dc0f00146296a9a_680349.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:skyworth-x8700g-smart-tv-663715",
@@ -58,7 +58,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/e/5/a/2/e5a23f012df8abed08260d2fbb12096e4c4745e9_663715.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:tcl-c7l-smart-tv-681855",
@@ -77,7 +77,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/e/9/f/b/e9fb3d63439cf18c727c08029da256b48ed97fc1_681855.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:xiaomi-s-mini-smart-tv-680346",
@@ -96,7 +96,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/0/5/6/1/0561d249792d6991eced894e48612f54eb70187a_680346.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:samsung-qn70h-smart-tv-690756",
@@ -115,7 +115,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/saas/690756.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22",
+   "lastChecked": "2026-11-23",
    "refUrl": "https://www.kanbkam.com/sa/en/samsung-85-inch-neo-qled-smart-tv-samsung-vision-ai-qn70h-4k120hz-dlg-quantum-mini-led-airslim-real-colors-real-qled-nq4-ai-processor-tizen-os-qa85qn70hauxsa-2026-ksa-version-B0H872ZJ9V",
    "ev": {
     "market": {
@@ -148,7 +148,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/1/8/7/9/1879b7f0f3e856f788cb6a0c073306ac0fb3459c_682561.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22",
+   "lastChecked": "2026-11-23",
    "refUrl": "https://www.kanbkam.com/sa/en/samsung-55-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-smart-tv-qa55s85haexsa-2026-ksa-version-B0GZKRMYRS",
    "ev": {
     "market": {
@@ -181,7 +181,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/c/f/4/1/cf417c967e79d4d8ffb3b61baba1032cefe8cbf6_683672.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:samsung-m80h-smart-tv-690173",
@@ -200,7 +200,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/b/d/1/a/bd1af585a6d2c89c5d64d0dd5477ca3ea06cd43a_690173.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22",
+   "lastChecked": "2026-11-23",
    "refUrl": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-tv-m80h-4k-hdr-10-motion-xcelerator-144hz-adpative-sound-ai-football-mode-nq4-ai-gen2-processor-smart-tv-ua75m80hauxzn-2026-ksa-version-B0HD8ZT7P1",
    "ev": {
     "market": {
@@ -234,7 +234,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/0/d/9/b/0d9b9a918a86f067be44abc39c9621886f354275_657513.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22",
+   "lastChecked": "2026-11-23",
    "refUrl": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818",
    "ev": {
     "market": {
@@ -268,7 +268,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/a/1/c/1/a1c1512abde1d1457a505ca88fa1a2bba1c01c68_650928.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22",
+   "lastChecked": "2026-11-23",
    "refUrl": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-silverblue-e100392606",
    "ev": {
     "market": {
@@ -302,7 +302,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/9/f/9/7/9f97ed424b3d159efb2a066184b99edd701138d9_669661.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:skyworth-smart-tv-674575",
@@ -321,7 +321,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/b/5/2/c/b52cd3911cc77a8312c3e50087ef1d40a9a2c5dc_674575.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:skyworth-skyworth-q6800h-smart-tv-657007",
@@ -340,7 +340,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/a/f/2/e/af2ee2259b45a03b82481e8b0e96cf5b323fc4b3_657007.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:haier-h6f-smart-tv-688119",
@@ -359,7 +359,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/8/9/e/1/89e15ee0b00459ea19f99ad5c0a0b689ef4705bc_688119.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:samsung-ls03-smart-tv-682577",
@@ -378,7 +378,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/3/d/2/6/3d2617bf2272a116c76c24f540e3a5a76818df5e_682577.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:lg-lg-oledb-smart-tv-656445",
@@ -397,7 +397,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/5/b/6/b/5b6b15c762489a24696337e7ceb19441e159e55e_656445.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:sennheiser-speaker-606261",
@@ -416,7 +416,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/f/c/f/6/fcf61dd1ae85cfdce1e2196d754130ca2809e623_606261.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:tcl-p7l-smart-tv-682032",
@@ -435,7 +435,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/d/b/c/f/dbcf4980c08a4642738845877d053609d9302bcd_682032.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:msi-crosshair-16-laptops-682811",
@@ -454,7 +454,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/f/d/9/4/fd94927d45713905efa0f26cb01be0449815ace3_682811.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:tcl-c7l-smart-tv-681448",
@@ -473,7 +473,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/2/4/1/2/2412d626727c1ff49586ed917c2caf47d6c04ae5_681448.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:samsung-m1e-smart-tv-682540",
@@ -507,7 +507,7 @@
    },
    "bk": "cheaper",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:hisense-u7s-smart-tv-682072",
@@ -526,7 +526,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/saas/682072.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:samsung-qn1ef-smart-tv-682103",
@@ -545,7 +545,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/f/8/e/8/f8e82b913aa9bb4ea232833dc1bde6af4ec7c6e0_682103.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:tcl-c8l-smart-tv-683688",
@@ -564,7 +564,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/3/9/3/3/3933b6cf4cc6fbce381bdea9fd665e770d5a7a91_683688.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:xiaomi-s-mini-smart-tv-680341",
@@ -583,7 +583,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/1/c/c/d/1ccd226266319d87bc811a196351db76a50c83e7_680341.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:lg-qned84-smart-tv-683092",
@@ -602,7 +602,7 @@
    "img": "https://ak-asset.jarir.com/akeneo-prod/asset/5/9/8/7/5987f5bc2371edfa58f2e28ed19ef307c42f4f59_683092.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:hisense-hisense-a6q-smart-tv-672673",
@@ -635,7 +635,7 @@
     "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V"
    },
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   },
   {
    "id": "jarir:hisense-hisense-q61q-smart-tv-672682",
@@ -668,7 +668,7 @@
     "url": "https://www.kanbkam.com/sa/en/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black-N70376270V"
    },
    "availNote": "",
-   "lastChecked": "2026-11-22"
+   "lastChecked": "2026-11-23"
   }
  ]
 }
