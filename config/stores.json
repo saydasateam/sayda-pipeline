@@ -216,8 +216,8 @@
     {
       "id": "jarir",
       "label_en": "Jarir",
-      "en": { "try": [["/sa-ar/", "/sa-en/"]] },
-      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
+      "en": { "try": [["/sa-ar/", "/sa-en/"], ["jarir.com/", "jarir.com/sa-en/"]] },
+      "_en": "Corrected 22 Nov 2026: Jarir row URLs carry no /sa-ar/ (https://www.jarir.com/<key>.html), and the English page is https://www.jarir.com/sa-en/<key>.html, found by the 14:01 run. The second pair covers those; the first still serves any /sa-ar/ URL. SAYDA.names skips a pair that does not change the URL and only accepts a Latin-script title from a 200 page.",
       "label": "جرير",
       "group": "electronics",
       "adapter": "jarir",
