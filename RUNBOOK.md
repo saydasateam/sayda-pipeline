@@ -269,13 +269,22 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
    `SAYDA.adapters.amazon.check(rows)` (as a `SAYDA.start` job, read with `SAYDA.result`) until the ceiling
    or the stop minute. English titles come from `SAYDA.names` with `config/stores.json → amazon.en`, which
    since 22 Nov also handles the `/-/ar/dp/` address form (before, it failed on 59 of 93 rows).
+   **Use the time (22 Nov 2026, after both test runs).** Both test runs ended discovery at about minute 21
+   with noon at 37 and Amazon at 39 new rows, under the ceiling of 60, while hundreds of listing items were
+   never looked up (Amazon 160 of 685, noon 180 of 467). Looking up a first batch is not the end of
+   discovery. While a store is under its ceiling, still has unread candidates, the clock is before
+   `stopDiscoveryAtMinute` and the tool-call budget allows, look up the next batch (the next 100 by riyal
+   saving, empty chips first) on KanBkam and read the survivors' product pages. Stop early only when every
+   one of noon, Amazon and Extra is at its ceiling or has no unread candidates, and write in the run log
+   which of the two it was, per store.
 3. **The rotation's market store** (SACO, Jarir, Almanea or Blackbox): collect from `store.landing` with its
    adapter as in §1/§1b, then `SAYDA.kanbkam.market([...])` saved as `work/market/<store>.json`, then
    `node scripts/market-apply.js work/market/<store>.json` (read the shadow output) and the same with
    `--apply`. `rules/match.js` decides every comparison and `rules/verdict.js` every verdict; `--apply` only
    writes what they returned. (The §3b sweep over EXISTING market rows stays shadow.) Expect 5 to 10% of candidates to survive; an empty result is a correct result.
    Blackbox's air conditioners are safe to compare now: `match.js` condition 3d rejects a listing whose
-   capacity (BTU, وحدة, litres, kg, W, GB, mAh, ml) differs from the row's.
+   capacity (BTU, وحدة, litres, kg, W, GB, mAh, ml, and since 22 Nov mm / مم for watch cases) differs from the
+   row's.
    `market-apply` only updates rows that exist, so add the shortlisted market-store rows first (as `na`, after
    their live check, through `apply.js new`) and then run the sweep over them.
    **Fixed 22 Nov 2026, after the 14:01 test run** (`lib/market.js → queryFor`): the query no longer comes from
