@@ -88,8 +88,8 @@
     {
       "id": "amazon",
       "label_en": "Amazon",
-      "en": { "try": [["/dp/", "/-/en/dp/"]] },
-      "_en": "verified 20 Nov 2026",
+      "en": { "try": [["/-/ar/dp/", "/-/en/dp/"], ["/dp/", "/-/en/dp/"]] },
+      "_en": "verified 20 Nov 2026; corrected 22 Nov 2026: 59 of 93 Amazon rows use the Arabic address form https://www.amazon.sa/-/ar/dp/<asin>, which the single pair turned into /-/ar/-/en/dp/ (no title, so runs read names by hand). The /-/ar/dp/ pair is tried first; tested in the server's Chrome on both forms.",
       "label": "أمازون",
       "group": "electronics",
       "adapter": "amazon",
