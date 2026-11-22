@@ -3,6 +3,8 @@
 // from data/state.json + config/*.json + template/index.html. Deterministic; no network.
 const fs = require('fs'), path = require('path');
 const { arNum, longDate, shortDate, time12, countWord } = require('./lib/ar');
+// Every outside value goes through one of these on its way to the page (22 Nov 2026 audit, SEC-F1 to F4): see lib/safe.js.
+const { cleanHttps, cleanOrAbsent, jsonForScript: J, escHtml: H, boldOnly } = require('./lib/safe');
 const ROOT = __dirname;
 const cfg  = JSON.parse(fs.readFileSync(path.join(ROOT,'config/stores.json'),'utf8'));
 const catsCfg = JSON.parse(fs.readFileSync(path.join(ROOT,'config/categories.json'),'utf8'));
@@ -65,6 +67,25 @@ const heldByStore = () => { const by = {}; heldNoName.forEach(r => { by[r.store]
   heldNoName = st.rows.filter(r => !String(r.name || '').trim() || !String(r.name_en || '').trim());
   if (heldNoName.length) { st.rows = st.rows.filter(r => !heldNoName.includes(r)); console.log(`held back ${heldNoName.length} rows with no name in both languages: ${heldByStore()}`); }
 }
+// Links (22 Nov 2026 audit, SEC-F3). A row's link to the store, its compared-product link and its
+// evidence link are published only as clean https addresses (lib/safe.js). A row with a link that
+// fails is held back from both pages and named here: it stays in state, and the next check of its
+// store can correct the link. A travel or car offer whose own link fails is held back the same way.
+// A picture that fails is simply not shown, as before. Nothing here fails the build: one bad link
+// from one store must not stop every other store's rows from being published.
+let heldBadLink = [];
+{
+  const badLink = r => !cleanHttps(r.url) || !cleanOrAbsent(r.refUrl) || !cleanOrAbsent(r.ev && r.ev.url);
+  heldBadLink = st.rows.filter(badLink);
+  if (heldBadLink.length) {
+    st.rows = st.rows.filter(r => !heldBadLink.includes(r));
+    const by = {}; heldBadLink.forEach(r => { by[r.store] = (by[r.store] || 0) + 1; });
+    console.log(`held back ${heldBadLink.length} rows with a link that is not a clean https address: ${Object.entries(by).map(([s, n]) => `${s} ${n}`).join(', ')} (${heldBadLink.slice(0, 8).map(r => r.id).join(', ')}${heldBadLink.length > 8 ? ', …' : ''})`);
+  }
+  const offers = (list, what) => { const bad = (list || []).filter(o => !cleanHttps(o.url)); if (bad.length) console.log(`held back ${bad.length} ${what} offer(s) with a link that is not a clean https address: ${bad.map(o => String(o.company || '').slice(0, 30)).join(', ')}`); return (list || []).filter(o => cleanHttps(o.url)); };
+  st.travel = offers(st.travel, 'travel');
+  if (st.cars) st.cars = offers(st.cars, 'car');
+}
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
 // A campaign that has just been reset (scripts/new-campaign.js) has no rows and no check time.
@@ -123,7 +144,7 @@ const D = st.rows.map(r => {
   { const rs = refStore(r, label); if (rs) x.rs = rs; }
   // product picture (20 Nov 2026): the store's own image URL, read from its product page. Shown by
   // hotlink with no referrer; a card without one falls back to a neutral tile.
-  if (r.img && /^https:\/\//.test(r.img)) x.im = r.img;
+  if (cleanHttps(r.img)) x.im = r.img;
   if (r.id) x.id = r.id;   // for the share link (?d=<id>) that opens the page on this card
   // q = the finding is the plain default («كان X», optionally «أقل سعر مسجل»): the card's strip already
   // says it, so the card does not repeat it. Anything else (a caveat, a condition) is always printed.
@@ -143,7 +164,8 @@ const TNO = st.travelNone.map(t => [t.company,t.type]);
 const CR  = (st.cars || []).map(c => [c.company,c.type,c.brand||'',c.headline,c.code||'',c.bookStart||'',c.bookEnd||'',c.window||'',c.verdict,c.terms,c.url,c.checked]);
 const CRNO = (st.carsNone || []).map(c => [c.company,c.type]);
 // one row per line, like the hand-written page, so git diffs stay readable
-const arr = rows => '[\n' + rows.map(r => JSON.stringify(r)).join(',\n') + '\n]';
+// J (lib/safe.js) is JSON.stringify made safe for an inline <script>: every value the page's script receives goes through it.
+const arr = rows => '[\n' + rows.map(r => J(r)).join(',\n') + '\n]';
 
 // ---- chips from config ----
 const liveCats = cats.filter(c => !st.rows.length || st.rows.some(r => r.cat === c.id));
@@ -166,8 +188,9 @@ const b = t => `<b style="display:inline">${t}</b>`;
 const inl = t => t.replace(/<b>/g,'<b style="display:inline">');
 // Each coupon gets its own anchor so a product row can point straight at it (🎟️ beside the store).
 const couponLis = st.coupons.map((c, i) => {
-  const code = c.code ? ` — كود ${b(c.code)} <button type="button" class="cpy" data-code="${String(c.code).replace(/[&<>"]/g, '')}">نسخ الكود</button> ` : ' — ';
-  return `<li id="coupon-${i}">${b(c.label)}${code}${inl(c.text)}</li>`;
+  // store-written wording is escaped; only <b> in the coupon text stays live (SEC-F4)
+  const code = c.code ? ` — كود ${b(H(c.code))} <button type="button" class="cpy" data-code="${H(c.code)}">نسخ الكود</button> ` : ' — ';
+  return `<li id="coupon-${i}">${b(H(c.label))}${code}${inl(boldOnly(c.text))}</li>`;
 }).join('');
 // Top of page: a one-line pointer, same shape as the travel one. The list itself lives below the table.
 const couponsNote = `<a class="note notelink" href="#coupons"><b>🎟️ قسائم وأكواد إضافية</b>خصومات فوق السعر المعروض: أكواد المتاجر وعروض البطاقات البنكية، وما تشترطه فعلاً.<span class="cta">اضغط هنا لعرض القسائم ↓</span></a>`;
@@ -191,7 +214,7 @@ st.coupons.forEach((c, i) => { if (!general(c)) return; (c.stores || []).forEach
 const on = id => storeById[id] && storeById[id].enabled !== false;
 const fs_ = Object.fromEntries(Object.entries(st.notes.furnitureShare || {}).filter(([id]) => on(id)));
 const shareList = Object.entries(fs_).sort((a,b)=>b[1].pct-a[1].pct)
-  .map(([id,v]) => `${label(id)} ${arNum(v.pct)}٪${v.detail?` (${v.detail})`:''}`).join('، ');
+  .map(([id,v]) => `${label(id)} ${arNum(v.pct)}٪${v.detail?` (${H(v.detail)})`:''}`).join('، ');
 const furnitureNote = !shareList ? '' : `<div class="note"><b>متاجر الأثاث: «الخصم» على كل شيء تقريباً</b>نسبة المنتجات التي عليها سعر «قبل» مشطوب، محسوبة من كتالوج كل متجر: ${shareList}. عندما يكون كل شيء «مخفّضاً» فالسعر «قبل» لا يعني شيئاً — قارن الأسعار الفعلية.</div>`;
 
 // ---- campaign wording and colour: config/campaign.json, never the template ----
@@ -252,19 +275,38 @@ const forShort = forAr(campShort);
 const panelsAr = `<nav class="panels" aria-label="القسائم وعروض السفر والسيارات">`
   + panel(cpSave.length > 0, '#coupons', PIC.cp, 'القسائم والأكواد', cpSave.length ? `${arCount(cpSave.length, 'عرض واحد', 'عرضان', 'أكواد وعروض بطاقات', 'كوداً وعرض بطاقة')} · ${andAr(cpStores.map(label))}` : `لا أكواد مؤكدة ${forShort} بعد`)
   + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'عروض السفر', trOn ? `${arCount(trOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} من شركات الطيران والحجز` : trChecked ? `فحصنا ${arCount(trChecked, 'شركة واحدة', 'شركتين', 'شركات', 'شركة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
-  + panel(crChecked > 0, '#cars', PIC.cr, 'عروض السيارات', crOn ? `${arCount(crOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} (${andAr(st.cars.map(c => c.company.replace(/\s*\(.*\)$/, '')))})${(st.carsNone || []).length ? ` · فحصنا ${arCount(st.carsNone.length, 'جهة أخرى', 'جهتين أخريين', 'جهات أخرى', 'جهة أخرى')}` : ''}` : crChecked ? `فحصنا ${arCount(crChecked, 'جهة واحدة', 'جهتين', 'جهات', 'جهة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
+  + panel(crChecked > 0, '#cars', PIC.cr, 'عروض السيارات', crOn ? `${arCount(crOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} (${andAr(st.cars.map(c => H(String(c.company || '').replace(/\s*\(.*\)$/, ''))))})${(st.carsNone || []).length ? ` · فحصنا ${arCount(st.carsNone.length, 'جهة أخرى', 'جهتين أخريين', 'جهات أخرى', 'جهة أخرى')}` : ''}` : crChecked ? `فحصنا ${arCount(crChecked, 'جهة واحدة', 'جهتين', 'جهات', 'جهة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
   + `</nav>`;
 const enCount = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
 const cpSaveEn = cpSave.filter(c => c.text_en), campShortEn = M.campaignShort_en || M.campaign_en || 'sale';
 const panelsEn = `<nav class="panels" aria-label="Coupons, travel and car offers">`
   + panel(cpSaveEn.length > 0, '#coupons', PIC.cp, 'Coupons and codes', cpSaveEn.length ? `${cpSaveEn.length} codes and card offers · ${andEn([...new Set(cpSaveEn.flatMap(c => c.stores || []))].map(id => (storeById[id] || {}).label_en || id))}` : `No confirmed ${campShortEn} codes yet`)
   + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'Travel offers', trOn ? `${enCount(trOn, 'offer')} from airlines and booking sites` : trChecked ? `Checked ${enCount(trChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
-  + panel(crChecked > 0, '#cars', PIC.cr, 'Car offers', crOn ? `${enCount(crOn, 'offer')} (${andEn(st.cars.map(c => (c.company_en || c.company).replace(/\s*\(.*\)$/, '')))})${(st.carsNone || []).length ? ` · ${st.carsNone.length} more checked` : ''}` : crChecked ? `Checked ${enCount(crChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
+  + panel(crChecked > 0, '#cars', PIC.cr, 'Car offers', crOn ? `${enCount(crOn, 'offer')} (${andEn(st.cars.map(c => H(String(c.company_en || c.company || '').replace(/\s*\(.*\)$/, ''))))})${(st.carsNone || []).length ? ` · ${st.carsNone.length} more checked` : ''}` : crChecked ? `Checked ${enCount(crChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
   + `</nav>`;
+
+// ---- measurement: Google Tag Manager (22 Nov 2026) ----
+// config/site.json holds the container id. An empty or missing gtmId builds both pages with no tag and
+// the old privacy sentence; a set one writes Google's two snippets and the sentence that says so.
+// The page's own events (outbound_store_click, copy_code, wallet_filter_used) are in both templates.
+const sitePath = path.join(ROOT, 'config/site.json');
+const siteCfg = fs.existsSync(sitePath) ? JSON.parse(fs.readFileSync(sitePath, 'utf8')) : {};
+const GTM_ID = String(siteCfg.gtmId || '').trim();
+if (GTM_ID && !/^GTM-[A-Z0-9]{4,12}$/.test(GTM_ID)) throw new Error(`build: config/site.json gtmId "${GTM_ID}" is not a GTM container id (GTM-XXXXXXX)`);
+const plainText = (t, d) => { const s = String(t || d); if (/[<>&"]/.test(s)) throw new Error('build: config/site.json service names must be plain text'); return s; };
+const measureFill = {
+  GTM_HEAD: !GTM_ID ? '' : `\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');</script>`,
+  GTM_BODY: !GTM_ID ? '' : `\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`,
+  PRIVACY_STATS_AR: !GTM_ID ? 'نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية.'
+    : `نستخدم إحصاءات Cloudflare، ونستخدم Google Tag Manager لقياس الزيارات وثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة). خدمات القياس والإعلان التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) قد تستخدم ملفات تعريف الارتباط ومعرّف جهازك لقياس الزيارات والإعلانات.`,
+  PRIVACY_STATS_EN: !GTM_ID ? 'we use Cloudflare analytics, which sets no cookies and collects no personal data.'
+    : `we use Cloudflare analytics, and Google Tag Manager to measure visits and three kinds of click: opening a store page, copying a code, and using the card filter (never which card). The measurement and advertising services that run through it (${plainText(siteCfg.services_en, 'Google')}) may set cookies and use your device’s identifiers to measure visits and ads.`,
+};
 
 // ---- fill ----
 const fill = {
   ...campaignFill,
+  GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, PRIVACY_STATS_AR: measureFill.PRIVACY_STATS_AR,
   UPDATED_AR: longDate(st.meta.updated),
   UPDATED_AR_SHORT: shortDate(st.meta.updated),
   // lib/state.js derives BOTH the newest and the oldest per-store checkedAt. Rendering only the
@@ -285,21 +327,26 @@ const fill = {
   COUPONS_NOTE: couponsNote,
   COUPONS_SECTION: couponsSection,
   FURNITURE_NOTE: furnitureNote,
-  RULE_JSON: JSON.stringify({ okMin: rules.verdict.okMin, warnMin: rules.verdict.warnMin, okSavingTiers: rules.verdict.okSavingTiers || [] }),
+  RULE_JSON: J({ okMin: rules.verdict.okMin, warnMin: rules.verdict.warnMin, okSavingTiers: rules.verdict.okSavingTiers || [] }),
   CATEGORY_CHIPS: catChips,
   STORE_CHIPS: storeChips,
-  CBY_JSON: JSON.stringify(couponBy),
-  CPX_JSON: JSON.stringify(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), nw: (c.walletNot || []).filter(id => walletById[id]), p: pubText(c.perk || ''), l: pubText(c.label || ''), h: pubText(cpHead(c.perk, c.text)), t: pubText(c.text || '') }))),
+  CBY_JSON: J(couponBy),
+  CPX_JSON: J(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), nw: (c.walletNot || []).filter(id => walletById[id]), p: pubText(c.perk || ''), l: pubText(c.label || ''), h: pubText(cpHead(c.perk, c.text)), t: pubText(c.text || '') }))),
   LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS: panelsAr,
-  WALLET_JSON: JSON.stringify(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
-  CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: JSON.stringify(TNO), TNONE_JSON: JSON.stringify(st.travelNone_text||''),
-  CR_JSON: arr(CR), CRNO_JSON: JSON.stringify(CRNO),
+  WALLET_JSON: J(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
+  CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: J(TNO), TNONE_JSON: J(st.travelNone_text||''),
+  CR_JSON: arr(CR), CRNO_JSON: J(CRNO),
 };
 fill.STORE_COUNT_AR = countWord(cfg.stores.filter(s=>s.enabled!==false).length); // disabled stores (no working storefront) are not counted // "الستة عشر" etc. — the template keeps the word order "المتاجر {{n}}"
 let out = tpl;
 for (const [k,v] of Object.entries(fill)) out = out.split(`{{${k}}}`).join(v);
 const left = out.match(/{{[A-Z_]+}}/g); if (left) throw new Error('unfilled: '+left.join(','));
 if (TRACKER.test(out) || /كان ?بكام/.test(out)) throw new Error('build: the price tracker is named on the public page — scrub it (see TRACKER above)');
+// Each page has exactly one script block, the template's own (SEC-F2). A second opening or closing tag means text from a
+// store reached the page as markup: stop, and publish nothing, rather than ship a page that runs it or shows no cards.
+const oneScript = (html, page) => { const o = (html.match(/<script\b/gi) || []).length, c = (html.match(/<\/script/gi) || []).length;
+  if (o !== 1 || c !== 1) throw new Error(`build${page}: the page must hold exactly one <script> and one </script>, found ${o} and ${c} — outside text has reached the page unescaped (see lib/safe.js)`); };
+oneScript(out.replace(measureFill.GTM_HEAD, ''), '');   // Google's head snippet is written by this build from config/site.json, it is not outside text
 
 fs.mkdirSync(path.join(ROOT,'dist'), {recursive:true});
 fs.writeFileSync(path.join(ROOT,'dist/index.html'), out);
@@ -338,7 +385,7 @@ const E = st.rows.map(r => {
   if (!r.name_en) o.ar = 1;
   const an = availEn(r); if (an) o.an = an;
   if (RK[r.refKind]) o.rk = RK[r.refKind]; if (BK[r.bk]) o.bk = BK[r.bk]; if (r.lastChecked) o.lc = r.lastChecked;
-  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (r.img && /^https:\/\//.test(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id; if (!r.finding_en && r.verdict === 'ok' && r.refKind === 'history') o.q = 1;
+  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (cleanHttps(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id; if (!r.finding_en && r.verdict === 'ok' && r.refKind === 'history') o.q = 1;
   if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
   return o;
 });
@@ -364,23 +411,25 @@ if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build
 const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^<style>|<\/style>$/g, '')).join('\n');
 const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
 const enFill = {
+  GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, PRIVACY_STATS_EN: measureFill.PRIVACY_STATS_EN,
   CSS: css, CAMPAIGN_EN: M.campaign_en || 'Sale', CAMPAIGN_SHORT_EN: M.campaignShort_en || M.campaign_en || 'Sale',
   UPDATED_EN: dEn(st.meta.updated).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' }),
   CHECKED_EN: dEn(st.meta.checkedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' }),
   STORE_COUNT: String(cfg.stores.filter(s => s.enabled !== false).length), TH_ACCENT: campaignFill.TH_ACCENT, TH_ACCENT_HEX: campaignFill.TH_ACCENT_HEX,
-  E_JSON: arr(E), CATS_JSON: JSON.stringify(cats.map(c => [c.id, c.label_en || c.id])), STORE_CHIPS_EN: storeChipsEn,
-  COUPONS_JSON: JSON.stringify(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), nw: (x.c.walletNot || []).filter(id => walletById[id]), p: enText(x.c.perk_en || ''), h: enText(cpHead(x.c.perk_en, x.c.text_en)) }))),
-  TRNO_JSON: JSON.stringify(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || ''])), CRNO_JSON: JSON.stringify((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || ''])),
-  TNONE_EN_JSON: JSON.stringify(st.travelNone_text_en || ''), LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS_EN: panelsEn,
-  WALLET_JSON: JSON.stringify(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
+  E_JSON: arr(E), CATS_JSON: J(cats.map(c => [c.id, c.label_en || c.id])), STORE_CHIPS_EN: storeChipsEn,
+  COUPONS_JSON: J(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), nw: (x.c.walletNot || []).filter(id => walletById[id]), p: enText(x.c.perk_en || ''), h: enText(cpHead(x.c.perk_en, x.c.text_en)) }))),
+  TRNO_JSON: J(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || ''])), CRNO_JSON: J((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || ''])),
+  TNONE_EN_JSON: J(st.travelNone_text_en || ''), LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS_EN: panelsEn,
+  WALLET_JSON: J(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
   CAMPAIGN_END: String(M.campaignEnd || ''),
-  TRAVEL_JSON: JSON.stringify(trEn), CARS_JSON: JSON.stringify(crEn),
+  TRAVEL_JSON: J(trEn), CARS_JSON: J(crEn),
   RULE_JSON: fill.RULE_JSON,
   ARCHIVE_EN: !(M.archive || []).length ? '' : ' · Archive: ' + M.archive.map(a => `<a href="${a.href}">${a.label_en || a.href}</a>`).join(' · '),
 };
 for (const [k, v] of Object.entries(enFill)) en = en.split(`{{${k}}}`).join(v);
 const enLeft = en.match(/{{[A-Z_]+}}/g); if (enLeft) throw new Error('build (english): unfilled ' + enLeft.join(','));
 if (TRACKER.test(en)) throw new Error('build (english): the price tracker is named on the public page');
+oneScript(en.replace(measureFill.GTM_HEAD, ''), ' (english)');
 fs.mkdirSync(path.join(ROOT, 'dist/en'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'dist/en/index.html'), en);
 const noName = st.rows.filter(r => !r.name_en), warnNoEn = st.rows.filter(r => r.verdict === 'warn' && !r.finding_en && /كود|كوبون|قسيمة|Plus|بلس|السلة|عند الدفع|اشتراك/.test(r.finding || ''));
@@ -396,8 +445,9 @@ art = art.replace(/<header class="brand"[\s\S]*?<\/header>\n/, '')
          .replace(/<section class="about"[\s\S]*?<\/section>\n/, '')
          .replace(/<\/body>\s*<\/html>\s*$/, '');
 // strip the site-only <meta>/<link>/<style> that build_site added after the artifact's own head parts
-art = art.replace(/<meta name="description"[\s\S]*?<meta name="twitter:image"[^>]*>\n/, '').replace(/<style>\n\.brand[\s\S]*?<\/style>\n<\/head>\n<body>\n/, '');
+art = art.replace(/<meta name="description"[\s\S]*?<meta name="twitter:image"[^>]*>\n/, '').replace(/<style>\n\.brand[\s\S]*?<\/style>\n<\/head>\n<body>(?:\n<noscript><iframe src="https:\/\/www\.googletagmanager\.com[^\n]*<\/noscript>)?\n/, '');
 fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
+console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
 console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length}`);

@@ -103,3 +103,21 @@ through GitHub's upload form in the server's Chrome, as two commits; a run start
 push both in one commit. The state shards always go to this repo in one upload-form commit. Check the live
 pages in a browser, not with WebFetch, which keeps old copies of the site. See RUNBOOK §4.
 
+---
+
+## v2.4 — outside text is escaped, links are https only (2026-11-22, security audit SEC-F1 to F4)
+
+**1. One file decides how outside text reaches the page: `lib/safe.js`.** `jsonForScript` for every value written into the
+page's script (no value can close the script block or be filled in as a `{{NAME}}` placeholder), `escHtml` and `boldOnly` for
+static HTML, `cleanHttps` for links.
+
+**2. Both templates escape everything they draw.** The Arabic page now passes product names, findings, stock notes, links and
+every travel, car and coupon field through `esc()`, as the English page did; both escape the single quote and the values used
+inside `class`.
+
+**3. A link is a clean https address or it is not published.** Checked when a row is added or its link corrected
+(`apply.js`, `scripts/market-apply.js`) and again in `build.js`, which holds back a row or an offer whose link fails and
+names it. `build.js` also stops if a page holds more than its one script block.
+
+**4. `scripts/test-escape.js`** builds both pages from hostile rows in a temp folder and runs each page's script against a
+stand-in document. It fails if any tag, attribute, handler or link on the page was made from outside text.

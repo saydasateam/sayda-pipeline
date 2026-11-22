@@ -8,12 +8,12 @@
 // of the sharding: a slot that checked Amazon and Noon must not rewrite Jarir's file, or a
 // concurrent slot's commit disappears — the failure that cost four runs on 2026-09-19.
 const fs = require('fs'), path = require('path'); const ROOT = __dirname;
-const R = require('./rules/verdict'); const H = require('./lib/history'); const S = require('./lib/state'); const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json')));
+const R = require('./rules/verdict'); const H = require('./lib/history'); const S = require('./lib/state'); const { cleanHttps, cleanOrAbsent } = require('./lib/safe'); const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json')));
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/stores.json'))); const label = Object.fromEntries(cfg.stores.map(s => [s.id, s.label]));
 const state = S.load(ROOT, cfg);
 const now = new Date(); const riy = new Date(now.getTime() + 3 * 3600e3); const today = riy.toISOString().slice(0, 10);
 const mode = process.argv[2] || 'check';
-const report = { date: today, newlyUnavailable: [], restocked: [], priceChanged: [], fixedLinks: [], unchecked: [], added: [] };
+const report = { date: today, newlyUnavailable: [], restocked: [], priceChanged: [], fixedLinks: [], unchecked: [], added: [], badLinks: [] };
 const touched = new Set();
 
 let hist = null;
@@ -31,7 +31,9 @@ if (mode === 'check') {
     const wasUn = ['oos', 'ended', 'gone'].includes(r.avail);
     const a = R.availability(o, r, rules, st);
     if (a.unchecked) { report.unchecked.push(r.id); r.availNote = a.note; continue; }
-    if (o.url && o.url !== r.url && /^https?:/.test(o.url) && !/\/error|404/.test(o.url)) { report.fixedLinks.push([r.id, r.url, o.url]); r.url = o.url; }
+    // a corrected link is taken only as a clean https address (lib/safe.js, 22 Nov 2026 audit); anything else leaves the row's link as it was
+    if (o.url && o.url !== r.url && !cleanHttps(o.url)) report.badLinks.push([r.id, 'url']);
+    if (o.url && o.url !== r.url && cleanHttps(o.url) && !/\/error|404/.test(o.url)) { report.fixedLinks.push([r.id, r.url, o.url]); r.url = o.url; }
     if (a.priceChanged) { report.priceChanged.push([r.id, r.price, a.price]); r.price = a.price; }
     const isUn = ['oos', 'ended', 'gone'].includes(a.avail);
     if (isUn && !wasUn) report.newlyUnavailable.push([r.id, a.avail]); if (!isUn && wasUn) report.restocked.push([r.id, a.avail]);
@@ -78,7 +80,11 @@ if (mode === 'check') {
   const capN = rules.page.maxNewPerRun || Infinity;
   const verified = r => r.ref != null && r.ref > r.price;
   const saved = r => verified(r) ? r.ref - r.price : Math.max(0, (r.was || 0) - r.price);
-  const fresh = add.filter(r => !ids.has(r.id));
+  // A new row is taken only when its links are clean https addresses (lib/safe.js, 22 Nov 2026 audit, SEC-F3): the link to
+  // the store, and the compared-product and evidence links when it has them. A row that fails is not added; it is listed
+  // in report.badLinks with the field that failed, so the run can read the link again from the store's page.
+  const badField = r => !cleanHttps(r.url) ? 'url' : !cleanOrAbsent(r.refUrl) ? 'refUrl' : !cleanOrAbsent(r.ev && r.ev.url) ? 'ev.url' : null;
+  const fresh = add.filter(r => !ids.has(r.id)).filter(r => { const f = badField(r); if (f) report.badLinks.push([r.id, f]); return !f; });
   // categorise BEFORE ranking, so the per-chip reservation below can see each row's chip
   for (const r of fresh) {
     if (!chipIds.has(r.cat)) {
@@ -128,4 +134,5 @@ let prevUp = []; try { prevUp = JSON.parse(fs.readFileSync(UP, 'utf8')); } catch
 report.upload = [...new Set([...prevUp, ...mineNow])].sort();
 fs.mkdirSync(path.join(ROOT, 'work'), { recursive: true }); fs.writeFileSync(UP, JSON.stringify(report.upload, null, 1));
 fs.mkdirSync(path.join(ROOT, 'work'), { recursive: true }); fs.writeFileSync(path.join(ROOT, 'work/report.json'), JSON.stringify(report, null, 1));
+if (report.badLinks.length) console.error(`links refused (not a clean https address): ${report.badLinks.map(([id, f]) => `${id} ${f}`).join(', ')}`);
 console.log(JSON.stringify({ rows: state.rows.length, ...Object.fromEntries(Object.entries(report).filter(([k, v]) => Array.isArray(v)).map(([k, v]) => [k, v.length])) }));

@@ -502,6 +502,18 @@ node scripts/market-apply.js work/market/<store>.json --apply    # writes the ro
 ```
 node build.js      # dist/index.html AND dist/en/index.html; note the counts and the english: line
 ```
+**Links and outside text (22 Nov 2026, security audit SEC-F1 to F4).** Product names, findings, coupon wording and offer terms
+are written by stores and sellers, so the build escapes them on their way to the page and accepts a link only as a clean
+https address (`lib/safe.js`). Three lines can appear, and each one goes in the run log word for word:
+- `held back N rows with a link that is not a clean https address: <store> <n> (<ids>)`, and the same line for a travel or a
+  car offer. Those rows and offers are off both pages in this publish; everything else publishes as usual. Read the link
+  again from the store's own page on the next check. Never repair a link by hand.
+- `links refused (not a clean https address): <id> <field>` from `apply.js`: a new row was not added, or a corrected link was
+  not taken. The same list is in `work/report.json → badLinks`.
+- `build: the page must hold exactly one <script> and one </script>`: the build stopped. Publish nothing and report the line.
+
+`node scripts/test-escape.js` proves the escaping offline from hostile rows. Run it after any change to a template or to
+`build.js`; it must end `escape: N passed, 0 failed`.
 **Two writes per run: the site first, then the state.** How the site goes depends on how the run was started (21 Nov 2026):
 - **Scheduled run on the Sayda server, the normal case: §4a-form.** A scheduled task that uses the server's computer has no
   GitHub repositories attached: `gh api` answers 403 «a run cannot add repositories» and `git clone` of sayda-deals asks for
