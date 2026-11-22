@@ -47,7 +47,8 @@ prefixes matched with `[class*=]`). Styli has no reachable storefront of its own
 committed without it breaking a scheduled run.
 
 **Adding a store is still:** one entry in `stores.json` + one adapter file.
-**Adding a category is still:** one chip + its slugs in `categories.json`.
+**Adding a category is still:** one chip + its slugs in `categories.json`. Since 22 Nov 2026 (BLD-15) a chip may also carry
+`tint` and `accent`, its colour pair: without them the category is drawn in neutral grey. No category may use a green.
 
 ---
 
@@ -65,6 +66,20 @@ exactly as before.
 **2. The theme is the campaign's, the verified green is not.** `--green` did two jobs: brand colour
 and the «✓ خصم مؤكّد» colour. They are now `--accent` (from the theme) and `--ok` (fixed). White
 Friday is ink on white, so the only colour on the page is the verdict.
+
+**2a. Direction A (22 Nov 2026, BLD-15, Mahmoud's decision).** The accent is the logo blue (#2347E6, `config/campaign.json`),
+the hero is an indigo-to-teal mesh gradient with a glass status pill, a glass countdown and gold on the highlighted phrase
+(Mahmoud gave the colours on 23 Nov; styles in `template/index.html`), and each category has a tint and
+an accent (`config/categories.json`). Green is still only `--ok`: verified, and lowest recorded. `build.js` writes four parts as
+static HTML, in both languages by the same code, from the rows of that build:
+- the **ticker strip** at the bottom of the hero, each deal in a glass pill: the first `rules.page.tickerItems` confirmed, available rows in the page's best-value
+  order, with the last check time. CSS only; it stops under the pointer, on touch, on keyboard focus and under reduced motion;
+- the **category cards**: one for every category with at least `rules.page.categoryCardMinRows` available rows, the three
+  largest with the stores' own pictures of their top confirmed rows. The number is the highest discount we measured on a
+  confirmed row; a category with none says so in words. No timers and no rotation;
+- the **header inside a category**, shown when exactly one category is selected, and the **wallet** directly under it.
+`valRow`, `tierRow` and `diversifyRows` in `build.js` mirror `VAL`, `TIER` and `diversify` in the two templates: change one,
+change all three. The build stops when a template lacks one of these parts or a category colour reads below 4.5 to 1.
 
 **3. Furniture wording follows the enabled stores.** The furniture note, the two methodology items
 and the «أشلي مقابل ميداس» clause render only while those stores are enabled. A category chip with

@@ -511,9 +511,12 @@ https address (`lib/safe.js`). Three lines can appear, and each one goes in the 
 - `links refused (not a clean https address): <id> <field>` from `apply.js`: a new row was not added, or a corrected link was
   not taken. The same list is in `work/report.json → badLinks`.
 - `build: the page must hold exactly one <script> and one </script>`: the build stopped. Publish nothing and report the line.
+- `build: template/… must carry, in this order: …` or `build: category «…» colour … reads at … to 1, below 4.5`: the build
+  stopped on a template or colour fault, not on data. Publish nothing and report the line.
 
 `node scripts/test-escape.js` proves the escaping offline from hostile rows. Run it after any change to a template or to
-`build.js`; it must end `escape: N passed, 0 failed`.
+`build.js`; it must end `escape: N passed, 0 failed`. Since BLD-15 it also covers the ticker strip, the category cards and
+the header inside a category, which `build.js` writes as static HTML.
 **Two writes per run: the site first, then the state.** How the site goes depends on how the run was started (21 Nov 2026):
 - **Scheduled run on the Sayda server, the normal case: §4a-form.** A scheduled task that uses the server's computer has no
   GitHub repositories attached: `gh api` answers 403 «a run cannot add repositories» and `git clone` of sayda-deals asks for

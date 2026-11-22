@@ -169,7 +169,7 @@ const arr = rows => '[\n' + rows.map(r => J(r)).join(',\n') + '\n]';
 
 // ---- chips from config ----
 const liveCats = cats.filter(c => !st.rows.length || st.rows.some(r => r.cat === c.id));
-const catChips = liveCats.map(c => `        <button data-g="c" data-f="${c.id}">${c.label}</button>`).join('\n');
+const catChips = liveCats.map(c => `        <button data-g="c" data-f="${c.id}" class="kc${cats.indexOf(c)}">${c.label}</button>`).join('\n');
 const storeChips = cfg.groups.map(g => {
   const btns = cfg.stores.filter(s=>s.group===g.id && s.enabled!==false && (!st.rows.length || st.rows.some(r=>r.store===s.id))).map(s=>`        <button data-g="s" data-f="${s.label}">${s.label}</button>`);
   const sub  = `<span class="fsub${g.cssClass?' '+g.cssClass:''}">${g.label}</span>`;
@@ -277,13 +277,128 @@ const panelsAr = `<nav class="panels" aria-label="القسائم وعروض ال
   + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'عروض السفر', trOn ? `${arCount(trOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} من شركات الطيران والحجز` : trChecked ? `فحصنا ${arCount(trChecked, 'شركة واحدة', 'شركتين', 'شركات', 'شركة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
   + panel(crChecked > 0, '#cars', PIC.cr, 'عروض السيارات', crOn ? `${arCount(crOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} (${andAr(st.cars.map(c => H(String(c.company || '').replace(/\s*\(.*\)$/, ''))))})${(st.carsNone || []).length ? ` · فحصنا ${arCount(st.carsNone.length, 'جهة أخرى', 'جهتين أخريين', 'جهات أخرى', 'جهة أخرى')}` : ''}` : crChecked ? `فحصنا ${arCount(crChecked, 'جهة واحدة', 'جهتين', 'جهات', 'جهة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
   + `</nav>`;
-const enCount = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+// English plural (22 Nov 2026, BLD-15): «6 companys» was printed on the travel panel. A word ending in a consonant and «y»
+// takes «ies»; the words this is called with today are «offer» and «company».
+const enPlural = w => /[^aeiou]y$/i.test(w) ? w.slice(0, -1) + 'ies' : /(s|x|z|ch|sh)$/i.test(w) ? w + 'es' : w + 's';
+const enCount = (n, w) => `${n} ${n === 1 ? w : enPlural(w)}`;
 const cpSaveEn = cpSave.filter(c => c.text_en), campShortEn = M.campaignShort_en || M.campaign_en || 'sale';
 const panelsEn = `<nav class="panels" aria-label="Coupons, travel and car offers">`
   + panel(cpSaveEn.length > 0, '#coupons', PIC.cp, 'Coupons and codes', cpSaveEn.length ? `${cpSaveEn.length} codes and card offers · ${andEn([...new Set(cpSaveEn.flatMap(c => c.stores || []))].map(id => (storeById[id] || {}).label_en || id))}` : `No confirmed ${campShortEn} codes yet`)
   + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'Travel offers', trOn ? `${enCount(trOn, 'offer')} from airlines and booking sites` : trChecked ? `Checked ${enCount(trChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
   + panel(crChecked > 0, '#cars', PIC.cr, 'Car offers', crOn ? `${enCount(crOn, 'offer')} (${andEn(st.cars.map(c => H(String(c.company_en || c.company || '').replace(/\s*\(.*\)$/, ''))))})${(st.carsNone || []).length ? ` · ${st.carsNone.length} more checked` : ''}` : crChecked ? `Checked ${enCount(crChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
   + `</nav>`;
+
+// ---- category cards, the ticker strip and the header inside a category (BLD-15, 22 Nov 2026) ----
+// Mahmoud's direction A. Everything here is computed from the rows of this build, in both languages by the
+// same code, and written as static HTML: no timers, no rotation, nothing fetched. Every value a store wrote
+// (names, picture addresses) goes through H() and cleanHttps(); scripts/test-escape.js covers these parts.
+//   · «confirmed» is a row whose verdict is ok, that was available at its last check, with a positive measured discount.
+//     The percentage on a card is the highest of those, never a store's claim; a category with none prints words instead.
+//   · the order is the page's own «best value» order: valRow, tierRow and diversifyRows mirror VAL, TIER and diversify in
+//     both templates. Change one and change the others; the Playwright proof compares the ticker with the page's first cards.
+const KAT_MIN = (rules.page || {}).categoryCardMinRows ?? 8, TICK_N = (rules.page || {}).tickerItems ?? 12;
+const deadRow = r => ['oos', 'ended', 'gone'].includes(r.avail);
+const realPct = r => (r.ref && Number.isFinite(r.price)) ? Math.round(100 * (1 - r.price / r.ref)) : null;
+const lowRow = r => r.refKind !== 'market' && r.ev && r.ev.min != null && r.price <= r.ev.min * 1.01;
+const valRow = r => { const real = realPct(r); if (real == null || real <= 0 || r.verdict === 'bad') return -1e9 + (Math.round(100 * (1 - r.price / (r.was ?? null))) || 0);
+  return (r.verdict === 'ok' ? 1 : 0.55) * real * Math.log10(10 + (r.ref - r.price)) * (lowRow(r) ? 1.15 : 1); };
+const tierRow = r => (deadRow(r) ? 2 : 0) + (valRow(r) <= -1e8 ? 1 : 0);
+const diversifyRows = l => { const out = [], pool = l.slice(); while (pool.length) { let i = 0; const n = out.length;
+  if (n >= 2) { const a = out[n - 1], b = out[n - 2], t = tierRow(pool[0]); const j = pool.findIndex(r => tierRow(r) === t && !(r.store === a.store && r.store === b.store) && !(r.cat === a.cat && r.cat === b.cat)); if (j > 0) i = j; }
+  out.push(pool.splice(i, 1)[0]); } return out; };
+const confirmedRow = r => r.verdict === 'ok' && !deadRow(r) && realPct(r) > 0;
+const valueOrder = diversifyRows(st.rows.filter(r => !deadRow(r)).sort((a, b) => valRow(b) - valRow(a)));
+const tickRows = valueOrder.filter(r => confirmedRow(r) && r.id).slice(0, TICK_N);
+const katIdx = Object.fromEntries(cats.map((c, i) => [c.id, i]));
+const katStats = liveCats.map(c => {
+  const inCat = st.rows.filter(r => r.cat === c.id && !deadRow(r)), conf = inCat.filter(confirmedRow);
+  const by = {}; inCat.forEach(r => { by[r.store] = (by[r.store] || 0) + 1; });
+  return { c, k: katIdx[c.id], n: inCat.length, ok: inCat.filter(r => r.verdict === 'ok').length, max: conf.length ? Math.max(...conf.map(realPct)) : null,
+    allNa: inCat.every(r => r.ref == null), top: conf.slice().sort((a, b) => valRow(b) - valRow(a)), stores: Object.entries(by).sort((a, b) => b[1] - a[1]) };
+});
+const katCards = katStats.filter(s => s.n >= KAT_MIN);
+const katBig = katCards.slice().sort((a, b) => b.n - a.n).slice(0, 3), katSmall = katCards.filter(s => !katBig.includes(s));
+// Colours: each chip's tint and accent from config/categories.json, with a dark-scheme pair derived here.
+// The accent must read at 4.5 to 1 or better on its tint in both schemes, or the build stops and names the pair.
+const hex3 = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mixHex = (a, b, t) => '#' + hex3(a).map((v, i) => Math.round(v + (hex3(b)[i] - v) * t).toString(16).padStart(2, '0')).join('').toUpperCase();
+const lumHex = h => { const [r, g, b] = hex3(h).map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+const contrastHex = (a, b) => { const x = lumHex(a), y = lumHex(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+const katColours = cats.map((c, i) => {
+  if (!c.tint && !c.accent) return null;
+  if (!/^#[0-9A-Fa-f]{6}$/.test(c.tint || '') || !/^#[0-9A-Fa-f]{6}$/.test(c.accent || '')) throw new Error(`build: config/categories.json chip «${c.id}» needs tint and accent as #RRGGBB`);
+  const darkSurface = thd.surface || '#17201B', tintD = mixHex(darkSurface, c.accent, 0.2), accD = mixHex(c.accent, '#FFFFFF', 0.62);
+  for (const [what, fg, bg] of [['light', c.accent, c.tint], ['dark', accD, tintD]]) if (contrastHex(fg, bg) < 4.5)
+    throw new Error(`build: category «${c.id}» colour ${fg} on ${bg} (${what}) reads at ${contrastHex(fg, bg).toFixed(2)} to 1, below 4.5`);
+  // (23 Nov, the cards of demo A) three more tones per category, derived here: --kk the card's text, --ks its small labels,
+  // --kp the count pill. Each is checked like the accent: 4.5 to 1 on the tint (and on the pill), in both schemes.
+  const ink = '#0B0F19', kk = mixHex(c.accent, ink, 0.6), ks = mixHex(c.accent, ink, 0.4), kp = mixHex(c.tint, c.accent, 0.12);
+  const kkD = mixHex(accD, '#FFFFFF', 0.55), ksD = mixHex(accD, '#FFFFFF', 0.3), kpD = mixHex(tintD, accD, 0.18);
+  for (const [what, fg, bg] of [['card text', kk, c.tint], ['card label', ks, c.tint], ['count pill', kk, kp], ['button text', '#FFFFFF', c.accent],
+    ['card text, dark', kkD, tintD], ['card label, dark', ksD, tintD], ['count pill, dark', kkD, kpD], ['button text, dark', ink, accD]]) if (contrastHex(fg, bg) < 4.5)
+    throw new Error(`build: category «${c.id}» ${what} ${fg} on ${bg} reads at ${contrastHex(fg, bg).toFixed(2)} to 1, below 4.5`);
+  return { i, light: `.kc${i}{--kt:${c.tint};--ka:${c.accent};--kk:${kk};--ks:${ks};--kp:${kp};--kb:#FFFFFF}`, dark: `.kc${i}{--kt:${tintD};--ka:${accD};--kk:${kkD};--ks:${ksD};--kp:${kpD};--kb:${ink}}` };
+}).filter(Boolean);
+const KAT_CSS = katColours.map(k => k.light).join('') + `\n@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) ${katColours.map(k => k.dark).join(' :root:not([data-theme="light"]) ')}}\n`
+  + katColours.map(k => ':root[data-theme="dark"] ' + k.dark).join('');
+const katParts = lang => {
+  const ar = lang === 'ar', num = ar ? arN : (v => Number(v).toLocaleString('en-US', { maximumFractionDigits: 0 }));
+  const lab = ar ? label : (id => (storeById[id] || {}).label_en || id);
+  const cname = c => ar ? c.label : (c.label_en || c.id), rname = r => ar ? pubText(r.name) : (r.name_en || pubText(r.name));
+  const pct = n => ar ? `${num(n)}٪` : `${num(n)}%`, sar = n => ar ? `${num(n)} ر.س` : `${num(n)} SAR`;
+  const maxL = ar ? 'أعلى خصم مؤكّد' : 'highest confirmed discount';
+  const countList = s => [ar ? `المفحوصة ${num(s.n)}` : `${num(s.n)} checked`].concat(s.ok ? [ar ? `المؤكّدة ${num(s.ok)}` : `${num(s.ok)} confirmed`] : []);
+  const counts = s => countList(s).join(' · ');
+  // no confirmed row: say so in words. «No price record yet» only when no row of the category has a reference at all.
+  const none = s => s.allNa ? (ar ? 'بلا سجل سعري بعد' : 'No price record yet') : (ar ? 'لا خصم مؤكّد بعد' : 'No confirmed discount yet');
+  // The cards of demo A, «Blue and gold, soft tints» (Mahmoud, 23 Nov 2026: «the cards that you showed me in A»), made
+  // static as he decided on 22 Nov: no rotating line and no timers. Where the demo had drawings and three deals taking turns,
+  // a card shows the stores' own pictures of its top confirmed rows and its top confirmed deal, fixed.
+  const arDeals = n => n === 1 ? 'عرض واحد' : n === 2 ? 'عرضان' : n <= 10 ? `${num(n)} عروض` : `${num(n)} عرضاً`;
+  const arConf = n => n === 1 ? 'خصم مؤكّد واحد' : n === 2 ? 'خصمان مؤكّدان' : n <= 10 ? `${num(n)} خصومات مؤكّدة` : `${num(n)} خصماً مؤكّداً`;
+  const dealsL = n => ar ? arDeals(n) : `${num(n)} ${n === 1 ? 'deal' : 'deals'}`;
+  const confL = n => ar ? arConf(n) : `${num(n)} confirmed`;
+  const topL = ar ? 'أعلى خصم قِسناه' : 'Highest discount we measured', upTo = n => ar ? `حتى ${pct(n)}` : `up to ${pct(n)}`;
+  const browseL = ar ? 'تصفّح العروض' : 'Browse deals';
+  const pic = (r, cls) => `<span class="${cls}"><img src="${H(r.img)}" alt="${H(rname(r))}" decoding="async" referrerpolicy="no-referrer"></span>`;
+  const dealLine = r => !r ? '' : `<span class="kdeal"><span class="kdn">${H(rname(r))}</span><span class="kdm"><b>${ar ? 'خصم ' + pct(realPct(r)) : pct(realPct(r)) + ' off'}</b> · ${sar(r.price)} · ${H(lab(r.store))}</span></span>`;
+  const card = (s, big) => {
+    const seen = new Set(), withPic = s.top.filter(r => cleanHttps(r.img) && !seen.has(r.img) && seen.add(r.img));
+    const top = s.top[0];
+    if (big) {
+      const pics = withPic.slice(0, 3);
+      return `<button type="button" class="kcard big kc${s.k}" data-cat="${H(s.c.id)}" aria-pressed="false">`
+        + `<span class="khd"><span class="kn">${H(cname(s.c))}</span><span class="kcount">${dealsL(s.n)}</span></span>`
+        + `<span class="kmid"><span class="kmx">` + (s.max != null ? `<span class="kml">${topL}</span><b class="kpct">${pct(s.max)}</b>` : `<b class="knone">${none(s)}</b>`) + `</span>`
+        + (pics.length ? `<span class="kstack">${pics.map((r, n) => pic(r, 'kim k' + (n === 0 ? 'front' : n === 1 ? 'back1' : 'back2'))).join('')}</span>` : '') + `</span>`
+        + dealLine(top)
+        + `<span class="kft"><span class="kconf">${s.ok ? `<i aria-hidden="true"></i>${confL(s.ok)}` : ''}</span><span class="kgo">${browseL}</span></span>`
+        + `</button>`;
+    }
+    return `<button type="button" class="kcard kc${s.k}" data-cat="${H(s.c.id)}" aria-pressed="false">`
+      + `<span class="khd"><span class="ktx"><span class="kn">${H(cname(s.c))}</span><span class="kcount">${dealsL(s.n)}</span></span>`
+      + (withPic.length ? pic(withPic[0], 'ktile') : '') + `</span>`
+      + (s.max != null ? `<b class="kpct">${upTo(s.max)}</b>` : `<b class="knone">${none(s)}</b>`)
+      + dealLine(top)
+      + `</button>`;
+  };
+  const cards = !katCards.length ? '' : `<section class="kats" id="kats" aria-labelledby="kats-h"><div class="kathd"><h2 id="kats-h">${ar ? 'تسوّق حسب الفئة' : 'Shop by category'}</h2>`
+    + `<span>${ar ? 'الأرقام من قياسنا نحن، وتتجدّد مع كل فحص' : 'Every number is our own measurement, renewed with each check'}</span></div>`
+    + `<div class="kbig">${katBig.map(s => card(s, true)).join('')}</div>`
+    + (katSmall.length ? `<div class="ksmall">${katSmall.map(s => card(s, false)).join('')}</div>` : '') + `</section>`;
+  const heads = katStats.map(s => `<div class="khead kc${s.k}" data-cat="${H(s.c.id)}" hidden><div class="khm"><h2 class="khn">${H(cname(s.c))}</h2><p class="khc">${counts(s)}`
+    + (s.max != null ? ` · ${maxL} <b>${pct(s.max)}</b>` : ` · ${none(s)}`) + `</p><p class="khs">${s.stores.map(([id, n]) => `${H(lab(id))} ${num(n)}`).join(' · ')}</p></div>`
+    + `<button type="button" class="khback">${ar ? 'كل الفئات' : 'All categories'}</button></div>`).join('\n  ');
+  const item = (r, copy) => `<button type="button" class="ti" data-d="${H(r.id)}"${copy ? ' tabindex="-1"' : ''}><span class="tn">${H(rname(r))}</span><b class="tp">${ar ? 'خصم ' + pct(realPct(r)) : pct(realPct(r)) + ' off'}</b><span class="tpr">${sar(r.price)}</span><span class="ts">${H(lab(r.store))}</span></button>`;
+  // The strip carries the last check time once, so no price stands without it. No «now», no «live», no stock or urgency wording.
+  const when = ar ? time12(st.meta.checkedAt) : new Date(String(st.meta.checkedAt)).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' });
+  const ticker = tickRows.length < 4 ? '' : `<div class="tick" id="tick" dir="${ar ? 'rtl' : 'ltr'}" lang="${ar ? 'ar' : 'en'}" role="region" aria-label="${ar ? 'خصومات مؤكّدة بأسعار آخر فحص' : 'Confirmed discounts at the last check’s prices'}">`
+    + `<p class="tickl"><b>${ar ? 'خصومات مؤكّدة' : 'Confirmed discounts'}</b><small>${ar ? 'الأسعار فُحصت ' + H(when) : 'Prices checked ' + H(when)}</small></p>`
+    + `<div class="tickv"><div class="tickt"><div class="tickg">${tickRows.map(r => item(r, false)).join('')}</div><div class="tickg" aria-hidden="true" inert>${tickRows.map(r => item(r, true)).join('')}</div></div></div></div>`;
+  const json = J(Object.fromEntries(cats.map((c, i) => [c.id, { l: cname(c), k: i }])));
+  return { cards, heads, ticker, json };
+};
+const katAr = katParts('ar'), katEn = katParts('en');
 
 // ---- measurement: Google Tag Manager (22 Nov 2026) ----
 // config/site.json holds the container id. An empty or missing gtmId builds both pages with no tag and
@@ -333,6 +448,7 @@ const fill = {
   CBY_JSON: J(couponBy),
   CPX_JSON: J(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), nw: (c.walletNot || []).filter(id => walletById[id]), p: pubText(c.perk || ''), l: pubText(c.label || ''), h: pubText(cpHead(c.perk, c.text)), t: pubText(c.text || '') }))),
   LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS: panelsAr,
+  TICKER: katAr.ticker, KAT_CARDS: katAr.cards, KAT_HEADS: katAr.heads, KAT_JSON: katAr.json, KAT_CSS: KAT_CSS,
   WALLET_JSON: J(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
   CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: J(TNO), TNONE_JSON: J(st.travelNone_text||''),
   CR_JSON: arr(CR), CRNO_JSON: J(CRNO),
@@ -407,6 +523,12 @@ if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build
   const miss = ids.filter(id => !en.includes(`id="${id}"`) || !arTpl.includes(`id="${id}"`));
   if (miss.length || chips(arTpl) !== chips(en) || sorts(arTpl) !== sorts(en) || !en.includes('{{STORE_CHIPS_EN}}'))
     throw new Error(`build: the filter bar differs between template/index.html and template/en.html — ids missing: ${miss.join(', ') || 'none'} · chips ar [${chips(arTpl)}] en [${chips(en)}] · sort options ar ${sorts(arTpl)} en ${sorts(en)}`);
+  // (BLD-15) the ticker, the category cards, the header inside a category and the wallet under it are one design too:
+  // each template must carry all of them, in the same order, or the build stops.
+  const parts = ['{{TICKER}}', '{{KAT_CARDS}}', 'id="stats"', 'id="filters"', '{{KAT_HEADS}}', 'id="wallet"', 'id="rows"', '{{KAT_JSON}}'];
+  const order = t => parts.map(p => t.indexOf(p));
+  for (const [name, t] of [['template/index.html', arTpl], ['template/en.html', en]]) { const o = order(t);
+    if (o.some((x, i) => x < 0 || (i && x < o[i - 1]))) throw new Error(`build: ${name} must carry, in this order: ${parts.join(' · ')} (found at ${o.join(', ')})`); }
 }
 const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^<style>|<\/style>$/g, '')).join('\n');
 const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
@@ -420,6 +542,7 @@ const enFill = {
   COUPONS_JSON: J(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), nw: (x.c.walletNot || []).filter(id => walletById[id]), p: enText(x.c.perk_en || ''), h: enText(cpHead(x.c.perk_en, x.c.text_en)) }))),
   TRNO_JSON: J(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || ''])), CRNO_JSON: J((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || ''])),
   TNONE_EN_JSON: J(st.travelNone_text_en || ''), LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS_EN: panelsEn,
+  TICKER: katEn.ticker, KAT_CARDS: katEn.cards, KAT_HEADS: katEn.heads, KAT_JSON: katEn.json,
   WALLET_JSON: J(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
   CAMPAIGN_END: String(M.campaignEnd || ''),
   TRAVEL_JSON: J(trEn), CARS_JSON: J(crEn),
