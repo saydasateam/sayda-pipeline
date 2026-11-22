@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">{{GTM_HEAD}}
 <title>صيدة | عروض حقيقية فقط من المتاجر السعودية</title>
 <meta name="description" content="أفضل عروض المتاجر السعودية، نفحصها كل يوم: هل الخصم حقيقي؟ وهل المنتج متوفر؟">
 <meta name="theme-color" content="{{TH_ACCENT}}">
@@ -494,7 +494,7 @@ dialog.evdlg::backdrop{background:rgba(0,0,0,.55)}
 @media (max-width:599px){.brand{gap:8px;padding-inline:12px}.brand .logo{font-size:21px}.brand .lang{padding:3px 10px}.brand .lang .hl{display:none}.hs{display:inline}}
 </style>
 </head>
-<body>
+<body>{{GTM_BODY}}
 <header class="top"><div class="brand" dir="rtl">
   <a href="/" class="logo" aria-label="صيدة: الصفحة الرئيسية">{{LOGO_SVG}}<span>صيدة</span></a><span class="tag">الخصم الحقيقي فقط</span>
   <div class="search" role="search"><label for="q" class="sr">ابحث في العروض</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="{{SEARCH_PH}}" autocomplete="off" enterkeyhint="search"></div>
@@ -644,7 +644,11 @@ const TNO={{TNO_JSON}};
 // cars: [company, type, brand, headline as advertised, code ('' = none), bookStart, bookEnd, models/period text, verdict clear|catch|vague|pending, what the terms actually say, official url, checked]
 const CR={{CR_JSON}};
 const CRNO={{CRNO_JSON}};
-const fmt=n=>n.toLocaleString('ar-SA',{maximumFractionDigits:0});
+const fmt=n=>Number(n).toLocaleString('ar-SA',{maximumFractionDigits:0});
+// (22 Nov 2026 audit, SEC-F1) Product names, findings, stock notes, links and every travel, car and coupon field are written
+// by stores and sellers, not by us. Each one goes through esc() before it is put into the page, as on the English page.
+// A value added to a card later must do the same; scripts/test-escape.js builds a page from hostile rows and fails if one does not.
+const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const RULE={{RULE_JSON}};
 const CBY={{CBY_JSON}};
 const CPX={{CPX_JSON}}, WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
@@ -744,7 +748,6 @@ const matchP=(d,f)=>(f.pmin==null||d.p>=f.pmin)&&(f.pmax==null||d.p<=f.pmax);
 const matchAll=(d,f)=>(f.fv?FAV.has(d.id):matchA(d,f))&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&(!f.lo||isLow(d))&&(!f.wl||!!walletHit(d))&&matchQ(d);
 const norm=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/\s+/g,' ').trim();
 const SYN=[['سامسونج','samsung'],['جالكسي','galaxy'],['ابل','apple'],['ايفون','iphone'],['ايباد','ipad'],['ماك بوك','macbook'],['ايربودز','airpods'],['سوني','sony'],['بلايستيشن','playstation','ps5'],['ال جي','lg'],['هواوي','huawei'],['شاومي','xiaomi'],['ريدمي','redmi'],['لينوفو','lenovo'],['اتش بي','hp'],['ديل','dell'],['اسوس','asus'],['بوش','bosch'],['فيليبس','philips'],['دايسون','dyson'],['هايسنس','hisense'],['تي سي ال','tcl'],['نينتندو','nintendo'],['جارمن','garmin'],['انكر','anker'],['تلفزيون','تلفاز','شاشه','tv'],['جوال','موبايل','هاتف','phone'],['لابتوب','laptop','notebook'],['سماعه','سماعات','headphones','earbuds'],['مكيف','تكييف','سبليت','split'],['ثلاجه','fridge','refrigerator'],['غساله','washer','washing'],['كنبه','كنب','sofa','couch'],['سرير','bed'],['طاوله','table'],['كرسي','chair'],['دولاب','خزانه','wardrobe']].map(g=>g.map(norm));
-const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const qEl=document.getElementById('q');let Q=[];
 const hay=d=>d._h||(d._h=norm([d.n,d.s,d.c,d.note].join(' ')));
 const hit=(h,a)=>a.length<=3?(' '+h.replace(/[^\p{L}\p{N}]+/gu,' ')+' ').includes(' '+a+' ')||(/[\u0600-\u06FF]/.test(a)&&h.includes(a)&&a.length>=3):h.includes(a);
@@ -770,13 +773,13 @@ function evidence(d){
   if(d.ev&&(d.ev.mn!=null||d.ev.mx!=null))
     f.push(evField('نطاق السجل', `${d.ev.mn!=null?fmt(d.ev.mn):'؟'} — ${d.ev.mx!=null?fmt(d.ev.mx):'؟'} ر.س`
       +(d.ev.mn!=null&&d.p<=d.ev.mn*1.05?'<span class="evflag">السعر الآن عند أدنى مستوى مسجَّل</span>':'')));
-  if(d.lc) f.push(evField('تاريخ آخر رصد', evDate(d.lc)));
+  if(d.lc) f.push(evField('تاريخ آخر رصد', esc(evDate(d.lc))));
   // the link that matters here is the evidence, not the product — the row title already links the product
   const refHref=d.ru||(d.ev&&d.ev.u)||'';
-  if(refHref) f.push(evField('صفحة المرجع', `<a href="${refHref}" target="_blank" rel="noopener">المنتج المقارَن ↗</a>`));
+  if(refHref) f.push(evField('صفحة المرجع', `<a href="${esc(refHref)}" target="_blank" rel="noopener">المنتج المقارَن ↗</a>`));
   else if(d.rk!=='m'&&d.r!=null) f.push(evField('مصدر المرجع', 'سجل أسعار عام — السعر السابق قبل العرض'));
   else f.push(evField('صفحة المرجع', '<span class="claim">لا يوجد مصدر قابل للفتح لهذا الصف</span>'));
-  const why=d.note?`<p class="evnote">${d.note}</p>`:'';
+  const why=d.note?`<p class="evnote">${esc(d.note)}</p>`:'';
   return `<div class="evgrid">${f.join('')}</div>${why}<p class="evrule">الحكم مبني على القاعدة المنشورة — <a href="#verdict-rule">كيف نحسب الخصم الحقيقي</a>.</p>`;
 }
 function render(){
@@ -786,7 +789,7 @@ function render(){
   list.forEach(d=>{
     const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
     const saved=d.r!=null?Math.round(d.r-d.p):null, mk=d.rk==='m', low=isLow(d), mn=d.ev&&d.ev.mn;
-    const cls=d.real!=null&&d.real<0?'bad':d.v;
+    const cls=esc(d.real!=null&&d.real<0?'bad':d.v);
     // One verdict mark per card, in words; the numbers sit beside the price. Always OUR measurement.
     const tag=d.real==null?['na',VL.na]:(d.real<0||d.v==='bad')?['bad',vlabel(d)]:d.v==='warn'?['warn',(!mk&&mn!=null&&mn<d.p*0.99)?'سبق بسعر أقل':VL.warn]:low?['low','✓ أقل سعر مسجّل']:['ok',vlabel(d)];
     // Our measured discount beside the verdict (Mahmoud, 22 Nov 2026): the same d.real as the saving line,
@@ -803,7 +806,7 @@ function render(){
       const cols=(three?`<span${low?' class="hit"':''}>أقل مسجّل<b>${fmt(lo)}</b></span>`:'')+`<span>اليوم<b>${fmt(d.p)}</b></span><span>${refL}<b>${fmt(d.r)}</b></span>`;
       return `<div class="strip ${cls}${track?'':' flat'}" role="img" aria-label="${three?'أقل سعر مسجّل '+fmt(lo)+' ر.س، ':''}سعر اليوم ${fmt(d.p)} ر.س، ${mk?'نفس الموديل '+refL:'السعر السابق المسجّل'} ${fmt(d.r)} ر.س">${track}<div class="pcols${three?'':' two'}">${cols}</div></div>`;})();
     // The finding is printed only when it says something the strip does not (a caveat, a condition, no reference).
-    const note=(d.v!=='ok'||!d.q)&&d.note?`<p class="cnote${d.v==='warn'||d.v==='bad'?' '+d.v:''}">${d.note}</p>`:'';
+    const note=(d.v!=='ok'||!d.q)&&d.note?`<p class="cnote${d.v==='warn'||d.v==='bad'?' '+d.v:''}">${esc(d.note)}</p>`:'';
     // The store's code, as the store's: it covers the store, not necessarily this product. Terms are one tap away.
     const ci=CBY[d.s],cp=ci!=null?CPX[ci]:null,ncodes=cp?CPX.filter(x=>SAVEK[x.k]&&x.c&&x.s.includes(d.s)).length:0;
     const code=cp&&cp.c?`<button type="button" class="code" data-code="${esc(cp.c)}" aria-label="انسخ كود ${esc(d.s)}: ${esc(cp.c)}" title="كود للمتجر كله، وقد لا يشمل هذا المنتج. الشروط في قسم القسائم.">${esc(cp.c)}${IC.copy}</button>`:'';
@@ -811,18 +814,18 @@ function render(){
     const perk=wh.full.slice(0,3).map(h=>`<a class="cperk" href="#coupon-${h.i}">${esc(h.x.w.map(wlab).join(' + '))}: ${pl(h.x)}</a>`).join('')+(wh.near?`<a class="cperk near" href="#coupon-${wh.near.i}">${wh.full.length?'ومع':'مع'} ${esc(wlab(wh.near.miss))} أيضاً: ${pl(wh.near.x)}</a>`:'');
     const pic=d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'';
     const isFav=FAV.has(d.id);
-    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${d.s}</span><span class="cstock ${d.a}">${d.an?(d.a==='low'?'':AL[d.a]+'، ')+d.an.replace(/^[^:]{1,14}:\s*/,''):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
-      +`<div class="cmain"><a class="cimg" href="${d.u}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${pic}</a>`
-      +`<div class="cinfo"><a class="cname" href="${d.u}" target="_blank" rel="noopener">${d.n}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>ر.س</small></span>${save}</div>${claim}</div></div>`
+    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+'، ')+esc(d.an.replace(/^[^:]{1,14}:\s*/,'')):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
+      +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${pic}</a>`
+      +`<div class="cinfo"><a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener">${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>ر.س</small></span>${save}</div>${claim}</div></div>`
       +strip+note+perk
-      +`<div class="cact"><a class="buy" href="${d.u}" target="_blank" rel="noopener">افتح في ${d.s}</a>${code}</div>`
+      +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">افتح في ${esc(d.s)}</a>${code}</div>`
       +`<div class="clinks"><button type="button" class="ev" aria-haspopup="dialog">دليل السعر</button>`
       +(d.id?`<button type="button" class="sh">${IC.share}مشاركة</button><button type="button" class="fav" aria-pressed="${isFav}">${IC.heart}<span>${isFav?'محفوظ':'حفظ'}</span></button>`:'')
       +(ci!=null?`<a class="terms" href="#coupon-${ci}">${ncodes>1?'أكواد '+esc(d.s)+' ('+fmt(ncodes)+')':'شروط الكود'}</a>`:'')+`</div>`;
     const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>im.remove());
     c.querySelector('.ev').addEventListener('click',()=>{
       document.getElementById('evttl').textContent=d.n;
-      document.getElementById('evbody').innerHTML=evidence(d)+`<a class="buy" href="${d.u}" target="_blank" rel="noopener">افتح المنتج في ${d.s}</a>`;
+      document.getElementById('evbody').innerHTML=evidence(d)+`<a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">افتح المنتج في ${esc(d.s)}</a>`;
       const g=document.getElementById('evdlg');if(g.showModal)g.showModal();else g.setAttribute('open','');
     });
     const sh=c.querySelector('.sh');if(sh)sh.addEventListener('click',()=>shareDeal(d));
@@ -866,7 +869,7 @@ function syncChips(){
     if(g!=='c'&&g!=='s'&&g!=='v')return;
     if(b.dataset.lbl===undefined)b.dataset.lbl=b.textContent.trim();
     const n=chipCount(g,f);
-    b.innerHTML=b.dataset.lbl+(f==='all'&&g!=='v'?'':'<span class="cn">'+fmt(n)+'</span>');
+    b.innerHTML=esc(b.dataset.lbl)+(f==='all'&&g!=='v'?'':'<span class="cn">'+fmt(n)+'</span>');
     b.disabled=(n===0&&!on);
     b.title=n===0?'لا توجد نتائج مع الفلاتر الحالية':'';
   });
@@ -976,12 +979,12 @@ const arD=d=>new Date(d+'T12:00:00Z').toLocaleDateString('ar-SA-u-ca-gregory-nu-
 const st=t=>t[7]==='pending'?['pend','بانتظار النشر']:(t[4]&&now<t[4])?['soon','يبدأ '+arD(t[4])]:(t[5]&&now>t[5])?['end','انتهى']:['on',t[5]?'متاح حتى '+arD(t[5]):'متاح'];
 const rank={on:0,soon:1,pend:2,end:3};
 const list=T.map(t=>({t,s:st(t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]);
-document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${t[2]}»</div><span class="tv ${t[7]}">${VT[t[7]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${t[8]}</div><div class="meta">${t[3]?`الكود: <span class="code" data-code="${t[3]}" title="انسخ">${t[3]}</span> · `:'بدون كود · '}${t[6]} · فُحص ${arD(t[10])}</div><a class="go" href="${t[9]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
-+TNO.map(t=>`<article class="tcard nooffer"><div class="th"><span class="co">${t[0]}<span class="ty">${t[1]}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا موقع الشركة الرسمي ولم نجد صفحة عرض أو كود خصم {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
+document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(t[0])}<span class="ty">${esc(t[1])}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(t[2])}»</div><span class="tv ${esc(t[7])}">${VT[t[7]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(t[8])}</div><div class="meta">${t[3]?`الكود: <span class="code" data-code="${esc(t[3])}" title="انسخ">${esc(t[3])}</span> · `:'بدون كود · '}${esc(t[6])} · فُحص ${arD(t[10])}</div><a class="go" href="${esc(t[9])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
++TNO.map(t=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(t[0])}<span class="ty">${esc(t[1])}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا موقع الشركة الرسمي ولم نجد صفحة عرض أو كود خصم {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
 const tn=document.getElementById('tnone');tn.textContent=TNONE;tn.hidden=!TNONE;
 // car offers reuse the travel card, status and verdict logic; t is remapped to the travel positions
-document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}${c[2]?' · '+c[2]:''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${c[3]}»</div><span class="tv ${c[8]}">${VT[c[8]]}</span><div class="real"><b>ماذا تقول الشروط:</b> ${c[9]}</div><div class="meta">${c[4]?`الكود: <span class="code" data-code="${c[4]}" title="انسخ">${c[4]}</span> · `:''}${c[7]} · فُحص ${arD(c[11])}</div><a class="go" href="${c[10]}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
-+CRNO.map(c=>`<article class="tcard nooffer"><div class="th"><span class="co">${c[0]}<span class="ty">${c[1]}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا الموقع الرسمي ولم نجد صفحة عرض {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
+document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}${c[2]?' · '+esc(c[2]):''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(c[3])}»</div><span class="tv ${esc(c[8])}">${VT[c[8]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(c[9])}</div><div class="meta">${c[4]?`الكود: <span class="code" data-code="${esc(c[4])}" title="انسخ">${esc(c[4])}</span> · `:''}${esc(c[7])} · فُحص ${arD(c[11])}</div><a class="go" href="${esc(c[10])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
++CRNO.map(c=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا الموقع الرسمي ولم نجد صفحة عرض {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
 // coupon cards (21 Nov 2026): the same card as travel, the code copied by the page's one .code handler
 (()=>{const box=document.getElementById('cpcards');if(!box)return;const KD={code:'كود',voucher:'قسيمة',bank:'عرض بطاقة',auto:'خصم تلقائي',none:'بلا كود',note:'ملاحظة'};
 box.innerHTML=CPX.map((x,i)=>`<article class="tcard cpcard${SAVEK[x.k]?'':' nooffer'}" id="coupon-${i}"><div class="th"><span class="co">${esc(x.l)}<span class="ty">${KD[x.k]||''}</span></span></div>`
@@ -1001,7 +1004,30 @@ const r=await fetch(api,{method:'POST',headers:{'Content-Type':'application/json
 const j=await r.json().catch(()=>({}));if(r.ok&&j.ok){f.reset();say('وصلنا اقتراحك، شكراً لك! 🌟','ok');}else{say('تعذّر الإرسال الآن، حاول بعد قليل.','err');}}
 catch(_){say('تعذّر الإرسال الآن، حاول بعد قليل.','err');}
 b.disabled=false;});})();
+// ---- measurement events for Google Tag Manager (22 Nov 2026) ----
+// Three events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used.
+// With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
+// Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
+// The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
+(()=>{const L=document.documentElement.lang||'';window.dataLayer=window.dataLayer||[];
+ const push=(event,p)=>{try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};
+ const own=(el,sel)=>{const x=el&&el.querySelector(sel);if(!x)return'';const n=x.firstChild;return String((n&&n.nodeType===3?n.textContent:x.textContent)||'').trim().slice(0,120);};
+ // the tag printed on the card: low (verified and the lowest recorded price), ok (verified), warn, bad, na
+ const tagOf=c=>{const x=c&&c.querySelector('.ctag');return x?(['low','ok','warn','bad','na'].find(v=>x.classList.contains(v))||''):'';};
+ document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
+  let card=t.closest('article.card');const offer=t.closest('article.tcard'),a=t.closest('a[target="_blank"]');
+  if(a){let host='';try{const u=new URL(a.href);if(!/^https?:$/.test(u.protocol))return;host=u.hostname.replace(/^www\./,'');}catch(_){return;}
+   if(/(^|\.)saydadeals\.com$/.test(host))return;
+   // the price-evidence dialog sits outside the card: find the card whose store link is the same address
+   if(!card&&t.closest('#evdlg'))card=[...document.querySelectorAll('article.card')].find(c=>{const b=c.querySelector('a.buy');return b&&b.href===a.href;})||null;
+   const kind=a.matches('.buy,.cname,.cimg')?'product':a.matches('.go')?'offer':'reference';
+   push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
+  const b=t.closest('button.code,button.cpy');
+  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':'coupons'});return;}
+  if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
+  else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
+ });})();
 </script>
-<section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية. العروض التي تحفظها والبطاقات التي تختارها تبقى في متصفحك فقط ولا تُرسل إلينا. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+<section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: {{PRIVACY_STATS_AR}} العروض التي تحفظها والبطاقات التي تختارها تبقى في متصفحك فقط ولا تُرسل إلينا. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
 </body>
 </html>

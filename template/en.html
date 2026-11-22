@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">{{GTM_HEAD}}
 <title>Sayda | {{CAMPAIGN_EN}} deals, checked: real discounts only</title>
 <meta name="description" content="{{CAMPAIGN_EN}} deals from Saudi stores, checked every day: is the discount real, and is the item in stock?">
 <meta name="theme-color" content="{{TH_ACCENT}}">
@@ -35,7 +35,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 .elist li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 </style>
 </head>
-<body>
+<body>{{GTM_BODY}}
 <header class="top"><div class="brand" dir="ltr">
   <a href="/en/" class="logo" aria-label="Sayda: home">{{LOGO_SVG}}<span>Sayda</span></a><span class="tag">Real discounts only</span>
   <div class="search" role="search"><label for="q" class="sr">Search the deals</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume…" autocomplete="off" enterkeyhint="search"></div>
@@ -112,7 +112,8 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 const E={{E_JSON}};
 const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSON}}, TRNO={{TRNO_JSON}}, CRNO={{CRNO_JSON}}, TNONE_EN={{TNONE_EN_JSON}}, RULE={{RULE_JSON}};
 const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
-const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// (22 Nov 2026 audit) the same esc() as the Arabic page: null and undefined give '', and the single quote is escaped too
+const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $=id=>document.getElementById(id);
 const WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
 const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
@@ -173,7 +174,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   const rows=$('rows');rows.innerHTML='';
   list.forEach(d=>{const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
     const saved=d.r!=null?Math.round(d.r-d.p):null,mk=d.rk==='m',low=isLow(d),mn=d.ev&&d.ev.mn;
-    const cls=d.real!=null&&d.real<0?'bad':d.v;
+    const cls=esc(d.real!=null&&d.real<0?'bad':d.v);
     const tag=d.real==null?['na',VL.na]:(d.real<0||d.v==='bad')?['bad',vlabel(d)]:d.v==='warn'?['warn',(!mk&&mn!=null&&mn<d.p*0.99)?'Was cheaper before':VL.warn]:low?['low','✓ Lowest recorded']:['ok',vlabel(d)];
     // Our measured discount beside the verdict (22 Nov 2026): the same d.real as the saving line, never the store's claim.
     const pct=(d.real!=null&&d.real>0&&tag[0]!=='bad'&&tag[0]!=='na')?`<b class="cseg">${fmt(d.real)}% off</b>`:'';
@@ -190,7 +191,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     const wh=walletHits(d),pl=x=>x.p?esc(x.p):'an offer at '+esc(d.s)+', read the terms';
     const perk=wh.full.slice(0,3).map(h=>`<a class="cperk" href="#coupon-${h.i}">${esc(h.x.w.map(wlab).join(' + '))}: ${pl(h.x)}</a>`).join('')+(wh.near?`<a class="cperk near" href="#coupon-${wh.near.i}">${wh.full.length?'And with':'With'} ${esc(wlab(wh.near.miss))} too: ${pl(wh.near.x)}</a>`:'');
     const isFav=FAV.has(d.id);
-    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${d.a}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
+    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
       +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}</a>`
       +`<div class="cinfo"><a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>SAR</small></span>${save}</div>${claim}</div></div>`
       +strip+note+perk
@@ -272,7 +273,30 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;$('pmin').value='';$('pmax').value='';LO=false;FV=false;WL=false;render();
     const el=[...$('rows').children].find(c=>c.dataset&&c.dataset.id===id);if(el){el.classList.add('hit');el.scrollIntoView({block:'center'});}})();
 })();
+// ---- measurement events for Google Tag Manager (22 Nov 2026) ----
+// Three events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used.
+// With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
+// Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
+// The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
+(()=>{const L=document.documentElement.lang||'';window.dataLayer=window.dataLayer||[];
+ const push=(event,p)=>{try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};
+ const own=(el,sel)=>{const x=el&&el.querySelector(sel);if(!x)return'';const n=x.firstChild;return String((n&&n.nodeType===3?n.textContent:x.textContent)||'').trim().slice(0,120);};
+ // the tag printed on the card: low (verified and the lowest recorded price), ok (verified), warn, bad, na
+ const tagOf=c=>{const x=c&&c.querySelector('.ctag');return x?(['low','ok','warn','bad','na'].find(v=>x.classList.contains(v))||''):'';};
+ document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
+  let card=t.closest('article.card');const offer=t.closest('article.tcard'),a=t.closest('a[target="_blank"]');
+  if(a){let host='';try{const u=new URL(a.href);if(!/^https?:$/.test(u.protocol))return;host=u.hostname.replace(/^www\./,'');}catch(_){return;}
+   if(/(^|\.)saydadeals\.com$/.test(host))return;
+   // the price-evidence dialog sits outside the card: find the card whose store link is the same address
+   if(!card&&t.closest('#evdlg'))card=[...document.querySelectorAll('article.card')].find(c=>{const b=c.querySelector('a.buy');return b&&b.href===a.href;})||null;
+   const kind=a.matches('.buy,.cname,.cimg')?'product':a.matches('.go')?'offer':'reference';
+   push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
+  const b=t.closest('button.code,button.cpy');
+  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':'coupons'});return;}
+  if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
+  else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
+ });})();
 </script>
-<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: we use Cloudflare analytics, which sets no cookies and collects no personal data. Deals you save and cards you pick stay in your browser and are never sent to us. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: {{PRIVACY_STATS_EN}} Deals you save and cards you pick stay in your browser and are never sent to us. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
 </body>
 </html>
