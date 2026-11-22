@@ -267,6 +267,15 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
    writes what they returned. (The §3b sweep over EXISTING market rows stays shadow.) Expect 5 to 10% of candidates to survive; an empty result is a correct result.
    Blackbox's air conditioners are safe to compare now: `match.js` condition 3d rejects a listing whose
    capacity (BTU, وحدة, litres, kg, W, GB, mAh, ml) differs from the row's.
+   `market-apply` only updates rows that exist, so add the shortlisted market-store rows first (as `na`, after
+   their live check, through `apply.js new`) and then run the sweep over them.
+   **Fixed 22 Nov 2026, after the 14:01 test run** (`lib/market.js → queryFor`): the query no longer comes from
+   the URL alone. A model code, variant or size missing from the Arabic name is taken from the row's
+   `name_en` (the store's own English title), and the URL slug loses its `.html`, trailing id, `buy-` prefix
+   and locale segments (`/saudi-ar/`, `/ar-sa/`). Before the fix Jarir's query demanded «681855.html» and
+   Namshi's brand read «saudi ar», so 10 of 11 Jarir comparisons failed and the Namshi check could not run.
+   The comparator cache is now `data/state/_market-<store>.json` (it was `data/market/`, which the upload
+   form cannot reach): it goes up with the state commit like the other `data/state/_*.json` files.
 4. **The rotation's no-record store** (Nahdi, Al-Dawaa, Mumzworld, Mothercare, FirstCry, Dabdoob, Namshi):
    take its `na` rows that carry a brand and a model, size or capacity, look them up with
    `SAYDA.kanbkam.market([...])` and run `node scripts/market-apply.js work/market/<store>.json`, then the same
