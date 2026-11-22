@@ -5,6 +5,24 @@
   const idOf = u => (String(u).match(/\/p\/(\d+)/) || [])[1];
   S.adapters.extra = {
     collect: null, // handled by the kanbkam adapter (cfg.collect.via === 'kanbkam')
+    // (22 Nov 2026) Extra's OWN campaign page. The KanBkam listing surfaces clearance stock: 37 of 38
+    // picks on 21-22 Nov were out of stock at Extra. The campaign page lists what Extra is selling in
+    // the campaign today (111 products on 22 Nov). KanBkam history (seller 13, ids `e<id>`) still
+    // supplies the evidence and the live check still sets the price: tile prices are not read here.
+    // Run it IN a tab on cfg.campaignPage. It scrolls so every carousel loads, then reads each product
+    // link outside the mega-menu. The slug is the store's English product slug: brand first.
+    async collectPage() {
+      for (let y = 0; y < document.body.scrollHeight; y += 900) { scrollTo(0, y); await S.sleep(350); }
+      await S.sleep(1500);
+      const seen = new Map();
+      for (const a of document.querySelectorAll('a[href*="/p/"]')) {
+        if (a.closest('[class*=mega-menu]')) continue;
+        const id = idOf(a.href); if (!id || seen.has(id)) continue;
+        const slug = (a.pathname.split('/').slice(-3, -2)[0] || '').replace(/-/g, ' ').trim();
+        seen.set(id, { key: id, kid: 'e' + id, brand: slug.split(' ')[0] || '', slug, url: 'https://www.extra.com/ar-sa/p/' + id });
+      }
+      return { candidates: [...seen.values()], stats: { reachable: seen.size, page: location.pathname } };
+    },
     async check(rows) {
       const out = [];
       for (const r of rows) { // sequential: parallel bursts get bounced to /ar-sa/error
