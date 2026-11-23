@@ -3,6 +3,9 @@
 (function(){
   const S = window.SAYDA;
   const idOf = u => (String(u).match(/\/p\/(\d+)/) || [])[1];
+  const ent = s => s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  const arName = t => { const m = t.match(/<meta[^>]+property="og:title"[^>]+content="([^"]{3,240})"/) || t.match(/<meta[^>]+content="([^"]{3,240})"[^>]+property="og:title"/);
+    const n = m ? ent(m[1]).replace(/\s*-\s*إكسترا\s*$/, '').trim() : ''; return /[\u0600-\u06FF]/.test(n) ? n.slice(0, 200) : null; };
   S.adapters.extra = {
     collect: null, // handled by the kanbkam adapter (cfg.collect.via === 'kanbkam')
     // (22 Nov 2026) Extra's OWN campaign page. The KanBkam listing surfaces clearance stock: 37 of 38
@@ -37,7 +40,10 @@
           // BLD-36: the maker's model number and barcode as Extra's own page states them (JSON-LD `mpn`, `gtin13`)
           const mpn = (t.match(/"mpn"\s*:\s*"([^"]{2,40})"/) || [])[1], gtin = (t.match(/"gtin13"\s*:\s*"(\d{8,14})"/) || [])[1];
           obs = { id: r.id, found: true, url, live: pm ? +pm[1] : null, stockStatus: m ? m[2] : null, stock: m ? +m[3] : null, buyable: !!(m && m[1] === 'true' && m[2] !== 'outOfStock'),
-                  model: S.modelOf(mpn), gtin: S.gtinOf(gtin) };
+                  model: S.modelOf(mpn), gtin: S.gtinOf(gtin),
+                  // BLD-11: the store's own Arabic product name, from this ar-sa page's og:title (read live on 23 Nov 2026:
+                  // /ar-sa/p/100054437 → «سامسونج ثلاجه 15 قدم,فريزر 5.7 قدم، انفيرتر، استيل»). The campaign page gives none.
+                  name: arName(t) };
         }
         out.push(obs || { id: r.id, found: false, status: 'blocked' }); await S.sleep(1200);
       }
