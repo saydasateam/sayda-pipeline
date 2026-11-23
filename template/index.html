@@ -669,6 +669,35 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 .about h2{color:var(--ink)}
 .about a{color:var(--accent)}
 .hs{display:none}
+/* (BLD-18) WhatsApp channel. The strip sits right under the top section, above the category cards and the first product, on
+   every width; a visitor can close it (it stays closed in that browser). The header button shows from 1024 px wide only
+   (below that it would squeeze the search). A block above the suggestion box, a line under a card opened from a shared
+   link, and the About contact line carry the same link. Green #178A4C with white text is 4.9:1. */
+.wabar{display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap;background:var(--ok-soft);border:1px solid var(--line);border-radius:12px;padding:10px 12px 10px 14px;margin:14px 0 6px;color:var(--ink)}
+.wabar[hidden]{display:none}
+.wabic{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#178A4C;color:#fff;flex:none}
+.wabt{margin:0;flex:1 1 220px;min-width:0;font-size:14px;line-height:1.5}
+.wabt b{font-size:15px}
+.wabarbtn{min-height:40px;padding:0 16px;font-size:14px}
+.wabarbtn .ws{display:none}
+.wabx{flex:none;width:32px;height:32px;border:0;border-radius:50%;background:transparent;color:var(--muted);font-size:22px;line-height:1;cursor:pointer}
+.wabx:hover{background:var(--chip);color:var(--ink)}
+.wabx:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:599px){.wabar{flex-wrap:nowrap;gap:8px;padding:8px 6px 8px 10px;margin-top:12px}.wabic{width:30px;height:30px}.wabt{flex:1 1 0;font-size:13.5px;line-height:1.4}.wabt b{font-size:14px}.wabt span{display:none}.wabarbtn{min-height:38px;padding:0 14px;font-size:13.5px}.wabarbtn .wl{display:none}.wabarbtn .ws{display:inline}.wabx{width:28px;height:28px;font-size:20px}}
+.wahd{display:none;color:#fff;background:#178A4C;border-color:#178A4C;text-decoration:none}
+.wahd:hover{background:#127540;border-color:#127540}
+@media (min-width:1024px){.wahd{display:inline-flex}}
+@media (min-width:1024px) and (max-width:1199px){.wahd .hl{display:none}}
+.wafol{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:28px;max-width:80ch;box-sizing:border-box}
+.wafol h2{margin:0 0 4px;font-size:18px}
+.wafol p{margin:0;color:var(--muted);font-size:14px}
+.wafolt{flex:1 1 260px;min-width:0}
+.wabtn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;background:#178A4C;color:#fff;font-weight:700;font-size:15px;text-decoration:none;flex:none}
+.wabtn:hover{background:#127540}
+.wabtn:focus-visible,.wahd:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wafol+.suggest{margin-top:12px}
+.hitfol{margin:0;padding-top:10px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
+.hitfol a,.sharednote a{color:var(--ok);font-weight:700}
 @media (max-width:599px){.brand{gap:8px;padding-inline:12px}.brand .logo{font-size:21px}.brand .lang{padding:3px 10px}.brand .lang .hl{display:none}.hs{display:inline}}
 </style>
 </head>
@@ -677,7 +706,7 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
   <a href="/" class="logo" aria-label="صيدة: الصفحة الرئيسية">{{LOGO_SVG}}<span>صيدة</span></a><span class="tag">الخصم الحقيقي فقط</span>
   <div class="search" role="search"><label for="q" class="sr">ابحث في العروض</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="{{SEARCH_PH}}" autocomplete="off" enterkeyhint="search"></div>
   <button type="button" class="hbtn" id="walletbtn" hidden aria-pressed="false" title="اعرض ما يطابق بطاقاتي واشتراكاتي"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg><span class="hl">محفظتي</span><b id="walletn">٠</b></button>
-  <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="العروض التي حفظتها"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">المحفوظة</span><b id="favn">٠</b></button>
+  <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="العروض التي حفظتها"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">المحفوظة</span><b id="favn">٠</b></button>{{WA_HEAD}}
   <a class="lang" href="/en/" lang="en" hreflang="en"><span class="hl">English</span><span class="hs">EN</span></a>
 </div></header>
 <button type="button" id="totop" class="totop" hidden aria-label="العودة إلى أعلى الصفحة" title="العودة إلى الأعلى">
@@ -696,7 +725,7 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 {{TICKER}}
 </section>
 <div class="wrap" dir="rtl" lang="ar">
-  {{KAT_CARDS}}
+  {{WA_BAR}}{{KAT_CARDS}}
   <div class="statrow"><div class="stats" id="stats" role="group" aria-label="ملخص العروض"></div><span class="sfact" id="sfact"></span></div>
 
   <div class="dealsblock">
@@ -783,7 +812,7 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
     <div class="tcards" id="sbcards"></div>
   </section>
 
-  <section class="suggest" id="suggest" aria-labelledby="sg-h">
+  {{WA_BLOCK}}<section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">قول لنا: نضيف أو نعدّل إيش؟</h2>
     <p>متجر تبي نضيفه؟ منتج تنتظر عليه عرض؟ خطأ في سعر؟ اكتب لنا ونوصلها مباشرة.</p>
     <form id="sg-f" novalidate>
@@ -843,7 +872,9 @@ const RULE={{RULE_JSON}};
 // (BLD-15) category id -> its label and colour class, for the tag on each card. Written by build.js from config/categories.json.
 const KAT={{KAT_JSON}};
 const CBY={{CBY_JSON}};
-const CPX={{CPX_JSON}}, WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
+const CPX={{CPX_JSON}}, WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}', WA={{WA_JSON}};
+// (BLD-18) a browser that closed the WhatsApp strip keeps it closed
+try{if(localStorage.getItem('sayda.wabar')==='0'){const b=document.getElementById('wabar');if(b)b.hidden=true;}}catch(_){}
 const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
 // Saved deals and wallet choices live in this browser only (localStorage). Nothing is sent anywhere.
 const FAV=new Set(LS.get('sayda.fav')), WAL=new Set(LS.get('sayda.wallet').filter(id=>WALLET.some(w=>w.id===id)));
@@ -1159,14 +1190,22 @@ syncHead();
 // Share one deal. The link is this page with ?d=<row id>; opening it scrolls to that card and outlines it.
 function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeURIComponent(d.id),saved=d.r!=null?Math.round(d.r-d.p):0;
  const text=`${d.n} بـ ${fmt(d.p)} ر.س في ${d.s}`+(saved>0&&d.real>0?(d.rk==='m'?` · أرخص بـ ${fmt(saved)} ر.س (${fmt(d.real)}٪) من نفس الموديل في متجر آخر`:` · توفّر ${fmt(saved)} ر.س (${fmt(d.real)}٪) عن السعر السابق المسجّل`):'')+' · فحصته صيدة';
- if(navigator.share)navigator.share({title:'صيدة',text,url}).catch(()=>{});
- else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url),'_blank','noopener');}
+ // (BLD-18) the message ends with the channel link. The deal link stays first, so the chat's preview is the deal, not the channel.
+ const tail=WA?'\n\nتابع صيدة على واتساب: '+WA:'';
+ if(navigator.share)navigator.share(WA?{title:'صيدة',text:text+'\n'+url+tail}:{title:'صيدة',text,url}).catch(()=>{});
+ else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url+tail),'_blank','noopener');}
+// (BLD-18) the follow link shown to a visitor who arrived by a shared deal link
+function waLink(){const a=document.createElement('a');a.href=WA;a.target='_blank';a.rel='noopener';a.dataset.ch='shared';a.textContent='تابع قناة صيدة على واتساب';return a;}
+// (BLD-18) closing the strip keeps it closed in this browser; nothing is sent anywhere.
+(()=>{const x=document.getElementById('wabx');if(x)x.addEventListener('click',()=>{document.getElementById('wabar').hidden=true;try{localStorage.setItem('sayda.wabar','0');}catch(_){}});})();
 // Open the page on one card: a shared link (?d=<id>) and a tap on a ticker item both end here.
-function openDeal(id){const d=data.find(x=>x.id===id),note=document.getElementById('sharednote');
- if(!d){note.textContent='العرض الذي فُتح هذا الرابط من أجله لم يعد في القائمة. هذه العروض المفحوصة الآن.';note.hidden=false;return;}
+function openDeal(id,fromLink){const d=data.find(x=>x.id===id),note=document.getElementById('sharednote');
+ if(!d){note.textContent='العرض الذي فُتح هذا الرابط من أجله لم يعد في القائمة. هذه العروض المفحوصة الآن.';if(fromLink&&WA)note.append(' ',waLink());note.hidden=false;return;}
  if(!matchAll(d,F)){qEl.value='';Q=[];F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;F.lo=false;F.fv=false;F.wl=false;render();}
- const el=[...rows.children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));el.classList.add('hit');el.scrollIntoView({block:'center'});}}
-setTimeout(()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id);},0);
+ const el=[...rows.children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));document.querySelectorAll('.hitfol').forEach(x=>x.remove());el.classList.add('hit');
+  if(fromLink&&WA){const p=document.createElement('p');p.className='hitfol';p.append('وصلك هذا العرض من رابط؟ ',waLink());el.append(p);}
+  el.scrollIntoView({block:'center'});}}
+setTimeout(()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id,true);},0);
 // (BLD-15) Category cards, the way back from a category, and the ticker. A card sets the same filter as its chip and moves to
 // the grid; a ticker item opens the page on that card. None of them leaves the page, so none is an outbound_store_click.
 document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
@@ -1217,7 +1256,8 @@ const j=await r.json().catch(()=>({}));if(r.ok&&j.ok){f.reset();say('وصلنا 
 catch(_){say('تعذّر الإرسال الآن، حاول بعد قليل.','err');}
 b.disabled=false;});})();
 // ---- measurement events for Google Tag Manager (22 Nov 2026) ----
-// Three events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used.
+// Four events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used, follow_channel_click (BLD-18).
+// follow_channel_click carries only where the link sat (placement: banner, header, suggest, about, shared).
 // With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
 // Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
 // The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
@@ -1227,6 +1267,7 @@ b.disabled=false;});})();
  // the tag printed on the card: low (verified and the lowest recorded price), ok (verified), warn, bad, na
  const tagOf=c=>{const x=c&&c.querySelector('.ctag');return x?(['low','ok','warn','bad','na'].find(v=>x.classList.contains(v))||''):'';};
  document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
+  const fc=t.closest('a[data-ch]');if(fc){push('follow_channel_click',{placement:fc.dataset.ch});return;}
   let card=t.closest('article.card');const offer=t.closest('article.tcard'),a=t.closest('a[target="_blank"]');
   if(a){let host='';try{const u=new URL(a.href);if(!/^https?:$/.test(u.protocol))return;host=u.hostname.replace(/^www\./,'');}catch(_){return;}
    if(/(^|\.)saydadeals\.com$/.test(host))return;
@@ -1240,6 +1281,6 @@ b.disabled=false;});})();
   else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();
 </script>
-<section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: {{PRIVACY_STATS_AR}} العروض التي تحفظها والبطاقات التي تختارها تبقى في متصفحك فقط ولا تُرسل إلينا. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+<section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: {{PRIVACY_STATS_AR}} العروض التي تحفظها والبطاقات التي تختارها تبقى في متصفحك فقط ولا تُرسل إلينا. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a>{{WA_ABOUT}}</p></section>
 </body>
 </html>

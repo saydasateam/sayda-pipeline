@@ -41,6 +41,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
   <div class="search" role="search"><label for="q" class="sr">Search the deals</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume…" autocomplete="off" enterkeyhint="search"></div>
   <button type="button" class="hbtn" id="walletbtn" hidden aria-pressed="false" title="Show what matches my cards and memberships"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg><span class="hl">My wallet</span><b id="walletn">0</b></button>
   <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="Deals you saved"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">Saved</span><b id="favn">0</b></button>
+{{WA_HEAD}}
   <a class="lang" href="/" lang="ar" hreflang="ar">العربية</a>
 </div></header>
 <button type="button" id="totop" class="totop" hidden aria-label="Back to top" title="Back to top"><span aria-hidden="true">↑</span></button>
@@ -57,7 +58,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 {{TICKER}}
 </section>
 <div class="wrap" dir="ltr" lang="en">
-  {{KAT_CARDS}}
+  {{WA_BAR}}{{KAT_CARDS}}
   <div class="statrow"><div class="stats" id="stats" role="group" aria-label="Summary of the deals"></div><span class="sfact" id="sfact"></span></div>
   <div class="filters" aria-label="Filter the deals" id="filters">
     <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="ftlabel">Filters <span class="fthint" id="fthint">(tap here)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
@@ -87,7 +88,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
   <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><div class="tcards" id="crlist"></div></section>
   <section class="travel" id="subs" aria-labelledby="sb-h" hidden><h2 id="sb-h">App subscriptions: time-limited offers</h2><p class="lede">Each offer is read from the app’s or the bank’s own page, with its terms as written and the date we checked. We hold no price record for subscriptions, so no discount is measured here: we say what you actually get, who the offer is for, and when it ends.</p><div class="tcards" id="sblist"></div></section>
 
-  <section class="suggest" id="suggest" aria-labelledby="sg-h">
+  {{WA_BLOCK}}<section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">Tell us what to add or fix</h2>
     <p>A store you want added? A product you are waiting on? A wrong price? Write to us and it reaches us directly.</p>
     <form id="sg-f" novalidate>
@@ -122,7 +123,9 @@ const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const $=id=>document.getElementById(id);
 // (BLD-15) category id -> its label and colour class, for the chip's dot and the tag on each card. Written by build.js from config/categories.json.
 const KAT={{KAT_JSON}};
-const WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}';
+const WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}', WA={{WA_JSON}};
+// (BLD-18) a browser that closed the WhatsApp strip keeps it closed
+try{if(localStorage.getItem('sayda.wabar')==='0'){const b=document.getElementById('wabar');if(b)b.hidden=true;}}catch(_){}
 const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
 // Saved deals and wallet choices live in this browser only (localStorage). Nothing is sent anywhere.
 const FAV=new Set(LS.get('sayda.fav')), WAL=new Set(LS.get('sayda.wallet').filter(id=>WALLET.some(w=>w.id===id)));let FV=false,WL=false;
@@ -164,7 +167,13 @@ const diversify=l=>{const out=[],pool=l.slice();while(pool.length){let i=0;const
 const SORTS={d:(a,b)=>UN(a)-UN(b)||VAL(b)-VAL(a),pct:(a,b)=>(b.real??-999)-(a.real??-999),sav:(a,b)=>((b.r||b.p)-b.p)-((a.r||a.p)-a.p),lo:(a,b)=>a.p-b.p,hi:(a,b)=>b.p-a.p};
 function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeURIComponent(d.id),saved=d.r!=null?Math.round(d.r-d.p):0;
   const text=`${d.n}: ${fmt(d.p)} SAR at ${d.s}`+(saved>0&&d.real>0?(d.rk==='m'?` · ${fmt(saved)} SAR (${fmt(d.real)}%) cheaper than the same model at another store`:` · save ${fmt(saved)} SAR (${fmt(d.real)}%) against the recorded previous price`):'')+' · checked by Sayda';
-  if(navigator.share)navigator.share({title:'Sayda',text,url}).catch(()=>{});else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url),'_blank','noopener');}
+  // (BLD-18) the message ends with the channel link. The deal link stays first, so the chat's preview is the deal, not the channel.
+  const tail=WA?'\n\nFollow Sayda on WhatsApp: '+WA:'';
+  if(navigator.share)navigator.share(WA?{title:'Sayda',text:text+'\n'+url+tail}:{title:'Sayda',text,url}).catch(()=>{});else window.open('https://wa.me/?text='+encodeURIComponent(text+'\n'+url+tail),'_blank','noopener');}
+// (BLD-18) the follow link shown to a visitor who arrived by a shared deal link
+function waLink(){const a=document.createElement('a');a.href=WA;a.target='_blank';a.rel='noopener';a.dataset.ch='shared';a.textContent='Follow the Sayda channel on WhatsApp';return a;}
+// (BLD-18) closing the strip keeps it closed in this browser; nothing is sent anywhere.
+(()=>{const x=document.getElementById('wabx');if(x)x.addEventListener('click',()=>{document.getElementById('wabar').hidden=true;try{localStorage.setItem('sayda.wabar','0');}catch(_){}});})();
 // Filter state and behaviour are the Arabic page's (template/index.html): same groups, same defaults, same counts on the chips.
 const DEF={a:'avail',v:'all'},MULTI={c:1,s:1},F={a:'avail',v:'all',c:[],s:[],pmin:null,pmax:null};let QW=[];
 const matchA=(d,f)=>f.a==='all'?true:f.a==='avail'?!UN(d):f.a==='low'?d.a==='low':UN(d),matchV=(d,f)=>f.v==='all'||d.v===f.v,matchC=(d,f)=>!f.c.length||f.c.includes(d.c),matchS=(d,f)=>!f.s.length||f.s.includes(d.s),matchP=(d,f)=>(f.pmin==null||d.p>=f.pmin)&&(f.pmax==null||d.p<=f.pmax);
@@ -281,11 +290,13 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   (()=>{const t=document.querySelector('.top'),set=()=>document.documentElement.style.setProperty('--toph',t.offsetHeight+'px');set();addEventListener('resize',set);})();
   render();
   // Open the page on one card: a shared link (?d=<id>) and a tap on a ticker item both end here.
-  const openDeal=id=>{const d=E.find(x=>x.id===id),note=$('sharednote');
-    if(!d){note.textContent='The deal this link was opened for is no longer on the list. These are the deals checked now.';note.hidden=false;return;}
+  const openDeal=(id,fromLink)=>{const d=E.find(x=>x.id===id),note=$('sharednote');
+    if(!d){note.textContent='The deal this link was opened for is no longer on the list. These are the deals checked now.';if(fromLink&&WA)note.append(' ',waLink());note.hidden=false;return;}
     if(!matchAll(d,F)){$('q').value='';QW=[];F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;$('pmin').value='';$('pmax').value='';LO=false;FV=false;WL=false;render();}
-    const el=[...$('rows').children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));el.classList.add('hit');el.scrollIntoView({block:'center'});}};
-  (()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id);})();
+    const el=[...$('rows').children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));document.querySelectorAll('.hitfol').forEach(x=>x.remove());el.classList.add('hit');
+      if(fromLink&&WA){const p=document.createElement('p');p.className='hitfol';p.append('Got this deal from a link? ',waLink());el.append(p);}
+      el.scrollIntoView({block:'center'});}};
+  (()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id,true);})();
   // (BLD-15) Category cards, the way back from a category, and the ticker. A card sets the same filter as its chip and moves to
   // the grid; a ticker item opens the page on that card. None of them leaves the page, so none is an outbound_store_click.
   document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
@@ -299,7 +310,8 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 })();
 // ---- measurement events for Google Tag Manager (22 Nov 2026) ----
-// Three events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used.
+// Four events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used, follow_channel_click (BLD-18).
+// follow_channel_click carries only where the link sat (placement: banner, header, suggest, about, shared).
 // With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
 // Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
 // The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
@@ -309,6 +321,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
  // the tag printed on the card: low (verified and the lowest recorded price), ok (verified), warn, bad, na
  const tagOf=c=>{const x=c&&c.querySelector('.ctag');return x?(['low','ok','warn','bad','na'].find(v=>x.classList.contains(v))||''):'';};
  document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
+  const fc=t.closest('a[data-ch]');if(fc){push('follow_channel_click',{placement:fc.dataset.ch});return;}
   let card=t.closest('article.card');const offer=t.closest('article.tcard'),a=t.closest('a[target="_blank"]');
   if(a){let host='';try{const u=new URL(a.href);if(!/^https?:$/.test(u.protocol))return;host=u.hostname.replace(/^www\./,'');}catch(_){return;}
    if(/(^|\.)saydadeals\.com$/.test(host))return;
@@ -322,6 +335,6 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();
 </script>
-<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: {{PRIVACY_STATS_EN}} Deals you save and cards you pick stay in your browser and are never sent to us. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a></p></section>
+<section class="about" dir="ltr" id="about"><h2>About Sayda</h2><p>Sayda is an independent page that checks Saudi store offers every day: is the discount real compared with the price before the sale, and is the product still in stock? We sell nothing and answer to no store; store names are shown for identification only, and product pictures and names are each store’s own.</p><p>Prices and stock are as they appeared at the check time shown above and can change at any moment; confirm the price on the store’s site before buying.</p><p>Privacy: {{PRIVACY_STATS_EN}} Deals you save and cards you pick stay in your browser and are never sent to us. The suggestion form sends your message, and your contact if you add one, to our inbox only.</p><p>Contact: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a>{{WA_ABOUT}}</p></section>
 </body>
 </html>
