@@ -810,20 +810,20 @@
   ],
   "_carSources": "Car offer sources for RUNBOOK §3a (BLD-27, 23 Nov 2026), from Finding 23 Nov 2026 0215 Riyadh. Every address and every `lead` here came from a web search: NONE was opened in a browser, and the https:// in front of each address was added when this list was written. A `lead` is never copied to the page. `url: null` means no address on the company's own site is known yet: a scheduled run skips that entry, and its address is added here by a landed change after a browser run found it on the company's own site. Never guess one.",
   "carSources": [
-    {"id": "toyota-aljf", "company": "Toyota, Abdul Latif Jameel Finance", "kind": "dealer finance", "url": "https://toyota.com.sa/en/offers/aljufcampaign", "lead": "free instalments on six models, 0% admin fee, 0% down payment, 60 months; 1 to 30 Nov 2026"},
-    {"id": "toyota-alrajhi", "company": "Toyota with Al Rajhi lease", "kind": "bank lease", "url": "https://toyota.com.sa/en/offers/alrajhicampaign", "lead": "0% down, 50% balloon, APR from 4.78%; 1 to 30 Nov 2026"},
-    {"id": "hyundai-almajdouie", "company": "Hyundai, Almajdouie (East and North)", "kind": "dealer", "url": "https://hyundai.com/almajdouie/en", "lead": "«End-of-Year Offers Start Now» banner; to 31 Dec 2026"},
+    {"id": "toyota-aljf", "company": "Toyota, Abdul Latif Jameel Finance", "kind": "dealer finance", "url": "https://toyota.com.sa/en/offers/aljufcampaign", "lead": "own page read 23 Nov 2026: valid 1 to 30 Nov 2026, published"},
+    {"id": "toyota-alrajhi", "company": "Toyota with Al Rajhi lease", "kind": "bank lease", "url": "https://toyota.com.sa/en/offers/alrajhicampaign", "lead": "own page read 23 Nov 2026: valid 1 Nov to «31 Nov» 2026, published"},
+    {"id": "hyundai-almajdouie", "company": "Hyundai, Almajdouie (East and North)", "kind": "dealer", "url": "https://hyundai.com/almajdouie/en", "lead": "hyundai.com cannot be read from the server Chrome (site permission), 23 Nov 2026"},
     {"id": "syarah", "company": "Syarah", "kind": "car marketplace, its own campaign only", "url": "https://syarah.com/carsguide/syarah-white-friday-2026/", "lead": "published since 22 Nov 2026 (data/state/_cars.json)"},
     {"id": "hyundai-wallan", "company": "Hyundai, Wallan (Central)", "kind": "dealer", "url": null, "lead": "year-end cash discounts and 0% down on 2026 models (a video page, not the dealer's)"},
     {"id": "hyundai-naghi", "company": "Hyundai, Mohamed Yousuf Naghi (West, North, South)", "kind": "dealer", "url": null, "lead": "year-end offers (a car news site, 18 Nov 2026)"},
-    {"id": "geely-wallan", "company": "Geely, Wallan", "kind": "dealer", "url": null, "lead": "year-end: 0% down, no admin fee, free delivery through the My Geely app; to 31 Dec 2026 (a car news site)"},
+    {"id": "geely-wallan", "company": "Geely, Wallan", "kind": "dealer", "url": "https://buy.geelyksa.com/ar/offers.html", "lead": "own page read 23 Nov 2026: two year-end offers to 31 Dec 2026, published"},
     {"id": "geely-aljf", "company": "Geely with Abdul Latif Jameel Finance", "kind": "dealer finance", "url": null, "lead": "«first two instalments on us», year-end (a car news site)"},
     {"id": "ford-naghi", "company": "Ford, Naghi", "kind": "dealer", "url": null, "lead": "a campaign to 31 Dec 2026 (a car site, Oct 2026)"},
-    {"id": "ford-aljazirah", "company": "Ford, Aljazirah", "kind": "dealer", "url": null, "lead": "discounts up to SAR 15,000 (a video page)"},
-    {"id": "nissan-petromin", "company": "Nissan, Petromin", "kind": "dealer", "url": null, "lead": "checked 22 Nov 2026: nothing for the campaign (carsNone)"},
+    {"id": "ford-aljazirah", "company": "Ford, Aljazirah", "kind": "dealer", "url": "https://en.aljazirahford.com/offers/", "lead": "own page read 23 Nov 2026: «Al Jazirah Year-End Clearance Offer» to 31 Dec and «Save up to SAR 25,000 - 2025 Mustang Mach-E» to 30 Nov; not published: the Arabic site (aljazirahford.com) cannot be read from the server Chrome"},
+    {"id": "nissan-petromin", "company": "Nissan, Petromin", "kind": "dealer", "url": "https://en.nissan-saudiarabia.com/latest-offers.html", "lead": "own page read 23 Nov 2026: Patrol offer 12 Oct to 31 Dec 2026, published; the Arabic wording is read at ar.nissan-saudiarabia.com (www. cannot be read from the server Chrome)"},
     {"id": "changan-almajdouie", "company": "Changan, Almajdouie", "kind": "dealer", "url": null, "lead": "checked 22 Nov 2026: nothing for the campaign (carsNone)"},
-    {"id": "mitsubishi-alesayi", "company": "Mitsubishi, Alesayi", "kind": "dealer", "url": null, "lead": "checked 22 Nov 2026: nothing for the campaign (carsNone)"},
-    {"id": "alrajhi-auto", "company": "Al Rajhi Bank, auto finance", "kind": "bank finance", "url": null, "lead": "checked 22 Nov 2026: nothing for the campaign (carsNone)"}
+    {"id": "mitsubishi-alesayi", "company": "Mitsubishi, Alesayi", "kind": "dealer", "url": "https://mitsubishi-motors.com.sa/offers/", "lead": "own page read 23 Nov 2026: offers «for a limited period until stock runs out», no dates (D32)"},
+    {"id": "alrajhi-auto", "company": "Al Rajhi Bank, auto finance", "kind": "bank finance", "url": null, "lead": "alrajhibank.com.sa answers «Request Rejected» to the server Chrome, 23 Nov 2026"}
   ],
   "_subscriptionSources": "App subscription sources for RUNBOOK §3c (BLD-27, 23 Nov 2026), from the same finding and with the same standing: search leads, none opened in a browser, https:// added when the list was written, `url: null` skipped by scheduled runs until a landed change adds the address. The bank card-offer pages matter most: that is where Saudi subscription discounts are published.",
   "subscriptionSources": [
