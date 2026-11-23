@@ -19,7 +19,6 @@ const M = require('../lib/market.js');
 const R = require('../rules/verdict.js');
 const { marketEvidence } = require('../rules/match.js');
 const { fromBlocks } = require('../rules/listing.js');
-const { cleanHttps } = require('../lib/safe.js');
 
 const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/stores.json'), 'utf8'));
 const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), 'utf8'));
@@ -61,7 +60,7 @@ if (plan || !file) {
 // ── apply a sweep result ─────────────────────────────────────────────────────────────────────────
 const sweep = JSON.parse(fs.readFileSync(file, 'utf8'));
 const byId = Object.fromEntries(state.rows.map(r => [r.id, r]));
-const changes = [], unchanged = [], noEvidence = [];
+const changes = [], unchanged = [], noEvidence = [], noLink = [];
 const touched = new Set();
 
 for (const res of sweep) {
@@ -81,20 +80,24 @@ for (const res of sweep) {
     noEvidence.push([res.id, res.q, (ev.rejected || []).length, (ev.rejected[0] || {}).why || 'nothing returned']);
     continue;
   }
+  // BLD-21 and BLD-28 (D16, D25): the comparison is used only when it can link the other store's own product page.
+  // Without one it is refused, and the row stays exactly as it was (lib/market.js → ownListingUrl).
+  const own = M.ownListingUrl(ev.market, cfg.stores, row.store);
+  if (!own) { noLink.push([res.id, row.store, `${ev.market.store} ${ev.market.price}`, String(ev.market.url || 'no link').slice(0, 90)]); continue; }
   // the verdict comes from rules/verdict.js, from the evidence. Never from this file.
   const v = R.verdict(row.price, row.was, { market: { store: ev.market.store, price: ev.market.price } }, rules, { marketIsRef: true });
-  const same = v.verdict === row.verdict && Math.abs((v.ref ?? 0) - (row.ref ?? 0)) < 1;
+  const same = v.verdict === row.verdict && Math.abs((v.ref ?? 0) - (row.ref ?? 0)) < 1 && row.refUrl === own.url;
   (same ? unchanged : changes).push({
     id: res.id, store: row.store, name: row.name.slice(0, 44),
     from: `${row.verdict} ref ${row.ref ?? '—'}`, to: `${v.verdict} ref ${v.ref}`,
     via: `${ev.market.store} ${ev.market.price} (${ev.merchantCount} merchant${ev.merchantCount === 1 ? '' : 's'})`,
-    finding: v.finding, _v: v, _ev: ev,
+    finding: v.finding, _v: v, _ev: ev, _own: own,
   });
 }
 
 const tally = changes.reduce((m, c) => { const k = `${c.from.split(' ')[0]} → ${c.to.split(' ')[0]}`; m[k] = (m[k] || 0) + 1; return m; }, {});
 console.log(`\n${apply ? 'APPLYING' : 'SHADOW — nothing written'} · ${sweep.length} swept`);
-console.log(`  verdict changes ${changes.length} · unchanged ${unchanged.length} · no usable comparator ${noEvidence.length}`);
+console.log(`  verdict changes ${changes.length} · unchanged ${unchanged.length} · no usable comparator ${noEvidence.length} · refused, no link to the other store's own page ${noLink.length}`);
 console.log('  ' + (Object.entries(tally).map(([k, n]) => `${k}: ${n}`).join(' · ') || 'none'));
 
 if (changes.length) {
@@ -106,30 +109,33 @@ if (noEvidence.length) {
   for (const [id, q, n, why] of noEvidence) console.log(`  ${id.padEnd(28)} "${q}"  ${n} rejected · ${why}`);
 }
 
+if (noLink.length) {
+  console.log("\nREFUSED: NO LINK TO THE OTHER STORE'S OWN PRODUCT PAGE (BLD-21) — these stay exactly as they are");
+  for (const [id, st, via, u] of noLink) console.log(`  ${id.padEnd(28)} ${st} · ${via} · ${u}`);
+}
+
 if (!apply) {
   console.log('\nRe-run with --apply once these verdicts have been compared against a hand-probed cycle.');
   process.exit(0);
 }
 
-const dropped = [];
 for (const c of changes) {
   const row = byId[c.id];
   row.verdict = c._v.verdict;
   row.ref = c._v.ref;                      // whatever verdict() returned — never a hand-picked number
   row.refKind = 'market';
-  // The compared product's link is kept only as a clean https address (lib/safe.js, 22 Nov 2026 audit, SEC-F3). A link that
-  // is anything else is not written into the row at all, exactly as when the listing came with no link: the verdict is the
-  // same, and the page says the comparison has no source that can be opened. The row is named below so it can be looked at.
-  const raw = c._ev.market.url, dirty = !!raw && !cleanHttps(raw);
-  if (dirty) dropped.push(c.id);
-  row.refUrl = dirty ? null : (raw || null);   // the compared product, so «دليل السعر» can be checked
+  // BLD-28 (D25): refUrl is the other store's own product page, so «دليل السعر» opens the model where the price is stated,
+  // and refStore names that store on the card. Only a clean https address on an enabled store's own host gets here
+  // (ownListingUrl); a comparison without one was refused above (BLD-21, D16), so no market row is written without a link.
+  row.refUrl = c._own.url;
+  row.refStore = c._own.store;
   row.finding = c._v.finding;
-  row.ev = { market: dirty ? { ...c._ev.market, url: null } : c._ev.market, min: c._ev.min, max: c._ev.max, n: c._ev.merchantCount, src: 'market', on: today, url: dirty ? null : raw };
+  row.ev = { market: { store: c._ev.market.store, price: c._ev.market.price, url: c._own.url }, min: c._ev.min, max: c._ev.max, n: c._ev.merchantCount, src: 'market', on: today, url: c._own.url };
   if (c._v.kind) row.bk = c._v.kind;
 }
 const all = S.byStore(state.rows);
 const wrote = S.saveStores(ROOT, Object.fromEntries([...touched].map(id => [id, all[id] || []])), { updated: today, checkedAt: null });
 M.save(ROOT, cache, [...touched]);
 console.log(`\nwritten: ${changes.length} rows in ${wrote.join(', ')} · comparator cache updated`);
-if (dropped.length) console.log(`comparator link not kept (not a clean https address), row written without one: ${dropped.join(', ')}`);
+if (noLink.length) console.log(`refused, no link to the other store's own page (rows left as they were): ${noLink.map(x => x[0]).join(', ')}`);
 console.log('Now run `node scripts/replay.js` before building — a conflict means fix the row, not publish over it.');

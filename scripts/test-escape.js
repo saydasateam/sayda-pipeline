@@ -266,20 +266,25 @@ for (const [file, lang, nameMark] of [['dist/index.html', 'arabic', `&lt;img src
   ok('apply.js check: a corrected link that is not clean https is refused, a clean one is taken', c.status === 0 && urlOf('t-clean') === `${plain.origin}/p/t-clean/` && urlOf('t-img') === `${plain.origin}/p/moved/`, c.stdout + c.stderr + ' ' + urlOf('t-clean') + ' ' + urlOf('t-img'));
 }
 
-// ── the comparator sweep: a matched listing with a bad link is written without the link ──────────────
+// ── the comparator sweep: a matched listing is used only with a link to the other store's own page (BLD-21, BLD-28) ──
 {
   const id = `${market.id}:t-mk`;
-  const sweep = good => [{ id, q: 'samsung qn70h 65', listings: [{ title: 'Samsung 65 inch QN70H Neo QLED Smart TV', price: 3600, merchant: 'eXtra Stores', country: 'sa', url: good ? 'https://www.example.com/tv?a=1' : `javascript:${M}(110)` }] }];
-  const run = good => { W('work/market/t.json', sweep(good)); return spawnSync(process.execPath, ['scripts/market-apply.js', 'work/market/t.json', '--apply'], { cwd: TMP, encoding: 'utf8' }); };
+  const sweep = (url, own) => [{ id, q: 'samsung qn70h 65', listings: [{ title: 'Samsung 65 inch QN70H Neo QLED Smart TV', price: 3600, merchant: 'eXtra Stores', country: 'sa', url, ...(own ? { own } : {}) }] }];
+  const run = (url, own) => { W('work/market/t.json', sweep(url, own)); return spawnSync(process.execPath, ['scripts/market-apply.js', 'work/market/t.json', '--apply'], { cwd: TMP, encoding: 'utf8' }); };
   const rowNow = () => JSON.parse(fs.readFileSync(path.join(TMP, `data/state/${market.id}.json`), 'utf8')).rows.find(r => r.id === id);
   const before = JSON.stringify(rowNow());
-  const m = run(false), r1 = rowNow();
-  if (m.status === 0 && JSON.stringify(r1) === before) console.log('NOTE  market-apply: the test listing was not accepted by rules/match.js, so the link rule was not exercised — update the fixture');
-  ok('market-apply: a comparison whose link is not clean https is written with no link, and named', m.status === 0 && r1.refKind === 'market' && r1.ref === 3600 && r1.refUrl === null && r1.ev.url === null && r1.ev.market.url === null && /comparator link not kept/.test(m.stdout) && !JSON.stringify(r1).includes(M), m.stdout + m.stderr + JSON.stringify(r1));
-  fs.writeFileSync(path.join(TMP, `data/state/${market.id}.json`), JSON.stringify({ store: market.id, updated: '2026-11-22', checkedAt: '2026-11-22T12:00:00.000+03:00', rows: [JSON.parse(before)] }));
-  fs.rmSync(path.join(TMP, `data/state/_market-${market.id}.json`), { force: true });
-  const g = run(true), r2 = rowNow();
-  ok('market-apply: a clean link is kept exactly as before', g.status === 0 && r2.refUrl === 'https://www.example.com/tv?a=1' && r2.ev.url === r2.refUrl && r2.ev.market.url === r2.refUrl && !/comparator link not kept/.test(g.stdout), g.stdout + g.stderr + JSON.stringify(r2));
+  const reset = () => { fs.writeFileSync(path.join(TMP, `data/state/${market.id}.json`), JSON.stringify({ store: market.id, updated: '2026-11-22', checkedAt: '2026-11-22T12:00:00.000+03:00', rows: [JSON.parse(before)] })); fs.rmSync(path.join(TMP, `data/state/_market-${market.id}.json`), { force: true }); };
+  const m = run(`javascript:${M}(110)`), r1 = rowNow();
+  ok('market-apply: a comparison whose link is not clean https is refused, the row is left as it was, and named', m.status === 0 && JSON.stringify(r1) === before && /refused, no link to the other store's own page/.test(m.stdout) && m.stdout.includes(id), m.stdout + m.stderr + JSON.stringify(r1));
+  reset();
+  const x = run('https://www.example.com/tv?a=1'), r0 = rowNow();
+  ok('market-apply: a clean link that is not a store\'s own page (a comparator, a blog) is refused too', x.status === 0 && JSON.stringify(r0) === before && /refused, no link/.test(x.stdout), x.stdout + JSON.stringify(r0));
+  reset();
+  const g = run('https://www.kanbkam.com/sa/en/samsung-qn70h-65-x1', 'https://www.extra.com/en-sa/tv/samsung-qn70h/p/1000123456?utm_source=kanbkam&tag=x'), r2 = rowNow();
+  ok('market-apply: the store link read off the comparator is kept as the other store\'s own page, query dropped, store named', g.status === 0 && r2.refKind === 'market' && r2.ref === 3600 && r2.refUrl === 'https://www.extra.com/en-sa/tv/samsung-qn70h/p/1000123456' && r2.refStore === 'extra' && r2.ev.url === r2.refUrl && r2.ev.market.url === r2.refUrl && !('own' in r2.ev.market) && !/refused/.test(g.stdout.split('\n').filter(l => l.startsWith('refused')).join('')), g.stdout + g.stderr + JSON.stringify(r2));
+  reset();
+  const a = run('https://www.kanbkam.com/sa/en/samsung-65-inch-qn70h-neo-qled-B0ABCDE123'), r3 = rowNow();
+  ok('market-apply: a KanBkam Amazon address becomes Amazon\'s own /dp/ page', a.status === 0 && r3.refUrl === 'https://www.amazon.sa/dp/B0ABCDE123' && r3.refStore === 'amazon', a.stdout + JSON.stringify(r3));
 }
 
 done();
