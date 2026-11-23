@@ -85,6 +85,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
   <section class="couponsec" id="coupons" aria-labelledby="cp-h" hidden><h2 id="cp-h">Extra coupons and codes</h2><p class="lede">Every code and card offer here is copied from the store’s own page today, with what it actually requires. Tap a code to copy it.</p><div class="tcards cpcards" id="cplist"></div><p class="cpfoot">The prices shown are <b style="display:inline">before</b> these coupons are applied.</p></section>
   <section class="travel" id="travel" aria-labelledby="tr-h" hidden><h2 id="tr-h">Travel offers: {{CAMPAIGN_SHORT_EN}} codes and campaigns</h2><p class="lede">We read each offer’s terms on the company’s own site and compared the advert with what the terms actually say.</p><div class="tcards" id="tlist"></div><p class="claim" id="tnone" hidden></p></section>
   <section class="travel" id="cars" aria-labelledby="cr-h" hidden><h2 id="cr-h">Car offers: dealers and finance</h2><p class="lede">Read from the dealer’s or finance company’s own page, with what the offer actually requires.</p><div class="tcards" id="crlist"></div></section>
+  <section class="travel" id="subs" aria-labelledby="sb-h" hidden><h2 id="sb-h">App subscriptions: time-limited offers</h2><p class="lede">Each offer is read from the app’s or the bank’s own page, with its terms as written and the date we checked. We hold no price record for subscriptions, so no discount is measured here: we say what you actually get, who the offer is for, and when it ends.</p><div class="tcards" id="sblist"></div></section>
 
   <section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">Tell us what to add or fix</h2>
@@ -114,7 +115,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 </div>
 <script>
 const E={{E_JSON}};
-const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSON}}, TRNO={{TRNO_JSON}}, CRNO={{CRNO_JSON}}, TNONE_EN={{TNONE_EN_JSON}}, RULE={{RULE_JSON}};
+const CATS={{CATS_JSON}}, CP={{COUPONS_JSON}}, TR={{TRAVEL_JSON}}, CR={{CARS_JSON}}, SB={{SUBS_JSON}}, TRNO={{TRNO_JSON}}, CRNO={{CRNO_JSON}}, TNONE_EN={{TNONE_EN_JSON}}, RULE={{RULE_JSON}};
 const fmt=n=>Number(n).toLocaleString('en-US',{maximumFractionDigits:0});
 // (22 Nov 2026 audit) the same esc() as the Arabic page: null and undefined give '', and the single quote is escaped too
 const esc=t=>String(t==null?'':t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -256,11 +257,13 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   const today=new Date(Date.now()+3*3600e3).toISOString().slice(0,10),enD=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long'});
   const ost=o=>o.v==='pending'?['pend','Not published yet']:(o.bs&&today<o.bs)?['soon','Starts '+enD(o.bs)]:(o.be&&today>o.be)?['end','Ended']:['on',o.be?'Until '+enD(o.be):'On now'];
   const rank={on:0,soon:1,pend:2,end:3};
-  const card=o=>{const s=ost(o);return `<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(o.company)}<span class="ty">${esc(o.type)}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">“${esc(o.headline)}”</div>${VT[o.v]?`<span class="tv ${esc(o.v)}">${VT[o.v]}</span>`:''}<div class="real"><b>What the terms say:</b> ${esc(o.terms)}</div><div class="meta">${o.code?`Code: <span class="code" data-code="${esc(o.code)}" title="Copy">${esc(o.code)}</span> · `:'No code · '}${o.win?esc(o.win)+' · ':''}checked ${o.ck?enD(o.ck):''}</div><a class="go" href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></article>`;};
+  const card=o=>{const s=ost(o);return `<article class="tcard ${o.sub?'sbcard ':''}${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(o.company)}<span class="ty">${esc(o.type)}</span></span><span class="tst ${s[0]}">${s[1]}</span></div>${(o.w||[]).length?`<div class="wtags">${o.w.map(w=>`<span class="wtag">${esc(w)}</span>`).join('<span aria-hidden="true">+</span>')}</div>`:''}<div class="hl">“${esc(o.headline)}”</div>${VT[o.v]?`<span class="tv ${esc(o.v)}">${VT[o.v]}</span>`:''}${o.sub&&o.code?`<button type="button" class="code" data-code="${esc(o.code)}" aria-label="Copy the code ${esc(o.code)}">${esc(o.code)}${IC.copy}</button>`:''}<div class="real"><b>What the terms say:</b> ${esc(o.terms)}</div><div class="meta">${o.sub?'':o.code?`Code: <span class="code" data-code="${esc(o.code)}" title="Copy">${esc(o.code)}</span> · `:'No code · '}${o.win?esc(o.win)+' · ':''}checked ${o.ck?enD(o.ck):''}</div><a class="go" href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></article>`;};
   const none=(o,site)=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(o[0])}<span class="ty">${esc(o[1])}</span></span><span class="tst end">No offer</span></div><div class="hl">No {{CAMPAIGN_SHORT_EN}} offer found</div><div class="meta">We checked ${site} and found no offer page or code for {{CAMPAIGN_SHORT_EN}} · checked ${enD(today)}</div></article>`;
   const sorted=a=>a.map(o=>({o,s:ost(o)})).sort((x,y)=>rank[x.s[0]]-rank[y.s[0]]).map(x=>x.o);
   if(TR.length||TRNO.length){$('travel').hidden=false;$('tlist').innerHTML=sorted(TR).map(card).join('')+TRNO.map(o=>none(o,'the company’s own site')).join('');if(TNONE_EN){$('tnone').textContent=TNONE_EN;$('tnone').hidden=false;}}
   if(CR.length||CRNO.length){$('cars').hidden=false;$('crlist').innerHTML=sorted(CR).map(card).join('')+CRNO.map(o=>none(o,'its official site')).join('');}
+  // app subscription offers (BLD-27): the same card; no price here is measured against a record, so it prints no percentage of ours
+  if(SB.length){$('subs').hidden=false;$('sblist').innerHTML=sorted(SB).map(card).join('');}
   const g=$('evdlg'),shut=()=>g.close?g.close():g.removeAttribute('open');$('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});
   const b=$('totop');b.hidden=false;const t=()=>{scrollY>600?b.setAttribute('data-show',''):b.removeAttribute('data-show')};addEventListener('scroll',t,{passive:true});t();b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   const f=$('sg-f'),sb=$('sg-b'),ss=$('sg-s'),say=(m,c)=>{ss.textContent=m;ss.className='sg-note '+(c||'')};
@@ -314,7 +317,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
    const kind=a.matches('.buy,.cname,.cimg')?'product':a.matches('.go')?'offer':'reference';
    push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
   const b=t.closest('button.code,button.cpy');
-  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':'coupons'});return;}
+  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':'coupons'});return;}
   if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
   else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();

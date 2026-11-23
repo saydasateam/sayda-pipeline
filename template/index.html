@@ -308,9 +308,9 @@ a.panel:focus-visible{outline:2px solid #34D399;outline-offset:2px}
 .cpcards{margin-top:12px}
 .cpcard{scroll-margin-top:90px}
 .cpcard:target{box-shadow:0 0 0 3px var(--wal)}
-.cpcard .wtags{display:flex;flex-wrap:wrap;gap:6px}
-.cpcard .wtag{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--wal-soft);color:var(--wal)}
-.cpcard .code{max-width:100%;align-self:flex-start;min-height:40px;font-family:inherit;font-weight:700;font-size:15px;letter-spacing:normal;unicode-bidi:plaintext;background:var(--surface);border:1.5px dashed var(--muted);border-radius:12px;padding:0 12px}
+.cpcard .wtags,.sbcard .wtags{display:flex;flex-wrap:wrap;gap:6px}
+.cpcard .wtag,.sbcard .wtag{font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;background:var(--wal-soft);color:var(--wal)}
+.cpcard .code,.sbcard .code{max-width:100%;align-self:flex-start;min-height:40px;font-family:inherit;font-weight:700;font-size:15px;letter-spacing:normal;unicode-bidi:plaintext;background:var(--surface);border:1.5px dashed var(--muted);border-radius:12px;padding:0 12px}
 .cpcard .real{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .cpcard.open .real{display:block}
 .cpcard .more{font:inherit;font-size:12.5px;font-weight:600;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;align-self:flex-start;text-decoration:underline}
@@ -522,6 +522,9 @@ a.panel:focus-visible,.hero a:focus-visible{outline:2px solid #FCD34D;outline-of
 .countb span:last-child{background:rgba(251,191,36,.2);border-color:rgba(252,211,77,.4);color:#FEF3C7}
 .countb span:last-child b{color:#FCD34D}
 .panels{gap:8px}
+.panels.p4{grid-template-columns:repeat(4,minmax(0,1fr))}
+#subs{scroll-margin-top:calc(var(--toph,0px) + 8px)}
+@media (min-width:761px) and (max-width:1100px){.panels.p4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .panel{min-height:0;padding:6px 12px 6px 8px;border-radius:9999px;gap:8px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 [dir="rtl"] .panel{padding:6px 8px 6px 12px}
 a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)}
@@ -774,6 +777,12 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
     <div class="tcards" id="crcards"></div>
   </section>
 
+  <section class="travel" id="subs" aria-labelledby="sb-h"{{SUBS_HIDDEN}}>
+    <h2 id="sb-h">اشتراكات التطبيقات: عروض محدودة المدة</h2>
+    <p class="lede">كل عرض هنا مقروء من صفحة التطبيق أو البنك الرسمية نفسها، بشروطه كما كُتبت وتاريخ فحصنا. لا نملك سجل أسعار للاشتراكات، لذلك لا نحسب «خصماً حقيقياً» هنا: نوضح ماذا تحصل فعلاً، ولمن العرض، ومتى ينتهي.</p>
+    <div class="tcards" id="sbcards"></div>
+  </section>
+
   <section class="suggest" id="suggest" aria-labelledby="sg-h">
     <h2 id="sg-h">قول لنا: نضيف أو نعدّل إيش؟</h2>
     <p>متجر تبي نضيفه؟ منتج تنتظر عليه عرض؟ خطأ في سعر؟ اكتب لنا ونوصلها مباشرة.</p>
@@ -823,6 +832,8 @@ const TNO={{TNO_JSON}};
 // cars: [company, type, brand, headline as advertised, code ('' = none), bookStart, bookEnd, models/period text, verdict clear|catch|vague|pending, what the terms actually say, official url, checked]
 const CR={{CR_JSON}};
 const CRNO={{CRNO_JSON}};
+// app subscription offers (BLD-27): {co app, ty kind, h headline as advertised, c code, bs/be 'YYYY-MM-DD', win who it is for, v clear|catch|vague|pending, t what the terms say, u official url, ck checked, w wallet tags}
+const SB={{SB_JSON}};
 const fmt=n=>Number(n).toLocaleString('ar-SA',{maximumFractionDigits:0});
 // (22 Nov 2026 audit, SEC-F1) Product names, findings, stock notes, links and every travel, car and coupon field are written
 // by stores and sellers, not by us. Each one goes through esc() before it is put into the page, as on the English page.
@@ -1181,6 +1192,11 @@ const tn=document.getElementById('tnone');tn.textContent=TNONE;tn.hidden=!TNONE;
 // car offers reuse the travel card, status and verdict logic; t is remapped to the travel positions
 document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}${c[2]?' · '+esc(c[2]):''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(c[3])}»</div><span class="tv ${esc(c[8])}">${VT[c[8]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(c[9])}</div><div class="meta">${c[4]?`الكود: <span class="code" data-code="${esc(c[4])}" title="انسخ">${esc(c[4])}</span> · `:''}${esc(c[7])} · فُحص ${arD(c[11])}</div><a class="go" href="${esc(c[10])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
 +CRNO.map(c=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا الموقع الرسمي ولم نجد صفحة عرض {{CAMPAIGN_FOR_AR}} · فُحص ${arD(now)}</div></article>`).join('');
+// app subscription offers (BLD-27): the travel card, status and verdict again. No price here is measured against a record, so the card prints no percentage of ours.
+(()=>{const box=document.getElementById('sbcards');if(!box||!SB.length)return;
+box.innerHTML=SB.map(o=>({o,s:st(['','','','',o.bs,o.be,'',o.v])})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({o,s})=>`<article class="tcard sbcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(o.co)}<span class="ty">${esc(o.ty)}</span></span><span class="tst ${s[0]}">${s[1]}</span></div>`
+ +((o.w||[]).length?`<div class="wtags">${o.w.map(w=>`<span class="wtag">${esc(w)}</span>`).join('<span aria-hidden="true">+</span>')}</div>`:'')
+ +`<div class="hl">«${esc(o.h)}»</div>${VT[o.v]?`<span class="tv ${esc(o.v)}">${VT[o.v]}</span>`:''}${o.c?`<button type="button" class="code" data-code="${esc(o.c)}" aria-label="انسخ الكود ${esc(o.c)}">${esc(o.c)}${IC.copy}</button>`:''}<div class="real"><b>ماذا تقول الشروط:</b> ${esc(o.t)}</div><div class="meta">${o.win?esc(o.win)+' · ':''}فُحص ${arD(o.ck)}</div><a class="go" href="${esc(o.u)}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('');})();
 // coupon cards (21 Nov 2026): the same card as travel, the code copied by the page's one .code handler
 (()=>{const box=document.getElementById('cpcards');if(!box)return;const KD={code:'كود',voucher:'قسيمة',bank:'عرض بطاقة',auto:'خصم تلقائي',none:'بلا كود',note:'ملاحظة'};
 box.innerHTML=CPX.map((x,i)=>`<article class="tcard cpcard${SAVEK[x.k]?'':' nooffer'}" id="coupon-${i}"><div class="th"><span class="co">${esc(x.l)}<span class="ty">${KD[x.k]||''}</span></span></div>`
@@ -1219,7 +1235,7 @@ b.disabled=false;});})();
    const kind=a.matches('.buy,.cname,.cimg')?'product':a.matches('.go')?'offer':'reference';
    push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
   const b=t.closest('button.code,button.cpy');
-  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':'coupons'});return;}
+  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':'coupons'});return;}
   if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
   else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();
