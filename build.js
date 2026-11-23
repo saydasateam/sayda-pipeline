@@ -439,25 +439,50 @@ const katAr = katParts('ar'), katEn = katParts('en');
 // ---- measurement: Google Tag Manager (22 Nov 2026) ----
 // config/site.json holds the container id. An empty or missing gtmId builds both pages with no tag and
 // the old privacy sentence; a set one writes Google's two snippets and the sentence that says so.
-// The page's own events (outbound_store_click, copy_code, wallet_filter_used) are in both templates.
+// The page's own events (outbound_store_click, copy_code, wallet_filter_used, and follow_channel_click when
+// config/site.json has a whatsappChannel) are in both templates.
 const sitePath = path.join(ROOT, 'config/site.json');
 const siteCfg = fs.existsSync(sitePath) ? JSON.parse(fs.readFileSync(sitePath, 'utf8')) : {};
 const GTM_ID = String(siteCfg.gtmId || '').trim();
 if (GTM_ID && !/^GTM-[A-Z0-9]{4,12}$/.test(GTM_ID)) throw new Error(`build: config/site.json gtmId "${GTM_ID}" is not a GTM container id (GTM-XXXXXXX)`);
+// ---- WhatsApp channel (BLD-18, with Mahmoud's banner of 23 Nov 2026) ----
+// config/site.json whatsappChannel is the channel's own invite address. Set, both pages get: a green strip right under the
+// top section, above the category cards and the first product, that a visitor can close (it stays closed in that browser);
+// a header button from 1024 px wide; a block above the suggestion box; the About contact line; a line under a card opened
+// from a shared link; and the channel link at the end of the share message. Empty, none of that is written.
+// Only https://whatsapp.com/channel/<code> is accepted, so nothing else can reach the page through this field.
+const WA = String(siteCfg.whatsappChannel || '').trim();
+if (WA && !/^https:\/\/whatsapp\.com\/channel\/[A-Za-z0-9]{16,40}$/.test(WA)) throw new Error(`build: config/site.json whatsappChannel "${WA}" is not a WhatsApp channel address (https://whatsapp.com/channel/<code>)`);
+const WA_ICON = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.5A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 10.5h6M9 13.5h4"/></svg>';
+const waA = (ch, cls, inner, label) => `<a${cls ? ` class="${cls}"` : ''} href="${WA}" target="_blank" rel="noopener" data-ch="${ch}"${label ? ` aria-label="${label}" title="${label}"` : ''}>${inner}</a>`;
+// A browser that closed the strip before (localStorage sayda.wabar = "0") hides it from the first line of the page's script.
+const waBar = (title, sub, btn, btnShort, close) => `<aside class="wabar" id="wabar" aria-label="${title}"><span class="wabic" aria-hidden="true">${WA_ICON}</span><p class="wabt"><b>${title}</b> <span>${sub}</span></p>${waA('banner', 'wabtn wabarbtn', '<span class="wl">' + btn + '</span><span class="ws">' + btnShort + '</span>')}<button type="button" class="wabx" id="wabx" aria-label="${close}" title="${close}">×</button></aside>\n  `;
+const waFill = {
+  WA_JSON: J(WA),
+  WA_BAR_AR: !WA ? '' : waBar('تنبيهات الصيدات الجديدة على واتساب', 'تابع قناة صيدة وتوصلك أقوى الخصومات المفحوصة أول بأول.', 'تابع القناة', 'تابع القناة', 'إخفاء'),
+  WA_BAR_EN: !WA ? '' : waBar('New-deal alerts on WhatsApp', 'Follow the Sayda channel to get the strongest checked discounts as they land.', 'Follow the channel', 'Follow', 'Hide'),
+  WA_HEAD_AR: !WA ? '' : waA('header', 'hbtn wahd', WA_ICON + '<span class="hl">تابعنا على واتساب</span>', 'تابع قناة صيدة على واتساب'),
+  WA_HEAD_EN: !WA ? '' : waA('header', 'hbtn wahd', WA_ICON + '<span class="hl">Follow on WhatsApp</span>', 'Follow the Sayda channel on WhatsApp'),
+  WA_BLOCK_AR: !WA ? '' : `<section class="wafol" aria-labelledby="wa-h"><div class="wafolt"><h2 id="wa-h">تابع صيدة على واتساب</h2><p>نشارك في قناة صيدة الخصومات المؤكدة بعد الفحص، بالعربي والإنجليزي.</p></div>${waA('suggest', 'wabtn', WA_ICON + '<span>تابع القناة</span>')}</section>\n  `,
+  WA_BLOCK_EN: !WA ? '' : `<section class="wafol" aria-labelledby="wa-h"><div class="wafolt"><h2 id="wa-h">Follow Sayda on WhatsApp</h2><p>We share confirmed discounts on the Sayda channel after they are checked, in Arabic and English.</p></div>${waA('suggest', 'wabtn', WA_ICON + '<span>Follow the channel</span>')}</section>\n  `,
+  WA_ABOUT_AR: !WA ? '' : ' · ' + waA('about', '', 'قناتنا على واتساب'),
+  WA_ABOUT_EN: !WA ? '' : ' · ' + waA('about', '', 'our WhatsApp channel'),
+};
 const plainText = (t, d) => { const s = String(t || d); if (/[<>&"]/.test(s)) throw new Error('build: config/site.json service names must be plain text'); return s; };
 const measureFill = {
   GTM_HEAD: !GTM_ID ? '' : `\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');</script>`,
   GTM_BODY: !GTM_ID ? '' : `\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`,
   PRIVACY_STATS_AR: !GTM_ID ? 'نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية.'
-    : `نستخدم إحصاءات Cloudflare، ونستخدم Google Tag Manager لقياس الزيارات وثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة). خدمات القياس والإعلان التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) قد تستخدم ملفات تعريف الارتباط ومعرّف جهازك لقياس الزيارات والإعلانات.`,
+    : `نستخدم إحصاءات Cloudflare، ونستخدم Google Tag Manager لقياس الزيارات و${WA ? 'أربعة أنواع من النقرات: فتح صفحة متجر، نسخ كود، استخدام فلتر البطاقات (دون اسم البطاقة)، وفتح قناتنا على واتساب' : 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة)'}. خدمات القياس والإعلان التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) قد تستخدم ملفات تعريف الارتباط ومعرّف جهازك لقياس الزيارات والإعلانات.`,
   PRIVACY_STATS_EN: !GTM_ID ? 'we use Cloudflare analytics, which sets no cookies and collects no personal data.'
-    : `we use Cloudflare analytics, and Google Tag Manager to measure visits and three kinds of click: opening a store page, copying a code, and using the card filter (never which card). The measurement and advertising services that run through it (${plainText(siteCfg.services_en, 'Google')}) may set cookies and use your device’s identifiers to measure visits and ads.`,
+    : `we use Cloudflare analytics, and Google Tag Manager to measure visits and ${WA ? 'four kinds of click: opening a store page, copying a code, using the card filter (never which card), and opening our WhatsApp channel' : 'three kinds of click: opening a store page, copying a code, and using the card filter (never which card)'}. The measurement and advertising services that run through it (${plainText(siteCfg.services_en, 'Google')}) may set cookies and use your device’s identifiers to measure visits and ads.`,
 };
 
 // ---- fill ----
 const fill = {
   ...campaignFill,
   GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, PRIVACY_STATS_AR: measureFill.PRIVACY_STATS_AR,
+  WA_JSON: waFill.WA_JSON, WA_BAR: waFill.WA_BAR_AR, WA_HEAD: waFill.WA_HEAD_AR, WA_BLOCK: waFill.WA_BLOCK_AR, WA_ABOUT: waFill.WA_ABOUT_AR,
   UPDATED_AR: longDate(st.meta.updated),
   UPDATED_AR_SHORT: shortDate(st.meta.updated),
   // lib/state.js derives BOTH the newest and the oldest per-store checkedAt. Rendering only the
@@ -572,6 +597,7 @@ const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^
 const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
 const enFill = {
   GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, PRIVACY_STATS_EN: measureFill.PRIVACY_STATS_EN,
+  WA_JSON: waFill.WA_JSON, WA_BAR: waFill.WA_BAR_EN, WA_HEAD: waFill.WA_HEAD_EN, WA_BLOCK: waFill.WA_BLOCK_EN, WA_ABOUT: waFill.WA_ABOUT_EN,
   CSS: css, CAMPAIGN_EN: M.campaign_en || 'Sale', CAMPAIGN_SHORT_EN: M.campaignShort_en || M.campaign_en || 'Sale',
   UPDATED_EN: dEn(st.meta.updated).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' }),
   CHECKED_EN: dEn(st.meta.checkedAt).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' }),
@@ -611,4 +637,5 @@ fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
 console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
+console.log(WA ? 'whatsapp channel: on both pages (strip above the products, header, above the suggestion box, About, shared-link note; share message)' : 'whatsapp channel: none (config/site.json has no whatsappChannel)');
 console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length} · subscriptions ${SB.length}`);
