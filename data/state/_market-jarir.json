@@ -501,5 +501,363 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "jarir:hisense-hisense-u7q-smart-tv-672703": {
+  "q": "hisense U7QPRO 100",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 9499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:msi-raider-18-laptops-678249": {
+  "q": "msi 290HX plus 18",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 15499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-m1e-smart-tv-682548": {
+  "q": "samsung M1EH 85",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4599,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 3299,
+  "avg": 3299,
+  "max": 3299,
+  "market": {
+   "store": "amazon",
+   "price": 3299,
+   "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-mini-led-tv-m1eh-4k-hdr-10-motion-xcelerator-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua85m1ehauxsa-2026-ksa-version-B0GZKZFKMT"
+  },
+  "sources": [
+   {
+    "merchant": "amazon",
+    "price": 3299,
+    "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-mini-led-tv-m1eh-4k-hdr-10-motion-xcelerator-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua85m1ehauxsa-2026-ksa-version-B0GZKZFKMT"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Samsung 65 Inch Mini LED TV, M1EH, 4K, 120Hz DLG, Dynamic Sound Pack, ",
+    "why": "row is 85\", listing does not say so"
+   },
+   {
+    "title": "75 inch Mini LED M1EH 4K Samsung Vision AI Smart TV, 4K Upscaling, 120",
+    "why": "row is 85\", listing does not say so"
+   }
+  ]
+ },
+ "jarir:samsung-s85-smart-tv-688472": {
+  "q": "samsung S85 77",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 8599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "77 Inch OLED S85H 4K Samsung Vision AI Smart TV, 4K AI Upscaling, 120H",
+    "why": "model part \"s85\" not present as a whole word, and \"s85\" not present fused"
+   },
+   {
+    "title": "Samsung 77 Inch OLED TV, S85H, 4K, HDR 10+, Motion Xcelerator 120Hz, D",
+    "why": "model part \"s85\" not present as a whole word, and \"s85\" not present fused"
+   }
+  ]
+ },
+ "jarir:samsung-s85h-smart-tv-690175": {
+  "q": "samsung S85H 65",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 5699,
+  "n": 2,
+  "merchantCount": 2,
+  "min": 5799,
+  "avg": 6249,
+  "max": 6699,
+  "market": {
+   "store": "amazon",
+   "price": 5799,
+   "url": "https://www.kanbkam.com/sa/en/samsung-65-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-ai-upscaling-antireflection-smart-tv-qa65s85haexsa-2026-ksa-version-B0HFNL8N41"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 6699,
+    "url": "https://www.kanbkam.com/sa/en/65-inch-oled-s85h-4k-samsung-vision-ai-smart-tv-4k-ai-upscaling-120hz-antireflection-model-2026-operating-system-tizen-oled-hdr-premium-gaming-pack-contour-design-2-years-warranty-qa65s85haexsa-graphite-black-N70406296V"
+   },
+   {
+    "merchant": "amazon",
+    "price": 5799,
+    "url": "https://www.kanbkam.com/sa/en/samsung-65-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-ai-upscaling-antireflection-smart-tv-qa65s85haexsa-2026-ksa-version-B0HFNL8N41"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:samsung-u9000-smart-tv-690142": {
+  "q": "samsung U9000 98",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 5699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "98 Inch Crystal UHD U9000H 4K Samsung Vision AI Smart TV, 144Hz, 4K Vi",
+    "why": "model part \"u9000\" not present as a whole word, and \"u9000\" not present fused"
+   },
+   {
+    "title": "Samsung 98 Inch Crystal UHD TV, U9000H, 4K, 240Hz DLG, HDR 10+, Motion",
+    "why": "model part \"u9000\" not present as a whole word, and \"u9000\" not present fused"
+   }
+  ]
+ },
+ "jarir:skyworth-skyworth-q6800h-smart-tv-657005": {
+  "q": "skyworth Q6800H 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 3499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:hisense-q71q-smart-tv-682067": {
+  "q": "hisense Q71Q 85",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-q7d-smart-tv-683683": {
+  "q": "tcl Q7DPRO 85",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 7999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "TCL 85Q7D Pro Television 85 Inch Smart TV 4K SQD-Mini LED Super Colorf",
+    "why": "model part \"q7dpro\" not present as a whole word, and \"q7dpro\" not present fused"
+   }
+  ]
+ },
+ "jarir:xiaomi-s-mini-pro-smart-tv-680357": {
+  "q": "xiaomi s mini pro smart tv",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 3899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-q7d-smart-tv-683684": {
+  "q": "tcl Q7DPRO 98",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 11199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "TCL 98Q7D Pro Television 98 Inch Smart TV 4K SQD-Mini LED Super Colorf",
+    "why": "model part \"q7dpro\" not present as a whole word, and \"q7dpro\" not present fused"
+   }
+  ]
+ },
+ "jarir:skyworth-85g6500g-smart-tv-644508": {
+  "q": "skyworth 85G6500G 85",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 3299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:haier-haier-h6f-smart-tv-655419": {
+  "q": "haier H6F 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 2899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:hisense-q71q-smart-tv-682066": {
+  "q": "hisense Q71Q 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 3499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:hisense-hisense-q61q-smart-tv-672686": {
+  "q": "hisense Q61Q 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 2899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Hisense 65 Inch Q61Q QLED 4K Smart TV (2025 Model TV - International V",
+    "why": "row is 75\", listing does not say so"
+   },
+   {
+    "title": "Hisense 55 Inch Q61Q QLED 4K Smart TV (2025 Model TV - International V",
+    "why": "row is 75\", listing does not say so"
+   }
+  ]
+ },
+ "jarir:lg-mrgb85-smart-tv-683089": {
+  "q": "lg MRGB85 65",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "75 inch LG Mini RGB evo AI MRGB85 4K Smart TV 2026 75MRGB85B6C black",
+    "why": "listing is \"mini\", row is the base model"
+   },
+   {
+    "title": "65-inch Mini RGB evo MRGB85 4K Smart TV (2026) | Double 100% Color Cov",
+    "why": "brand word \"lg\" not present as a whole word"
+   }
+  ]
+ },
+ "jarir:lg-qned84-smart-tv-683091": {
+  "q": "lg QNED84 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "75-inch QNED evo QNED84 4K Mini LED Smart TV (2026) | 144Hz | Dynamic ",
+    "why": "brand word \"lg\" not present as a whole word"
+   }
+  ]
+ },
+ "jarir:samsung-ls03-smart-tv-682575": {
+  "q": "samsung LS03 65",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Samsung smart frame qled 4k 43 inch ls03 (qa43ls03bauxsa)",
+    "why": "row is 65\", listing does not say so"
+   },
+   {
+    "title": "Samsung smart frame qled 4k 50 inch ls03 (qa50ls03bauxsa)",
+    "why": "row is 65\", listing does not say so"
+   },
+   {
+    "title": "Samsung smart frame qled 4k 85 inch ls03 (qa85ls03bauxsa)",
+    "why": "row is 65\", listing does not say so"
+   }
+  ]
+ },
+ "jarir:hisense-u7s-smart-tv-682071": {
+  "q": "hisense U7S 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-q7d-smart-tv-683682": {
+  "q": "tcl Q7DPRO 75",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 6099,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  }
 }

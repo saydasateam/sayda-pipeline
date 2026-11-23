@@ -1,7 +1,7 @@
 {
  "store": "noon",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T08:39:35.426+03:00",
+ "checkedAt": "2026-11-23T12:45:25.206+03:00",
  "rows": [
   {
    "id": "noon:Z33E7618590057C356494Z",
@@ -440,11 +440,11 @@
    "store": "noon",
    "cat": "المنزل",
    "name": "مكيف سبليت سامسونج WindFree إنفرتر",
-   "price": 1799,
+   "price": 1899,
    "was": 6999,
    "ref": 2099,
    "refKind": "history",
-   "verdict": "ok",
+   "verdict": "warn",
    "finding": "كان ٢٬٠٩٩ · أقل سعر مسجل · «قبل» ٦٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53424690A/p/",
    "avail": "low",
@@ -709,7 +709,7 @@
    "id": "noon:N70211533V",
    "store": "noon",
    "name": "آيفون 17 برو 256 جيجا برتقالي كوزميك (eSIM فقط)",
-   "price": 3699,
+   "price": 3999,
    "was": 5199,
    "ref": 4399,
    "refKind": "history",
@@ -1006,7 +1006,7 @@
    "id": "noon:N39359748A",
    "store": "noon",
    "name": "غسالة إل جي 10.5 كجم مع مجفف 7 كجم WSV1107XMT",
-   "price": 2949,
+   "price": 2999,
    "was": 7199,
    "ref": 3272,
    "refKind": "history",
@@ -1061,7 +1061,7 @@
    "store": "noon",
    "cat": "شاشات",
    "name": "إل جي تلفزيون QNED84 ميني LED مقاس 75 بوصة 2026",
-   "price": 3299,
+   "price": 3099,
    "was": 7756.05,
    "ref": 4999,
    "refKind": "history",
@@ -1510,7 +1510,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70298817V"
    },
    "firstSeen": "2026-11-21",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZC7C295CC2B1E53A4A39DZ/45/_/1779094607/83427033-084f-42f4-b44f-6ff65db85750.jpg?width=400",
    "name_en": "New 2026 MacBook Air MDHH4 | 13 Inch Display | Apple M5 Air | 10-Core CPU 8-Core GPU | 16GB RAM | 512GB SSD"
@@ -1662,7 +1662,7 @@
    "verdict": "warn",
    "finding": "كان ٨٦٢ · سبق ونزل ٧٠٧ · «قبل» ١٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53368801A/p/",
-   "avail": "oos",
+   "avail": "low",
    "ev": {
     "prev": 862.47,
     "min": 707,
@@ -1672,7 +1672,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N53368801A"
    },
    "firstSeen": "2026-11-21",
-   "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z36B7D034A5AC422ED7EFZ/45/_/1779710264/485b7b1f-bd74-41ed-8188-edf13bedcdd4.jpg?width=400",
    "name_en": "GEEPAS Double Door Defrost Refrigerator, Capacity 205 L (7.2 Cu. Ft) Adjustable Thermostat/Tempered Glass"
@@ -1682,7 +1682,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "كوداك كاميرا بيكس برو FZ55 16 ميجابكسل",
-   "price": 534,
+   "price": 514,
    "was": 799,
    "ref": 570,
    "refKind": "history",
@@ -1699,7 +1699,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70126622V"
    },
    "firstSeen": "2026-11-21",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z3D795D8C43E6483364D6Z/45/_/1779094933/68f5566c-0386-442d-93da-78369a4109c1.jpg?width=400",
    "name_en": "Kodak PIXPRO Friendly Zoom FZ55-BK 16MP Digital Camera with 5X Optical Zoom 28mm Wide Angle and 2.7\" LCD"
@@ -1736,7 +1736,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "آبل آيفون 17 برو 256 جيجابايت أزرق داكن",
-   "price": 3899,
+   "price": 4199,
    "was": 5199,
    "ref": 4499,
    "refKind": "history",
@@ -1780,7 +1780,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70105551V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZA34A5D553AD648A36B11Z/45/_/1779095094/5663fcfb-2906-4399-8695-5b352e10c2d5.jpg?width=400",
    "name_en": "Apple iPhone 16 128GB White 5G - Middle East Version"
@@ -2060,7 +2060,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "آيفون 17 برو ماكس 256 جيجابايت أزرق داكن",
-   "price": 4499,
+   "price": 4699,
    "was": 5699,
    "ref": 5449,
    "refKind": "history",
@@ -2148,7 +2148,7 @@
    "verdict": "ok",
    "finding": "كان ١٬٤٩٩ · أقل سعر مسجل · «قبل» ٢٬١٨٣ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70118730V/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 1499,
     "min": 1099,
@@ -2158,7 +2158,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70118730V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 2",
+   "availNote": "",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z73D94F277A35218193C0Z/45/_/1779721059/8e350f2d-69b4-428e-8ab4-6226f4a69bed.jpg?width=400",
    "name_en": "Toshiba Freestanding Dishwasher, 14 Place Settings, 6 Programs, White"
@@ -2790,11 +2790,11 @@
    "cat": "عناية",
    "name": "فرشاة استشوار حرارية 3 في 1 لفرد وتجعيد وتصفيف الشعر، فرشاة تكثيف ورفع الجذور",
    "name_en": "OBelo 3 in 1 Thermal Hair Styling Brush, Hair Straightener and Curler, Root Volumizing Brush, 30mm Barrel, 5 Adjustable Heat Settings, Fast Heating in 20 Seconds, Suitable for All Hair Types",
-   "price": 99,
+   "price": 139,
    "was": 477,
    "ref": 149,
    "refKind": "history",
-   "verdict": "ok",
+   "verdict": "warn",
    "finding": "كان ١٤٩ · أقل سعر مسجل · «قبل» ٤٧٧ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZC6556569F20CFEDFB4DCZ/p/",
    "avail": "low",
@@ -2898,7 +2898,7 @@
    "cat": "أطفال",
    "name": "ماكينة خلط الأطفال فورمولا برو ميني المحمولة تناسب المساحات الصغيرة والسفر للأطفال الرضع",
    "name_en": "Baby Brezza Formula Pro Mini Baby Formula Mixer Machine Fits Small Spaces and is Portable for Travel– Bottle Makers Makes The Perfect Bottle for Your Infant On The Go, White",
-   "price": 385.24,
+   "price": 376,
    "was": 1095,
    "ref": 642,
    "refKind": "history",
@@ -2959,7 +2959,7 @@
    "verdict": "ok",
    "finding": "كان ٥٢٧ · أقل سعر مسجل · «قبل» ٨٧٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N47872655A/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 527.22,
     "min": 396,
@@ -2970,7 +2970,7 @@
    },
    "img": "https://f.nooncdn.com/p/pnsku/N47872655A/45/_/1766744627/515c382b-fbac-4929-885b-195078df78b6.jpg?width=400",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "",
    "lastChecked": "2026-11-23"
   },
   {
@@ -2979,11 +2979,11 @@
    "cat": "أطفال",
    "name": "عربة أطفال للسفر خفيفة الوزن للغاية وصغيرة الحجم وقابلة للطي ومناسبة للوضع داخل المقصورة",
    "name_en": "Moon Compact Cabin Stroller - Dark Grey",
-   "price": 256,
+   "price": 199,
    "was": 574,
    "ref": 303.65,
    "refKind": "history",
-   "verdict": "warn",
+   "verdict": "ok",
    "finding": "كان ٣٠٤ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N43285169A/p/",
    "avail": "in",
@@ -3357,7 +3357,7 @@
    "cat": "رياضة",
    "name": "من السهل تعيين خيمة التخييم قابل للنفخ ، أربعة مواسم عالمية ، ملاذ آمن",
    "name_en": "Pakicetus Super Large Easy Set Inflatable Camping Tent, Four Seasons Universal, Safe Haven",
-   "price": 978,
+   "price": 1000,
    "was": 1299,
    "ref": 1480,
    "refKind": "history",
@@ -3876,7 +3876,7 @@
    "verdict": "ok",
    "finding": "كان ٢٥٨ · أقل سعر مسجل · «قبل» ٥٧٤ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N43285167A/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 258,
     "min": 215,
@@ -3887,7 +3887,7 @@
    },
    "cat": "أطفال",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 1",
+   "availNote": "نون: عاد السعر إلى ٢٥٨ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z8827E2F2329E72D2AFFDZ/45/_/1779704228/cb2268f9-72b2-4a0a-ba83-148dd592c9b9.jpg?width=400"
   },
@@ -4103,7 +4103,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 1",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z3ABFD34FBF1D054C8C14Z/45/_/1779094403/58801784-699d-4032-adfd-4b53a42c8179.jpg?width=400"
   },
@@ -4119,7 +4119,7 @@
    "verdict": "ok",
    "finding": "كان ٤٬١٨٠ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70305459V/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 4180,
     "min": 3549,
@@ -4130,7 +4130,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z724DFCCF8B139ED56FAFZ/45/_/1779094172/8ba3fdab-d7d9-4cea-9206-f997f6772b1b.jpg?width=400"
   },
@@ -4355,7 +4355,7 @@
    "store": "noon",
    "name": "85-inch M70H Mini LED 4K Smart TV, HDR 10+, Motion Xcelerator, Dynamic",
    "name_en": "Samsung 85-inch M70H Mini LED 4K Smart TV, HDR 10+, Motion Xcelerator, Dynamic Sound Pack, Gaming Hub, Pure Spectrum Color, 85M70H (2026- UAE Version) UA85M70HAUXZN black",
-   "price": 4549,
+   "price": 4249,
    "was": 13999,
    "ref": 4999,
    "refKind": "history",
@@ -4706,14 +4706,14 @@
    "store": "noon",
    "name": "ساعة GT 5 Pro الذكية مقاس 46 مم، تصميم حاد الحواف، عمر بطارية يصل إلى 14",
    "name_en": "HUAWEI Watch GT 5 Pro 46mm Smartwatch, Sharp-Edged Design Watch, up to 14 Days Battery Life, Pro-level Sports, Health Tracking, Compatible with iOS and Android Black",
-   "price": 799,
+   "price": 810,
    "was": 1499,
    "ref": 939,
    "refKind": "history",
    "verdict": "ok",
    "finding": "كان ٩٣٩ · «قبل» ١٬٤٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70107720V/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 939,
     "min": 793,
@@ -4724,7 +4724,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 1",
+   "availNote": "",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZF75F6B5F43C9F1D6F17EZ/45/_/1780572397/0634ef2c-85d3-40a7-97b3-ace19559c879.jpg?width=400"
   },
@@ -5118,7 +5118,7 @@
    "verdict": "ok",
    "finding": "كان ١٨٦ · أقل سعر مسجل · «قبل» ٤٥٤ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZC0706089DDFA8AF87C3EZ/p/",
-   "avail": "oos",
+   "avail": "low",
    "ev": {
     "prev": 186,
     "min": 135,
@@ -5129,7 +5129,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZC0706089DDFA8AF87C3EZ/45/_/1787539044/32d57b54-6a7a-4306-a96f-395b74f6ca60.jpg?width=400"
   },
@@ -5345,7 +5345,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 1",
+   "availNote": "نون: متبقي 2",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZC68761B5B4139D7B8931Z/45/1768400347/9582f8e0-d6fa-4543-9090-44b5385f20fb.jpg?width=400"
   },
@@ -5442,7 +5442,7 @@
    "verdict": "warn",
    "finding": "كان ٢٤٦ · أقل سعر مسجل · «قبل» ٨٠٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZCC40E43EA95554A0AA1FZ/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 246.25,
     "min": 223.42,
@@ -5452,7 +5452,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-ZCC40E43EA95554A0AA1FZ"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: عاد السعر إلى ٢٤٦ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZCC40E43EA95554A0AA1FZ/45/_/1783673172/4993bbfb-e39b-4301-a75e-9c8c1c16a6de.jpg?width=400",
    "name_en": "Adidas 3.4 Match Black Padel Racket"
@@ -5469,7 +5469,7 @@
    "verdict": "ok",
    "finding": "كان ١٥٠ · أقل سعر مسجل · «قبل» ٦٧٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZD3651A2E1FFF832E6DD5Z/p/",
-   "avail": "low",
+   "avail": "oos",
    "ev": {
     "prev": 150.1,
     "min": 133.02,
@@ -5479,7 +5479,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-ZD3651A2E1FFF832E6DD5Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 1",
+   "availNote": "نون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZD3651A2E1FFF832E6DD5Z/45/_/1779465316/01e3db44-2eef-490e-97e1-5feb93188b1a.jpg?width=400",
    "name_en": "YONEX NANORAY 72 Light Badminton Racquet |5U G4|NANOMETRIC|X-FULLERENE |AERO+Box Frame|Isometric|Solid Feel"
@@ -5496,7 +5496,7 @@
    "verdict": "warn",
    "finding": "كان ١١١ · أقل سعر مسجل · «قبل» ٤٢٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z02B59BEDFF87733A4E34Z/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 111,
     "min": 105.09,
@@ -5506,7 +5506,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z02B59BEDFF87733A4E34Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: عاد السعر إلى ١١١ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z02B59BEDFF87733A4E34Z/45/1757786282/5a32da0b-37cb-49f1-81b8-e3032cb78726.jpg?width=400",
    "name_en": "Adidas 10mm Thick Fitness Mat with Carry Strap Non-Slip Cushion for Yoga & Floor Training Black"
@@ -5523,7 +5523,7 @@
    "verdict": "warn",
    "finding": "كان ٢٬٢٨٩ · سبق ونزل ١٬٨٩٩ · «قبل» ٢٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70091704V/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 2289,
     "min": 1899,
@@ -5533,7 +5533,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70091704V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: عاد السعر إلى ٢٬٢٨٩ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZA4E22007422BBCADBF98Z/45/_/1780306488/03eca7d6-bc6d-4431-8cfb-5d6f2b69bbb7.jpg?width=400",
    "name_en": "InnJoo Gaming PC GD01 With Core i5-11400F Processor/16GB RAM/1TB SSD/NVIDIA GeForce GTX 1650 4GB"
@@ -5543,7 +5543,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "كاميرا سيارة DDPAI Z90 Pro ثنائية 4K | مستشعر Sony STARVIS 2 IMX678 | GPS مدمج | WiFi 5GH",
-   "price": 619,
+   "price": 599,
    "was": 1299,
    "ref": 735,
    "refKind": "history",
@@ -5604,7 +5604,7 @@
    "verdict": "warn",
    "finding": "كان ١٬٠٨٩ · سبق ونزل ٧٨٩ · «قبل» ١٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70108282V/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 1089,
     "min": 789,
@@ -5614,7 +5614,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70108282V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: عاد السعر إلى ١٬٠٨٩ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZCBC9FB0B5942692E752DZ/45/_/1780306048/7bfa4c5e-f957-4fef-8db4-32ecf5ae3188.jpg?width=400",
    "name_en": "InnJoo S6 AI Laptop With 14.1 Inch Display, Core i5-1030G7 Processor/8GB RAM/256GB SSD/Windows 11/"
@@ -5658,7 +5658,7 @@
    "verdict": "warn",
    "finding": "كان ٤٠٩ · أقل سعر مسجل · «قبل» ٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z3B2097ECEDCC58668117Z/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 408.99,
     "min": 369,
@@ -5668,7 +5668,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z3B2097ECEDCC58668117Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: عاد السعر إلى ٤٩٩ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z3B2097ECEDCC58668117Z/45/_/1795163959/a2fb5490-3eef-4d4c-b9e2-a8260ef0a530.jpg?width=400",
    "name_en": "DDPAI N5 Dual 4K Front & 1080P Rear Dash Cam with GPS, Wi-Fi, Night Vision"
@@ -5712,7 +5712,7 @@
    "verdict": "warn",
    "finding": "كان ٢٧٨ · أقل سعر مسجل · «قبل» ٨٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZB4D30C5C24B0C8CC8B55Z/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 278,
     "min": 263.12,
@@ -5722,7 +5722,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-ZB4D30C5C24B0C8CC8B55Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: عاد السعر إلى ٢٧٨ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZB4D30C5C24B0C8CC8B55Z/45/1764839623/fde8c670-ab61-4a9d-945e-407b2b2c9f56.jpg?width=400",
    "name_en": "WAPIK Korean Brand ST50 GPS Smartwatch with Built-in Dual Satellite Positioning, AMOLED Display"
@@ -5766,7 +5766,7 @@
    "verdict": "warn",
    "finding": "كان ٢٤٢ · أقل سعر مسجل · «قبل» ٨٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z104AF9DDA19C5D05BB90Z/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 242,
     "min": 229.08,
@@ -5776,7 +5776,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z104AF9DDA19C5D05BB90Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: عاد السعر إلى ٢٤٢ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z104AF9DDA19C5D05BB90Z/45/1764839898/d76ec0f4-665a-4ed9-9022-8cd78054934f.jpg?width=400",
    "name_en": "WAPIK Smart Watch for Men, Y7 with 1.43-Inch AMOLED Display, Bluetooth Calling, 3ATM Water Resistance"
@@ -5847,7 +5847,7 @@
    "verdict": "warn",
    "finding": "كان ٤٬٣٨٩ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70105592V/p/",
-   "avail": "in",
+   "avail": "ended",
    "ev": {
     "prev": 4389,
     "min": 4149,
@@ -5858,7 +5858,7 @@
    },
    "firstSeen": "2026-11-23",
    "name_en": "Apple iPhone 16 Pro Max 256GB Desert Titanium 5G - Middle East Version",
-   "availNote": "",
+   "availNote": "نون: عاد السعر إلى ٤٬٣٨٩ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z613A3653E5E4568EBA42Z/45/_/1779199499/06c61bfb-7bcb-4241-9d29-9ccdda873444.jpg?width=400"
   },
@@ -5948,7 +5948,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "ساعة ذكية للرجال Y6 بشاشة AMOLED دائرية مقاس 1.43 بوصة ودقة 466 × 466 ومكالمات بلوتوث ومقا",
-   "price": 130.3,
+   "price": 137,
    "was": 610,
    "ref": 159,
    "refKind": "history",
@@ -5982,7 +5982,7 @@
    "verdict": "warn",
    "finding": "كان ١٥٥ · أقل سعر مسجل · «قبل» ٦٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z2EE662987AC6F349E3BFZ/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 155,
     "min": 143.92,
@@ -5993,7 +5993,7 @@
    },
    "firstSeen": "2026-11-23",
    "name_en": "WAPIK Smart Watch for Women with Bluetooth Calling, 1.43-Inch AMOLED Screen, Slim Round Design, 2 Straps, Silver",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: عاد السعر إلى ١٥٥ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z2EE662987AC6F349E3BFZ/45/1764840595/0d22b3d3-fe0d-4123-a162-dc98da303fb5.jpg?width=400"
   },
@@ -6090,7 +6090,7 @@
    "verdict": "warn",
    "finding": "كان ١٣٤ · أقل سعر مسجل · «قبل» ٥٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZC7D03D68B3D12F5ABC61Z/p/",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 134,
     "min": 126.89,
@@ -6101,7 +6101,7 @@
    },
    "firstSeen": "2026-11-23",
    "name_en": "WAPIK Smart Watch for Men, Y5 (New Version) with Bluetooth Calling, 1.46-Inch Round TFT Display, IP68 Water Resistant, Black",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: عاد السعر إلى ١٣٤ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/ZC7D03D68B3D12F5ABC61Z/45/_/1782020715/070bd30f-a166-4808-bdc7-ced310eaa3a3.jpg?width=400"
   },
@@ -6182,7 +6182,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z4625DF07528C08627081Z"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "نون: متبقي 1",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z4625DF07528C08627081Z/45/_/1790588555/2b9886fa-30ed-484e-a3b3-77beae1b6d53.jpg?width=400"
   },
@@ -6226,7 +6226,7 @@
    "verdict": "warn",
    "finding": "كان ١٬٣٢٩ · سبق ونزل ٨٩٩ · «قبل» ١٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53401519A/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 1329,
     "min": 899,
@@ -6236,7 +6236,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N53401519A"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "نون: متبقي 3",
+   "availNote": "",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z1ED223E342FB3A544219Z/45/_/1779791888/cf473e3d-5110-4d0d-a1f6-20e48e6f7ffc.jpg?width=400"
   },
@@ -6374,6 +6374,276 @@
    "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-23",
    "img": "https://f.nooncdn.com/p/pzsku/Z73290DB8F0DE35393F80Z/45/_/1778747821/8d698c5a-9f86-4f25-a20f-377877dd7b63.jpg?width=400"
+  },
+  {
+   "id": "noon:N70045063V",
+   "store": "noon",
+   "cat": "عناية",
+   "name": "فرشاة تصفيف الشعر باللون الوردي",
+   "price": 149,
+   "was": 462,
+   "ref": 166.25,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ١٦٦ · «قبل» ٤٦٢ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/N70045063V/p/",
+   "avail": "in",
+   "ev": {
+    "prev": 166.25,
+    "min": 144,
+    "max": 195,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-N70045063V"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pnsku/N70045063V/45/_/1707393696/f7ee1458-0f00-4c55-9aa2-c831bcf11d64.jpg?width=400",
+   "name_en": "LaBelle Brush 2-in-1 Hair Dryer & Styler – Pink Pink"
+  },
+  {
+   "id": "noon:ZA4D433CFB69C399DEAEDZ",
+   "store": "noon",
+   "cat": "أطفال",
+   "name": "حقيبة هدايا للأطفال مكونة من 18 قطعة - ملابس أطفال قطنية 100%، قبعة، جوارب، لعبة، بطانية، ",
+   "price": 251.1,
+   "was": 560,
+   "ref": 270,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٢٧٠ · أقل سعر مسجل · «قبل» ٥٦٠ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/ZA4D433CFB69C399DEAEDZ/p/",
+   "avail": "low",
+   "ev": {
+    "prev": 270,
+    "min": 251.1,
+    "max": 270,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-ZA4D433CFB69C399DEAEDZ"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/ZA4D433CFB69C399DEAEDZ/45/_/1773610846/fc8eb614-d909-4403-a46e-e6b9d9a3aa9a.jpg?width=400",
+   "name_en": "KOYIS 18 PCS Baby Gift Set Suitcase-100% Cotton Baby Clothes, Hat, Socks, Toy, Blanket & Newborn Essentials"
+  },
+  {
+   "id": "noon:Z315F3CACEF4FA63D5C3CZ",
+   "store": "noon",
+   "cat": "رياضة",
+   "name": "سكوتر كهربائي قابل للطي للبالغين، محرك بقوة 1200 واط، سرعة قصوى 55 كم/ساعة، مدى يصل إلى 65",
+   "price": 1633.97,
+   "was": 1999,
+   "ref": 1739,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ١٬٧٣٩ · أقل سعر مسجل · «قبل» ١٬٩٩٩ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/Z315F3CACEF4FA63D5C3CZ/p/",
+   "avail": "low",
+   "ev": {
+    "prev": 1739,
+    "min": 1634,
+    "max": 1799,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-Z315F3CACEF4FA63D5C3CZ"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/Z315F3CACEF4FA63D5C3CZ/45/_/1794883239/450aaf0b-0309-4f5c-8ff7-cdf271853e2d.jpg?width=400",
+   "name_en": "EoEoTwo Foldable Electric Scooter for Adults, 1200W Motor, 55KM/H Top Speed, 65KM Max Range, 10-Inch Tires"
+  },
+  {
+   "id": "noon:Z697F6F4BF0B64CC5EBFDZ",
+   "store": "noon",
+   "cat": "إلكترونيات",
+   "name": "Heston 60 TV Soundbar مع Dolby Atmos - صوت غامر للأفلام والموسيقى / باسات قوية / أوضاع صوت",
+   "price": 2949.84,
+   "was": 3319,
+   "ref": 3319,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٣٬٣١٩ · سبق ونزل ٢٬٥٦٩",
+   "url": "https://www.noon.com/saudi-ar/Z697F6F4BF0B64CC5EBFDZ/p/",
+   "avail": "low",
+   "ev": {
+    "prev": 3319,
+    "min": 2569,
+    "max": 3319,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-Z697F6F4BF0B64CC5EBFDZ"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "نون: متبقي 1",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/Z697F6F4BF0B64CC5EBFDZ/45/1765008104/5188e2be-d0a1-4322-9032-7bb3622420e9.jpg?width=400",
+   "name_en": "Marshall Heston 60 TV Soundbar with Dolby Atoms - Immersive Sound for Movies and Music / Powerful Bass /"
+  },
+  {
+   "id": "noon:N70211505V",
+   "store": "noon",
+   "cat": "إلكترونيات",
+   "name": "آيفون إير 256 جيجابايت أزرق سماوي 5G (eSim فقط) مع فيس تايم - نسخة الشرق الأوسط",
+   "price": 3002.05,
+   "was": 4699,
+   "ref": 3181,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٣٬١٨١ · أقل سعر مسجل · «قبل» ٤٬٦٩٩ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/N70211505V/p/",
+   "avail": "low",
+   "ev": {
+    "prev": 3181,
+    "min": 3002,
+    "max": 3699,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-N70211505V"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "نون: متبقي 3",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/ZE7DD9F259B31CED7652FZ/45/_/1779094559/2f19938d-1c33-4f7e-904f-707f2aec0fc7.jpg?width=400",
+   "name_en": "Apple iPhone Air 256GB Sky Blue 5G (E-sim only) - Middle East Version"
+  },
+  {
+   "id": "noon:N39451854V",
+   "store": "noon",
+   "cat": "أزياء",
+   "name": "لباس من قطعة واحدة على شكل أحادي القرن متعدد الألوان",
+   "price": 78.95,
+   "was": 360,
+   "ref": 143,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ١٤٣",
+   "url": "https://www.noon.com/saudi-ar/N39451854V/p/",
+   "avail": "in",
+   "ev": {
+    "prev": 143,
+    "min": 75.85,
+    "max": 477.06,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-N39451854V"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/v1596457992/N39451854V_1.jpg?width=400",
+   "name_en": "Joychic Unicorn Onesie Multicolour"
+  },
+  {
+   "id": "noon:ZD2D52CA59BA2A536406FZ",
+   "store": "noon",
+   "cat": "إلكترونيات",
+   "name": "مشغل أسطوانات فينيل - جرامافون كلاسيكي - فونوغراف LP - تصميم حقيبة محمولة - مشغل كلاسيكي م",
+   "price": 199,
+   "was": 555,
+   "ref": 212.3,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٢١٢ · أقل سعر مسجل · «قبل» ٥٥٥ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/ZD2D52CA59BA2A536406FZ/p/",
+   "avail": "in",
+   "ev": {
+    "prev": 212.3,
+    "min": 199,
+    "max": 225,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-ZD2D52CA59BA2A536406FZ"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/ZD2D52CA59BA2A536406FZ/45/1762328723/347c3d49-dbe8-43b8-8b52-655469ff8cea.jpg?width=400",
+   "name_en": "Mi VAZA Vinyl Record Player - Retro Gramophone - LP Phonograph - Portable Suitcase Design"
+  },
+  {
+   "id": "noon:N70109486V",
+   "store": "noon",
+   "cat": "المنزل",
+   "name": "TEFAL Intuition طقم 6 قطع | قدر 16 سم مع غطاء، قدور طبخ 20/24 سم مع أغطية | ستانلس ستيل مم",
+   "price": 199.12,
+   "was": 549,
+   "ref": 210.65,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٢١١ · أقل سعر مسجل · «قبل» ٥٤٩ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/N70109486V/p/",
+   "avail": "in",
+   "ev": {
+    "prev": 210.65,
+    "min": 199.12,
+    "max": 309,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-N70109486V"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/Z65A385587CFE6868984AZ/45/_/1779706090/ef5024c4-cf10-4172-b5bf-6b8b0417ef12.jpg?width=400",
+   "name_en": "TEFAL Intuition 6 Piece Cookware set | saucepan 16 cm+lid, stewpots 20/24 cm+lids"
+  },
+  {
+   "id": "noon:ZAC6331B35F2A4A6F35E8Z",
+   "store": "noon",
+   "cat": "رياضة",
+   "name": "أحذية تزلج للأطفال بأربع عجلات مع أضواء LED | قابلة للشحن ومريحة | تزلج آمن ومتوازن للأولا",
+   "price": 118.95,
+   "was": 399,
+   "ref": 129,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ١٢٩ · سبق ونزل ١١٣ · «قبل» ٣٩٩ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/ZAC6331B35F2A4A6F35E8Z/p/",
+   "avail": "low",
+   "ev": {
+    "prev": 129,
+    "min": 112.95,
+    "max": 129,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-ZAC6331B35F2A4A6F35E8Z"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "نون: متبقي 1",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/ZAC6331B35F2A4A6F35E8Z/45/1756953549/873970ad-3a30-4be5-8caa-8db653d38344.jpg?width=400",
+   "name_en": "Hompenny Kids 4-Wheel Roller Skates Shoes with LED Lights | Rechargeable & Comfortable Sneakers"
+  },
+  {
+   "id": "noon:Z7B9A828BD8EC1C17E412Z",
+   "store": "noon",
+   "cat": "أزياء",
+   "name": "فستان باكتاف مكشوفة",
+   "price": 94,
+   "was": 470,
+   "ref": 103,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ١٠٣ · أقل سعر مسجل · «قبل» ٤٧٠ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/Z7B9A828BD8EC1C17E412Z/p/",
+   "avail": "in",
+   "ev": {
+    "prev": 103,
+    "min": 94,
+    "max": 188,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-Z7B9A828BD8EC1C17E412Z"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://f.nooncdn.com/p/pzsku/Z7B9A828BD8EC1C17E412Z/45/1746429209/ea2d12b0-9525-45c8-80f9-584de0c17b82.jpg?width=400",
+   "name_en": "Ella Limited Edition Tulle Off Shoulder Dress"
   }
  ]
 }
