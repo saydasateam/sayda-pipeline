@@ -22,8 +22,8 @@
 <meta property="og:image:alt" content="صيدة: الخصم الحقيقي فقط">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://saydadeals.com/og.jpg?v=2">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;700&display=swap">
+<!-- BLD-10 (SEC-F11): the fonts are served from saydadeals.com (/fonts/, site repo), so opening the page contacts no Google server -->
+<link rel="stylesheet" href="/fonts/sayda-fonts.css">
 <style>
 :root{--bg:{{TH_BG}};--surface:#FFFFFF;--ink:{{TH_INK}};--muted:{{TH_MUTED}};--line:{{TH_LINE}};--accent:{{TH_ACCENT}};--accent-soft:{{TH_ACCENT_SOFT}};--ok:#047857;--ok-soft:#E3F3EC;--gold:#9A6512;--gold-soft:#F6EBD6;--red:#B42318;--red-soft:#FBE7E4;--chip:{{TH_CHIP}}}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:{{TH_BG_DARK}};--surface:{{TH_SURFACE_DARK}};--ink:{{TH_INK_DARK}};--muted:{{TH_MUTED_DARK}};--line:{{TH_LINE_DARK}};--accent:{{TH_ACCENT_DARK}};--accent-soft:{{TH_ACCENT_SOFT_DARK}};--ok:#4FC596;--ok-soft:#173A2B;--gold:#E0AA55;--gold-soft:#3A2D16;--red:#F07A6E;--red-soft:#3D1D1A;--chip:{{TH_CHIP_DARK}}}}
@@ -429,6 +429,8 @@ a.panel:focus-visible{outline:2px solid #34D399;outline-offset:2px}
 .buy{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;background:var(--accent);color:var(--surface);font-weight:700;font-size:14px;text-decoration:none;border-radius:12px;min-height:44px;padding:0 12px;box-sizing:border-box}
 .code{flex:none;max-width:48%;font:inherit;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:7px;border:1.5px dashed var(--muted);background:var(--surface);color:var(--ink);border-radius:12px;min-height:44px;padding:0 12px;cursor:pointer;white-space:nowrap;overflow:hidden}
 .code.done{border-style:solid;border-color:var(--ok);color:var(--ok)}
+/* BLD-31: a code inside a travel or car card's meta line stays a small inline chip (the big .code box is for coupon and product cards) */
+.tcard .meta .code.tcode{display:inline;min-height:0;max-width:none;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:inherit;font-weight:700;letter-spacing:.04em;background:var(--chip);border:1px dashed var(--line);border-radius:6px;padding:1px 8px;color:var(--ink);cursor:pointer}
 .code svg{flex:none;color:var(--muted)}
 .clinks{display:flex;align-items:center;flex-wrap:wrap;gap:2px 16px;margin-top:-3px}
 .clinks button,.clinks a{font:inherit;font-size:13px;font-weight:500;background:none;border:0;padding:0;min-height:32px;color:var(--muted);cursor:pointer;display:inline-flex;align-items:center;gap:5px;text-decoration:none}
@@ -523,7 +525,7 @@ a.panel:focus-visible,.hero a:focus-visible{outline:2px solid #FCD34D;outline-of
 .countb span:last-child b{color:#FCD34D}
 .panels{gap:8px}
 .panels.p4{grid-template-columns:repeat(4,minmax(0,1fr))}
-#subs{scroll-margin-top:calc(var(--toph,0px) + 8px)}
+#subs,#coupons,#travel,#cars{scroll-margin-top:calc(var(--toph,0px) + 8px)}  /* BLD-30: the three older panels land below the sticky header too */
 @media (min-width:761px) and (max-width:1100px){.panels.p4{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .panel{min-height:0;padding:6px 12px 6px 8px;border-radius:9999px;gap:8px;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
 [dir="rtl"] .panel{padding:6px 8px 6px 12px}
@@ -692,7 +694,10 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 .wahd{display:none;color:#fff;background:#178A4C;border-color:#178A4C;text-decoration:none}
 .wahd:hover{background:#127540;border-color:#127540}
 @media (min-width:1024px){.wahd{display:inline-flex}}
-@media (min-width:1024px) and (max-width:1199px){.wahd .hl{display:none}}
+/* BLD-35: on desktop the header WhatsApp button is icon only (its aria-label and title keep the words), so the search box keeps room
+   for its placeholder; from 1200 px the full label squeezed the box to 128 px. The strip above the products carries the full call. */
+@media (min-width:1024px){.wahd .hl{display:none}}
+@media (min-width:1024px) and (max-width:1099px){.brand .tag{display:none}}  /* BLD-35: the narrowest desktop width needs the tagline's room too */
 .wafol{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-top:28px;max-width:80ch;box-sizing:border-box}
 .wafol h2{margin:0 0 4px;font-size:18px}
 .wafol p{margin:0;color:var(--muted);font-size:14px}
@@ -917,8 +922,11 @@ const isLow=d=>d.rk!=='m'&&d.ev&&d.ev.mn!=null&&d.p<=d.ev.mn*1.01;
 // saved, with a small lift at the lowest recorded price. Rows with no reference come after every verified row.
 // diversify() then allows at most two cards in a row from one store or one chip, and only ever swaps cards of the
 // same tier, so an unverified or unavailable card can never rise above a verified one.
-const VAL=d=>{if(d.real==null||d.real<=0||d.v==='bad')return -1e9+(d.claim||0);return (d.v==='ok'?1:0.55)*d.real*Math.log10(10+(d.r-d.p))*(isLow(d)?1.15:1);};
-const TIER=d=>(UN(d)?2:0)+(VAL(d)<=-1e8?1:0);
+// BLD-26: the score is lib/value.js, written in by build.js; the same text orders the ticker and the category cards
+{{VALUE_JS}}
+const VX=d=>({real:d.real,ok:d.v==='ok',bad:d.v==='bad',ref:d.r,price:d.p,claim:d.claim,low:isLow(d),dead:UN(d)});
+const VAL=d=>VALUE.val(VX(d));
+const TIER=d=>VALUE.tier(VX(d));
 const diversify=l=>{const out=[],pool=l.slice();while(pool.length){let i=0;const n=out.length;if(n>=2){const a=out[n-1],b=out[n-2],t=TIER(pool[0]);const j=pool.findIndex(r=>TIER(r)===t&&!(r.s===a.s&&r.s===b.s)&&!(r.c===a.c&&r.c===b.c));if(j>0)i=j;}out.push(pool.splice(i,1)[0]);}return out;};
 const SORTS={
  default:(a,b)=>(UN(a)-UN(b))||VAL(b)-VAL(a),
@@ -1060,7 +1068,7 @@ function render(){
     const fv=c.querySelector('.fav');if(fv)fv.addEventListener('click',()=>toggleFav(d,fv));
     rows.appendChild(c);
   });
-  if(!list.length){const tr=document.createElement('div');tr.className='empty';tr.innerHTML=(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" onclick="setF(\'a\',\'all\')">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.');rows.appendChild(tr);}
+  if(!list.length){const tr=document.createElement('div');tr.className='empty';tr.innerHTML=(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" data-act="show-all">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.');rows.appendChild(tr);}
   const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||F.lo||F.fv||F.wl||SORT!=='default';
   syncChips();syncHead();syncKat();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
@@ -1181,6 +1189,8 @@ document.getElementById('walletbtn').addEventListener('click',()=>{
  c.innerHTML=WALLET.map(w=>`<button type="button" data-w="${esc(w.id)}" aria-pressed="${WAL.has(w.id)}">${esc(w.l)}</button>`).join('');
  c.addEventListener('click',e=>{const b=e.target.closest('button[data-w]');if(!b)return;const id=b.dataset.w;
   if(WAL.has(id))WAL.delete(id);else WAL.add(id);b.setAttribute('aria-pressed',String(WAL.has(id)));LS.set('sayda.wallet',[...WAL]);if(!WAL.size)F.wl=false;render();});})();
+// BLD-8: no inline event handlers (the Content-Security-Policy allows only the page's own script); one delegated listener instead
+document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-act="show-all"]'))setF('a','all');});
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.code');if(!b)return;const t=b.dataset.code,done=()=>{b.classList.add('done');toast('نُسخ الكود '+t);setTimeout(()=>b.classList.remove('done'),1600);};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});else{const i=document.createElement('textarea');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');done();}catch(_){}i.remove();}});
 // Countdown to the end of the campaign's last day in Riyadh. The date is config/campaign.json's campaignEnd.
@@ -1230,11 +1240,11 @@ const arD=d=>new Date(d+'T12:00:00Z').toLocaleDateString('ar-SA-u-ca-gregory-nu-
 const st=t=>t[7]==='pending'?['pend','بانتظار النشر']:(t[4]&&now<t[4])?['soon','يبدأ '+arD(t[4])]:(t[5]&&now>t[5])?['end','انتهى']:['on',t[5]?'متاح حتى '+arD(t[5]):'متاح'];
 const rank={on:0,soon:1,pend:2,end:3};
 const list=T.map(t=>({t,s:st(t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]);
-document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(t[0])}<span class="ty">${esc(t[1])}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(t[2])}»</div><span class="tv ${esc(t[7])}">${VT[t[7]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(t[8])}</div><div class="meta">${t[3]?`الكود: <span class="code" data-code="${esc(t[3])}" title="انسخ">${esc(t[3])}</span> · `:'بدون كود · '}${esc(t[6])} · فُحص ${arD(t[10])}</div><a class="go" href="${esc(t[9])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
+document.getElementById('tcards').innerHTML=list.map(({t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(t[0])}<span class="ty">${esc(t[1])}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(t[2])}»</div><span class="tv ${esc(t[7])}">${VT[t[7]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(t[8])}</div><div class="meta">${t[3]?`الكود: <button type="button" class="code tcode" data-code="${esc(t[3])}" aria-label="انسخ الكود ${esc(t[3])}">${esc(t[3])}</button> · `:'بدون كود · '}${esc(t[6])} · فُحص ${arD(t[10])}</div><a class="go" href="${esc(t[9])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
 +TNO.map(t=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(t[0])}<span class="ty">${esc(t[1])}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا موقع الشركة الرسمي ولم نجد صفحة عرض أو كود خصم {{CAMPAIGN_FOR_AR}}${t[2]?' · فُحص '+arD(t[2]):''}</div></article>`).join('');
 const tn=document.getElementById('tnone');tn.textContent=TNONE;tn.hidden=!TNONE;
 // car offers reuse the travel card, status and verdict logic; t is remapped to the travel positions
-document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}${c[2]?' · '+esc(c[2]):''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(c[3])}»</div><span class="tv ${esc(c[8])}">${VT[c[8]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(c[9])}</div><div class="meta">${c[4]?`الكود: <span class="code" data-code="${esc(c[4])}" title="انسخ">${esc(c[4])}</span> · `:''}${esc(c[7])} · فُحص ${arD(c[11])}</div><a class="go" href="${esc(c[10])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
+document.getElementById('crcards').innerHTML=CR.map(c=>({c,t:[c[0],c[1],c[3],c[4],c[5],c[6],c[7],c[8],c[9],c[10],c[11]]})).map(o=>({...o,s:st(o.t)})).sort((a,b)=>rank[a.s[0]]-rank[b.s[0]]).map(({c,t,s})=>`<article class="tcard ${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}${c[2]?' · '+esc(c[2]):''}</span></span><span class="tst ${s[0]}">${s[1]}</span></div><div class="hl">«${esc(c[3])}»</div><span class="tv ${esc(c[8])}">${VT[c[8]]||''}</span><div class="real"><b>ماذا تقول الشروط:</b> ${esc(c[9])}</div><div class="meta">${c[4]?`الكود: <button type="button" class="code tcode" data-code="${esc(c[4])}" aria-label="انسخ الكود ${esc(c[4])}">${esc(c[4])}</button> · `:''}${esc(c[7])} · فُحص ${arD(c[11])}</div><a class="go" href="${esc(c[10])}" target="_blank" rel="noopener">صفحة العرض الرسمية ←</a></article>`).join('')
 +CRNO.map(c=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(c[0])}<span class="ty">${esc(c[1])}</span></span><span class="tst end">لا يوجد عرض</span></div><div class="hl">لم نجد عرضاً {{CAMPAIGN_FOR_SHORT_AR}}</div><div class="meta">فحصنا الموقع الرسمي ولم نجد صفحة عرض {{CAMPAIGN_FOR_AR}}${c[2]?' · فُحص '+arD(c[2]):''}</div></article>`).join('');
 // app subscription offers (BLD-27): the travel card, status and verdict again. No price here is measured against a record, so the card prints no percentage of ours.
 (()=>{const box=document.getElementById('sbcards');if(!box||!SB.length)return;
@@ -1287,7 +1297,7 @@ b.disabled=false;});})();
    const kind=a.matches('.buy,.cname,.cimg')?'product':a.matches('.go')?'offer':'reference';
    push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
   const b=t.closest('button.code,button.cpy');
-  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':'coupons'});return;}
+  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':offer&&offer.closest('#cars')?'cars':offer&&offer.closest('#travel')?'travel':'coupons'});return;}
   if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
   else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();

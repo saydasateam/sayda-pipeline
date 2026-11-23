@@ -18,8 +18,8 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://saydadeals.com/og.jpg?v=2">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Readex+Pro:wght@500;700&display=swap">
+<!-- BLD-10 (SEC-F11): the fonts are served from saydadeals.com (/fonts/, site repo), so opening the page contacts no Google server -->
+<link rel="stylesheet" href="/fonts/sayda-fonts.css">
 <style>
 {{CSS}}
 /* English page only */
@@ -27,6 +27,8 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 .totop{inset-inline-end:auto;inset-inline-start:16px}
 /* The filter bar is the Arabic page's: its rules come from the shared stylesheet above. Only the label column is wider, for English words. */
 .flabel{flex-basis:96px}
+/* BLD-35: the English placeholder is longer than the Arabic one; 15px on desktop lets it show whole (iOS zoom only matters below 1024px) */
+@media (min-width:1024px){.search input{font-size:15px}}
 @media (max-width:760px){.flabel{flex:none}}
 .hero h1{font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-weight:800;letter-spacing:-.02em}
 @media (min-width:600px){.hero h1{font-size:clamp(24px,3.6vw,38px);line-height:1.2}}
@@ -139,6 +141,9 @@ let toastEl,toastT;function toast(m){if(!toastEl){toastEl=document.createElement
 function syncHead(){$('favn').textContent=fmt(E.filter(d=>FAV.has(d.id)).length);$('favbtn').setAttribute('aria-pressed',String(FV));$('walletbtn').hidden=!WALLET.length;$('walletn').textContent=fmt(WAL.size);$('walletbtn').setAttribute('aria-pressed',String(WL));}
 function toggleFav(d,b){if(FAV.has(d.id)){FAV.delete(d.id);toast('Removed from saved');}else{FAV.add(d.id);toast('Saved in this browser');}LS.set('sayda.fav',[...FAV]);
   if(FV){if(!E.some(x=>FAV.has(x.id)))FV=false;render();}else{const on=FAV.has(d.id);b.setAttribute('aria-pressed',String(on));b.querySelector('span').textContent=on?'Saved':'Save';syncHead();}}
+// BLD-13 (23 Nov 2026): next to our measured discount the English pill uses a shorter label, so label and percentage fit on the
+// header line at 390 and 1280 px instead of wrapping to a second line. The full label stays in the pill's title.
+const SHORT={'✓ Lowest recorded':'✓ Record low','✓ Confirmed discount':'✓ Confirmed','✓ Cheaper than another store':'✓ Beats another store'};
 const VL={ok:'✓ Confirmed discount',warn:'Smaller than advertised',bad:'Dearer or no saving',na:'No price record'},OKM='✓ Cheaper than another store';
 const BL={c:'Cheaper elsewhere',r:'Price went up',n:'No real saving'};
 const AL={in:'In stock',low:'Low stock',oos:'Out of stock',ended:'Offer ended',gone:'Link broken'};
@@ -154,15 +159,18 @@ function evidence(d){const f=[],row=(k,v)=>f.push(`<div class="f"><span class="k
   if(d.lc)row('Last checked',new Date(d.lc+'T12:00:00+03:00').toLocaleDateString('en-GB',{day:'numeric',month:'long',timeZone:'Asia/Riyadh'}));
   const ref=d.ru||(d.ev&&d.ev.u)||'';
   if(ref)row('Reference page',`<a href="${esc(ref)}" target="_blank" rel="noopener">The compared product ↗</a>`);else if(d.rk!=='m'&&d.r!=null)row('Reference source','A public price record: the previous price before the sale');else row('Reference page','<span class="claim">No openable source for this deal</span>');
-  return `<div class="evgrid">${f.join('')}</div><p class="evnote">${esc(d.f)}</p><p class="evrule">The verdict follows the published rule: <a href="#verdict-rule" onclick="document.getElementById('evdlg').close()">how we work out the real discount</a>.</p>`;}
+  return `<div class="evgrid">${f.join('')}</div><p class="evnote">${esc(d.f)}</p><p class="evrule">The verdict follows the published rule: <a href="#verdict-rule" data-close-dlg>how we work out the real discount</a>.</p>`;}
 // (22 Nov 2026, Mahmoud approved) The default order is a VALUE score, not the discount % alone. By % alone the first
 // 30 cards were 29 Amazon items (median 207 SAR, 11 of them «smaller than advertised») and the TVs and phones people
 // come for sat far below. Confirmed before smaller-than-advertised; within that, the real % weighted by the riyals
 // saved, with a small lift at the lowest recorded price. Rows with no reference come after every verified row.
 // diversify() then allows at most two cards in a row from one store or one chip, and only ever swaps cards of the
 // same tier, so an unverified or unavailable card can never rise above a verified one.
-const VAL=d=>{if(d.real==null||d.real<=0||d.v==='bad')return -1e9+(d.claim||0);return (d.v==='ok'?1:0.55)*d.real*Math.log10(10+(d.r-d.p))*(isLow(d)?1.15:1);};
-const TIER=d=>(UN(d)?2:0)+(VAL(d)<=-1e8?1:0);
+// BLD-26: the score is lib/value.js, written in by build.js; the same text orders the ticker and the category cards
+{{VALUE_JS}}
+const VX=d=>({real:d.real,ok:d.v==='ok',bad:d.v==='bad',ref:d.r,price:d.p,claim:d.claim,low:isLow(d),dead:UN(d)});
+const VAL=d=>VALUE.val(VX(d));
+const TIER=d=>VALUE.tier(VX(d));
 const diversify=l=>{const out=[],pool=l.slice();while(pool.length){let i=0;const n=out.length;if(n>=2){const a=out[n-1],b=out[n-2],t=TIER(pool[0]);const j=pool.findIndex(r=>TIER(r)===t&&!(r.s===a.s&&r.s===b.s)&&!(r.c===a.c&&r.c===b.c));if(j>0)i=j;}out.push(pool.splice(i,1)[0]);}return out;};
 const SORTS={d:(a,b)=>UN(a)-UN(b)||VAL(b)-VAL(a),pct:(a,b)=>(b.real??-999)-(a.real??-999),sav:(a,b)=>((b.r||b.p)-b.p)-((a.r||a.p)-a.p),lo:(a,b)=>a.p-b.p,hi:(a,b)=>b.p-a.p};
 function shareDeal(d){const url=location.origin+location.pathname+'?d='+encodeURIComponent(d.id),saved=d.r!=null?Math.round(d.r-d.p):0;
@@ -196,7 +204,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     const cls=esc(d.real!=null&&d.real<0?'bad':d.v);
     const tag=d.real==null?['na',VL.na]:(d.real<0||d.v==='bad')?['bad',vlabel(d)]:d.v==='warn'?['warn',(!mk&&mn!=null&&mn<d.p*0.99)?'Was cheaper before':VL.warn]:low?['low','✓ Lowest recorded']:['ok',vlabel(d)];
     // Our measured discount beside the verdict (22 Nov 2026): the same d.real as the saving line, never the store's claim.
-    const pct=(d.real!=null&&d.real>0&&tag[0]!=='bad'&&tag[0]!=='na')?`<b class="cseg">${fmt(d.real)}% off</b>`:'';
+    const pct=(d.real!=null&&d.real>0&&tag[0]!=='bad'&&tag[0]!=='na')?`<b class="cseg">−${fmt(d.real)}%</b>`:'';
     const save=d.real==null?'':d.real<0?`<span class="csave bad">${fmt(-saved)} SAR dearer (${fmt(-d.real)}%)</span>`:saved>0?`<span class="csave ${cls}">${mk?'':'Save '}${fmt(saved)} SAR${mk?' cheaper':''} (${fmt(d.real)}%)</span>`:'';
     const claim=d.w&&d.claim>0&&(d.r==null||mk||d.w>d.r*1.05)?`<div class="cclaim">The store advertises ${fmt(d.claim)}% off</div>`:'';
     const refL=mk?(d.rs?'At '+esc(d.rs):'Elsewhere'):'Previously';
@@ -210,7 +218,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     const wh=walletHits(d),pl=x=>x.p?esc(x.p):'an offer at '+esc(d.s)+', read the terms';
     const perk=wh.full.slice(0,3).map(h=>`<a class="cperk" href="#coupon-${h.i}">${esc(h.x.w.map(wlab).join(' + '))}: ${pl(h.x)}</a>`).join('')+(wh.near?`<a class="cperk near" href="#coupon-${wh.near.i}">${wh.full.length?'And with':'With'} ${esc(wlab(wh.near.miss))} too: ${pl(wh.near.x)}</a>`:'');
     const isFav=FAV.has(d.id);
-    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
+    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+', ')+esc(d.an):AL[d.a]}</span><span class="ctag ${tag[0]}" title="${esc(tag[1])}${pct?' · '+esc(fmt(d.real))+'% off':''}">${pct?(SHORT[tag[1]]||tag[1]):tag[1]}${pct}</span></div>`
       +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:''}</a>`
       +`<div class="cinfo">${KAT[d.c]?`<span class="ckat kc${esc(KAT[d.c].k)}">${esc(KAT[d.c].l)}</span>`:''}<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener"${d.ar?' lang="ar"':''}>${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>SAR</small></span>${save}</div>${claim}</div></div>`
       +strip+note+perk
@@ -266,14 +274,14 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   const today=new Date(Date.now()+3*3600e3).toISOString().slice(0,10),enD=d=>new Date(d+'T12:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'long'});
   const ost=o=>o.v==='pending'?['pend','Not published yet']:(o.bs&&today<o.bs)?['soon','Starts '+enD(o.bs)]:(o.be&&today>o.be)?['end','Ended']:['on',o.be?'Until '+enD(o.be):'On now'];
   const rank={on:0,soon:1,pend:2,end:3};
-  const card=o=>{const s=ost(o);return `<article class="tcard ${o.sub?'sbcard ':''}${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(o.company)}<span class="ty">${esc(o.type)}</span></span><span class="tst ${s[0]}">${s[1]}</span></div>${(o.w||[]).length?`<div class="wtags">${o.w.map(w=>`<span class="wtag">${esc(w)}</span>`).join('<span aria-hidden="true">+</span>')}</div>`:''}<div class="hl">“${esc(o.headline)}”</div>${VT[o.v]?`<span class="tv ${esc(o.v)}">${VT[o.v]}</span>`:''}${o.sub&&o.code?`<button type="button" class="code" data-code="${esc(o.code)}" aria-label="Copy the code ${esc(o.code)}">${esc(o.code)}${IC.copy}</button>`:''}<div class="real"><b>What the terms say:</b> ${esc(o.terms)}</div><div class="meta">${o.sub?'':o.code?`Code: <span class="code" data-code="${esc(o.code)}" title="Copy">${esc(o.code)}</span> · `:'No code · '}${o.win?esc(o.win)+' · ':''}checked ${o.ck?enD(o.ck):''}</div><a class="go" href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></article>`;};
+  const card=o=>{const s=ost(o);return `<article class="tcard ${o.sub?'sbcard ':''}${s[0]==='end'?'off':''}"><div class="th"><span class="co">${esc(o.company)}<span class="ty">${esc(o.type)}</span></span><span class="tst ${s[0]}">${s[1]}</span></div>${(o.w||[]).length?`<div class="wtags">${o.w.map(w=>`<span class="wtag">${esc(w)}</span>`).join('<span aria-hidden="true">+</span>')}</div>`:''}<div class="hl">“${esc(o.headline)}”</div>${VT[o.v]?`<span class="tv ${esc(o.v)}">${VT[o.v]}</span>`:''}${o.sub&&o.code?`<button type="button" class="code" data-code="${esc(o.code)}" aria-label="Copy the code ${esc(o.code)}">${esc(o.code)}${IC.copy}</button>`:''}<div class="real"><b>What the terms say:</b> ${esc(o.terms)}</div><div class="meta">${o.sub?'':o.code?`Code: <button type="button" class="code tcode" data-code="${esc(o.code)}" aria-label="Copy the code ${esc(o.code)}">${esc(o.code)}</button> · `:'No code · '}${o.win?esc(o.win)+' · ':''}checked ${o.ck?enD(o.ck):''}</div><a class="go" href="${esc(o.url)}" target="_blank" rel="noopener">Official offer page →</a></article>`;};
   const none=(o,site)=>`<article class="tcard nooffer"><div class="th"><span class="co">${esc(o[0])}<span class="ty">${esc(o[1])}</span></span><span class="tst end">No offer</span></div><div class="hl">No {{CAMPAIGN_SHORT_EN}} offer found</div><div class="meta">We checked ${site} and found no offer page or code for {{CAMPAIGN_SHORT_EN}}${o[2]?' · checked '+enD(o[2]):''}</div></article>`;
   const sorted=a=>a.map(o=>({o,s:ost(o)})).sort((x,y)=>rank[x.s[0]]-rank[y.s[0]]).map(x=>x.o);
   if(TR.length||TRNO.length){$('travel').hidden=false;$('tlist').innerHTML=sorted(TR).map(card).join('')+TRNO.map(o=>none(o,'the company’s own site')).join('');if(TNONE_EN){$('tnone').textContent=TNONE_EN;$('tnone').hidden=false;}}
   if(CR.length||CRNO.length){$('cars').hidden=false;$('crlist').innerHTML=sorted(CR).map(card).join('')+CRNO.map(o=>none(o,'its official site')).join('');}
   // app subscription offers (BLD-27): the same card; no price here is measured against a record, so it prints no percentage of ours
   if(SB.length){$('subs').hidden=false;$('sblist').innerHTML=sorted(SB).map(card).join('');}
-  const g=$('evdlg'),shut=()=>g.close?g.close():g.removeAttribute('open');$('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});
+  const g=$('evdlg'),shut=()=>g.close?g.close():g.removeAttribute('open');$('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g||(e.target.closest&&e.target.closest('[data-close-dlg]')))shut();});  // BLD-8: the «how we work out» link closes the dialog without an inline handler
   const b=$('totop');b.hidden=false;const t=()=>{scrollY>600?b.setAttribute('data-show',''):b.removeAttribute('data-show')};addEventListener('scroll',t,{passive:true});t();b.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
   const f=$('sg-f'),sb=$('sg-b'),ss=$('sg-s'),say=(m,c)=>{ss.textContent=m;ss.className='sg-note '+(c||'')};
   f.addEventListener('submit',async e=>{e.preventDefault();const msg=$('sg-t').value.trim();if(!msg){say('Write your suggestion first','err');return;}sb.disabled=true;say('Sending…');
@@ -336,7 +344,7 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
    const kind=a.matches('.buy,.cname,.cimg')?'product':a.matches('.go')?'offer':'reference';
    push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
   const b=t.closest('button.code,button.cpy');
-  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':'coupons'});return;}
+  if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':offer&&offer.closest('#cars')?'cars':offer&&offer.closest('#travel')?'travel':'coupons'});return;}
   if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
   else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();
