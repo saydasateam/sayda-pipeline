@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T16:42:12.011+03:00",
+ "checkedAt": "2026-11-23T20:36:26.379+03:00",
  "rows": [
   {
    "id": "amazon:B09M7B4BQZ",
@@ -790,7 +790,7 @@
    "id": "amazon:B0H1RTFR3P",
    "store": "amazon",
    "name": "لابتوب أسوس فيفوبوك 14 بوصة X1404VA",
-   "price": 2999,
+   "price": 2799,
    "was": 4321,
    "ref": 4323,
    "refKind": "history",
@@ -817,7 +817,7 @@
    "id": "amazon:B0HHJXKZSX",
    "store": "amazon",
    "name": "لابتوب أسوس فيفوبوك 16 بوصة X1607CA",
-   "price": 2499,
+   "price": 2299,
    "was": 3585,
    "ref": 3587,
    "refKind": "history",
@@ -2698,7 +2698,7 @@
    },
    "img": "https://m.media-amazon.com/images/I/810OQjFp-0L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: متبقي 3",
+   "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-23"
   },
   {
@@ -4252,7 +4252,7 @@
    "verdict": "warn",
    "finding": "كان ٢١٥ · سبق ونزل ١١١",
    "url": "https://www.amazon.sa/-/ar/dp/B0042TZ5ZA",
-   "avail": "low",
+   "avail": "oos",
    "ev": {
     "prev": 215,
     "min": 111,
@@ -4263,7 +4263,7 @@
    },
    "cat": "رياضة",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: متبقي 2",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71pMJ+XS5zL._AC_SL500_.jpg"
   },
@@ -4317,7 +4317,7 @@
    },
    "cat": "عناية",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: عاد السعر إلى ١٢٠ — انتهى العرض",
+   "availNote": "أمازون: عاد السعر إلى ١١٨ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71jOIUCvU2L._AC_SL500_.jpg"
   },

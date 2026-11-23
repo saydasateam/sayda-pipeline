@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T16:42:05.539+03:00",
+ "checkedAt": "2026-11-23T20:36:26.379+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -548,7 +548,7 @@
    "store": "extra",
    "cat": "المنزل",
    "name": "جليم غاز موقد، 90*60 سم، 5 عيون، أستيل",
-   "price": 3099,
+   "price": 2889,
    "was": 5399,
    "ref": 3699,
    "refKind": "history",
@@ -656,14 +656,14 @@
    "store": "extra",
    "cat": "المنزل",
    "name": "فيليبس، كاوية بخار، 2200 واط، رمادي غامق/ ذهبي",
-   "price": 1779,
+   "price": 1590,
    "was": 2649,
    "ref": 1949,
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٬٩٤٩ · سبق ونزل ١٬١٥٩ · «قبل» ٢٬٦٤٩ لم يُسجّل",
    "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/irons/philips-garment-steamer-2200w-dark-slate-grey-gold/p/100332457",
-   "avail": "ended",
+   "avail": "in",
    "ev": {
     "prev": 1949,
     "min": 1159,
@@ -673,7 +673,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-e100332457"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "إكسترا: عاد السعر إلى ١٬٩٤٩ — انتهى العرض",
+   "availNote": "",
    "lastChecked": "2026-11-23",
    "img": "https://media.extra.com/s/aurora/100332457_800/Philips-Garment-Steamer%2C-2200W%2C-Dark-Slate-Grey-Gold?locale=en-GB,ar-*,*",
    "name_en": "Philips Garment Steamer, 2200W, Dark Slate Grey/Gold"
@@ -1142,7 +1142,7 @@
    "store": "extra",
    "name": "فيليبس بيرفكت كير سلسلة 7000، كاوية بخار",
    "name_en": "Philips PerfectCare 7000 Series, Steam Generator Iron",
-   "price": 1469,
+   "price": 1336,
    "was": null,
    "ref": 1599,
    "refKind": "history",

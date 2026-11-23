@@ -1,7 +1,7 @@
 {
  "store": "dabdoob",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T16:42:05.539+03:00",
+ "checkedAt": "2026-11-23T20:36:26.379+03:00",
  "rows": [
   {
    "id": "dabdoob:bestway-mount-splashblast-mega-water-park-inflatable-slide-splash-pool-140982",
@@ -115,7 +115,7 @@
    "id": "dabdoob:little-tikes-cozy-coupe-red-136790",
    "store": "dabdoob",
    "name": "سيارة ليتل تايكس كوزي كوبيه (حمراء)",
-   "price": 632.5,
+   "price": 604,
    "was": 918.85,
    "ref": null,
    "verdict": "na",
@@ -241,7 +241,7 @@
    "id": "dabdoob:ninjombie-deluxe-action-figure-jonin-knight-136818",
    "store": "dabdoob",
    "name": "شخصية نينجومبي ديلوكس المتحركة جونين نايت",
-   "price": 156.07,
+   "price": 109,
    "was": 278.3,
    "ref": null,
    "verdict": "na",
@@ -277,7 +277,7 @@
    "id": "dabdoob:little-tikes-rocking-horse-blue-64143",
    "store": "dabdoob",
    "name": "ليتل تكس - أرجوحة الحصان الهزاز لون أزرق",
-   "price": 379.5,
+   "price": 299,
    "was": 483,
    "ref": null,
    "verdict": "na",
