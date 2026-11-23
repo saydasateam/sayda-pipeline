@@ -41,6 +41,8 @@ if (mode === 'check') {
     // BLD-36: the maker's model number and barcode as the store's own page states them, kept for the market comparison
     if (o.model && !r.model) r.model = String(o.model).slice(0, 40);
     if (o.gtin && !r.gtin) r.gtin = String(o.gtin);
+    // BLD-11: a row with no Arabic name takes the store's own Arabic title its check read (Extra's ar-sa page)
+    if (o.name && /[\u0600-\u06FF]/.test(o.name) && !/[\u0600-\u06FF]/.test(String(r.name || ''))) r.name = String(o.name).slice(0, 200);
     if (r.needsCheck) { delete r.needsCheck; (report.firstChecked = report.firstChecked || []).push([r.id, a.avail]); }
     // record what we saw, for rows no public tracker covers (fashion, beauty, baby, furniture)
     if (!isUn) H.record(hist, r.id, r.price, today);

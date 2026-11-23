@@ -360,9 +360,11 @@ const KAT_MIN = (rules.page || {}).categoryCardMinRows ?? 8, TICK_N = (rules.pag
 const deadRow = r => ['oos', 'ended', 'gone'].includes(r.avail);
 const realPct = r => (r.ref && Number.isFinite(r.price)) ? Math.round(100 * (1 - r.price / r.ref)) : null;
 const lowRow = r => r.refKind !== 'market' && r.ev && r.ev.min != null && r.price <= r.ev.min * 1.01;
-const valRow = r => { const real = realPct(r); if (real == null || real <= 0 || r.verdict === 'bad') return -1e9 + (Math.round(100 * (1 - r.price / (r.was ?? null))) || 0);
-  return (r.verdict === 'ok' ? 1 : 0.55) * real * Math.log10(10 + (r.ref - r.price)) * (lowRow(r) ? 1.15 : 1); };
-const tierRow = r => (deadRow(r) ? 2 : 0) + (valRow(r) <= -1e8 ? 1 : 0);
+// BLD-26: the score itself is lib/value.js, the same source text the two pages carry ({{VALUE_JS}}); only the mapping from a row is here.
+const { SRC: VALUE_SRC, VALUE } = require('./lib/value.js');
+const valX = r => ({ real: realPct(r), ok: r.verdict === 'ok', bad: r.verdict === 'bad', ref: r.ref, price: r.price, claim: Math.round(100 * (1 - r.price / (r.was ?? null))) || 0, low: lowRow(r), dead: deadRow(r) });
+const valRow = r => VALUE.val(valX(r));
+const tierRow = r => VALUE.tier(valX(r));
 const diversifyRows = l => { const out = [], pool = l.slice(); while (pool.length) { let i = 0; const n = out.length;
   if (n >= 2) { const a = out[n - 1], b = out[n - 2], t = tierRow(pool[0]); const j = pool.findIndex(r => tierRow(r) === t && !(r.store === a.store && r.store === b.store) && !(r.cat === a.cat && r.cat === b.cat)); if (j > 0) i = j; }
   out.push(pool.splice(i, 1)[0]); } return out; };
@@ -510,14 +512,15 @@ const measureFill = {
   // The measurement bar (BLD-24). Shown by the page's script to a visitor with no stored choice; hidden again by either button.
   CONSENT_BAR_AR: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="القياس بإذنك" hidden><p><b>القياس بإذنك</b> إذا وافقت، نقيس الزيارات والنقرات بأداة Google Analytics لنعرف أي الصيدات تفيدكم. تضع ملفات تعريف ارتباط وترسل بيانات الزيارة إلى Google. إن لم توافق لا نحمّلها، والصفحة تعمل كما هي. <a href="#about">التفاصيل</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">موافق</button><button type="button" class="cno" data-cv="no">لا، شكراً</button></div></aside>`,
   CONSENT_BAR_EN: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="Measurement, only with your OK" hidden><p><b>Measurement, only with your OK.</b> With your OK, we measure visits and clicks with Google Analytics to learn which deals help. It sets cookies and sends visit data to Google. Without it, we don’t load it and the page works the same. <a href="#about">Details</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">OK</button><button type="button" class="cno" data-cv="no">No thanks</button></div></aside>`,
-  PRIVACY_STATS_AR: !GTM_ID ? 'نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية.'
-    : `نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط. وإذا وافقت على شريط «القياس بإذنك» فقط، نحمّل Google Tag Manager لقياس الزيارات و${WA ? 'أربعة أنواع من النقرات: فتح صفحة متجر، نسخ كود، استخدام فلتر البطاقات (دون اسم البطاقة)، وفتح قناتنا على واتساب' : 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة)'}. خدمات القياس التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) تضع ملفات تعريف ارتباط وتستخدم معرّف جهازك، ولا تعمل على الصفحة أي أداة إعلانية. دون موافقتك لا نحمّل شيئاً منها. <button type="button" class="clink" data-consent-open>تغيير اختيار القياس</button>`,
-  PRIVACY_STATS_EN: !GTM_ID ? 'we use Cloudflare analytics, which sets no cookies and collects no personal data.'
-    : `we use Cloudflare analytics, which sets no cookies. Only if you say OK on the «Measurement, only with your OK» bar do we also load Google Tag Manager to measure visits and ${WA ? 'four kinds of click: opening a store page, copying a code, using the card filter (never which card), and opening our WhatsApp channel' : 'three kinds of click: opening a store page, copying a code, and using the card filter (never which card)'}. The measurement services that run through it (${plainText(siteCfg.services_en, 'Google')}) set cookies and use your device’s identifiers, and no advertising tool runs on the page. Without your OK we load none of it. <button type="button" class="clink" data-consent-open>Change your measurement choice</button>`,
+  PRIVACY_STATS_AR: !GTM_ID ? 'نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية. صور المنتجات تُحمَّل من خوادم كل متجر نفسه، فيرى المتجر أن صورته عُرضت، ولا نرسل إليه شيئاً غير ذلك. الخطوط تُحمَّل من موقعنا.'
+    : `نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط. وإذا وافقت على شريط «القياس بإذنك» فقط، نحمّل Google Tag Manager لقياس الزيارات و${WA ? 'أربعة أنواع من النقرات: فتح صفحة متجر، نسخ كود، استخدام فلتر البطاقات (دون اسم البطاقة)، وفتح قناتنا على واتساب' : 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة)'}. خدمات القياس التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) تضع ملفات تعريف ارتباط وتستخدم معرّف جهازك، ولا تعمل على الصفحة أي أداة إعلانية. دون موافقتك لا نحمّل شيئاً منها. صور المنتجات تُحمَّل من خوادم كل متجر نفسه، فيرى المتجر أن صورته عُرضت، ولا نرسل إليه شيئاً غير ذلك. الخطوط تُحمَّل من موقعنا. <button type="button" class="clink" data-consent-open>تغيير اختيار القياس</button>`,
+  PRIVACY_STATS_EN: !GTM_ID ? 'we use Cloudflare analytics, which sets no cookies and collects no personal data. Product pictures load from each store’s own servers, so a store can see that its picture was shown; we send it nothing else. The fonts load from our own site.'
+    : `we use Cloudflare analytics, which sets no cookies. Only if you say OK on the «Measurement, only with your OK» bar do we also load Google Tag Manager to measure visits and ${WA ? 'four kinds of click: opening a store page, copying a code, using the card filter (never which card), and opening our WhatsApp channel' : 'three kinds of click: opening a store page, copying a code, and using the card filter (never which card)'}. The measurement services that run through it (${plainText(siteCfg.services_en, 'Google')}) set cookies and use your device’s identifiers, and no advertising tool runs on the page. Without your OK we load none of it. Product pictures load from each store’s own servers, so a store can see that its picture was shown; we send it nothing else. The fonts load from our own site. <button type="button" class="clink" data-consent-open>Change your measurement choice</button>`,
 };
 
 // ---- fill ----
 const fill = {
+  VALUE_JS: VALUE_SRC,
   ...campaignFill,
   GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, CONSENT_BAR: measureFill.CONSENT_BAR_AR, PRIVACY_STATS_AR: measureFill.PRIVACY_STATS_AR,
   WA_JSON: waFill.WA_JSON, WA_BAR: waFill.WA_BAR_AR, WA_HEAD: waFill.WA_HEAD_AR, WA_BLOCK: waFill.WA_BLOCK_AR, WA_ABOUT: waFill.WA_ABOUT_AR,
@@ -564,6 +567,38 @@ const oneScript = (html, page) => { const o = (html.match(/<script\b/gi) || []).
 oneScript(out.replace(measureFill.GTM_HEAD, ''), '');   // Google's head snippet is written by this build from config/site.json, it is not outside text
 
 fs.mkdirSync(path.join(ROOT,'dist'), {recursive:true});
+// BLD-7 (SEC-F9, 23 Nov 2026): the published pages carry no internal comments. The templates keep theirs (they explain the
+// code to the next person who edits it); the built pages drop every HTML comment, every CSS comment, and every JavaScript
+// comment that fills its own line(s). A comment after code on the same line is left alone: removing it safely would need a
+// JavaScript parser (a «//» can sit inside a string or an address). Visitors see the same page; the source simply says less.
+const stripComments = html => html
+  .replace(/<!--[\s\S]*?-->\n?/g, '')
+  .replace(/(<style[^>]*>)([\s\S]*?)(<\/style>)/g, (m, a, css, b) => a + css.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\n\s*\n/g, '\n') + b)
+  .replace(/(<script[^>]*>)([\s\S]*?)(<\/script>)/g, (m, a, js, b) => a + js.replace(/^[ \t]*\/\*[\s\S]*?\*\/[ \t]*\n/gm, '').replace(/^[ \t]*\/\/[^\n]*\n/gm, '') + b);
+out = stripComments(out);
+// BLD-8 (SEC-F5, 23 Nov 2026): a Content-Security-Policy for each page, written as a meta tag because it names the SHA-256 of
+// the page's own inline scripts, which change with every build. Only those scripts run, plus Google Tag Manager's loader
+// (fetched only after the visitor's OK, BLD-24) and Cloudflare's own analytics beacon. Store pictures may come from any
+// https host (each store's CDN); fonts only from saydadeals.com (BLD-10); no plugins, no <base>, forms post only to us.
+// frame-ancestors cannot be set in a meta tag: the site repo's _headers file sets it, with the other security headers.
+const crypto = require('crypto');
+const withCsp = html => {
+  const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => `'sha256-${crypto.createHash('sha256').update(m[1], 'utf8').digest('base64')}'`);
+  const policy = [
+    "default-src 'self'",
+    `script-src 'self' ${hashes.join(' ')}${GTM_ID ? ' https://www.googletagmanager.com' : ''} https://static.cloudflareinsights.com`,
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: https:",
+    "font-src 'self'",
+    `connect-src 'self'${GTM_ID ? ' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com' : ''} https://cloudflareinsights.com`,
+    "frame-src 'none'",
+    "object-src 'none'", "base-uri 'none'", "form-action 'self'", "upgrade-insecure-requests",
+  ].join('; ');
+  const tag = `<meta http-equiv="Content-Security-Policy" content="${policy}">`;
+  if (!html.includes('<meta charset="utf-8">')) { console.error('BLD-8: no <meta charset> to place the Content-Security-Policy after'); process.exit(1); }
+  return html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n' + tag);
+};
+out = withCsp(out);
 fs.writeFileSync(path.join(ROOT,'dist/index.html'), out);
 
 // ---- English page (20 Nov 2026): a required half of every build, not an extra ----
@@ -634,6 +669,7 @@ if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build
 const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^<style>|<\/style>$/g, '')).join('\n');
 const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
 const enFill = {
+  VALUE_JS: VALUE_SRC,
   GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, CONSENT_BAR: measureFill.CONSENT_BAR_EN, PRIVACY_STATS_EN: measureFill.PRIVACY_STATS_EN,
   WA_JSON: waFill.WA_JSON, WA_BAR: waFill.WA_BAR_EN, WA_HEAD: waFill.WA_HEAD_EN, WA_BLOCK: waFill.WA_BLOCK_EN, WA_ABOUT: waFill.WA_ABOUT_EN,
   CSS: css, CAMPAIGN_EN: M.campaign_en || 'Sale', CAMPAIGN_SHORT_EN: M.campaignShort_en || M.campaign_en || 'Sale',
@@ -656,6 +692,8 @@ const enLeft = en.match(/{{[A-Z_]+}}/g); if (enLeft) throw new Error('build (eng
 if (TRACKER.test(en)) throw new Error('build (english): the price tracker is named on the public page');
 oneScript(en.replace(measureFill.GTM_HEAD, ''), ' (english)');
 fs.mkdirSync(path.join(ROOT, 'dist/en'), { recursive: true });
+en = stripComments(en);
+en = withCsp(en);
 fs.writeFileSync(path.join(ROOT, 'dist/en/index.html'), en);
 const noName = st.rows.filter(r => !r.name_en), warnNoEn = st.rows.filter(r => r.verdict === 'warn' && !r.finding_en && /كود|كوبون|قسيمة|Plus|بلس|السلة|عند الدفع|اشتراك/.test(r.finding || ''));
 console.log(`english: dist/en/index.html (${en.length} chars) · store names ${st.rows.length - noName.length} of ${st.rows.length}`
