@@ -404,7 +404,8 @@ them to `work/upload.json` so they ride in the state commit, and leaves `checked
 - The picture is the STORE'S OWN image for that product, read from its product page. Never take one from
   a search engine, a price tracker or another store. `img: null` is a correct result; the card keeps the tile.
 - Works by plain fetch for amazon, extra and most stores (`og:image`); noon is read from its catalog API
-  inside `SAYDA.images`. A store whose product page only renders in the browser (firstcry) needs the
+  inside `SAYDA.images`. Al-Dawaa's product pages answer 403 to fetch, so `SAYDA.images` reads its picture from the store's own
+  OCC API (the PRIMARY image, 515 px) from a tab on www.al-dawaa.com (BLD-12, 23 Nov 2026). A store whose product page only renders in the browser (firstcry) needs the
   picture read from the rendered page during its per-row check: `document.querySelector('meta[property="og:image"]').content`.
 - Budget: one call per store. If the run is short on time, pictures come after coverage and before coupons.
 
