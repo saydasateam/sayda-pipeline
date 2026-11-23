@@ -35,7 +35,7 @@ body{font-family:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-ser
 .elist li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 </style>
 </head>
-<body>{{GTM_BODY}}
+<body>{{GTM_BODY}}{{CONSENT_BAR}}
 <header class="top"><div class="brand" dir="ltr">
   <a href="/en/" class="logo" aria-label="Sayda: home">{{LOGO_SVG}}<span>Sayda</span></a><span class="tag">Real discounts only</span>
   <div class="search" role="search"><label for="q" class="sr">Search the deals</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="Search: Samsung, iPhone, perfume…" autocomplete="off" enterkeyhint="search"></div>
@@ -310,13 +310,19 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
   document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 })();
 // ---- measurement events for Google Tag Manager (22 Nov 2026) ----
+// BLD-24: the measurement bar. Shown only where the head script set window.saydaConsent (Tag Manager configured) and this
+// browser has no stored choice; either button records the choice and hides it; «change your measurement choice» in About opens it.
+(()=>{const b=document.getElementById('cbar');if(!b||typeof window.saydaConsent!=='function')return;let c=null;try{c=localStorage.getItem('sayda.consent');}catch(_){}
+ if(c!=='yes'&&c!=='no')b.hidden=false;
+ b.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-cv]');if(!t)return;window.saydaConsent(t.dataset.cv);b.hidden=true;});
+ document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-consent-open]');if(!t)return;e.preventDefault();b.hidden=false;const y=b.querySelector('.cyes');if(y)y.focus();});})();
 // Four events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used, follow_channel_click (BLD-18).
 // follow_channel_click carries only where the link sat (placement: banner, header, suggest, about, shared).
 // With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
 // Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
 // The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
 (()=>{const L=document.documentElement.lang||'';window.dataLayer=window.dataLayer||[];
- const push=(event,p)=>{try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};
+ const push=(event,p)=>{if(!(typeof window.saydaMeasuring==='function'&&window.saydaMeasuring()))return;try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};   // BLD-24: nothing is queued before an OK
  const own=(el,sel)=>{const x=el&&el.querySelector(sel);if(!x)return'';const n=x.firstChild;return String((n&&n.nodeType===3?n.textContent:x.textContent)||'').trim().slice(0,120);};
  // the tag printed on the card: low (verified and the lowest recorded price), ok (verified), warn, bad, na
  const tagOf=c=>{const x=c&&c.querySelector('.ctag');return x?(['low','ok','warn','bad','na'].find(v=>x.classList.contains(v))||''):'';};

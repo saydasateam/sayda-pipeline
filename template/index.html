@@ -659,6 +659,11 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
   .countb b{font-size:20px}
   .khead{align-items:flex-start;padding:10px 12px}
 }
+.cbar{position:fixed;inset-inline:12px;bottom:12px;z-index:60;max-width:760px;margin:0 auto;display:flex;align-items:center;gap:10px 16px;flex-wrap:wrap;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 8px 28px rgba(11,15,25,.18);font-size:14px;line-height:1.5}
+.cbar[hidden]{display:none}.cbar p{margin:0;flex:1 1 320px}.cbar p b{margin-inline-end:4px}.cbar a{color:var(--accent)}
+.cbtns{display:flex;gap:8px;flex:0 0 auto}.cbtns button{min-height:40px;padding:0 18px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer;border:1px solid var(--line)}.cbtns .cyes{background:var(--accent);color:#fff;border-color:var(--accent)}.cbtns .cno{background:transparent;color:var(--ink)}
+.clink{background:none;border:0;padding:0;font:inherit;color:var(--accent);text-decoration:underline;cursor:pointer}
+@media (max-width:599px){.cbar{inset-inline:8px;bottom:8px;padding:10px 12px;font-size:13px}.cbtns{width:100%}.cbtns button{flex:1}}
 </style>
 <style>
 .brand{max-width:1072px;margin:0 auto;padding:9px 16px;display:flex;align-items:center;gap:10px;min-height:var(--toph);box-sizing:border-box}
@@ -701,7 +706,7 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 @media (max-width:599px){.brand{gap:8px;padding-inline:12px}.brand .logo{font-size:21px}.brand .lang{padding:3px 10px}.brand .lang .hl{display:none}.hs{display:inline}}
 </style>
 </head>
-<body>{{GTM_BODY}}
+<body>{{GTM_BODY}}{{CONSENT_BAR}}
 <header class="top"><div class="brand" dir="rtl">
   <a href="/" class="logo" aria-label="صيدة: الصفحة الرئيسية">{{LOGO_SVG}}<span>صيدة</span></a><span class="tag">الخصم الحقيقي فقط</span>
   <div class="search" role="search"><label for="q" class="sr">ابحث في العروض</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="{{SEARCH_PH}}" autocomplete="off" enterkeyhint="search"></div>
@@ -1256,13 +1261,19 @@ const j=await r.json().catch(()=>({}));if(r.ok&&j.ok){f.reset();say('وصلنا 
 catch(_){say('تعذّر الإرسال الآن، حاول بعد قليل.','err');}
 b.disabled=false;});})();
 // ---- measurement events for Google Tag Manager (22 Nov 2026) ----
+// BLD-24: the measurement bar. Shown only where the head script set window.saydaConsent (Tag Manager configured) and this
+// browser has no stored choice; either button records the choice and hides it; «change your measurement choice» in About opens it.
+(()=>{const b=document.getElementById('cbar');if(!b||typeof window.saydaConsent!=='function')return;let c=null;try{c=localStorage.getItem('sayda.consent');}catch(_){}
+ if(c!=='yes'&&c!=='no')b.hidden=false;
+ b.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-cv]');if(!t)return;window.saydaConsent(t.dataset.cv);b.hidden=true;});
+ document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-consent-open]');if(!t)return;e.preventDefault();b.hidden=false;const y=b.querySelector('.cyes');if(y)y.focus();});})();
 // Four events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used, follow_channel_click (BLD-18).
 // follow_channel_click carries only where the link sat (placement: banner, header, suggest, about, shared).
 // With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
 // Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
 // The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
 (()=>{const L=document.documentElement.lang||'';window.dataLayer=window.dataLayer||[];
- const push=(event,p)=>{try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};
+ const push=(event,p)=>{if(!(typeof window.saydaMeasuring==='function'&&window.saydaMeasuring()))return;try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};   // BLD-24: nothing is queued before an OK
  const own=(el,sel)=>{const x=el&&el.querySelector(sel);if(!x)return'';const n=x.firstChild;return String((n&&n.nodeType===3?n.textContent:x.textContent)||'').trim().slice(0,120);};
  // the tag printed on the card: low (verified and the lowest recorded price), ok (verified), warn, bad, na
  const tagOf=c=>{const x=c&&c.querySelector('.ctag');return x?(['low','ok','warn','bad','na'].find(v=>x.classList.contains(v))||''):'';};
