@@ -837,15 +837,15 @@
     {"id": "riyadbank-cards", "company": "Riyad Bank, card offers", "kind": "bank card offers", "url": null, "lead": "not read yet"},
     {"id": "alinma-cards", "company": "Alinma Bank, card offers", "kind": "bank card offers", "url": null, "lead": "not read yet"},
     {"id": "hungerstation", "company": "HungerStation", "kind": "food delivery", "url": null, "lead": "no plan offer found outside the app on 23 Nov 2026"},
-    {"id": "jahez", "company": "Jahez", "kind": "food delivery", "url": null, "lead": "Jahez Plus price seen on a third-party site only"},
-    {"id": "careem", "company": "Careem Plus", "kind": "delivery and rides", "url": null, "lead": "a one-month trial for new subscribers, likely standing (press)"},
+    {"id": "jahez", "company": "Jahez", "kind": "food delivery", "url": null, "lead": "jahez.net shows a Cloudflare security check to the server Chrome, 23 Nov 2026 (not passed: never solve a bot check)"},
+    {"id": "careem", "company": "Careem Plus", "kind": "delivery and rides", "url": null, "lead": "careem.com has no Careem Plus page at /en-SA/plus/ (23 Nov 2026); a one-month trial for new subscribers, likely standing (press)"},
     {"id": "keeta", "company": "Keeta", "kind": "food delivery", "url": null, "lead": "coupon-site codes only, which are never published"},
-    {"id": "netflix", "company": "Netflix", "kind": "video", "url": null, "lead": "no White Friday offer on its own page on 23 Nov 2026"},
-    {"id": "osn", "company": "OSN+", "kind": "video", "url": null, "lead": "no White Friday offer on its own page on 23 Nov 2026"},
-    {"id": "starzplay", "company": "STARZPLAY", "kind": "video", "url": null, "lead": "telco bundle prices seen on a coupon site only"},
-    {"id": "anghami", "company": "Anghami Plus", "kind": "music", "url": null, "lead": "a telco price list on its support page: a price, not an offer"},
+    {"id": "netflix", "company": "Netflix", "kind": "video", "url": null, "lead": "own page read 23 Nov 2026 (netflix.com/sa-en/): sign-up and plan prices only, no campaign offer"},
+    {"id": "osn", "company": "OSN+", "kind": "video", "url": "https://www.osnplus.com/en-sa", "lead": "own page read 23 Nov 2026: «Limited-time offer», SAR 19.99/month with the Premium Plan; no end date on the page, so not published"},
+    {"id": "starzplay", "company": "STARZPLAY", "kind": "video", "url": null, "lead": "starzplay.com answers 403 to the server Chrome, 23 Nov 2026; telco bundle prices seen on a coupon site only"},
+    {"id": "anghami", "company": "Anghami Plus", "kind": "music", "url": "https://www.anghami.com/plus", "lead": "own page read 23 Nov 2026: «White Friday Offer», Anghami Plus free for 2 months then SAR 19.99/month, and the Family Plan free for 1 month; the page and its terms give no end date, so not published (§3c needs one)"},
     {"id": "abjjad", "company": "Abjjad", "kind": "reading", "url": null, "lead": "no campaign offer on 23 Nov 2026"},
-    {"id": "youtube-premium", "company": "YouTube Premium", "kind": "video and music", "url": null, "lead": "device bundles only, which are not subscription offers"},
+    {"id": "youtube-premium", "company": "YouTube Premium", "kind": "video and music", "url": null, "lead": "youtube.com/premium opened 23 Nov 2026: no Saudi campaign offer seen; device bundles only"},
     {"id": "fitness-time", "company": "Fitness Time", "kind": "fitness", "url": null, "lead": "past Al Rajhi card weeks (Oct 2026, Jan 2026), both ended"}
   ]
 }
