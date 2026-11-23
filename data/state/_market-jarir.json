@@ -1,8 +1,8 @@
 {
  "jarir:skyworth-smart-tv-674575": {
   "q": "skyworth Q7800H 100",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 7999,
+  "sampledAt": "2026-11-23",
+  "rowPrice": 6999,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -10,12 +10,7 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": [
-   {
-    "title": "SKYWORTH 100-Inch QLED+ Smart TV, 4K UHD, 144Hz Refresh Rate, Matte Sc",
-    "why": "accessory, not the product"
-   }
-  ]
+  "rejected": []
  },
  "jarir:samsung-ls03-smart-tv-682577": {
   "q": "samsung LS03 75",
@@ -87,36 +82,21 @@
  },
  "jarir:hisense-hisense-a6q-smart-tv-672673": {
   "q": "hisense A6Q 75",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 2599,
-  "n": 1,
-  "merchantCount": 1,
-  "min": 2749,
-  "avg": 2749,
-  "max": 2749,
-  "market": {
-   "store": "noon",
-   "price": 2749,
-   "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V"
-  },
-  "sources": [
-   {
-    "merchant": "noon",
-    "price": 2749,
-    "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V"
-   }
-  ],
-  "rejected": [
-   {
-    "title": "Hisense 75A6Q 4K 3840 x 2160 UHD 75-Inch Smart TV",
-    "why": "model part \"a6q\" not present as a whole word, and \"a6q\" not present fused"
-   }
-  ]
+  "sampledAt": "2026-11-23",
+  "rowPrice": 2699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  },
  "jarir:hisense-hisense-q61q-smart-tv-672682": {
   "q": "hisense Q61Q 65",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 2099,
+  "sampledAt": "2026-11-23",
+  "rowPrice": 2199,
   "n": 1,
   "merchantCount": 1,
   "min": 2239,
@@ -138,8 +118,8 @@
  },
  "jarir:haier-haier-m80fux-smart-tv-669302": {
   "q": "haier M80F 85",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 4599,
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4899,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -147,12 +127,7 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": [
-   {
-    "title": "Haier 85 Inch Mini LED, Google TV, Dolby Vision-Atmos, Gaming 120Hz, H",
-    "why": "model part \"m80f\" not present as a whole word, and \"m80f\" not present fused"
-   }
-  ]
+  "rejected": []
  },
  "jarir:skyworth-x8700g-smart-tv-663715": {
   "q": "skyworth X8700G 86",
@@ -322,8 +297,8 @@
  },
  "jarir:skyworth-skyworth-q6800h-smart-tv-657007": {
   "q": "skyworth Q6800H 85",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 4899,
+  "sampledAt": "2026-11-23",
+  "rowPrice": 4299,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -335,8 +310,8 @@
  },
  "jarir:haier-h6f-smart-tv-688119": {
   "q": "haier S80 85",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 3799,
+  "sampledAt": "2026-11-23",
+  "rowPrice": 3899,
   "n": 0,
   "merchantCount": 0,
   "min": null,

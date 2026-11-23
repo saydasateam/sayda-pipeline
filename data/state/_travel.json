@@ -39,5 +39,11 @@
   }
  ],
  "travelNone_text": "فحصنا هذه المواقع في ٢١ نوفمبر: عروضها الحالية أسعار عادية أو أكواد شتوية لا تربطها بالجمعة البيضاء. موقع طيران أديل لم يُفتح وقت الفحص، فلم نُدرجه.",
- "travelNone_text_en": "Checked on 21 November: their current offers are standing fares or winter codes not tied to White Friday. The flyadeal site did not load during the check, so it is not listed."
+ "travelNone_text_en": "Checked on 21 November: their current offers are standing fares or winter codes not tied to White Friday. The flyadeal site did not load during the check, so it is not listed.",
+ "scanned": {
+  "https://www.riyadhair.com/ar": "2026-11-23",
+  "https://www.saudia.com/ar-SA/offers": "2026-11-23",
+  "https://www.flynas.com/ar": "2026-11-23",
+  "https://www.flyadeal.com/ar": "2026-11-23"
+ }
 }
