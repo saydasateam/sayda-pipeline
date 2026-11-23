@@ -25,6 +25,11 @@ const rules = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), '
 const state = S.load(ROOT, cfg);
 const today = new Date(Date.now() + 3 * 3600e3).toISOString().slice(0, 10);
 const MARKET_STORES = cfg.stores.filter(s => s.verify === 'market').map(s => s.id);
+// BLD-36 (23 Nov 2026): a noon, Amazon or Extra product that KanBkam does not track, added with `untracked: true` and the
+// maker's model number its own page states (`row.model`), is compared like a market store's row. It stays off the page
+// (build.js) until then: a match makes it an ordinary market row; no usable comparator, or no link to the other store's own
+// page, and --apply removes it, because nothing verified it. rules/match.js and rules/verdict.js are unchanged.
+const isUntracked = r => !!r.untracked;
 
 const args = process.argv.slice(2);
 const apply = args.includes('--apply');
@@ -35,7 +40,7 @@ const cache = M.load(ROOT);
 
 // ── --plan: the work list, with the reason each row is in or out ─────────────────────────────────
 if (plan || !file) {
-  const rows = state.rows.filter(r => MARKET_STORES.includes(r.store));
+  const rows = state.rows.filter(r => MARKET_STORES.includes(r.store) || isUntracked(r));
   const jobs = [], skipped = [], fresh = [];
   for (const r of rows) {
     if (M.isFresh(cache[r.id], r, today)) { fresh.push(r.id); continue; }
@@ -43,12 +48,12 @@ if (plan || !file) {
     if (!q) { skipped.push(`${r.store}  ${r.name.slice(0, 48)}  — no brand+model token`); continue; }
     jobs.push({ id: r.id, q: q.q, store: r.store });
   }
-  console.log(`market stores: ${MARKET_STORES.join(', ')}`);
+  console.log(`market stores: ${MARKET_STORES.join(', ')}${rows.some(isUntracked) ? ` · untracked rows (BLD-36): ${rows.filter(isUntracked).length}` : ''}`);
   console.log(`rows ${rows.length} · to look up ${jobs.length} · cached and fresh ${fresh.length} · not enrichable ${skipped.length}`);
   console.log(`\nestimated sweep: ~${Math.ceil(jobs.length * 3 / 60)} min at one query per 3 s\n`);
   if (skipped.length) { console.log('NOT ENRICHABLE — these stay as they are, which is the honest answer:'); for (const s of skipped) console.log('  ' + s); console.log(); }
   fs.mkdirSync(path.join(ROOT, 'work/market'), { recursive: true });
-  for (const st of MARKET_STORES) {
+  for (const st of [...new Set([...MARKET_STORES, ...jobs.map(j => j.store)])]) {
     const mine = jobs.filter(j => j.store === st).map(({ id, q }) => ({ id, q }));
     if (!mine.length) continue;
     fs.writeFileSync(path.join(ROOT, `work/market/${st}.jobs.json`), JSON.stringify(mine, null, 1));
@@ -60,7 +65,7 @@ if (plan || !file) {
 // ── apply a sweep result ─────────────────────────────────────────────────────────────────────────
 const sweep = JSON.parse(fs.readFileSync(file, 'utf8'));
 const byId = Object.fromEntries(state.rows.map(r => [r.id, r]));
-const changes = [], unchanged = [], noEvidence = [], noLink = [];
+const changes = [], unchanged = [], noEvidence = [], noLink = [], dropUntracked = [];
 const touched = new Set();
 
 for (const res of sweep) {
@@ -78,15 +83,16 @@ for (const res of sweep) {
 
   if (!ev.market) {
     noEvidence.push([res.id, res.q, (ev.rejected || []).length, (ev.rejected[0] || {}).why || 'nothing returned']);
+    if (isUntracked(row)) dropUntracked.push(res.id);
     continue;
   }
   // BLD-21 and BLD-28 (D16, D25): the comparison is used only when it can link the other store's own product page.
   // Without one it is refused, and the row stays exactly as it was (lib/market.js → ownListingUrl).
   const own = M.ownListingUrl(ev.market, cfg.stores, row.store);
-  if (!own) { noLink.push([res.id, row.store, `${ev.market.store} ${ev.market.price}`, String(ev.market.url || 'no link').slice(0, 90)]); continue; }
+  if (!own) { noLink.push([res.id, row.store, `${ev.market.store} ${ev.market.price}`, String(ev.market.url || 'no link').slice(0, 90)]); if (isUntracked(row)) dropUntracked.push(res.id); continue; }
   // the verdict comes from rules/verdict.js, from the evidence. Never from this file.
   const v = R.verdict(row.price, row.was, { market: { store: ev.market.store, price: ev.market.price } }, rules, { marketIsRef: true });
-  const same = v.verdict === row.verdict && Math.abs((v.ref ?? 0) - (row.ref ?? 0)) < 1 && row.refUrl === own.url;
+  const same = !isUntracked(row) && v.verdict === row.verdict && Math.abs((v.ref ?? 0) - (row.ref ?? 0)) < 1 && row.refUrl === own.url;
   (same ? unchanged : changes).push({
     id: res.id, store: row.store, name: row.name.slice(0, 44),
     from: `${row.verdict} ref ${row.ref ?? '—'}`, to: `${v.verdict} ref ${v.ref}`,
@@ -108,6 +114,8 @@ if (noEvidence.length) {
   console.log('\nNO USABLE COMPARATOR — these stay exactly as they are');
   for (const [id, q, n, why] of noEvidence) console.log(`  ${id.padEnd(28)} "${q}"  ${n} rejected · ${why}`);
 }
+
+if (dropUntracked.length) console.log(`\nUNTRACKED, NOT VERIFIED (BLD-36) — ${apply ? 'removed' : 'would be removed with --apply'}: ${dropUntracked.join(', ')}`);
 
 if (noLink.length) {
   console.log("\nREFUSED: NO LINK TO THE OTHER STORE'S OWN PRODUCT PAGE (BLD-21) — these stay exactly as they are");
@@ -132,7 +140,10 @@ for (const c of changes) {
   row.finding = c._v.finding;
   row.ev = { market: { store: c._ev.market.store, price: c._ev.market.price, url: c._own.url }, min: c._ev.min, max: c._ev.max, n: c._ev.merchantCount, src: 'market', on: today, url: c._own.url };
   if (c._v.kind) row.bk = c._v.kind;
+  delete row.untracked;                    // BLD-36: verified against the same model in another store, so it may show
 }
+// BLD-36: an untracked row that no comparison verified leaves the state; it was never on the page
+if (dropUntracked.length) { const gone = new Set(dropUntracked); state.rows = state.rows.filter(r => !(gone.has(r.id) && isUntracked(r))); }
 const all = S.byStore(state.rows);
 const wrote = S.saveStores(ROOT, Object.fromEntries([...touched].map(id => [id, all[id] || []])), { updated: today, checkedAt: null });
 M.save(ROOT, cache, [...touched]);
