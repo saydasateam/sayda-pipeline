@@ -222,8 +222,8 @@ the Dynamics storefront returned 0 products for every search, and Noon's store p
 each campaign; do not substitute a reseller's listing under Toys R Us's name.
 
 **Verification for the new stores** is the same written rule as everywhere else:
-- Branded items (Dyson, Philips Avent, Joie, Chicco, Avene, La Roche-Posay, CeraVe, Aptamil…) → `SAYDA.kanbkam.market(['brand model'])`
-  through `rules/match.js` (all four conditions; for beauty the size — «40 مل» — is part of the model). Nahdi ↔ Al-Dawaa is itself a
+- Branded items (Dyson, Philips Avent, Joie, Chicco, Avene, La Roche-Posay, CeraVe, Aptamil…) → `SAYDA.kanbkam.sweep(jobs)`
+  and `scripts/market-apply.js`, through `rules/match.js` (all four conditions; for beauty the size — «40 مل» — is part of the model). Nahdi ↔ Al-Dawaa is itself a
   same-product comparison when brand, name and size match.
 - Everything else → `na` with the store's `naFinding`, and our own history re-judges it after `ownHistoryMinDays`.
 - **`intake.fillTo` stores (mumzworld, mothercare — Mahmoud's decision, 22 Sep): show the top 20 every run.** After the verified
@@ -294,7 +294,9 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
    one of noon, Amazon and Extra is at its ceiling or has no unread candidates, and write in the run log
    which of the two it was, per store.
 3. **The rotation's market store** (SACO, Jarir, Almanea or Blackbox): collect from `store.landing` with its
-   adapter as in §1/§1b, then `SAYDA.kanbkam.market([...])` saved as `work/market/<store>.json`, then
+   adapter as in §1/§1b, then `SAYDA.kanbkam.sweep(jobs)` (jobs `[{id, q}]` from `market-apply.js --plan`) saved as
+   `work/market/<store>.json` exactly as it returns (BLD-28: each listing carries `own`, the store's own product link read
+   off KanBkam's product page; never build that file by hand), then
    `node scripts/market-apply.js work/market/<store>.json` (read the shadow output) and the same with
    `--apply`. `rules/match.js` decides every comparison and `rules/verdict.js` every verdict; `--apply` only
    writes what they returned. (The §3b sweep over EXISTING market rows stays shadow.) Expect 5 to 10% of candidates to survive; an empty result is a correct result.
@@ -312,7 +314,7 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
    form cannot reach): it goes up with the state commit like the other `data/state/_*.json` files.
 4. **The rotation's no-record store** (Nahdi, Al-Dawaa, Mumzworld, Mothercare, FirstCry, Dabdoob, Namshi):
    take its `na` rows that carry a brand and a model, size or capacity, look them up with
-   `SAYDA.kanbkam.market([...])` and run `node scripts/market-apply.js work/market/<store>.json`, then the same
+   `SAYDA.kanbkam.sweep(jobs)` and run `node scripts/market-apply.js work/market/<store>.json`, then the same
    with `--apply`: a row that matches becomes a
    `market` row with `refUrl`; a row that does not stays `na`, unchanged. §1b's «Verification for the new
    stores» applies (size is part of the model for beauty). This never touches `intake.fillTo`.
@@ -377,6 +379,9 @@ previousPrice is looked up, live-checked and added like a noon or Amazon one, wi
   `refKind` is `history` when `ref` came from a price record and `market` when it came from another store's price — the page words the two
   differently («✓ خصم مؤكّد» vs «✓ أرخص من متجر آخر»), so it is not optional. `refUrl` is the URL of the **compared** product, required when
   `refKind` is `market`: without it the «دليل السعر» panel asserts a cross-store comparison the reader has no way to check. Omit it for history rows.
+  **Since 23 Nov 2026 (BLD-21 and BLD-28, Mahmoud's D16 and D25)** it is the other store's OWN product page, origin and path only (no
+  query string), never KanBkam's or Google's page; `refStore` names that store. `scripts/market-apply.js` writes both through
+  `lib/market.js → ownListingUrl`, and refuses a comparison that has no such link: the row stays as it was. Never type one by hand.
   **`ref` is whatever `verdict()` returned — never a number you picked.** On 2026-09-19, 29 of 118 history-referenced rows carried a
   reference taken from KanBkam's 12-month **max** (or a mid-range average) instead of `previousPrice`. The page read «خصم ٦٧٪» on an
   item whose price had not moved: 1,899 before, 1,899 now. That is the exact practice this site exists to expose, published under our
@@ -450,7 +455,7 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
 
 ## 3. FULL run only — coupons & travel (≈ 6 calls)
 - `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `coupons` in `data/state/_coupons.json` (node one-liner; if the file does not exist yet, create it with `node -e "const S=require('./lib/state');const st=S.load('.');S.saveShared('.','coupons',{coupons:st.coupons});S.saveShared('.','travel',{travel:st.travel,travelNone:st.travelNone,travelNone_text:st.travelNone_text});S.saveShared('.','notes',{notes:st.notes})"` first): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
-- Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers: every full run reads at least 4 sources, least recently read first, and writes the day into `_travel.json → scanned[<source url>]` (`YYYY-MM-DD`). Keep `travelNone` accurate (Saudia / flyadeal today). Run log: `travel: <n> offers re-read, <n> sources read (<names>), <what changed or «no change»>`.
+- Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers: every full run reads at least 4 sources, least recently read first, and writes the day into `_travel.json → scanned[<source url>]` (`YYYY-MM-DD`). Keep `travelNone` accurate. Each entry carries `checked` (`YYYY-MM-DD`, Riyadh): the day its company's own page was read and showed no offer. Write today's date only on the entries whose page this run read; leave the others' dates as they are (BLD-33: the card prints that day, and an entry with no date prints none). Run log: `travel: <n> offers re-read, <n> sources read (<names>), <what changed or «no change»>`.
 - Update `notes.furnitureShare` in `data/state/_notes.json` from the collect stats (`sharePct`) when available.
 - **`data/state/_*.json` has exactly one writer: this slot.** These three files are the only non-per-store state left, which is why
   coupons and travel ride along in one slot and one slot only. Two slots editing them reintroduces the clobber the sharding removed.
@@ -482,6 +487,8 @@ The page shows a «عروض السيارات» panel in the hero and the cards b
      the campaign's name to a headline or to `terms` that does not carry it;
   4. it is an offer, not a standing price list, a finance calculator or a price «starting from».
 - `carsNone` lists companies checked with no offer under this rule; move one to `cars` when its own page publishes one.
+  Each entry carries `checked` (`YYYY-MM-DD`, Riyadh), the day its own page was last read with no offer; set it only when this
+  run read that page (BLD-33). `build.js` prints `no-offer cards: n of m carry their check date` and names any without one.
 - **Sources: `config/stores.json → carSources`.** Every full run, after the published offers, reads at least 3 sources that
   have a `url`, least recently read first, and writes the day into `_cars.json → scanned[<id>]` (`YYYY-MM-DD`). An entry with
   `url: null` has no confirmed address: a scheduled run skips it. Its address is found on the company's own site in a browser
@@ -502,9 +509,10 @@ and update it»). §2 point 3 already sweeps the rotation's market store; this p
 slots:
 1. `node scripts/market-apply.js --plan` lists, per store, the rows whose comparison is missing or due (`lib/market.js → isFresh`).
 2. For the stores other than this run's rotation store, take up to 30 queries in all, least recently compared first, and run
-   them through `SAYDA.kanbkam.market([...])` on the KanBkam tab, exactly as §2 point 3 does; save `work/market/<store>.json`.
+   them through `SAYDA.kanbkam.sweep(jobs)` on the KanBkam tab, exactly as §2 point 3 does; save `work/market/<store>.json`.
 3. `node scripts/market-apply.js work/market/<store>.json` (shadow, read it), then the same with `--apply`. `ref` is whatever
-   `rules/verdict.js` returns; a comparison `rules/match.js` rejects leaves the row as it was.
+   `rules/verdict.js` returns; a comparison `rules/match.js` rejects leaves the row as it was, and so does one with no
+   link to the other store's own product page (BLD-21, D16): `market-apply` lists it under «REFUSED: NO LINK».
 4. Upload the touched shards and `data/state/_market-<store>.json` caches with the state commit.
 5. Run log: `market: <store> <n> re-checked, <n> changed (<ids>)` for each store, or `market: nothing due`.
 The Google Shopping procedure below is kept for reference only. Scheduled runs do not use it: in shadow mode it changed nothing

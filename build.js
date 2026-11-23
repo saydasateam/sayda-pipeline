@@ -117,6 +117,15 @@ const label = id => (storeById[id]||{}).label || id;
 // pipeline; the page describes it generically. build fails if the name leaks back in.
 const TRACKER = /kanbkam/i, TRACKER_AR = /كان ?بكام/g;
 const pubUrl = u => (u && !TRACKER.test(u)) ? u : null;
+// BLD-28 (D25, 23 Nov 2026): a market row's link opens the model on the other store's own page. Rows compared before that
+// may still hold the comparator's page as refUrl, which pubUrl hides, so their card had no link. Where that page is a
+// KanBkam Amazon address the card now links Amazon's own /dp/ page and names Amazon (lib/market.js → ownListingUrl, the
+// same rule scripts/market-apply.js writes by). Build-time only: the stored row is corrected at its next comparison (§3b).
+{ const { ownListingUrl } = require('./lib/market');
+  const mk = st.rows.filter(r => r.refKind === 'market');
+  let fixed = 0; for (const r of mk) { if (!TRACKER.test(String(r.refUrl || ''))) continue; const o = ownListingUrl({ url: r.refUrl }, cfg.stores, r.store); if (o) { r.refUrl = o.url; if (!r.refStore) r.refStore = o.store; fixed++; } }
+  const own = mk.filter(r => pubUrl(r.refUrl) && cleanHttps(r.refUrl)).length;
+  console.log(`market links: ${own} of ${mk.length} market rows link the other store's own page${fixed ? ` (${fixed} read from a comparator Amazon address)` : ''}${mk.length - own ? ` · ${mk.length - own} show no link until their next comparison` : ''}`); }
 const pubText = t => typeof t === 'string' ? t.replace(TRACKER_AR, 'سجل الأسعار').replace(/kanbkam/gi, 'سجل الأسعار') : t;
 // (23 Nov 2026, Mahmoud: «yes for both») A store's own Arabic title can be a word-for-word machine translation of a brand's
 // product name: Amazon's «جوجل - زجاج اكسبلورر 2.0» for Google Glass, where «زجاج» is the material. For the row ids listed in
@@ -176,11 +185,27 @@ const D = st.rows.map(r => {
 });
 
 const T   = st.travel.map(t => [t.company,t.type,t.headline,t.code||'',t.bookStart||'',t.bookEnd||'',t.travelWindow,t.verdict,t.terms,t.url,t.checked]);
-const TNO = st.travelNone.map(t => [t.company,t.type]);
+// «No offer» cards (BLD-33): each entry in travelNone / carsNone carries `checked`, the Riyadh day its company's own page was
+// last read and showed no offer (RUNBOOK §3, §3a). The card prints that day. An entry with no valid day, or a day after today,
+// prints no date at all: the page never states a check that did not happen. Named below so the next full run fills it in.
+const RIYADH_TODAY = new Date(Date.now() + 3 * 3600e3).toISOString().slice(0, 10);
+const noneDay = d => /^\d{4}-\d{2}-\d{2}$/.test(String(d || '')) && String(d) <= RIYADH_TODAY ? String(d) : '';
+// A travel entry with no `checked` of its own falls back to the day its company's own site was last read as a travel source
+// (`_travel.json → scanned`). The source is the one whose host holds the company's English name, spaces removed (flynas →
+// www.flynas.com); none matches, or two do, and the card prints no date. Cars have no such fallback: their no-offer
+// companies are not in carSources.
+const travelSrcDay = t => { const key = String(t.company_en || '').toLowerCase().replace(/[^a-z0-9]/g, ''); if (key.length < 4) return '';
+  const hits = Object.keys(st.travelScanned || {}).filter(u => { try { return new URL(u).hostname.toLowerCase().replace(/[^a-z0-9.]/g, '').split('.').includes(key); } catch (_) { return false; } });
+  return hits.length === 1 ? noneDay(st.travelScanned[hits[0]]) : ''; };
+st.travelNone.forEach(t => { if (!noneDay(t.checked) && travelSrcDay(t)) t.checked = travelSrcDay(t); });
+{ const und = [...st.travelNone.map(t => ['travel', t]), ...(st.carsNone || []).map(c => ['cars', c])].filter(([, o]) => !noneDay(o.checked));
+  const n = st.travelNone.length + (st.carsNone || []).length;
+  console.log(`no-offer cards: ${n - und.length} of ${n} carry their check date${und.length ? ` · no date printed for ${und.map(([k, o]) => `${k}: ${String(o.company_en || o.company || '?').slice(0, 40)}`).join(', ')}` : ''}`); }
+const TNO = st.travelNone.map(t => [t.company,t.type,noneDay(t.checked)]);
 // car offers (22 Sep): same card shape as travel, one extra field (brand) after type.
 // [company, type, brand, headline, code, bookStart, bookEnd, window, verdict, terms, url, checked]
 const CR  = (st.cars || []).map(c => [c.company,c.type,c.brand||'',c.headline,c.code||'',c.bookStart||'',c.bookEnd||'',c.window||'',c.verdict,c.terms,c.url,c.checked]);
-const CRNO = (st.carsNone || []).map(c => [c.company,c.type]);
+const CRNO = (st.carsNone || []).map(c => [c.company,c.type,noneDay(c.checked)]);
 // app subscription offers (BLD-27): the travel card with named fields. Nothing here is measured against a price record, so
 // the card never carries a percentage of ours. `wallet` ids (config/wallet.json) become the card's tags here, at build time,
 // in the page's language; an id that is not in that file is left off. English needs headline_en and terms_en, as travel does.
@@ -604,7 +629,7 @@ const enFill = {
   STORE_COUNT: String(cfg.stores.filter(s => s.enabled !== false).length), TH_ACCENT: campaignFill.TH_ACCENT, TH_ACCENT_HEX: campaignFill.TH_ACCENT_HEX,
   E_JSON: arr(E), CATS_JSON: J(cats.map(c => [c.id, c.label_en || c.id])), STORE_CHIPS_EN: storeChipsEn,
   COUPONS_JSON: J(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), nw: (x.c.walletNot || []).filter(id => walletById[id]), p: enText(x.c.perk_en || ''), h: enText(cpHead(x.c.perk_en, x.c.text_en)) }))),
-  TRNO_JSON: J(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || ''])), CRNO_JSON: J((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || ''])),
+  TRNO_JSON: J(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || '', noneDay(t.checked)])), CRNO_JSON: J((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || '', noneDay(c.checked)])),
   TNONE_EN_JSON: J(st.travelNone_text_en || ''), LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS_EN: panelsEn,
   TICKER: katEn.ticker, KAT_CARDS: katEn.cards, KAT_HEADS: katEn.heads, KAT_JSON: katEn.json,
   WALLET_JSON: J(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
