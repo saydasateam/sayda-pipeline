@@ -236,8 +236,8 @@
     {
       "id": "blackbox",
       "label_en": "Blackbox",
-      "en": { "try": [[".com.sa/", ".com.sa/en/"]] },
-      "_en": "candidate rule, unverified on 20 Nov 2026: SAYDA.names only accepts a Latin-script title from a 200 page, so a wrong rule gives null, not a wrong name. Confirm on the first run and correct here",
+      "en": { "try": [["/ar/product/", "/en/product/"]] },
+      "_en": "BLD-25, 23 Nov 2026: Blackbox rows are https://www.blackbox.com.sa/ar/product/<slug>-p-<id>, and the English page is the same address with /en/product/ (read in the server Chrome: QA100QN80FUXSA). The old rule turned .com.sa/ into .com.sa/en/ and gave /en/ar/product/, which has no page.",
       "label": "بلاك بوكس",
       "group": "electronics",
       "adapter": "nextdata",
