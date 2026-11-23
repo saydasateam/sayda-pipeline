@@ -113,6 +113,23 @@ const sh = shard('extra'); sh.rows = ex; fs.writeFileSync(path.join(TMP, 'data/s
   const ar = fs.readFileSync(path.join(TMP, 'dist/index.html'), 'utf8');
   ok(ar.includes('900000001'), 'the verified row is on the page');
 }
+// BLD-11: apply.js check puts the store's Arabic title on a row that has none, and never replaces an Arabic name
+{
+  const sh2 = shard('extra'); const r0 = sh2.rows.find(r => !String(r.id).startsWith('extra:9000000'));
+  if (r0) {
+    const keep = r0.name; r0.name = 'samsung refrigerator'; fs.writeFileSync(path.join(TMP, 'data/state/extra.json'), JSON.stringify(sh2));
+    fs.rmSync(path.join(TMP, 'work/check'), { recursive: true, force: true }); fs.mkdirSync(path.join(TMP, 'work/check'), { recursive: true });
+    fs.writeFileSync(path.join(TMP, 'work/check/extra.json'), JSON.stringify([{ id: r0.id, found: true, live: r0.price, buyable: true, stock: 9, name: 'سامسونج ثلاجه 15 قدم', model: 'RT58K7050SLB' }]));
+    run(['apply.js', 'check']);
+    let r1 = shard('extra').rows.find(r => r.id === r0.id);
+    ok(r1 && r1.name === 'سامسونج ثلاجه 15 قدم', 'a row with no Arabic name takes the store\'s Arabic title from its check');
+    fs.writeFileSync(path.join(TMP, 'work/check/extra.json'), JSON.stringify([{ id: r0.id, found: true, live: r0.price, buyable: true, stock: 9, name: 'اسم آخر' }]));
+    run(['apply.js', 'check']);
+    r1 = shard('extra').rows.find(r => r.id === r0.id);
+    ok(r1 && r1.name === 'سامسونج ثلاجه 15 قدم', 'an Arabic name is never replaced');
+    void keep;
+  } else ok(false, 'an Extra row to test the Arabic name');
+}
 fs.rmSync(TMP, { recursive: true, force: true });
 console.log(`untracked: ${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

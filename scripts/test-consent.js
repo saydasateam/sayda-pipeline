@@ -48,7 +48,7 @@ const sim = (code, stored) => {
 for (const [lang, html] of [['Arabic', on.ar], ['English', on.en]]) {
   const code = headOf(html);
   ok(`${lang}: the head script is the consent loader`, /saydaConsent/.test(code) && /'consent','default'/.test(code), code.slice(0, 200));
-  ok(`${lang}: no Tag Manager address outside the loader, and no no-JavaScript iframe`, (html.match(/googletagmanager\.com/g) || []).length === 1 && !/ns\.html/.test(html));
+  ok(`${lang}: no Tag Manager address outside the loader, and no no-JavaScript iframe`, (html.replace(/<meta http-equiv="Content-Security-Policy"[^>]*>/, '').match(/googletagmanager\.com/g) || []).length === 1 && !/ns\.html/.test(html));
   if (!code) continue;
   const a = sim(code, null), def = a.calls().find(c => Array.isArray(c) && c[0] === 'consent' && c[1] === 'default');
   ok(`${lang}: no stored choice → nothing requested from Google`, a.added.length === 0 && !a.w.saydaMeasuring(), a.added.join(' '));
