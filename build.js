@@ -495,18 +495,27 @@ const waFill = {
 };
 const plainText = (t, d) => { const s = String(t || d); if (/[<>&"]/.test(s)) throw new Error('build: config/site.json service names must be plain text'); return s; };
 const measureFill = {
-  GTM_HEAD: !GTM_ID ? '' : `\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');</script>`,
-  GTM_BODY: !GTM_ID ? '' : `\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`,
+  // BLD-24 (consent, approved 22 Nov 2026 at 01:15): Tag Manager loads only after the visitor says OK on the measurement bar.
+  // The head script sets Google's Consent Mode defaults first (every advertising signal denied, always; analytics granted only
+  // with a stored OK), then loads gtm.js only for a visitor whose stored choice is «yes», or the moment they press OK. Nothing
+  // is requested from Google before that, and the no-JavaScript iframe is gone because it cannot ask. window.saydaConsent(v)
+  // records «yes» or «no» in this browser and updates Consent Mode; window.saydaMeasuring() tells the page's click events
+  // whether to queue anything at all, so clicks made before an OK are never sent after it.
+  GTM_HEAD: !GTM_ID ? '' : `\n<script>(function(w,d,i){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments);}w.gtag=w.gtag||g;var k='sayda.consent',c=null;try{c=w.localStorage.getItem(k);}catch(_){}g('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:c==='yes'?'granted':'denied'});var on=false;w.saydaMeasuring=function(){return on;};w.saydaMeasure=function(){if(on)return;on=true;w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};w.saydaConsent=function(v){v=v==='yes'?'yes':'no';try{w.localStorage.setItem(k,v);}catch(_){}g('consent','update',{analytics_storage:v==='yes'?'granted':'denied'});if(v==='yes')w.saydaMeasure();else on=false;};if(c==='yes')w.saydaMeasure();})(window,document,'${GTM_ID}');</script>`,
+  GTM_BODY: '',
+  // The measurement bar (BLD-24). Shown by the page's script to a visitor with no stored choice; hidden again by either button.
+  CONSENT_BAR_AR: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="القياس بإذنك" hidden><p><b>القياس بإذنك</b> إذا وافقت، نقيس الزيارات والنقرات بأداة Google Analytics لنعرف أي الصيدات تفيدكم. تضع ملفات تعريف ارتباط وترسل بيانات الزيارة إلى Google. إن لم توافق لا نحمّلها، والصفحة تعمل كما هي. <a href="#about">التفاصيل</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">موافق</button><button type="button" class="cno" data-cv="no">لا، شكراً</button></div></aside>`,
+  CONSENT_BAR_EN: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="Measurement, only with your OK" hidden><p><b>Measurement, only with your OK.</b> With your OK, we measure visits and clicks with Google Analytics to learn which deals help. It sets cookies and sends visit data to Google. Without it, we don’t load it and the page works the same. <a href="#about">Details</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">OK</button><button type="button" class="cno" data-cv="no">No thanks</button></div></aside>`,
   PRIVACY_STATS_AR: !GTM_ID ? 'نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية.'
-    : `نستخدم إحصاءات Cloudflare، ونستخدم Google Tag Manager لقياس الزيارات و${WA ? 'أربعة أنواع من النقرات: فتح صفحة متجر، نسخ كود، استخدام فلتر البطاقات (دون اسم البطاقة)، وفتح قناتنا على واتساب' : 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة)'}. خدمات القياس والإعلان التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) قد تستخدم ملفات تعريف الارتباط ومعرّف جهازك لقياس الزيارات والإعلانات.`,
+    : `نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط. وإذا وافقت على شريط «القياس بإذنك» فقط، نحمّل Google Tag Manager لقياس الزيارات و${WA ? 'أربعة أنواع من النقرات: فتح صفحة متجر، نسخ كود، استخدام فلتر البطاقات (دون اسم البطاقة)، وفتح قناتنا على واتساب' : 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة)'}. خدمات القياس التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) تضع ملفات تعريف ارتباط وتستخدم معرّف جهازك، ولا تعمل على الصفحة أي أداة إعلانية. دون موافقتك لا نحمّل شيئاً منها. <button type="button" class="clink" data-consent-open>تغيير اختيار القياس</button>`,
   PRIVACY_STATS_EN: !GTM_ID ? 'we use Cloudflare analytics, which sets no cookies and collects no personal data.'
-    : `we use Cloudflare analytics, and Google Tag Manager to measure visits and ${WA ? 'four kinds of click: opening a store page, copying a code, using the card filter (never which card), and opening our WhatsApp channel' : 'three kinds of click: opening a store page, copying a code, and using the card filter (never which card)'}. The measurement and advertising services that run through it (${plainText(siteCfg.services_en, 'Google')}) may set cookies and use your device’s identifiers to measure visits and ads.`,
+    : `we use Cloudflare analytics, which sets no cookies. Only if you say OK on the «Measurement, only with your OK» bar do we also load Google Tag Manager to measure visits and ${WA ? 'four kinds of click: opening a store page, copying a code, using the card filter (never which card), and opening our WhatsApp channel' : 'three kinds of click: opening a store page, copying a code, and using the card filter (never which card)'}. The measurement services that run through it (${plainText(siteCfg.services_en, 'Google')}) set cookies and use your device’s identifiers, and no advertising tool runs on the page. Without your OK we load none of it. <button type="button" class="clink" data-consent-open>Change your measurement choice</button>`,
 };
 
 // ---- fill ----
 const fill = {
   ...campaignFill,
-  GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, PRIVACY_STATS_AR: measureFill.PRIVACY_STATS_AR,
+  GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, CONSENT_BAR: measureFill.CONSENT_BAR_AR, PRIVACY_STATS_AR: measureFill.PRIVACY_STATS_AR,
   WA_JSON: waFill.WA_JSON, WA_BAR: waFill.WA_BAR_AR, WA_HEAD: waFill.WA_HEAD_AR, WA_BLOCK: waFill.WA_BLOCK_AR, WA_ABOUT: waFill.WA_ABOUT_AR,
   UPDATED_AR: longDate(st.meta.updated),
   UPDATED_AR_SHORT: shortDate(st.meta.updated),
@@ -621,7 +630,7 @@ if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build
 const css = (out.match(/<style>[\s\S]*?<\/style>/g) || []).map(b => b.replace(/^<style>|<\/style>$/g, '')).join('\n');
 const dEn = iso => new Date(String(iso).length === 10 ? iso + 'T12:00:00+03:00' : iso);
 const enFill = {
-  GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, PRIVACY_STATS_EN: measureFill.PRIVACY_STATS_EN,
+  GTM_HEAD: measureFill.GTM_HEAD, GTM_BODY: measureFill.GTM_BODY, CONSENT_BAR: measureFill.CONSENT_BAR_EN, PRIVACY_STATS_EN: measureFill.PRIVACY_STATS_EN,
   WA_JSON: waFill.WA_JSON, WA_BAR: waFill.WA_BAR_EN, WA_HEAD: waFill.WA_HEAD_EN, WA_BLOCK: waFill.WA_BLOCK_EN, WA_ABOUT: waFill.WA_ABOUT_EN,
   CSS: css, CAMPAIGN_EN: M.campaign_en || 'Sale', CAMPAIGN_SHORT_EN: M.campaignShort_en || M.campaign_en || 'Sale',
   UPDATED_EN: dEn(st.meta.updated).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Riyadh' }),
@@ -661,6 +670,6 @@ art = art.replace(/<meta name="description"[\s\S]*?<meta name="twitter:image"[^>
 fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
-console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
+console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages, loaded only after the visitor's OK (consent bar, Consent Mode: advertising denied)` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
 console.log(WA ? 'whatsapp channel: on both pages (strip above the products, header, above the suggestion box, About, shared-link note; share message)' : 'whatsapp channel: none (config/site.json has no whatsappChannel)');
 console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length} · subscriptions ${SB.length}`);
