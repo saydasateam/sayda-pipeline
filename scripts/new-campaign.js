@@ -16,7 +16,7 @@
 //   2. writes an EMPTY shard for every store in config/stores.json, enabled or not. Empty rather
 //      than absent on purpose: lib/state.js throws when there are no shards at all, and an absent
 //      shard would let a leftover legacy data/state.json supply that store's rows again
-//   3. resets coupons / travel / cars / notes to empty. Notes included: on 28 Sep all three
+//   3. resets coupons / travel / cars / subscriptions / notes to empty. Notes included: on 28 Sep all three
 //      `kind: "note"` entries were worded as that day's finding («لا يوجد كود مؤكّد اليوم»), so
 //      carrying them over would publish a dated check as a current one. The first run re-derives them
 //   4. KEEPS data/state/<store>.history.json for enabled stores. That file is our own price record;
@@ -55,7 +55,7 @@ console.log(`  rows on the page now: ${rowsBefore}`);
 console.log(`  move ${moves.length} files → data/archive/${id}/`);
 console.log(`  write ${cfg.stores.length} empty shards (${enabled.size} enabled stores, ${cfg.stores.length - enabled.size} disabled)`);
 console.log(`  keep ${files.filter(f => f.endsWith('.history.json') && enabled.has(f.slice(0, -13))).length} history shards in place`);
-console.log(`  coupons: drop ${coupons.length}; travel, cars, notes reset`);
+console.log(`  coupons: drop ${coupons.length}; travel, cars, subscriptions, notes reset`);
 if (!apply) { console.log('nothing changed. Re-run with --apply.'); process.exit(0); }
 
 for (const [from, to] of moves) { fs.mkdirSync(path.dirname(to), { recursive: true }); fs.renameSync(from, to); }
@@ -63,6 +63,7 @@ for (const s of cfg.stores) S.writeJson(path.join(D.state, s.id + '.json'), { st
 S.writeJson(path.join(D.state, '_coupons.json'), { coupons: [] });
 S.writeJson(path.join(D.state, '_travel.json'), { travel: [], travelNone: [], travelNone_text: '' });
 S.writeJson(path.join(D.state, '_cars.json'), { cars: [], carsNone: [] });
+S.writeJson(path.join(D.state, '_subs.json'), { subs: [] });
 S.writeJson(path.join(D.state, '_notes.json'), { notes: {} });
 const after = S.load(ROOT, cfg);
 if (after.rows.length) { console.error(`expected 0 rows after the reset, found ${after.rows.length}`); process.exit(1); }

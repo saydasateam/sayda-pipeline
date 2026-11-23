@@ -98,6 +98,11 @@ const offer = (n, over) => ({ company: img(n), type: img(n + 1), brand: img(n + 
 W('data/state/_travel.json', { travel: [offer(30), offer(40, { company: 'bad link travel', url: `javascript:${M}(49)` })], travelNone: [{ company: img(50), type: img(51), company_en: img(52), type_en: img(53) }],
   travelNone_text: img(54), travelNone_text_en: img(55) });
 W('data/state/_cars.json', { cars: [offer(70), offer(80, { company: 'bad link car', url: `http://insecure.example.com/${M}89` })], carsNone: [{ company: img(90), type: img(91), company_en: img(92), type_en: img(93) }] });
+// (BLD-27) app subscription offers: one hostile offer, one with a bad link, one with no end date, one with no English.
+// The wallet list holds a real id and a hostile one: only an id from config/wallet.json may become a tag.
+const sub = (n, over) => ({ ...offer(n), bookEnd: '2026-12-31', wallet: ['alrajhi', `x\"><img src=x onerror=${M}(${n + 9})>`], ...over });
+W('data/state/_subs.json', { subs: [sub(120), sub(130, { company: 'bad link sub', url: `javascript:${M}(139)` }), sub(140, { company: 'no end sub', bookEnd: '' }),
+  sub(150, { company: 'arabic only sub', headline_en: '', terms_en: '' })] });
 W('data/state/_notes.json', { notes: {} });
 
 // ── build ────────────────────────────────────────────────────────────────────────────────────────
@@ -106,6 +111,9 @@ ok('build.js builds the hostile state', b.status === 0, b.stderr || b.stdout);
 ok('build names the four rows it held back for a bad link', /held back 4 rows with a link that is not a clean https address/.test(b.stdout) && ['t-jsurl', 't-refurl', 't-evurl', 't-quoteurl'].every(k => b.stdout.includes(k)), b.stdout);
 ok('build names the travel offer it held back', /held back 1 travel offer\(s\) with a link that is not a clean https address: bad link travel/.test(b.stdout), b.stdout);
 ok('build names the car offer it held back', /held back 1 car offer\(s\) with a link that is not a clean https address: bad link car/.test(b.stdout), b.stdout);
+ok('build names the subscription offer it held back for a bad link', /held back 1 subscription offer\(s\) with a link that is not a clean https address: bad link sub/.test(b.stdout), b.stdout);
+ok('build names the subscription offer it held back for having no end date', /held back 1 subscription offer\(s\): no end sub \(no end date\)/.test(b.stdout), b.stdout);
+ok('build counts subscription offers in the english: line and on the built line', /^english: .* · subscriptions 1 of 2$/m.test(b.stdout) && /^built .* · subscriptions 2$/m.test(b.stdout), b.stdout);
 if (b.status !== 0) { console.log(`\nescape: ${pass} passed, ${fail} failed`); done(); process.exit(1); }
 
 // Read HTML the way a browser's tokenizer does: a tag starts at «<» followed by a letter or «/», then
@@ -196,6 +204,8 @@ for (const [file, lang, nameMark] of [['dist/index.html', 'arabic', `&lt;img src
   ok(`${lang}: no javascript: or data:text link anywhere in the file`, !/javascript:|data:text/i.test(html));
   ok(`${lang}: the four rows with a bad link are not in the file`, !['t-jsurl', 't-refurl', 't-evurl', 't-quoteurl'].some(k => html.includes(k)));
   ok(`${lang}: the offers with a bad link are not in the file`, !html.includes('bad link travel') && !html.includes('bad link car') && !html.includes('insecure.example.com'));
+  ok(`${lang}: the subscription offers held back are not in the file, and the one with no English is on the Arabic page only`, !html.includes('bad link sub') && !html.includes('no end sub') && html.includes('arabic only sub') === (lang === 'arabic'));
+  ok(`${lang}: the subscriptions panel and section are shown`, stat.includes('<nav class="panels p4"') && /<a class="panel" href="#subs">/.test(stat) && (lang === 'arabic' ? /<section class="travel" id="subs" aria-labelledby="sb-h">/.test(stat) : true));
   ok(`${lang}: the hostile rows that should be on the page are in the file`, ['t-clean', 't-name', 't-attrs', 't-price', 't-img', 't-market', 't-tick', 't-tick2'].every(k => html.includes(k)));
   // (BLD-15) the ticker strip, the category card and the header inside a category are static HTML written by build.js
   ok(`${lang}: the ticker strip, a category card and a category header are in the static HTML`, stat.includes('class="tick"') && /<button type="button" class="kcard big kc\d+"/.test(stat) && /<div class="khead kc\d+"/.test(stat));
@@ -222,6 +232,22 @@ for (const [file, lang, nameMark] of [['dist/index.html', 'arabic', `&lt;img src
   ok(`${lang}: the marker reached the page as text at least 20 times (cards, dialogs, coupons, travel, cars)`, all.split(M).length - 1 >= 20, `seen ${all.split(M).length - 1}`);
   ok(`${lang}: the clean row's quotes and ampersand are written as entities`, lang === 'arabic' ? all.includes('حقيبة &quot;ميريديان&quot; &amp; شركاه') : all.includes('Tom&#39;s 1.3&quot; bag &amp; strap'));
   ok(`${lang}: the row with a bad picture is drawn without it`, !all.includes(`${M}(14)`));
+  // (BLD-27) the subscription cards: drawn, tagged from config/wallet.json only, and with no percentage of ours
+  const sb = out.sinks.filter(h => h.includes('class="tcard sbcard'));
+  ok(`${lang}: the script drew the subscription cards (${lang === 'arabic' ? 2 : 1})`, sb.length === 1 && sb[0].split('<article class="tcard sbcard').length - 1 === (lang === 'arabic' ? 2 : 1), `pieces ${sb.length}`);
+  ok(`${lang}: a subscription card carries the wallet tag from config/wallet.json and nothing from a hostile wallet id`, sb.join('').includes(`<span class="wtag">${lang === 'arabic' ? 'بطاقات الراجحي' : 'Al Rajhi cards'}</span>`) && ![129, 139, 149, 159].some(n => html.includes(`${M}(${n})`)));
+  ok(`${lang}: a subscription card prints no percentage`, !/[%٪]/.test(sb.join('')));
+}
+
+// ── (BLD-27) with no subscription offer, neither page shows the panel or the section ─────────────────────────────
+{
+  fs.rmSync(path.join(TMP, 'data/state/_subs.json'));
+  const b2 = spawnSync(process.execPath, ['build.js'], { cwd: TMP, encoding: 'utf8' });
+  ok('build.js builds with no data/state/_subs.json and counts 0 of 0', b2.status === 0 && /^english: .* · subscriptions 0 of 0$/m.test(b2.stdout), b2.stderr || b2.stdout);
+  for (const [file, lang] of [['dist/index.html', 'arabic'], ['dist/en/index.html', 'english']]) {
+    const html = b2.status === 0 ? fs.readFileSync(path.join(TMP, file), 'utf8') : '';
+    ok(`${lang}: with no subscription offer there is no fourth panel and the section stays hidden`, html.includes('<nav class="panels"') && !html.includes('href="#subs"') && /<section class="travel" id="subs" aria-labelledby="sb-h" hidden>/.test(html));
+  }
 }
 
 // ── a row with a bad link is not added, and a corrected link is taken only when clean ───────────────
