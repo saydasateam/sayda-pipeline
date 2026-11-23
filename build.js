@@ -394,6 +394,11 @@ const katParts = lang => {
   const when = ar ? time12(st.meta.checkedAt) : new Date(String(st.meta.checkedAt)).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' });
   const ticker = tickRows.length < 4 ? '' : `<div class="tick" id="tick" dir="${ar ? 'rtl' : 'ltr'}" lang="${ar ? 'ar' : 'en'}" role="region" aria-label="${ar ? 'خصومات مؤكّدة بأسعار آخر فحص' : 'Confirmed discounts at the last check’s prices'}">`
     + `<p class="tickl"><b>${ar ? 'خصومات مؤكّدة' : 'Confirmed discounts'}</b><small>${ar ? 'الأسعار فُحصت ' + H(when) : 'Prices checked ' + H(when)}</small></p>`
+    // (23 Nov 2026) a visible pause button: the strip moves for every visitor, whatever the device's motion setting, and
+    // anyone can stop it. The two labels ride on the button so one script serves both languages.
+    + `<button type="button" class="tickp" aria-pressed="false" aria-label="${ar ? 'إيقاف الشريط' : 'Pause the ticker'}" data-l-pause="${ar ? 'إيقاف الشريط' : 'Pause the ticker'}" data-l-play="${ar ? 'تشغيل الشريط' : 'Play the ticker'}">`
+    + `<svg class="ip" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><rect x="1.5" y="1" width="2.5" height="8" rx=".6" fill="currentColor"/><rect x="6" y="1" width="2.5" height="8" rx=".6" fill="currentColor"/></svg>`
+    + `<svg class="iy" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><path d="M2.2 1.2 8.8 5 2.2 8.8Z" fill="currentColor"/></svg></button>`
     + `<div class="tickv"><div class="tickt"><div class="tickg">${tickRows.map(r => item(r, false)).join('')}</div><div class="tickg" aria-hidden="true" inert>${tickRows.map(r => item(r, true)).join('')}</div></div></div></div>`;
   const json = J(Object.fromEntries(cats.map((c, i) => [c.id, { l: cname(c), k: i }])));
   return { cards, heads, ticker, json };
