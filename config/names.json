@@ -1,0 +1,6 @@
+{
+ "_comment": "Rows whose store Arabic title is a word-for-word machine translation of a brand's product name. For each id listed under arShowsStoreEnglish the Arabic page shows the store's own English title (name_en) instead of its Arabic one. Nothing is translated. A row is added only on Mahmoud's word, by a landing; a refresh never edits this file. Rule of 23 Nov 2026 (Mahmoud: «yes for both»).",
+ "arShowsStoreEnglish": {
+  "amazon:B07MMK6SY9": "Amazon's Arabic title «جوجل - زجاج اكسبلورر 2.0» reads Glass, the product name, as the material. Mahmoud, 23 Nov 2026."
+ }
+}
