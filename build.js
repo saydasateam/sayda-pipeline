@@ -109,6 +109,15 @@ const label = id => (storeById[id]||{}).label || id;
 const TRACKER = /kanbkam/i, TRACKER_AR = /كان ?بكام/g;
 const pubUrl = u => (u && !TRACKER.test(u)) ? u : null;
 const pubText = t => typeof t === 'string' ? t.replace(TRACKER_AR, 'سجل الأسعار').replace(/kanbkam/gi, 'سجل الأسعار') : t;
+// (23 Nov 2026, Mahmoud: «yes for both») A store's own Arabic title can be a word-for-word machine translation of a brand's
+// product name: Amazon's «جوجل - زجاج اكسبلورر 2.0» for Google Glass, where «زجاج» is the material. For the row ids listed in
+// config/names.json → arShowsStoreEnglish the Arabic page shows the store's own English title (name_en) instead. Still the
+// store's words, never ours: nothing is translated. A row joins the list only on Mahmoud's word; a run never edits it.
+const namesPath = path.join(ROOT, 'config/names.json');
+const namesCfg = fs.existsSync(namesPath) ? JSON.parse(fs.readFileSync(namesPath, 'utf8')) : {};
+const AR_EN = new Set(Object.keys(namesCfg.arShowsStoreEnglish || {}).filter(k => !k.startsWith('_')));
+const arName = r => (AR_EN.has(r.id) && String(r.name_en || '').trim()) ? r.name_en : pubText(r.name);
+if (AR_EN.size) { const on = st.rows.filter(r => AR_EN.has(r.id) && String(r.name_en || '').trim()).map(r => r.id); console.log(`names: ${on.length} of ${AR_EN.size} listed rows show the store's English title on the Arabic page${on.length ? ' (' + on.join(', ') + ')' : ''}`); }
 const RK = { history: 'h', market: 'm' }, BK = { cheaper: 'c', rose: 'r', nosaving: 'n' };
 // Which store a cross-store reference came from, for «نفس الموديل لدى …» on the card. Read from the
 // row's refStore if the pipeline wrote one, else from the host of its refUrl. Never guessed: with
@@ -133,7 +142,7 @@ const findingAr = r => {
     ? `سبق أن وصل إلى ${arN(mn)} ر.س، أي أقل من سعر اليوم بـ ${arN(Math.round(r.price - mn))} ر.س` : m);
 };
 const D = st.rows.map(r => {
-  const a = [label(r.store), r.cat, pubText(r.name), r.price, r.was, r.ref ?? null, r.verdict, findingAr(r), r.url];
+  const a = [label(r.store), r.cat, arName(r), r.price, r.was, r.ref ?? null, r.verdict, findingAr(r), r.url];
   const x = {};
   if (r.avail && r.avail !== 'in') x.a = r.avail;
   if (r.availNote) x.an = pubText(r.availNote);
@@ -344,7 +353,7 @@ const KAT_CSS = katColours.map(k => k.light).join('') + `\n@media (prefers-color
 const katParts = lang => {
   const ar = lang === 'ar', num = ar ? arN : (v => Number(v).toLocaleString('en-US', { maximumFractionDigits: 0 }));
   const lab = ar ? label : (id => (storeById[id] || {}).label_en || id);
-  const cname = c => ar ? c.label : (c.label_en || c.id), rname = r => ar ? pubText(r.name) : (r.name_en || pubText(r.name));
+  const cname = c => ar ? c.label : (c.label_en || c.id), rname = r => ar ? arName(r) : (r.name_en || pubText(r.name));
   const pct = n => ar ? `${num(n)}٪` : `${num(n)}%`, sar = n => ar ? `${num(n)} ر.س` : `${num(n)} SAR`;
   const maxL = ar ? 'أعلى خصم مؤكّد' : 'highest confirmed discount';
   const countList = s => [ar ? `المفحوصة ${num(s.n)}` : `${num(s.n)} checked`].concat(s.ok ? [ar ? `المؤكّدة ${num(s.ok)}` : `${num(s.ok)} confirmed`] : []);

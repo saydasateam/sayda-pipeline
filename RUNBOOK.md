@@ -407,6 +407,13 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
   does not pick the same product a second time. Never delete it by hand, never translate a name to
   fill the gap, and never publish it on one page only. Name the stores with held-back rows in the
   summary and in a PushNotification every run until it is zero.
+- **A store Arabic title that mistranslates a brand name (Mahmoud, 23 Nov 2026).** Amazon's Arabic
+  catalogue is machine translated, so its Arabic title can render a product name word for word: «جوجل -
+  زجاج اكسبلورر 2.0» for Google Glass, where «زجاج» is the material. For a row id listed in
+  `config/names.json` → `arShowsStoreEnglish`, `build.js` shows the store's own English title (`name_en`)
+  on the Arabic page too and prints `names: n of m listed rows show the store's English title on the Arabic
+  page`. Still the store's words: nothing is translated. A run never edits that file. When you see
+  another such title, keep the row as it is and name it in the summary so Mahmoud can decide.
 - **The site's wrapper is not part of the name** (20 Nov 2026). `SAYDA.titleOf` removes it:
   «Buy … in KSA | Mumzworld», «… | Mothercare Saudi Arabia», «… | Nahdi», «… | Best Price KSA»
   (Namshi), «… | BlackBox». The product name between is stored exactly as the store wrote it. If a
