@@ -256,7 +256,9 @@ function marketEvidence(row, listings, opts = {}) {
   const cheapest = kept.reduce((a, b) => (Number(b.price) < Number(a.price) ? b : a));
   const merchants = new Set(kept.map(l => String(l.merchant || '').toLowerCase()).filter(Boolean));
   return {
-    market: { store: cheapest.merchant, price: Math.round(Number(cheapest.price)), url: cheapest.url },
+    // `own` (BLD-28) is the store's own product link read off the comparator's page, passed through untouched for
+    // lib/market.js → ownListingUrl. It plays no part in deciding the match.
+    market: { store: cheapest.merchant, price: Math.round(Number(cheapest.price)), url: cheapest.url, ...(cheapest.own ? { own: cheapest.own } : {}) },
     min: prices[0],
     max: prices[prices.length - 1],
     avg: Math.round(prices.reduce((a, b) => a + b, 0) / prices.length),
