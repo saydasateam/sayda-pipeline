@@ -38,6 +38,9 @@ if (mode === 'check') {
     const isUn = ['oos', 'ended', 'gone'].includes(a.avail);
     if (isUn && !wasUn) report.newlyUnavailable.push([r.id, a.avail]); if (!isUn && wasUn) report.restocked.push([r.id, a.avail]);
     r.avail = a.avail; r.availNote = a.note; r.lastChecked = today;
+    // BLD-36: the maker's model number and barcode as the store's own page states them, kept for the market comparison
+    if (o.model && !r.model) r.model = String(o.model).slice(0, 40);
+    if (o.gtin && !r.gtin) r.gtin = String(o.gtin);
     if (r.needsCheck) { delete r.needsCheck; (report.firstChecked = report.firstChecked || []).push([r.id, a.avail]); }
     // record what we saw, for rows no public tracker covers (fashion, beauty, baby, furniture)
     if (!isUn) H.record(hist, r.id, r.price, today);
@@ -84,7 +87,13 @@ if (mode === 'check') {
   // the store, and the compared-product and evidence links when it has them. A row that fails is not added; it is listed
   // in report.badLinks with the field that failed, so the run can read the link again from the store's page.
   const badField = r => !cleanHttps(r.url) ? 'url' : !cleanOrAbsent(r.refUrl) ? 'refUrl' : !cleanOrAbsent(r.ev && r.ev.url) ? 'ev.url' : null;
-  const fresh = add.filter(r => !ids.has(r.id)).filter(r => { const f = badField(r); if (f) report.badLinks.push([r.id, f]); return !f; });
+  // BLD-36: an untracked candidate (no KanBkam record) must carry the maker's model number, and one that was compared in the
+  // last REFRESH_DAYS days without being verified is not added again: the comparison would only repeat its answer.
+  const M = require('./lib/market'), mcache = M.load(ROOT);
+  const recent = id => { const e = mcache[id]; return !!(e && e.sampledAt && (Date.parse(today) - Date.parse(e.sampledAt)) / 86400e3 < M.REFRESH_DAYS); };
+  const untrackedOk = r => !r.untracked || (r.verdict === 'na' && !!String(r.model || '').trim() && !recent(r.id));
+  report.untrackedSkipped = add.filter(r => r.untracked && !ids.has(r.id) && !untrackedOk(r)).map(r => r.id);
+  const fresh = add.filter(r => !ids.has(r.id)).filter(untrackedOk).filter(r => { const f = badField(r); if (f) report.badLinks.push([r.id, f]); return !f; });
   // categorise BEFORE ranking, so the per-chip reservation below can see each row's chip
   for (const r of fresh) {
     if (!chipIds.has(r.cat)) {

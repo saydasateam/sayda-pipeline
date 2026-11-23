@@ -53,6 +53,10 @@ if (st.rows.length > rules.page.maxRows) {
 // first apply.js check clears it) are not published: the page never says «متاح» on a price
 // tracker's or a listing's word. See RUNBOOK §2 «re-check new rows».
 {
+  // BLD-36: a noon, Amazon or Extra product that KanBkam does not track waits here, off the page, until the market
+  // comparison (scripts/market-apply.js) has either verified it against the same model in another store or dropped it.
+  const untracked = st.rows.filter(r => r.untracked);
+  if (untracked.length) { st.rows = st.rows.filter(r => !r.untracked); console.log(`held back ${untracked.length} untracked rows awaiting a market comparison (BLD-36): ${[...new Set(untracked.map(r => r.store))].join(', ')}`); }
   const pending = st.rows.filter(r => r.needsCheck);
   if (pending.length) { st.rows = st.rows.filter(r => !r.needsCheck); console.log(`held back ${pending.length} new rows not yet checked by their store: ${[...new Set(pending.map(r=>r.store))].join(', ')}`); }
 }

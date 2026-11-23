@@ -318,6 +318,21 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
    with `--apply`: a row that matches becomes a
    `market` row with `refUrl`; a row that does not stays `na`, unchanged. §1b's «Verification for the new
    stores» applies (size is part of the model for beauty). This never touches `intake.fillTo`.
+4b. **Untracked noon, Amazon and Extra products, compared by the maker's model number (BLD-36, Mahmoud 23 Nov 2026).** A
+   candidate for which `SAYDA.kanbkam.history` returns no record is no longer dropped (on 23 Nov that was 92 of Extra's 115).
+   Its store check (`SAYDA.adapters.<store>.check(rows)`) now also returns `model`, the maker's model number as the store's
+   own page states it (Extra: JSON-LD `mpn`; noon: the `model_number` specification; Amazon: «رقم موديل السلعة», else
+   «رقم الموديل»), and for Extra `gtin` (the barcode). A store's own SKU is never a model number (`SAYDA.modelOf` keeps only a
+   token with a letter and a digit). With a model, add the candidate through `apply.js new` as `verdict: "na"`,
+   `untracked: true`, `model`, `was: null`, `ref: null`; without one it is dropped as before. `build.js` keeps untracked rows
+   off both pages. Then, in the same run, `node scripts/market-apply.js --plan` lists them in `work/market/<store>.jobs.json`;
+   take up to 30 of these queries in all, sweep them with `SAYDA.kanbkam.sweep(jobs)` on the KanBkam tab exactly as for a
+   market store, save `work/market/<store>.json`, run `market-apply.js` (shadow) and then `--apply`. `rules/match.js` and
+   `rules/verdict.js` decide, unchanged: a match becomes an ordinary market row whose `refUrl` is the other store's own
+   product page; no usable comparator, or no link to the other store's own page, and `--apply` removes the row. `apply.js new`
+   does not add the same product again for 7 days after a comparison. The barcode is stored, never used as a match key:
+   accepting two equal barcodes as proof of the same product is Mahmoud's decision after OPS-21. Run log:
+   `untracked: <store> <n> added, <n> verified, <n> removed`.
 5. **Empty chips first** (`emptyChipsFirst`): when shortlisting from noon/Amazon/Extra, take the categories
    of chips that have no verified row yet (toys, sports, perfume, personal care, kids) before the rest.
    `rules.page.reservedPerChip` then keeps their slots at intake.
@@ -359,7 +374,7 @@ previousPrice is looked up, live-checked and added like a noon or Amazon one, wi
   one variant per model.
   Trendyol: skip cards with `plusOnly` unless instructive — that price needs a subscription. Trendyol candidates carrying
   `lowestRecent` can be judged with no extra lookup, so they are the cheapest to verify in the whole pipeline.
-- Evidence: noon/amazon/extra → `SAYDA.kanbkam.history(ids, mid)` on the kanbkam tab (mid from config; extra ids are `e<id>`). jarir/blackbox/almanea/saco/trendyol → `SAYDA.kanbkam.market(['brand model', …])`, keep only the SAME model. ashley ↔ midas: compare the same piece. ikea/homecentre/homebox/panhome/cityw/baytonia → verdict `na` with the store's discounted-share sentence.
+- Evidence: noon/amazon/extra → `SAYDA.kanbkam.history(ids, mid)` on the kanbkam tab (mid from config; extra ids are `e<id>`); a candidate with no record there goes the §2 point 4b way (model number, market comparison). jarir/blackbox/almanea/saco/trendyol → `SAYDA.kanbkam.market(['brand model', …])`, keep only the SAME model. ashley ↔ midas: compare the same piece. ikea/homecentre/homebox/panhome/cityw/baytonia → verdict `na` with the store's discounted-share sentence.
 
   **«keep only the SAME model» is a hard filter, not a hint — write the filter, do not eyeball it.** On 2026-09-19 a sweep of
   62 branded Trendyol candidates was matched by «cheapest listing whose title looks right». It returned a screen protector as
