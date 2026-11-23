@@ -17,7 +17,12 @@
         // #availability sometimes yields an inline-script fragment (P.when("A","load")…).
         // verdict.js publishes obs.note verbatim as Arabic page text, so only pass real Arabic through.
         const noteOf = t => (/[\u0600-\u06FF]/.test(t) && !/P\.when|execute\(|\bfunction\b|=>|aod-assets/.test(t)) ? t.slice(0, 40) : '';
-        out.push({ id: r.id, found: status === 200 && !captcha, captcha, live: pm ? +pm[1] : null, buyable: btn, stock: low ? +low[1] : (btn ? 99 : 0), note: noteOf(av) });
+        // BLD-36: the maker's model number from the product details, «رقم موديل السلعة» (Item model number) first
+        const facts = [...d.querySelectorAll('table.prodDetTable tr, #productDetails_techSpec_section_1 tr, #productDetails_detailBullets_sections1 tr, #detailBullets_feature_div li')]
+          .map(e => S.text(e).replace(/[\u200e\u200f]/g, '').replace(/\s+/g, ' ').trim());
+        const fact = re => { const f = facts.find(x => re.test(x)); return f ? f.replace(re, '').replace(/^[\s:]+/, '').trim() : null; };
+        const model = S.modelOf(fact(/^(?:رقم موديل السلعة|Item model number)\s*:?/i)) || S.modelOf(fact(/^(?:رقم الموديل|Model number|Model Number)\s*:?/i));
+        out.push({ id: r.id, found: status === 200 && !captcha, captcha, live: pm ? +pm[1] : null, buyable: btn, stock: low ? +low[1] : (btn ? 99 : 0), note: noteOf(av), model });
         await S.sleep(900);
       }
       return out;

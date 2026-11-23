@@ -70,6 +70,15 @@
   // show(): replace the page body with a job's (compact) result so a driver can read it with one get_page_text call
   // (the Chrome extension truncates javascript results at ~1 KB; page text is not truncated). fn maps result → string.
   S.show = (name, fn) => { const j = S.jobs[name]; const r = j ? j.result : null; const txt = fn ? fn(r) : JSON.stringify(r); document.body.innerHTML = '<pre id="sayda-out" style="white-space:pre-wrap;font:12px monospace"></pre>'; document.getElementById('sayda-out').textContent = 'SAYDA:' + name + '\n' + txt; return txt.length; };
+  // ── model numbers (BLD-36, 23 Nov 2026) ───────────────────────────────────────────────────────
+  // The maker's model number as the store's own product page states it (Extra: JSON-LD `mpn`; noon: the
+  // `model_number` specification; Amazon: «رقم موديل السلعة» / «رقم الموديل» in the product details). It lets a
+  // product KanBkam does not track be compared with the same model in another Saudi store (lib/market.js →
+  // queryFor reads `row.model`). A store's own SKU is never a model number. Only a token with a letter AND a
+  // digit, 3 to 40 characters, is kept; anything else is null, and a row without one is simply not compared.
+  S.modelOf = v => { const s = String(v || '').replace(/[\u200e\u200f\u202a-\u202e]/g, '').trim();
+    return /^[A-Za-z0-9][A-Za-z0-9.\-\/ ]{1,38}[A-Za-z0-9]$/.test(s) && /[A-Za-z]/.test(s) && /\d/.test(s) ? s : null; };
+  S.gtinOf = v => { const s = String(v || '').trim(); return /^\d{8}$|^\d{12,14}$/.test(s) ? s : null; };
   // ── pictures (20 Nov 2026) ─────────────────────────────────────────────────────────────────────
   // One reader for every store. From a tab on the store's own origin, fetch each row's product page
   // and take the picture the store itself declares for it. Returns [{id, img}] for

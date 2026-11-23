@@ -34,7 +34,10 @@
           const t = text.replace(/\\"/g, '"');
           const m = t.match(/"purchasable"\s*:\s*(true|false),"stock":\{"stockLevelStatus":\{"code":"(\w+)"[^}]*\},"stockLevel":(\d+)/);
           const pm = t.match(/"offers"\s*:\s*\{[\s\S]{0,300}?"price"\s*:\s*"?([\d.]+)/);
-          obs = { id: r.id, found: true, url, live: pm ? +pm[1] : null, stockStatus: m ? m[2] : null, stock: m ? +m[3] : null, buyable: !!(m && m[1] === 'true' && m[2] !== 'outOfStock') };
+          // BLD-36: the maker's model number and barcode as Extra's own page states them (JSON-LD `mpn`, `gtin13`)
+          const mpn = (t.match(/"mpn"\s*:\s*"([^"]{2,40})"/) || [])[1], gtin = (t.match(/"gtin13"\s*:\s*"(\d{8,14})"/) || [])[1];
+          obs = { id: r.id, found: true, url, live: pm ? +pm[1] : null, stockStatus: m ? m[2] : null, stock: m ? +m[3] : null, buyable: !!(m && m[1] === 'true' && m[2] !== 'outOfStock'),
+                  model: S.modelOf(mpn), gtin: S.gtinOf(gtin) };
         }
         out.push(obs || { id: r.id, found: false, status: 'blocked' }); await S.sleep(1200);
       }

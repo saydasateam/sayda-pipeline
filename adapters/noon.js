@@ -33,8 +33,10 @@
       return S.pool(rows, 5, async r => {
         const sku = skuOf(r.url); const { status, json } = await S.fetchJson(`/_svc/catalog/api/v3/u/${sku}/p/`, H);
         if (status === 404 || !json) return { id: r.id, found: false, status };
-        const b = bestOffer(json.product || json);
-        return { id: r.id, found: true, live: b ? b.price : null, stock: b ? Math.min(b.stock, 99) : 0, buyable: !!b, was: b ? b.was : null };
+        const p = json.product || json, b = bestOffer(p);
+        // BLD-36: the maker's model number from noon's own specifications (code `model_number`)
+        const spec = (p.specifications || []).find(s => s && s.code === 'model_number');
+        return { id: r.id, found: true, live: b ? b.price : null, stock: b ? Math.min(b.stock, 99) : 0, buyable: !!b, was: b ? b.was : null, model: S.modelOf(spec && spec.value) };
       });
     },
     async coupons(cfg) {
