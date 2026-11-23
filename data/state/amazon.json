@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T01:36:24.413+03:00",
+ "checkedAt": "2026-11-23T08:41:28.074+03:00",
  "rows": [
   {
    "id": "amazon:B09M7B4BQZ",
@@ -1223,7 +1223,7 @@
    "store": "amazon",
    "cat": "أزياء",
    "name": "تومي هيلفيغر سوار رجالي ستانلس ستيل",
-   "price": 276,
+   "price": 296,
    "was": 657.14,
    "ref": 657.49,
    "refKind": "history",
@@ -1446,7 +1446,7 @@
    "verdict": "warn",
    "finding": "كان ٥٬٨٢٧ · سبق ونزل ١٬٠٢٩",
    "url": "https://www.amazon.sa/-/ar/dp/B07QNM7YDM",
-   "avail": "in",
+   "avail": "oos",
    "ev": {
     "prev": 5827,
     "min": 1029,
@@ -1456,7 +1456,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-B07QNM7YDM"
    },
    "firstSeen": "2026-11-21",
-   "availNote": "",
+   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71rePnzTITL._AC_SL500_.jpg",
    "name_en": "iRobot Roomba E5 (5150) Robot Vacuum - Wi-Fi Connected, Works with Alexa, Ideal for Pet Hair, Carpets, Hard"
@@ -1851,7 +1851,7 @@
    "verdict": "ok",
    "finding": "كان ٥٨٨ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/-/ar/dp/B07CN9T8RC",
-   "avail": "low",
+   "avail": "ended",
    "ev": {
     "prev": 588.45,
     "min": 211,
@@ -1861,7 +1861,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-B07CN9T8RC"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: متبقي 1",
+   "availNote": "أمازون: عاد السعر إلى ٦٣٩ — انتهى العرض",
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71sDdjUJzML._AC_SL500_.jpg",
    "name_en": "Radio Flyer Busy Buggy, Sit to Stand Toddler Ride On Toy, Ages 1-3, Red Kids Ride On Toy"
@@ -3389,7 +3389,7 @@
    "verdict": "ok",
    "finding": "كان ٢٩١ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/-/ar/dp/B09BCZVD1Q",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 290.59,
     "min": 99,
@@ -3400,7 +3400,7 @@
    },
    "img": "https://m.media-amazon.com/images/I/61JqKY+G5+L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: متبقي 1",
+   "availNote": "",
    "lastChecked": "2026-11-23"
   },
   {
@@ -4263,7 +4263,7 @@
    },
    "cat": "رياضة",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: متبقي 3",
+   "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71pMJ+XS5zL._AC_SL500_.jpg"
   },
@@ -4360,7 +4360,7 @@
    "verdict": "warn",
    "finding": "كان ١١٩ · سبق ونزل ٤٤",
    "url": "https://www.amazon.sa/-/ar/dp/B074V91HZ1",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 119,
     "min": 44,
@@ -4371,7 +4371,7 @@
    },
    "cat": "عناية",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: متبقي 1",
+   "availNote": "",
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71twFWvntPL._AC_SL500_.jpg"
   },
@@ -4866,7 +4866,7 @@
    "store": "amazon",
    "cat": "أزياء",
    "name": "صندل UNEEK للنساء 8MM من KEEN",
-   "price": 132.79,
+   "price": 120,
    "was": 380.49,
    "ref": 380.21,
    "refKind": "history",
@@ -5750,6 +5750,114 @@
    "lastChecked": "2026-11-23",
    "img": "https://m.media-amazon.com/images/I/71OS0IHbd0L._AC_SL500_.jpg",
    "name_en": "Skechers BOBS Too Cozy - Knitting Purty womens Slipper"
+  },
+  {
+   "id": "amazon:B08QLLZ8CK",
+   "store": "amazon",
+   "cat": "أزياء",
+   "name": "حذاء بالمر فينيشن سهل الارتداء للرجال من روك بورت",
+   "name_en": "Rockport Palmer Venetian Loafer mens Loafer",
+   "price": 89.5,
+   "was": 389.35,
+   "ref": 389,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٣٨٩ · سبق ونزل ٧٣",
+   "url": "https://www.amazon.sa/-/ar/dp/B08QLLZ8CK",
+   "avail": "low",
+   "ev": {
+    "prev": 389,
+    "min": 73.19,
+    "max": 441.2,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-B08QLLZ8CK"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "أمازون: متبقي 1",
+   "lastChecked": "2026-11-23",
+   "img": "https://m.media-amazon.com/images/I/61miMlwXfqL._AC_SL500_.jpg"
+  },
+  {
+   "id": "amazon:B09MFMZBFB",
+   "store": "amazon",
+   "cat": "أزياء",
+   "name": "معطف ماكسي واقٍ من المطر كامل الطول بتصميم رفيع وصف أزرار مزدوج للنساء من ايبوسي",
+   "name_en": "ebossy Women Women Duster Trench Dress Coat Long Sleeve Casual Slim Maxi Long Coat Windbreakers (pack of 1)",
+   "price": 264.65,
+   "was": 496.25,
+   "ref": 495.77,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٤٩٦ · سبق ونزل ٢٠٠",
+   "url": "https://www.amazon.sa/-/ar/dp/B09MFMZBFB",
+   "avail": "low",
+   "ev": {
+    "prev": 495.77,
+    "min": 199.99,
+    "max": 495.77,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-B09MFMZBFB"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "أمازون: متبقي 1",
+   "lastChecked": "2026-11-23",
+   "img": "https://m.media-amazon.com/images/I/51o-+IxJE6L._AC_SL500_.jpg"
+  },
+  {
+   "id": "amazon:B07MW4HRD3",
+   "store": "amazon",
+   "cat": "عطور",
+   "name": "العربية للعود عطر عود شرقي 100 مل",
+   "name_en": "Arabian Oud Perfume Oriental Oud 100 ml",
+   "price": 299,
+   "was": 805.93,
+   "ref": 805,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٨٠٥ · أقل سعر مسجل",
+   "url": "https://www.amazon.sa/-/ar/dp/B07MW4HRD3",
+   "avail": "in",
+   "ev": {
+    "prev": 805,
+    "min": 299,
+    "max": 805,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-B07MW4HRD3"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://m.media-amazon.com/images/I/51kBuM5BQXL._AC_SL500_.jpg"
+  },
+  {
+   "id": "amazon:B07TYYRQDR",
+   "store": "amazon",
+   "cat": "المنزل",
+   "name": "مكنسة كهربائية لاسلكية محمولة قابلة لاعادة الشحن، مزودة بيو اس بي وشاحن، استخدام رطب وجاف، تقنية الشفط القوي و",
+   "name_en": "Handheld Vacuum Cordless Hand Vacuum Cleaner Rechargeable Hand Vac USB Charger Wet Dry Strong Cyclone Suction Lightweight for Home Pet Hair Car Cleaning",
+   "price": 160,
+   "was": 461.1,
+   "ref": 461,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٤٦١ · سبق ونزل ١٠٠",
+   "url": "https://www.amazon.sa/-/ar/dp/B07TYYRQDR",
+   "avail": "in",
+   "ev": {
+    "prev": 461,
+    "min": 99.65,
+    "max": 461,
+    "src": "kanbkam",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/ar/p-B07TYYRQDR"
+   },
+   "firstSeen": "2026-11-23",
+   "availNote": "",
+   "lastChecked": "2026-11-23",
+   "img": "https://m.media-amazon.com/images/I/61rJn4GJbvL._AC_SL500_.jpg"
   }
  ]
 }

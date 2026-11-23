@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T01:36:24.413+03:00",
+ "checkedAt": "2026-11-23T08:39:35.426+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -76,7 +76,7 @@
    "avail": "low",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_83inch_oled_tv_smart_4k_ai_upscaling_dolby_atmos_120hz_-_qa83s85faexsa.1.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: متبقي 2",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-11-23"
   },
   {
@@ -281,7 +281,7 @@
    "avail": "in",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_65inch_neo_qled_tv_smart_144hz_4k_ai_upscaling_dolby_atmos_-_qa65qn80fauxsa.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-11-23"
   },
   {

@@ -1,0 +1,316 @@
+{
+ "mumzworld:stokke-yoyo-stroller-set-black-frame-leg-rest-45808368-bun-sto-0000xxx-config": {
+  "q": "stokke yoyo stroller set black frame leg",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 1899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Stokke YOYO3 Pushchair with Newborn Set - Includes Black Frame, YOYO 6",
+    "why": "name word \"stroller\" not present as a whole word"
+   }
+  ]
+ },
+ "mumzworld:moon-gyro-car-seat-isofix-top-tether-360-rotation-grey-226120": {
+  "q": "moon Functional 360",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 451,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:moon-gyro-car-seat-isofix-top-tether-360-rotation-black": {
+  "q": "moon Tether 360",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 455,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:neobreez-octa-360-degree-rotating-seat-stroller-black-44483883-f8-nbr122bk": {
+  "q": "neobreez Octa 360",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 649,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:momcozy-kleanpal-pro-baby-bottle-washer-white-16131617-bs003-gw12nb-a": {
+  "q": "momcozy kleanpal pro baby bottle washer white",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:baby-brezza-pro-advanced-formula-dispenser-19468963-frp0134-config": {
+  "q": "baby brezza pro advanced formula dispenser 19468963",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 578,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Baby Brezza New and Improved Formula Pro Advanced Formula Dispenser Ma",
+    "why": "name word \"19468963\" not present as a whole word"
+   },
+   {
+    "title": "Baby Brezza New and Improved Formula Pro Advanced Formula Dispenser Ma",
+    "why": "name word \"19468963\" not present as a whole word"
+   }
+  ]
+ },
+ "mumzworld:dyson-absolute-extra-vacuum-cleaner-v11": {
+  "q": "dyson V11",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 1298,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:stokke-yoyo-3-stroller-frame-and-6-plus-color-pack-set-654-bun-sto-0000-config": {
+  "q": "stokke Yoyo 3",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 1899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Stokke YOYO Black Frame with YOYO 6+ Colour Pack (Aqua)",
+    "why": "model part \"3\" not present as a whole word, and \"yoyo3\" not present fused"
+   }
+  ]
+ },
+ "mumzworld:babybjorn-bouncer-bliss-woven-sand-566528": {
+  "q": "babybjorn bouncer bliss woven sand",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 849,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "BabyBjorn Bouncer Bliss BabyBjorn Bouncer Bliss Woven, Petal Quilt - B",
+    "why": "name word \"sand\" not present as a whole word"
+   }
+  ]
+ },
+ "mumzworld:tommee-tippee-complete-breastfeeding-kit": {
+  "q": "tommee tippee complete breastfeeding kit",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 342,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Tommee Tippee Closer to Nature Complete Feeding Kit - White",
+    "why": "name word \"breastfeeding\" not present as a whole word"
+   }
+  ]
+ },
+ "mumzworld:neobreez-i-guardia-360-degree-swivel-car-seat-black-44483883-lm318-nbr214bk-729619": {
+  "q": "neobreez 360-Degree All-In-1",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 549,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:bumble-bird-3-in-1-baby-swing-cotton-blanket-portable-rocker": {
+  "q": "bumble 3-in-1",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:kinderkraft-nubi-2-stroller-cloudy-grey-400207": {
+  "q": "kinderkraft 0-4Y",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 526,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:uppababy-baby-mamaroo-smart-swing-654-2001-mro-eu-000-config": {
+  "q": "uppababy 4moms",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 1299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:tommee-tippee-closer-to-nature-complete-feeding-12pc-set-black": {
+  "q": "tommee 12pc-Set",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 472,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:baby-brezza-pro-advanced-formula-dispenser-machine-oatmeal-19468963-frp0247": {
+  "q": "baby brezza pro advanced formula dispenser machine",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 749,
+  "n": 2,
+  "merchantCount": 2,
+  "min": 577.98,
+  "avg": 788,
+  "max": 999,
+  "market": {
+   "store": "amazon",
+   "price": 578,
+   "url": "https://www.kanbkam.com/sa/en/baby-brezza-new-and-improved-formula-pro-advanced-formula-dispenser-machine-automatically-mix-a-warm-formula-bottle-instantly-easily-make-bottle-with-automatic-powder-blending-black-B0C61N2XG4"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 999,
+    "url": "https://www.kanbkam.com/sa/en/baby-brezza-new-and-improved-formula-pro-advanced-formula-dispenser-machine-automatically-mix-a-warm-formula-bottle-instantly-easily-make-bottle-with-automatic-powder-blending-charcoal-Z6F43CE30ECDF655C40F7Z"
+   },
+   {
+    "merchant": "amazon",
+    "price": 578,
+    "url": "https://www.kanbkam.com/sa/en/baby-brezza-new-and-improved-formula-pro-advanced-formula-dispenser-machine-automatically-mix-a-warm-formula-bottle-instantly-easily-make-bottle-with-automatic-powder-blending-black-B0C61N2XG4"
+   }
+  ],
+  "rejected": []
+ },
+ "mumzworld:jikel-minos-2-in-1-swing-rocker-grey": {
+  "q": "jikel 2-in-1",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 495,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:baby-brezza-one-step-food-maker-set": {
+  "q": "baby brezza one step food maker set",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 396,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 396,
+  "avg": 396,
+  "max": 396,
+  "market": {
+   "store": "noon",
+   "price": 396,
+   "url": "https://www.kanbkam.com/sa/en/one-step-baby-food-maker-deluxe-includes-3-pouches-3-funnels-automatic-cooker-and-blender-N47872655A"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 396,
+    "url": "https://www.kanbkam.com/sa/en/one-step-baby-food-maker-deluxe-includes-3-pouches-3-funnels-automatic-cooker-and-blender-N47872655A"
+   }
+  ],
+  "rejected": []
+ },
+ "mumzworld:teknum-bedside-crib-beige-sbf-tk-bsc-iv": {
+  "q": "teknum bedside crib beige sbf tk bsc",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 414,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "mumzworld:chicco-unico-evo-i-size-classic-car-seat-black": {
+  "q": "chicco unico evo i size classic car",
+  "sampledAt": "2026-11-23",
+  "rowPrice": 1286,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}

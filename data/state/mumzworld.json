@@ -1,7 +1,7 @@
 {
  "store": "mumzworld",
  "updated": "2026-11-23",
- "checkedAt": "2026-11-23T01:36:24.413+03:00",
+ "checkedAt": "2026-11-23T08:37:34.811+03:00",
  "rows": [
   {
    "id": "mumzworld:stokke-yoyo-stroller-set-black-frame-leg-rest-45808368-bun-sto-0000xxx-config",
@@ -279,9 +279,9 @@
    "name": "بيبي بريزا - جهاز تحضير الحليب الصناعي برو أدفانسد - أوتميل",
    "price": 749,
    "was": 1499,
-   "ref": null,
-   "verdict": "na",
-   "finding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 578,
+   "verdict": "bad",
+   "finding": "amazon ٥٧٨ · أرخص من هنا",
    "url": "https://www.mumzworld.com/sa-ar/baby-brezza-pro-advanced-formula-dispenser-machine-oatmeal-19468963-frp0247",
    "avail": "in",
    "availNote": "",
@@ -289,7 +289,23 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-23",
    "img": "https://www.mumzworld.com/media/catalog/product/cache/8bf0fdee44d330ce9e3c910273b66bb2/1/9/19468963-frp0247-1.jpg",
-   "name_en": "Baby Brezza - Pro Advanced Formula Dispenser Machine - Oatmeal"
+   "name_en": "Baby Brezza - Pro Advanced Formula Dispenser Machine - Oatmeal",
+   "refKind": "market",
+   "refUrl": "https://www.kanbkam.com/sa/en/baby-brezza-new-and-improved-formula-pro-advanced-formula-dispenser-machine-automatically-mix-a-warm-formula-bottle-instantly-easily-make-bottle-with-automatic-powder-blending-black-B0C61N2XG4",
+   "ev": {
+    "market": {
+     "store": "amazon",
+     "price": 578,
+     "url": "https://www.kanbkam.com/sa/en/baby-brezza-new-and-improved-formula-pro-advanced-formula-dispenser-machine-automatically-mix-a-warm-formula-bottle-instantly-easily-make-bottle-with-automatic-powder-blending-black-B0C61N2XG4"
+    },
+    "min": 577.98,
+    "max": 999,
+    "n": 2,
+    "src": "market",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/en/baby-brezza-new-and-improved-formula-pro-advanced-formula-dispenser-machine-automatically-mix-a-warm-formula-bottle-instantly-easily-make-bottle-with-automatic-powder-blending-black-B0C61N2XG4"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "mumzworld:jikel-minos-2-in-1-swing-rocker-grey",
@@ -315,9 +331,9 @@
    "name": "بيبي بريزا - محضرة طعام الأطفال ون ستيب ديلوكس",
    "price": 396,
    "was": 879,
-   "ref": null,
-   "verdict": "na",
-   "finding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 396,
+   "verdict": "bad",
+   "finding": "نفس سعر noon (٣٩٦)",
    "url": "https://www.mumzworld.com/sa-ar/baby-brezza-one-step-food-maker-set",
    "avail": "in",
    "availNote": "",
@@ -325,7 +341,23 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-23",
    "img": "https://www.mumzworld.com/media/catalog/product/cache/8bf0fdee44d330ce9e3c910273b66bb2/TC-BRZ00141-1.jpg",
-   "name_en": "Baby Brezza One Step Baby Food Maker Deluxe"
+   "name_en": "Baby Brezza One Step Baby Food Maker Deluxe",
+   "refKind": "market",
+   "refUrl": "https://www.kanbkam.com/sa/en/one-step-baby-food-maker-deluxe-includes-3-pouches-3-funnels-automatic-cooker-and-blender-N47872655A",
+   "ev": {
+    "market": {
+     "store": "noon",
+     "price": 396,
+     "url": "https://www.kanbkam.com/sa/en/one-step-baby-food-maker-deluxe-includes-3-pouches-3-funnels-automatic-cooker-and-blender-N47872655A"
+    },
+    "min": 396,
+    "max": 396,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-23",
+    "url": "https://www.kanbkam.com/sa/en/one-step-baby-food-maker-deluxe-includes-3-pouches-3-funnels-automatic-cooker-and-blender-N47872655A"
+   },
+   "bk": "nosaving"
   },
   {
    "id": "mumzworld:teknum-bedside-crib-beige-sbf-tk-bsc-iv",
