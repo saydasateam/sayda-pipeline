@@ -1,6 +1,7 @@
 {
- "_doc": "Site-wide settings that outlive a campaign. gtmId: the Google Tag Manager container id (GTM-XXXXXXX); empty means no tag is written and nothing is measured through GTM. services_ar / services_en: the measurement and advertising services the container loads, named in the privacy paragraph; keep them true whenever a tag is added or removed in GTM.",
+ "_doc": "Site-wide settings that outlive a campaign. gtmId: the Google Tag Manager container id (GTM-XXXXXXX); empty means no tag is written and nothing is measured through GTM. services_ar / services_en: the measurement and advertising services the container loads, named in the privacy paragraph; keep them true whenever a tag is added or removed in GTM. whatsappChannel: the Sayda WhatsApp channel's own address (https://whatsapp.com/channel/<code>); set, both pages carry the closable strip above the products, the follow links and the channel link at the end of the share message; empty, none of them appears (BLD-18).",
  "gtmId": "GTM-M2M4G9DR",
  "services_ar": "Google",
- "services_en": "Google"
+ "services_en": "Google",
+ "whatsappChannel": "https://whatsapp.com/channel/0029VbDf66RAu3aSQreORs3U"
 }
