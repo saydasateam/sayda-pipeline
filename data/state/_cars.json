@@ -19,21 +19,109 @@
    "headline_en": "White Friday offers: discount coupons of up to SAR 1,500",
    "terms_en": "SAR 1,500 coupon when paying cash, on campaign cars only (3,000+ used and 150+ new); when financing, Syarah pays the first instalment up to SAR 1,200, subject to the approved financier's terms; the offers do not cover all cars",
    "window_en": "Campaign cars only: 3,000+ used and 150+ new"
-  }
- ],
- "carsNone": [
+  },
   {
-   "company": "عبداللطيف جميل (تويوتا)",
+   "company": "عبداللطيف جميل للتمويل (تويوتا)",
+   "type": "تمويل الوكيل",
+   "brand": "تويوتا",
+   "headline": "عروض عبداللطيف جميل للتمويل",
+   "code": "",
+   "bookStart": "2026-11-01",
+   "bookEnd": "2026-11-30",
+   "window": "كورولا، يارس، إينوفا، أوربان كروزر، رايز، فيلوز، فورتشنر (موديل 2026)؛ بالتمويل فقط",
+   "verdict": "catch",
+   "terms": "إيجار تمويلي للأفراد عبر عبداللطيف جميل للتمويل: دفعة أولى 0% ورسوم إدارية 0%، وتدفع عنك من قسطين إلى 5 أقساط حسب الطراز (رايز 5؛ كورولا ويارس وأوربان كروزر 4؛ فيلوز 3؛ إينوفا وفورتشنر 2)؛ مدة التمويل 60 شهراً، والقسط يشمل الضريبة ولا يشمل التأمين؛ معدل النسبة السنوي يبدأ من 12.14% تقريباً بحسب الصفحة العربية (والإنجليزية تذكر 14.63% ليارس و14.25% لرايز)، ويتغير حسب السجل الائتماني والتأميني",
+   "url": "https://www.toyota.com.sa/ar/offers/aljufcampaign",
+   "checked": "2026-11-23",
+   "company_en": "Abdul Latif Jameel Finance (Toyota)",
+   "type_en": "Dealer finance",
+   "brand_en": "Toyota",
+   "headline_en": "ALJUF Offers",
+   "terms_en": "Individual lease finance through Abdul Latif Jameel Finance: 0% down payment and 0% admin fee, and 2 to 5 instalments paid for you depending on the model (Raize 5; Corolla, Yaris and Urban Cruiser 4; Veloz 3; Innova and Fortuner 2); 60 months, instalments include VAT and exclude insurance; APR about 14.63% (Yaris) and 14.25% (Raize) on the English page, from about 12.14% on the Arabic page, and it varies with the customer's credit and insurance record",
+   "window_en": "Corolla, Yaris, Innova, Urban Cruiser, Raize, Veloz, Fortuner (2026); finance only"
+  },
+  {
+   "company": "مصرف الراجحي (تويوتا)",
+   "type": "تأجير تمويلي بنكي",
+   "brand": "تويوتا",
+   "headline": "عروض مصرف الراجحي",
+   "code": "",
+   "bookStart": "2026-11-01",
+   "bookEnd": "2026-11-30",
+   "window": "لاندكروزر، كورولا، فيلوز، يارس، أوربان كروزر، إينوفا، رايز، فورتشنر، كامري هايبرد؛ بالتمويل فقط",
+   "verdict": "catch",
+   "terms": "إيجار تمويلي للأفراد من مصرف الراجحي: دفعة أولى 0%، رسوم إدارية 0.5%، ودفعة أخيرة 50%؛ مدة 5 سنوات (وفيها خيارا 3 سنوات وسنتين)؛ الجدول يذكر معدل نسبة سنوي من 4.78% (لاندكروزر) إلى 7.65% (إينوفا)، بينما تذكر الشروط 14.63% ليارس و14.25% لرايز تقريباً؛ الأقساط تشمل الضريبة ولا تشمل التأمين؛ تقول الصفحة إن الحملة سارية حتى «31 نوفمبر» 2026",
+   "url": "https://www.toyota.com.sa/ar/offers/alrajhicampaign",
+   "checked": "2026-11-23",
+   "company_en": "Al Rajhi Bank (Toyota)",
+   "type_en": "Bank lease",
+   "brand_en": "Toyota",
+   "headline_en": "Alrajhi Bank Offers",
+   "terms_en": "Individual lease finance from Al Rajhi Bank: 0% down payment, 0.5% admin fee and a 50% final (balloon) payment; 5 years (3- and 2-year options too); the table gives APR from 4.78% (Land Cruiser) to 7.65% (Innova), while the terms give about 14.63% for Yaris and 14.25% for Raize; instalments include VAT and exclude insurance; the page says the campaign runs to «31 November» 2026",
+   "window_en": "Land Cruiser, Corolla, Veloz, Yaris, Urban Cruiser, Innova, Raize, Fortuner, Camry HEV; finance only"
+  },
+  {
+   "company": "الوعلان (جيلي)",
    "type": "وكيل",
-   "company_en": "Abdul Latif Jameel (Toyota)",
-   "type_en": "Dealer"
+   "brand": "جيلي",
+   "headline": "خل عينك على الصفر: عروض جيلي لنهاية العام",
+   "code": "",
+   "bookStart": "",
+   "bookEnd": "2026-12-31",
+   "window": "جيلي بريفيس 2026 ومونجارو 2025",
+   "verdict": "catch",
+   "terms": "دفعة أولى 0% ورسوم إدارية 0% بالتمويل عبر بنك الجزيرة وتطبق شروطه وأحكامه؛ تظليل زجاج مجاني ومساعدة على الطريق لمدة 5 سنوات؛ القسط الشهري لا يشمل التأمين؛ العرض صورة إعلانية على صفحة العروض بلا جدول أقساط، وهو ساري حتى 31 ديسمبر",
+   "url": "https://buy.geelyksa.com/ar/offers.html",
+   "checked": "2026-11-23",
+   "company_en": "Wallan (Geely)",
+   "type_en": "Dealer",
+   "brand_en": "Geely",
+   "headline_en": "Keep Your Eye on the 0: Geely Year-End Offers",
+   "terms_en": "0% down payment and 0% admin fee when financing through Bank Aljazira, whose terms apply; free window tinting and 5 years of roadside assistance; monthly instalments exclude insurance; the offer is an advert image on the offers page with no instalment table, valid until 31 December",
+   "window_en": "Geely Preface 2026 and Monjaro 2025"
+  },
+  {
+   "company": "الوعلان (جيلي)",
+   "type": "وكيل",
+   "brand": "جيلي",
+   "headline": "تصفية نهاية العام.. ما تتفوّت",
+   "code": "",
+   "bookStart": "",
+   "bookEnd": "2026-12-31",
+   "window": "ستاراي وكولراي وتوغيلا موديل 2024",
+   "verdict": "catch",
+   "terms": "دفعة أولى 0% ورسوم إدارية 0% بالتمويل عبر بنك الجزيرة وتطبق شروطه وأحكامه، و«الضريبة علينا» عند الدفع النقدي؛ مساعدة على الطريق لمدة 5 سنوات؛ القسط الشهري لا يشمل التأمين؛ على موديلات 2024 المذكورة فقط، والعرض ساري حتى 31 ديسمبر 2026",
+   "url": "https://buy.geelyksa.com/ar/offers.html",
+   "checked": "2026-11-23",
+   "company_en": "Wallan (Geely)",
+   "type_en": "Dealer",
+   "brand_en": "Geely",
+   "headline_en": "Year-End Clearance Deals You Can't Miss",
+   "terms_en": "0% down payment and 0% admin fee when financing through Bank Aljazira, whose terms apply, and «VAT on us» for cash purchases; 5 years of roadside assistance; monthly instalments exclude insurance; only the 2024 models named, valid until 31 December 2026",
+   "window_en": "Starray, Coolray and Tugella (2024)"
   },
   {
    "company": "بترومين (نيسان)",
    "type": "وكيل",
+   "brand": "نيسان باترول",
+   "headline": "سنوات من الثقة... تنتقل من جيل إلى جيل",
+   "code": "",
+   "bookStart": "2026-10-12",
+   "bookEnd": "2026-12-31",
+   "window": "باترول 2026 بمحرك 6 سلندر تيربو مزدوج، عدا PRO-4X ونيسمو",
+   "verdict": "catch",
+   "terms": "تختار عرضاً واحداً: 50% الآن و50% بعد سنتين بنسبة ربح 0% ورسوم إدارية 0%؛ أو قسط شهري يبدأ من 3,893 ريال بدفعة أولى 0% ورسوم إدارية 0%؛ أو كاش باك يصل إلى 25,000 ريال لمن يدفع نقداً؛ أو صيانة دورية مجانية 60,000 كم أو 3 سنوات مع عازل حراري ونانو سيراميك مجاناً؛ والعروض الثلاثة الأولى معها صيانة مجانية 10,000 كم أو 12 شهراً؛ القسط لا يشمل التأمين ولا رسوم النقل والتسجيل، والتمويل يخضع لشروط الجهة الممولة والبنك المركزي السعودي",
+   "url": "https://en.nissan-saudiarabia.com/latest-offers.html",
+   "checked": "2026-11-23",
    "company_en": "Petromin (Nissan)",
-   "type_en": "Dealer"
-  },
+   "type_en": "Dealer",
+   "brand_en": "Nissan Patrol",
+   "headline_en": "Years of trust... passed from generation to generation",
+   "terms_en": "Pick one: 50% now and 50% after 2 years at 0% profit rate and 0% admin fee; or monthly instalments from SAR 3,893 with 0% down payment and 0% admin fee; or cashback of up to SAR 25,000 for cash buyers; or free scheduled maintenance for 60,000 km or 3 years with free tinting and nano ceramic; the first three come with free maintenance for 10,000 km or 12 months; instalments exclude insurance, transport and registration fees, and finance is subject to the lender's and the Saudi Central Bank's terms",
+   "window_en": "Patrol 2026 with the 6-cylinder twin turbo, except PRO-4X and NISMO"
+  }
+ ],
+ "carsNone": [
   {
    "company": "المجدوعي (شانجان)",
    "type": "وكيل",
@@ -44,7 +132,8 @@
    "company": "العيسائي (ميتسوبيشي)",
    "type": "وكيل",
    "company_en": "Alesayi (Mitsubishi)",
-   "type_en": "Dealer"
+   "type_en": "Dealer",
+   "checked": "2026-11-23"
   },
   {
    "company": "مصرف الراجحي",
@@ -57,6 +146,10 @@
   "toyota-aljf": "2026-11-23",
   "toyota-alrajhi": "2026-11-23",
   "hyundai-almajdouie": "2026-11-23",
-  "syarah": "2026-11-23"
+  "syarah": "2026-11-23",
+  "ford-aljazirah": "2026-11-23",
+  "geely-wallan": "2026-11-23",
+  "nissan-petromin": "2026-11-23",
+  "mitsubishi-alesayi": "2026-11-23"
  }
 }
