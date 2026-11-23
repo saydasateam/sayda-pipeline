@@ -540,7 +540,9 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 @media (pointer:coarse){.walletc button{min-height:40px}}
 /* ticker: flush at the bottom of the hero on a dark translucent navy strip, each deal in its own glass pill, white
    text, no underline. CSS only. Two copies of the items make the loop; the second is hidden from screen readers.
-   It stops under the pointer, on touch and on keyboard focus; with reduced motion it does not move and scrolls by hand. */
+   It stops under the pointer, on touch, on keyboard focus and with its pause button. Changed 23 Nov 2026: it no longer stands
+   still under reduced motion (Windows with animation effects off and the Sayda server's Chrome both report it, so the strip
+   never moved there); it moves more slowly instead, and the pause button stops it for anyone who wants it still. */
 .tick{position:relative;z-index:1;display:flex;align-items:center;background:rgba(2,6,23,.35);border-top:1px solid rgba(255,255,255,.15);padding:10px 0;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);font-size:14px;font-weight:600;color:rgba(255,255,255,.95)}
 .tickl{flex:none;margin:0;display:flex;flex-direction:column;justify-content:center;padding:0 16px;line-height:1.3;border-inline-end:1px solid rgba(255,255,255,.15)}
 .tickl b{font-size:13px;font-weight:700;color:#fff}
@@ -563,7 +565,14 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 @media (hover:hover){.tick:hover .tickt{animation-play-state:paused}}
 @keyframes tickx{to{transform:translateX(-50%)}}
 @keyframes tickxr{to{transform:translateX(50%)}}
-@media (prefers-reduced-motion:reduce){.tick .tickt,.tick[dir="rtl"] .tickt{animation:none}.tickv{overflow-x:auto;scrollbar-width:thin}.tickg[aria-hidden]{display:none}}
+.tick.stopped .tickt{animation-play-state:paused}
+.tickp{flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;margin-inline-start:12px;padding:0;border-radius:9999px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
+.tickp:hover{background:rgba(255,255,255,.22)}
+.tickp:focus-visible{outline:2px solid #FCD34D;outline-offset:2px}
+.tickp .iy,.tick.stopped .tickp .ip{display:none}
+.tick.stopped .tickp .iy{display:block}
+@media (pointer:coarse){.tickp{width:36px;height:36px}}
+@media (prefers-reduced-motion:reduce){.tickt{animation-duration:150s}}
 @media (max-width:639px){.tick{font-size:12px}.tickl{padding-inline:12px 10px}.tickl small{font-size:11px}.ti .tn{max-width:20ch}}
 @media print{.tick{display:none}}
 /* category cards: the cards of demo A, «Blue and gold, soft tints» (Mahmoud, 23 Nov 2026), static as he decided on 22 Nov.
@@ -1154,7 +1163,8 @@ document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
  if(t.closest('.khback')){F.c=[];render();const s=document.getElementById('kats');if(s)s.scrollIntoView({block:'center'});return;}
  const i=t.closest('.ti[data-d]');if(i)openDeal(i.dataset.d);});
 (()=>{const tk=document.getElementById('tick');if(!tk)return;const off=()=>tk.classList.remove('paused');
- tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));})();
+ tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));
+ const b=tk.querySelector('.tickp');if(b)b.addEventListener('click',e=>{e.stopPropagation();const s=!tk.classList.contains('stopped');tk.classList.toggle('stopped',s);b.setAttribute('aria-pressed',s?'true':'false');b.setAttribute('aria-label',s?b.dataset.lPlay:b.dataset.lPause);});})();
 // a store picture that does not load is removed; the white tile behind it stays
 document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 (()=>{const g=document.getElementById('evdlg');const shut=()=>{if(g.close)g.close();else g.removeAttribute('open');};document.getElementById('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});})();

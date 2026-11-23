@@ -290,7 +290,8 @@ function render(){QW=$('q').value.trim().toLowerCase().split(/\s+/).filter(Boole
     if(t.closest('.khback')){F.c=[];render();const s=$('kats');if(s)s.scrollIntoView({block:'center'});return;}
     const i=t.closest('.ti[data-d]');if(i)openDeal(i.dataset.d);});
   (()=>{const tk=$('tick');if(!tk)return;const off=()=>tk.classList.remove('paused');
-    tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));})();
+    tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));
+    const b=tk.querySelector('.tickp');if(b)b.addEventListener('click',e=>{e.stopPropagation();const s=!tk.classList.contains('stopped');tk.classList.toggle('stopped',s);b.setAttribute('aria-pressed',s?'true':'false');b.setAttribute('aria-label',s?b.dataset.lPlay:b.dataset.lPause);});})();
   // a store picture that does not load is removed; the white tile behind it stays
   document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 })();
