@@ -87,10 +87,18 @@
   S.images = async (rows, workers) => {
     const out = []; let i = 0;
     const noon = /(^|\.)noon\.com$/.test(location.hostname);   // product pages are a JS shell to fetch; the catalog API carries image keys
+    // al-dawaa (BLD-12, 23 Nov 2026): its product pages answer 403 to fetch, so the picture comes from the store's own OCC API
+    // (the one adapters/aldawaa.js reads): the PRIMARY image, 515 px «zoom» format, served from the store's media host.
+    const dawaa = /(^|\.)al-dawaa\.com$/.test(location.hostname);
     const one = async r => {
       try {
         if (noon) { const sku = (r.url.match(/\/([A-Z0-9]+)\/p\/?/) || [])[1]; const t = await (await fetch(`/_svc/catalog/api/v3/u/${sku}/p/`, { headers: { 'x-locale': 'ar-sa' } })).text();
           const m = t.match(/"image_keys?":\s*\[?\s*"([^"]+)"/); return { id: r.id, img: m ? m[1] : null }; }
+        if (dawaa) { const code = (decodeURIComponent(r.url).match(/\/p\/([^/?#]+)/) || [])[1]; if (!code) return { id: r.id, img: null };
+          const mb = document.querySelector('meta[name="occ-backend-base-url"]'), B = (mb && mb.content) || 'https://stgprevapi.al-dawaa.com';
+          const j = await (await fetch(`${B}/occ/v2/aldawaa/products/${encodeURIComponent(code)}?lang=ar&curr=SAR&fields=FULL`)).json();
+          const im = (j.images || []).filter(x => x.imageType === 'PRIMARY'), p = im.find(x => x.format === 'zoom') || im.find(x => x.format === 'product') || im[0];
+          return { id: r.id, img: p && p.url ? new URL(p.url, B).href : null }; }
         const u = new URL(r.url, location.href); const res = await fetch(u.origin === location.origin ? u.pathname + u.search : r.url, { credentials: 'omit' });
         return { id: r.id, img: res.status === 200 ? S.imageOf(await res.text()) : null, status: res.status };
       } catch (e) { return { id: r.id, img: null, error: String(e).slice(0, 80) }; }
