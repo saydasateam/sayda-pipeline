@@ -85,6 +85,15 @@ let heldBadLink = [];
   const offers = (list, what) => { const bad = (list || []).filter(o => !cleanHttps(o.url)); if (bad.length) console.log(`held back ${bad.length} ${what} offer(s) with a link that is not a clean https address: ${bad.map(o => String(o.company || '').slice(0, 30)).join(', ')}`); return (list || []).filter(o => cleanHttps(o.url)); };
   st.travel = offers(st.travel, 'travel');
   if (st.cars) st.cars = offers(st.cars, 'car');
+  // App subscription offers (BLD-27, RUNBOOK §3c). The rule takes only an offer that the app's or the bank's own page states
+  // with an end date, and the card prints its terms and the day we read them. So besides a clean https link, an offer with
+  // no app name, headline, terms, check date or end date is held back and named here. Nothing here fails the build.
+  st.subs = offers(st.subs, 'subscription');
+  { const day = d => /^\d{4}-\d{2}-\d{2}$/.test(String(d || '')), has = v => !!String(v || '').trim();
+    const why = o => !has(o.company) ? 'no app name' : !has(o.headline) ? 'no headline' : !has(o.terms) ? 'no terms' : !day(o.checked) ? 'no check date'
+      : !day(o.bookEnd) ? 'no end date' : (has(o.bookStart) && !day(o.bookStart)) ? 'a start date that is not YYYY-MM-DD' : '';
+    const bad = st.subs.filter(why);
+    if (bad.length) { console.log(`held back ${bad.length} subscription offer(s): ${bad.map(o => `${String(o.company || '?').slice(0, 30)} (${why(o)})`).join(', ')}`); st.subs = st.subs.filter(o => !why(o)); } }
 }
 let tpl    = fs.readFileSync(path.join(ROOT,'template/index.html'),'utf8');
 
@@ -172,6 +181,12 @@ const TNO = st.travelNone.map(t => [t.company,t.type]);
 // [company, type, brand, headline, code, bookStart, bookEnd, window, verdict, terms, url, checked]
 const CR  = (st.cars || []).map(c => [c.company,c.type,c.brand||'',c.headline,c.code||'',c.bookStart||'',c.bookEnd||'',c.window||'',c.verdict,c.terms,c.url,c.checked]);
 const CRNO = (st.carsNone || []).map(c => [c.company,c.type]);
+// app subscription offers (BLD-27): the travel card with named fields. Nothing here is measured against a price record, so
+// the card never carries a percentage of ours. `wallet` ids (config/wallet.json) become the card's tags here, at build time,
+// in the page's language; an id that is not in that file is left off. English needs headline_en and terms_en, as travel does.
+const subTags = (o, key) => (o.wallet || []).filter(id => walletById[id] && walletById[id][key]).map(id => walletById[id][key]);
+const SB = st.subs.map(o => ({ co: o.company, ty: o.type || '', h: o.headline, c: o.code || '', bs: o.bookStart || '', be: o.bookEnd, win: o.window || '', v: o.verdict || '', t: o.terms, u: o.url, ck: o.checked, w: subTags(o, 'label') }));
+const subsEn = st.subs.filter(o => o.headline_en && o.terms_en);
 // one row per line, like the hand-written page, so git diffs stay readable
 // J (lib/safe.js) is JSON.stringify made safe for an inline <script>: every value the page's script receives goes through it.
 const arr = rows => '[\n' + rows.map(r => J(r)).join(',\n') + '\n]';
@@ -238,6 +253,7 @@ const th = (M.theme && M.theme.light) || {}, thd = (M.theme && M.theme.dark) || 
 const hasFurn = cfg.stores.some(s => s.group === 'furniture' && s.enabled !== false);
 const travelOn = st.travel.length + st.travelNone.length > 0;
 const carsOn = (st.cars || []).length + (st.carsNone || []).length > 0;
+const subsOn = st.subs.length > 0;   // no «checked, nothing found» cards here: the panel and the section exist only while there is an offer
 const campaignFill = {
   CAMPAIGN_AR: campAr, CAMPAIGN_SHORT_AR: campShort,
   CAMPAIGN_FOR_AR: forAr(campAr), CAMPAIGN_FOR_SHORT_AR: forAr(campShort),
@@ -250,7 +266,7 @@ const campaignFill = {
   // the two pointers and their sections exist only when there is something behind them
   TRAVEL_NOTE: !travelOn ? '' : `    <a class="note notelink" href="#travel"><b>✈️ عروض السفر</b>أكواد وحملات ${campShort} من شركات الطيران ومنصات الحجز، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السفر ↓</span></a>\n`,
   CARS_NOTE: !carsOn ? '' : `    <a class="note notelink" href="#cars"><b>🚗 عروض السيارات</b>عروض ${campShort} من وكلاء السيارات وجهات التمويل، مقروءة من صفحاتهم الرسمية، مع ما تقوله الشروط فعلاً.<span class="cta">اضغط هنا لعرض عروض السيارات ↓</span></a>\n`,
-  TRAVEL_HIDDEN: travelOn ? '' : ' hidden', CARS_HIDDEN: carsOn ? '' : ' hidden',
+  TRAVEL_HIDDEN: travelOn ? '' : ' hidden', CARS_HIDDEN: carsOn ? '' : ' hidden', SUBS_HIDDEN: subsOn ? '' : ' hidden',
   // quick links under the stamp: one short line instead of the three pointer cards that used to push the products down
   TOP_LINKS: '',
   // furniture wording follows the enabled stores, so a campaign without them does not describe them
@@ -270,6 +286,7 @@ const PIC = {
   cp: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v2.5a2.5 2.5 0 0 0 0 5V18a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4.5a2.5 2.5 0 0 0 0-5z"/><path d="M14 5v2M14 11v2M14 17v2"/></svg>',
   tr: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 13.5 3 11l1.5-1.5 7.5 1L16.5 6a2 2 0 0 1 3 3l-4.5 4.5 1 7.5-1.5 1.5-2.5-7.5-3 3V21l-1.5 1-1.5-3-3-1.5 1-1.5h2.5z"/></svg>',
   cr: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-4.5l-2-5A1.5 1.5 0 0 0 15.6 6.5H8.4A1.5 1.5 0 0 0 7 7.5l-2 5z"/><path d="M5 12.5h14"/><circle cx="8" cy="17" r="2"/><circle cx="16" cy="17" r="2"/></svg>',
+  sb: '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.2h2"/><path d="M10.4 8.2l3.6 2.3-3.6 2.3z"/></svg>',
 };
 const panel = (on, href, icon, title, status) => on
   ? `<a class="panel" href="${href}"><span class="pic">${icon}</span><span class="ptx"><b>${title}</b><span>${status}</span></span><span class="parr" aria-hidden="true">↓</span></a>`
@@ -281,20 +298,25 @@ const cpSave = st.coupons.filter(c => SAVES.has(c.kind));
 const cpStores = [...new Set(cpSave.flatMap(c => c.stores || []))];
 const trOn = st.travel.length, trChecked = st.travelNone.length, crOn = (st.cars || []).length, crChecked = (st.cars || []).length + (st.carsNone || []).length;
 const forShort = forAr(campShort);
-const panelsAr = `<nav class="panels" aria-label="القسائم وعروض السفر والسيارات">`
+// (BLD-27) a fourth panel, app subscriptions, only while there is an offer behind it: the names of up to three apps, then «وغيرها».
+const sbApps = (list, key) => [...new Set(list.map(o => H(String(o[key] || o.company || '').replace(/\s*\(.*\)$/, ''))))];
+const sbAr = sbApps(st.subs, 'company'), sbEnApps = sbApps(subsEn, 'company_en');
+const panelsAr = `<nav class="panels${subsOn ? ' p4' : ''}" aria-label="القسائم وعروض السفر والسيارات${subsOn ? ' واشتراكات التطبيقات' : ''}">`
   + panel(cpSave.length > 0, '#coupons', PIC.cp, 'القسائم والأكواد', cpSave.length ? `${arCount(cpSave.length, 'عرض واحد', 'عرضان', 'أكواد وعروض بطاقات', 'كوداً وعرض بطاقة')} · ${andAr(cpStores.map(label))}` : `لا أكواد مؤكدة ${forShort} بعد`)
   + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'عروض السفر', trOn ? `${arCount(trOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} من شركات الطيران والحجز` : trChecked ? `فحصنا ${arCount(trChecked, 'شركة واحدة', 'شركتين', 'شركات', 'شركة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
   + panel(crChecked > 0, '#cars', PIC.cr, 'عروض السيارات', crOn ? `${arCount(crOn, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} (${andAr(st.cars.map(c => H(String(c.company || '').replace(/\s*\(.*\)$/, ''))))})${(st.carsNone || []).length ? ` · فحصنا ${arCount(st.carsNone.length, 'جهة أخرى', 'جهتين أخريين', 'جهات أخرى', 'جهة أخرى')}` : ''}` : crChecked ? `فحصنا ${arCount(crChecked, 'جهة واحدة', 'جهتين', 'جهات', 'جهة')}: لا عرض ${forShort} بعد` : 'تُفحص في التحديث القادم')
+  + (!subsOn ? '' : panel(true, '#subs', PIC.sb, 'اشتراكات التطبيقات', `${arCount(st.subs.length, 'عرض واحد', 'عرضان', 'عروض', 'عرضاً')} (${sbAr.length > 3 ? sbAr.slice(0, 3).join('، ') + ' وغيرها' : andAr(sbAr)})`))
   + `</nav>`;
 // English plural (22 Nov 2026, BLD-15): «6 companys» was printed on the travel panel. A word ending in a consonant and «y»
 // takes «ies»; the words this is called with today are «offer» and «company».
 const enPlural = w => /[^aeiou]y$/i.test(w) ? w.slice(0, -1) + 'ies' : /(s|x|z|ch|sh)$/i.test(w) ? w + 'es' : w + 's';
 const enCount = (n, w) => `${n} ${n === 1 ? w : enPlural(w)}`;
 const cpSaveEn = cpSave.filter(c => c.text_en), campShortEn = M.campaignShort_en || M.campaign_en || 'sale';
-const panelsEn = `<nav class="panels" aria-label="Coupons, travel and car offers">`
+const panelsEn = `<nav class="panels${subsEn.length ? ' p4' : ''}" aria-label="${subsEn.length ? 'Coupons, travel, car and app subscription offers' : 'Coupons, travel and car offers'}">`
   + panel(cpSaveEn.length > 0, '#coupons', PIC.cp, 'Coupons and codes', cpSaveEn.length ? `${cpSaveEn.length} codes and card offers · ${andEn([...new Set(cpSaveEn.flatMap(c => c.stores || []))].map(id => (storeById[id] || {}).label_en || id))}` : `No confirmed ${campShortEn} codes yet`)
   + panel(trOn + trChecked > 0, '#travel', PIC.tr, 'Travel offers', trOn ? `${enCount(trOn, 'offer')} from airlines and booking sites` : trChecked ? `Checked ${enCount(trChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
   + panel(crChecked > 0, '#cars', PIC.cr, 'Car offers', crOn ? `${enCount(crOn, 'offer')} (${andEn(st.cars.map(c => H(String(c.company_en || c.company || '').replace(/\s*\(.*\)$/, ''))))})${(st.carsNone || []).length ? ` · ${st.carsNone.length} more checked` : ''}` : crChecked ? `Checked ${enCount(crChecked, 'company')}: no ${campShortEn} offer yet` : 'Checked in the next update')
+  + (!subsEn.length ? '' : panel(true, '#subs', PIC.sb, 'App subscriptions', `${enCount(subsEn.length, 'offer')} (${sbEnApps.length > 3 ? sbEnApps.slice(0, 3).join(', ') + ' and more' : andEn(sbEnApps)})`))
   + `</nav>`;
 
 // ---- category cards, the ticker strip and the header inside a category (BLD-15, 22 Nov 2026) ----
@@ -465,7 +487,7 @@ const fill = {
   TICKER: katAr.ticker, KAT_CARDS: katAr.cards, KAT_HEADS: katAr.heads, KAT_JSON: katAr.json, KAT_CSS: KAT_CSS,
   WALLET_JSON: J(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
   CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: J(TNO), TNONE_JSON: J(st.travelNone_text||''),
-  CR_JSON: arr(CR), CRNO_JSON: J(CRNO),
+  CR_JSON: arr(CR), CRNO_JSON: J(CRNO), SB_JSON: arr(SB),
 };
 fill.STORE_COUNT_AR = countWord(cfg.stores.filter(s=>s.enabled!==false).length); // disabled stores (no working storefront) are not counted // "الستة عشر" etc. — the template keeps the word order "المتاجر {{n}}"
 let out = tpl;
@@ -521,6 +543,8 @@ const E = st.rows.map(r => {
 });
 const offerEn = o => ({ company: o.company_en || o.company, type: o.type_en || '', headline: o.headline_en, terms: enText(o.terms_en), code: o.code || '', url: o.url, v: o.verdict || '', bs: o.bookStart || '', be: o.bookEnd || '', ck: o.checked || '', win: o.travelWindow_en || o.window_en || '' });
 const trEn = st.travel.filter(t => t.headline_en && t.terms_en).map(offerEn), crEn = (st.cars || []).filter(c => c.headline_en && c.terms_en).map(offerEn);
+// (BLD-27) `sub` tells the shared card that this is a subscription offer; `w` are its wallet tags in English
+const sbEn = subsEn.map(o => ({ ...offerEn(o), sub: 1, w: subTags(o, 'label_en') }));
 const enTplPath = path.join(ROOT, 'template/en.html');
 if (!fs.existsSync(enTplPath)) throw new Error('build: template/en.html is missing — the English page is required');
 let en = fs.readFileSync(enTplPath, 'utf8');
@@ -559,7 +583,7 @@ const enFill = {
   TICKER: katEn.ticker, KAT_CARDS: katEn.cards, KAT_HEADS: katEn.heads, KAT_JSON: katEn.json,
   WALLET_JSON: J(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
   CAMPAIGN_END: String(M.campaignEnd || ''),
-  TRAVEL_JSON: J(trEn), CARS_JSON: J(crEn),
+  TRAVEL_JSON: J(trEn), CARS_JSON: J(crEn), SUBS_JSON: J(sbEn),
   RULE_JSON: fill.RULE_JSON,
   ARCHIVE_EN: !(M.archive || []).length ? '' : ' · Archive: ' + M.archive.map(a => `<a href="${a.href}">${a.label_en || a.href}</a>`).join(' · '),
 };
@@ -573,7 +597,7 @@ const noName = st.rows.filter(r => !r.name_en), warnNoEn = st.rows.filter(r => r
 console.log(`english: dist/en/index.html (${en.length} chars) · store names ${st.rows.length - noName.length} of ${st.rows.length}`
   + (noName.length ? ` — ${noName.length} show the Arabic name: ${[...new Set(noName.map(r => r.store))].join(', ')}` : '')
   + (heldNoName.length ? ` · held back, no name in both languages: ${heldNoName.length} (${heldByStore()})` : '')
-  + ` · coupons ${cpEn.length} of ${st.coupons.length} · travel ${trEn.length} of ${st.travel.length} · cars ${crEn.length} of ${(st.cars || []).length}`);
+  + ` · coupons ${cpEn.length} of ${st.coupons.length} · travel ${trEn.length} of ${st.travel.length} · cars ${crEn.length} of ${(st.cars || []).length} · subscriptions ${sbEn.length} of ${st.subs.length}`);
 if (warnNoEn.length) { console.error(`build (english): ${warnNoEn.length} row(s) state a condition in Arabic and have no finding_en — the English page would drop the condition: ${warnNoEn.slice(0, 8).map(r => r.id).join(', ')}`); process.exit(1); }
 
 // artifact variant: no doctype/html/head/body, starts at <title>, no brand header/about section
@@ -587,4 +611,4 @@ fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
 console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
-console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length}`);
+console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length} · subscriptions ${SB.length}`);

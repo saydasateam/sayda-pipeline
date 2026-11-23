@@ -85,6 +85,14 @@ change all three. The build stops when a template lacks one of these parts or a 
 and the «أشلي مقابل ميداس» clause render only while those stores are enabled. A category chip with
 no rows is not rendered. Travel and cars pointers and sections render only when they have entries.
 
+**3a. App subscription offers (23 Nov 2026, BLD-27).** `data/state/_subs.json` → `{ subs: [...] }`, read by `lib/state.js`. While it
+holds an offer, `build.js` writes a fourth hero panel («اشتراكات التطبيقات» / “App subscriptions”) and a section below cars on both
+pages, with the travel card: the app, the offer as advertised, what the terms say, the end date, the day we read it, and a
+wallet tag when `wallet` names an id from `config/wallet.json`. No price is measured here, so the card carries no percentage of
+ours. An offer with a bad link, or with no app name, headline, terms, check date or end date, is held back and named; one
+without `headline_en` and `terms_en` is left off the English page, and the `english:` line counts `subscriptions n of n`.
+`config/stores.json` carries `carSources` and `subscriptionSources`. The rules a run follows are RUNBOOK §3a and §3c.
+
 **4. `scripts/new-campaign.js`** archives the previous campaign's rows to `data/archive/<id>/` and
 starts the state empty, keeping each enabled store's price-history shard. `build.js` refuses to
 build an empty page.

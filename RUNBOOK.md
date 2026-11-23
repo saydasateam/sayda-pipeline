@@ -34,6 +34,22 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   updated. Never guess a URL.
 - `travelSources` now lists each airline's and platform's standing offers or home page, not National
   Day pages. An offer is published only when the company's own page names it for this campaign.
+- **Car and app subscription offers (BLD-27, landed 23 Nov 2026).** `config/stores.json` carries `carSources` and
+  `subscriptionSources`: search leads, none opened in a browser yet (OPS-16). The build reads `data/state/_subs.json` and
+  shows a fourth panel and a section for app subscriptions only while that file holds an offer. **In force since Mahmoud's
+  yes on 23 Nov 2026 (D21 cars and D22 subscriptions, answered on the control room page): the sale-window rule in §3a and
+  all of §3c.** A full run writes `_subs.json` when §3c finds an offer that qualifies.
+- **Every full run does §3 (coupons and travel), §3a (cars), §3c (app subscriptions) and §3b (market comparisons). None of
+  them is ever skipped (Mahmoud, 23 Nov 2026: «don't skip it again, always do it and update it»).** On 23 Nov the 08:21 and
+  12:21 runs spent the budget on discovery and logged «Travel, cars, comparator sweep: not run this slot». So discovery now
+  stops at `stopDiscoveryAtMinute` OR when 45 tool calls of `toolCallBudget` remain, whichever comes first (§2 point 6);
+  those 45 calls are for §3, §3a, §3c, §3b, pictures, names, the build and the publish. The run log has one line for each of
+  the four, saying what was read and what changed (`travel: …`, `cars: …`, `subscriptions: …`, `market: …`). A line that
+  reads «not run» is a failed step: notify it as you would a stale store.
+- **Extra needs no store «before» price (Mahmoud, 23 Nov 2026).** Extra candidates from its campaign page are judged on their
+  KanBkam record alone, exactly as noon and Amazon: tile prices are not read and `was` stays null (15 of the 50 Extra rows on
+  23 Nov already have `was: null`). A missing store «before» price is never a reason to skip the KanBkam lookup or to leave a
+  candidate out. The 08:21 and 12:21 runs of 23 Nov did both; that was a misreading of §2.
 - **Two languages, every publish (Mahmoud, 20 Nov 2026).** The English page at `/en/` is as much a
   part of a refresh as the Arabic one: `build.js` writes `dist/index.html` AND `dist/en/index.html`,
   and a publish writes both (§4a-form in scheduled runs, §4a-push from a chat). A run that publishes Arabic alone has not published. See §2d and §4.
@@ -303,9 +319,10 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
 5. **Empty chips first** (`emptyChipsFirst`): when shortlisting from noon/Amazon/Extra, take the categories
    of chips that have no verified row yet (toys, sports, perfume, personal care, kids) before the rest.
    `rules.page.reservedPerChip` then keeps their slots at intake.
-6. **Stop discovery at `stopDiscoveryAtMinute`** (40) counted from the run's start, whatever is left. The
-   check (§1), pictures and names (§2c, §2d), the build and the publish (§4) must always fit. Coverage is
-   never dropped for discovery.
+6. **Stop discovery at `stopDiscoveryAtMinute`** (40) counted from the run's start, **or when 45 tool calls of
+   `toolCallBudget` remain, whichever comes first** (23 Nov 2026), whatever is left. The check (§1), coupons and travel
+   (§3), cars (§3a), market comparisons (§3b), app subscriptions (§3c), pictures and names (§2c, §2d), the build and the
+   publish (§4) must always fit. Coverage is never dropped for discovery, and neither are §3, §3a, §3b and §3c.
 
 **Extra from its campaign page.** Open a tab on `store.campaignPage`, inject core + `extra.js`, then
 `SAYDA.start('collect:extra', () => SAYDA.adapters.extra.collectPage())`. It scrolls so every carousel loads
@@ -313,6 +330,8 @@ and returns `{key, kid: 'e<id>', brand, slug, url}` for each product (111 on 22 
 read. Evidence: `SAYDA.kanbkam.history(<kids>, 13)` on the KanBkam tab, joined by id, never by index. Use
 the KanBkam listing (`SAYDA.kanbkam.listing(13, …)`) only if the campaign page gives nothing: on 21 and 22 Nov
 it produced 37 out-of-stock picks out of 38.
+**No store «before» price is needed** (23 Nov 2026, see «Current campaign»): an Extra candidate under its KanBkam
+previousPrice is looked up, live-checked and added like a noon or Amazon one, with `was: null`.
 
 - **Almanea: collect RENDERED, not fetched.** Its pager calls an authenticated API, so the fetch collector only ever saw
   page 1 — 32 of ~1,009 National Day offers. Rendered on 22 Sep: 31 pages, 902 products, 798 gate-passing candidates, ~2.5 min.
@@ -431,7 +450,7 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
 
 ## 3. FULL run only — coupons & travel (≈ 6 calls)
 - `inject.js <id> coupons` for noon, extra, blackbox, almanea, jarir, saco, amazon, ikea; read with `show()`. Update `coupons` in `data/state/_coupons.json` (node one-liner; if the file does not exist yet, create it with `node -e "const S=require('./lib/state');const st=S.load('.');S.saveShared('.','coupons',{coupons:st.coupons});S.saveShared('.','travel',{travel:st.travel,travelNone:st.travelNone,travelNone_text:st.travelNone_text});S.saveShared('.','notes',{notes:st.notes})"` first): one entry per store/bank offer, only what the store's own page says; drop expired; keep the Trendyol Plus note.
-- Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers. Keep `travelNone` accurate (Saudia / flyadeal today).
+- Travel: open each `travel[].url` in `data/state/_travel.json` with `get_page_text`; update code/dates/terms/verdict/checked; bookEnd = yesterday if withdrawn; drop rows whose bookEnd is > 3 days ago. Scan `config.travelSources` for new offers: every full run reads at least 4 sources, least recently read first, and writes the day into `_travel.json → scanned[<source url>]` (`YYYY-MM-DD`). Keep `travelNone` accurate (Saudia / flyadeal today). Run log: `travel: <n> offers re-read, <n> sources read (<names>), <what changed or «no change»>`.
 - Update `notes.furnitureShare` in `data/state/_notes.json` from the collect stats (`sharePct`) when available.
 - **`data/state/_*.json` has exactly one writer: this slot.** These three files are the only non-per-store state left, which is why
   coupons and travel ride along in one slot and one slot only. Two slots editing them reintroduces the clobber the sharding removed.
@@ -444,22 +463,52 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
   and that is correct: nothing was re-checked.
 
 ## 3a. FULL run only — car offers (same slot and rules as travel, ~4 calls)
-`data/state/_cars.json` → `{ cars: [...], carsNone: [...] }`, one writer: the slot that edits coupons and travel.
-The page shows a 🚗 pointer at the top and the cards below travel (template `#cars`).
+`data/state/_cars.json` → `{ cars: [...], carsNone: [...], scanned: {...} }`, one writer: the slot that edits coupons and travel.
+The page shows a «عروض السيارات» panel in the hero and the cards below travel (template `#cars`).
 - For each `cars[].url` (agent or bank/leasing company's OWN page): `get_page_text`, update headline/terms/dates/verdict/checked.
   Verdicts as for travel: `clear` terms match the headline · `catch` headline bigger than terms (finance-only, «حتى», selected
   trims, until stock lasts) · `vague` no concrete terms · `pending` announced, not started. Drop a row whose `bookEnd` is more
   than 3 days ago.
-- A news site, ad portal (saudiauto, syarah, motory) or a dealer's social post is a LEAD, never a source. An offer that is not
-  on the company's own page is not published. A September finance campaign that is not branded National Day is not an ND offer.
-- `carsNone` lists companies checked with no ND offer found; move one to `cars` when its own page publishes an offer.
-- Leads worth re-checking in the browser (22 Sep): Kia Aljabr's ND page (no year on it), Al Rajhi's ND auto-lease page
-  (blocked to non-browser fetches), Riyad Bank, Alinma, SAIB, Nayifat, Emkan (not yet checked).
+- A news site, an ad portal (saudiauto, motory, assayyarat, almuraba, afdalcar), a video page or a dealer's social post is a
+  LEAD, never a source. An offer that is not on the company's own page is not published. An ad portal is a source only for
+  its own campaign on its own sales, read on its own site (Syarah's row).
+- **Which offers count (D21, Mahmoud's yes on 23 Nov 2026, answered on the control room page).** Saudi dealers do not brand
+  White Friday: this month they run «عروض نوفمبر» and «عروض نهاية العام» on their own pages. An offer counts when the company's
+  own page names it for this campaign, OR when ALL of these hold:
+  1. the dealer's, the bank's or the leasing company's own page states it today;
+  2. the page gives its dates, and they overlap `campaignStart` to `campaignEnd` in `config/campaign.json`. An offer whose
+     page gives no dates is not published: name it in the run summary so Mahmoud can decide (D32);
+  3. `headline` is the name and wording the company gives it, word for word. Never relabel it as White Friday, and never add
+     the campaign's name to a headline or to `terms` that does not carry it;
+  4. it is an offer, not a standing price list, a finance calculator or a price «starting from».
+- `carsNone` lists companies checked with no offer under this rule; move one to `cars` when its own page publishes one.
+- **Sources: `config/stores.json → carSources`.** Every full run, after the published offers, reads at least 3 sources that
+  have a `url`, least recently read first, and writes the day into `_cars.json → scanned[<id>]` (`YYYY-MM-DD`). An entry with
+  `url: null` has no confirmed address: a scheduled run skips it. Its address is found on the company's own site in a browser
+  run that Mahmoud asked for (OPS-16), and enters the config by a landed change. Never guess a URL. A `lead` in the config is
+  what a web search said on 23 Nov 2026; it is never copied to the page.
+- Not yet checked in this campaign: Kia (Aljabr), Riyad Bank, Alinma, SAIB, Nayifat, Emkan.
+- Every car offer is written in both languages in the same step: `company_en`, `type_en`, `brand_en`, `headline_en`, `terms_en`,
+  `window_en`. The build's `english:` line must read `cars n of n`.
+- Run log: `cars: <n> offers re-read, <n> sources read (<ids>), <what changed or «no change»>`.
 - Upload `data/state/_cars.json` in the same state commit as the other `_*.json` files.
 
 ## 3b. FULL run only — comparator sweep (the sidecar, ~6 calls)
 Only for the four `verify: "market"` stores (jarir, blackbox, almanea, saco). Everything else is
 untouched by this phase.
+
+**Since 23 Nov 2026 this phase runs in every full run, on all four market stores, and it is applied** (Mahmoud: «always do it
+and update it»). §2 point 3 already sweeps the rotation's market store; this phase keeps the other three current between their
+slots:
+1. `node scripts/market-apply.js --plan` lists, per store, the rows whose comparison is missing or due (`lib/market.js → isFresh`).
+2. For the stores other than this run's rotation store, take up to 30 queries in all, least recently compared first, and run
+   them through `SAYDA.kanbkam.market([...])` on the KanBkam tab, exactly as §2 point 3 does; save `work/market/<store>.json`.
+3. `node scripts/market-apply.js work/market/<store>.json` (shadow, read it), then the same with `--apply`. `ref` is whatever
+   `rules/verdict.js` returns; a comparison `rules/match.js` rejects leaves the row as it was.
+4. Upload the touched shards and `data/state/_market-<store>.json` caches with the state commit.
+5. Run log: `market: <store> <n> re-checked, <n> changed (<ids>)` for each store, or `market: nothing due`.
+The Google Shopping procedure below is kept for reference only. Scheduled runs do not use it: in shadow mode it changed nothing
+on the page, and Google answers a repeated run with a challenge page.
 
 ```
 node scripts/market-apply.js --plan        # writes work/market/<store>.jobs.json, prints the work list
@@ -504,6 +553,40 @@ node scripts/market-apply.js work/market/<store>.json --apply    # writes the ro
   not failing. The page gets more trustworthy before it gets bigger.
 - Own-label stock (IKEA, Home Centre, Home Box, Pan Home, CityW, Baytonia, most Trendyol) has no
   second seller anywhere. Those rows stay `na` permanently. That is the correct answer, not a gap.
+
+## 3c. FULL run only — app subscription offers (BLD-27; same slot as travel and cars, ~4 calls)
+**In force since Mahmoud's yes on 23 Nov 2026 (D22, answered on the control room page).**
+
+`data/state/_subs.json` → `{ subs: [...], scanned: {...} }`, one writer: the slot that edits coupons, travel and cars. The page
+shows a fourth hero panel «اشتراكات التطبيقات» / “App subscriptions” and the cards below cars (template `#subs`). There is no
+«checked, nothing found» list for subscriptions. If the file does not exist yet, create it with `{ "subs": [], "scanned": {} }`.
+- **What counts: ALL of these.**
+  1. the app's own page, or the bank's own page, states the offer today (`get_page_text` in the server's Chrome);
+  2. it is time-limited: the page states an end date, which is `bookEnd`;
+  3. it runs in the sale window: `bookEnd` is today or later, and `bookStart`, if the page states one, is not after `campaignEnd`;
+  4. `terms` are the page's own terms, and `checked` is the day we read them.
+- **Never published (D32):** a free trial or a price with no end date on the page («evergreen»); a telco's price list or bundle
+  price; an offer that exists only inside the app; a code or an offer from a coupon site, a news site or a social post (those
+  are LEADS); a subscription that comes with a device; a store membership benefit that is already a coupon in §3.
+- **No number of ours.** Nothing here is measured against a price record, so the card carries no discount badge. Never compute
+  or write a percentage: one appears only inside `headline` or `terms`, in the company's own words.
+- Fields: `company` (the app), `type` (what it is: «توصيل طعام», «موسيقى وبودكاست»; add «عرض بطاقة» when a bank gives the
+  offer), `headline` (as advertised, word for word), `code` (`''` when none), `bookStart`, `bookEnd` (required), `window` (who
+  it is for: new subscribers only, one plan only), `verdict` (`clear` · `catch` · `vague` · `pending`, as travel), `terms`,
+  `url` (the own page), `checked` (`YYYY-MM-DD`, required), `wallet` (ids from `config/wallet.json`, ONLY when the page names
+  that bank, card scheme, wallet or membership for the offer). In the same step, in English: `company_en`, `type_en`,
+  `headline_en`, `terms_en`, `window_en`.
+- Each full run: re-read every `subs[].url` and update it; `bookEnd` = yesterday if the offer was withdrawn; drop an offer
+  whose `bookEnd` is more than 3 days ago. Then read at least 3 `config/stores.json → subscriptionSources` entries that have a
+  `url`, least recently read first, and write the day into `scanned[<id>]`. An entry with `url: null` is skipped by a
+  scheduled run, exactly as in §3a. Never guess a URL.
+- The build holds back, and names, an offer whose link is not a clean https address, or that has no app name, headline, terms,
+  check date or end date: `held back N subscription offer(s): <app> (<why>)`. The line goes in the run log word for word.
+  Never repair the offer by hand: read its page again on the next run.
+- The build's `english:` line ends with `subscriptions n of n`, and it must be n of n. An offer without `headline_en` and
+  `terms_en` is left off the English page.
+- Upload `data/state/_subs.json` in the same state commit as the other `_*.json` files.
+- Run log: `subscriptions: <n> offers re-read, <n> sources read (<ids>), <published / dropped / «none qualifies»>`.
 
 ## 4. Build & publish (≈ 8 calls)
 ```
@@ -616,7 +699,8 @@ calling it a failure. From a cloud session with no browser, read the committed f
 ## 5. Report
 Final message in Arabic, concise: top 7 verified deals available now (store, price, real vs claimed), new rows, newly
 unavailable / restocked / price changes (from work/report.json), coupon and travel changes, stores skipped and why, and
-the build's `english:` line (store names n of n, coupons n of n), the site commit (short sha) and the state commit.
+the build's `english:` line (store names n of n, coupons n of n, and travel, cars and subscriptions n of n), the four lines
+`travel:`, `cars:`, `subscriptions:` and `market:` from §3 to §3c, the site commit (short sha) and the state commit.
 
 **Prove the run did something before calling it done.** Run
 `gh api 'repos/saydasateam/sayda-deals/commits?per_page=1' --jq '.[0]|[.sha[0:7],.commit.committer.date,.commit.message]'`
