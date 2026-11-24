@@ -1,0 +1,420 @@
+{
+ "extra:100520345": {
+  "q": "lg OLED83C66LA 83",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 13499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100523114": {
+  "q": "lenovo 83SN004XAD",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 11499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100520357": {
+  "q": "lg OLED77C66LA 77",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 9299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100520346": {
+  "q": "lg OLED65G66LW 65",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 8399,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 7999,
+  "avg": 7999,
+  "max": 7999,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 7999,
+   "url": "https://www.kanbkam.com/sa/en/lg-oled65g66lw-65-inch-4k-oled-evo-120hz-native-vrr-165hz-perfect-color-%CE%B111-ai-processor-4k-gen3-%CE%B111-ai-super-upscaling-4k-dynamic-tone-mapping-ultra-dolby-vision-hdr10-hlg-gaming-B0GZKTRWY6"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 7999,
+    "url": "https://www.kanbkam.com/sa/en/lg-oled65g66lw-65-inch-4k-oled-evo-120hz-native-vrr-165hz-perfect-color-%CE%B111-ai-processor-4k-gen3-%CE%B111-ai-super-upscaling-4k-dynamic-tone-mapping-ultra-dolby-vision-hdr10-hlg-gaming-B0GZKTRWY6"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100528573": {
+  "q": "lenovo 83SE0012AD 14",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 8199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100521597": {
+  "q": "haier HWD130-BD14LCGNU1",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 8189,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100507361": {
+  "q": "apple MDHG4AB/A 13",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 7979,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100520351": {
+  "q": "lg OLED65C66LA 65",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 6299,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 6298,
+  "avg": 6298,
+  "max": 6298,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 6298,
+   "url": "https://www.kanbkam.com/sa/en/lg-oled65c66la-65-inch-4k-oled-evo-120hz-native-vrr-165hz-perfect-color-%CE%B111-ai-processor-4k-gen3-%CE%B111dynamic-tone-mapping-ultra-dolby-vision-hdr10-hlg-ai-magic-remote-webos26-2026-B0GZL46S1L"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 6298,
+    "url": "https://www.kanbkam.com/sa/en/lg-oled65c66la-65-inch-4k-oled-evo-120hz-native-vrr-165hz-perfect-color-%CE%B111-ai-processor-4k-gen3-%CE%B111dynamic-tone-mapping-ultra-dolby-vision-hdr10-hlg-ai-magic-remote-webos26-2026-B0GZL46S1L"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100506779": {
+  "q": "apple MDHH4AB/A 13",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 5649,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100506781": {
+  "q": "apple MDHA4AB/A 13",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 5649,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100506782": {
+  "q": "apple MDH74AB/A 13",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 5599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100392935": {
+  "q": "lg RH18U8EVCW",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 5439,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100492520": {
+  "q": "gree GWH30AVEXH-S6DTA1A/I",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 4979,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100490096": {
+  "q": "gree GWH30AVEXH-D6NTA1A/I",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 4719,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100520895": {
+  "q": "asus 90NR0QF3-M00220 16",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 4699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100517287": {
+  "q": "tcl 75C6KPRO 75",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 4499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100514647": {
+  "q": "lg 75QNED85B6T 75",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 4399,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 4599,
+  "avg": 4599,
+  "max": 4599,
+  "market": {
+   "store": "noon",
+   "price": 4599,
+   "url": "https://www.kanbkam.com/sa/en/75-inch-lg-qned-evo-ai-qned85-mini-led-4k-uhd-smart-tv-75qned85b6t-black-N70389551V",
+   "own": "https://www.noon.com/en-sa/75-inch-lg-qned-evo-ai-qned85-mini-led-4k-uhd-smart-tv-75qned85b6t-black/N70389551V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 4599,
+    "url": "https://www.kanbkam.com/sa/en/75-inch-lg-qned-evo-ai-qned85-mini-led-4k-uhd-smart-tv-75qned85b6t-black-N70389551V"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100511518": {
+  "q": "tcl 85T6D 85",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 4299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100531284": {
+  "q": "asus 90NR0MZ6-M00LH0 16",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100429335": {
+  "q": "aux ATW30A2DI-BSA",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3949,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100509491": {
+  "q": "samsung HW-Q990H/SA",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100491501": {
+  "q": "classpro CPE36CHC",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100509486": {
+  "q": "samsung UA75M70HAUXSA 75",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3749,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2749,
+  "avg": 2749,
+  "max": 2749,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 2749,
+   "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 2749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100364834": {
+  "q": "elba CBX965GSA",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3449,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100521092": {
+  "q": "honor 5301ASUW 16",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100474795": {
+  "q": "hp C22KGEA 16",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3349,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100472491": {
+  "q": "lg 32U889SA-W.AMI",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100511519": {
+  "q": "tcl 75T6D 75",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100511947": {
+  "q": "hp D92BZEA 24",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 3049,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}

@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T16:39:14.645+03:00",
+ "checkedAt": "2026-11-24T20:38:54.865+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -241,10 +241,10 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-65-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828150501",
-   "avail": "gone",
+   "avail": "low",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_65_inches_tv_micro_rgb_smart_4k_uhd_samsung_vision_ai_-_mra65r85hauxsa.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: الصفحة غير موجودة",
+   "availNote": "بلاك بوكس: متبقي 2",
    "lastChecked": "2026-11-24"
   },
   {
@@ -371,10 +371,48 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-smart-crystal-processor-4-k-uhd-secured-by-knox-ua-p-141111823160505",
-   "avail": "low",
+   "avail": "oos",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_smart_crystal_processor_4k_uhd_secured_by_knox_-_ua75u8000huxsa_1.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: متبقي 1",
+   "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "lastChecked": "2026-11-24"
+  },
+  {
+   "id": "blackbox:samsung-led-75-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828160501",
+   "store": "blackbox",
+   "cat": "إلكترونيات",
+   "name": "تلفزيون سامسونج، 75 بوصة، ليد، مايكرو آر جي بي، سمارت، 4 كي ألترا اتش دي، سامسونج فيجين إي",
+   "price": 7999,
+   "was": 13299,
+   "ref": null,
+   "verdict": "na",
+   "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
+   "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828160501",
+   "avail": "in",
+   "availNote": "",
+   "brand": "سامسونج",
+   "firstSeen": "2026-11-24",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_micro_rgb_smart_4k_uhd_samsung_vision_ai_-_mra75r85hauxsa.webp",
+   "name_en": "Samsung LED 75 Inches TV, Micro RGB, Smart - MRA75R85HAUXSA",
+   "lastChecked": "2026-11-24"
+  },
+  {
+   "id": "blackbox:lg-mosque-freestanding-air-conditioner-48000-btu-inverter-cold-only-apnq-55-gt-3-p-111631132114109",
+   "store": "blackbox",
+   "cat": "إلكترونيات",
+   "name": "مكيف دولابي ال جي اسلامي، 48000 وحدة، انفرتر، بارد فقط - APNQ55GT3MA/ APUQ55GT3MA",
+   "price": 8199,
+   "was": 13282,
+   "ref": null,
+   "verdict": "na",
+   "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
+   "url": "https://www.blackbox.com.sa/ar/product/lg-mosque-freestanding-air-conditioner-48000-btu-inverter-cold-only-apnq-55-gt-3-p-111631132114109",
+   "avail": "in",
+   "availNote": "",
+   "brand": "ال جي",
+   "firstSeen": "2026-11-24",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_mosque_freestanding_air_conditioner_48000_btu_inverter_cold_only_-_apnq55gt3ma_apuq55gt3ma.webp",
+   "name_en": "LG Mosque Freestanding Air Conditioner",
    "lastChecked": "2026-11-24"
   }
  ]

@@ -1,7 +1,7 @@
 {
  "store": "mumzworld",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T16:39:14.645+03:00",
+ "checkedAt": "2026-11-24T20:38:54.865+03:00",
  "rows": [
   {
    "id": "mumzworld:stokke-yoyo-stroller-set-black-frame-leg-rest-45808368-bun-sto-0000xxx-config",
@@ -135,9 +135,9 @@
    "name": "ستوك - عربية أطفال يويو 3 بإطار أسود وفرش عربية لعمر 6+",
    "price": 1799,
    "was": 2888,
-   "ref": null,
-   "verdict": "na",
-   "finding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 3302,
+   "verdict": "ok",
+   "finding": "أرخص من Amazon.sa (٣٬٣٠٢)",
    "url": "https://www.mumzworld.com/sa-ar/stokke-yoyo-3-stroller-frame-and-6-plus-color-pack-set-654-bun-sto-0000-config",
    "avail": "in",
    "availNote": "",
@@ -145,7 +145,23 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://www.mumzworld.com/media/catalog/product/cache/8bf0fdee44d330ce9e3c910273b66bb2/6/5/654-bun_sto_0037.jpg",
-   "name_en": "Stokke - Yoyo 3 Stroller with Black Frame And 6+ Color Pack Set"
+   "name_en": "Stokke - Yoyo 3 Stroller with Black Frame And 6+ Color Pack Set",
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/dp/B0CY7DCW8G",
+   "refStore": "amazon",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 3302,
+     "url": "https://www.amazon.sa/dp/B0CY7DCW8G"
+    },
+    "min": 3302,
+    "max": 3302,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-24",
+    "url": "https://www.amazon.sa/dp/B0CY7DCW8G"
+   }
   },
   {
    "id": "mumzworld:babybjorn-bouncer-bliss-woven-sand-566528",
@@ -229,8 +245,8 @@
    "verdict": "na",
    "finding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
    "url": "https://www.mumzworld.com/sa-ar/kinderkraft-nubi-2-stroller-cloudy-grey-400207",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "ممزورلد: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أطفال",
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",

@@ -152,6 +152,23 @@
    "label_en": "Almanea",
    "text_en": "From the offer page on Almanea’s site today: an extra 15% off kitchen appliances, home appliances, screens, electronics and more when paying with SNB (Saudi National Bank) cards, valid until 28 November 2026. It applies to the products listed on the offer page (276 today); the page description states no maximum discount; the full terms are under “Terms and Conditions” on Almanea’s site.",
    "url": "https://www.almanea.sa/snb-offer-15-discount-c-7705"
+  },
+  {
+   "stores": [
+    "extra"
+   ],
+   "label": "إكسترا",
+   "kind": "bank",
+   "code": "",
+   "text": "من صفحة شروط عرض البنك الأهلي في إكسترا اليوم: «يسري هذا العرض من 24 إلى 28 نوفمبر 2026، أو حتى نفاد الكميات المخصصة للعرض. هذا العرض حصري فقط لحاملي بطاقات البنك الأهلي السعودي الائتمانية وبطاقات لك.» خصم إضافي 20% بحد أقصى 200 ريال على المنتجات المدرجة في العرض (عليها شارة «عرض الأهلي»)، وقيمة المنتج 100 ريال أو أكثر. مرة في المعرض ومرة أونلاين، بحد أقصى مرتين لكل بطاقة. لا يسري على مدى والبطاقات مسبقة الدفع، ولا مع أبل باي أو مدى باي أو سامسونج باي أو أي محفظة رقمية. لا يشمل الجوالات والتابلت وملحقاتها وأجهزة Apple والمكيفات وبطاقات الهدايا ومنتجات البائعين الآخرين.",
+   "verified": "2026-11-24",
+   "label_en": "eXtra",
+   "text_en": "From eXtra’s Saudi National Bank offer terms page today: the offer runs from 24 to 28 November 2026 or while stock lasts, for SNB credit cards and Lak cards only. An extra 20% off, up to 200 SAR, on products listed in the offer (marked «SNB offer»), for products priced 100 SAR or more. Once in store and once online, at most twice per card. Not valid on mada or prepaid cards, nor with Apple Pay, mada Pay, Samsung Pay or any digital wallet. Excludes mobiles, tablets and their accessories, all Apple devices, air conditioners, gift cards and items sold by other sellers.",
+   "wallet": [
+    "snb"
+   ],
+   "perk": "خصم إضافي 20% حتى 200 ريال ببطاقات الأهلي الائتمانية على منتجات مختارة · حتى 28 نوفمبر",
+   "perk_en": "Extra 20% off up to 200 SAR with SNB credit cards, on selected products · until 28 Nov"
   }
  ]
 }

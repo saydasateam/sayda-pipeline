@@ -106,21 +106,26 @@
  },
  "mumzworld:stokke-yoyo-3-stroller-frame-and-6-plus-color-pack-set-654-bun-sto-0000-config": {
   "q": "stokke Yoyo 3",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 1899,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
-  "rejected": [
+  "sampledAt": "2026-11-24",
+  "rowPrice": 1799,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 3302,
+  "avg": 3302,
+  "max": 3302,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 3302,
+   "url": "https://www.kanbkam.com/sa/en/stokke-yoyo3-complete-yoyo-stroller-from-birth-includes-black-frame-yoyo-6-color-pack-0-newborn-pack-stone-B0CY7DCW8G"
+  },
+  "sources": [
    {
-    "title": "Stokke YOYO Black Frame with YOYO 6+ Colour Pack (Aqua)",
-    "why": "model part \"3\" not present as a whole word, and \"yoyo3\" not present fused"
+    "merchant": "Amazon.sa",
+    "price": 3302,
+    "url": "https://www.kanbkam.com/sa/en/stokke-yoyo3-complete-yoyo-stroller-from-birth-includes-black-frame-yoyo-6-color-pack-0-newborn-pack-stone-B0CY7DCW8G"
    }
-  ]
+  ],
+  "rejected": []
  },
  "mumzworld:babybjorn-bouncer-bliss-woven-sand-566528": {
   "q": "babybjorn bouncer bliss woven sand",

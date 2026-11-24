@@ -272,5 +272,31 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "blackbox:samsung-led-75-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828160501": {
+  "q": "samsung MRA75R85HAUXSA 75",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 7999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-mosque-freestanding-air-conditioner-48000-btu-inverter-cold-only-apnq-55-gt-3-p-111631132114109": {
+  "q": "lg APNQ55GT3MA APUQ55GT3MA air",
+  "sampledAt": "2026-11-24",
+  "rowPrice": 8199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  }
 }
