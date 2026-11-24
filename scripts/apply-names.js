@@ -25,11 +25,12 @@ const tidy = t => {
   if (t.length > 110) { const c = t.slice(0, 110), k = Math.max(c.lastIndexOf(','), c.lastIndexOf(' - '), c.lastIndexOf(' | ')); t = (k > 50 ? c.slice(0, k) : c.slice(0, c.lastIndexOf(' '))).trim(); }
   return t.length >= 4 && !/[؀-ۿ]/.test(t) ? t : null;
 };
-const D = S.DIRS(ROOT), touched = {};
+const D = S.DIRS(ROOT), touched = {}, known = S.knownStores(ROOT);   // BLD-37: only a configured store's shard is opened
 let set = 0, skipped = 0;
 for (const { id, name_en } of items) {
   const store = String(id).split(':')[0], p = path.join(D.state, store + '.json');
-  const shard = touched[store] || S.readJson(p, null); if (!shard) { skipped++; continue; }
+  if (!known.has(store)) { skipped++; continue; }
+  const shard = touched[store] || S.readState(p, null); if (!shard) { skipped++; continue; }
   const row = (shard.rows || []).find(r => r.id === id), name = tidy(name_en);
   if (!row || !name) { skipped++; continue; }
   if (row.name_en !== name) { row.name_en = name; set++; touched[store] = shard; }

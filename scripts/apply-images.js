@@ -22,11 +22,12 @@ const norm = (store, v) => {
   if (/m\.media-amazon\.com/.test(v)) v = v.replace(/\._[A-Z0-9_,]+_\.(jpg|png|webp)$/i, '._AC_SL500_.$1');
   return /^https:\/\/[^\s"'<>]+$/.test(v) ? v : null;
 };
-const D = S.DIRS(ROOT), touched = {};
+const D = S.DIRS(ROOT), touched = {}, known = S.knownStores(ROOT);   // BLD-37: only a configured store's shard is opened
 let set = 0, skipped = 0;
 for (const { id, img } of items) {
   const store = String(id).split(':')[0], p = path.join(D.state, store + '.json');
-  const shard = touched[store] || S.readJson(p, null); if (!shard) { skipped++; continue; }
+  if (!known.has(store)) { skipped++; continue; }
+  const shard = touched[store] || S.readState(p, null); if (!shard) { skipped++; continue; }
   const row = (shard.rows || []).find(r => r.id === id), url = norm(store, img);
   if (!row || !url) { skipped++; continue; }
   if (row.img !== url) { row.img = url; set++; touched[store] = shard; }
