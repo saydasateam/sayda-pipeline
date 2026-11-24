@@ -537,103 +537,6 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 .panel .ptx span{font-size:12.5px;color:#E0E7FF;overflow:hidden;text-overflow:ellipsis}
 .panel .parr{font-size:14px;opacity:.8}
 @media (max-width:760px){.panel{flex:0 0 auto;max-width:86%}}
-/* the wallet left the hero: it sits above the grid, under the category header, on the page's own background */
-.wallet{padding:10px 0 0;border-top:0}
-.walletl{opacity:1;color:var(--muted);font-weight:600}
-.walletc button{border:1px solid color-mix(in srgb,var(--wal) 34%,transparent);background:var(--wal-soft);color:var(--wal)}
-.walletc button[aria-pressed="true"]{background:var(--wal);color:var(--surface);border-color:var(--wal);font-weight:600}
-@media (pointer:coarse){.walletc button{min-height:40px}}
-/* ticker: flush at the bottom of the hero on a dark translucent navy strip, each deal in its own glass pill, white
-   text, no underline. CSS only. Two copies of the items make the loop; the second is hidden from screen readers.
-   It stops under the pointer, on touch, on keyboard focus and with its pause button. Changed 23 Nov 2026: it no longer stands
-   still under reduced motion (Windows with animation effects off and the Sayda server's Chrome both report it, so the strip
-   never moved there); it moves more slowly instead, and the pause button stops it for anyone who wants it still. */
-.tick{position:relative;z-index:1;display:flex;align-items:center;background:rgba(2,6,23,.35);border-top:1px solid rgba(255,255,255,.15);padding:10px 0;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);font-size:14px;font-weight:600;color:rgba(255,255,255,.95)}
-.tickl{flex:none;margin:0;display:flex;flex-direction:column;justify-content:center;padding:0 16px;line-height:1.3;border-inline-end:1px solid rgba(255,255,255,.15)}
-.tickl b{font-size:13px;font-weight:700;color:#fff}
-.tickl small{font-size:11.5px;font-weight:500;color:#E0E7FF}
-.tickv{flex:1;min-width:0;overflow:hidden;white-space:nowrap}
-.tickt{display:flex;align-items:center;width:max-content;animation:tickx 95s linear infinite}
-[dir="rtl"] .tickt{animation-name:tickxr}
-.tickg{display:flex;align-items:center;flex:none;gap:24px;padding-inline-start:24px}
-.ti{font:inherit;font-weight:600;display:inline-flex;align-items:center;flex:none;gap:8px;padding:2px 12px;border-radius:9999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.95);text-decoration:none;white-space:nowrap;cursor:pointer}
-.ti:hover{background:rgba(255,255,255,.18)}
-.ti .tn{max-width:26ch;overflow:hidden;text-overflow:ellipsis}
-.ti .tp{font-weight:700}
-.ti .tpr{font-weight:600;font-variant-numeric:tabular-nums}
-.ti .ts{color:#E0E7FF;font-weight:500}
-.ti:focus-visible{outline:2px solid #FCD34D;outline-offset:2px}
-/* Pauses that end by themselves (23 Nov): under a real pointer only (a finger leaves :hover stuck on phones), while a finger
-   is down (.paused, set by the script), and on keyboard focus only (a clicked pill keeps focus, and :focus-within kept it paused). */
-.tick.paused .tickt{animation-play-state:paused}
-.tick:has(:focus-visible) .tickt{animation-play-state:paused}
-@media (hover:hover){.tick:hover .tickt{animation-play-state:paused}}
-@keyframes tickx{to{transform:translateX(-50%)}}
-@keyframes tickxr{to{transform:translateX(50%)}}
-.tick.stopped .tickt{animation-play-state:paused}
-.tickp{flex:none;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;margin-inline-start:12px;padding:0;border-radius:9999px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);color:#fff;cursor:pointer}
-.tickp:hover{background:rgba(255,255,255,.22)}
-.tickp:focus-visible{outline:2px solid #FCD34D;outline-offset:2px}
-.tickp .iy,.tick.stopped .tickp .ip{display:none}
-.tick.stopped .tickp .iy{display:block}
-@media (pointer:coarse){.tickp{width:36px;height:36px}}
-@media (prefers-reduced-motion:reduce){.tickt{animation-duration:150s}}
-@media (max-width:639px){.tick{font-size:12px}.tickl{padding-inline:12px 10px}.tickl small{font-size:11px}.ti .tn{max-width:20ch}}
-@media print{.tick{display:none}}
-/* category cards: the cards of demo A, «Blue and gold, soft tints» (Mahmoud, 23 Nov 2026), static as he decided on 22 Nov.
-   Per category from build.js: --kt tint, --ka accent, --kk text, --ks small labels, --kp count pill, --kb button text.
-   The pictures are the stores' own, on white tiles; they lift a little under a pointer and stand still otherwise. */
-.kats{display:flex;flex-direction:column;gap:14px;margin:0 0 22px}
-.kathd{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 8px}
-.kathd h2{margin:0;font-family:inherit;font-size:24px;font-weight:700;color:var(--ink)}
-.kathd span{font-size:13.5px;color:var(--muted)}
-.kbig{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:14px}
-.ksmall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(158px,100%),1fr));gap:14px}
-.kcard{font:inherit;text-align:start;display:flex;flex-direction:column;justify-content:space-between;gap:12px;min-width:0;min-height:204px;padding:16px;box-sizing:border-box;border:0;border-radius:18px;background:var(--kt);color:var(--kk);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
-.kcard.big{gap:14px;min-height:292px;padding:20px;border-radius:22px}
-@media (hover:hover){.kcard:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(11,15,25,.18)}}
-.kcard:focus-visible{outline:2px solid var(--accent);outline-offset:3px;transform:translateY(-5px);box-shadow:0 16px 32px rgba(11,15,25,.18)}
-.kcard[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ka)}
-.khd{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
-.ksmall .khd{align-items:flex-start;gap:8px}
-.ktx{display:flex;flex-direction:column;gap:2px;min-width:0}
-.kn{font-weight:700;font-size:17px;line-height:1.35;color:var(--kk)}
-.kcard.big .kn{font-size:22px;line-height:1.3}
-.kcount{font-size:13px;color:var(--ks)}
-.kcard.big .kcount{flex:none;padding:5px 12px;border-radius:999px;background:var(--kp);font-weight:600;color:var(--kk)}
-.kmid{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.kmx{display:flex;flex-direction:column;gap:2px;min-width:0}
-.kml{font-size:13px;color:var(--ks)}
-.kpct{font-weight:700;font-size:26px;line-height:1.1;color:var(--ka);font-variant-numeric:tabular-nums}
-.kcard.big .kpct{font-size:60px;line-height:1;letter-spacing:-1px}
-.knone{font-size:15px;line-height:1.75;color:var(--ka)}
-[dir="ltr"] .ksmall .kpct{font-size:22px;white-space:nowrap}
-.kstack{position:relative;display:block;width:132px;height:112px;flex:none}
-.kim{position:absolute;display:block;overflow:hidden;background:#fff;box-sizing:border-box;transition:transform .3s ease}
-.kim img{display:block;width:100%;height:100%;object-fit:contain}
-.kim.kback1{inset-inline-start:0;top:18px;width:70px;height:78px;border-radius:14px;border:3px solid var(--kp);transform:rotate(-9deg)}
-.kim.kback2{inset-inline-end:0;top:22px;width:70px;height:78px;border-radius:14px;border:3px solid var(--kp);transform:rotate(8deg)}
-.kim.kfront{inset-inline-start:24px;top:4px;z-index:1;width:84px;height:100px;border-radius:16px;padding:6px;box-shadow:0 8px 18px rgba(11,15,25,.14)}
-@media (hover:hover){.kcard:hover .kim.kfront{transform:translateY(-5px)}.kcard:hover .kim.kback1{transform:translateY(-3px) rotate(-9deg)}.kcard:hover .kim.kback2{transform:translateY(-4px) rotate(8deg)}}
-@media (prefers-reduced-motion:reduce){.kcard,.kim{transition:none}.kcard:hover,.kcard:focus-visible,.kcard:hover .kim{transform:none!important}.kcard:hover .kim.kback1{transform:rotate(-9deg)!important}.kcard:hover .kim.kback2{transform:rotate(8deg)!important}}
-.ktile{display:flex;align-items:center;justify-content:center;width:46px;height:46px;flex:none;border-radius:14px;background:#fff;overflow:hidden;padding:4px;box-sizing:border-box}
-.ktile img{display:block;width:100%;height:100%;object-fit:contain}
-.kdeal{display:flex;flex-direction:column;justify-content:center;gap:2px;min-height:54px;padding:6px 14px;border-radius:12px;background:var(--surface);box-sizing:border-box;min-width:0}
-.kcard.big .kdeal{min-height:58px}
-.kdn{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.kcard.big .kdn{font-size:14px}
-.kdm{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.kdm b{color:var(--ok)}
-.kft{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.kconf{display:flex;align-items:center;gap:7px;font-size:13.5px;color:var(--kk)}
-.kconf i{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px var(--surface)}
-.kgo{display:flex;align-items:center;min-height:40px;padding:0 16px;border-radius:999px;background:var(--ka);color:var(--kb);font-size:14px;font-weight:700}
-@media (max-width:760px){
-  .kbig,.ksmall{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:16px;-webkit-overflow-scrolling:touch;margin-inline:-16px;padding:2px 16px 8px;scrollbar-width:none;gap:12px}
-  .kbig::-webkit-scrollbar,.ksmall::-webkit-scrollbar{display:none}
-  .kbig .kcard{flex:0 0 86%;scroll-snap-align:start}
-  .ksmall .kcard{flex:0 0 46%;scroll-snap-align:start}
-}
 /* the dot on a category chip, the tag on a product card, and the header inside a category */
 .fcats button[class*="kc"]::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ka);margin-inline-end:7px}
 .fcats button[class*="kc"][aria-pressed="true"]::before{background:currentColor}
@@ -709,13 +612,138 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
 .hitfol{margin:0;padding-top:10px;border-top:1px dashed var(--line);font-size:13.5px;color:var(--muted)}
 .hitfol a,.sharednote a{color:var(--ok);font-weight:700}
 @media (max-width:599px){.brand{gap:8px;padding-inline:12px}.brand .logo{font-size:21px}.brand .lang{padding:3px 10px}.brand .lang .hl{display:none}.hs{display:inline}}
+/* ---- BLD-50, the first-visit redesign (Mahmoud, 24 Nov 2026: «1B, 2B, 3A, 4A, 5A, 6A»). A short banner with the measured line,
+   the eight strongest deals as tiles, one sticky category row, a toolbar, slim cards in two columns on a phone (five across at
+   1,440 px) with the three-point price bar on every card, 30 cards a load, the other offers as tiles after the grid, and a
+   one-line consent bar. No ticker, no category cards, no My Wallet. Same layout in both languages. ---- */
+.wrap,.brand,.about{max-width:1320px}
+.heroin{max-width:1320px;display:block;padding:18px 16px 16px}
+.hero h1{margin:0}
+.hero .hook{margin:8px 0 0;max-width:72ch;font-size:15px;line-height:1.75;color:#E0E7FF}
+.hero .hook b{color:#fff;font-weight:700}
+.hero .hook b.hk{color:#FCD34D}
+.hero .stamp{margin:10px 0 0;padding:0;border:0;background:none;border-radius:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;display:flex;flex-wrap:wrap;align-items:center;gap:2px 14px;font-size:12.5px;line-height:1.6;color:#C7D2FE}
+.hero .stamp .chk{color:#E0E7FF;gap:6px}
+.hero .stamp .chk b{font-weight:600}
+.hero .stamp .upd{font-size:12.5px;color:#C7D2FE}
+.hero .stamp .dot{width:7px;height:7px}
+.hcount[hidden]{display:none}
+.hcount b{color:#FCD34D;font-weight:600}
+.topdeals{margin:16px 0 4px}
+.tdh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:10px}
+.tdh h2{margin:0;font-family:inherit;font-size:18px;font-weight:700;flex:none}
+.tdh span{font-size:12.5px;color:var(--muted);text-align:end}
+.tdl{list-style:none;margin:0 -16px;padding:0 16px 6px;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding-inline:16px;scrollbar-width:thin}
+.tdl li{flex:0 0 148px;scroll-snap-align:start;display:flex}
+.stile{font:inherit;color:inherit;text-align:start;width:100%;display:flex;flex-direction:column;gap:3px;padding:0 0 10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;cursor:pointer}
+.stile:hover{border-color:var(--accent)}
+.stile:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.spic{position:relative;display:block;height:128px;background:#fff;margin-bottom:4px}
+.spic img{position:absolute;top:8px;left:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:contain;background:#fff}
+.sbadge,.cbadge{position:absolute;top:8px;inset-inline-start:8px;z-index:1;background:#0B7A45;color:#fff;font-size:12px;font-weight:700;line-height:1.6;padding:1px 8px;border-radius:999px;font-variant-numeric:tabular-nums;pointer-events:none}
+.cbadge.warn{background:#8A5A00}
+.sname{padding:0 10px;font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:38px}
+.sprice{padding:0 10px;font:700 16px "Readex Pro","IBM Plex Sans Arabic",sans-serif;font-variant-numeric:tabular-nums}
+.sprice small{font-size:11px;font-weight:500;color:var(--muted)}
+.swas{padding:0 10px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.sst{padding:0 10px;font-size:11.5px;font-weight:600}
+@media (min-width:600px){.tdl{margin:0;padding-inline:0;scroll-padding-inline:0}.tdl li{flex-basis:168px}}
+@media (min-width:1100px){.tdl li{flex:1 1 0;min-width:140px}}
+.dealsblock{margin-top:8px}
+.dealsblock .fcats{position:sticky;top:var(--toph,54px);z-index:3;background:var(--bg);margin:0 -16px;padding:8px 16px;border-bottom:1px solid var(--line)}
+.dealsblock .fcats .fchips{display:flex;flex-wrap:nowrap;overflow-x:auto;gap:8px;scrollbar-width:none;padding-block:0}
+.dealsblock .fcats .fchips::-webkit-scrollbar{display:none}
+.dealsblock .fcats button{flex:none;font:inherit;font-size:13.5px;font-weight:600;min-height:38px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.dealsblock .fcats button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.dealsblock .fcats button[disabled]{opacity:.4;cursor:not-allowed}
+.dealsblock .fcats button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dealsblock .filters{position:static;margin:12px 0 0;padding:0;border:0;background:none;display:block}
+.ftools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.dealsblock .filters .ftoggle{order:0;display:inline-flex;align-items:center;gap:6px;width:auto;min-height:40px;padding:0 14px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:13.5px;font-weight:600;box-shadow:none}
+.dealsblock .filters .ftoggle[aria-expanded="true"]{border-color:var(--accent);color:var(--accent)}
+.dealsblock .filters .ftoggle .ftn:not([hidden]){display:inline-grid;place-items:center;min-width:20px;height:20px;border-radius:999px;background:var(--accent);color:var(--surface);font-size:11.5px}
+.dealsblock .filters #sortby,.dealsblock .filters:not([data-open]) #sortby{display:inline-block;width:auto;max-width:100%;min-height:40px;flex:0 1 auto;grid-column:auto}
+.sorti{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:700 16px/1 Georgia,"Times New Roman",serif;cursor:pointer}
+.sorti[aria-expanded="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.sorti:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dealsblock .filters .sorthow:not([hidden]){display:block;margin:8px 0 0;font-size:13px;line-height:1.7;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.dealsblock .filters .fsel:empty{display:none}
+.dealsblock .filters:not([data-open]) .fbody{display:none}
+.dealsblock .filters[data-open] .fbody{display:grid;gap:10px;margin-top:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px}
+.dealsblock .filters .fstatus{display:flex;align-items:center;flex-wrap:wrap;gap:4px 10px;margin-top:8px;font-size:12.5px;color:var(--muted)}
+.dealsblock .filters button[data-lo][aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.dealsblock .grid{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:12px}
+.grid .card{position:relative;padding:0;gap:0;overflow:hidden;border-radius:14px}
+.grid .card .cimg{position:relative;display:block;width:auto;height:170px;border-radius:0;background:#fff;overflow:hidden}
+.grid .card .cimg img{top:10px;left:10px;width:calc(100% - 20px);height:calc(100% - 20px)}
+.cbody{display:flex;flex-direction:column;gap:5px;padding:8px 10px 10px;min-width:0;flex:1}
+.grid .card .ctag{margin:0;align-self:flex-start;background:none;border:0;padding:0;font-size:11.5px;line-height:1.5;white-space:normal}
+.grid .card .ctag.low,.grid .card .ctag.ok{color:var(--ok);background:none}
+.grid .card .ctag.warn{color:var(--gold);background:none}
+.grid .card .ctag.bad{color:var(--red);background:none}
+.grid .card .ctag.na{color:var(--muted);background:none}
+.grid .card .cname{font-size:13.5px;font-weight:500;line-height:1.45;min-height:39px}
+.grid .card .cprice{gap:0 8px}
+.grid .card .pv{font-size:19px}
+.cwas{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.grid .card .csave{font-size:12px}
+.grid .card .cclaim{font-size:11.5px}
+.grid .card .strip{border:0;background:none;padding:4px 0 0;border-radius:0}
+.grid .card .ptrack{margin:2px 4px 8px}
+.grid .card .pcols{font-size:10.5px;gap:2px}
+.grid .card .pcols b{font-size:11.5px}
+.grid .card .chead{flex-wrap:wrap;gap:0 8px}
+.grid .card .cst{font-size:12px}
+.grid .card .cstock{font-size:11.5px}
+.coff{align-self:flex-start;max-width:100%;box-sizing:border-box;font-size:11.5px;font-weight:600;line-height:1.6;color:var(--wal);background:var(--wal-soft);padding:1px 8px;border-radius:6px;text-decoration:none}
+.grid .card .cnote{font-size:11.5px;padding:6px 8px;line-height:1.55}
+.grid .card .cact{margin-top:auto;padding-top:4px;gap:6px;flex-wrap:wrap}
+.grid .card .buy{flex:1 1 120px;min-height:40px;font-size:13px;border-radius:10px;padding:0 8px}
+.grid .card .clinks{gap:0 12px;margin-top:0}
+.grid .card .clinks button{font-size:12px}
+.grid .card.unavail .cimg img{opacity:.4}
+.grid .wabar{grid-column:1/-1;margin:0}
+.more{display:block;width:100%;max-width:420px;margin:16px auto 0;min-height:48px;border-radius:12px;border:1.5px solid var(--accent);background:var(--surface);color:var(--accent);font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.more[hidden]{display:none}
+.more:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.xtiles{margin:28px 0 0}
+.xtiles h2{margin:0 0 10px;font-size:17px}
+.xtiles .panels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:0;padding:0;overflow:visible}
+.xtiles .panels.p4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.xtiles .panel,[dir="rtl"] .xtiles .panel{flex:none;max-width:none;flex-direction:column;align-items:flex-start;gap:6px;min-height:0;padding:12px;border-radius:12px;background:var(--surface);border:1px solid var(--line);color:var(--ink)}
+.xtiles a.panel:hover{background:var(--surface);border-color:var(--accent)}
+.xtiles a.panel:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.xtiles .panel .pic{width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent)}
+.xtiles .panel .ptx{flex-direction:column;align-items:flex-start;white-space:normal;gap:2px;overflow:visible}
+.xtiles .panel .ptx b{font-size:13.5px}
+.xtiles .panel .ptx span{font-size:12px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;white-space:normal}
+.xtiles .panel .parr{display:none}
+.cbar{flex-wrap:nowrap;gap:8px 10px;padding:8px 10px;max-width:640px;font-size:13.5px;line-height:1.5}
+.cbar p{flex:1 1 auto}
+.cbtns{flex:none;gap:6px}
+.cbtns button{min-height:40px;min-width:58px;padding:0 12px}
+@media (max-width:599px){
+  .heroin{padding:14px 16px 14px}
+  .hero h1,.hero[dir="ltr"] h1{font-size:21px;line-height:1.35}
+  .hero .hook{font-size:13.5px;line-height:1.7;margin-top:6px}
+  .hero .stamp{margin-top:8px;font-size:11.5px;gap:0 10px}
+  .hero .stamp .upd{display:none}
+  .dealsblock .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .grid .card .cimg{height:136px}
+  .grid .card .clinks .sh span,.grid .card .clinks .fav span{display:none}
+  .xtiles .panels.p4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .xtiles .panel .pic{display:none}
+  .cbar{inset-inline:8px;bottom:8px;padding:8px 10px;font-size:12.5px;flex-wrap:nowrap}
+  .cbtns{width:auto}
+  .cbtns button{flex:none;min-width:52px}
+}
+@media (prefers-reduced-motion:reduce){.tdl{scroll-behavior:auto}}
 </style>
 </head>
 <body>{{GTM_BODY}}{{CONSENT_BAR}}
 <header class="top"><div class="brand" dir="rtl">
   <a href="/" class="logo" aria-label="صيدة: الصفحة الرئيسية">{{LOGO_SVG}}<span>صيدة</span></a><span class="tag">الخصم الحقيقي فقط</span>
   <div class="search" role="search"><label for="q" class="sr">ابحث في العروض</label><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input type="search" id="q" placeholder="{{SEARCH_PH}}" autocomplete="off" enterkeyhint="search"></div>
-  <button type="button" class="hbtn" id="walletbtn" hidden aria-pressed="false" title="اعرض ما يطابق بطاقاتي واشتراكاتي"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/></svg><span class="hl">محفظتي</span><b id="walletn">٠</b></button>
   <button type="button" class="hbtn" id="favbtn" aria-pressed="false" title="العروض التي حفظتها"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z"/></svg><span class="hl">المحفوظة</span><b id="favn">٠</b></button>{{WA_HEAD}}
   <a class="lang" href="/en/" lang="en" hreflang="en"><span class="hl">English</span><span class="hs">EN</span></a>
 </div></header>
@@ -723,28 +751,26 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
   <span aria-hidden="true">↑</span>
 </button>
 <section class="hero" dir="rtl" lang="ar"><div class="heroin">
-  <div>
-    <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>آخر فحص للتوفر: {{CHECKED_AR}}</b></span><span class="upd"><b>آخر تحديث: {{UPDATED_AR}}</b></span></p>
-    <h1>صيدات {{CAMPAIGN_AR}}: <span class="hacc">خصومات حقيقية فقط.</span></h1>
-    <p class="herosub">كل عرض هنا مفحوص بسجل الأسعار أو بسعر نفس الموديل في متجر آخر، لا بسعر «قبل» الذي يكتبه المتجر.</p>
-    <nav class="toplinks" aria-label="روابط سريعة">{{TOP_LINKS}}<a href="#how">كيف نحسب «الخصم الحقيقي»؟</a></nav>
-  </div>
-  <div class="count" id="count" hidden><span class="countl">تنتهي الحملة خلال</span><div class="countb"><span><b id="cd-d">٠</b>يوم</span><span><b id="cd-h">٠</b>ساعة</span><span><b id="cd-m">٠</b>دقيقة</span><span><b id="cd-s">٠</b>ثانية</span></div></div>
-  {{TOP_PANELS}}
-</div>
-{{TICKER}}
-</section>
+  <h1>صيدات {{CAMPAIGN_AR}}: <span class="hacc">خصومات حقيقية فقط.</span></h1>
+  <p class="hook">{{HOOK_AR}}</p>
+  <p class="stamp" id="updated"><span class="chk"><span class="dot" aria-hidden="true"></span><b>آخر فحص للتوفر: {{CHECKED_AR}}</b></span><span class="upd">آخر تحديث: {{UPDATED_AR_SHORT}}</span><span class="hcount" id="count" hidden>تنتهي الحملة خلال <b id="cdt"></b></span></p>
+</div></section>
 <div class="wrap" dir="rtl" lang="ar">
-  {{WA_BAR}}{{KAT_CARDS}}
-  <div class="statrow"><div class="stats" id="stats" role="group" aria-label="ملخص العروض"></div><span class="sfact" id="sfact"></span></div>
-
-  <div class="dealsblock">
-  <div class="filters" aria-label="تصفية العروض" id="filters">
-    <button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="ftlabel">تصفية <span class="fthint" id="fthint">(اضغط هنا)</span></span><span class="ftright"><span class="ftn" id="ftn" hidden></span><span class="fcaret" aria-hidden="true">▾</span></span></button>
-    <div class="fcats" role="group" aria-label="الفئة"><div class="fchips">
-        <button data-g="c" data-f="all" aria-pressed="true">كل الفئات</button>
+  {{STRIP}}
+  <div class="dealsblock" id="deals">
+  <div class="fcats" role="group" aria-label="الفئة"><div class="fchips">
+        <button type="button" data-g="c" data-f="all" aria-pressed="true">الكل</button>
 {{CATEGORY_CHIPS}}
-    </div></div>
+  </div></div>
+  <div class="filters" aria-label="تصفية العروض" id="filters">
+    <div class="ftools"><button type="button" class="ftoggle" id="ftoggle" aria-expanded="false" aria-controls="fbody"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span class="ftlabel">تصفية <span class="fthint" id="fthint"></span></span><span class="ftn" id="ftn" hidden></span></button><label class="sr" for="sortby">ترتيب النتائج</label><select id="sortby">
+      <option value="default">الأفضل قيمة أولاً</option>
+      <option value="real">الأعلى خصماً حقيقياً (٪)</option>
+      <option value="save">الأكثر توفيراً (ر.س)</option>
+      <option value="plow">السعر: من الأقل</option>
+      <option value="phigh">السعر: من الأعلى</option>
+    </select><button type="button" class="sorti" id="sorti" aria-expanded="false" aria-controls="sorthow" aria-label="كيف نرتّب العروض" title="كيف نرتّب العروض">i</button></div>
+    <p class="sorthow" id="sorthow" hidden>الأفضل قيمة: الخصومات المؤكدة أولاً، مرتبة بالخصم الحقيقي مع التوفير بالريال،{{SORT_BOOST_AR}} ولا تتتابع أكثر من بطاقتين من متجر أو فئة واحدة. الترتيب لا يغيّر حكم أي عرض.</p>
     <div class="fsel" id="fsel" aria-hidden="true"></div>
     <div class="fbody" id="fbody">
     <div class="frow" role="group" aria-labelledby="fl-a">
@@ -764,6 +790,7 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
         <button data-g="v" data-f="warn">خصم أصغر من المعلن</button>
         <button data-g="v" data-f="bad">أغلى أو بلا توفير</button>
         <button data-g="v" data-f="na">بلا سجل سعري</button>
+        <button type="button" data-lo="1" aria-pressed="false">عند أقل سعر مسجّل</button>
       </div>
     </div>
     <div class="frow" role="group" aria-labelledby="fl-s">
@@ -784,21 +811,17 @@ a.panel:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.3)
       </div>
     </div>
     </div>
-    <div class="fstatus"><label class="sr" for="sortby">ترتيب النتائج</label><select id="sortby">
-      <option value="default">الترتيب: الأفضل قيمة أولاً</option>
-      <option value="real">الأعلى خصماً حقيقياً (٪)</option>
-      <option value="save">الأكثر توفيراً (ر.س)</option>
-      <option value="plow">السعر: من الأقل</option>
-      <option value="phigh">السعر: من الأعلى</option>
-    </select><span class="sorthow" id="sorthow">الأفضل قيمة: الخصومات المؤكدة أولاً، مرتبة بالخصم الحقيقي مع التوفير بالريال، ولا تتتابع أكثر من بطاقتين من متجر أو فئة واحدة.</span><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
+    <div class="fstatus"><span id="fcount" aria-live="polite"></span><button type="button" id="freset" class="freset" hidden>مسح الفلاتر</button></div>
   </div>
 
   {{KAT_HEADS}}
-  <div class="wallet" id="wallet" hidden><span class="walletl">بطاقاتي واشتراكاتي</span><div class="walletc" id="walletc"></div></div>
   <p class="sharednote" id="sharednote" hidden></p>
-  <div class="grid" id="rows"></div>
+  {{WA_BAR}}<div class="grid" id="rows"></div>
+  <button type="button" class="more" id="more" hidden></button>
   <dialog class="evdlg" id="evdlg" aria-labelledby="evttl"><div class="evin"><div class="evhead"><h3 id="evttl"></h3><button type="button" class="dx" id="evx" aria-label="إغلاق">✕</button></div><div id="evbody"></div></div></dialog>
   </div>
+
+  <section class="xtiles" aria-labelledby="xt-h"><h2 id="xt-h">عروض أخرى مفحوصة</h2>{{TOP_PANELS}}</section>
 
   {{COUPONS_SECTION}}
   {{FURNITURE_NOTE}}
@@ -886,18 +909,14 @@ const CPX={{CPX_JSON}}, WALLET={{WALLET_JSON}}, CAMPAIGN_END='{{CAMPAIGN_END}}',
 // (BLD-18) a browser that closed the WhatsApp strip keeps it closed
 try{if(localStorage.getItem('sayda.wabar')==='0'){const b=document.getElementById('wabar');if(b)b.hidden=true;}}catch(_){}
 const LS={get(k){try{const v=JSON.parse(localStorage.getItem(k)||'[]');return Array.isArray(v)?v:[];}catch(_){return[];}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(_){}}};
-// Saved deals and wallet choices live in this browser only (localStorage). Nothing is sent anywhere.
-const FAV=new Set(LS.get('sayda.fav')), WAL=new Set(LS.get('sayda.wallet').filter(id=>WALLET.some(w=>w.id===id)));
+// Saved deals live in this browser only (localStorage). Nothing is sent anywhere.
+const FAV=new Set(LS.get('sayda.fav'));
 const IC={"share": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><path d=\"M8.6 13.5l6.8 4M15.4 6.5l-6.8 4\"/></svg>", "heart": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.8 5.6a5.2 5.2 0 0 0-7.4 0L12 7l-1.4-1.4a5.2 5.2 0 0 0-7.4 7.4L12 21.8l8.8-8.8a5.2 5.2 0 0 0 0-7.4z\"/></svg>", "copy": "<svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"11\" height=\"11\" rx=\"2\"/><path d=\"M5 15V6a2 2 0 0 1 2-2h9\"/></svg>", "filter": "<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>"};
 const SAVEK={code:1,voucher:1,bank:1,auto:1};
-// A wallet match is a coupon the run tagged with a card or membership the visitor picked, for this row's store.
-// (21 Nov 2026) A coupon lists EVERYTHING it needs in w (Prime AND an Al Rajhi credit card) and what rules it out in nw
-// (ARB20 is for non-Prime members). It matches only when the visitor picked all of w and none of nw. The card lists
-// every match, biggest first (the run keeps _coupons.json in that order), plus one hint for a bigger offer that is
-// one pick away, so the visitor sees the best offer without being told they get it when they do not.
-function walletHits(d){const r={full:[],near:null};if(!WAL.size)return r;for(let i=0;i<CPX.length;i++){const x=CPX[i];if(!SAVEK[x.k]||!x.s.includes(d.s))continue;const need=x.w||[];if(!need.length||(x.nw||[]).some(w=>WAL.has(w)))continue;const miss=need.filter(w=>!WAL.has(w));if(!miss.length)r.full.push({i,x});else if(miss.length===1&&!r.full.length&&!r.near&&need.some(w=>WAL.has(w)))r.near={i,x,miss:miss[0]};}return r;}
-function walletHit(d){return walletHits(d).full[0]||null;}
-const wlab=id=>(WALLET.find(w=>w.id===id)||{l:id}).l;  // store label -> coupon index, for the 🎟️ link on each row
+// (BLD-50, 2B) No My Wallet on the page. A store's card offers (coupons the run tagged with a bank card or a membership) show
+// as ONE small tag on its cards, linking to the first of them in the coupons section; the terms say who it is for.
+const COFF={};CPX.forEach((x,i)=>{if(SAVEK[x.k]&&(x.w||[]).length)x.s.forEach(s=>{(COFF[s]=COFF[s]||[]).push(i);});});
+const wlab=id=>(WALLET.find(w=>w.id===id)||{l:id}).l;
 // Labels state what we measured, never what we think the store intended.
 // A bad row is one of three measurable things: cheaper elsewhere, price went up, or no real saving.
 const VL={ok:'✓ خصم مؤكّد',warn:'خصم أقل من المعلن',bad:'أغلى أو بلا توفير',na:'بلا سجل سعري'};
@@ -909,7 +928,7 @@ const vlabel=x=>x.v==='bad'&&BL[x.bk]?BL[x.bk]:(x.v==='ok'&&x.rk==='m'?OKM:VL[x.
 const rows=document.getElementById('rows');
 const UN=x=>['oos','ended','gone'].includes(x.a)?1:0;
 const AL={in:'متاح',low:'كمية محدودة',oos:'نفد المخزون',ended:'انتهى العرض',gone:'الرابط لا يعمل'};
-const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',rs:x.rs||'',id:x.id||'',q:x.q||0,claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
+const data=D.map(d=>{const x=d[9]||{};return{s:d[0],c:d[1],n:d[2],p:d[3],w:d[4],r:d[5],v:d[6],note:d[7],u:d[8],a:x.a||'in',an:x.an||'',rk:x.rk||'',bk:x.bk||'',lc:x.lc||'',ru:x.ru||'',ev:x.ev||null,im:x.im||'',rs:x.rs||'',id:x.id||'',q:x.q||0,bo:x.bo||0,claim:Math.round(100*(1-d[3]/d[4])),real:d[5]?Math.round(100*(1-d[3]/d[5])):null};})
  ;
 // Explicit orderings. Unavailable rows stay last in every one of them — a dead deal at the
 // top of «السعر: من الأقل» would be the cheapest thing you cannot buy.
@@ -924,7 +943,7 @@ const isLow=d=>d.rk!=='m'&&d.ev&&d.ev.mn!=null&&d.p<=d.ev.mn*1.01;
 // same tier, so an unverified or unavailable card can never rise above a verified one.
 // BLD-26: the score is lib/value.js, written in by build.js; the same text orders the ticker and the category cards
 {{VALUE_JS}}
-const VX=d=>({real:d.real,ok:d.v==='ok',bad:d.v==='bad',ref:d.r,price:d.p,claim:d.claim,low:isLow(d),dead:UN(d)});
+const VX=d=>({real:d.real,ok:d.v==='ok',bad:d.v==='bad',ref:d.r,price:d.p,claim:d.claim,low:isLow(d),dead:UN(d),boost:d.bo||1});
 const VAL=d=>VALUE.val(VX(d));
 const TIER=d=>VALUE.tier(VX(d));
 const diversify=l=>{const out=[],pool=l.slice();while(pool.length){let i=0;const n=out.length;if(n>=2){const a=out[n-1],b=out[n-2],t=TIER(pool[0]);const j=pool.findIndex(r=>TIER(r)===t&&!(r.s===a.s&&r.s===b.s)&&!(r.c===a.c&&r.c===b.c));if(j>0)i=j;}out.push(pool.splice(i,1)[0]);}return out;};
@@ -948,10 +967,6 @@ const realN=data.filter(x=>!UN(x)&&isReal(x)).length;
 const avN=data.filter(x=>!UN(x)).length;
 // a store «قبل» more than 5% above the previous price in the record (history-referenced rows only)
 const overN=data.filter(x=>!UN(x)&&x.w&&x.r!=null&&x.rk!=='m'&&x.w>x.r*1.05).length;
-document.getElementById('stats').innerHTML=`<button type="button" data-sv="all"><b>${fmt(avN)}</b>كل العروض المفحوصة</button><button type="button" data-sv="ok"><b>${fmt(cnt('ok'))}</b>الصفقات المؤكّدة</button>`
-  +(data.some(x=>!UN(x)&&isLow(x))?`<button type="button" data-lo="1"><b>${fmt(data.filter(x=>!UN(x)&&isLow(x)).length)}</b>عند أقل سعر مسجّل</button>`:'')
-;
-if(overN)document.getElementById('sfact').innerHTML=`أسعار «قبل» معلنة أعلى مما سجّلناه: <b>${fmt(overN)}</b>`;
 document.getElementById('keynote').insertAdjacentHTML('beforeend',`من ${fmt(data.length)} عرضاً في ${fmt(new Set(data.map(x=>x.s)).size)} ${(n=>n>=3&&n<=10?'متاجر':'متجراً')(new Set(data.map(x=>x.s)).size)}، ${fmt(realN)} أرخص فعلاً بفارق يستحق مقارنةً بسعرها السابق أو بسعر السوق، و${fmt(cnt('ok'))} اجتازت كل الفحوص.`
   +(overN?` عدد الأسعار «قبل» المعلنة التي تزيد على ما سجّلناه قبل العرض: ${fmt(overN)}.`:'')
   +(cnt('bad')?` وعدد العروض التي ليست أرخص (متوفرة بسعر أقل في متجر آخر، أو ارتفع سعرها، أو بلا توفير يُذكر): ${fmt(cnt('bad'))}.`:''));
@@ -973,7 +988,7 @@ document.getElementById('summary').innerHTML=[[cnt('ok'),'صفقة مؤكّدة 
 // is not cheaper. Availability still defaults to «متاح».
 const DEF={a:'avail',v:'all'};
 const MULTI={c:1,s:1};
-const F={a:'avail',v:'all',c:[],s:[],pmin:null,pmax:null,lo:false,fv:false,wl:false};
+const F={a:'avail',v:'all',c:[],s:[],pmin:null,pmax:null,lo:false,fv:false};
 let SORT='default';
 const matchV=(d,f)=>f.v==='all'||d.v===f.v;
 const matchA=(d,f)=>f.a==='all'?true:f.a==='avail'?!UN(d):f.a==='low'?d.a==='low':UN(d);
@@ -981,7 +996,7 @@ const matchC=(d,f)=>!f.c.length||f.c.includes(d.c);
 const matchS=(d,f)=>!f.s.length||f.s.includes(d.s);
 const matchP=(d,f)=>(f.pmin==null||d.p>=f.pmin)&&(f.pmax==null||d.p<=f.pmax);
 // «المحفوظة» shows a saved deal even after it sold out, so it bypasses the stock filter.
-const matchAll=(d,f)=>(f.fv?FAV.has(d.id):matchA(d,f))&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&(!f.lo||isLow(d))&&(!f.wl||!!walletHit(d))&&matchQ(d);
+const matchAll=(d,f)=>(f.fv?FAV.has(d.id):matchA(d,f))&&matchV(d,f)&&matchC(d,f)&&matchS(d,f)&&matchP(d,f)&&(!f.lo||isLow(d))&&matchQ(d);
 const norm=t=>String(t||'').toLowerCase().replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه').replace(/ى/g,'ي').replace(/ؤ/g,'و').replace(/ئ/g,'ي').replace(/\s+/g,' ').trim();
 const SYN=[['سامسونج','samsung'],['جالكسي','galaxy'],['ابل','apple'],['ايفون','iphone'],['ايباد','ipad'],['ماك بوك','macbook'],['ايربودز','airpods'],['سوني','sony'],['بلايستيشن','playstation','ps5'],['ال جي','lg'],['هواوي','huawei'],['شاومي','xiaomi'],['ريدمي','redmi'],['لينوفو','lenovo'],['اتش بي','hp'],['ديل','dell'],['اسوس','asus'],['بوش','bosch'],['فيليبس','philips'],['دايسون','dyson'],['هايسنس','hisense'],['تي سي ال','tcl'],['نينتندو','nintendo'],['جارمن','garmin'],['انكر','anker'],['تلفزيون','تلفاز','شاشه','tv'],['جوال','موبايل','هاتف','phone'],['لابتوب','laptop','notebook'],['سماعه','سماعات','headphones','earbuds'],['مكيف','تكييف','سبليت','split'],['ثلاجه','fridge','refrigerator'],['غساله','washer','washing'],['كنبه','كنب','sofa','couch'],['سرير','bed'],['طاوله','table'],['كرسي','chair'],['دولاب','خزانه','wardrobe']].map(g=>g.map(norm));
 const qEl=document.getElementById('q');let Q=[];
@@ -1018,47 +1033,60 @@ function evidence(d){
   const why=d.note?`<p class="evnote">${esc(d.note)}</p>`:'';
   return `<div class="evgrid">${f.join('')}</div>${why}<p class="evrule">الحكم مبني على القاعدة المنشورة — <a href="#verdict-rule">كيف نحسب الخصم الحقيقي</a>.</p>`;
 }
-function render(){
-  rows.innerHTML='';
-  let list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);if(!SORTS[SORT]||SORT==='default')list=diversify(list);
-  {const h=document.getElementById('sorthow');if(h)h.hidden=!(!SORTS[SORT]||SORT==='default');}
-  list.forEach(d=>{
-    const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'');if(d.id)c.dataset.id=d.id;
+// (BLD-50) The page draws the first 30 cards of the filtered, ordered list; «عرض المزيد» draws 30 more each time. Search and
+// filters always cover every row: only the drawing is in steps. The WhatsApp strip sits after the 10th card on a phone and
+// the 15th on a wider screen. A card whose picture does not load (or has none) moves to the end of the list, never an empty box.
+const STEP=30,NOPIC=new Set(data.filter(d=>!d.im).map(d=>d.id||d.u));let LIST=[],SHOWN=0;
+const moreEl=document.getElementById('more'),wabEl=document.getElementById('wabar');
+const barAt=()=>(window.matchMedia&&matchMedia('(min-width:600px)').matches)?15:10;
+function placeBar(){if(!wabEl)return;const cards=[...rows.children].filter(c=>c.classList.contains('card')),n=barAt();
+  if(cards.length>n)rows.insertBefore(wabEl,cards[n]);else rows.appendChild(wabEl);}
+function syncMore(){const left=LIST.length-SHOWN;moreEl.hidden=left<=0;if(left>0)moreEl.textContent=`عرض المزيد (يبقى ${fmt(left)})`;}
+function drawTo(n){const end=Math.min(n,LIST.length);for(let k=SHOWN;k<end;k++)rows.appendChild(cardEl(LIST[k]));SHOWN=Math.max(SHOWN,end);
+  rows.querySelectorAll('.card.nopic').forEach(c=>rows.appendChild(c));placeBar();syncMore();}
+moreEl.addEventListener('click',()=>drawTo(SHOWN+STEP));
+function cardEl(d){
+    const c=document.createElement('article');c.className='card'+(UN(d)?' unavail':'')+(NOPIC.has(d.id||d.u)?' nopic':'');if(d.id)c.dataset.id=d.id;
     const saved=d.r!=null?Math.round(d.r-d.p):null, mk=d.rk==='m', low=isLow(d), mn=d.ev&&d.ev.mn;
     const cls=esc(d.real!=null&&d.real<0?'bad':d.v);
-    // One verdict mark per card, in words; the numbers sit beside the price. Always OUR measurement.
+    // One verdict line per card, in words. Always OUR measurement.
     const tag=d.real==null?['na',VL.na]:(d.real<0||d.v==='bad')?['bad',vlabel(d)]:d.v==='warn'?['warn',(!mk&&mn!=null&&mn<d.p*0.99)?'سبق بسعر أقل':VL.warn]:low?['low','✓ أقل سعر مسجّل']:['ok',vlabel(d)];
-    // Our measured discount beside the verdict (Mahmoud, 22 Nov 2026): the same d.real as the saving line,
-    // never the store's claimed percentage. Only for a positive measured discount on a verified or caution row.
-    const pct=(d.real!=null&&d.real>0&&tag[0]!=='bad'&&tag[0]!=='na')?`<b class="cseg">خصم ${fmt(d.real)}٪</b>`:'';
-    // Beside the price: the saving against the VERIFIED reference. The store's own claim appears only
-    // where it differs from what we measured, attributed to the store and never struck through.
-    const save=d.real==null?'':d.real<0?`<span class="csave bad">أغلى بـ ${fmt(-saved)} ر.س (${fmt(-d.real)}٪)</span>`
-      :saved>0?`<span class="csave ${cls}">${mk?'أرخص بـ':'توفّر'} ${fmt(saved)} ر.س (${fmt(d.real)}٪)</span>`:'';
+    // The badge on the picture is our measured discount (the same d.real as the bar), never the store's claimed percentage.
+    // Only for a positive measured discount on a verified or caution row.
+    const badge=(d.real!=null&&d.real>0&&tag[0]!=='bad'&&tag[0]!=='na')?`<b class="cbadge ${esc(tag[0])}">خصم ${fmt(d.real)}٪</b>`:'';
+    // Beside the price: the reference, named for what it is, and the saving against it. The store's own claim appears only
+    // where it differs from what we measured, attributed to the store, as a small line, never struck through.
+    const refL=mk?(d.rs?'لدى '+esc(d.rs):'في متجر آخر'):'كان';
+    const was=d.r==null?'':`<span class="cwas">${refL} ${fmt(d.r)}</span>`;
+    const save=d.real==null?'':d.real<0?`<span class="csave bad">أغلى بـ ${fmt(-saved)} ر.س</span>`
+      :saved>0?`<span class="csave ${cls}">${mk?'أرخص بـ':'توفّر'} ${fmt(saved)} ر.س</span>`:'';
     const claim=d.w&&d.claim>0&&(d.r==null||mk||d.w>d.r*1.05)?`<div class="cclaim">المتجر يعلن خصم ${fmt(d.claim)}٪</div>`:'';
-    const refL=mk?(d.rs?'لدى '+esc(d.rs):'في متجر آخر'):'السابق المسجّل';
     const strip=d.r==null?'':(()=>{const three=!mk&&mn!=null&&d.r>d.p,lo=three?Math.min(mn,d.p):d.p,t=three?Math.max(0,Math.min(100,Math.round(100*(d.p-lo)/(d.r-lo)))):0;
       const track=d.r>d.p?`<div class="ptrack">${t>0?`<span class="pgap" style="width:${t}%"></span>`:''}<span class="pfill" style="inset-inline-start:${t}%"></span><span class="pend"></span><span class="pdot" style="inset-inline-start:${t}%"></span></div>`:'';
-      const cols=(three?`<span${low?' class="hit"':''}>أقل مسجّل<b>${fmt(lo)}</b></span>`:'')+`<span>اليوم<b>${fmt(d.p)}</b></span><span>${refL}<b>${fmt(d.r)}</b></span>`;
-      return `<div class="strip ${cls}${track?'':' flat'}" role="img" aria-label="${three?'أقل سعر مسجّل '+fmt(lo)+' ر.س، ':''}سعر اليوم ${fmt(d.p)} ر.س، ${mk?'نفس الموديل '+refL:'السعر السابق المسجّل'} ${fmt(d.r)} ر.س">${track}<div class="pcols${three?'':' two'}">${cols}</div></div>`;})();
-    // The finding is printed only when it says something the strip does not (a caveat, a condition, no reference).
+      const refC=mk?(d.rs?'لدى '+esc(d.rs):'متجر آخر'):'السابق';
+      const cols=(three?`<span${low?' class="hit"':''}>أقل مسجّل<b>${fmt(lo)}</b></span>`:'')+`<span>اليوم<b>${fmt(d.p)}</b></span><span>${refC}<b>${fmt(d.r)}</b></span>`;
+      return `<div class="strip ${cls}${track?'':' flat'}" role="img" aria-label="${three?'أقل سعر مسجّل '+fmt(lo)+' ر.س، ':''}سعر اليوم ${fmt(d.p)} ر.س، ${mk?'نفس الموديل '+(d.rs?'لدى '+esc(d.rs):'في متجر آخر'):'السعر السابق المسجّل'} ${fmt(d.r)} ر.س">${track}<div class="pcols${three?'':' two'}">${cols}</div></div>`;})();
+    // The finding is printed only when it says something the bar does not (a caveat, a condition, no reference).
     const note=(d.v!=='ok'||!d.q)&&d.note?`<p class="cnote${d.v==='warn'||d.v==='bad'?' '+d.v:''}">${esc(d.note)}</p>`:'';
     // The store's code, as the store's: it covers the store, not necessarily this product. Terms are one tap away.
-    const ci=CBY[d.s],cp=ci!=null?CPX[ci]:null,ncodes=cp?CPX.filter(x=>SAVEK[x.k]&&x.c&&x.s.includes(d.s)).length:0;
+    const ci=CBY[d.s],cp=ci!=null?CPX[ci]:null;
     const code=cp&&cp.c?`<button type="button" class="code" data-code="${esc(cp.c)}" aria-label="انسخ كود ${esc(d.s)}: ${esc(cp.c)}" title="كود للمتجر كله، وقد لا يشمل هذا المنتج. الشروط في قسم القسائم.">${esc(cp.c)}${IC.copy}</button>`:'';
-    const wh=walletHits(d),pl=x=>x.p?esc(x.p):'عرض لدى '+esc(d.s)+'، اقرأ الشروط';
-    const perk=wh.full.slice(0,3).map(h=>`<a class="cperk" href="#coupon-${h.i}">${esc(h.x.w.map(wlab).join(' + '))}: ${pl(h.x)}</a>`).join('')+(wh.near?`<a class="cperk near" href="#coupon-${wh.near.i}">${wh.full.length?'ومع':'مع'} ${esc(wlab(wh.near.miss))} أيضاً: ${pl(wh.near.x)}</a>`:'');
+    const co=COFF[d.s]||[],cw=[...new Set(co.flatMap(i=>CPX[i].w||[]))].map(wlab);
+    const coff=co.length?`<a class="coff" href="#coupon-${co[0]}" title="عروض بطاقات لدى ${esc(d.s)} (${esc(cw.join('، '))})، وقد لا تشمل هذا المنتج. الشروط في قسم القسائم.">+ ${cw.length===1?(co.length>1?fmt(co.length)+' عروض ':'عرض ')+esc(cw[0]):fmt(co.length)+' عروض بطاقات'}</a>`:'';
     const pic=d.im?`<img src="${esc(d.im)}" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'';
     const isFav=FAV.has(d.id);
-    c.innerHTML=`<div class="chead"><span class="cmark" aria-hidden="true">${esc(d.s.slice(0,1))}</span><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+'، ')+esc(d.an.replace(/^[^:]{1,14}:\s*/,'')):AL[d.a]}</span><span class="ctag ${tag[0]}">${tag[1]}${pct}</span></div>`
-      +`<div class="cmain"><a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${pic}</a>`
-      +`<div class="cinfo">${KAT[d.c]?`<span class="ckat kc${esc(KAT[d.c].k)}">${esc(KAT[d.c].l)}</span>`:''}<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener">${esc(d.n)}</a><div class="cprice"><span class="pv">${fmt(d.p)}<small>ر.س</small></span>${save}</div>${claim}</div></div>`
-      +strip+note+perk
+    c.innerHTML=`<a class="cimg" href="${esc(d.u)}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="ph">${esc(d.s.slice(0,1))}</span>${pic}</a>${badge}`
+      +`<div class="cbody"><span class="ctag ${tag[0]}">${tag[1]}</span>`
+      +`<a class="cname" href="${esc(d.u)}" target="_blank" rel="noopener">${esc(d.n)}</a>`
+      +`<div class="cprice"><span class="pv">${fmt(d.p)}<small>ر.س</small></span>${was}</div>${save}${claim}`
+      +strip
+      +`<div class="chead"><span class="cst">${esc(d.s)}</span><span class="cstock ${esc(d.a)}">${d.an?(d.a==='low'?'':AL[d.a]+'، ')+esc(d.an.replace(/^[^:]{1,14}:\s*/,'')):AL[d.a]}</span></div>`
+      +coff+note
       +`<div class="cact"><a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">افتح في ${esc(d.s)}</a>${code}</div>`
       +`<div class="clinks"><button type="button" class="ev" aria-haspopup="dialog">دليل السعر</button>`
-      +(d.id?`<button type="button" class="sh">${IC.share}مشاركة</button><button type="button" class="fav" aria-pressed="${isFav}">${IC.heart}<span>${isFav?'محفوظ':'حفظ'}</span></button>`:'')
-      +(ci!=null?`<a class="terms" href="#coupon-${ci}">${ncodes>1?'أكواد '+esc(d.s)+' ('+fmt(ncodes)+')':'شروط الكود'}</a>`:'')+`</div>`;
-    const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>im.remove());
+      +(d.id?`<button type="button" class="sh" aria-label="مشاركة">${IC.share}<span>مشاركة</span></button><button type="button" class="fav" aria-pressed="${isFav}" aria-label="حفظ">${IC.heart}<span>${isFav?'محفوظ':'حفظ'}</span></button>`:'')
+      +`</div></div>`;
+    const im=c.querySelector('.cimg img');if(im)im.addEventListener('error',()=>{im.remove();NOPIC.add(d.id||d.u);c.classList.add('nopic');rows.appendChild(c);placeBar();});
     c.querySelector('.ev').addEventListener('click',()=>{
       document.getElementById('evttl').textContent=d.n;
       document.getElementById('evbody').innerHTML=evidence(d)+`<a class="buy" href="${esc(d.u)}" target="_blank" rel="noopener">افتح المنتج في ${esc(d.s)}</a>`;
@@ -1066,10 +1094,15 @@ function render(){
     });
     const sh=c.querySelector('.sh');if(sh)sh.addEventListener('click',()=>shareDeal(d));
     const fv=c.querySelector('.fav');if(fv)fv.addEventListener('click',()=>toggleFav(d,fv));
-    rows.appendChild(c);
-  });
+    return c;
+}
+function render(){
+  if(wabEl&&wabEl.parentNode===rows)rows.removeChild(wabEl);
+  rows.innerHTML='';
+  let list=data.filter(d=>matchAll(d,F)).sort(SORTS[SORT]||SORTS.default);if(!SORTS[SORT]||SORT==='default')list=diversify(list);
+  LIST=list.filter(d=>!NOPIC.has(d.id||d.u)).concat(list.filter(d=>NOPIC.has(d.id||d.u)));SHOWN=0;drawTo(STEP);
   if(!list.length){const tr=document.createElement('div');tr.className='empty';tr.innerHTML=(Q.length?(()=>{const n=data.filter(x=>!matchA(x,F)&&matchC(x,F)&&matchS(x,F)&&matchV(x,F)&&matchQ(x)).length;return n?'لا يوجد «'+esc(qEl.value.trim())+'» متاح الآن — '+fmt(n)+' نتيجة نفدت أو انتهت. <button type="button" class="linkbtn" data-act="show-all">اعرضها</button>':'لا توجد نتائج لـ «'+esc(qEl.value.trim())+'» — جرّب كلمة أخرى أو «مسح الفلاتر».';})():'لا توجد عروض بهذه الفلاتر — جرّب تغيير المتجر أو الفئة.');rows.appendChild(tr);}
-  const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||F.lo||F.fv||F.wl||SORT!=='default';
+  const active=F.a!==DEF.a||F.v!==DEF.v||F.c.length>0||F.s.length>0||Q.length>0||F.pmin!=null||F.pmax!=null||F.lo||F.fv||SORT!=='default';
   syncChips();syncHead();syncKat();
   const hidden=data.length-list.length;document.getElementById('fcount').textContent=`يعرض ${fmt(list.length)} من ${fmt(data.length)} عرضاً`+(F.a==='avail'&&missed?` · ${fmt(missed)} نفد مخزونها أو انتهت (مخفية)`:'');
   document.getElementById('freset').hidden=!active;
@@ -1078,6 +1111,7 @@ function render(){
   const sel=[...document.querySelectorAll('.filters .fbody button[data-g][aria-pressed="true"]')]
     .filter(b=>b.dataset.f!=='all'&&DEF[b.dataset.g]!==b.dataset.f)   // defaults are not "applied filters"
     .map(b=>(b.dataset.lbl||b.textContent).replace(/\s*[\d٠-٩][\d٠-٩٬,]*\s*$/,'').trim()).filter(Boolean);
+  if(F.lo)sel.push('عند أقل سعر مسجّل');
   if(F.pmin!=null||F.pmax!=null)sel.push((F.pmin!=null?fmt(F.pmin):'٠')+' — '+(F.pmax!=null?fmt(F.pmax):'∞')+' ر.س');
   if(Q.length)sel.unshift('«'+qEl.value.trim()+'»');
   document.getElementById('fsel').innerHTML=sel.map(t=>`<span>${esc(t)}</span>`).join('');
@@ -1086,7 +1120,7 @@ function render(){
 }
 // (BLD-15) Inside one category the grid carries that category's header, written by build.js; the card at the top shows as pressed.
 function syncKat(){const one=F.c.length===1?F.c[0]:'';document.querySelectorAll('.khead').forEach(h=>{h.hidden=h.dataset.cat!==one;});
-  document.querySelectorAll('.kcard').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.cat===one)));}
+}
 function setF(g,f){
   if(MULTI[g]){
     if(f==='all')F[g]=[];
@@ -1095,26 +1129,27 @@ function setF(g,f){
   render();
 }
 function chipCount(g,f){
-  const t={a:F.a,v:F.v,c:F.c,s:F.s,pmin:F.pmin,pmax:F.pmax,lo:F.lo,fv:F.fv,wl:F.wl};
+  const t={a:F.a,v:F.v,c:F.c,s:F.s,pmin:F.pmin,pmax:F.pmax,lo:F.lo,fv:F.fv};
   t[g]=MULTI[g]?(f==='all'?[]:[f]):f;
   return data.filter(d=>matchAll(d,t)).length;
 }
 function syncChips(){
-  document.querySelectorAll('#stats button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lo?F.lo:F.v===b.dataset.sv)));
-  document.querySelectorAll('.filters button[data-g]').forEach(b=>{
+  document.querySelectorAll('#deals button[data-lo]').forEach(b=>b.setAttribute('aria-pressed',String(F.lo)));
+  document.querySelectorAll('#deals button[data-g]').forEach(b=>{
     const g=b.dataset.g,f=b.dataset.f;
     const on=MULTI[g]?(f==='all'?F[g].length===0:F[g].includes(f)):F[g]===f;
     b.setAttribute('aria-pressed',String(on));
     if(g!=='c'&&g!=='s'&&g!=='v')return;
     if(b.dataset.lbl===undefined)b.dataset.lbl=b.textContent.trim();
     const n=chipCount(g,f);
-    b.innerHTML=esc(b.dataset.lbl)+(f==='all'&&g!=='v'?'':'<span class="cn">'+fmt(n)+'</span>');
+    // (BLD-50) the category row carries names only; the panel's chips keep their counts
+    b.innerHTML=esc(b.dataset.lbl)+(g==='c'||(f==='all'&&g!=='v')?'':'<span class="cn">'+fmt(n)+'</span>');
     b.disabled=(n===0&&!on);
     b.title=n===0?'لا توجد نتائج مع الفلاتر الحالية':'';
   });
 }
-document.querySelectorAll('.filters button[data-g]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)setF(b.dataset.g,b.dataset.f);}));
-document.querySelectorAll('#stats button').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.lo){F.lo=!F.lo;render();}else setF('v',b.dataset.sv);}));
+document.querySelectorAll('#deals button[data-g]').forEach(b=>b.addEventListener('click',()=>{if(!b.disabled)setF(b.dataset.g,b.dataset.f);}));
+document.querySelectorAll('#deals button[data-lo]').forEach(b=>b.addEventListener('click',()=>{F.lo=!F.lo;render();}));
 // «نسخ الكود» on each coupon
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.cpy');if(!b)return;const t=b.dataset.code,o=b.dataset.o||(b.dataset.o=b.textContent),done=()=>{b.textContent='تم النسخ ✓';setTimeout(()=>{b.textContent=o;},1600);};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});
@@ -1159,21 +1194,21 @@ document.addEventListener('click',e=>{const a=e.target.closest('.evrule a[href="
  clearTimeout(window.__ruleT);
  window.__ruleT=setTimeout(()=>{line.style.background='';line.style.backgroundColor='';line.style.boxShadow='';line.style.borderRadius='';},2600);
  history.replaceState(null,'','#verdict-rule');});
-(()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle'),h=document.getElementById('fthint');
+(()=>{const box=document.getElementById('filters'),t=document.getElementById('ftoggle');
  t.addEventListener('click',()=>{const open=box.hasAttribute('data-open');
   if(open)box.removeAttribute('data-open');else box.setAttribute('data-open','');
-  t.setAttribute('aria-expanded',String(!open));
-  h.textContent=open?'(اضغط هنا)':'(اضغط للإخفاء)';});})();
+  t.setAttribute('aria-expanded',String(!open));});
+ // (BLD-50) the (i) beside the sort opens the one-paragraph explanation of the order
+ const i=document.getElementById('sorti'),h=document.getElementById('sorthow');i.addEventListener('click',()=>{const o=h.hidden;h.hidden=!o;i.setAttribute('aria-expanded',String(o));});})();
 document.getElementById('freset').addEventListener('click',()=>{qEl.value='';Q=[];F.a=DEF.a;F.v=DEF.v;F.c=[];F.s=[];
- F.pmin=F.pmax=null;F.lo=false;F.fv=false;F.wl=false;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
+ F.pmin=F.pmax=null;F.lo=false;F.fv=false;pminEl.value='';pmaxEl.value='';SORT='default';sortEl.value='default';render();});
 
-// ---- toast, saved deals, wallet, code pill, countdown (20 Nov 2026) ----
+// ---- toast, saved deals, code pill, countdown (20 Nov 2026) ----
 const toastEl=document.createElement('div');toastEl.className='toast';toastEl.setAttribute('role','status');document.body.appendChild(toastEl);let toastT;
 function toast(m){toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(toastT);toastT=setTimeout(()=>toastEl.classList.remove('on'),1900);}
 function syncHead(){
  document.getElementById('favn').textContent=fmt(data.filter(d=>FAV.has(d.id)).length);
- document.getElementById('favbtn').setAttribute('aria-pressed',String(!!F.fv));
- const wb=document.getElementById('walletbtn');wb.hidden=!WALLET.length;document.getElementById('walletn').textContent=fmt(WAL.size);wb.setAttribute('aria-pressed',String(!!F.wl));}
+ document.getElementById('favbtn').setAttribute('aria-pressed',String(!!F.fv));}
 function toggleFav(d,b){
  if(FAV.has(d.id)){FAV.delete(d.id);toast('أُزيل من المحفوظة');}else{FAV.add(d.id);toast('حُفظ في متصفحك');}
  LS.set('sayda.fav',[...FAV]);
@@ -1182,23 +1217,17 @@ function toggleFav(d,b){
 document.getElementById('favbtn').addEventListener('click',()=>{
  if(!F.fv&&!data.some(d=>FAV.has(d.id))){toast('لم تحفظ أي عرض بعد. اضغط «حفظ» على أي بطاقة.');return;}
  F.fv=!F.fv;render();});
-document.getElementById('walletbtn').addEventListener('click',()=>{
- if(!WAL.size){document.getElementById('wallet').scrollIntoView({block:'center'});toast('اختر بطاقاتك واشتراكاتك أولاً');return;}
- F.wl=!F.wl;render();});
-(()=>{if(!WALLET.length)return;const box=document.getElementById('wallet'),c=document.getElementById('walletc');box.hidden=false;
- c.innerHTML=WALLET.map(w=>`<button type="button" data-w="${esc(w.id)}" aria-pressed="${WAL.has(w.id)}">${esc(w.l)}</button>`).join('');
- c.addEventListener('click',e=>{const b=e.target.closest('button[data-w]');if(!b)return;const id=b.dataset.w;
-  if(WAL.has(id))WAL.delete(id);else WAL.add(id);b.setAttribute('aria-pressed',String(WAL.has(id)));LS.set('sayda.wallet',[...WAL]);if(!WAL.size)F.wl=false;render();});})();
 // BLD-8: no inline event handlers (the Content-Security-Policy allows only the page's own script); one delegated listener instead
 document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('[data-act="show-all"]'))setF('a','all');});
 document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.code');if(!b)return;const t=b.dataset.code,done=()=>{b.classList.add('done');toast('نُسخ الكود '+t);setTimeout(()=>b.classList.remove('done'),1600);};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(done,()=>{});else{const i=document.createElement('textarea');i.value=t;document.body.appendChild(i);i.select();try{document.execCommand('copy');done();}catch(_){}i.remove();}});
 // Countdown to the end of the campaign's last day in Riyadh. The date is config/campaign.json's campaignEnd.
-(()=>{const end=new Date(CAMPAIGN_END+'T23:59:59+03:00').getTime()+1000,box=document.getElementById('count');if(!isFinite(end))return;
- const two=n=>fmt(n).padStart(2,fmt(0));
- const tick=()=>{const s=Math.floor((end-Date.now())/1000);if(s<=0){box.hidden=true;return false;}box.hidden=false;
-  [['d',Math.floor(s/86400)],['h',Math.floor(s%86400/3600)],['m',Math.floor(s%3600/60)],['s',s%60]].forEach(p=>{document.getElementById('cd-'+p[0]).textContent=two(p[1]);});return true;};
- if(tick()){const t=setInterval(()=>{if(!tick())clearInterval(t);},1000);}})();
+(()=>{const end=new Date(CAMPAIGN_END+'T23:59:59+03:00').getTime()+1000,box=document.getElementById('count'),t=document.getElementById('cdt');if(!isFinite(end))return;
+ const u=(n,one,two,few,many)=>n===1?one:n===2?two:n<=10?fmt(n)+' '+few:fmt(n)+' '+many;
+ // (BLD-50) on one quiet line with the check time: days and hours, or hours and minutes on the last day
+ const tick=()=>{const s=Math.floor((end-Date.now())/1000);if(s<=0){box.hidden=true;return false;}box.hidden=false;const d=Math.floor(s/86400),h=Math.floor(s%86400/3600),m=Math.floor(s%3600/60);
+  t.textContent=d>0?u(d,'يوم واحد','يومين','أيام','يوماً')+(h?' و'+u(h,'ساعة','ساعتين','ساعات','ساعة'):''):u(h,'ساعة','ساعتين','ساعات','ساعة')+' و'+u(m,'دقيقة','دقيقتين','دقائق','دقيقة');return true;};
+ if(tick()){const i=setInterval(()=>{if(!tick())clearInterval(i);},60000);}})();
 // the filter bar sticks right under the top bar, whatever height the top bar ends up with
 (()=>{const t=document.querySelector('.top'),set=()=>document.documentElement.style.setProperty('--toph',t.offsetHeight+'px');set();addEventListener('resize',set);})();
 syncHead();
@@ -1216,22 +1245,19 @@ function waLink(){const a=document.createElement('a');a.href=WA;a.target='_blank
 // Open the page on one card: a shared link (?d=<id>) and a tap on a ticker item both end here.
 function openDeal(id,fromLink){const d=data.find(x=>x.id===id),note=document.getElementById('sharednote');
  if(!d){note.textContent='العرض الذي فُتح هذا الرابط من أجله لم يعد في القائمة. هذه العروض المفحوصة الآن.';if(fromLink&&WA)note.append(' ',waLink());note.hidden=false;return;}
- if(!matchAll(d,F)){qEl.value='';Q=[];F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;F.lo=false;F.fv=false;F.wl=false;render();}
+ if(!matchAll(d,F)){qEl.value='';Q=[];F.a=UN(d)?'all':DEF.a;F.v=DEF.v;F.c=[];F.s=[];F.pmin=F.pmax=null;F.lo=false;F.fv=false;render();}
+ {const k=LIST.indexOf(d);if(k>=SHOWN)drawTo(Math.ceil((k+1)/STEP)*STEP);}
  const el=[...rows.children].find(c=>c.dataset&&c.dataset.id===id);if(el){document.querySelectorAll('.card.hit').forEach(x=>x.classList.remove('hit'));document.querySelectorAll('.hitfol').forEach(x=>x.remove());el.classList.add('hit');
   if(fromLink&&WA){const p=document.createElement('p');p.className='hitfol';p.append('وصلك هذا العرض من رابط؟ ',waLink());el.append(p);}
   el.scrollIntoView({block:'center'});}}
 setTimeout(()=>{let id='';try{id=new URLSearchParams(location.search).get('d')||'';}catch(_){}if(id)openDeal(id,true);},0);
-// (BLD-15) Category cards, the way back from a category, and the ticker. A card sets the same filter as its chip and moves to
-// the grid; a ticker item opens the page on that card. None of them leaves the page, so none is an outbound_store_click.
+// (BLD-50) A tile of «أقوى صيدات اليوم» opens the page on that card, as a shared link does; the way back from a category
+// returns to the deals. None of them leaves the page, so none is an outbound_store_click.
 document.addEventListener('click',e=>{const t=e.target;if(!t||!t.closest)return;
- const k=t.closest('.kcard');if(k){F.c=[k.dataset.cat];render();const s=document.querySelector('.statrow');if(s)s.scrollIntoView({block:'start'});return;}
- if(t.closest('.khback')){F.c=[];render();const s=document.getElementById('kats');if(s)s.scrollIntoView({block:'center'});return;}
- const i=t.closest('.ti[data-d]');if(i)openDeal(i.dataset.d);});
-(()=>{const tk=document.getElementById('tick');if(!tk)return;const off=()=>tk.classList.remove('paused');
- tk.addEventListener('pointerdown',()=>tk.classList.add('paused'));['pointerup','pointercancel','pointerleave'].forEach(n=>tk.addEventListener(n,off));
- const b=tk.querySelector('.tickp');if(b)b.addEventListener('click',e=>{e.stopPropagation();const s=!tk.classList.contains('stopped');tk.classList.toggle('stopped',s);b.setAttribute('aria-pressed',s?'true':'false');b.setAttribute('aria-label',s?b.dataset.lPlay:b.dataset.lPause);});})();
-// a store picture that does not load is removed; the white tile behind it stays
-document.querySelectorAll('.kim img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
+ if(t.closest('.khback')){F.c=[];render();const s=document.getElementById('deals');if(s)s.scrollIntoView({block:'start'});return;}
+ const i=t.closest('.stile[data-d]');if(i)openDeal(i.dataset.d);});
+// a store picture that does not load is removed from its tile; the store's letter behind it stays
+document.querySelectorAll('.stile img').forEach(im=>{if(im.complete&&!im.naturalWidth)im.remove();else im.addEventListener('error',()=>im.remove());});
 (()=>{const g=document.getElementById('evdlg');const shut=()=>{if(g.close)g.close();else g.removeAttribute('open');};document.getElementById('evx').addEventListener('click',shut);g.addEventListener('click',e=>{if(e.target===g)shut();});})();
 render();
 (()=>{const VT={clear:'✓ الشروط تطابق الإعلان',catch:'⚠ الإعلان أكبر من الشروط',vague:'تفاصيل غير كافية',pending:'لم يبدأ بعد'};
@@ -1277,10 +1303,10 @@ b.disabled=false;});})();
  if(c!=='yes'&&c!=='no')b.hidden=false;
  b.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-cv]');if(!t)return;window.saydaConsent(t.dataset.cv);b.hidden=true;});
  document.addEventListener('click',e=>{const t=e.target.closest&&e.target.closest('[data-consent-open]');if(!t)return;e.preventDefault();b.hidden=false;const y=b.querySelector('.cyes');if(y)y.focus();});})();
-// Four events go to window.dataLayer: outbound_store_click, copy_code, wallet_filter_used, follow_channel_click (BLD-18).
+// Three events go to window.dataLayer: outbound_store_click, copy_code, follow_channel_click (BLD-18). (BLD-50: no My Wallet, so no wallet_filter_used.)
 // follow_channel_click carries only where the link sat (placement: banner, header, suggest, about, shared).
 // With no GTM container (config/site.json gtmId empty) nothing reads them and nothing leaves the browser.
-// Never pushed: which cards or memberships the visitor picked, saved deals, search text, the suggestion form.
+// Never pushed: saved deals, search text, the suggestion form.
 // The privacy paragraph promises those stay in the browser. Values are read from the rendered card as text.
 (()=>{const L=document.documentElement.lang||'';window.dataLayer=window.dataLayer||[];
  const push=(event,p)=>{if(!(typeof window.saydaMeasuring==='function'&&window.saydaMeasuring()))return;try{window.dataLayer.push(Object.assign({event,page_lang:L},p));}catch(_){}};   // BLD-24: nothing is queued before an OK
@@ -1298,10 +1324,8 @@ b.disabled=false;});})();
    push('outbound_store_click',{brand_name:card?own(card,'.cst'):own(offer,'.co'),deal_title:card?own(card,'.cname'):own(offer,'.hl'),deal_id:(card&&card.dataset.id)||'',card_tag:tagOf(card),link_kind:kind,link_host:host});return;}
   const b=t.closest('button.code,button.cpy');
   if(b&&b.dataset.code){push('copy_code',{brand_name:card?own(card,'.cst'):own(offer,'.co'),promo_code:String(b.dataset.code).slice(0,40),placement:card?'card':offer&&offer.classList.contains('sbcard')?'subscriptions':offer&&offer.closest('#cars')?'cars':offer&&offer.closest('#travel')?'travel':'coupons'});return;}
-  if(t.closest('#walletc button[data-w]'))push('wallet_filter_used',{wallet_action:'pick'});
-  else if(t.closest('#walletbtn'))push('wallet_filter_used',{wallet_action:'filter'});
  });})();
 </script>
-<section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: {{PRIVACY_STATS_AR}} العروض التي تحفظها والبطاقات التي تختارها تبقى في متصفحك فقط ولا تُرسل إلينا. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a>{{WA_ABOUT}}</p></section>
+<section class="about" dir="rtl" id="about"><h2>من نحن</h2><p>صيدة صفحة مستقلة تفحص عروض المتاجر السعودية كل يوم: هل الخصم حقيقي مقارنة بالسعر قبل العرض؟ وهل المنتج ما زال متوفراً؟ لا نبيع شيئاً ولا تتبعنا أي متجر، وأسماء المتاجر مذكورة للتعريف فقط.</p><p>الأسعار والتوفر كما ظهرت وقت الفحص المذكور أعلاه وقد تتغير في أي لحظة؛ تأكد من السعر في موقع المتجر قبل الشراء.</p><p>الخصوصية: {{PRIVACY_STATS_AR}} العروض التي تحفظها تبقى في متصفحك فقط ولا تُرسل إلينا. نموذج الاقتراحات يرسل نص رسالتك ووسيلة التواصل إن كتبتها إلى بريدنا فقط، ولا نستخدمها إلا للرد عليك.</p><p>تواصل معنا: <a href="mailto:hello@saydadeals.com">hello@saydadeals.com</a>{{WA_ABOUT}}</p></section>
 </body>
 </html>
