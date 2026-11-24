@@ -1,7 +1,7 @@
 {
  "store": "firstcry",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T08:31:16.067+03:00",
+ "checkedAt": "2026-11-24T12:48:42.486+03:00",
  "rows": [
   {
    "id": "firstcry:481e5ae1604f6",
@@ -43,7 +43,7 @@
    "id": "firstcry:75b51ksa1b3af8",
    "store": "firstcry",
    "name": "أملا - سيارة لاند روفر تعمل بالبطارية مع موسيقى - أبيض",
-   "price": 1464,
+   "price": 1046,
    "was": 1722.7,
    "ref": null,
    "verdict": "na",
@@ -61,7 +61,7 @@
    "id": "firstcry:43875ksa8167f7",
    "store": "firstcry",
    "name": "إمباسادور- طاولة فيفا كرة القدم مقاس 36 بوصة - فوسبول",
-   "price": 875,
+   "price": 919,
    "was": 1378.8,
    "ref": null,
    "verdict": "na",
@@ -241,7 +241,7 @@
    "id": "firstcry:6c679aec3d0e9",
    "store": "firstcry",
    "name": "ليبفروق مجموعة ألعاب فيديو ليب موف - أسود وأخضر",
-   "price": 319,
+   "price": 290,
    "was": 516.35,
    "ref": null,
    "verdict": "na",

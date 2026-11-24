@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T08:36:43.951+03:00",
+ "checkedAt": "2026-11-24T12:48:42.486+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -1408,7 +1408,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ١٬٢٩٩ · سبق ونزل ٨٥٩",
-   "url": "https://www.extra.com/ar-sa/p/100391945",
+   "url": "https://www.extra.com/ar-sa/small-appliances/food-and-beverage-appliances/party-line/ninja-creami-deluxe-10-in-1-ice-cream-frozen-drink-maker/p/100391945",
    "avail": "in",
    "availNote": "",
    "model": "NC501ME",
@@ -1437,7 +1437,7 @@
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٦٧٩ · سبق ونزل ٤٧٣",
-   "url": "https://www.extra.com/ar-sa/p/100081572",
+   "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/vacuum-cleaner/hitachi-vacuum-cleaner-drum-type-21l-2200w-black-/p/100081572",
    "avail": "in",
    "availNote": "",
    "model": "CV-960F SS220 BK",
@@ -1461,7 +1461,7 @@
    "brand": "samsung",
    "price": 699,
    "was": null,
-   "url": "https://www.extra.com/ar-sa/p/100505211",
+   "url": "https://www.extra.com/ar-sa/electronics/home-entertainment/soundbar/samsung-5-1-ch-370w-dts-virtual-adpative-sound/p/100505211",
    "avail": "in",
    "model": "HW-B750F/SA",
    "img": "https://media.extra.com/s/aurora/100505211_800/Samsung%2C-5-1-ch%2C-370W%2C-DTS-Virtual%2C-Adpative-Sound?locale=en-GB,ar-*,*",

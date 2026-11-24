@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T08:36:43.951+03:00",
+ "checkedAt": "2026-11-24T12:48:42.486+03:00",
  "rows": [
   {
    "id": "amazon:B09M7B4BQZ",
@@ -28,7 +28,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71FuSUtWxgL._AC_SL500_.jpg",
-   "name_en": "Orient Sports Kamasu V2 Graduate - Wristwatch For Male Automatic And Hand-wound Mechanical"
+   "name_en": "Orient Sports Kamasu V2 Graduate - Wristwatch For Male Automatic And Hand-wound Mechanical",
+   "model": "RA-AA0810N19B"
   },
   {
    "id": "amazon:B0B88CS1KR",
@@ -55,7 +56,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/718PMwTPWUL._AC_SL500_.jpg",
-   "name_en": "Cerruti 1881 Molveno Mens Round Shape Stainless Steel Analog Chronograph Wrist Watch 45 mm"
+   "name_en": "Cerruti 1881 Molveno Mens Round Shape Stainless Steel Analog Chronograph Wrist Watch 45 mm",
+   "model": "CERR080A000-001"
   },
   {
    "id": "amazon:B07TJJJPLQ",
@@ -109,7 +111,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61Mr76vlolL._AC_SL500_.jpg",
-   "name_en": "Casio Watch, for Women's, Analog, Casual Watch, Leather - SHB-200CGL-7ADR"
+   "name_en": "Casio Watch, for Women's, Analog, Casual Watch, Leather - SHB-200CGL-7ADR",
+   "model": "SHB-200CGL-7ADR"
   },
   {
    "id": "amazon:B08ZNK452Y",
@@ -136,7 +139,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61NjsZ2CmsL._AC_SL500_.jpg",
-   "name_en": "Fossil Men's Neutra Automatic Three-Hand, Rose Gold-Tone Stainless Steel Watch, ME3195"
+   "name_en": "Fossil Men's Neutra Automatic Three-Hand, Rose Gold-Tone Stainless Steel Watch, ME3195",
+   "model": "ME3195"
   },
   {
    "id": "amazon:B0DVDGKS4D",
@@ -163,7 +167,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51acFCMwO4L._AC_SL500_.jpg",
-   "name_en": "Carrera CA 1053/S/TI 80S/08 Black White Sunglasses Man Standard"
+   "name_en": "Carrera CA 1053/S/TI 80S/08 Black White Sunglasses Man Standard",
+   "model": "20803480S6008"
   },
   {
    "id": "amazon:B09LZX7139",
@@ -190,7 +195,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51NWY0UH+tL._AC_SL500_.jpg",
-   "name_en": "GUESS Women's Butterfly GU7790 Sunglasses (pack of 1)"
+   "name_en": "GUESS Women's Butterfly GU7790 Sunglasses (pack of 1)",
+   "model": "GU7790-S"
   },
   {
    "id": "amazon:B071RS31VS",
@@ -244,7 +250,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81yi9AqGXKL._AC_SL500_.jpg",
-   "name_en": "Navigator® Plus 2-in-1 Stroller Wagon - Ultra Black"
+   "name_en": "Navigator® Plus 2-in-1 Stroller Wagon - Ultra Black",
+   "model": "WG01D14A"
   },
   {
    "id": "amazon:B00LNIORX4",
@@ -325,7 +332,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61XXyxsfdRL._AC_SL500_.jpg",
-   "name_en": "Lenovo ThinkPad X1 Carbon Gen 11 21HM002DUS Black Laptop, i7-1355U, 16GB, 512GB PCIe SSD"
+   "name_en": "Lenovo ThinkPad X1 Carbon Gen 11 21HM002DUS Black Laptop, i7-1355U, 16GB, 512GB PCIe SSD",
+   "model": "21HM"
   },
   {
    "id": "amazon:B0FKN8YBPS",
@@ -379,7 +387,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71dP5ll6V-L._AC_SL500_.jpg",
-   "name_en": "ASUS ROG Strix Scar 17 (2021) Gaming Laptop, 17.3\" 360Hz IPS FHD, NVIDIA GeForce RTX 3080"
+   "name_en": "ASUS ROG Strix Scar 17 (2021) Gaming Laptop, 17.3\" 360Hz IPS FHD, NVIDIA GeForce RTX 3080",
+   "model": "G733QSA-PB96"
   },
   {
    "id": "amazon:B0CGVP8NRC",
@@ -433,7 +442,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71bidQXZIZL._AC_SL500_.jpg",
-   "name_en": "Lenovo Idea Tab Pro Tablet | 12.7 Inch 3K Display | MediaTek Dimensity 8300 | 8GB RAM"
+   "name_en": "Lenovo Idea Tab Pro Tablet | 12.7 Inch 3K Display | MediaTek Dimensity 8300 | 8GB RAM",
+   "model": "ZAE40177DE"
   },
   {
    "id": "amazon:B07Q9RC569",
@@ -460,7 +470,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51nDiOskUhL._AC_SL500_.jpg",
-   "name_en": "Sage - The Nutri Juicer Cold Plus, 1200w, 2L Jug with Extra Feed Wide Chute and 2 Speed"
+   "name_en": "Sage - The Nutri Juicer Cold Plus, 1200w, 2L Jug with Extra Feed Wide Chute and 2 Speed",
+   "model": "SJE530BSS4GUK1"
   },
   {
    "id": "amazon:B0B4KHCQ96",
@@ -487,7 +498,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51phYgmbE6L._AC_SL500_.jpg",
-   "name_en": "Google Pixel Buds Pro – Wireless Earbuds – Bluetooth Headphones – Lemongrass"
+   "name_en": "Google Pixel Buds Pro – Wireless Earbuds – Bluetooth Headphones – Lemongrass",
+   "model": "GA03204-UK"
   },
   {
    "id": "amazon:B07NDMWVVF",
@@ -514,7 +526,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61FjLBO0wUL._AC_SL500_.jpg",
-   "name_en": "Bosch Contact Grill - TFB4402GB Red"
+   "name_en": "Bosch Contact Grill - TFB4402GB Red",
+   "model": "Tfb4402Gb"
   },
   {
    "id": "amazon:B07D2C3SYK",
@@ -541,7 +554,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51CUW+Wsv9L._AC_SL500_.jpg",
-   "name_en": "Black & Decker PV1425N GB Dustbuster Pivot Handheld Vacuum Cleaner"
+   "name_en": "Black & Decker PV1425N GB Dustbuster Pivot Handheld Vacuum Cleaner",
+   "model": "PV1425N-GB"
   },
   {
    "id": "amazon:B08WBN99B4",
@@ -568,7 +582,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71vQ2b-0jWL._AC_SL500_.jpg",
-   "name_en": "Just Cavalli Glam Stainless Steel Watch JC1L150M0055 - Quartz Analog for Women in Stainless Steel Strap"
+   "name_en": "Just Cavalli Glam Stainless Steel Watch JC1L150M0055 - Quartz Analog for Women in Stainless Steel Strap",
+   "model": "JC1L150M0055"
   },
   {
    "id": "amazon:B09HTQ7JHB",
@@ -649,7 +664,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/41Yyt65yG6S._AC_SL500_.jpg",
-   "name_en": "Lenovo ThinkPad E14 20RA004WUS 14\" Notebook - 1920 x 1080 - Core i5 i5-10210U - 8 GB RAM - 1 TB HDD - Black"
+   "name_en": "Lenovo ThinkPad E14 20RA004WUS 14\" Notebook - 1920 x 1080 - Core i5 i5-10210U - 8 GB RAM - 1 TB HDD - Black",
+   "model": "20RA004WUS-0"
   },
   {
    "id": "amazon:B08RY4QDN4",
@@ -676,7 +692,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/41g08iYmhEL._AC_SL500_.jpg",
-   "name_en": "Gorenje Whc923E16X-Sa, 90 Cm Wall Mounted Chimney Cooker Hood, High Extraction Rate, 3 Speed Fan, Led Light"
+   "name_en": "Gorenje Whc923E16X-Sa, 90 Cm Wall Mounted Chimney Cooker Hood, High Extraction Rate, 3 Speed Fan, Led Light",
+   "model": "WHC923E16X-SA"
   },
   {
    "id": "amazon:B0B9L6LBD5",
@@ -703,7 +720,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51bf1AiZjuL._AC_SL500_.jpg",
-   "name_en": "HUAWEI MatePad Pro 11(2022) Golden Black 11-inch 8GB RAM 256GB 4G LTE, 53013GBM"
+   "name_en": "HUAWEI MatePad Pro 11(2022) Golden Black 11-inch 8GB RAM 256GB 4G LTE, 53013GBM",
+   "model": "53013GBM"
   },
   {
    "id": "amazon:B08FMMNN5Y",
@@ -730,7 +748,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71ga5UH8kkS._AC_SL500_.jpg",
-   "name_en": "HUAWEI MatePad 10.4 Inch 2K FullView Tablet - Kirin 810, 4 GB RAM, 64 GB ROM, 7250 mAh, Quad-speaker"
+   "name_en": "HUAWEI MatePad 10.4 Inch 2K FullView Tablet - Kirin 810, 4 GB RAM, 64 GB ROM, 7250 mAh, Quad-speaker",
+   "model": "53011ACB"
   },
   {
    "id": "amazon:B0GTC5P7FY",
@@ -757,7 +776,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/5181qeaQQGL._AC_SL500_.jpg",
-   "name_en": "Aquatalia Placido mens Loafer"
+   "name_en": "Aquatalia Placido mens Loafer",
+   "model": "TM6PLAO1"
   },
   {
    "id": "amazon:B0CXJCF1N4",
@@ -784,7 +804,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81viBNWcSxL._AC_SL500_.jpg",
-   "name_en": "Casio Men's Watch MTD-125D-9AVDF"
+   "name_en": "Casio Men's Watch MTD-125D-9AVDF",
+   "model": "MTD125D-9A"
   },
   {
    "id": "amazon:B0H1RTFR3P",
@@ -811,7 +832,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71RP40NUkZL._AC_SL500_.jpg",
-   "name_en": "ASUS Vivobook 14\" FHD Laptop X1404VA-EB1602W, Intel Core 7 120U, 16GB RAM DDR5, 512GB SSD M2 NVMe"
+   "name_en": "ASUS Vivobook 14\" FHD Laptop X1404VA-EB1602W, Intel Core 7 120U, 16GB RAM DDR5, 512GB SSD M2 NVMe",
+   "model": "X1404VA-EB1602W"
   },
   {
    "id": "amazon:B0HHJXKZSX",
@@ -838,7 +860,8 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71+GIHAGCgL._AC_SL500_.jpg",
-   "name_en": "ASUS Vivobook 16\" WUXGA Laptop X1607CA-U58G512GSRW, Intel Core Ultra 5 225H, 8GB RAM DDR5, 512GB SSD M2 NVMe"
+   "name_en": "ASUS Vivobook 16\" WUXGA Laptop X1607CA-U58G512GSRW, Intel Core Ultra 5 225H, 8GB RAM DDR5, 512GB SSD M2 NVMe",
+   "model": "X1607CA-U58G512GSRW"
   },
   {
    "id": "amazon:B0B7RQKJ43",
@@ -946,7 +969,8 @@
    "img": "https://m.media-amazon.com/images/I/71aQOuXDD7L._AC_SL1500_.jpg",
    "name_en": "Lavie Womens Faroe Satchel Tote",
    "firstSeen": "2026-11-21",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "HDBR821033N4"
   },
   {
    "id": "amazon:B0DND7C9KT",
@@ -1000,7 +1024,8 @@
    "img": "https://m.media-amazon.com/images/I/41LlVco0OmL._AC_SL1500_.jpg",
    "name_en": "ESPRIT Necklace, Elisa, Silver Color, women standard, Sterling Silver, No Gemstone",
    "firstSeen": "2026-11-21",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "ESNL01731138"
   },
   {
    "id": "amazon:B0C82QVWZL",
@@ -1054,7 +1079,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/711jLFJz90L._AC_SL500_.jpg",
-   "name_en": "Levi's Women's Cotton Four Pocket Hooded Field Jacket (Standard & Plus Sizes)"
+   "name_en": "Levi's Women's Cotton Four Pocket Hooded Field Jacket (Standard & Plus Sizes)",
+   "model": "LW5RC337"
   },
   {
    "id": "amazon:B0BGT2GXRN",
@@ -1081,7 +1107,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51fcguGYl2L._AC_SL500_.jpg",
-   "name_en": "Timberland Mens Sunglasses Sunglasses (pack of 1)"
+   "name_en": "Timberland Mens Sunglasses Sunglasses (pack of 1)",
+   "model": "TB9301"
   },
   {
    "id": "amazon:B01K1HPA60",
@@ -1108,7 +1135,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81g7IL9F65L._AC_SL500_.jpg",
-   "name_en": "Philips Norelco MG3750 Multigroom All-In-One Series 3000, 13 attachment trimmer"
+   "name_en": "Philips Norelco MG3750 Multigroom All-In-One Series 3000, 13 attachment trimmer",
+   "model": "MG3750/60"
   },
   {
    "id": "amazon:B0B5V9NMT4",
@@ -1162,7 +1190,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/41aLqGLJ4EL._AC_SL500_.jpg",
-   "name_en": "reiga 54\" Silver DC Motor Modern Ceiling Fan with Light and Remote Control"
+   "name_en": "reiga 54\" Silver DC Motor Modern Ceiling Fan with Light and Remote Control",
+   "model": "ae0ad8a1-4f07-486b-a640-acd3c034fec0"
   },
   {
    "id": "amazon:B086Z3S3MY",
@@ -1189,7 +1218,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51ggamgXBrL._AC_SL500_.jpg",
-   "name_en": "Samsung Galaxy Tab S6 Lite 10.4\", 64GB WiFi Tablet Angora Blue - SM-P610NZBAXAR - S Pen Included"
+   "name_en": "Samsung Galaxy Tab S6 Lite 10.4\", 64GB WiFi Tablet Angora Blue - SM-P610NZBAXAR - S Pen Included",
+   "model": "SM-P610NZBAXAR"
   },
   {
    "id": "amazon:B083XDBQCQ",
@@ -1216,7 +1246,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/610CNKx4hTL._AC_SL500_.jpg",
-   "name_en": "Electric Frying Pan Oil by Techno Cucina, 30 cm, 2300W"
+   "name_en": "Electric Frying Pan Oil by Techno Cucina, 30 cm, 2300W",
+   "model": "MAGPRA303"
   },
   {
    "id": "amazon:B08YQ3NLZ3",
@@ -1270,7 +1301,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61rH1+ZyZFL._AC_SL500_.jpg",
-   "name_en": "Carrera mens 8848 Rectangular Prescription Eyewear Frames"
+   "name_en": "Carrera mens 8848 Rectangular Prescription Eyewear Frames",
+   "model": "CARRERA 8848"
   },
   {
    "id": "amazon:B0DJ9R27HV",
@@ -1297,7 +1329,8 @@
    "availNote": "أمازون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51oWxLbCyFL._AC_SL500_.jpg",
-   "name_en": "John Jacobs Full Rim Square Stylish & Premium UV Protected Sunglasses | JJ Acetate"
+   "name_en": "John Jacobs Full Rim Square Stylish & Premium UV Protected Sunglasses | JJ Acetate",
+   "model": "JJ S17336"
   },
   {
    "id": "amazon:B012TVP7H8",
@@ -1324,7 +1357,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/912G-qIyJdL._AC_SL500_.jpg",
-   "name_en": "Wrangler Authentics Women's Stretch Denim Jacket"
+   "name_en": "Wrangler Authentics Women's Stretch Denim Jacket",
+   "model": "ZFWJ1A9"
   },
   {
    "id": "amazon:B0815H7QQL",
@@ -1432,7 +1466,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51UjTR97SkL._AC_SL500_.jpg",
-   "name_en": "ASUS ROG Strix Scar 15 Gaming Laptop, 15.6\" 300Hz IPS Type FHD Display, NVIDIA GeForce RTX 3080"
+   "name_en": "ASUS ROG Strix Scar 15 Gaming Laptop, 15.6\" 300Hz IPS Type FHD Display, NVIDIA GeForce RTX 3080",
+   "model": "G533QS-DS94"
   },
   {
    "id": "amazon:B07QNM7YDM",
@@ -1459,7 +1494,8 @@
    "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71rePnzTITL._AC_SL500_.jpg",
-   "name_en": "iRobot Roomba E5 (5150) Robot Vacuum - Wi-Fi Connected, Works with Alexa, Ideal for Pet Hair, Carpets, Hard"
+   "name_en": "iRobot Roomba E5 (5150) Robot Vacuum - Wi-Fi Connected, Works with Alexa, Ideal for Pet Hair, Carpets, Hard",
+   "model": "e515020"
   },
   {
    "id": "amazon:B0FHCYNG34",
@@ -1486,7 +1522,8 @@
    "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81i+og9ja2L._AC_SL500_.jpg",
-   "name_en": "msi Thin 15.6 inch 144Hz FHD Thin Bezel IPS Gaming Laptop, AMD Ryzen 5 7535HS"
+   "name_en": "msi Thin 15.6 inch 144Hz FHD Thin Bezel IPS Gaming Laptop, AMD Ryzen 5 7535HS",
+   "model": "THINA15B7461"
   },
   {
    "id": "amazon:B09Y1794BF",
@@ -1513,7 +1550,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61BP1PzhxCL._AC_SL500_.jpg",
-   "name_en": "ASUS ZenBook Laptop 14” 2.8K OLED Display, AMD Ryzen 7 5825U CPU, Radeon Graphics, 8GB RAM, 512GB PCIe SSD"
+   "name_en": "ASUS ZenBook Laptop 14” 2.8K OLED Display, AMD Ryzen 7 5825U CPU, Radeon Graphics, 8GB RAM, 512GB PCIe SSD",
+   "model": "UM3402YA-DS71"
   },
   {
    "id": "amazon:B07CT1Z1HV",
@@ -1540,7 +1578,8 @@
    "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61TVmXSOPzL._AC_SL500_.jpg",
-   "name_en": "KitchenAid 5 Quart Ceramic Bowl for all KitchenAid 4.5-5 Quart Tilt-Head Stand Mixers KSM2CB5TLW"
+   "name_en": "KitchenAid 5 Quart Ceramic Bowl for all KitchenAid 4.5-5 Quart Tilt-Head Stand Mixers KSM2CB5TLW",
+   "model": "KSM2CB5TLW"
   },
   {
    "id": "amazon:B0F6JMJ742",
@@ -1594,7 +1633,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61vxaxFlC4L._AC_SL500_.jpg",
-   "name_en": "HITACHI – 450L Top Freezer Refrigerator – Inverter x Dual Fan Cooling, Touch Screen Controller"
+   "name_en": "HITACHI – 450L Top Freezer Refrigerator – Inverter x Dual Fan Cooling, Touch Screen Controller",
+   "model": "HRTN7489DFPWHSA"
   },
   {
    "id": "amazon:B084B9PPQR",
@@ -1621,7 +1661,8 @@
    "availNote": "أمازون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71fYXDvUW7L._AC_SL500_.jpg",
-   "name_en": "Butterfly Bel17457 Elegant Mixer Grinder, min 2 yrs warranty"
+   "name_en": "Butterfly Bel17457 Elegant Mixer Grinder, min 2 yrs warranty",
+   "model": "BEL17457"
   },
   {
    "id": "amazon:B07N6PDJQF",
@@ -1648,7 +1689,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71yOOjJcfBL._AC_SL500_.jpg",
-   "name_en": "Black & Decker 500 Watts Blender With Grinder and Mincer Mill, White - Bx580-B5, Plastic Material"
+   "name_en": "Black & Decker 500 Watts Blender With Grinder and Mincer Mill, White - Bx580-B5, Plastic Material",
+   "model": "BX580-B5"
   },
   {
    "id": "amazon:B01CM6EYKG",
@@ -1675,7 +1717,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71trtoWt5ZL._AC_SL500_.jpg",
-   "name_en": "Perry Ellis Men's Portfolio Braided Leather Belt (Sizes 30-54 Inches Big & Tall)"
+   "name_en": "Perry Ellis Men's Portfolio Braided Leather Belt (Sizes 30-54 Inches Big & Tall)",
+   "model": "1P55003"
   },
   {
    "id": "amazon:B005DIITPM",
@@ -1702,7 +1745,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61UNf8iiCML._AC_SL500_.jpg",
-   "name_en": "Wrangler Men's Shirt"
+   "name_en": "Wrangler Men's Shirt",
+   "model": "70127MW"
   },
   {
    "id": "amazon:B0D88ZDT18",
@@ -1729,7 +1773,8 @@
    "availNote": "أمازون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61JLpqQechL._AC_SL500_.jpg",
-   "name_en": "Kenneth Cole New York Umi Pom Pom womens Pump"
+   "name_en": "Kenneth Cole New York Umi Pom Pom womens Pump",
+   "model": "KL24UPP01"
   },
   {
    "id": "amazon:B01H6ZQXWA",
@@ -1851,7 +1896,7 @@
    "verdict": "ok",
    "finding": "كان ٥٨٨ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/-/ar/dp/B07CN9T8RC",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 588.45,
     "min": 211,
@@ -1861,7 +1906,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-B07CN9T8RC"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: عاد السعر إلى ٦٣٩ — انتهى العرض",
+   "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71sDdjUJzML._AC_SL500_.jpg",
    "name_en": "Radio Flyer Busy Buggy, Sit to Stand Toddler Ride On Toy, Ages 1-3, Red Kids Ride On Toy"
@@ -2024,7 +2069,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/41arjXTbdwL._AC_SL500_.jpg",
-   "name_en": "Ferrari Scuderia Red for Men Eau de Toilette 75ml"
+   "name_en": "Ferrari Scuderia Red for Men Eau de Toilette 75ml",
+   "model": "FERRARI-046535"
   },
   {
    "id": "amazon:B00GOYJQRE",
@@ -2078,7 +2124,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/41e0INrW0hL._AC_SL500_.jpg",
-   "name_en": "Belkin Duratek PlUS Lightning To USb-A Cable With Strap (Ultra-Strong Iphone Charging Cable"
+   "name_en": "Belkin Duratek PlUS Lightning To USb-A Cable With Strap (Ultra-Strong Iphone Charging Cable",
+   "model": "F8J239bt04-BLK"
   },
   {
    "id": "amazon:B085TPH1D3",
@@ -2105,7 +2152,8 @@
    "img": "https://m.media-amazon.com/images/I/41Duy3H8WlL._AC_SL1325_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "DK109S"
   },
   {
    "id": "amazon:B09W189SHD",
@@ -2132,7 +2180,8 @@
    "img": "https://m.media-amazon.com/images/I/81Mp-cgOg4L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "SM-X806BZAAEUB"
   },
   {
    "id": "amazon:B09SJPDHL6",
@@ -2159,7 +2208,8 @@
    "img": "https://m.media-amazon.com/images/I/41Mnla7ABEL._AC_SL1000_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 2",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "L09CS"
   },
   {
    "id": "amazon:B08YHJY3J7",
@@ -2186,7 +2236,8 @@
    "img": "https://m.media-amazon.com/images/I/51Jxux8wwLL._AC_SL1416_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "1005G1"
   },
   {
    "id": "amazon:B083B1K82C",
@@ -2240,7 +2291,8 @@
    "img": "https://m.media-amazon.com/images/I/61VqYrR4WeL._AC_SL1000_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "Marx-W09BS"
   },
   {
    "id": "amazon:B09TPW2KLD",
@@ -2267,7 +2319,8 @@
    "img": "https://m.media-amazon.com/images/I/61Uq4F7cuwL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "ZAAJ0039US"
   },
   {
    "id": "amazon:B08JNCQYHM",
@@ -2294,7 +2347,8 @@
    "img": "https://m.media-amazon.com/images/I/61ECLqweTGL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 3",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "CGM64X-6"
   },
   {
    "id": "amazon:B08PS4H58C",
@@ -2348,7 +2402,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/517h8PJyE8L._AC_SL500_.jpg",
-   "name_en": "John Jacobs Full Rim Round Branded Latest And Stylish Sunglasses|Polarized And 100 Uv Protected|For Men &"
+   "name_en": "John Jacobs Full Rim Round Branded Latest And Stylish Sunglasses|Polarized And 100 Uv Protected|For Men &",
+   "model": "JJ S14669"
   },
   {
    "id": "amazon:B07K371TMS",
@@ -2375,7 +2430,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/91Q55pK3-ML._AC_SL500_.jpg",
-   "name_en": "Baggallini Securtex Anti-theft Cross Over Crossbody"
+   "name_en": "Baggallini Securtex Anti-theft Cross Over Crossbody",
+   "model": "ATC412"
   },
   {
    "id": "amazon:B00CZ55IRS",
@@ -2402,7 +2458,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/716WykRWA+L._AC_SL500_.jpg",
-   "name_en": "Armitron Sport Women's Digital Chronograph Resin Strap Watch, 45/7034"
+   "name_en": "Armitron Sport Women's Digital Chronograph Resin Strap Watch, 45/7034",
+   "model": "45/7034BLK"
   },
   {
    "id": "amazon:B0BQWLCMFV",
@@ -2510,7 +2567,8 @@
    "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71klDvMQsML._AC_SL500_.jpg",
-   "name_en": "Hyundai HYBV3000E2 3000W Leaf Blower Vacuum & Mulcher - 2025 Model"
+   "name_en": "Hyundai HYBV3000E2 3000W Leaf Blower Vacuum & Mulcher - 2025 Model",
+   "model": "HYBV3000E2"
   },
   {
    "id": "amazon:B0D8QBZKPM",
@@ -2537,7 +2595,8 @@
    "img": "https://m.media-amazon.com/images/I/516qJxOFWuL._AC_SL1000_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "AR60082"
   },
   {
    "id": "amazon:B0156GJZ1M",
@@ -2591,7 +2650,8 @@
    "img": "https://m.media-amazon.com/images/I/51iomzDyiFL._AC_SL1200_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "GW0493G3"
   },
   {
    "id": "amazon:B095P8D9KB",
@@ -2618,7 +2678,8 @@
    "img": "https://m.media-amazon.com/images/I/51hWUUK4ROL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "Easy 350"
   },
   {
    "id": "amazon:B0B68NV2QJ",
@@ -2672,7 +2733,8 @@
    "img": "https://m.media-amazon.com/images/I/61tPudzu24L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "ASB-002513"
   },
   {
    "id": "amazon:B0B7X9XDJD",
@@ -2699,7 +2761,8 @@
    "img": "https://m.media-amazon.com/images/I/810OQjFp-0L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 2",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "Fetinar-00"
   },
   {
    "id": "amazon:B00VT143X4",
@@ -2726,7 +2789,8 @@
    "img": "https://m.media-amazon.com/images/I/816x5id+EEL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "THTD12"
   },
   {
    "id": "amazon:B07GDQRXDZ",
@@ -2807,7 +2871,8 @@
    "img": "https://m.media-amazon.com/images/I/61YWeH8useL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 3",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "W-001"
   },
   {
    "id": "amazon:B01KYN9K80",
@@ -2888,7 +2953,8 @@
    "img": "https://m.media-amazon.com/images/I/41M1Pmlrb-L._AC_SL1000_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "YY14C"
   },
   {
    "id": "amazon:B003828R16",
@@ -2915,7 +2981,8 @@
    "img": "https://m.media-amazon.com/images/I/817kioapDiL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "TBUP6512"
   },
   {
    "id": "amazon:B07MVX8Q66",
@@ -2996,7 +3063,8 @@
    "img": "https://m.media-amazon.com/images/I/61zeQ-R-BRL._AC_SL1020_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "cf85d4d4-03ff-4620-9d9f-6734d8824665"
   },
   {
    "id": "amazon:B07MBQDBPQ",
@@ -3050,7 +3118,8 @@
    "img": "https://m.media-amazon.com/images/I/51nxfIqQmVL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 1",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "LS 158"
   },
   {
    "id": "amazon:B092YR8ZXB",
@@ -3185,7 +3254,8 @@
    "img": "https://m.media-amazon.com/images/I/51qNStM4aDL._AC_SL1024_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 3",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "B07YDRWDJC"
   },
   {
    "id": "amazon:B07MW2QH2H",
@@ -3347,7 +3417,8 @@
    "img": "https://m.media-amazon.com/images/I/51-rCsaIj4L._AC_SL1008_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "OK003"
   },
   {
    "id": "amazon:B076HNVD6S",
@@ -3389,7 +3460,7 @@
    "verdict": "ok",
    "finding": "كان ٢٩١ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/-/ar/dp/B09BCZVD1Q",
-   "avail": "in",
+   "avail": "low",
    "ev": {
     "prev": 290.59,
     "min": 99,
@@ -3400,7 +3471,7 @@
    },
    "img": "https://m.media-amazon.com/images/I/61JqKY+G5+L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
-   "availNote": "",
+   "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24"
   },
   {
@@ -3482,7 +3553,8 @@
    "img": "https://m.media-amazon.com/images/I/71WfJqh2itL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "E410MA-202"
   },
   {
    "id": "amazon:B0GKY8KT3F",
@@ -3509,7 +3581,8 @@
    "img": "https://m.media-amazon.com/images/I/61ktuJ0yZrL._AC_SL1060_.jpg",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "20NN0014US-cr"
   },
   {
    "id": "amazon:B097X2TPPQ",
@@ -3698,7 +3771,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71Q+nCWX8mL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71Q+nCWX8mL._AC_SL500_.jpg",
+   "model": "FB0004"
   },
   {
    "id": "amazon:B07VP5JFRB",
@@ -3725,7 +3799,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/51k7JOiHdoL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/51k7JOiHdoL._AC_SL500_.jpg",
+   "model": "9227B"
   },
   {
    "id": "amazon:B00O32V2J4",
@@ -3914,7 +3989,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/61Q5X9nupiL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/61Q5X9nupiL._AC_SL500_.jpg",
+   "model": "GBL573"
   },
   {
    "id": "amazon:B09X9Z8WQN",
@@ -3941,7 +4017,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71wpMyAbC8L._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71wpMyAbC8L._AC_SL500_.jpg",
+   "model": "ES01"
   },
   {
    "id": "amazon:B097J12D1Y",
@@ -3968,7 +4045,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71N2uNvdrmL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71N2uNvdrmL._AC_SL500_.jpg",
+   "model": "HU-XI-201"
   },
   {
    "id": "amazon:B07CNM6FWQ",
@@ -4049,7 +4127,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/61L9AY1PHqL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/61L9AY1PHqL._AC_SL500_.jpg",
+   "model": "Pet Simulator X Mystery Pets 1PK"
   },
   {
    "id": "amazon:B005I5M2F8",
@@ -4076,7 +4155,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71OB5CmlJjL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71OB5CmlJjL._AC_SL500_.jpg",
+   "model": "W2087"
   },
   {
    "id": "amazon:B0006VVITA",
@@ -4103,7 +4183,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/81lOyGVRgZL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/81lOyGVRgZL._AC_SL500_.jpg",
+   "model": "4456G"
   },
   {
    "id": "amazon:B00S2WDIGG",
@@ -4265,7 +4346,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71pMJ+XS5zL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71pMJ+XS5zL._AC_SL500_.jpg",
+   "model": "ADMT12235I"
   },
   {
    "id": "amazon:B07HSW77Q8",
@@ -4373,7 +4455,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71twFWvntPL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71twFWvntPL._AC_SL500_.jpg",
+   "model": "ACM-PF/D-015"
   },
   {
    "id": "amazon:B00DXYX8FE",
@@ -4400,7 +4483,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/51x3EUrDuyL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/51x3EUrDuyL._AC_SL500_.jpg",
+   "model": "KNH-5"
   },
   {
    "id": "amazon:B08965M4SW",
@@ -4427,7 +4511,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/51LSuiec4HL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/51LSuiec4HL._AC_SL500_.jpg",
+   "model": "LG-UQWJ-BP9T"
   },
   {
    "id": "amazon:B0C5M8XWYL",
@@ -4481,7 +4566,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/518Z4ChTCnL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/518Z4ChTCnL._AC_SL500_.jpg",
+   "model": "sbbeauty31210407545"
   },
   {
    "id": "amazon:B073P6BPF5",
@@ -4508,7 +4594,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/618OlEn9xML._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/618OlEn9xML._AC_SL500_.jpg",
+   "model": "cosS03-T"
   },
   {
    "id": "amazon:B01N2SAIUS",
@@ -4589,7 +4676,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/71z3S4XVh5L._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/71z3S4XVh5L._AC_SL500_.jpg",
+   "model": "NC65018"
   },
   {
    "id": "amazon:B0CFHY29XZ",
@@ -4616,7 +4704,8 @@
    "firstSeen": "2026-11-22",
    "availNote": "",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/51v4-kiUyXL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/51v4-kiUyXL._AC_SL500_.jpg",
+   "model": "BM730-US"
   },
   {
    "id": "amazon:B08RS9176Z",
@@ -4751,7 +4840,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/419VxrzS7ZL._AC_SL500_.jpg",
-   "name_en": "DKNY Women's City Native Sunglasses (pack of 1)"
+   "name_en": "DKNY Women's City Native Sunglasses (pack of 1)",
+   "model": "DK109S"
   },
   {
    "id": "amazon:B01MA1FO2E",
@@ -4832,7 +4922,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51fMNvK1P0L._AC_SL500_.jpg",
-   "name_en": "U7 Monogram Necklace A-Z 26 Letters Pendants 18K Gold/Platinum Plated Square Capital Initial Necklaces for"
+   "name_en": "U7 Monogram Necklace A-Z 26 Letters Pendants 18K Gold/Platinum Plated Square Capital Initial Necklaces for",
+   "model": "P3502K"
   },
   {
    "id": "amazon:B071X7TRYF",
@@ -4859,7 +4950,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71EBYJOqo7L._AC_SL500_.jpg",
-   "name_en": "Cherokee Womens Scrub Jacket Nurse Snap Front Medical Uniform with Pockets, 2-Way Stretch"
+   "name_en": "Cherokee Womens Scrub Jacket Nurse Snap Front Medical Uniform with Pockets, 2-Way Stretch",
+   "model": "WW310"
   },
   {
    "id": "amazon:B06ZZXFXX3",
@@ -4913,7 +5005,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81b00jXtp3L._AC_SL500_.jpg",
-   "name_en": "Miraan Women Adult Readymade Salwar Suit (pack of 3)"
+   "name_en": "Miraan Women Adult Readymade Salwar Suit (pack of 3)",
+   "model": "BANDCOLOR917XXL"
   },
   {
    "id": "amazon:B09V85G5FG",
@@ -4967,18 +5060,19 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51bRiDFmEiL._AC_SL500_.jpg",
-   "name_en": "U7 Monogram Necklace Best Friend Gift for Women Men Boys 18K Gold Plated Square Script Initial Jewelry Letter"
+   "name_en": "U7 Monogram Necklace Best Friend Gift for Women Men Boys 18K Gold Plated Square Script Initial Jewelry Letter",
+   "model": "P3490K"
   },
   {
    "id": "amazon:B0842VTRNC",
    "store": "amazon",
    "cat": "أزياء",
    "name": "حذاء لوفر مسطح للنساء اون ذا جو فليكس من سكيتشرز",
-   "price": 69.82,
+   "price": 165,
    "was": 250.03,
    "ref": 250.03,
    "refKind": "history",
-   "verdict": "ok",
+   "verdict": "warn",
    "finding": "كان ٢٥٠ · أقل سعر مسجل",
    "url": "https://www.amazon.sa/-/ar/dp/B0842VTRNC",
    "avail": "low",
@@ -5021,7 +5115,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61CqqYXcwhL._AC_SL500_.jpg",
-   "name_en": "Kenneth Cole Unlisted Men's Dress Shirt Regular Fit Solid"
+   "name_en": "Kenneth Cole Unlisted Men's Dress Shirt Regular Fit Solid",
+   "model": "32LG050"
   },
   {
    "id": "amazon:B0CTQPMLNH",
@@ -5048,7 +5143,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61lqM-USkGL._AC_SL500_.jpg",
-   "name_en": "QINSEN Women's V Neck Short Sleeve T Shirts Double Lined Tee Seamed Cup Going Out Tops"
+   "name_en": "QINSEN Women's V Neck Short Sleeve T Shirts Double Lined Tee Seamed Cup Going Out Tops",
+   "model": "SDCTS3888"
   },
   {
    "id": "amazon:B09YR9RMG7",
@@ -5075,7 +5171,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71EF7QMI0rL._AC_SL500_.jpg",
-   "name_en": "OLEVS Men's Watches Chronograph Multifunction Sport Silicone Luxury Diamond Moon Phase Quartz Male Watch"
+   "name_en": "OLEVS Men's Watches Chronograph Multifunction Sport Silicone Luxury Diamond Moon Phase Quartz Male Watch",
+   "model": "OPK-US-2875-BH"
   },
   {
    "id": "amazon:B017099XFG",
@@ -5102,7 +5199,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/811y9snWK9L._AC_SL500_.jpg",
-   "name_en": "Van Heusen mens Regular Fit Flex Collar Check Dress Shirt"
+   "name_en": "Van Heusen mens Regular Fit Flex Collar Check Dress Shirt",
+   "model": "20F6202"
   },
   {
    "id": "amazon:B0DKNWC8TK",
@@ -5129,7 +5227,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71Z4bqRajDL._AC_SL500_.jpg",
-   "name_en": "Lolalet Acrylic Sunglasses Organizer with Drawer, Clear Sunglass Eyeglass Eye Wear Display Organizer Storage"
+   "name_en": "Lolalet Acrylic Sunglasses Organizer with Drawer, Clear Sunglass Eyeglass Eye Wear Display Organizer Storage",
+   "model": "LL-08365960"
   },
   {
    "id": "amazon:B07NLDGHVD",
@@ -5183,7 +5282,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81lrh-k2QmL._AC_SL500_.jpg",
-   "name_en": "Crazy Forts, Purple, 69 Pieces"
+   "name_en": "Crazy Forts, Purple, 69 Pieces",
+   "model": "CF1"
   },
   {
    "id": "amazon:B08F3QCPQG",
@@ -5237,7 +5337,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51rBAygfP+L._AC_SL500_.jpg",
-   "name_en": "Mycey Enzyme and Support Pillow, Pack of 1"
+   "name_en": "Mycey Enzyme and Support Pillow, Pack of 1",
+   "model": "MCY21969"
   },
   {
    "id": "amazon:B0BYRHSJD6",
@@ -5318,7 +5419,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/41l0a5J8d6L._AC_SL500_.jpg",
-   "name_en": "ORAIMO PowerJet 130 27600mAh 130W Power Bank"
+   "name_en": "ORAIMO PowerJet 130 27600mAh 130W Power Bank",
+   "model": "OPB-727SQ"
   },
   {
    "id": "amazon:B0BQN1NZ8Z",
@@ -5372,7 +5474,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51c6p7hSufL._AC_SL500_.jpg",
-   "name_en": "Dora Vacuum Cleaner Drum (1800W, DVC1800VD, Black) 18 Liter"
+   "name_en": "Dora Vacuum Cleaner Drum (1800W, DVC1800VD, Black) 18 Liter",
+   "model": "DVC1800VD"
   },
   {
    "id": "amazon:B08KGCH64L",
@@ -5399,7 +5502,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/711PNiRZeZL._AC_SL500_.jpg",
-   "name_en": "Kenwood Blender Smoothie Maker 500W 1.5L With Grinder Mill, Chopper Mill, Ice Crush Function Blp15.360Bk Black"
+   "name_en": "Kenwood Blender Smoothie Maker 500W 1.5L With Grinder Mill, Chopper Mill, Ice Crush Function Blp15.360Bk Black",
+   "model": "BLP15.360BK"
   },
   {
    "id": "amazon:B0DXP6BKCV",
@@ -5426,7 +5530,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71lEelGBlQL._AC_SL500_.jpg",
-   "name_en": "LORELEI Dunes Hybrid ANC Headphones, QC30 Wireless Over Ear Earbuds, 60 Hours Playtime, Bluetooth, Deep Bass"
+   "name_en": "LORELEI Dunes Hybrid ANC Headphones, QC30 Wireless Over Ear Earbuds, 60 Hours Playtime, Bluetooth, Deep Bass",
+   "model": "QC30"
   },
   {
    "id": "amazon:B0899BNL32",
@@ -5506,7 +5611,8 @@
    "availNote": "أمازون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51DtBD1D1IL._AC_SL500_.jpg",
-   "name_en": "Angju Portable Electric Kettle for Travel, Travel Kettle Electric Small Stainless Steel"
+   "name_en": "Angju Portable Electric Kettle for Travel, Travel Kettle Electric Small Stainless Steel",
+   "model": "SF20251011B0BCKCS2RG"
   },
   {
    "id": "amazon:B096VXKBG6",
@@ -5587,7 +5693,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/91QsgQ4Iv-L._AC_SL500_.jpg",
-   "name_en": "Staheekum Waterproof Ankle Boot mens Chelsea Boot"
+   "name_en": "Staheekum Waterproof Ankle Boot mens Chelsea Boot",
+   "model": "90101825B"
   },
   {
    "id": "amazon:B0BSV878DY",
@@ -5641,7 +5748,8 @@
    "availNote": "أمازون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61MLwz-OOGL._AC_SL500_.jpg",
-   "name_en": "Van Heusen mens Dress Shirt Regular Fit Poplin Solid Dress Shirt (pack of 1)"
+   "name_en": "Van Heusen mens Dress Shirt Regular Fit Poplin Solid Dress Shirt (pack of 1)",
+   "model": "20F7797"
   },
   {
    "id": "amazon:B07NDVN92C",
@@ -5668,7 +5776,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71RCQHeEMqL._AC_SL500_.jpg",
-   "name_en": "Geepas gas burner"
+   "name_en": "Geepas gas burner",
+   "model": "GK6900"
   },
   {
    "id": "amazon:B0BVFF74VN",
@@ -5776,7 +5885,8 @@
    "firstSeen": "2026-11-23",
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/61miMlwXfqL._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/61miMlwXfqL._AC_SL500_.jpg",
+   "model": "CI5936"
   },
   {
    "id": "amazon:B09MFMZBFB",
@@ -5803,7 +5913,8 @@
    "firstSeen": "2026-11-23",
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
-   "img": "https://m.media-amazon.com/images/I/51o-+IxJE6L._AC_SL500_.jpg"
+   "img": "https://m.media-amazon.com/images/I/51o-+IxJE6L._AC_SL500_.jpg",
+   "model": "IT0992"
   },
   {
    "id": "amazon:B07MW4HRD3",
@@ -5884,7 +5995,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71mS3hzd-uL._AC_SL500_.jpg",
-   "name_en": "Gildan Adult Heavy Cotton T-Shirt, Style G5000, Multipack"
+   "name_en": "Gildan Adult Heavy Cotton T-Shirt, Style G5000, Multipack",
+   "model": "G5000"
   },
   {
    "id": "amazon:B08JL113PS",
@@ -5938,7 +6050,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/710rKt++4jL._AC_SL500_.jpg",
-   "name_en": "Dickies Men's Leather No-Scratch Mechanic Work Belt"
+   "name_en": "Dickies Men's Leather No-Scratch Mechanic Work Belt",
+   "model": "11DI02L4"
   },
   {
    "id": "amazon:B096FX3DJF",
@@ -6019,7 +6132,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51sz+1tbF+L._AC_SL500_.jpg",
-   "name_en": "Hanes Men's Size Tall Short-Sleeve Beefy T-Shirt (Pack of Two)"
+   "name_en": "Hanes Men's Size Tall Short-Sleeve Beefy T-Shirt (Pack of Two)",
+   "model": "O518T"
   },
   {
    "id": "amazon:B079LVS6XF",
@@ -6046,7 +6160,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71BK0LdNo6L._AC_SL500_.jpg",
-   "name_en": "Trust No One Hustle Savage Vibe Baseball Cap Dad Hat Adjustable Cotton Vintage"
+   "name_en": "Trust No One Hustle Savage Vibe Baseball Cap Dad Hat Adjustable Cotton Vintage",
+   "model": "KBVT-209 BLK-CAM"
   },
   {
    "id": "amazon:B09TR3G776",
@@ -6073,7 +6188,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51+1tOBhyAL._AC_SL500_.jpg",
-   "name_en": "Harpa Women GR6233 Dress"
+   "name_en": "Harpa Women GR6233 Dress",
+   "model": "GR6233"
   },
   {
    "id": "amazon:B09MRMJCSG",
@@ -6100,7 +6216,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61bODVbvw9L._AC_SL500_.jpg",
-   "name_en": "MEETSUN Polarized Sunglasses for Women Men Trendy Classic Retro Designer Style"
+   "name_en": "MEETSUN Polarized Sunglasses for Women Men Trendy Classic Retro Designer Style",
+   "model": "3332-C16"
   },
   {
    "id": "amazon:B0767TLQPB",
@@ -6127,7 +6244,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81M26LTs6jL._AC_SL500_.jpg",
-   "name_en": "Gildan womens Heavy Cotton V-neck T-shirt, 2-pack T-Shirt (pack of 2)"
+   "name_en": "Gildan womens Heavy Cotton V-neck T-shirt, 2-pack T-Shirt (pack of 2)",
+   "model": "5V00L"
   },
   {
    "id": "amazon:B09HP22Q41",
@@ -6154,7 +6272,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61aaXMlDllL._AC_SL500_.jpg",
-   "name_en": "Zaveri Pearls Gold Tone Set Of 25 Stunning Stackable Finger Rings-ZPFK10581"
+   "name_en": "Zaveri Pearls Gold Tone Set Of 25 Stunning Stackable Finger Rings-ZPFK10581",
+   "model": "ZPFK10581"
   },
   {
    "id": "amazon:B085N3N3BY",
@@ -6208,7 +6327,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61x-7oYoEYL._AC_SL500_.jpg",
-   "name_en": "VOBOOM mens Newsboy Beret (pack of 1)"
+   "name_en": "VOBOOM mens Newsboy Beret (pack of 1)",
+   "model": "BDMZ124-Whit"
   },
   {
    "id": "amazon:B07ZKHDRVY",
@@ -6235,7 +6355,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/811PSq8ToyL._AC_SL500_.jpg",
-   "name_en": "Purses and Handbags for Women Shoulder Tote Bags Top Handle Satchel"
+   "name_en": "Purses and Handbags for Women Shoulder Tote Bags Top Handle Satchel",
+   "model": "XMQB882-Black"
   },
   {
    "id": "amazon:B0B1JGPSNJ",
@@ -6262,7 +6383,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71nXd36F25L._AC_SL500_.jpg",
-   "name_en": "Zaveri Pearls Rose Gold Kundan & Dazzling Austrian Diamonds Embellished Jhumki Drops Earring For"
+   "name_en": "Zaveri Pearls Rose Gold Kundan & Dazzling Austrian Diamonds Embellished Jhumki Drops Earring For",
+   "model": "ZPFK13786"
   },
   {
    "id": "amazon:B01N6XFSFO",
@@ -6316,7 +6438,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81J-q8omdkL._AC_SL500_.jpg",
-   "name_en": "Tatuo 4 Pack Safe Belt Pads for Car Seatbelt Protector Soft Comfort Safe Belt Shoulder Strap Covers Harness"
+   "name_en": "Tatuo 4 Pack Safe Belt Pads for Car Seatbelt Protector Soft Comfort Safe Belt Shoulder Strap Covers Harness",
+   "model": "Tatuo-Seatbelt-01"
   },
   {
    "id": "amazon:B09G6R1MQ2",
@@ -6424,7 +6547,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/91wgdLWJc2L._AC_SL500_.jpg",
-   "name_en": "Dickies Men's Dri-Tech Essential Moisture Control Crew Socks, Available in M-XXL (6, 12 Pairs)"
+   "name_en": "Dickies Men's Dri-Tech Essential Moisture Control Crew Socks, Available in M-XXL (6, 12 Pairs)",
+   "model": "I611023"
   },
   {
    "id": "amazon:B01M0242QA",
@@ -6451,7 +6575,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61pZb0oKmLL._AC_SL500_.jpg",
-   "name_en": "Gildan Adult Fleece Open Bottom Sweatpants with Pockets, Style G18300"
+   "name_en": "Gildan Adult Fleece Open Bottom Sweatpants with Pockets, Style G18300",
+   "model": "G18300"
   },
   {
    "id": "amazon:B00LGRXL8O",
@@ -6478,7 +6603,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61JonOoPX9L._AC_SL500_.jpg",
-   "name_en": "Southpole Mens 1570 Basic Active Fleece Jogger Sweatpants"
+   "name_en": "Southpole Mens 1570 Basic Active Fleece Jogger Sweatpants",
+   "model": "9001-1570S"
   },
   {
    "id": "amazon:B07GV4295J",
@@ -6505,7 +6631,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81MR-T8tXCL._AC_SL500_.jpg",
-   "name_en": "Sweat Shaper mens Sweat Shaper Base Layer Top (pack of 1)"
+   "name_en": "Sweat Shaper mens Sweat Shaper Base Layer Top (pack of 1)",
+   "model": "SSLXM-MC6"
   },
   {
    "id": "amazon:B072MNSFZM",
@@ -6586,7 +6713,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/81Erm84ShfL._AC_SL500_.jpg",
-   "name_en": "12 Pcs Baby Shower Party Favors Candles Lavender Scented Baby Shower Favors for Guests Bear Floral Rustic Tea"
+   "name_en": "12 Pcs Baby Shower Party Favors Candles Lavender Scented Baby Shower Favors for Guests Bear Floral Rustic Tea",
+   "model": "WCE-Funtery-1127"
   },
   {
    "id": "amazon:B078X5H8H7",
@@ -6613,7 +6741,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/61qGZBZBDPL._AC_SL500_.jpg",
-   "name_en": "DSD TECH SH-U10 USB to RS485 Converter with CP2102 Chip Compatible with Windows 7, 8, 10, linux, Mac OS"
+   "name_en": "DSD TECH SH-U10 USB to RS485 Converter with CP2102 Chip Compatible with Windows 7, 8, 10, linux, Mac OS",
+   "model": "SH-U10"
   },
   {
    "id": "amazon:B0BN1GTTP2",
@@ -6667,7 +6796,8 @@
    "availNote": "أمازون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51pYNMLacvL._AC_SL500_.jpg",
-   "name_en": "OHill 16-Pack White Cable Clips Holders, Self-Adhesive Desk Cable Management Cord Organizer, 12cm"
+   "name_en": "OHill 16-Pack White Cable Clips Holders, Self-Adhesive Desk Cable Management Cord Organizer, 12cm",
+   "model": "OH-CBC-16"
   },
   {
    "id": "amazon:B09133CRJ3",
@@ -6721,7 +6851,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51Jn935B8rL._AC_SL500_.jpg",
-   "name_en": "TWS Wireless Bluetooth 5.0 Sports Headset with Microphone and Charging Box -I9S"
+   "name_en": "TWS Wireless Bluetooth 5.0 Sports Headset with Microphone and Charging Box -I9S",
+   "model": "TWS-I9S"
   },
   {
    "id": "amazon:B0C2CN27V4",
@@ -6802,7 +6933,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71FjPEQ3LwL._AC_SL500_.jpg",
-   "name_en": "Open Ear Clip Headphones Wireless Earbuds Bluetooth 5.4 Sports Earphones with Wireless LED Touch Screen"
+   "name_en": "Open Ear Clip Headphones Wireless Earbuds Bluetooth 5.4 Sports Earphones with Wireless LED Touch Screen",
+   "model": "M100"
   },
   {
    "id": "amazon:B00QF5QBW0",
@@ -6829,7 +6961,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71pI7aZdlLL._AC_SL500_.jpg",
-   "name_en": "Lewis N. Clark RFID Hidden Clip Stash Money Belt Travel Pouch + Credit Card/Id Holder for Women & Men"
+   "name_en": "Lewis N. Clark RFID Hidden Clip Stash Money Belt Travel Pouch + Credit Card/Id Holder for Women & Men",
+   "model": "1234BLK"
   },
   {
    "id": "amazon:B0BHZ9RYZ6",
@@ -6937,7 +7070,8 @@
    "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/617sxR-m5NL._AC_SL500_.jpg",
-   "name_en": "Liquid Blue unisex-adult Pink Floyd Stairway to the Moon T-shirt T-Shirt (pack of 1)"
+   "name_en": "Liquid Blue unisex-adult Pink Floyd Stairway to the Moon T-shirt T-Shirt (pack of 1)",
+   "model": "31981-1-XL"
   },
   {
    "id": "amazon:B0C2JP8NJR",
@@ -6964,7 +7098,8 @@
    "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/613RYy8DsLL._AC_SL500_.jpg",
-   "name_en": "ROXUN Unisex Adult Rx-bx Arm Sleeves (pack of 4)"
+   "name_en": "ROXUN Unisex Adult Rx-bx Arm Sleeves (pack of 4)",
+   "model": "RX-BX05"
   },
   {
    "id": "amazon:B077TZC61M",
@@ -6991,7 +7126,8 @@
    },
    "img": "https://m.media-amazon.com/images/I/81hRVOeRCTL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "212788-CHA-8P"
   },
   {
    "id": "amazon:B07V5RCB4F",
@@ -7018,7 +7154,8 @@
    },
    "img": "https://m.media-amazon.com/images/I/511MqVx4QCL._AC_SL1200_.jpg",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "PROC01M1"
   },
   {
    "id": "amazon:B09KMJPL29",
@@ -7026,7 +7163,7 @@
    "cat": "أزياء",
    "name": "كولومبيا شنطة باسن تريل III بسحاب كامل للنساء من باسن تريل III (عبوة من قطعة واحدة)",
    "name_en": "Columbia Womens Basin Trail™ III Full Zip Basin Trail III Full Zip (pack of 1)",
-   "price": 109,
+   "price": 184,
    "was": null,
    "ref": 270.18,
    "refKind": "history",
@@ -7126,7 +7263,8 @@
    },
    "img": "https://m.media-amazon.com/images/I/61G-tqYesCL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "356SD700"
   },
   {
    "id": "amazon:B07NDMJ2JY",
@@ -7180,7 +7318,8 @@
    },
    "img": "https://m.media-amazon.com/images/I/71F600S6S+L._AC_SL1500_.jpg",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "XLR-9"
   },
   {
    "id": "amazon:B0CR6M7BJJ",
@@ -7207,7 +7346,8 @@
    },
    "img": "https://m.media-amazon.com/images/I/41UyAZw2NmL._AC_SL1500_.jpg",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "model": "BusoThgu3im2cykz-13"
   }
  ]
 }
