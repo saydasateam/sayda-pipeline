@@ -119,8 +119,8 @@
       ],
       "_doc": "node scripts/rotation.js prints which market store and which no-record store this run works on. Market: one per slot (08:21 saco, 12:21 jarir, 16:21 almanea, 20:21 blackbox). No-record stores: one per run in turn, branded items only, checked against Amazon/noon through rules/match.js with size and capacity."
     },
-    "stopDiscoveryAtMinute": 40,
-    "toolCallBudget": 150,
-    "_budget": "Runs took about 15 of 55 minutes on 21-22 Nov. Discovery stops at minute 40 so the check and the publish always fit. Watch plan usage: the usage limit stopped a refresh on 20 Nov 21:45."
+    "stopDiscoveryAtMinute": 50,
+    "toolCallBudget": 250,
+    "_budget": "Raised 24 Nov 2026 (Mahmoud: the limit came from the laptop, the server does not need it): 150 calls and minute 40 became 250 calls and minute 50. The 08:21 run that day used about 115 calls in 35 minutes and still skipped Amazon discovery, the market-store collect and the untracked path, because 45 of 150 calls are held back for the fixed steps. Minute 50 keeps a run inside 65 minutes, so it ends before the next landing window opens (slot + 69 min). What still limits a run is plan usage: the usage limit stopped a refresh on 20 Nov 21:45; if that happens again, lower toolCallBudget first."
   }
 }
