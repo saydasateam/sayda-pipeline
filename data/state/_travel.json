@@ -17,25 +17,29 @@
    "company": "طيران الرياض",
    "type": "طيران",
    "company_en": "Riyadh Air",
-   "type_en": "Airline"
+   "type_en": "Airline",
+   "checked": "2026-11-24"
   },
   {
    "company": "المسافر",
    "type": "منصة سفر",
    "company_en": "Almosafer",
-   "type_en": "Travel platform"
+   "type_en": "Travel platform",
+   "checked": "2026-11-24"
   },
   {
    "company": "المطار",
    "type": "منصة سفر",
    "company_en": "Almatar",
-   "type_en": "Travel platform"
+   "type_en": "Travel platform",
+   "checked": "2026-11-24"
   },
   {
    "company": "فلاي إن",
    "type": "منصة سفر",
    "company_en": "Flyin",
-   "type_en": "Travel platform"
+   "type_en": "Travel platform",
+   "checked": "2026-11-24"
   }
  ],
  "travelNone_text": "فحصنا هذه المواقع في ٢١ نوفمبر: عروضها الحالية أسعار عادية أو أكواد شتوية لا تربطها بالجمعة البيضاء. موقع طيران أديل لم يُفتح وقت الفحص، فلم نُدرجه.",
@@ -45,8 +49,8 @@
   "https://www.saudia.com/ar-SA/offers": "2026-11-24",
   "https://www.flynas.com/ar": "2026-11-24",
   "https://www.flyadeal.com/ar": "2026-11-24",
-  "https://www.almosafer.com/ar/offers": "2026-11-23",
-  "https://almatar.com/ar/sa/offers/": "2026-11-23",
-  "https://www.flyin.com/ar/offers": "2026-11-23"
+  "https://www.almosafer.com/ar/offers": "2026-11-24",
+  "https://almatar.com/ar/sa/offers/": "2026-11-24",
+  "https://www.flyin.com/ar/offers": "2026-11-24"
  }
 }

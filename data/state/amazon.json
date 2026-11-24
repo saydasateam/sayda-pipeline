@@ -1,7 +1,7 @@
 {
  "store": "amazon",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T02:57:55.273+03:00",
+ "checkedAt": "2026-11-24T08:36:43.951+03:00",
  "rows": [
   {
    "id": "amazon:B09M7B4BQZ",
@@ -1223,7 +1223,7 @@
    "store": "amazon",
    "cat": "أزياء",
    "name": "تومي هيلفيغر سوار رجالي ستانلس ستيل",
-   "price": 276,
+   "price": 296,
    "was": 657.14,
    "ref": 657.49,
    "refKind": "history",
@@ -4245,14 +4245,14 @@
    "store": "amazon",
    "name": "بساط تدريب من اديداس، سميك مع حزام حمل وقاعدة منسوجة غير قابلة للانزلاق",
    "name_en": "adidas 10mm Extra Thick Training Mat with Carrying Strap and Non-Slip Textured Base - Cushioned Workout Mat for Home Gym, Floor Workouts, and Intense Exercises - Portable and Durable - Grey",
-   "price": 143,
+   "price": 150,
    "was": 215.04,
    "ref": 215,
    "refKind": "history",
    "verdict": "warn",
    "finding": "كان ٢١٥ · سبق ونزل ١١١",
    "url": "https://www.amazon.sa/-/ar/dp/B0042TZ5ZA",
-   "avail": "oos",
+   "avail": "in",
    "ev": {
     "prev": 215,
     "min": 111,
@@ -4263,7 +4263,7 @@
    },
    "cat": "رياضة",
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71pMJ+XS5zL._AC_SL500_.jpg"
   },
@@ -5557,7 +5557,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-B07BRYFQTX"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "أمازون: عاد السعر إلى ٣٩٥ — انتهى العرض",
+   "availNote": "أمازون: عاد السعر إلى ٢٧١ — انتهى العرض",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/71zWRFbAuwL._AC_SL500_.jpg",
    "name_en": "Anne Klein Tara wedge Pump womens Pump"
@@ -5784,14 +5784,14 @@
    "cat": "أزياء",
    "name": "معطف ماكسي واقٍ من المطر كامل الطول بتصميم رفيع وصف أزرار مزدوج للنساء من ايبوسي",
    "name_en": "ebossy Women Women Duster Trench Dress Coat Long Sleeve Casual Slim Maxi Long Coat Windbreakers (pack of 1)",
-   "price": 200,
+   "price": 265,
    "was": 496.25,
    "ref": 495.77,
    "refKind": "history",
-   "verdict": "ok",
+   "verdict": "warn",
    "finding": "كان ٤٩٦ · سبق ونزل ٢٠٠",
    "url": "https://www.amazon.sa/-/ar/dp/B09MFMZBFB",
-   "avail": "in",
+   "avail": "low",
    "ev": {
     "prev": 495.77,
     "min": 199.99,
@@ -5801,7 +5801,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-B09MFMZBFB"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "",
+   "availNote": "أمازون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://m.media-amazon.com/images/I/51o-+IxJE6L._AC_SL500_.jpg"
   },

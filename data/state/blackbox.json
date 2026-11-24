@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T02:57:55.273+03:00",
+ "checkedAt": "2026-11-24T08:31:16.067+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -76,8 +76,8 @@
    "avail": "low",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_83inch_oled_tv_smart_4k_ai_upscaling_dolby_atmos_120hz_-_qa83s85faexsa.1.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
-   "lastChecked": "2026-11-23"
+   "availNote": "بلاك بوكس: متبقي 2",
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-qled-85-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824170501",
@@ -187,8 +187,8 @@
    "avail": "in",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_oled_55_inches_tv_smart_4k_ai_upscaling_glare_free_g-sync_165hz_-_qa55s90hauxsa.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
-   "lastChecked": "2026-11-23"
+   "availNote": "",
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-qled-75-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824160501",

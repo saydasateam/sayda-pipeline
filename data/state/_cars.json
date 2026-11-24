@@ -52,7 +52,7 @@
    "verdict": "catch",
    "terms": "إيجار تمويلي للأفراد من مصرف الراجحي: دفعة أولى 0%، رسوم إدارية 0.5%، ودفعة أخيرة 50%؛ مدة 5 سنوات (وفيها خيارا 3 سنوات وسنتين)؛ الجدول يذكر معدل نسبة سنوي من 4.78% (لاندكروزر) إلى 7.65% (إينوفا)، بينما تذكر الشروط 14.63% ليارس و14.25% لرايز تقريباً؛ الأقساط تشمل الضريبة ولا تشمل التأمين؛ تقول الصفحة إن الحملة سارية حتى «31 نوفمبر» 2026",
    "url": "https://www.toyota.com.sa/ar/offers/alrajhicampaign",
-   "checked": "2026-11-23",
+   "checked": "2026-11-24",
    "company_en": "Al Rajhi Bank (Toyota)",
    "type_en": "Bank lease",
    "brand_en": "Toyota",
@@ -133,7 +133,7 @@
    "type": "وكيل",
    "company_en": "Alesayi (Mitsubishi)",
    "type_en": "Dealer",
-   "checked": "2026-11-23"
+   "checked": "2026-11-24"
   },
   {
    "company": "مصرف الراجحي",
@@ -144,12 +144,12 @@
  ],
  "scanned": {
   "toyota-aljf": "2026-11-24",
-  "toyota-alrajhi": "2026-11-23",
-  "hyundai-almajdouie": "2026-11-23",
+  "toyota-alrajhi": "2026-11-24",
+  "hyundai-almajdouie": "2026-11-24",
   "syarah": "2026-11-24",
-  "ford-aljazirah": "2026-11-23",
+  "ford-aljazirah": "2026-11-24",
   "geely-wallan": "2026-11-23",
   "nissan-petromin": "2026-11-23",
-  "mitsubishi-alesayi": "2026-11-23"
+  "mitsubishi-alesayi": "2026-11-24"
  }
 }
