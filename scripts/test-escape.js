@@ -56,7 +56,7 @@ const W = (rel, v) => { const p = path.join(TMP, rel); fs.mkdirSync(path.dirname
 // the hostile build runs with measurement off: with a container id, Google's head snippet is a second script block by design
 W('config/site.json', { gtmId: '' });
 // (BLD-15) every category with a row gets its card, whatever the threshold on main is
-{ const r = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), 'utf8')); r.page.categoryCardMinRows = 1; W('config/rules.json', r); }
+{ const r = JSON.parse(fs.readFileSync(path.join(ROOT, 'config/rules.json'), 'utf8')); r.page.stripItems = 8; W('config/rules.json', r); }
 
 const M = 'SAYDAXSS';                                   // every hostile value carries this marker
 const img = n => `<img src=x onerror=${M}(${n})>`;
@@ -75,7 +75,7 @@ const rows = [
     lastChecked: `"><img src=x onerror=${M}(9)>` }),
   base('t-price', { price: img(10), was: img(17), ref: 470 }),
   base('t-img', { img: `javascript:${M}(14)` }),
-  // (BLD-15) two more confirmed rows, so the ticker strip is drawn (it needs four) and the category card has a second picture:
+  // (BLD-15, BLD-50) two more confirmed rows, so the strongest-deals strip has five tiles and a second picture:
   // a hostile name in both languages, a hostile row id, a picture address that tries to break out of its attribute
   base('t-tick', { name: img(110), name_en: img(111), price: 200, ref: 470, img: 'https://images.example.com/b.jpg?w=400&h=400' }),
   base('t-tick2', { id: `${plain.id}:t-tick2"><img src=x onerror=${M}(112)>`, name: `"><script>${M}(113)</script>`, name_en: `' onfocus='${M}(114)`, price: 250, ref: 470, img: `https://images.example.com/c.jpg"onerror="${M}(115)` }),
@@ -207,13 +207,14 @@ for (const [file, lang, nameMark] of [['dist/index.html', 'arabic', `&lt;img src
   ok(`${lang}: the subscription offers held back are not in the file, and the one with no English is on the Arabic page only`, !html.includes('bad link sub') && !html.includes('no end sub') && html.includes('arabic only sub') === (lang === 'arabic'));
   ok(`${lang}: the subscriptions panel and section are shown`, stat.includes('<nav class="panels p4"') && /<a class="panel" href="#subs">/.test(stat) && (lang === 'arabic' ? /<section class="travel" id="subs" aria-labelledby="sb-h">/.test(stat) : true));
   ok(`${lang}: the hostile rows that should be on the page are in the file`, ['t-clean', 't-name', 't-attrs', 't-price', 't-img', 't-market', 't-tick', 't-tick2'].every(k => html.includes(k)));
-  // (BLD-15) the ticker strip, the category card and the header inside a category are static HTML written by build.js
-  ok(`${lang}: the ticker strip, a category card and a category header are in the static HTML`, stat.includes('class="tick"') && /<button type="button" class="kcard big kc\d+"/.test(stat) && /<div class="khead kc\d+"/.test(stat));
-  ok(`${lang}: the ticker carries the hostile product name as text, twice (the strip and its hidden copy)`, stat.split(`<span class="tn">${escHtml(lang === 'arabic' ? img(110) : img(111))}</span>`).length - 1 === 2);
-  ok(`${lang}: the hostile row id is an escaped attribute value on its ticker item`, stat.includes(`data-d="${escHtml(`${plain.id}:t-tick2"><img src=x onerror=${M}(112)>`)}"`));
-  ok(`${lang}: the category card shows the store pictures with the hostile name as escaped alt text`, stat.includes(`<img src="https://images.example.com/b.jpg?w=400&amp;h=400" alt="${escHtml(lang === 'arabic' ? img(110) : img(111))}"`));
-  ok(`${lang}: a picture address that is not a clean https address is on no category card`, !stat.includes("images.example.com/c.jpg") && (stat.match(/<span class="kim /g) || []).length === 2, (stat.match(/<span class="kim /g) || []).length);
-  ok(`${lang}: the ticker holds only confirmed rows (not the warn row, not the row whose verdict or price is not ours)`, (stat.match(/class="ti"/g) || []).length === 10 && !/class="ti" data-d="[^"]*t-(name|attrs|price)"/.test(stat), (stat.match(/class="ti"/g) || []).length);
+  // (BLD-50) the strongest-deals strip and the header inside a category are static HTML written by build.js
+  ok(`${lang}: the strongest-deals strip and a category header are in the static HTML, and no ticker or category card`, stat.includes('class="topdeals"') && /<div class="khead kc\d+"/.test(stat) && !stat.includes('class="tick"') && !stat.includes('class="kcard'));
+  ok(`${lang}: the strip carries the hostile product name as text, once`, stat.split(`<span class="sname">${escHtml(lang === 'arabic' ? img(110) : img(111))}</span>`).length - 1 === 1);
+  ok(`${lang}: the hostile row id is an escaped attribute value on its strip tile`, stat.includes(`data-d="${escHtml(`${plain.id}:t-tick2"><img src=x onerror=${M}(112)>`)}"`));
+  ok(`${lang}: the strip shows the store's own picture with an empty alt (the name is printed beside it)`, stat.includes(`<img src="https://images.example.com/b.jpg?w=400&amp;h=400" alt=""`));
+  ok(`${lang}: a picture address that is not a clean https address is on no strip tile`, !stat.includes("images.example.com/c.jpg") && (stat.match(/<img src="https:\/\/images\.example\.com\//g) || []).length === 3, (stat.match(/<img src="https:\/\/images\.example\.com\//g) || []).length);
+  ok(`${lang}: the strip holds only confirmed rows (not the warn row, not the row whose verdict or price is not ours)`, (stat.match(/class="stile"/g) || []).length === 5 && !/class="stile" data-d="[^"]*t-(name|attrs|price)"/.test(stat), (stat.match(/class="stile"/g) || []).length);
+  ok(`${lang}: the strip's badge is our measured discount, never the store's claim (301 against 470 is 36%, the store claims 61%)`, /class="sbadge">[^<]*(36|٣٦)[%٪]/.test(stat) && !/class="sbadge">[^<]*(61|٦١)[%٪]/.test(stat));
   ok(`${lang}: static HTML holds no tag, attribute, handler or link made from outside text`, faults(stat, staticLink, true).length === 0, faults(stat, staticLink, true).join(' | '));
   ok(`${lang}: no data line in the script holds a raw < beside the marker`, !script.split('\n').some(l => l.includes(M) && l.includes('<')));
   ok(`${lang}: no {{…}} left for a later fill`, !/{{[A-Z_]+}}/.test(html));
