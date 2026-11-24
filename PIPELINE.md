@@ -72,14 +72,21 @@ the hero is an indigo-to-teal mesh gradient with a glass status pill, a glass co
 (Mahmoud gave the colours on 23 Nov; styles in `template/index.html`), and each category has a tint and
 an accent (`config/categories.json`). Green is still only `--ok`: verified, and lowest recorded. `build.js` writes four parts as
 static HTML, in both languages by the same code, from the rows of that build:
-- the **ticker strip** at the bottom of the hero, each deal in a glass pill: the first `rules.page.tickerItems` confirmed, available rows in the page's best-value
-  order, with the last check time. CSS only; it stops under the pointer, on touch, on keyboard focus and under reduced motion;
-- the **category cards**: one for every category with at least `rules.page.categoryCardMinRows` available rows, the three
-  largest with the stores' own pictures of their top confirmed rows. The number is the highest discount we measured on a
-  confirmed row; a category with none says so in words. No timers and no rotation;
-- the **header inside a category**, shown when exactly one category is selected, and the **wallet** directly under it.
+- (BLD-50, 24 Nov 2026, Mahmoud's «1B, 2B, 3A, 4A, 5A, 6A») the **banner line**: how many offers in stock this build holds and
+  how many advertised «قبل» prices sit more than 5% above the recorded previous price (history-referenced rows); zero prints
+  no claim;
+- the **strongest-deals strip** under the banner («أقوى صيدات اليوم» / «Today's strongest deals»): the first
+  `rules.page.stripItems` confirmed, available rows in the page's best-value order, each a tile with the store's own picture,
+  our measured discount, the price, the reference named for what it is («كان» or the other store) and the store. A tap opens
+  the page on that card. It replaced the ticker and the category cards (6A);
+- the **header inside a category**, shown when exactly one category is selected. My Wallet is gone (2B); a store's card offers
+  show as one small tag on its cards, read from the coupons the run tagged with config/wallet.json ids.
+The page draws 30 cards a load and 30 more on «عرض المزيد» / «Show more»; search and filters cover every row. The page order
+may lift known brands and season staples (`rules.page.brandBoost`: a factor on a positive value score, so it never moves a
+row across tiers; `on: false` turns it off; build.js prints an `order:` line). Page order only: verdicts, references and what
+may be published do not change.
 `valRow`, `tierRow` and `diversifyRows` in `build.js` mirror `VAL`, `TIER` and `diversify` in the two templates: change one,
-change all three. The build stops when a template lacks one of these parts or a category colour reads below 4.5 to 1.
+change all three. The build stops when a template lacks one of these parts, still carries My Wallet, the ticker or the category cards, or a category colour reads below 4.5 to 1.
 
 **3. Furniture wording follows the enabled stores.** The furniture note, the two methodology items
 and the «أشلي مقابل ميداس» clause render only while those stores are enabled. A category chip with

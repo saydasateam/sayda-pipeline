@@ -151,6 +151,22 @@ const AR_EN = new Set(Object.keys(namesCfg.arShowsStoreEnglish || {}).filter(k =
 const arName = r => (AR_EN.has(r.id) && String(r.name_en || '').trim()) ? r.name_en : pubText(r.name);
 if (AR_EN.size) { const on = st.rows.filter(r => AR_EN.has(r.id) && String(r.name_en || '').trim()).map(r => r.id); console.log(`names: ${on.length} of ${AR_EN.size} listed rows show the store's English title on the Arabic page${on.length ? ' (' + on.join(', ') + ')' : ''}`); }
 const RK = { history: 'h', market: 'm' }, BK = { cheaper: 'c', rose: 'r', nosaving: 'n' };
+// ---- page order for appeal (BLD-50, Mahmoud 24 Nov 2026) ----
+// config/rules.json → page.brandBoost lifts rows of known brands and White Friday staples INSIDE the best-value order: a row
+// whose store English title (name_en) names one of `brands` or `staples` as a whole word in its first six words has its value score multiplied by
+// `factor`. Page order only. It never touches a verdict, a reference, what may be published or the tiers of lib/value.js
+// (a lift applies to a positive score only, so an unverified or unavailable row can never rise above a verified one), and
+// the two-in-a-row rule still applies after it. `on: false` turns it off and the page orders exactly as before.
+const BOOST = (() => {
+  const b = (rules.page || {}).brandBoost; if (!b || b.on !== true) return null;
+  const f = Number(b.factor), words = [...(b.brands || []), ...(b.staples || [])].map(w => String(w).toLowerCase().trim()).filter(Boolean);
+  if (!(f > 1 && f <= 3) || !words.length) throw new Error('build: config/rules.json page.brandBoost needs a factor above 1 and at most 3, and at least one brand or staple');
+  const rx = w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ +/g, '[\\s-]+');
+  return { f, re: new RegExp('(?:^|[^a-z0-9])(?:' + words.map(rx).join('|') + ')(?=$|[^a-z0-9])', 'i') };
+})();
+// Only the first six words of the title count: a title starts with the brand and the product type, so «Sound bar for smart TV»
+// or «case for iPhone» further along does not lift an accessory.
+const boostOf = r => (BOOST && BOOST.re.test(String(r.name_en || '').split(/\s+/).slice(0, 6).join(' '))) ? BOOST.f : 1;
 // Which store a cross-store reference came from, for «نفس الموديل لدى …» on the card. Read from the
 // row's refStore if the pipeline wrote one, else from the host of its refUrl. Never guessed: with
 // neither, the card says «في متجر آخر» and the finding carries the name.
@@ -187,6 +203,7 @@ const D = st.rows.map(r => {
   // hotlink with no referrer; a card without one falls back to a neutral tile.
   if (cleanHttps(r.img)) x.im = r.img;
   if (r.id) x.id = r.id;   // for the share link (?d=<id>) that opens the page on this card
+  if (boostOf(r) > 1) x.bo = boostOf(r);   // BLD-50: page order only (rules.page.brandBoost)
   // q = the finding is the plain default («كان X», optionally «أقل سعر مسجل»): the card's strip already
   // says it, so the card does not repeat it. Anything else (a caveat, a condition) is always printed.
   if (r.verdict === 'ok' && r.refKind === 'history' && /^كان\s*[\d٠-٩٬,.]+(\s*·\s*أقل سعر مسجل)?$/.test(String(r.finding || '').trim())) x.q = 1;
@@ -366,13 +383,13 @@ const panelsEn = `<nav class="panels${subsEn.length ? ' p4' : ''}" aria-label="$
 //     The percentage on a card is the highest of those, never a store's claim; a category with none prints words instead.
 //   · the order is the page's own «best value» order: valRow, tierRow and diversifyRows mirror VAL, TIER and diversify in
 //     both templates. Change one and change the others; the Playwright proof compares the ticker with the page's first cards.
-const KAT_MIN = (rules.page || {}).categoryCardMinRows ?? 8, TICK_N = (rules.page || {}).tickerItems ?? 12;
+const STRIP_N = (rules.page || {}).stripItems ?? 8;
 const deadRow = r => ['oos', 'ended', 'gone'].includes(r.avail);
 const realPct = r => (r.ref && Number.isFinite(r.price)) ? Math.round(100 * (1 - r.price / r.ref)) : null;
 const lowRow = r => r.refKind !== 'market' && r.ev && r.ev.min != null && r.price <= r.ev.min * 1.01;
 // BLD-26: the score itself is lib/value.js, the same source text the two pages carry ({{VALUE_JS}}); only the mapping from a row is here.
 const { SRC: VALUE_SRC, VALUE } = require('./lib/value.js');
-const valX = r => ({ real: realPct(r), ok: r.verdict === 'ok', bad: r.verdict === 'bad', ref: r.ref, price: r.price, claim: Math.round(100 * (1 - r.price / (r.was ?? null))) || 0, low: lowRow(r), dead: deadRow(r) });
+const valX = r => ({ real: realPct(r), ok: r.verdict === 'ok', bad: r.verdict === 'bad', ref: r.ref, price: r.price, claim: Math.round(100 * (1 - r.price / (r.was ?? null))) || 0, low: lowRow(r), dead: deadRow(r), boost: boostOf(r) });
 const valRow = r => VALUE.val(valX(r));
 const tierRow = r => VALUE.tier(valX(r));
 const diversifyRows = l => { const out = [], pool = l.slice(); while (pool.length) { let i = 0; const n = out.length;
@@ -380,7 +397,10 @@ const diversifyRows = l => { const out = [], pool = l.slice(); while (pool.lengt
   out.push(pool.splice(i, 1)[0]); } return out; };
 const confirmedRow = r => r.verdict === 'ok' && !deadRow(r) && realPct(r) > 0;
 const valueOrder = diversifyRows(st.rows.filter(r => !deadRow(r)).sort((a, b) => valRow(b) - valRow(a)));
-const tickRows = valueOrder.filter(r => confirmedRow(r) && r.id).slice(0, TICK_N);
+// BLD-50: «أقوى صيدات اليوم» / «Today's strongest deals», the first rules.page.stripItems confirmed rows of the page's own order
+const stripRows = valueOrder.filter(r => confirmedRow(r) && r.id).slice(0, STRIP_N), confN = st.rows.filter(confirmedRow).length;
+{ const av = st.rows.filter(r => !deadRow(r)), lifted = av.filter(r => boostOf(r) > 1).length;
+  console.log(BOOST ? `order: brand boost on (×${BOOST.f}), ${lifted} of ${av.length} available rows lifted inside the best-value order · first tiles: ${stripRows.slice(0, 4).map(r => r.id).join(', ')}` : 'order: brand boost off (rules.page.brandBoost), best value only'); }
 const katIdx = Object.fromEntries(cats.map((c, i) => [c.id, i]));
 const katStats = liveCats.map(c => {
   const inCat = st.rows.filter(r => r.cat === c.id && !deadRow(r)), conf = inCat.filter(confirmedRow);
@@ -388,8 +408,6 @@ const katStats = liveCats.map(c => {
   return { c, k: katIdx[c.id], n: inCat.length, ok: inCat.filter(r => r.verdict === 'ok').length, max: conf.length ? Math.max(...conf.map(realPct)) : null,
     allNa: inCat.every(r => r.ref == null), top: conf.slice().sort((a, b) => valRow(b) - valRow(a)), stores: Object.entries(by).sort((a, b) => b[1] - a[1]) };
 });
-const katCards = katStats.filter(s => s.n >= KAT_MIN);
-const katBig = katCards.slice().sort((a, b) => b.n - a.n).slice(0, 3), katSmall = katCards.filter(s => !katBig.includes(s));
 // Colours: each chip's tint and accent from config/categories.json, with a dark-scheme pair derived here.
 // The accent must read at 4.5 to 1 or better on its tint in both schemes, or the build stops and names the pair.
 const hex3 = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
@@ -426,61 +444,45 @@ const katParts = lang => {
   // The cards of demo A, «Blue and gold, soft tints» (Mahmoud, 23 Nov 2026: «the cards that you showed me in A»), made
   // static as he decided on 22 Nov: no rotating line and no timers. Where the demo had drawings and three deals taking turns,
   // a card shows the stores' own pictures of its top confirmed rows and its top confirmed deal, fixed.
-  const arDeals = n => n === 1 ? 'عرض واحد' : n === 2 ? 'عرضان' : n <= 10 ? `${num(n)} عروض` : `${num(n)} عرضاً`;
   const arConf = n => n === 1 ? 'خصم مؤكّد واحد' : n === 2 ? 'خصمان مؤكّدان' : n <= 10 ? `${num(n)} خصومات مؤكّدة` : `${num(n)} خصماً مؤكّداً`;
-  const dealsL = n => ar ? arDeals(n) : `${num(n)} ${n === 1 ? 'deal' : 'deals'}`;
-  const confL = n => ar ? arConf(n) : `${num(n)} confirmed`;
-  const topL = ar ? 'أعلى خصم قِسناه' : 'Highest discount we measured', upTo = n => ar ? `حتى ${pct(n)}` : `up to ${pct(n)}`;
-  const browseL = ar ? 'تصفّح العروض' : 'Browse deals';
-  const pic = (r, cls) => `<span class="${cls}"><img src="${H(r.img)}" alt="${H(rname(r))}" decoding="async" referrerpolicy="no-referrer"></span>`;
-  const dealLine = r => !r ? '' : `<span class="kdeal"><span class="kdn">${H(rname(r))}</span><span class="kdm"><b>${ar ? 'خصم ' + pct(realPct(r)) : pct(realPct(r)) + ' off'}</b> · ${sar(r.price)} · ${H(lab(r.store))}</span></span>`;
-  const card = (s, big) => {
-    const seen = new Set(), withPic = s.top.filter(r => cleanHttps(r.img) && !seen.has(r.img) && seen.add(r.img));
-    const top = s.top[0];
-    if (big) {
-      const pics = withPic.slice(0, 3);
-      return `<button type="button" class="kcard big kc${s.k}" data-cat="${H(s.c.id)}" aria-pressed="false">`
-        + `<span class="khd"><span class="kn">${H(cname(s.c))}</span><span class="kcount">${dealsL(s.n)}</span></span>`
-        + `<span class="kmid"><span class="kmx">` + (s.max != null ? `<span class="kml">${topL}</span><b class="kpct">${pct(s.max)}</b>` : `<b class="knone">${none(s)}</b>`) + `</span>`
-        + (pics.length ? `<span class="kstack">${pics.map((r, n) => pic(r, 'kim k' + (n === 0 ? 'front' : n === 1 ? 'back1' : 'back2'))).join('')}</span>` : '') + `</span>`
-        + dealLine(top)
-        + `<span class="kft"><span class="kconf">${s.ok ? `<i aria-hidden="true"></i>${confL(s.ok)}` : ''}</span><span class="kgo">${browseL}</span></span>`
-        + `</button>`;
-    }
-    return `<button type="button" class="kcard kc${s.k}" data-cat="${H(s.c.id)}" aria-pressed="false">`
-      + `<span class="khd"><span class="ktx"><span class="kn">${H(cname(s.c))}</span><span class="kcount">${dealsL(s.n)}</span></span>`
-      + (withPic.length ? pic(withPic[0], 'ktile') : '') + `</span>`
-      + (s.max != null ? `<b class="kpct">${upTo(s.max)}</b>` : `<b class="knone">${none(s)}</b>`)
-      + dealLine(top)
-      + `</button>`;
-  };
-  const cards = !katCards.length ? '' : `<section class="kats" id="kats" aria-labelledby="kats-h"><div class="kathd"><h2 id="kats-h">${ar ? 'تسوّق حسب الفئة' : 'Shop by category'}</h2>`
-    + `<span>${ar ? 'الأرقام من قياسنا نحن، وتتجدّد مع كل فحص' : 'Every number is our own measurement, renewed with each check'}</span></div>`
-    + `<div class="kbig">${katBig.map(s => card(s, true)).join('')}</div>`
-    + (katSmall.length ? `<div class="ksmall">${katSmall.map(s => card(s, false)).join('')}</div>` : '') + `</section>`;
   const heads = katStats.map(s => `<div class="khead kc${s.k}" data-cat="${H(s.c.id)}" hidden><div class="khm"><h2 class="khn">${H(cname(s.c))}</h2><p class="khc">${counts(s)}`
     + (s.max != null ? ` · ${maxL} <b>${pct(s.max)}</b>` : ` · ${none(s)}`) + `</p><p class="khs">${s.stores.map(([id, n]) => `${H(lab(id))} ${num(n)}`).join(' · ')}</p></div>`
     + `<button type="button" class="khback">${ar ? 'كل الفئات' : 'All categories'}</button></div>`).join('\n  ');
-  const item = (r, copy) => `<button type="button" class="ti" data-d="${H(r.id)}"${copy ? ' tabindex="-1"' : ''}><span class="tn">${H(rname(r))}</span><b class="tp">${ar ? 'خصم ' + pct(realPct(r)) : pct(realPct(r)) + ' off'}</b><span class="tpr">${sar(r.price)}</span><span class="ts">${H(lab(r.store))}</span></button>`;
-  // The strip carries the last check time once, so no price stands without it. No «now», no «live», no stock or urgency wording.
-  const when = ar ? time12(st.meta.checkedAt) : new Date(String(st.meta.checkedAt)).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', timeZone: 'Asia/Riyadh' });
-  const ticker = tickRows.length < 4 ? '' : `<div class="tick" id="tick" dir="${ar ? 'rtl' : 'ltr'}" lang="${ar ? 'ar' : 'en'}" role="region" aria-label="${ar ? 'خصومات مؤكّدة بأسعار آخر فحص' : 'Confirmed discounts at the last check’s prices'}">`
-    + `<p class="tickl"><b>${ar ? 'خصومات مؤكّدة' : 'Confirmed discounts'}</b><small>${ar ? 'الأسعار فُحصت ' + H(when) : 'Prices checked ' + H(when)}</small></p>`
-    // (23 Nov 2026) a visible pause button: the strip moves for every visitor, whatever the device's motion setting, and
-    // anyone can stop it. The two labels ride on the button so one script serves both languages.
-    + `<button type="button" class="tickp" aria-pressed="false" aria-label="${ar ? 'إيقاف الشريط' : 'Pause the ticker'}" data-l-pause="${ar ? 'إيقاف الشريط' : 'Pause the ticker'}" data-l-play="${ar ? 'تشغيل الشريط' : 'Play the ticker'}">`
-    + `<svg class="ip" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><rect x="1.5" y="1" width="2.5" height="8" rx=".6" fill="currentColor"/><rect x="6" y="1" width="2.5" height="8" rx=".6" fill="currentColor"/></svg>`
-    + `<svg class="iy" viewBox="0 0 10 10" width="10" height="10" aria-hidden="true" focusable="false"><path d="M2.2 1.2 8.8 5 2.2 8.8Z" fill="currentColor"/></svg></button>`
-    + `<div class="tickv"><div class="tickt"><div class="tickg">${tickRows.map(r => item(r, false)).join('')}</div><div class="tickg" aria-hidden="true" inert>${tickRows.map(r => item(r, true)).join('')}</div></div></div></div>`;
+  // (BLD-50) «أقوى صيدات اليوم»: static tiles, swiped sideways. Each is the store's own picture with OUR measured discount, the
+  // store's own name, today's price, the reference named for what it is («كان» for the recorded previous price, the other
+  // store's name for a market comparison) and the store. A tap opens the page on that card. No timers, nothing fetched.
+  const refName = r => r.refKind === 'market' ? (refStore(r, lab) || (ar ? 'في متجر آخر' : 'Elsewhere')) : '';
+  const tile = (r, n) => `<li><button type="button" class="stile" data-d="${H(r.id)}"><span class="spic"><span class="ph" aria-hidden="true">${H(lab(r.store).slice(0, 1))}</span>`
+    + (cleanHttps(r.img) ? `<img src="${H(r.img)}" alt=""${n > 2 ? ' loading="lazy"' : ''} decoding="async" referrerpolicy="no-referrer">` : '')
+    + `<b class="sbadge">${ar ? 'خصم ' + pct(realPct(r)) : pct(realPct(r)) + ' off'}</b></span><span class="sname">${H(rname(r))}</span>`
+    + `<span class="sprice">${num(r.price)} <small>${ar ? 'ر.س' : 'SAR'}</small></span>`
+    + `<span class="swas">${r.refKind === 'market' ? (ar ? (refStore(r, lab) ? 'لدى ' : '') : (refStore(r, lab) ? 'At ' : '')) + H(refName(r)) : (ar ? 'كان' : 'Was')} ${num(r.ref)}</span>`
+    + `<span class="sst">${H(lab(r.store))}</span></button></li>`;
+  const strip = stripRows.length < 3 ? '' : `<section class="topdeals" aria-labelledby="td-h"><div class="tdh"><h2 id="td-h">${ar ? 'أقوى صيدات اليوم' : 'Today’s strongest deals'}</h2>`
+    + `<span>${ar ? arConf(confN) : `${num(confN)} confirmed`}</span></div><ul class="tdl">${stripRows.map(tile).join('')}</ul></section>`;
   const json = J(Object.fromEntries(cats.map((c, i) => [c.id, { l: cname(c), k: i }])));
-  return { cards, heads, ticker, json };
+  return { heads, strip, json };
 };
 const katAr = katParts('ar'), katEn = katParts('en');
+// ---- the banner line (BLD-50, 3A) ----
+// From this build's rows, with the test the page has always used for this count: rows in stock at their last check, and those
+// whose advertised «قبل» is more than 5% above the recorded previous price (history-referenced rows only). Zero prints no claim.
+const hookAv = st.rows.filter(r => !deadRow(r)), hookOver = hookAv.filter(r => r.was && r.ref != null && r.refKind !== 'market' && r.was > r.ref * 1.05);
+const HOOK_AR = hookOver.length
+  ? `من <b>${arN(hookAv.length)}</b> ${hookAv.length <= 10 ? 'عروض' : 'عرضاً'} فحصناها اليوم، <b class="hk">${arN(hookOver.length)}</b> سعر «قبل» فيها أعلى من السعر المسجّل فعلاً. هنا نعرض الخصم الحقيقي فقط.`
+  : `فحصنا اليوم <b>${arN(hookAv.length)}</b> ${hookAv.length <= 10 ? 'عروض' : 'عرضاً'}. هنا نعرض الخصم الحقيقي فقط.`;
+const enNum = v => Number(v).toLocaleString('en-US', { maximumFractionDigits: 0 });
+const HOOK_EN = hookOver.length
+  ? `Of <b>${enNum(hookAv.length)}</b> offers we checked today, <b class="hk">${enNum(hookOver.length)}</b> carry a “before” price higher than the recorded price. Only real discounts here.`
+  : `We checked <b>${enNum(hookAv.length)}</b> offers today. Only real discounts here.`;
+console.log(`banner: ${hookOver.length} of ${hookAv.length} offers in stock carry a «before» price above the recorded one`);
+const SORT_BOOST_AR = BOOST ? ' وترتفع قليلاً منتجات العلامات المعروفة ومنتجات الموسم،' : '';
+const SORT_BOOST_EN = BOOST ? ' well-known brands and season staples are lifted a little,' : '';
 
 // ---- measurement: Google Tag Manager (22 Nov 2026) ----
 // config/site.json holds the container id. An empty or missing gtmId builds both pages with no tag and
 // the old privacy sentence; a set one writes Google's two snippets and the sentence that says so.
-// The page's own events (outbound_store_click, copy_code, wallet_filter_used, and follow_channel_click when
+// The page's own events (outbound_store_click, copy_code, and follow_channel_click when
 // config/site.json has a whatsappChannel) are in both templates.
 const sitePath = path.join(ROOT, 'config/site.json');
 const siteCfg = fs.existsSync(sitePath) ? JSON.parse(fs.readFileSync(sitePath, 'utf8')) : {};
@@ -520,12 +522,12 @@ const measureFill = {
   GTM_HEAD: !GTM_ID ? '' : `\n<script>(function(w,d,i){w.dataLayer=w.dataLayer||[];function g(){w.dataLayer.push(arguments);}w.gtag=w.gtag||g;var k='sayda.consent',c=null;try{c=w.localStorage.getItem(k);}catch(_){}g('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:c==='yes'?'granted':'denied'});var on=false;w.saydaMeasuring=function(){return on;};w.saydaMeasure=function(){if(on)return;on=true;w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});var j=d.createElement('script');j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;d.head.appendChild(j);};w.saydaConsent=function(v){v=v==='yes'?'yes':'no';try{w.localStorage.setItem(k,v);}catch(_){}g('consent','update',{analytics_storage:v==='yes'?'granted':'denied'});if(v==='yes')w.saydaMeasure();else on=false;};if(c==='yes')w.saydaMeasure();})(window,document,'${GTM_ID}');</script>`,
   GTM_BODY: '',
   // The measurement bar (BLD-24). Shown by the page's script to a visitor with no stored choice; hidden again by either button.
-  CONSENT_BAR_AR: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="القياس بإذنك" hidden><p><b>القياس بإذنك</b> إذا وافقت، نقيس الزيارات والنقرات بأداة Google Analytics لنعرف أي الصيدات تفيدكم. تضع ملفات تعريف ارتباط وترسل بيانات الزيارة إلى Google. إن لم توافق لا نحمّلها، والصفحة تعمل كما هي. <a href="#about">التفاصيل</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">موافق</button><button type="button" class="cno" data-cv="no">لا، شكراً</button></div></aside>`,
-  CONSENT_BAR_EN: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="Measurement, only with your OK" hidden><p><b>Measurement, only with your OK.</b> With your OK, we measure visits and clicks with Google Analytics to learn which deals help. It sets cookies and sends visit data to Google. Without it, we don’t load it and the page works the same. <a href="#about">Details</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">OK</button><button type="button" class="cno" data-cv="no">No thanks</button></div></aside>`,
+  CONSENT_BAR_AR: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="القياس بإذنك" hidden><p>نقيس الزيارات بـ Google Analytics (ملفات تعريف ارتباط) إذا وافقت. <a href="#about">التفاصيل</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">موافق</button><button type="button" class="cno" data-cv="no">لا</button></div></aside>`,
+  CONSENT_BAR_EN: !GTM_ID ? '' : `\n<aside class="cbar" id="cbar" role="region" aria-label="Measurement, only with your OK" hidden><p>We measure visits with Google Analytics (cookies) if you agree. <a href="#about">Details</a></p><div class="cbtns"><button type="button" class="cyes" data-cv="yes">OK</button><button type="button" class="cno" data-cv="no">No</button></div></aside>`,
   PRIVACY_STATS_AR: !GTM_ID ? 'نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط ولا تجمع بيانات شخصية. صور المنتجات تُحمَّل من خوادم كل متجر نفسه، فيرى المتجر أن صورته عُرضت، ولا نرسل إليه شيئاً غير ذلك. الخطوط تُحمَّل من موقعنا.'
-    : `نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط. وإذا وافقت على شريط «القياس بإذنك» فقط، نحمّل Google Tag Manager لقياس الزيارات و${WA ? 'أربعة أنواع من النقرات: فتح صفحة متجر، نسخ كود، استخدام فلتر البطاقات (دون اسم البطاقة)، وفتح قناتنا على واتساب' : 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، واستخدام فلتر البطاقات (دون اسم البطاقة)'}. خدمات القياس التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) تضع ملفات تعريف ارتباط وتستخدم معرّف جهازك، ولا تعمل على الصفحة أي أداة إعلانية. دون موافقتك لا نحمّل شيئاً منها. صور المنتجات تُحمَّل من خوادم كل متجر نفسه، فيرى المتجر أن صورته عُرضت، ولا نرسل إليه شيئاً غير ذلك. الخطوط تُحمَّل من موقعنا. <button type="button" class="clink" data-consent-open>تغيير اختيار القياس</button>`,
+    : `نستخدم إحصاءات Cloudflare التي لا تستخدم ملفات تعريف الارتباط. وإذا وافقت على شريط «القياس بإذنك» فقط، نحمّل Google Tag Manager لقياس الزيارات و${WA ? 'ثلاثة أنواع من النقرات: فتح صفحة متجر، نسخ كود، وفتح قناتنا على واتساب' : 'نوعين من النقرات: فتح صفحة متجر ونسخ كود'}. خدمات القياس التي تعمل من خلاله (${plainText(siteCfg.services_ar, 'Google')}) تضع ملفات تعريف ارتباط وتستخدم معرّف جهازك، ولا تعمل على الصفحة أي أداة إعلانية. دون موافقتك لا نحمّل شيئاً منها. صور المنتجات تُحمَّل من خوادم كل متجر نفسه، فيرى المتجر أن صورته عُرضت، ولا نرسل إليه شيئاً غير ذلك. الخطوط تُحمَّل من موقعنا. <button type="button" class="clink" data-consent-open>تغيير اختيار القياس</button>`,
   PRIVACY_STATS_EN: !GTM_ID ? 'we use Cloudflare analytics, which sets no cookies and collects no personal data. Product pictures load from each store’s own servers, so a store can see that its picture was shown; we send it nothing else. The fonts load from our own site.'
-    : `we use Cloudflare analytics, which sets no cookies. Only if you say OK on the «Measurement, only with your OK» bar do we also load Google Tag Manager to measure visits and ${WA ? 'four kinds of click: opening a store page, copying a code, using the card filter (never which card), and opening our WhatsApp channel' : 'three kinds of click: opening a store page, copying a code, and using the card filter (never which card)'}. The measurement services that run through it (${plainText(siteCfg.services_en, 'Google')}) set cookies and use your device’s identifiers, and no advertising tool runs on the page. Without your OK we load none of it. Product pictures load from each store’s own servers, so a store can see that its picture was shown; we send it nothing else. The fonts load from our own site. <button type="button" class="clink" data-consent-open>Change your measurement choice</button>`,
+    : `we use Cloudflare analytics, which sets no cookies. Only if you say OK on the «Measurement, only with your OK» bar do we also load Google Tag Manager to measure visits and ${WA ? 'three kinds of click: opening a store page, copying a code, and opening our WhatsApp channel' : 'two kinds of click: opening a store page and copying a code'}. The measurement services that run through it (${plainText(siteCfg.services_en, 'Google')}) set cookies and use your device’s identifiers, and no advertising tool runs on the page. Without your OK we load none of it. Product pictures load from each store’s own servers, so a store can see that its picture was shown; we send it nothing else. The fonts load from our own site. <button type="button" class="clink" data-consent-open>Change your measurement choice</button>`,
 };
 
 // ---- fill ----
@@ -560,7 +562,7 @@ const fill = {
   CBY_JSON: J(couponBy),
   CPX_JSON: J(st.coupons.map(c => ({ c: c.code || '', k: c.kind || '', s: (c.stores || []).map(label), w: (c.wallet || []).filter(id => walletById[id]), nw: (c.walletNot || []).filter(id => walletById[id]), p: pubText(c.perk || ''), l: pubText(c.label || ''), h: pubText(cpHead(c.perk, c.text)), t: pubText(c.text || '') }))),
   LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS: panelsAr,
-  TICKER: katAr.ticker, KAT_CARDS: katAr.cards, KAT_HEADS: katAr.heads, KAT_JSON: katAr.json, KAT_CSS: KAT_CSS,
+  STRIP: katAr.strip, KAT_HEADS: katAr.heads, KAT_JSON: katAr.json, KAT_CSS: KAT_CSS, HOOK_AR, SORT_BOOST_AR,
   WALLET_JSON: J(walletCfg.filter(w => st.coupons.some(c => SAVES.has(c.kind) && (c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label }))),
   CAMPAIGN_END: String(M.campaignEnd || ''), D_JSON: arr(D), T_JSON: arr(T), TNO_JSON: J(TNO), TNONE_JSON: J(st.travelNone_text||''),
   CR_JSON: arr(CR), CRNO_JSON: J(CRNO), SB_JSON: arr(SB),
@@ -645,7 +647,7 @@ const E = st.rows.map(r => {
   if (!r.name_en) o.ar = 1;
   const an = availEn(r); if (an) o.an = an;
   if (RK[r.refKind]) o.rk = RK[r.refKind]; if (BK[r.bk]) o.bk = BK[r.bk]; if (r.lastChecked) o.lc = r.lastChecked;
-  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (cleanHttps(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id; if (!r.finding_en && r.verdict === 'ok' && r.refKind === 'history') o.q = 1;
+  if (pubUrl(r.refUrl)) o.ru = r.refUrl; { const rs = refStore(r, labelEn); if (rs) o.rs = rs; } if (cleanHttps(r.img)) o.im = r.img; if (cpIdx[r.store] != null) o.cp = cpIdx[r.store]; if (r.id) o.id = r.id; if (boostOf(r) > 1) o.bo = boostOf(r); if (!r.finding_en && r.verdict === 'ok' && r.refKind === 'history') o.q = 1;
   if (r.ev) { const e = {}; if (r.ev.min != null) e.mn = r.ev.min; if (r.ev.max != null) e.mx = r.ev.max; if (pubUrl(r.ev.url)) e.u = r.ev.url; if (Object.keys(e).length) o.ev = e; }
   return o;
 });
@@ -663,15 +665,18 @@ if (/[؀-ۿ]/.test(en.replace('>العربية<', '><'))) throw new Error('build
 // one; a control added to one and not the other stops the build instead of shipping two layouts.
 {
   const arTpl = fs.readFileSync(path.join(ROOT, 'template/index.html'), 'utf8');
-  const ids = ['stats', 'sfact', 'filters', 'ftoggle', 'fthint', 'ftn', 'fsel', 'fbody', 'pmin', 'pmax', 'sortby', 'fcount', 'freset'];
+  const ids = ['deals', 'filters', 'ftoggle', 'fthint', 'ftn', 'sorti', 'sorthow', 'fsel', 'fbody', 'pmin', 'pmax', 'sortby', 'fcount', 'freset', 'rows', 'more', 'count', 'cdt'];
   const chips = t => [...t.matchAll(/data-g="([av])" data-f="([a-z]+)"/g)].map(m => m[1] + ':' + m[2]).join(' ');
   const sorts = t => ((t.match(/<select id="sortby">[\s\S]*?<\/select>/) || [''])[0].match(/<option/g) || []).length;
   const miss = ids.filter(id => !en.includes(`id="${id}"`) || !arTpl.includes(`id="${id}"`));
   if (miss.length || chips(arTpl) !== chips(en) || sorts(arTpl) !== sorts(en) || !en.includes('{{STORE_CHIPS_EN}}'))
     throw new Error(`build: the filter bar differs between template/index.html and template/en.html — ids missing: ${miss.join(', ') || 'none'} · chips ar [${chips(arTpl)}] en [${chips(en)}] · sort options ar ${sorts(arTpl)} en ${sorts(en)}`);
-  // (BLD-15) the ticker, the category cards, the header inside a category and the wallet under it are one design too:
-  // each template must carry all of them, in the same order, or the build stops.
-  const parts = ['{{TICKER}}', '{{KAT_CARDS}}', 'id="stats"', 'id="filters"', '{{KAT_HEADS}}', 'id="wallet"', 'id="rows"', '{{KAT_JSON}}'];
+  // (BLD-50) the banner line, the strongest-deals strip, the category row, the toolbar, the header inside a category, the
+  // grid with «show more», and the other-offers tiles are one design too: each template must carry all of them, in this
+  // order, or the build stops. No My Wallet and no ticker on either page (Mahmoud, 24 Nov 2026: 2B, 6A).
+  const parts = ['{{HOOK_', '{{STRIP}}', 'id="deals"', 'class="fcats"', 'id="filters"', '{{KAT_HEADS}}', '{{WA_BAR}}', 'id="rows"', 'id="more"', 'class="xtiles"', '{{KAT_JSON}}'];
+  for (const [name, t] of [['template/index.html', arTpl], ['template/en.html', en]]) if (/id="wallet"|id="walletbtn"|\{\{TICKER\}\}|\{\{KAT_CARDS\}\}|id="stats"/.test(t))
+    throw new Error(`build: ${name} still carries My Wallet, the ticker, the category cards or the stat buttons, which BLD-50 took off the page`);
   const order = t => parts.map(p => t.indexOf(p));
   for (const [name, t] of [['template/index.html', arTpl], ['template/en.html', en]]) { const o = order(t);
     if (o.some((x, i) => x < 0 || (i && x < o[i - 1]))) throw new Error(`build: ${name} must carry, in this order: ${parts.join(' · ')} (found at ${o.join(', ')})`); }
@@ -690,7 +695,7 @@ const enFill = {
   COUPONS_JSON: J(cpEn.map(x => ({ label: x.c.label_en || labelEn((x.c.stores || [])[0]), code: x.c.code || '', text: enText(x.c.text_en), k: x.c.kind || '', s: (x.c.stores || []).map(labelEn), w: (x.c.wallet || []).filter(id => walletById[id]), nw: (x.c.walletNot || []).filter(id => walletById[id]), p: enText(x.c.perk_en || ''), h: enText(cpHead(x.c.perk_en, x.c.text_en)) }))),
   TRNO_JSON: J(st.travelNone.filter(t => t.company_en).map(t => [t.company_en, t.type_en || '', noneDay(t.checked)])), CRNO_JSON: J((st.carsNone || []).filter(c => c.company_en).map(c => [c.company_en, c.type_en || '', noneDay(c.checked)])),
   TNONE_EN_JSON: J(st.travelNone_text_en || ''), LOGO_SVG: LOGO, FAVICON: FAVICON, TOP_PANELS_EN: panelsEn,
-  TICKER: katEn.ticker, KAT_CARDS: katEn.cards, KAT_HEADS: katEn.heads, KAT_JSON: katEn.json,
+  STRIP: katEn.strip, KAT_HEADS: katEn.heads, KAT_JSON: katEn.json, HOOK_EN, SORT_BOOST_EN,
   WALLET_JSON: J(walletCfg.filter(w => w.label_en && cpEn.some(x => SAVES.has(x.c.kind) && (x.c.wallet || []).includes(w.id))).map(w => ({ id: w.id, l: w.label_en }))),
   CAMPAIGN_END: String(M.campaignEnd || ''),
   TRAVEL_JSON: J(trEn), CARS_JSON: J(crEn), SUBS_JSON: J(sbEn),
@@ -723,5 +728,5 @@ fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
 console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages, loaded only after the visitor's OK (consent bar, Consent Mode: advertising denied)` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
-console.log(WA ? 'whatsapp channel: on both pages (strip above the products, header, above the suggestion box, About, shared-link note; share message)' : 'whatsapp channel: none (config/site.json has no whatsappChannel)');
+console.log(WA ? 'whatsapp channel: on both pages (strip after the first 10 cards on a phone, 15 wider; header, above the suggestion box, About, shared-link note; share message)' : 'whatsapp channel: none (config/site.json has no whatsappChannel)');
 console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length} · subscriptions ${SB.length}`);
