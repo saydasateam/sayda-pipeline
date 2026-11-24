@@ -4,7 +4,7 @@
 const fs = require('fs'), path = require('path');
 const { arNum, longDate, shortDate, time12, countWord } = require('./lib/ar');
 // Every outside value goes through one of these on its way to the page (22 Nov 2026 audit, SEC-F1 to F4): see lib/safe.js.
-const { cleanHttps, cleanOrAbsent, jsonForScript: J, escHtml: H, boldOnly } = require('./lib/safe');
+const { cleanHttps, cleanOrAbsent, onStoreSite, jsonForScript: J, escHtml: H, boldOnly } = require('./lib/safe');
 const ROOT = __dirname;
 const cfg  = JSON.parse(fs.readFileSync(path.join(ROOT,'config/stores.json'),'utf8'));
 const catsCfg = JSON.parse(fs.readFileSync(path.join(ROOT,'config/categories.json'),'utf8'));
@@ -85,6 +85,16 @@ let heldBadLink = [];
     st.rows = st.rows.filter(r => !heldBadLink.includes(r));
     const by = {}; heldBadLink.forEach(r => { by[r.store] = (by[r.store] || 0) + 1; });
     console.log(`held back ${heldBadLink.length} rows with a link that is not a clean https address: ${Object.entries(by).map(([s, n]) => `${s} ${n}`).join(', ')} (${heldBadLink.slice(0, 8).map(r => r.id).join(', ')}${heldBadLink.length > 8 ? ', …' : ''})`);
+  }
+  // BLD-37 (Codex audit 03, 24 Nov 2026): the card's buy button names the store, so its link must be on that store's own
+  // site (config/stores.json → origin, subdomains allowed). A clean https link to any other site is held back the same
+  // way and named here; it stays in state, and the store's next check can correct it. On 24 Nov no row failed this.
+  const originOf = Object.fromEntries(cfg.stores.map(s => [s.id, s.origin]));
+  const offSite = st.rows.filter(r => !onStoreSite(r.url, originOf[r.store]));
+  if (offSite.length) {
+    st.rows = st.rows.filter(r => !offSite.includes(r)); heldBadLink = heldBadLink.concat(offSite);
+    const by = {}; offSite.forEach(r => { by[r.store] = (by[r.store] || 0) + 1; });
+    console.log(`held back ${offSite.length} rows whose link is not on their store's own site: ${Object.entries(by).map(([s, n]) => `${s} ${n}`).join(', ')} (${offSite.slice(0, 8).map(r => r.id).join(', ')}${offSite.length > 8 ? ', …' : ''})`);
   }
   const offers = (list, what) => { const bad = (list || []).filter(o => !cleanHttps(o.url)); if (bad.length) console.log(`held back ${bad.length} ${what} offer(s) with a link that is not a clean https address: ${bad.map(o => String(o.company || '').slice(0, 30)).join(', ')}`); return (list || []).filter(o => cleanHttps(o.url)); };
   st.travel = offers(st.travel, 'travel');

@@ -16,7 +16,8 @@ The page wording and colours follow it; nothing in `template/index.html` names a
 
 - **Window:** 19–30 November 2026 (the Friday is 27 Nov). After `campaignEnd`, say the sale is over
   and do not refresh.
-- **Stores: 15 enabled.** All eight furniture stores are `enabled: false` (Mahmoud, 19 Nov): ikea,
+- **Stores: the enabled ones in `config/stores.json` (every store not marked `enabled: false`; 14 on 24 Nov). Count them there, never from this
+  line.** All eight furniture stores are `enabled: false` (Mahmoud, 19 Nov): ikea,
   homecentre, homebox, panhome, cityw, baytonia, ashley, midas. Skip every instruction below that
   names them — the rendered per-row check for the landmark stores, the CSP bundle for ikea and midas,
   the ashley ↔ midas comparison, `notes.furnitureShare`. **jarir is now the only CSP-blocked store.**
@@ -24,10 +25,11 @@ The page wording and colours follow it; nothing in `template/index.html` names a
 - **The state started empty.** `scripts/new-campaign.js national-day-96` moved the 410 National Day
   rows to `data/archive/national-day-96/`. Every row on this page is collected and judged inside this
   campaign; never copy a row or its `ev` back from the archive.
-  (Landed through GitHub's upload form, which cannot move or delete: the old `data/state.json`,
-  `data/history.json` and the eight furniture `*.history.json` files are still at their old paths as
-  well as in the archive. They supply nothing, because every store has a shard. Delete them when there
-  is push access.)
+  (Landed through GitHub's upload form, which cannot move or delete. The old `data/state.json` and
+  `data/history.json` were deleted on 24 Nov 2026 (13099dc, 680b813, Mahmoud's yes D40): they supplied
+  nothing, and a damaged `_coupons.json` used to bring September's codes back from them. The eight
+  furniture `*.history.json` files are still at their old paths as well as in the archive; they supply
+  nothing either.)
 - **Campaign pages, read from each store's own home page on 20 Nov 2026** (`_landing` beside each
   in `config/stores.json`): noon `yellow-friday-sale-offers/`, almanea `mega-sale-c-7665`, mumzworld
   `collections/mumznovember-mega-deals` (plus `mumz-savers`, `mega-bundles` and `sale`; the
@@ -201,6 +203,30 @@ COMMITTED files, so pass a branch while testing: `node scripts/inject.js <id> bo
 
 Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUnavailable / restocked / priceChanged / fixedLinks / unchecked.
 
+**Guards in apply.js and build.js (BLD-37, 24 Nov 2026; Codex audit 03, 04, 05, 07). Do not work around them.**
+- **A store's «last checked» time moves only when its check read at least half of its rows** (Mahmoud's rule D39).
+  Fewer, and the rows that were read are still updated, but the shard keeps its old `checkedAt`: the console says
+  «last-checked time kept … <store> k of n» and `work/report.json → clockHeld` lists it. The coverage gate then shows the
+  store as STALE. Name it in the run log and the summary with k of n and the reason (blocked page, adapter error). Never
+  edit `checkedAt` by hand to make it look fresh.
+- **The §2b recheck is not a check of the store.** A check file in which every row it names is still `needsCheck` (what
+  `inject.js <store> recheck` writes) confirms the new rows and leaves the store's `checkedAt` as it is, whatever share of
+  the store it covers. It is not an alarm: the console says «recheck of new rows only, last-checked time left as it was»
+  and `report.recheck` lists it. Do not report it as a kept clock or a stale store.
+- **A check file that is not valid JSON, or not a list** (an adapter's error object), is a failed check: the store is not
+  touched at all and is listed in `report.failedCheck`. Re-run that store's check once; if it fails again, leave it and
+  report it. The `[]` of the line above is still right for a store that errors twice: its clock stays, as it should.
+- **A check file or a new row for a store that is not in `config/stores.json` is refused** (`report.unknownStore`), and
+  `lib/state.js saveStores` throws rather than write such a shard. A store id is a file name; it never comes from a guess.
+- **A buy link must be on its own store's site** (`config/stores.json → origin`, subdomains allowed). apply.js refuses an
+  off-site link on a new row or as a corrected link (`report.badLinks`, «url not on the store's site»), and build.js holds
+  back any row that still has one («held back n rows whose link is not on their store's own site»).
+- **A state file that is there but damaged stops the run and names the file** (`lib/state.js readState`): every
+  `data/state/*.json` shard and history shard, `_coupons.json`, `_travel.json`, `_notes.json`, `_cars.json`, `_subs.json`
+  and `config/campaign.json`. A MISSING file is still read as empty. When it stops: publish nothing, restore the file from
+  git (`git show HEAD:<path> > <path>` for a clone-side accident, or the previous state commit's copy), re-run, and notify.
+  Never delete or empty a damaged file to get past the stop: an empty Noon shard publishes a page with no Noon.
+
 ## 2b. Re-check new rows BEFORE publishing (added 22 Sep — required)
 `apply.js new` marks every row it adds `needsCheck`, and `build.js` does not publish a `needsCheck` row. Discovery sees
 availability through a listing or a price tracker, and neither is the store saying «in stock»: on 22 Sep an Extra
@@ -210,7 +236,8 @@ For each store that got new rows (`work/report.json → added`):
 node scripts/inject.js <store> recheck      # self-contained: only this run's new rows, works on CSP stores too
 ```
 run it in that store's tab, `SAYDA.show('check:<store>')` + `get_page_text`, save to `work/check/<store>.json`, then
-`node apply.js check`. The first check clears `needsCheck` (listed in `report.firstChecked`); the row is then published with
+`node apply.js check`. This recheck leaves the store's last-checked time as it is (§2 guards, `report.recheck`). The first
+check clears `needsCheck` (listed in `report.firstChecked`); the row is then published with
 the availability the STORE reported. A row still `needsCheck` at publish time stays off the page — `build.js` prints how many.
 Kanbkam's `inStock` is evidence for the price record only, never for `avail`.
 
@@ -726,11 +753,9 @@ calling it a failure. From a cloud session with no browser, read the committed f
   - A FULL run that also edited coupons, travel or notes uploads `data/state/_*.json` in the same commit.
   - Wait until the form's «Uploading n of m files» line is gone before clicking Commit. On 22 Sep a click during the upload
     produced an error page and no commit; the retry in a fresh tab worked.
-  - **During the migration `data/state.json` is still live — do not delete it.** The legacy file and the
-    shards coexist, and a shard wins for its own store, so each store moves across the first time its
-    slot runs. Nothing is missing at any point in between. `node scripts/unshard.js --check` says which
-    stores are still being served from the legacy file; only when it reports none may `data/state.json`
-    and `data/history.json` be deleted.
+  - **The migration is finished.** `data/state.json` and `data/history.json` were deleted on 24 Nov 2026 (13099dc,
+    680b813) after `node scripts/unshard.js --check` reported that no store was served from them and a build without
+    them came out byte for byte the same. Never upload either file again (§4b's «never upload data/state.json» stands).
 - The site commits (§4a) and this state upload (§4b) are the only writes a run makes, and these upload forms are the only
   forms it may submit. If §4a landed and §4b failed, the page is live but the next run starts without this run's rows: notify.
   Never touch README.md via upload (GitHub refuses the overwrite).
@@ -753,6 +778,9 @@ in Chrome instead (get_page_text). Then:
   SUCCEEDED either way. On 2026-09-19 all four runs ended in ~4 minutes having committed nothing; only the user noticing the
   stale page revealed it. State what stopped it (no browser, adapter failures, budget) and how far the run got.
 PushNotification also when: a store failed, the site push or the state upload failed, or ≥ 5 deals ended at once.
+Also when a guard of BLD-37 fired (§2): a store's clock was kept (`clockHeld`), a check file failed (`failedCheck`), a
+store id was refused (`unknownStore`), a row was held back for an off-site link, or the build stopped on a damaged file.
+A §2b recheck (`report.recheck`) is not one of these.
 If today is after `config/campaign.json → campaignEnd`: say the sale is over and suggest pausing the task.
 
 ## Rollback — how to undo the sharding change
