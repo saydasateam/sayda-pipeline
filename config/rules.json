@@ -65,10 +65,15 @@
       900
     ],
     "maxRows": 900,
-    "categoryCardMinRows": 10,
-    "_categoryCardMinRows": "BLD-15, 22 Nov 2026. A category gets a card at the top of the page only when it has at least this many available rows; below it the category stays a chip. 10, not 8, since 23 Nov: Mahmoud's decision of 22 Nov keeps Furniture (9 rows that day) a chip, and with it the small cards fill one row of six, as in demo A. The three categories with the most available rows get the large cards with pictures.",
-    "tickerItems": 12,
-    "_tickerItems": "BLD-15. How many confirmed, available rows the strip under the hero carries, in the page's best-value order. Fewer than 4 and the strip is not drawn.",
+    "stripItems": 8,
+    "_stripItems": "BLD-50, 24 Nov 2026. How many tiles «أقوى صيدات اليوم» / «Today's strongest deals» carries under the banner: the first confirmed, available rows of the page's own best-value order. Fewer than 3 and the strip is not drawn. It replaced the ticker and the category cards (Mahmoud's 6A).",
+    "brandBoost": {
+      "on": true,
+      "factor": 1.5,
+      "brands": ["samsung", "galaxy", "apple", "iphone", "ipad", "macbook", "airpods", "apple watch", "sony", "playstation", "ps5", "lg", "huawei", "xiaomi", "redmi", "honor", "oppo", "lenovo", "thinkpad", "hp", "dell", "asus", "acer", "msi", "microsoft", "xbox", "nintendo", "bosch", "siemens", "philips", "dyson", "braun", "tefal", "ninja", "nespresso", "delonghi", "de'longhi", "kenwood", "panasonic", "sharp", "toshiba", "tcl", "hisense", "jbl", "bose", "beats", "anker", "logitech", "garmin", "canon", "nikon", "gopro", "nike", "adidas", "puma", "new balance", "lego"],
+      "staples": ["tv", "smart tv", "oled", "qled", "laptop", "notebook", "smartphone", "smartwatch", "smart watch", "headphones", "earbuds", "air fryer", "espresso", "robot vacuum", "refrigerator", "washing machine", "air conditioner"]
+    },
+    "_brandBoost": "BLD-50, Mahmoud's yes of 24 Nov 2026 (point 12 of the first-visit redesign). Page order only: a row whose store English title names one of these words as a whole word in its first six words has its best-value score multiplied by factor, so phones, TVs, laptops and well-known brands lead instead of a no-name bag at 88%. It lifts a positive score only, so it never moves a row across tiers (verified, unverified, unavailable), the two-in-a-row rule still applies after it, and rules/verdict.js, rules/match.js and what may be published do not change. on: false turns it off. build.js prints «order:» with how many rows it lifted.",
     "defaultFilter": "verified",
     "maxNewPerRun": 150,
     "_maxNewPerRun": "Hard cap on rows added in a single run. Raised 60 -> 150 on 22 Sep (with maxRows 420 -> 900) when the rendered collectors opened Almanea's and Blackbox's full National Day catalogues. Highest verified saving wins; the rest are picked up by the next run.",
