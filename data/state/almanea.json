@@ -1,7 +1,7 @@
 {
  "store": "almanea",
- "updated": "2026-11-23",
- "checkedAt": "2026-11-23T20:36:26.379+03:00",
+ "updated": "2026-11-24",
+ "checkedAt": "2026-11-24T02:57:55.273+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
@@ -33,7 +33,7 @@
    },
    "bk": "nosaving",
    "firstSeen": "2026-11-21",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-24",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_top_freezer_refrigerator_21.6_l_inverter_silver_-_lt23hbhsiv_1_.jpg?width=600",
    "name_en": "LG Top Freezer Refrigerator, 21.6 L, Inverter, Silver - LT23HBHSIV"
   },
@@ -67,7 +67,7 @@
    },
    "bk": "cheaper",
    "firstSeen": "2026-11-21",
-   "lastChecked": "2026-11-23",
+   "lastChecked": "2026-11-24",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_17.9_cu.ft_top_freezer_refrigerator_inverter_silver_-_lt19hbhsin_3_.jpg?width=600",
    "name_en": "LG 17.9 Cu.Ft, Top Freezer Refrigerator, Inverter, Silver - LT19HBHSIN"
   },
@@ -87,7 +87,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/m/o/moodup_m-next6_gr-a24fdmmb_fornt_off_food.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-side-by-side-refrigerator-27-3-cu-ft-black-lm344vbnlf-p-120100703227001",
@@ -105,7 +105,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_side-by-side_refrigerator_27.3_cu.ft_black_-_lm344vbnlf_3_.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-front-loading-washing-machine-with-dryer-25-kg-wash-20-kg-dryer-6-programs-beige-green-wk2520gbt-p-120300702915002",
@@ -123,7 +123,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/w/a/washtower-washtower27-2025-w1s2cvkk2hd-wk2520gbt-sa-beige-green-01-front-lightoff_wk2520gbt_1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-100-inch-4k-uhd-smart-neo-qled-tv-with-built-in-receiver-qa100qn80fuxsa-p-139900599498008",
@@ -141,7 +141,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_smart_tv_100_inch_4k_uhd_neo_qled_with_built-in_receiver_-_qa100qn80fuxsa_1_1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-side-by-side-refrigerator-28-1-cu-ft-platinum-silver-ls32hjbvlv-p-120100703228005",
@@ -159,7 +159,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_side_by_side_refrigerator_28.1_cu.ft_platinum_silver_-_ls32hjbvlv_6_.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-smart-tv-83-inch-4k-oled-tizen-os-qa83s90haexsa-p-139900599483006",
@@ -177,23 +177,24 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_smart_tv_83_inch_4k_oled_tizen_os_-_qa83s90haexsa_1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "refKind": "market",
-   "refUrl": "https://www.kanbkam.com/sa/en/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-gsync-qa83s90haexsa-graphite-black-N70378850V",
+   "refUrl": "https://www.noon.com/en-sa/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-g-sync-qa83s90haexsa-graphite-black/N70378850V/p",
    "ev": {
     "market": {
      "store": "noon",
      "price": 15999,
-     "url": "https://www.kanbkam.com/sa/en/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-gsync-qa83s90haexsa-graphite-black-N70378850V"
+     "url": "https://www.noon.com/en-sa/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-g-sync-qa83s90haexsa-graphite-black/N70378850V/p"
     },
     "min": 15999,
     "max": 15999,
     "n": 1,
     "src": "market",
-    "on": "2026-11-22",
-    "url": "https://www.kanbkam.com/sa/en/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-gsync-qa83s90haexsa-graphite-black-N70378850V"
+    "on": "2026-11-24",
+    "url": "https://www.noon.com/en-sa/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-g-sync-qa83s90haexsa-graphite-black/N70378850V/p"
    },
    "bk": "nosaving",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24",
+   "refStore": "noon"
   },
   {
    "id": "almanea:lg-side-by-side-refrigerator-27-2-cu-ft-silver-lm334bbslf-p-120100703227002",
@@ -211,7 +212,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_side_by_side_refrigerator_27.2_cu.ft_-_silver_-_lm334bbslf_7_.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-front-load-washer-dryer-13-kg-inverter-directdrive-platinum-black-wk1310bst1-p-120300702113008",
@@ -229,7 +230,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_front_load_washer_dryer_13kg_platinum_black_-_wk1310bst1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-side-by-side-refrigerator-26-7-cu-ft-silver-ls32nbdslv-p-120100703226006",
@@ -247,7 +248,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_side-by-side_refrigerator_26.7_cu.ft_silver_-_ls32nbdslv_3_.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-100-inch-qned-evo-ai-qned86-mini-led-4k-smart-tv-144hz-vrr-ai-magic-remote-webos25-2025-p-139900799498006",
@@ -265,7 +266,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/q/n/qned86a_al_manea_2__1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-front-load-washing-machine-18-kg-with-dryer-black-wsn1810bmt-p-120300702118002",
@@ -283,7 +284,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_front_load_washing_machine_18_kg_with_dryer_black_-_wsn1810bmt-1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-tv-65-inch-4k-uhd-smart-oled-tizen-wifi-qa65s90haexsa-p-139900599465118",
@@ -301,7 +302,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung-tv-65-inch-4k-uhd-smart-oled-tizen-wifi-qa65s90haexsa-p-139900599465118_main_front_1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-condenser-dryer-18-kg-14-programs-black-steel-rh18u8jvcw-p-120400701919002",
@@ -319,7 +320,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/0/1/01_victor2ref_18kg_blacksteel_rh18u8jvcw_rh18u8jvcw_sb_front.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-condenser-dryer-18-kg-14-programs-silver-rh18u8evcw-p-120400701919001",
@@ -337,7 +338,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_condenser_dryer_18_kg_14_programs_silver-_rh18u8evcw.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-tv-100-inch-mini-led-smart-tv-ua100m90huxsa-p-139900599498012",
@@ -355,7 +356,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_tv_75_inch_micro_rgb_4k_upscaling_smart_tv-_qa55s85haexsa-3.png?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-65-inch-4k-uhd-smart-oled-tv-120hz-anti-reflection-qa65s85haexsa-p-139900599465123",
@@ -373,7 +374,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_tv_65_inch_4k_smart_oled_black-_qa65s85haexsa-3.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-inverter-front-load-washing-machine-with-dryer-20-kg-wash-10-kg-dryer-matte-black-wsn2010bmt-p-120300702120003",
@@ -391,7 +392,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_inverter_front_load_washing_machine_with_dryer_20_kg_wash_10_kg_dry_matte_black_wsn2010bmt_2.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-top-load-inverter-washing-machine-24-kg-10-programs-essence-graphite-wtr24hhg-p-120300701124007",
@@ -409,7 +410,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_top_load_inverter_24_kg_10_programs_essence_graphite_-_wtr24hhg-1.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:haam-85-inch-4k-uhd-smart-google-tv-qled-60hz-qhm85uh570tg60h-p-139900199485007",
@@ -427,7 +428,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/h/a/haam_85_inch_4k_uhd_smart_google_tv_qled_60hz_-_qhm85uh570tg60h-5.jpg?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-condenser-dryer-19-programs-9-kg-black-dv90bb9445gb-p-120400501109005",
@@ -445,7 +446,7 @@
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_condenser_dryer_19_programs_9_kg_black_dv90bb9445gb.png?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-98-inch-4k-uhd-smart-neo-qled-tv-with-built-in-receiver-qa98qn90fauxsa-p-139900599498009",
@@ -463,7 +464,7 @@
    "availNote": "المنيع: متبقي 1",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_tv_smart_98_inch_4k_uhd_neo_qled_with_built-in_receiver_-_qa98qn90fauxsa_1_1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-smart-tv-83-inch-4k-oled-tizen-os-qa83s85haexsa-p-139900599483007",
@@ -481,7 +482,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_smart_tv_83_inch_4k_oled_tizen_os_-_qa83s85haexsa_1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-smart-tv-77-inch-4k-oled-tizen-os-qa77s90hauxsa-p-139900599477008",
@@ -499,7 +500,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/1/_/1_57.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-77-inch-4k-uhd-smart-oled-tv-qa77s85haexsa-p-139900599477009",
@@ -517,7 +518,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_tv_77_inch_4k_uhd_smart_oled_oled_display.png?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-side-by-side-refrigerator-13-3-cu-ft-376l-silver-lm144gbbsir-p-120100703214001",
@@ -535,7 +536,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_side_by_side_refrigerator_13.3_cu.ft_silver_-_lm144gbbsir-1_1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:kelvinator-split-ac-28600-btu-hot-cold-kts36h-kts36h-p-110303502336003",
@@ -553,7 +554,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/k/e/kelvinator_split_air_conditioner_split_28600_btu_hot_and_cold_white_-_kts36h-1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:haam-commercial-display-fridge-47-cu-ft-steel-hm4700sck21-p-120100104247001",
@@ -571,7 +572,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/h/a/haam_commercial_display_fridge_47_cu._ft_steel_-_hm4700sck21_1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:mtc-tv-100-inch-4k-smart-qled-webos-built-in-receiver-qmt100uh300wvwos-p-139900399498005",
@@ -589,7 +590,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/m/t/mtc_tv_100_inch_4k_smart_qled_webos_built-in_receiver_-_qmt100uh300wvwos_2_.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-front-load-washer-dryer-15-kg-wash-8-kg-dry-1000-rpm-silver-wsn1508bmt-p-120300702115013",
@@ -607,7 +608,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_front_load_washer_dryer_15_kg_wash_8_kg_dry_1000_rpm_silver_-_wsn1508bmt-1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-17kg-dryer-7-inch-screen-silver-dv90f17cds-p-120400501117002",
@@ -625,7 +626,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/d/v/dv90f17cdsfq_001_front_on_dark_steel.png?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-smart-tv-86-inch-4k-qned-miniled-webos26-dolby-vision-86qned85b6t-amvg-p-139900799486040",
@@ -643,7 +644,7 @@
    "availNote": "المنيع: متبقي 1",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_smart_tv_86_inch_4k_qned_miniled_webos26_dolby_vision_-_86qned85b6t.amvg_1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-side-by-side-refrigerator-22-1-cu-ft-silver-ls25nblsik-p-120100703222017",
@@ -661,7 +662,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_side_by_side_refrigerator_22.1_cu.ft_silver_-_ls25nblsik_12_.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-electric-built-in-cooker-59cm-black-ws7d7610g-p-120600703659003",
@@ -679,7 +680,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg_electric_built-in_cooker_59cm_black_ws7d7610g_1_.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007",
@@ -697,7 +698,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg-top-load-washing-machine-19-kg-6-programs-essence-graphite-wtr19hhg-p-120300701119007_1.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-dryer-condenser-8kg-7-programs-silver-rh81t2sp7rm-p-120400701108002",
@@ -715,7 +716,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/l/g/lg-dryer-condenser-8kg-7-programs-silver-rh81t2sp7rm-p-120400701108002.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:toshiba-side-by-side-refrigerator-4-doors-22-3-cu-ft-silver-gr-rf900wi1-pmu-57-p-120100703222018",
@@ -733,7 +734,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/t/o/toshiba_side_by_side_refrigerator_4_doors_22.3_cu.ft_silver_gr-rf900wi1-pmu_57_-1.png?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:mtc-tv-100-inch-4k-smart-dled-webos-built-in-receiver-mt100uh200wvwos-p-139900399498004",
@@ -751,7 +752,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/m/t/mtc_tv_100_inch_4k_smart_dled_webos_built-in_receiver_-_mt100uh200wvwos_2_.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:tcl-85-inch-4k-smart-qled-google-tv-with-built-in-receiver-85t61d-p-139904799485014",
@@ -769,7 +770,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/t/c/tcl_85_inch_4k_smart_qled_google_tv_with_built-in_receiver_-_85t61d.png?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:samsung-electric-stand-oven-black-ceramic-steel-ne63c6517sg-za-p-120600501676001",
@@ -787,7 +788,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/1/2/120600501676001.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "almanea:lg-front-load-washing-machine-dryer-12-kg-wash-8-kg-dryer-silver-steel-wsv1208bst-p-120300702112008",
@@ -805,7 +806,7 @@
    "availNote": "",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/n/snipaste_2025-10-21_12-18-18.jpg?width=600",
    "firstSeen": "2026-11-23",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   }
  ]
 }

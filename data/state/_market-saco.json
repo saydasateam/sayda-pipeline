@@ -248,7 +248,7 @@
  },
  "saco:stanley-fatmax-versatile-utility-folding-platform-truck-black-and-yellow-fxwt-712-pdq-p-000000000000102319": {
   "q": "stanley FXWT-712",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-24",
   "rowPrice": 349,
   "n": 1,
   "merchantCount": 1,
@@ -256,17 +256,22 @@
   "avg": 299,
   "max": 299,
   "market": {
-   "store": "amazon",
+   "store": "Amazon.sa",
    "price": 299,
    "url": "https://www.kanbkam.com/sa/en/stanley-fatmax-aluminium-platform-trolley-blackyellow-fxwt712-B07HBHT9KY"
   },
   "sources": [
    {
-    "merchant": "amazon",
+    "merchant": "Amazon.sa",
     "price": 299,
     "url": "https://www.kanbkam.com/sa/en/stanley-fatmax-aluminium-platform-trolley-blackyellow-fxwt712-B07HBHT9KY"
    }
   ],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "عربة ستانلي فات ماكس منصة ألومنيوم، أسود/أصفر، FXWT-712",
+    "why": "brand word \"stanley\" not present as a whole word"
+   }
+  ]
  }
 }

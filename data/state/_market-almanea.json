@@ -92,7 +92,7 @@
  },
  "almanea:samsung-smart-tv-83-inch-4k-oled-tizen-os-qa83s90haexsa-p-139900599483006": {
   "q": "samsung QA83S90HAEXSA 83",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 15949,
   "n": 1,
   "merchantCount": 1,
@@ -102,7 +102,8 @@
   "market": {
    "store": "noon",
    "price": 15999,
-   "url": "https://www.kanbkam.com/sa/en/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-gsync-qa83s90haexsa-graphite-black-N70378850V"
+   "url": "https://www.kanbkam.com/sa/en/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-gsync-qa83s90haexsa-graphite-black-N70378850V",
+   "own": "https://www.noon.com/en-sa/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-g-sync-qa83s90haexsa-graphite-black/N70378850V/p"
   },
   "sources": [
    {

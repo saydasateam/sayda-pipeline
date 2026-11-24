@@ -54,7 +54,7 @@
  },
  "jarir:samsung-m1e-smart-tv-682540": {
   "q": "samsung M1EH 75",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 3199,
   "n": 2,
   "merchantCount": 2,
@@ -64,7 +64,8 @@
   "market": {
    "store": "noon",
    "price": 2599,
-   "url": "https://www.kanbkam.com/sa/en/75-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua75m1ehauxsa-black-N70370639V"
+   "url": "https://www.kanbkam.com/sa/en/75-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua75m1ehauxsa-black-N70370639V",
+   "own": "https://www.noon.com/en-sa/75-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua75m1ehauxsa-black/N70370639V/p"
   },
   "sources": [
    {
@@ -82,20 +83,36 @@
  },
  "jarir:hisense-hisense-a6q-smart-tv-672673": {
   "q": "hisense A6Q 75",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-24",
   "rowPrice": 2699,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
-  "rejected": []
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2749,
+  "avg": 2749,
+  "max": 2749,
+  "market": {
+   "store": "noon",
+   "price": 2749,
+   "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V",
+   "own": "https://www.noon.com/en-sa/75-inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wi-fi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black/N70270695V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 2749,
+    "url": "https://www.kanbkam.com/sa/en/75inch-a6q-uhd-4k-60hz-smart-tv-for-home-entertainment-living-room-hisense-uhd-vidaa-smart-tv-hdmi-usb-wifi-bt-hlg-4k-ai-upscaler-dolby-vision-audio-game-bar-voice-control-2025-uhd-model-tv-75a6q-black-N70270695V"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Hisense 75A6Q 4K 3840 x 2160 UHD 75-Inch Smart TV",
+    "why": "model part \"a6q\" not present as a whole word, and \"a6q\" not present fused"
+   }
+  ]
  },
  "jarir:hisense-hisense-q61q-smart-tv-672682": {
   "q": "hisense Q61Q 65",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-24",
   "rowPrice": 2199,
   "n": 1,
   "merchantCount": 1,
@@ -105,7 +122,8 @@
   "market": {
    "store": "noon",
    "price": 2239,
-   "url": "https://www.kanbkam.com/sa/en/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black-N70376270V"
+   "url": "https://www.kanbkam.com/sa/en/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black-N70376270V",
+   "own": "https://www.noon.com/en-sa/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black/N70376270V/p"
   },
   "sources": [
    {
@@ -114,7 +132,12 @@
     "url": "https://www.kanbkam.com/sa/en/hisense-65-inch-q61q-qled-4k-smart-tv-2025-model-tv-international-version-with-vidaa-os-qled-color-dolby-vision-atmos-ai-smooth-motion-game-bar-voice-control-65-inch-qled-smart-tv-65q61q-black-N70376270V"
    }
   ],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Hisense 55 Inch Q61Q QLED 4K Smart TV (2025 Model TV - International V",
+    "why": "row is 65\", listing does not say so"
+   }
+  ]
  },
  "jarir:haier-haier-m80fux-smart-tv-669302": {
   "q": "haier M80F 85",
@@ -149,7 +172,7 @@
  },
  "jarir:samsung-s85h-smart-tv-682561": {
   "q": "samsung S85H 55",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 4599,
   "n": 2,
   "merchantCount": 2,
@@ -177,30 +200,25 @@
  },
  "jarir:samsung-qn70h-smart-tv-690756": {
   "q": "samsung QN70H 85",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 5999,
-  "n": 1,
-  "merchantCount": 1,
-  "min": 7399,
-  "avg": 7399,
-  "max": 7399,
-  "market": {
-   "store": "Amazon.sa",
-   "price": 7399,
-   "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-neo-qled-smart-tv-samsung-vision-ai-qn70h-4k120hz-dlg-quantum-mini-led-airslim-real-colors-real-qled-nq4-ai-processor-tizen-os-qa85qn70hauxsa-2026-ksa-version-B0H872ZJ9V"
-  },
-  "sources": [
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
    {
-    "merchant": "Amazon.sa",
-    "price": 7399,
-    "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-neo-qled-smart-tv-samsung-vision-ai-qn70h-4k120hz-dlg-quantum-mini-led-airslim-real-colors-real-qled-nq4-ai-processor-tizen-os-qa85qn70hauxsa-2026-ksa-version-B0H872ZJ9V"
+    "title": "Samsung 85 Inch Neo QLED Smart TV, Samsung Vision AI, QN70H, 4K,120Hz ",
+    "why": "listing is \"mini\", row is the base model"
    }
-  ],
-  "rejected": []
+  ]
  },
  "jarir:samsung-m80h-smart-tv-690173": {
   "q": "samsung M80H 75",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 4399,
   "n": 2,
   "merchantCount": 2,
@@ -228,7 +246,7 @@
  },
  "jarir:samsung-galaxy-s25-edge-smartphones-657513": {
   "q": "samsung S25 edge",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 2299,
   "n": 1,
   "merchantCount": 1,
@@ -238,7 +256,8 @@
   "market": {
    "store": "eXtra",
    "price": 2299,
-   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818"
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818",
+   "own": "https://www.extra.com/en-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818"
   },
   "sources": [
    {
@@ -249,16 +268,20 @@
   ],
   "rejected": [
    {
-    "title": "SAMSUNG Galaxy S25 Edge Phone, 512 GB AI Smartphone, Unlocked Android",
+    "title": "Galaxy S25 Edge AI Phone Dual SIM Titanium Icyblue 12GB RAM 256GB - Mi",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "SAMSUNG Galaxy S25 Edge Phone, 512 GB AI Smartphone, Unlocked Android,",
     "why": "capacity differs: row says 256 gb, listing says 512 gb"
    }
   ]
  },
  "jarir:samsung-galaxy-s25-ultra-smartphones-650928": {
   "q": "samsung S25 ultra",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 3749,
-  "n": 1,
+  "n": 3,
   "merchantCount": 1,
   "min": 3749,
   "avg": 3749,
@@ -266,19 +289,50 @@
   "market": {
    "store": "eXtra",
    "price": 3749,
-   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-silverblue-e100392606"
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-black-e100392613",
+   "own": "https://www.extra.com/en-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-ultra-5g-512-gb-titanium-black/p/100392613"
   },
   "sources": [
    {
     "merchant": "eXtra",
     "price": 3749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-black-e100392613"
+   },
+   {
+    "merchant": "eXtra",
+    "price": 3749,
     "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-silverblue-e100392606"
+   },
+   {
+    "merchant": "eXtra",
+    "price": 3749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-gray-e100392615"
    }
   ],
   "rejected": [
    {
     "title": "Samsung Galaxy S25 Ultra, 256GB (International Version)",
     "why": "capacity differs: row says 512 gb, listing says 256 gb"
+   },
+   {
+    "title": "SAMSUNG Galaxy S25 Ultra, 5G, 256 GB, Titanium Silverblue",
+    "why": "capacity differs: row says 512 gb, listing says 256 gb"
+   },
+   {
+    "title": "Galaxy S25 Ultra Stylus Replacement for Samsung S25 Ultra Stylus, Gala",
+    "why": "accessory, not the product"
+   },
+   {
+    "title": "SAMSUNG Galaxy S25 Ultra, 5G, 256 GB, Titanium Gray",
+    "why": "capacity differs: row says 512 gb, listing says 256 gb"
+   },
+   {
+    "title": "Galaxy S25 Ultra Dual SIM Titanium Black 12GB RAM 256GB 5G - Internati",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "Galaxy S25 Ultra Dual SIM Titanium Silverblue 12GB RAM 512GB 5G - Inte",
+    "why": "brand word \"samsung\" not present as a whole word"
    }
   ]
  },
@@ -505,23 +559,29 @@
  },
  "jarir:samsung-m1e-smart-tv-682548": {
   "q": "samsung M1EH 85",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-24",
   "rowPrice": 4599,
-  "n": 1,
-  "merchantCount": 1,
-  "min": 3299,
+  "n": 2,
+  "merchantCount": 2,
+  "min": 3298,
   "avg": 3299,
   "max": 3299,
   "market": {
-   "store": "amazon",
-   "price": 3299,
-   "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-mini-led-tv-m1eh-4k-hdr-10-motion-xcelerator-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua85m1ehauxsa-2026-ksa-version-B0GZKZFKMT"
+   "store": "noon",
+   "price": 3298,
+   "url": "https://www.kanbkam.com/sa/en/85-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua85m1ehauxsa-black-N70370640V",
+   "own": "https://www.noon.com/en-sa/85-inch-mini-led-m1eh-4k-samsung-vision-ai-smart-tv-4k-upscaling-120hz-dlg-operating-system-tizen-soccer-mode-hdr-10-motion-xcelerator-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-2-years-warranty-2026-ksa-version-ua85m1ehauxsa-black/N70370640V/p"
   },
   "sources": [
    {
-    "merchant": "amazon",
+    "merchant": "Amazon.sa",
     "price": 3299,
     "url": "https://www.kanbkam.com/sa/en/samsung-85-inch-mini-led-tv-m1eh-4k-hdr-10-motion-xcelerator-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua85m1ehauxsa-2026-ksa-version-B0GZKZFKMT"
+   },
+   {
+    "merchant": "noon",
+    "price": 3298,
+    "url": "https://www.kanbkam.com/sa/en/85-inch-mini-led-4k-upscaling-120hz-dlg-soccer-mode-ua85m1ehauxsa-black-N70370640V"
    }
   ],
   "rejected": [
@@ -559,7 +619,7 @@
  },
  "jarir:samsung-s85h-smart-tv-690175": {
   "q": "samsung S85H 65",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-24",
   "rowPrice": 5699,
   "n": 2,
   "merchantCount": 2,
@@ -567,7 +627,7 @@
   "avg": 6249,
   "max": 6699,
   "market": {
-   "store": "amazon",
+   "store": "Amazon.sa",
    "price": 5799,
    "url": "https://www.kanbkam.com/sa/en/samsung-65-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-ai-upscaling-antireflection-smart-tv-qa65s85haexsa-2026-ksa-version-B0HFNL8N41"
   },
@@ -578,7 +638,7 @@
     "url": "https://www.kanbkam.com/sa/en/65-inch-oled-s85h-4k-samsung-vision-ai-smart-tv-4k-ai-upscaling-120hz-antireflection-model-2026-operating-system-tizen-oled-hdr-premium-gaming-pack-contour-design-2-years-warranty-qa65s85haexsa-graphite-black-N70406296V"
    },
    {
-    "merchant": "amazon",
+    "merchant": "Amazon.sa",
     "price": 5799,
     "url": "https://www.kanbkam.com/sa/en/samsung-65-inch-oled-tv-s85h-4k-hdr-10-motion-xcelerator-120hz-dolby-atmos-oled-hdr-premium-gaming-pack-ai-upscaling-antireflection-smart-tv-qa65s85haexsa-2026-ksa-version-B0HFNL8N41"
    }

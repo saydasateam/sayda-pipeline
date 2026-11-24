@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
- "updated": "2026-11-23",
- "checkedAt": "2026-11-23T20:36:26.379+03:00",
+ "updated": "2026-11-24",
+ "checkedAt": "2026-11-24T02:57:55.273+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -20,7 +20,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_7__11zon.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004",
@@ -39,7 +39,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_83inch_oled_tv_smart_4k_support_samsung_vision_ai_144hz_-_qa83s90faexsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-qled-85-inch-tv-2025-smart-4-k-upscaling-air-slim-desgin-qa-85-p-1411118261705007",
@@ -58,7 +58,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_85inch_tv_2025_smart_4k_upscaling_airslim_desgin_-_qa85q8faauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-83-inch-oled-tv-smart-4-k-ai-upscaling-dolby-atmos-120-hz-qa-p-1411118241685003",
@@ -76,7 +76,7 @@
    "avail": "low",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_83inch_oled_tv_smart_4k_ai_upscaling_dolby_atmos_120hz_-_qa83s85faexsa.1.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: متبقي 2",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-11-23"
   },
   {
@@ -96,7 +96,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_85_inches_frame_tv_smart_4k_uhd_glare_free_144hz_wi-fi_-_qa85ls03heuxsa_1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 1",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-mini-led-100-inches-smart-4-k-ai-upscaling-samsung-vision-ai-144-hz-p-141111821185501",
@@ -115,22 +115,23 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_miniled_100_inches_smart_4k_ai_upscaling_samsung_vision_ai_144_hz_-_ua100m90huxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23",
-   "refUrl": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V",
+   "lastChecked": "2026-11-24",
+   "refUrl": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p",
    "ev": {
     "market": {
      "store": "noon",
      "price": 8399,
-     "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V"
+     "url": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p"
     },
     "min": 8399,
     "max": 8399,
     "n": 1,
     "src": "market",
-    "on": "2026-11-22",
-    "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V"
+    "on": "2026-11-24",
+    "url": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p"
    },
-   "bk": "cheaper"
+   "bk": "cheaper",
+   "refStore": "noon"
   },
   {
    "id": "blackbox:samsung-led-98-inches-smart-4-k-crystal-uhd-144-hz-samsung-vision-ai-ua-p-141111823183502",
@@ -149,7 +150,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_98_inches_smart_4k_crystal_uhd_144hz_samsung_vision_ai_-_ua98u9000huxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-85-inches-neo-qled-tv-smart-120-hz-dlg-4-k-ai-upscaling-slim-p-141111822170505",
@@ -168,7 +169,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_85_inches_neo_qled_tv_smart_120_hz_dlg_4k_ai_upscaling_slim_design_-_qa85qn70hauxsa.1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-oled-55-inches-tv-smart-4-k-ai-upscaling-glare-free-g-sync-165-p-141111824140505",
@@ -186,7 +187,7 @@
    "avail": "in",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_oled_55_inches_tv_smart_4k_ai_upscaling_glare_free_g-sync_165hz_-_qa55s90hauxsa.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "lastChecked": "2026-11-23"
   },
   {
@@ -206,7 +207,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_75_inches_frame_tv_smart_4k_uhd_glare_free_144hz_wi-fi_-_qa75ls03heuxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-oled-55-inches-tv-smart-4-k-ai-upscaling-samsung-vision-ai-120-hz-p-141111824140506",
@@ -225,7 +226,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_oled_55_inches_tv_smart_4k_ai_upscaling_samsung_vision_ai_120hz_-_qa55s85haexsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-led-65-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828150501",
@@ -244,7 +245,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_65_inches_tv_micro_rgb_smart_4k_uhd_samsung_vision_ai_-_mra65r85hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:lg-65-inches-qned-evo-ai-qned-91-tv-smart-4-k-uhd-a8-ai-p-1411111391505005",
@@ -263,7 +264,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_65inches_qned_evo_ai_qned91_tv_smart_4k_uhd_a8_ai_processor_gen2_-_65qned91a6a.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-65-inch-neo-qled-tv-smart-144-hz-4-k-ai-upscaling-dolby-atmos-p-1411118221505005",
@@ -282,7 +283,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_65inch_neo_qled_tv_smart_144hz_4k_ai_upscaling_dolby_atmos_-_qa65qn80fauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
@@ -295,28 +296,29 @@
    "ref": 2749,
    "refKind": "market",
    "verdict": "bad",
-   "finding": "amazon ٢٬٧٤٩ · أرخص من هنا",
+   "finding": "Amazon.sa ٢٬٧٤٩ · أرخص من هنا",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
    "avail": "in",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_smart_4k_uhd_samsung_vision_ai_120hz_dlg_-_ua75m70hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23",
-   "refUrl": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R",
+   "lastChecked": "2026-11-24",
+   "refUrl": "https://www.amazon.sa/dp/B0H5QPC27R",
    "ev": {
     "market": {
-     "store": "amazon",
+     "store": "Amazon.sa",
      "price": 2749,
-     "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
+     "url": "https://www.amazon.sa/dp/B0H5QPC27R"
     },
     "min": 2749,
     "max": 2749,
     "n": 1,
     "src": "market",
-    "on": "2026-11-22",
-    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
+    "on": "2026-11-24",
+    "url": "https://www.amazon.sa/dp/B0H5QPC27R"
    },
-   "bk": "cheaper"
+   "bk": "cheaper",
+   "refStore": "amazon"
   },
   {
    "id": "blackbox:tcl-75-inches-qled-tv-smart-4-k-uhd-dolby-vision-atmos-google-tv-75-p-141111256160509",
@@ -335,7 +337,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_75_inches_qled_tv_smart_4k_uhd_dolby_vision_atmos_google_tv_-_75p71l.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502",
@@ -354,7 +356,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_miniled_55_inches_smart_4k_ai_upscaling_144hz_ai_soccer_mode_-ua55m80hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   },
   {
    "id": "blackbox:samsung-led-75-inches-tv-smart-crystal-processor-4-k-uhd-secured-by-knox-ua-p-141111823160505",
@@ -373,7 +375,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_smart_crystal_processor_4k_uhd_secured_by_knox_-_ua75u8000huxsa_1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 1",
-   "lastChecked": "2026-11-23"
+   "lastChecked": "2026-11-24"
   }
  ]
 }

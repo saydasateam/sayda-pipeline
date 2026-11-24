@@ -71,7 +71,7 @@
  },
  "blackbox:samsung-mini-led-100-inches-smart-4-k-ai-upscaling-samsung-vision-ai-144-hz-p-141111821185501": {
   "q": "samsung UA100M90HUXSA 100",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 9799,
   "n": 1,
   "merchantCount": 1,
@@ -81,7 +81,8 @@
   "market": {
    "store": "noon",
    "price": 8399,
-   "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V"
+   "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V",
+   "own": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p"
   },
   "sources": [
    {
@@ -203,7 +204,7 @@
  },
  "blackbox:samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504": {
   "q": "samsung UA75M70HAUXSA 75",
-  "sampledAt": "2026-11-22",
+  "sampledAt": "2026-11-24",
   "rowPrice": 3699,
   "n": 1,
   "merchantCount": 1,
@@ -211,13 +212,13 @@
   "avg": 2749,
   "max": 2749,
   "market": {
-   "store": "amazon",
+   "store": "Amazon.sa",
    "price": 2749,
    "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
   },
   "sources": [
    {
-    "merchant": "amazon",
+    "merchant": "Amazon.sa",
     "price": 2749,
     "url": "https://www.kanbkam.com/sa/en/samsung-75-inch-mini-led-4k-smart-tv-ua75m70hauxsa-120hz-tizen-os-uhd-B0H5QPC27R"
    }
