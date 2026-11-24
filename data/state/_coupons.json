@@ -50,6 +50,36 @@
   },
   {
    "stores": [
+    "noon"
+   ],
+   "label": "نون",
+   "kind": "bank",
+   "code": "D360noon",
+   "text": "من صفحة عرض D360 في نون اليوم: «يحصل أعضاء نون One على خصم إضافي 30% بحد أقصى 150 ريال على طلب واحد باستخدام الكود: D360noon» عند الدفع ببطاقة D360 صادرة في السعودية. نفس مدة العرض (23 إلى 26 نوفمبر 2026) ونفس الاستثناءات: الجوالات، والتابلت الأقل من 500 ريال، والمجوهرات، وبعض موديلات إيربودز. لا يُجمع مع كود آخر، ولا يسري مع رصيد نون أو Apple Pay أو المحافظ الرقمية.",
+   "verified": "2026-11-24",
+   "label_en": "Noon",
+   "text_en": "From Noon’s D360 offer page today: “noon One members will get an extra 30% off up to 150 SAR on one order using the promo code D360noon”, paying with a D360 card issued in KSA. Same dates (23 to 26 November 2026) and exclusions: mobiles, tablets priced below 500 SAR, jewelry and select AirPods models. Cannot be combined with any other code; not valid with noon credits, Apple Pay or other digital wallets.",
+   "perk": "لأعضاء نون One: خصم 30% حتى 150 ريال ببطاقة D360 · الرمز D360noon · حتى 26 نوفمبر",
+   "perk_en": "noon One members: 30% off up to 150 SAR with a D360 card · code D360noon · until 26 Nov",
+   "_wallet": "D360 is not in config/wallet.json, so the coupon carries no wallet tag (24 Nov 2026)."
+  },
+  {
+   "stores": [
+    "noon"
+   ],
+   "label": "نون",
+   "kind": "bank",
+   "code": "D360",
+   "text": "من صفحة عرض D360 في نون اليوم: «خصم إضافي 20% بحد أقصى 100 ريال» لحاملي بطاقات D360 على طلب واحد بالكود D360. الحد الأدنى للطلب 100 ريال. يسري من 23 نوفمبر 2026 الساعة 00:01 حتى 26 نوفمبر 2026 الساعة 11:59 مساءً بتوقيت السعودية. يُطبق عند الدفع ببطاقة D360 صادرة في السعودية. لا يشمل الجوالات، والتابلت الأقل من 500 ريال، والمجوهرات، وبعض موديلات إيربودز. لا يُجمع مع كود آخر، ولا يسري مع رصيد نون أو Apple Pay أو المحافظ الرقمية أو بطاقات الهدايا.",
+   "verified": "2026-11-24",
+   "label_en": "Noon",
+   "text_en": "From Noon’s D360 offer page today: “Extra 20% off with a maximum discount of 100 SAR” for D360 cardholders on one order with promo code D360. Minimum order 100 SAR. Runs from 23 November 2026, 00:01, to 26 November 2026, 23:59, KSA time. Applied at checkout when paying with a D360 card issued in KSA. Excludes mobiles, tablets priced below 500 SAR, jewelry and select AirPods models. Cannot be combined with any other voucher or promo code; not valid with noon credits, Apple Pay, other digital wallets or noon Gift Cards.",
+   "perk": "خصم 20% حتى 100 ريال ببطاقة D360 · الرمز D360 · حتى 26 نوفمبر",
+   "perk_en": "20% off up to 100 SAR with a D360 card · code D360 · until 26 Nov",
+   "_wallet": "D360 is not in config/wallet.json, so the coupon carries no wallet tag (24 Nov 2026)."
+  },
+  {
+   "stores": [
     "amazon"
    ],
    "label": "أمازون",
