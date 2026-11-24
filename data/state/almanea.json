@@ -1,7 +1,7 @@
 {
  "store": "almanea",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T12:48:42.486+03:00",
+ "checkedAt": "2026-11-24T16:39:14.645+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
@@ -170,8 +170,8 @@
    "price": 14999,
    "was": 25999,
    "ref": 15999,
-   "verdict": "bad",
-   "finding": "نفس سعر noon (١٥٬٩٩٩)",
+   "verdict": "ok",
+   "finding": "أرخص من noon (١٥٬٩٩٩)",
    "url": "https://www.almanea.sa/product/samsung-smart-tv-83-inch-4k-oled-tizen-os-qa83s90haexsa-p-139900599483006",
    "avail": "in",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_smart_tv_83_inch_4k_oled_tizen_os_-_qa83s90haexsa_1.jpg?width=600",
@@ -348,15 +348,32 @@
    "name_en": "Samsung, TV, 100 Inch, Mini LED, Smart TV, UA100M90HUXSA",
    "price": 9799,
    "was": 14599,
-   "ref": null,
-   "verdict": "na",
-   "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
+   "ref": 8399,
+   "verdict": "bad",
+   "finding": "noon ٨٬٣٩٩ · أرخص من هنا",
    "url": "https://www.almanea.sa/product/samsung-tv-100-inch-mini-led-smart-tv-ua100m90huxsa-p-139900599498012",
    "avail": "in",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/s/a/samsung_tv_75_inch_micro_rgb_4k_upscaling_smart_tv-_qa55s85haexsa-3.png?width=600",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-24"
+   "lastChecked": "2026-11-24",
+   "refKind": "market",
+   "refUrl": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p",
+   "refStore": "noon",
+   "ev": {
+    "market": {
+     "store": "noon",
+     "price": 8399,
+     "url": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p"
+    },
+    "min": 8399,
+    "max": 8399,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-24",
+    "url": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "almanea:samsung-65-inch-4k-uhd-smart-oled-tv-120hz-anti-reflection-qa65s85haexsa-p-139900599465123",

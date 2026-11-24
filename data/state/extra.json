@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T12:48:42.486+03:00",
+ "checkedAt": "2026-11-24T16:39:14.645+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -621,11 +621,11 @@
    "store": "extra",
    "cat": "المنزل",
    "name": "ال جي غسالة صحون، 14 مكان، 10 برامج، مزدوجة الغسيل، أسود",
-   "price": 3599,
+   "price": 3389,
    "was": 6479,
    "ref": 3789,
    "refKind": "history",
-   "verdict": "warn",
+   "verdict": "ok",
    "finding": "كان ٣٬٧٨٩ · سبق ونزل ٣٬٢٣٩",
    "url": "https://www.extra.com/ar-sa/large-appliances-/dishwashers/free-standing/lg-dishwasher-14-place-setting-10-programs-dual-zone-wash-black/p/100364094",
    "avail": "in",

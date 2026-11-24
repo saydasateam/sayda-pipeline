@@ -93,7 +93,7 @@
  "almanea:samsung-smart-tv-83-inch-4k-oled-tizen-os-qa83s90haexsa-p-139900599483006": {
   "q": "samsung QA83S90HAEXSA 83",
   "sampledAt": "2026-11-24",
-  "rowPrice": 15949,
+  "rowPrice": 14999,
   "n": 1,
   "merchantCount": 1,
   "min": 15999,
@@ -112,7 +112,24 @@
     "url": "https://www.kanbkam.com/sa/en/samsung-83-inch-oled-4k-ai-upscaling-165hz-glare-free-gsync-qa83s90haexsa-graphite-black-N70378850V"
    }
   ],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Samsung, 83 inch, 4K Smart Tv, OLED, 165 Hz",
+    "why": "model part \"qa83s90haexsa\" not present as a whole word, and \"qa83s90haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung 83 Inch OLED TV, S90H, 4K, HDR 10+, Motion Xcelerator 165Hz, D",
+    "why": "model part \"qa83s90haexsa\" not present as a whole word, and \"qa83s90haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 83 Inch, OLED 4K AI Upscaling, 165Hz, Glare Free, G-Sync",
+    "why": "model part \"qa83s90haexsa\" not present as a whole word, and \"qa83s90haexsa\" not present fused"
+   },
+   {
+    "title": "83 Inch OLED TV, 4K AI Upscaling, S85H, 4K, HDR 10+, Operating System ",
+    "why": "brand word \"samsung\" not present as a whole word"
+   }
+  ]
  },
  "almanea:lg-side-by-side-refrigerator-27-2-cu-ft-silver-lm334bbslf-p-120100703227002": {
   "q": "lg LM334BBSLF",
@@ -181,8 +198,8 @@
  },
  "almanea:samsung-tv-65-inch-4k-uhd-smart-oled-tizen-wifi-qa65s90haexsa-p-139900599465118": {
   "q": "samsung QA65S90 65",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 7299,
+  "sampledAt": "2026-11-24",
+  "rowPrice": 7199,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -190,7 +207,32 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Samsung smart led 65 inch bu8000 (ua65bu8000uxsa)",
+    "why": "model part \"qa65s90\" not present as a whole word, and \"qa65s90\" not present fused"
+   },
+   {
+    "title": "Samsung 65 inch ultra hd smart qled tv - qa65q6fn",
+    "why": "model part \"qa65s90\" not present as a whole word, and \"qa65s90\" not present fused"
+   },
+   {
+    "title": "Samsung, 65 Inch, OLED 4K AI Upscaling, 144Hz, Anti-Reflection",
+    "why": "model part \"qa65s90\" not present as a whole word, and \"qa65s90\" not present fused"
+   },
+   {
+    "title": "Samsung 65 inch 4k ultra hd smart led tv - ua65nu7100",
+    "why": "model part \"qa65s90\" not present as a whole word, and \"qa65s90\" not present fused"
+   },
+   {
+    "title": "Samsung smart frame tv 65 inch 4k qled (qa65ls03bauxsa)",
+    "why": "model part \"qa65s90\" not present as a whole word, and \"qa65s90\" not present fused"
+   },
+   {
+    "title": "Samsung tv 65\" uhd smart qled (qa65q60t)",
+    "why": "model part \"qa65s90\" not present as a whole word, and \"qa65s90\" not present fused"
+   }
+  ]
  },
  "almanea:lg-condenser-dryer-18-kg-14-programs-black-steel-rh18u8jvcw-p-120400701919002": {
   "q": "lg RH18U8JVCW",
@@ -220,21 +262,57 @@
  },
  "almanea:samsung-tv-100-inch-mini-led-smart-tv-ua100m90huxsa-p-139900599498012": {
   "q": "samsung UA100M90HUXSA 100",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 9299,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
-  "rejected": []
+  "sampledAt": "2026-11-24",
+  "rowPrice": 9799,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 8399,
+  "avg": 8399,
+  "max": 8399,
+  "market": {
+   "store": "noon",
+   "price": 8399,
+   "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V",
+   "own": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 8399,
+    "url": "https://www.kanbkam.com/sa/en/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black-N72141193V"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Samsung 100 Inch M90H Mini LED 4K Smart TV, HDR 10+, Motion Xcelerator",
+    "why": "model part \"ua100m90huxsa\" not present as a whole word, and \"ua100m90huxsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 100 Inch, NEO QLED 4K AI Upscaling, 144Hz, Dolby Atmos",
+    "why": "model part \"ua100m90huxsa\" not present as a whole word, and \"ua100m90huxsa\" not present fused"
+   },
+   {
+    "title": "98 Inch QLED TV, Q7F, 4K, 120Hz, Operating System Tizen, Model Year 20",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "Samsung 75 Inch QLED TV, Q8F, 4K, Q4 AI Processor, 100% Color Volume w",
+    "why": "model part \"ua100m90huxsa\" not present as a whole word, and \"ua100m90huxsa\" not present fused"
+   },
+   {
+    "title": "Samsung 100 Inch M90H Mini LED 4K Smart TV, HDR 10+, Motion Xcelerator",
+    "why": "model part \"ua100m90huxsa\" not present as a whole word, and \"ua100m90huxsa\" not present fused"
+   },
+   {
+    "title": "SAMSUNG 30”- 100” The Freestyle FHD HDR Smart Portable Projector for I",
+    "why": "model part \"ua100m90huxsa\" not present as a whole word, and \"ua100m90huxsa\" not present fused"
+   }
+  ]
  },
  "almanea:samsung-65-inch-4k-uhd-smart-oled-tv-120hz-anti-reflection-qa65s85haexsa-p-139900599465123": {
   "q": "samsung QA65S 65",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 5799,
+  "sampledAt": "2026-11-24",
+  "rowPrice": 5999,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -242,7 +320,32 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Samsung smart led 65 inch bu8000 (ua65bu8000uxsa)",
+    "why": "model part \"qa65s\" not present as a whole word, and \"qa65s\" not present fused"
+   },
+   {
+    "title": "Samsung 65 inch 4k ultra hd smart qled tv - qa65q60r",
+    "why": "model part \"qa65s\" not present as a whole word, and \"qa65s\" not present fused"
+   },
+   {
+    "title": "Samsung, 65 Inch, QLED 4K Smart TV, 50 Hz",
+    "why": "model part \"qa65s\" not present as a whole word, and \"qa65s\" not present fused"
+   },
+   {
+    "title": "Samsung 65-inch uhd smart qled tv - (qa65q70r)",
+    "why": "model part \"qa65s\" not present as a whole word, and \"qa65s\" not present fused"
+   },
+   {
+    "title": "Samsung smart frame tv 65 inch 4k qled (qa65ls03bauxsa)",
+    "why": "model part \"qa65s\" not present as a whole word, and \"qa65s\" not present fused"
+   },
+   {
+    "title": "Samsung tv 65\" uhd smart qled (qa65q60t)",
+    "why": "model part \"qa65s\" not present as a whole word, and \"qa65s\" not present fused"
+   }
+  ]
  },
  "almanea:lg-inverter-front-load-washing-machine-with-dryer-20-kg-wash-10-kg-dryer-matte-black-wsn2010bmt-p-120300702120003": {
   "q": "lg WSN2010BMT",
@@ -311,8 +414,8 @@
  },
  "almanea:samsung-smart-tv-83-inch-4k-oled-tizen-os-qa83s85haexsa-p-139900599483007": {
   "q": "samsung QA83S85HAEXSA 83",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 10799,
+  "sampledAt": "2026-11-24",
+  "rowPrice": 12599,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -320,7 +423,28 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "83 Inch OLED TV, 4K AI Upscaling, S85H, 4K, HDR 10+, Operating System ",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "Samsung, 83 inch, 4K Smart Tv, OLED, 165 Hz",
+    "why": "model part \"qa83s85haexsa\" not present as a whole word, and \"qa83s85haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 83 Inch, OLED 4K AI Upscaling, 165Hz, Glare Free, G-Sync QA83",
+    "why": "model part \"qa83s85haexsa\" not present as a whole word, and \"qa83s85haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 83 Inch, OLED 4K AI Upscaling, 165Hz, Glare Free, G-Sync",
+    "why": "model part \"qa83s85haexsa\" not present as a whole word, and \"qa83s85haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung 83 Inch OLED TV, S90H, 4K, HDR 10+, Motion Xcelerator 165Hz, D",
+    "why": "model part \"qa83s85haexsa\" not present as a whole word, and \"qa83s85haexsa\" not present fused"
+   }
+  ]
  },
  "almanea:samsung-smart-tv-77-inch-4k-oled-tizen-os-qa77s90hauxsa-p-139900599477008": {
   "q": "samsung QA77S90HAUXSA 77",
@@ -337,8 +461,8 @@
  },
  "almanea:samsung-77-inch-4k-uhd-smart-oled-tv-qa77s85haexsa-p-139900599477009": {
   "q": "samsung QA77S85HAEXSA 77",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 8699,
+  "sampledAt": "2026-11-24",
+  "rowPrice": 8999,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -346,7 +470,28 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "77 Inch OLED S85H 4K Samsung Vision AI Smart TV, 4K AI Upscaling, 120H",
+    "why": "model part \"qa77s85haexsa\" not present as a whole word, and \"qa77s85haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 77 Inch, OLED 4K AI Upscaling, 144Hz, Anti-Reflection",
+    "why": "model part \"qa77s85haexsa\" not present as a whole word, and \"qa77s85haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 77 Inch, OLED 4K AI Upscaling, 165Hz, Glare Free, G-Sync",
+    "why": "model part \"qa77s85haexsa\" not present as a whole word, and \"qa77s85haexsa\" not present fused"
+   },
+   {
+    "title": "Samsung 77 Inch OLED TV, S85H, 4K, HDR 10+, Motion Xcelerator 120Hz, D",
+    "why": "model part \"qa77s85haexsa\" not present as a whole word, and \"qa77s85haexsa\" not present fused"
+   },
+   {
+    "title": "77 Inch OLED S90H 4K Samsung Vision AI Smart TV, 4K AI Upscaling, 165H",
+    "why": "model part \"qa77s85haexsa\" not present as a whole word, and \"qa77s85haexsa\" not present fused"
+   }
+  ]
  },
  "almanea:lg-side-by-side-refrigerator-13-3-cu-ft-376l-silver-lm144gbbsir-p-120100703214001": {
   "q": "lg LM144GBBSIR",

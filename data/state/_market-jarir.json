@@ -211,8 +211,28 @@
   "sources": [],
   "rejected": [
    {
-    "title": "Samsung 85 Inch Neo QLED Smart TV, Samsung Vision AI, QN70H, 4K,120Hz ",
-    "why": "listing is \"mini\", row is the base model"
+    "title": "Samsung, 85 Inch, 4K UHD 10+, Smart TV",
+    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
+   },
+   {
+    "title": "Samsung smart neo qled 85 inch qn85 (qa85qn85bauxsa)",
+    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
+   },
+   {
+    "title": "Samsung series qn800a 85-inch 8k qled tv (qa85qn800a)",
+    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
+   },
+   {
+    "title": "Samsung smart neo qled 4k 85 inch qn90 (qa85qn90bauxsa)",
+    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
+   },
+   {
+    "title": "Samsung smart frame qled 4k 85 inch ls03 (qa85ls03bauxsa)",
+    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
+   },
+   {
+    "title": "Samsung series q70a 85-inch qled uhd smart tv (qa85q70aauxum)",
+    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
    }
   ]
  },

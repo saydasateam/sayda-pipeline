@@ -1,7 +1,7 @@
 {
  "store": "noon",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T12:48:42.486+03:00",
+ "checkedAt": "2026-11-24T16:39:14.645+03:00",
  "rows": [
   {
    "id": "noon:Z33E7618590057C356494Z",
@@ -15,8 +15,8 @@
    "verdict": "warn",
    "finding": "كان ٤٧٠ · أقل سعر مسجل · «قبل» ٧٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z33E7618590057C356494Z/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
    "ev": {
     "prev": 470,
     "min": 281,
@@ -230,7 +230,7 @@
    "store": "noon",
    "cat": "المنزل",
    "name": "ماكينة إسبريسو فيليبس أوتوماتيكية سلسلة 5500",
-   "price": 3389,
+   "price": 3349,
    "was": 4514,
    "ref": 3999,
    "refKind": "history",
@@ -982,7 +982,7 @@
    "finding": "كان ٣٩٩ · أقل سعر مسجل · «قبل» ٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z856CCE4B20529C9C7C59Z/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 1",
    "ev": {
     "prev": 399,
     "min": 357.12,
@@ -1722,7 +1722,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "كوداك كاميرا بيكس برو FZ55 16 ميجابكسل",
-   "price": 534,
+   "price": 514,
    "was": 799,
    "ref": 570,
    "refKind": "history",
@@ -2198,7 +2198,7 @@
    "verdict": "ok",
    "finding": "كان ١٬٤٩٩ · أقل سعر مسجل · «قبل» ٢٬١٨٣ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70118730V/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 1499,
     "min": 1099,
@@ -2208,7 +2208,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70118730V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z73D94F277A35218193C0Z/45/_/1779721059/8e350f2d-69b4-428e-8ab4-6226f4a69bed.jpg?width=400",
    "name_en": "Toshiba Freestanding Dishwasher, 14 Place Settings, 6 Programs, White"
@@ -2263,7 +2263,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70187474V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/ZFE3656912BD82FAB18A6Z/45/_/1775716353/75dfcf23-b0be-43c3-9561-df30bea7d0cd.jpg?width=400",
    "name_en": "Tineco Floor One S7 Stretch Ultra Cordless Wet Dry Vacuum Cleaner, 180°Lay-Flat Anti-Tangle Design",
@@ -3136,7 +3136,7 @@
    "cat": "أطفال",
    "name": "سرير و محبس أطفال آمن و مريح مع حواجز شبكية للحفاظ على الأجواء الداخلية أكثر تهوية",
    "name_en": "Cady One Breathable, Padded, Soft, Portable And Comfortable Baby Crib And Bassinet",
-   "price": 189,
+   "price": 170,
    "was": 699,
    "ref": 238,
    "refKind": "history",
@@ -3934,7 +3934,7 @@
    "verdict": "ok",
    "finding": "كان ٤٠٢ · أقل سعر مسجل · «قبل» ٨٦٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z174BF62FCDE518C8CD0CZ/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 402.15,
     "min": 303,
@@ -3945,7 +3945,7 @@
    },
    "cat": "أطفال",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٤٠٢ — انتهى العرض",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z174BF62FCDE518C8CD0CZ/45/1767346708/53db377c-ee95-4ca3-b412-719c0b51fdcc.jpg?width=400"
   },
@@ -3961,7 +3961,7 @@
    "verdict": "ok",
    "finding": "كان ٢٥٨ · أقل سعر مسجل · «قبل» ٥٧٤ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N43285167A/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 258,
     "min": 215,
@@ -3972,7 +3972,7 @@
    },
    "cat": "أطفال",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٢٥٨ — انتهى العرض",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z8827E2F2329E72D2AFFDZ/45/_/1779704228/cb2268f9-72b2-4a0a-ba83-148dd592c9b9.jpg?width=400",
    "model": "MNBGKGD08"
@@ -3989,7 +3989,7 @@
    "verdict": "ok",
    "finding": "كان ٣٠٧ · أقل سعر مسجل · «قبل» ١٬٤٣٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N47986969A/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 307,
     "min": 275,
@@ -4000,7 +4000,7 @@
    },
    "cat": "أطفال",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٣٠٧ — انتهى العرض",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/v1633327124/N47986969A_1.jpg?width=400"
   },
@@ -4110,7 +4110,7 @@
    },
    "cat": "ألعاب",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z8605F3EAB1EE56676B7AZ/45/_/1779705098/50670984-8215-4317-84df-9fbe4286203c.jpg?width=400"
   },
@@ -4208,7 +4208,7 @@
    "verdict": "ok",
    "finding": "كان ٤٬١٨٠ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N70305459V/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 4180,
     "min": 3549,
@@ -4219,7 +4219,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 3",
+   "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z724DFCCF8B139ED56FAFZ/45/_/1779094172/8ba3fdab-d7d9-4cea-9206-f997f6772b1b.jpg?width=400",
    "model": "MH354AB/A"
@@ -4469,7 +4469,7 @@
    },
    "cat": "شاشات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 1",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z7F2EA43FD1B5961FE489Z/45/_/1782393436/9d3b5f5b-d444-46f0-b958-41d3654307bd.jpg?width=400",
    "model": "UA85M70HAUXZN"
@@ -4607,7 +4607,7 @@
    },
    "cat": "إلكترونيات",
    "firstSeen": "2026-11-22",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: متبقي 1",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z64E29DBAB1784EEC638DZ/45/_/1779094466/20b814ea-26e3-4a87-91c9-160357a67d4f.jpg?width=400"
   },
@@ -4840,7 +4840,7 @@
    "store": "noon",
    "name": "طاولة قهوة خشبية مع مساحة تخزين من طبقتين وأرجل معدنية",
    "name_en": "Taimi 2-Tier Wooden Coffee Table with Metal Legs, Modern Design Center Table for Living Room and Office, 100x60x48cm - Brown",
-   "price": 172.66,
+   "price": 163,
    "was": 699,
    "ref": 295.08,
    "refKind": "history",
@@ -5535,7 +5535,7 @@
    "verdict": "ok",
    "finding": "كان ٦٥٧ · أقل سعر مسجل · «قبل» ١٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N71403964V/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 657.05,
     "min": 598,
@@ -5545,7 +5545,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N71403964V"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٦٥٧ — انتهى العرض",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z28CB5DCCA63715BFA7CFZ/45/_/1791877732/ab5181e2-29f8-480b-969d-77ed23fd0cf0.jpg?width=400",
    "name_en": "EGG 4-in-1 Foldable Walking Pad Treadmill with Keypad Control, 2.5HP at peak, 1-10 km/h Speed, 150kg Capacity"
@@ -5562,7 +5562,7 @@
    "verdict": "warn",
    "finding": "كان ٢٤٦ · أقل سعر مسجل · «قبل» ٨٠٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZCC40E43EA95554A0AA1FZ/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 246.25,
     "min": 223.42,
@@ -5572,7 +5572,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-ZCC40E43EA95554A0AA1FZ"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٢٤٦ — انتهى العرض",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/ZCC40E43EA95554A0AA1FZ/45/_/1783673172/4993bbfb-e39b-4301-a75e-9c8c1c16a6de.jpg?width=400",
    "name_en": "Adidas 3.4 Match Black Padel Racket",
@@ -5618,7 +5618,7 @@
    "verdict": "warn",
    "finding": "كان ١١١ · أقل سعر مسجل · «قبل» ٤٢٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z02B59BEDFF87733A4E34Z/p/",
-   "avail": "in",
+   "avail": "low",
    "ev": {
     "prev": 111,
     "min": 105.09,
@@ -5628,7 +5628,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z02B59BEDFF87733A4E34Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z02B59BEDFF87733A4E34Z/45/1757786282/5a32da0b-37cb-49f1-81b8-e3032cb78726.jpg?width=400",
    "name_en": "Adidas 10mm Thick Fitness Mat with Carry Strap Non-Slip Cushion for Yoga & Floor Training Black"
@@ -5839,7 +5839,7 @@
    "verdict": "warn",
    "finding": "كان ٢٧٨ · أقل سعر مسجل · «قبل» ٨٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZB4D30C5C24B0C8CC8B55Z/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 278,
     "min": 263.12,
@@ -5849,7 +5849,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-ZB4D30C5C24B0C8CC8B55Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٢٧٨ — انتهى العرض",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/ZB4D30C5C24B0C8CC8B55Z/45/1764839623/fde8c670-ab61-4a9d-945e-407b2b2c9f56.jpg?width=400",
    "name_en": "WAPIK Korean Brand ST50 GPS Smartwatch with Built-in Dual Satellite Positioning, AMOLED Display",
@@ -5894,7 +5894,7 @@
    "verdict": "warn",
    "finding": "كان ٢٤٢ · أقل سعر مسجل · «قبل» ٨٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z104AF9DDA19C5D05BB90Z/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 242,
     "min": 229.08,
@@ -5904,7 +5904,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z104AF9DDA19C5D05BB90Z"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "نون: عاد السعر إلى ٢٤٢ — انتهى العرض",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z104AF9DDA19C5D05BB90Z/45/1764839898/d76ec0f4-665a-4ed9-9022-8cd78054934f.jpg?width=400",
    "name_en": "WAPIK Smart Watch for Men, Y7 with 1.43-Inch AMOLED Display, Bluetooth Calling, 3ATM Water Resistance",
@@ -6079,7 +6079,7 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "ساعة ذكية للرجال Y6 بشاشة AMOLED دائرية مقاس 1.43 بوصة ودقة 466 × 466 ومكالمات بلوتوث ومقا",
-   "price": 137,
+   "price": 130,
    "was": 610,
    "ref": 159,
    "refKind": "history",
@@ -6097,7 +6097,7 @@
    },
    "firstSeen": "2026-11-23",
    "name_en": "WAPIK Smart Watch for Men, Y6 with 1.43-Inch AMOLED Display, Bluetooth Calling, 466 × 466 Resolution, IP67 Water Resistance, Black",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 2",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/ZF803D2FF6204C59E608EZ/45/1764840493/58d0424c-ae27-4b4f-931d-513467500bc3.jpg?width=400",
    "model": "ClearCircle Y6"
@@ -6114,7 +6114,7 @@
    "verdict": "warn",
    "finding": "كان ١٥٥ · أقل سعر مسجل · «قبل» ٦٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z2EE662987AC6F349E3BFZ/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 155,
     "min": 143.92,
@@ -6125,7 +6125,7 @@
    },
    "firstSeen": "2026-11-23",
    "name_en": "WAPIK Smart Watch for Women with Bluetooth Calling, 1.43-Inch AMOLED Screen, Slim Round Design, 2 Straps, Silver",
-   "availNote": "نون: عاد السعر إلى ١٥٥ — انتهى العرض",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z2EE662987AC6F349E3BFZ/45/1764840595/0d22b3d3-fe0d-4123-a162-dc98da303fb5.jpg?width=400",
    "model": "WAPIK-Y2"
@@ -6163,11 +6163,11 @@
    "store": "noon",
    "cat": "إلكترونيات",
    "name": "ساعة ذكية من العلامة التجارية الكورية Y5، ساعة أعمال مقاومة للماء، تتصل بالبلوتوث، متوافقة",
-   "price": 119,
+   "price": 114,
    "was": 546,
    "ref": 129,
    "refKind": "history",
-   "verdict": "warn",
+   "verdict": "ok",
    "finding": "كان ١٢٩ · أقل سعر مسجل · «قبل» ٥٤٦ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z44373FC4A439449EBA2CZ/p/",
    "avail": "low",
@@ -6226,7 +6226,7 @@
    "verdict": "warn",
    "finding": "كان ١٣٤ · أقل سعر مسجل · «قبل» ٥٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZC7D03D68B3D12F5ABC61Z/p/",
-   "avail": "ended",
+   "avail": "low",
    "ev": {
     "prev": 134,
     "min": 126.89,
@@ -6237,7 +6237,7 @@
    },
    "firstSeen": "2026-11-23",
    "name_en": "WAPIK Smart Watch for Men, Y5 (New Version) with Bluetooth Calling, 1.46-Inch Round TFT Display, IP68 Water Resistant, Black",
-   "availNote": "نون: عاد السعر إلى ١٣٤ — انتهى العرض",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/ZC7D03D68B3D12F5ABC61Z/45/_/1782020715/070bd30f-a166-4808-bdc7-ced310eaa3a3.jpg?width=400",
    "model": "New-Y5-Black"
@@ -6255,7 +6255,7 @@
    "verdict": "warn",
    "finding": "كان ٣٨٩ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/Z7CDA886F3A259DB0A20BZ/p/",
-   "avail": "in",
+   "avail": "low",
    "ev": {
     "prev": 389,
     "min": 194,
@@ -6265,7 +6265,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z7CDA886F3A259DB0A20BZ"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z7CDA886F3A259DB0A20BZ/45/1768045029/2a0ac480-c333-4988-8f02-ae3711c2ad9f.jpg?width=400",
    "model": "HWVG9891210-BLA"
@@ -6303,7 +6303,7 @@
    "cat": "أطفال",
    "name": "مضخة حليب الأم، مضخة حليب كهربائية قابلة للارتداء للنساء، مضخة حليب كهربائية دون استخدام ا",
    "name_en": "Cady One Breast pump, wearable electric breast pump for women, hands-free electric breast pump, electric breast pump, breast pump, electric breast pump",
-   "price": 89,
+   "price": 85,
    "was": 399,
    "ref": 99,
    "refKind": "history",
@@ -6365,7 +6365,7 @@
    "verdict": "warn",
    "finding": "كان ١٬٣٢٩ · سبق ونزل ٨٩٩ · «قبل» ١٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53401519A/p/",
-   "avail": "low",
+   "avail": "in",
    "ev": {
     "prev": 1329,
     "min": 899,
@@ -6375,7 +6375,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N53401519A"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "نون: متبقي 3",
+   "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z1ED223E342FB3A544219Z/45/_/1779791888/cf473e3d-5110-4d0d-a1f6-20e48e6f7ffc.jpg?width=400",
    "model": "DVN05420S"
@@ -6448,7 +6448,7 @@
    "verdict": "warn",
    "finding": "كان ٢٬١٤٤ · أقل سعر مسجل · «قبل» ٣٬٩٩٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N53421344A/p/",
-   "avail": "in",
+   "avail": "low",
    "ev": {
     "prev": 2144,
     "min": 1999,
@@ -6458,7 +6458,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N53421344A"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/ZC0F65AD0E11358EBC44CZ/45/_/1772091419/565ae921-9447-4ce3-bae0-d16c7f28bea2.jpg?width=400"
   },
@@ -6723,7 +6723,7 @@
    "verdict": "warn",
    "finding": "كان ٢١١ · أقل سعر مسجل · «قبل» ٥٤٩ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N70109486V/p/",
-   "avail": "ended",
+   "avail": "in",
    "ev": {
     "prev": 210.65,
     "min": 199.12,
@@ -6733,7 +6733,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-N70109486V"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "نون: عاد السعر إلى ٣٥٥ — انتهى العرض",
+   "availNote": "",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z65A385587CFE6868984AZ/45/_/1779706090/ef5024c4-cf10-4172-b5bf-6b8b0417ef12.jpg?width=400",
    "name_en": "TEFAL Intuition 6 Piece Cookware set | saucepan 16 cm+lid, stewpots 20/24 cm+lids",
@@ -6778,7 +6778,7 @@
    "verdict": "warn",
    "finding": "كان ١٠٣ · أقل سعر مسجل · «قبل» ٤٧٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z7B9A828BD8EC1C17E412Z/p/",
-   "avail": "in",
+   "avail": "low",
    "ev": {
     "prev": 103,
     "min": 94,
@@ -6788,7 +6788,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-Z7B9A828BD8EC1C17E412Z"
    },
    "firstSeen": "2026-11-23",
-   "availNote": "",
+   "availNote": "نون: متبقي 3",
    "lastChecked": "2026-11-24",
    "img": "https://f.nooncdn.com/p/pzsku/Z7B9A828BD8EC1C17E412Z/45/1746429209/ea2d12b0-9525-45c8-80f9-584de0c17b82.jpg?width=400",
    "name_en": "Ella Limited Edition Tulle Off Shoulder Dress",
@@ -6828,11 +6828,11 @@
    "cat": "أزياء",
    "name": "حقيبة ساتشل نويل بمقبض علوي وتفاصيل شعار",
    "name_en": "GUESS Noelle II Luxury Satchel Bag",
-   "price": 444,
+   "price": 414,
    "was": 768,
    "ref": 461,
    "refKind": "history",
-   "verdict": "bad",
+   "verdict": "warn",
    "finding": "كان ٤٦١ · سبق ونزل ٣٦٤ · «قبل» ٧٦٨ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/ZE4D3F88DE90C9E1419B6Z/p/",
    "avail": "in",
@@ -6994,15 +6994,15 @@
    "cat": "المنزل",
    "name": "مجموعة أدوات الطبخ ألفا مكونة من 9 قطع فضي",
    "name_en": "Korkmaz Alfa 9 Pieces Stainless Steel Cookware Set | Stainless Steel Tri-Ply Sandwich Base | Induction Compatible Cookware Pots and Pans Set | Silver - KA1660 Stainless Steel",
-   "price": 766,
+   "price": 504,
    "was": 842,
    "ref": 799,
    "refKind": "history",
-   "verdict": "bad",
+   "verdict": "warn",
    "finding": "كان ٧٩٩ · سبق ونزل ٤٤٩ · «قبل» ٨٤٢ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/N18949133A/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
    "ev": {
     "prev": 799,
     "min": 448.75,
@@ -7086,7 +7086,7 @@
    "finding": "كان ٧٥٩ · أقل سعر مسجل",
    "url": "https://www.noon.com/saudi-ar/N53422411A/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 3",
+   "availNote": "نون: متبقي 1",
    "ev": {
     "prev": 759,
     "min": 666,
@@ -7479,8 +7479,8 @@
    "verdict": "ok",
    "finding": "كان ٣١٤ · أقل سعر مسجل · «قبل» ٦٢٠ لم يُسجّل",
    "url": "https://www.noon.com/saudi-ar/Z6CB6A53F005F7060C8DAZ/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
    "model": "HWSG6974140-LTL",
    "ev": {
     "prev": 314,
@@ -7701,7 +7701,7 @@
    "cat": "إلكترونيات",
    "name": "ساعة ذكية نسائية بمكالمات بلوتوث، شاشة أموليد 1.43 بوصة، تصميم دائري نحيف، سواران، باللون",
    "brand": "وابيك",
-   "price": 146,
+   "price": 143,
    "was": 668,
    "ref": 167,
    "refKind": "history",
@@ -7763,7 +7763,7 @@
    "was": 2899,
    "url": "https://www.noon.com/saudi-ar/N70368653V/p/",
    "avail": "low",
-   "availNote": "نون: متبقي 2",
+   "availNote": "نون: متبقي 1",
    "img": "https://f.nooncdn.com/p/pzsku/ZDA2916B550129567756AZ/45/_/1780572445/d50b36fa-9b10-4386-9a5b-344f2f2e10ea.jpg?width=400",
    "name_en": "DELL Laptop (Upgraded Version) With 15.6 Inch Full HD (1920X1080) Display 120Hz, Core i5 1334U Processor/8GB RAM DDR4/512GB SSD/Intel UHD Graphics/Windows 11 Pro/ English/Arabic Carbon Black",
    "ref": 2999,
@@ -7780,6 +7780,122 @@
    },
    "firstSeen": "2026-11-24",
    "lastChecked": "2026-11-24"
+  },
+  {
+   "id": "noon:N53350914A",
+   "store": "noon",
+   "cat": "إلكترونيات",
+   "name": "مكبر صوت ستيريو",
+   "price": 2229,
+   "was": 2999,
+   "ref": 2999,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٢٬٩٩٩ · أقل سعر مسجل",
+   "url": "https://www.noon.com/saudi-ar/N53350914A/p/",
+   "avail": "low",
+   "availNote": "نون: متبقي 1",
+   "ev": {
+    "prev": 2999,
+    "min": 2229,
+    "max": 2999,
+    "src": "kanbkam",
+    "on": "2026-11-24",
+    "url": "https://www.kanbkam.com/sa/ar/p-N53350914A"
+   },
+   "brand": "سونوس",
+   "firstSeen": "2026-11-24",
+   "lastChecked": "2026-11-24",
+   "model": "FIVE1UK1-SA",
+   "img": "https://f.nooncdn.com/p/pzsku/ZFEA4E7586765A716222AZ/45/_/1780467002/c605c38e-0712-445c-8b8d-93d26247ea1f.jpg?width=400",
+   "name_en": "Sonos Five - The High-Fidelity Speaker For Superior Sound - FIVE1UK1-SA White"
+  },
+  {
+   "id": "noon:N70153699V",
+   "store": "noon",
+   "cat": "المنزل",
+   "name": "ماكينة إسبرسو أوتوماتيكية بالكامل من فيليبس سلسلة 5500",
+   "price": 3349,
+   "was": 6499,
+   "ref": 3796,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٣٬٧٩٦ · سبق ونزل ٣٬٠٩٣ · «قبل» ٦٬٤٩٩ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/N70153699V/p/",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
+   "ev": {
+    "prev": 3796,
+    "min": 3093,
+    "max": 4499,
+    "src": "kanbkam",
+    "on": "2026-11-24",
+    "url": "https://www.kanbkam.com/sa/ar/p-N70153699V"
+   },
+   "brand": "فيليبس",
+   "firstSeen": "2026-11-24",
+   "lastChecked": "2026-11-24",
+   "model": "EP5547/23",
+   "img": "https://f.nooncdn.com/p/pzsku/Z9EB85056EB725E732435Z/45/_/1780915260/aa0204cd-13ea-482f-b2c1-02741c32ab5f.jpg?width=400",
+   "name_en": "Philips Series 5500 Fully automatic espresso machine 1.8 L 1500 W EP5547/23 Black Chrome"
+  },
+  {
+   "id": "noon:N26288149A",
+   "store": "noon",
+   "cat": "إلكترونيات",
+   "name": "مكبر صوت على هيئة ترولي قابل للشحن ويعمل بالبلوتوث GMS11131 أسود",
+   "price": 699,
+   "was": 1299,
+   "ref": 947,
+   "refKind": "history",
+   "verdict": "warn",
+   "finding": "كان ٩٤٧ · سبق ونزل ٥٢٠ · «قبل» ١٬٢٩٩ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/N26288149A/p/",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
+   "ev": {
+    "prev": 947,
+    "min": 520,
+    "max": 947,
+    "src": "kanbkam",
+    "on": "2026-11-24",
+    "url": "https://www.kanbkam.com/sa/ar/p-N26288149A"
+   },
+   "brand": "جيباس",
+   "model": "GMS11131",
+   "firstSeen": "2026-11-24",
+   "lastChecked": "2026-11-24",
+   "img": "https://f.nooncdn.com/p/pzsku/Z1D2F07328E6725313E60Z/45/_/1779704669/92cc16c4-b246-43bb-bc5f-1e682893d197.jpg?width=400",
+   "name_en": "GEEPAS Rechargeable Trolley Bluetooth Speaker GMS11131 Black"
+  },
+  {
+   "id": "noon:ZFE79A9B16959C14618B0Z",
+   "store": "noon",
+   "cat": "إلكترونيات",
+   "name": "ساعة ذكية للرجال Y7 بشاشة AMOLED مقاس 1.43 بوصة ومكالمات بلوتوث ومقاومة للماء بمعيار 3ATM،",
+   "price": 254.32,
+   "was": 868,
+   "ref": 289,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٢٨٩ · أقل سعر مسجل · «قبل» ٨٦٨ لم يُسجّل",
+   "url": "https://www.noon.com/saudi-ar/ZFE79A9B16959C14618B0Z/p/",
+   "avail": "low",
+   "availNote": "نون: متبقي 3",
+   "ev": {
+    "prev": 289,
+    "min": 254.32,
+    "max": 309,
+    "src": "kanbkam",
+    "on": "2026-11-24",
+    "url": "https://www.kanbkam.com/sa/ar/p-ZFE79A9B16959C14618B0Z"
+   },
+   "brand": "وابيك",
+   "model": "WAPIK-Y7-BK",
+   "firstSeen": "2026-11-24",
+   "lastChecked": "2026-11-24",
+   "img": "https://f.nooncdn.com/p/pzsku/ZFE79A9B16959C14618B0Z/45/1764839918/d8cb7be7-b029-40b8-88b2-35f6522459af.jpg?width=400",
+   "name_en": "WAPIK Smart Watch for Men, Y7 with 1.43-Inch AMOLED Display, Bluetooth Calling, 3ATM Water Resistance"
   }
  ]
 }

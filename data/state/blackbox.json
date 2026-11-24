@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-24",
- "checkedAt": "2026-11-24T12:48:42.486+03:00",
+ "checkedAt": "2026-11-24T16:39:14.645+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -241,10 +241,10 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-65-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828150501",
-   "avail": "low",
+   "avail": "gone",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_65_inches_tv_micro_rgb_smart_4k_uhd_samsung_vision_ai_-_mra65r85hauxsa.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: متبقي 2",
+   "availNote": "بلاك بوكس: الصفحة غير موجودة",
    "lastChecked": "2026-11-24"
   },
   {
