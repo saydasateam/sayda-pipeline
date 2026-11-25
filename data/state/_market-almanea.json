@@ -388,8 +388,8 @@
  },
  "almanea:samsung-condenser-dryer-19-programs-9-kg-black-dv90bb9445gb-p-120400501109005": {
   "q": "samsung DV90BB9445GB",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 3499,
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2549,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -692,6 +692,347 @@
   "q": "lg WSV1208BST",
   "sampledAt": "2026-11-23",
   "rowPrice": 4399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:samsung-83-inch-4k-uhd-smart-oled-tv-with-built-in-receiver-qa83s90faexsa-p-139900599483003": {
+  "q": "samsung QA83S90FAEXSA 83",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 14149,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:hisense-85-inch-4k-uhd-smart-mini-led-tv-144hz-8-years-os-update-ai-85u7q-p-139902699485004": {
+  "q": "hisense 85 inch 4k uhd smart mini",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:samsung-washing-machine-front-load-with-dryer-21-kg-wash-12-kg-dryer-dark-steel-wd90f21bcs-p-120300502221002": {
+  "q": "samsung WD90F21B",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 7199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-front-load-washing-machine-20-kg-graphite-essence-color-wfn2010bst-p-120300702120002": {
+  "q": "lg WFN2010BST",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:hisense-100-inch-4k-uhd-smart-mini-led-tv-165hz-dolby-vision-dolby-atmos-100u7q-p-139902699498013": {
+  "q": "hisense 100 inch 4k uhd smart mini",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 9299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:hisense-85-inch-4k-uhd-smart-qled-tv-60hz-8-years-os-update-ai-85q63q-p-139902699485003": {
+  "q": "hisense 85 inch 4k uhd smart qled",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-85-inch-4k-uhd-smart-qned-evo-mini-led-tv-144hz-vrr-ai-magic-remote-webos25-85qned93a6a-p-139900799485001": {
+  "q": "lg 85 inch 4k uhd smart qned",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 9799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "75 inch LG QNED evo AI QNED85 Mini LED 4K UHD Smart TV 75QNED85B6T bla",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos2585qned93a6a\" not present fused"
+   },
+   {
+    "title": "Lg 86-inch uhd qned smart tv - 86qned806qa. Amvg",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos2585qned93a6a\" not present fused"
+   },
+   {
+    "title": "Lg 75-inch uhd qned smart tv - 75qned7s6qa. Amvg",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos2585qned93a6a\" not present fused"
+   }
+  ]
+ },
+ "almanea:hisense-85-inch-4k-uhd-smart-qled-tv-60-hz-8-years-os-update-ai-85q6q-p-139902699485002": {
+  "q": "hisense 85 inch 4k uhd smart qled",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-front-load-washing-machine-13-kg-wash-8-kg-dryer-1000-rpm-wsn1308bst-p-120300701113006": {
+  "q": "lg WSN1308BST",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-65-inch-4k-uhd-smart-qned-evo-mini-led-tv-144hz-vrr-ai-magic-remote-zero-connect-box-webos25-qned9m-p-139900799465102": {
+  "q": "lg 65 inch 4k uhd smart qned",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5688,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "75 inch LG QNED evo AI QNED85 Mini LED 4K UHD Smart TV 75QNED85B6T bla",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos25qned9m\" not present fused"
+   },
+   {
+    "title": "Lg 86-inch uhd qned smart tv - 86qned806qa. Amvg",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos25qned9m\" not present fused"
+   },
+   {
+    "title": "Lg 75-inch uhd qned smart tv - 75qned7s6qa. Amvg",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos25qned9m\" not present fused"
+   },
+   {
+    "title": "Lg 65-inch uhd 4k smart led tv, qned7s series, 65qned7s6qa. Amvg",
+    "why": "model part \"webos25\" not present as a whole word, and \"webos25qned9m\" not present fused"
+   }
+  ]
+ },
+ "almanea:hisense-tv-65-inch-4k-uhd-hdr-smart-mini-led-144hz-dolby-vision-dolby-atmos-65u7s-p-139902699465020": {
+  "q": "hisense tv 65 inch 4k uhd hdr",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:samsung-top-load-21kg-washing-machine-direct-drive-eco-bubble-smart-control-black-wa21a8376gv-p-120300501121002": {
+  "q": "samsung -WA21A8376GV",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4099,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 8099,
+  "avg": 8099,
+  "max": 8099,
+  "market": {
+   "store": "xcite",
+   "price": 8099,
+   "url": "https://www.kanbkam.com/sa/en/samsung-washer-top-load-21-kg-wa21a8376gv-black-X642957",
+   "own": "https://www.noon.com/en-sa/top-load-washing-machine-with-inverter-motor-21-kg-wa21a8376gv-black-caviar/N53346537A/p"
+  },
+  "sources": [
+   {
+    "merchant": "xcite",
+    "price": 8099,
+    "url": "https://www.kanbkam.com/sa/en/samsung-washer-top-load-21-kg-wa21a8376gv-black-X642957"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "غسالة سامسونج تحميل علوي 21 كيلو (wa21a8376gv) أسود",
+    "why": "brand word \"samsung\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:lg-front-load-washing-machine-with-dryer-15-kg-white-wsn1508wht-p-120300702115014": {
+  "q": "lg WSN1508WHT",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:samsung-bespoke-ai-front-load-washer-dryer-12kg-washing-8kg-drying-smartthings-inox-wd12tp34dsx-p-120300502112004": {
+  "q": "samsung bespoke ai front load washer dryer",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Samsung Bespoke AI Washer Dryer AI Front-load, 16kg + 10kg, SmartThing",
+    "why": "model part \"12kg\" not present as a whole word, and \"12kg8kg\" not present fused"
+   }
+  ]
+ },
+ "almanea:lg-side-by-side-refrigerato-inverter-linear-compressor-mega-capacity-smart-diagnosis-ls19gbbdi-p-120100703217001": {
+  "q": "lg LS19GBBDI",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-dishwasher-14-place-settings-10-programs-stainless-steel-black-dfc335hd-p-120500701814038": {
+  "q": "lg DFC335HD",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3349,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Dishwasher 14 Place Setting 10 Programs Dual Zone Wash 9.9 L DFC335HD ",
+    "why": "brand word \"lg\" not present as a whole word"
+   },
+   {
+    "title": "غسالة أطباق مزودة بـ 14 مكانًا و10 برامج غسيل ثنائي المنطقة سعة 9.9 لت",
+    "why": "brand word \"lg\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:lg-75-inch-qned-evo-ai-mini-led-4k-144hz-vrr-smart-tv-ai-magic-remote-webos25-2025-p-139900799475053": {
+  "q": "lg QNED93 75",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 7059,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 7199,
+  "avg": 7199,
+  "max": 7199,
+  "market": {
+   "store": "noon",
+   "price": 7199,
+   "url": "https://www.kanbkam.com/sa/en/75-inch-lg-miniled-qned-ai-qned93-4k-144hz-smart-ai-magic-remote-dolby-vision-webos25-2025-75qned93a6aamaq-black-N70180108V",
+   "own": "https://www.noon.com/en-sa/75-inch-lg-mini-led-qned-ai-qned93-4k-144hz-smart-ai-magic-remote-dolby-vision-webos25-2025-75qned93a6a-amaq-black/N70180108V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 7199,
+    "url": "https://www.kanbkam.com/sa/en/75-inch-lg-miniled-qned-ai-qned93-4k-144hz-smart-ai-magic-remote-dolby-vision-webos25-2025-75qned93a6aamaq-black-N70180108V"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "85 inch LG Mini-LED QNED AI QNED93 4K 144Hz Smart AI Magic remote Dolb",
+    "why": "row is 75\", listing does not say so"
+   }
+  ]
+ },
+ "almanea:lg-inverter-front-loading-washing-machine-with-dryer-9-kg-wash-5-kg-dryer-9-programs-black-wsf0905mb-p-120300702109028": {
+  "q": "lg inverter front loading washing machine with",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-86-inch-nanocell-ai-nano80-uhd-4k-smart-tv-ai-magic-remote-hdr10-webos25-2025-p-139900799486034": {
+  "q": "lg NANO80 86",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 6868,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Lg nano80 series 55 inch hdr led tv - (55nano80vna)",
+    "why": "row is remote-controlled, listing does not say it is"
+   }
+  ]
+ },
+ "almanea:lg-top-freezer-refrigerator-21-6l-silver-lt23cbbsiv-p-120100702221007": {
+  "q": "lg LT23CBBSIV",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4499,
   "n": 0,
   "merchantCount": 0,
   "min": null,
