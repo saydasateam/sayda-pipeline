@@ -12,7 +12,7 @@
    "verdict": "catch",
    "terms": "كوبون 1,500 ريال عند الشراء كاش على السيارات المشمولة بالحملة فقط (أكثر من 3,000 مستعملة وأكثر من 150 جديدة)؛ وعند التمويل تتحمل سيارة القسط الأول بحد أقصى 1,200 ريال ويخضع لشروط جهات التمويل المعتمدة؛ العروض لا تشمل جميع السيارات",
    "url": "https://syarah.com/carsguide/syarah-white-friday-2026/",
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "company_en": "Syarah (syarah.com)",
    "type_en": "Car marketplace",
    "brand_en": "New and used cars",
@@ -32,7 +32,7 @@
    "verdict": "catch",
    "terms": "إيجار تمويلي للأفراد عبر عبداللطيف جميل للتمويل: دفعة أولى 0% ورسوم إدارية 0%، وتدفع عنك من قسطين إلى 5 أقساط حسب الطراز (رايز 5؛ كورولا ويارس وأوربان كروزر 4؛ فيلوز 3؛ إينوفا وفورتشنر 2)؛ مدة التمويل 60 شهراً، والقسط يشمل الضريبة ولا يشمل التأمين؛ معدل النسبة السنوي يبدأ من 12.14% تقريباً بحسب الصفحة العربية (والإنجليزية تذكر 14.63% ليارس و14.25% لرايز)، ويتغير حسب السجل الائتماني والتأميني",
    "url": "https://www.toyota.com.sa/ar/offers/aljufcampaign",
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "company_en": "Abdul Latif Jameel Finance (Toyota)",
    "type_en": "Dealer finance",
    "brand_en": "Toyota",
@@ -52,7 +52,7 @@
    "verdict": "catch",
    "terms": "إيجار تمويلي للأفراد من مصرف الراجحي: دفعة أولى 0%، رسوم إدارية 0.5%، ودفعة أخيرة 50%؛ مدة 5 سنوات (وفيها خيارا 3 سنوات وسنتين)؛ الجدول يذكر معدل نسبة سنوي من 4.78% (لاندكروزر) إلى 7.65% (إينوفا)، بينما تذكر الشروط 14.63% ليارس و14.25% لرايز تقريباً؛ الأقساط تشمل الضريبة ولا تشمل التأمين؛ تقول الصفحة إن الحملة سارية حتى «31 نوفمبر» 2026",
    "url": "https://www.toyota.com.sa/ar/offers/alrajhicampaign",
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "company_en": "Al Rajhi Bank (Toyota)",
    "type_en": "Bank lease",
    "brand_en": "Toyota",
@@ -72,7 +72,7 @@
    "verdict": "catch",
    "terms": "دفعة أولى 0% ورسوم إدارية 0% بالتمويل عبر بنك الجزيرة وتطبق شروطه وأحكامه؛ تظليل زجاج مجاني ومساعدة على الطريق لمدة 5 سنوات؛ القسط الشهري لا يشمل التأمين؛ العرض صورة إعلانية على صفحة العروض بلا جدول أقساط، وهو ساري حتى 31 ديسمبر",
    "url": "https://buy.geelyksa.com/ar/offers.html",
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "company_en": "Wallan (Geely)",
    "type_en": "Dealer",
    "brand_en": "Geely",
@@ -92,7 +92,7 @@
    "verdict": "catch",
    "terms": "دفعة أولى 0% ورسوم إدارية 0% بالتمويل عبر بنك الجزيرة وتطبق شروطه وأحكامه، و«الضريبة علينا» عند الدفع النقدي؛ مساعدة على الطريق لمدة 5 سنوات؛ القسط الشهري لا يشمل التأمين؛ على موديلات 2024 المذكورة فقط، والعرض ساري حتى 31 ديسمبر 2026",
    "url": "https://buy.geelyksa.com/ar/offers.html",
-   "checked": "2026-11-24",
+   "checked": "2026-11-25",
    "company_en": "Wallan (Geely)",
    "type_en": "Dealer",
    "brand_en": "Geely",
@@ -133,7 +133,7 @@
    "type": "وكيل",
    "company_en": "Alesayi (Mitsubishi)",
    "type_en": "Dealer",
-   "checked": "2026-11-24"
+   "checked": "2026-11-25"
   },
   {
    "company": "مصرف الراجحي",
@@ -143,13 +143,13 @@
   }
  ],
  "scanned": {
-  "toyota-aljf": "2026-11-24",
-  "toyota-alrajhi": "2026-11-24",
-  "hyundai-almajdouie": "2026-11-24",
-  "syarah": "2026-11-24",
-  "ford-aljazirah": "2026-11-24",
-  "geely-wallan": "2026-11-24",
-  "nissan-petromin": "2026-11-24",
-  "mitsubishi-alesayi": "2026-11-24"
+  "toyota-aljf": "2026-11-25",
+  "toyota-alrajhi": "2026-11-25",
+  "hyundai-almajdouie": "2026-11-25",
+  "syarah": "2026-11-25",
+  "ford-aljazirah": "2026-11-25",
+  "geely-wallan": "2026-11-25",
+  "nissan-petromin": "2026-11-25",
+  "mitsubishi-alesayi": "2026-11-25"
  }
 }

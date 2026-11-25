@@ -273,5 +273,44 @@
     "why": "brand word \"stanley\" not present as a whole word"
    }
   ]
+ },
+ "saco:cat-4-tier-heavy-duty-freestanding-industrial-shelving-unit-black-cat-361860s3wr-p-000000000000102071": {
+  "q": "cat CAT-361860S3WR",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "saco:startech-durable-steel-digital-and-tubular-key-electronic-safe-black-15kg-50sav-p-000000000000067413": {
+  "q": "startech durable steel digital and tubular key",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "saco:rubbermaid-comfortable-grip-hip-hugger-laundry-basket-white-and-blue-52-85-liter-fg299787wht-p-000000000000017017": {
+  "q": "rubbermaid FG299",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 59.95,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  }
 }
