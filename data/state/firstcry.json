@@ -1,7 +1,7 @@
 {
  "store": "firstcry",
  "updated": "2026-11-25",
- "checkedAt": "2026-11-25T08:42:52.378+03:00",
+ "checkedAt": "2026-11-25T12:45:43.076+03:00",
  "rows": [
   {
    "id": "firstcry:481e5ae1604f6",
@@ -151,7 +151,7 @@
    "id": "firstcry:4b235ae9fc659",
    "store": "firstcry",
    "name": "Infantino Sit & Spin Entertainer Seat - Multicolour",
-   "price": 418.02,
+   "price": 388,
    "was": 732.72,
    "ref": null,
    "verdict": "na",
@@ -241,7 +241,7 @@
    "id": "firstcry:6c679aec3d0e9",
    "store": "firstcry",
    "name": "ليبفروق مجموعة ألعاب فيديو ليب موف - أسود وأخضر",
-   "price": 290,
+   "price": 319,
    "was": 516.35,
    "ref": null,
    "verdict": "na",

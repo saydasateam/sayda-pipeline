@@ -889,5 +889,323 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "jarir:lg-qned98-smart-tv-637930": {
+  "q": "lg QNED98 98",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 19999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:lg-nu830-smart-tv-691809": {
+  "q": "lg NU830 98",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-du7000-smart-tv-637924": {
+  "q": "samsung DU7000 edge 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-u8-smart-tv-681249": {
+  "q": "samsung U8 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:lg-oled-cs6-smart-tv-682896": {
+  "q": "lg CS6 65",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:tcl-c79l-smart-tv-690812": {
+  "q": "tcl C79L 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 7599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-m1e-smart-tv-682529": {
+  "q": "samsung M1EH 65",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1999,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 1998,
+  "avg": 1998,
+  "max": 1998,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 1998,
+   "url": "https://www.kanbkam.com/sa/en/samsung-65-inch-mini-led-tv-m1eh-4k-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua65m1ehauxsa-2026-ksa-version-B0GWJ25BDL"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 1998,
+    "url": "https://www.kanbkam.com/sa/en/samsung-65-inch-mini-led-tv-m1eh-4k-dynamic-sound-pack-pure-spectrum-color-mini-led-processor-4k-smart-tv-ua65m1ehauxsa-2026-ksa-version-B0GWJ25BDL"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:tcl-t8d-smart-tv-683670": {
+  "q": "tcl T8D 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:ezviz-smart-home-devices-642247": {
+  "q": "ezviz RS2",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:lenovo-laptops-657099": {
+  "q": "lenovo 275HX ultra 18",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 19999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-galaxy-s26-ultra-smartphones-677488": {
+  "q": "samsung S26 ultra",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:hisense-q61q-smart-tv-682052": {
+  "q": "hisense Q61Q 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-galaxy-s25-edge-smartphones-657472": {
+  "q": "samsung S25 edge",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2299,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 2299,
+  "avg": 2299,
+  "max": 2299,
+  "market": {
+   "store": "eXtra",
+   "price": 2299,
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818",
+   "own": "https://www.extra.com/en-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue/p/100410818"
+  },
+  "sources": [
+   {
+    "merchant": "eXtra",
+    "price": 2299,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-edge-5g-256-gb-titanium-icyblue-e100410818"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:lg-qned80b-smart-tv-683093": {
+  "q": "lg QNED80B 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-galaxy-s25-ultra-smartphones-650936": {
+  "q": "samsung S25 ultra",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3749,
+  "n": 3,
+  "merchantCount": 1,
+  "min": 3749,
+  "avg": 3749,
+  "max": 3749,
+  "market": {
+   "store": "eXtra",
+   "price": 3749,
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-black-e100392613",
+   "own": "https://www.extra.com/en-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-ultra-5g-512-gb-titanium-black/p/100392613"
+  },
+  "sources": [
+   {
+    "merchant": "eXtra",
+    "price": 3749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-black-e100392613"
+   },
+   {
+    "merchant": "eXtra",
+    "price": 3749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-silverblue-e100392606"
+   },
+   {
+    "merchant": "eXtra",
+    "price": 3749,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-512-gb-titanium-gray-e100392615"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:xiaomi-smart-tv-654184": {
+  "q": "xiaomi smart tv",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:samsung-galaxy-s25-ultra-smartphones-650942": {
+  "q": "samsung S25 ultra",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3399,
+  "n": 2,
+  "merchantCount": 1,
+  "min": 3399,
+  "avg": 3399,
+  "max": 3399,
+  "market": {
+   "store": "eXtra",
+   "price": 3399,
+   "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-256-gb-titanium-silverblue-e100392610",
+   "own": "https://www.extra.com/en-sa/mobiles-tablets/mobiles/smartphone/samsung-galaxy-s25-ultra-5g-256-gb-titanium-silverblue/p/100392610"
+  },
+  "sources": [
+   {
+    "merchant": "eXtra",
+    "price": 3399,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-256-gb-titanium-silverblue-e100392610"
+   },
+   {
+    "merchant": "eXtra",
+    "price": 3399,
+    "url": "https://www.kanbkam.com/sa/en/samsung-galaxy-s25-ultra-5g-256-gb-titanium-whitesilver-e100392612"
+   }
+  ],
+  "rejected": []
+ },
+ "jarir:motorola-razr-fold-smartphones-679425": {
+  "q": "motorola fold 512",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:hp-omen-laptops-678853": {
+  "q": "hp 275HX ultra",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 9499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "jarir:apple-iphone-17-pro-max-smartphones-666762": {
+  "q": "apple iphone 17 pro max smartphones",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 7799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  }
 }

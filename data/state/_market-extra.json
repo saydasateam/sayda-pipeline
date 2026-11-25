@@ -577,5 +577,281 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "extra:100492901": {
+  "q": "philips MG9535/15",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 359,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100489946": {
+  "q": "philips BG7470/15",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 292,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 259.95,
+  "avg": 260,
+  "max": 259.95,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 260,
+   "url": "https://www.kanbkam.com/sa/en/philips-series-7000-body-groomerbg747015-B0FN7QV838"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 260,
+    "url": "https://www.kanbkam.com/sa/en/philips-series-7000-body-groomerbg747015-B0FN7QV838"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100536318": {
+  "q": "philips HS5980/15 pro",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 295,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100317205": {
+  "q": "philips BHS510/03",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 218,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100531244": {
+  "q": "midea TW50ADN1",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100502130": {
+  "q": "midea TW100ADN1 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100400787": {
+  "q": "lg WTT1210TW1",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1499,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 1449,
+  "avg": 1449,
+  "max": 1449,
+  "market": {
+   "store": "noon",
+   "price": 1449,
+   "url": "https://www.kanbkam.com/sa/en/lg-twin-tub-washing-machine-12-kg-wtt1210tw1-white-N70250654V",
+   "own": "https://www.noon.com/en-sa/lg-twin-tub-washing-machine-12-kg-wtt1210tw1-white/N70250654V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 1449,
+    "url": "https://www.kanbkam.com/sa/en/lg-twin-tub-washing-machine-12-kg-wtt1210tw1-white-N70250654V"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100490087": {
+  "q": "gree GWH18AVDXF-D6NTA1A/I max",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2779,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100524739": {
+  "q": "zamil RCT18CSXFMKTI-R32",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100375754": {
+  "q": "gree GJC18AG-D3NMTG1J",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100357416": {
+  "q": "gree GPH16AL-D3NTA3A",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100390186": {
+  "q": "ninja AF500ME air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100393163": {
+  "q": "kenwood KVL4100S",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1199,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 1099,
+  "avg": 1099,
+  "max": 1099,
+  "market": {
+   "store": "noon",
+   "price": 1099,
+   "url": "https://www.kanbkam.com/sa/en/kenwood-chef-xl-1200-w-kvl4100s-silver-N70046870V",
+   "own": "https://www.noon.com/en-sa/kenwood-chef-xl-1200-w-kvl4100s-silver/N70046870V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 1099,
+    "url": "https://www.kanbkam.com/sa/en/kenwood-chef-xl-1200-w-kvl4100s-silver-N70046870V"
+   }
+  ],
+  "rejected": []
+ },
+ "extra:100434974": {
+  "q": "ninja OG850ME pro",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100523090": {
+  "q": "ecovacs DEX95 pro",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4499,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100454508": {
+  "q": "bissell 4136K",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 849,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100540955": {
+  "q": "tineco FW352200AE",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2899,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100393179": {
+  "q": "shark IW4611MET",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1299,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 1099,
+  "avg": 1099,
+  "max": 1099,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 1099,
+   "url": "https://www.kanbkam.com/sa/en/shark-detect-clean-empty-cordless-pet-vacuum-cleaner-cloudy-blue-iw4611met-5-years-warranty-B0DQQCKDZN"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 1099,
+    "url": "https://www.kanbkam.com/sa/en/shark-detect-clean-empty-cordless-pet-vacuum-cleaner-cloudy-blue-iw4611met-5-years-warranty-B0DQQCKDZN"
+   }
+  ],
+  "rejected": []
  }
 }

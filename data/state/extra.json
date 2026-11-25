@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-25",
- "checkedAt": "2026-11-25T08:42:52.378+03:00",
+ "checkedAt": "2026-11-25T12:45:43.076+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -1658,6 +1658,154 @@
    "bk": "cheaper",
    "img": "https://media.extra.com/s/aurora/100509486_800/Samsung%2C-75-inch%2C-4K-Smart-TV%2C-Mini-LED%2C-Support-AI%2C-120-Hz-DLG?locale=en-GB,ar-*,*",
    "name_en": "Samsung, 75 inch, 4K Smart TV, Mini LED, Support AI, 120 Hz DLG"
+  },
+  {
+   "id": "extra:100489946",
+   "store": "extra",
+   "cat": "عناية",
+   "name": "فيليبس، مكينة حلاقة و تشذيب للجسم بشفرات معدنية",
+   "price": 292,
+   "was": null,
+   "ref": 260,
+   "verdict": "bad",
+   "model": "BG7470/15",
+   "brand": "philips",
+   "finding": "Amazon.sa ٢٦٠ · أرخص من هنا",
+   "url": "https://www.extra.com/ar-sa/p/100489946",
+   "avail": "in",
+   "availNote": "",
+   "firstSeen": "2026-11-25",
+   "lastChecked": "2026-11-25",
+   "img": "https://media.extra.com/s/aurora/100489946_800/Philips%2C-Bodygroom-with-Foil-shaver-%26-Trimmer?locale=en-GB,ar-*,*",
+   "name_en": "Philips, Bodygroom with Foil shaver & Trimmer",
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/dp/B0FN7QV838",
+   "refStore": "amazon",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 260,
+     "url": "https://www.amazon.sa/dp/B0FN7QV838"
+    },
+    "min": 259.95,
+    "max": 259.95,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-25",
+    "url": "https://www.amazon.sa/dp/B0FN7QV838"
+   },
+   "bk": "cheaper"
+  },
+  {
+   "id": "extra:100400787",
+   "store": "extra",
+   "cat": "المنزل",
+   "name": "ال جي، غسالة بحوضين، 12 كيلو، أبيض",
+   "price": 1499,
+   "was": null,
+   "ref": 1449,
+   "verdict": "bad",
+   "model": "WTT1210TW1",
+   "brand": "lg",
+   "finding": "noon ١٬٤٤٩ · أرخص من هنا",
+   "url": "https://www.extra.com/ar-sa/p/100400787",
+   "avail": "in",
+   "availNote": "",
+   "firstSeen": "2026-11-25",
+   "lastChecked": "2026-11-25",
+   "img": "https://media.extra.com/s/aurora/100400787_800/LG%2C-Twin-Tub-Washer%2C-12-Kg%2C-White?locale=en-GB,ar-*,*",
+   "name_en": "LG, Twin-Tub Washer, 12 Kg, White",
+   "refKind": "market",
+   "refUrl": "https://www.noon.com/en-sa/lg-twin-tub-washing-machine-12-kg-wtt1210tw1-white/N70250654V/p",
+   "refStore": "noon",
+   "ev": {
+    "market": {
+     "store": "noon",
+     "price": 1449,
+     "url": "https://www.noon.com/en-sa/lg-twin-tub-washing-machine-12-kg-wtt1210tw1-white/N70250654V/p"
+    },
+    "min": 1449,
+    "max": 1449,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-25",
+    "url": "https://www.noon.com/en-sa/lg-twin-tub-washing-machine-12-kg-wtt1210tw1-white/N70250654V/p"
+   },
+   "bk": "cheaper"
+  },
+  {
+   "id": "extra:100393163",
+   "store": "extra",
+   "cat": "المنزل",
+   "name": "كينوود عجانة بسعة 6.7 لتر، 1200 واط",
+   "price": 1199,
+   "was": null,
+   "ref": 1099,
+   "verdict": "bad",
+   "model": "KVL4100S",
+   "brand": "kenwood",
+   "finding": "noon ١٬٠٩٩ · أرخص من هنا",
+   "url": "https://www.extra.com/ar-sa/p/100393163",
+   "avail": "in",
+   "availNote": "",
+   "firstSeen": "2026-11-25",
+   "lastChecked": "2026-11-25",
+   "img": "https://media.extra.com/s/aurora/100393163_800/KENWOOD-KITCHEN-MACHINE-6-7L-1200W?locale=en-GB,ar-*,*",
+   "name_en": "KENWOOD KITCHEN MACHINE 6.7L 1200W",
+   "refKind": "market",
+   "refUrl": "https://www.noon.com/en-sa/kenwood-chef-xl-1200-w-kvl4100s-silver/N70046870V/p",
+   "refStore": "noon",
+   "ev": {
+    "market": {
+     "store": "noon",
+     "price": 1099,
+     "url": "https://www.noon.com/en-sa/kenwood-chef-xl-1200-w-kvl4100s-silver/N70046870V/p"
+    },
+    "min": 1099,
+    "max": 1099,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-25",
+    "url": "https://www.noon.com/en-sa/kenwood-chef-xl-1200-w-kvl4100s-silver/N70046870V/p"
+   },
+   "bk": "cheaper"
+  },
+  {
+   "id": "extra:100393179",
+   "store": "extra",
+   "cat": "المنزل",
+   "name": "شارك مكنسة كهربائية لاسلكية للكشف والتفريغ التلقائي للغبار، 240 واط",
+   "price": 1299,
+   "was": null,
+   "ref": 1099,
+   "verdict": "bad",
+   "model": "IW4611MET",
+   "brand": "shark",
+   "finding": "Amazon.sa ١٬٠٩٩ · أرخص من هنا",
+   "url": "https://www.extra.com/ar-sa/p/100393179",
+   "avail": "in",
+   "availNote": "",
+   "firstSeen": "2026-11-25",
+   "lastChecked": "2026-11-25",
+   "img": "https://media.extra.com/s/aurora/100393179_800/Shark-Detect-Clean-%26-Empty-Cordless-Pet-Vacuum-Cleaner-%2C240W?locale=en-GB,ar-*,*",
+   "name_en": "Shark Detect Clean & Empty Cordless Pet Vacuum Cleaner, 240W",
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/dp/B0DQQCKDZN",
+   "refStore": "amazon",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 1099,
+     "url": "https://www.amazon.sa/dp/B0DQQCKDZN"
+    },
+    "min": 1099,
+    "max": 1099,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-25",
+    "url": "https://www.amazon.sa/dp/B0DQQCKDZN"
+   },
+   "bk": "cheaper"
   }
  ]
 }
