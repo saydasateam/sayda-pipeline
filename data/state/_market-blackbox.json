@@ -298,5 +298,299 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "blackbox:lg-77-inches-oled-evo-ai-g6-tv-web-os-smart-4-k-uhd-dolby-p-141111134162507": {
+  "q": "lg 77Inches G6 77",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 14999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-led-mini-rgb-evo-ai-tv-86-inches-web-os-26-smart-alpha-8-p-141111131171501": {
+  "q": "lg led mini rgb evo ai tv",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 8099,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-led-mini-rgb-evo-ai-tv-75-inches-web-os-26-smart-alpha-8-p-141111131160501": {
+  "q": "lg WebOS26 75MRGB85B6C mini 75",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 6299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "75 inch LG Mini RGB evo AI MRGB85 4K Smart TV 2026 75MRGB85B6C black",
+    "why": "model part \"webos26\" not present as a whole word, and \"webos2675mrgb85b6c\" not present fused"
+   },
+   {
+    "title": "LG 75MRGB85B6C 75 inch 4K Mini RGB Motion Booster 288Hz RGB Primary Co",
+    "why": "model part \"webos26\" not present as a whole word, and \"webos2675mrgb85b6c\" not present fused"
+   }
+  ]
+ },
+ "blackbox:samsung-qled-65-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824150507": {
+  "q": "samsung QA65LS03HEUXSA 65",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:midea-side-by-side-refrigerator-18.0-ft-smart-inverter-silver-mdrs-710-fgu-50-d-p-1311111132702001": {
+  "q": "midea MDRS710FGU50D",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-jet-cool-23000-btu-hot-cold-rotary-wi-fi-lk-242-p-111631131103227": {
+  "q": "lg LK242H0.NK0 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3009,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-jet-cool-23000-btu-cold-only-rotary-wi-fi-lk-242-p-111631131103130": {
+  "q": "lg LK242C0 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-artcool-split-air-conditioner-22000-btu-cold-only-dual-inverter-wi-fi-am-242-p-111631131173101": {
+  "q": "lg AM242C2.NK2 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3989,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-22100-btu-fresh-hot-cold-inverter-4-way-airflow-nd-242-p-111631131103229": {
+  "q": "lg ND242H1.NK1 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-22100-btu-fresh-cold-only-inverter-4-way-airflow-nd-242-p-111631131103132": {
+  "q": "lg ND242C1.NK1 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3659,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-jet-cool-18000-btu-hot-cold-rotary-wi-fi-lk-182-p-111631131102228": {
+  "q": "lg LK182H0.NK0 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:samsung-55-inches-neo-qled-tv-smart-120-hz-dlg-4-k-ai-upscaling-slim-p-141111822140504": {
+  "q": "samsung QA55QN70HAUXSA 55",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:tcl-65-inches-qd-mini-led-tv-smart-4-k-uhd-hdr-144-hz-android-p-1411112511505002": {
+  "q": "tcl 65C7L 65",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 5149,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-18000-btu-smart-hot-cold-inverter-4-way-airflow-ns-182-p-111631131102229": {
+  "q": "lg NS182H3.NK3 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3099,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "LG Smart Inverter Split Air Conditioner 18,000 BTU – Hot & Cool – Whit",
+    "why": "model part \"nk3\" not present as a whole word, and \"ns182h3nk3\" not present fused"
+   },
+   {
+    "title": "إل جي مكيف سبليت سمارت إنفيرتر 18000 وحدة – حار/بارد – أبيض NS182H3",
+    "why": "brand word \"lg\" not present as a whole word"
+   }
+  ]
+ },
+ "blackbox:tcl-split-air-conditioner-12100-btu-vox-in-evo-t4-series-inverter-cold-only-white-p-111631251101112": {
+  "q": "tcl TAC-12CSUVIG",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:tcl-75-inches-led-tv-smart-4-k-uhd-dolby-audio-60-hz-google-tv-p-1411112531605008": {
+  "q": "tcl 75 inches led tv smart 4",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 2999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:tcl-85-inches-qled-tv-smart-4-k-uhd-dolby-vision-atmos-google-tv-85-p-141111256170506": {
+  "q": "tcl 85P71L 85",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 4199,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 5399,
+  "avg": 5399,
+  "max": 5399,
+  "market": {
+   "store": "noon",
+   "price": 5399,
+   "url": "https://www.kanbkam.com/sa/en/tcl-85p71l-85-inch-p71l-4k-premium-qled-smart-tv-2026-model-google-tv-international-version-aipq-processor-hva-panel-onkyo-20-hifi-system-dolby-vision-atmos-85-inch-4k-qled-tv-85p71l-black-N70378082V",
+   "own": "https://www.noon.com/en-sa/tcl-85p71l-85-inch-p71l-4k-premium-qled-smart-tv-2026-model-google-tv-international-version-aipq-processor-hva-panel-onkyo-2-0-hi-fi-system-dolby-vision-atmos-85-inch-4k-qled-tv-85p71l-black/N70378082V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 5399,
+    "url": "https://www.kanbkam.com/sa/en/tcl-85p71l-85-inch-p71l-4k-premium-qled-smart-tv-2026-model-google-tv-international-version-aipq-processor-hva-panel-onkyo-20-hifi-system-dolby-vision-atmos-85-inch-4k-qled-tv-85p71l-black-N70378082V"
+   }
+  ],
+  "rejected": []
+ },
+ "blackbox:lg-split-air-conditioner-22100-btu-smart-cold-only-inverter-4-way-airflow-ns-242-p-111631131103131": {
+  "q": "lg NS242C4.NK4 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 3419,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "blackbox:tcl-window-air-conditioner-gentle-breeze-18000-btu-inverter-cold-only-white-cw-tw-p-111641251102108": {
+  "q": "tcl CW-TW18CIV1S air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Window Air Conditioner 18000BTU, Rotary, Inverter, Cold Only, Wi-Fi, R",
+    "why": "brand word \"tcl\" not present as a whole word"
+   }
+  ]
+ },
+ "blackbox:haier-split-air-conditioner-18000-btu-wi-fi-cold-only-hsu-18-lpb13-r2-t3-p-1116316211021012": {
+  "q": "haier HSU-18LPB13R2-T3 air",
+  "sampledAt": "2026-11-25",
+  "rowPrice": 1999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  }
 }

@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-25",
- "checkedAt": "2026-11-25T16:36:51.568+03:00",
+ "checkedAt": "2026-11-25T20:46:30.244+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -565,11 +565,11 @@
    "store": "extra",
    "cat": "المنزل",
    "name": "جليم غاز موقد، 90*60 سم، 5 عيون، أستيل",
-   "price": 2799,
+   "price": 2889,
    "was": 5399,
    "ref": 3699,
    "refKind": "history",
-   "verdict": "ok",
+   "verdict": "warn",
    "finding": "كان ٣٬٦٩٩ · سبق ونزل ٢٬٧١٩",
    "url": "https://www.extra.com/ar-sa/large-appliances-/cookers/gas-cookers/glem-gas-cooker-90x60-5-gb-stainless-steel/p/100381937",
    "avail": "low",
@@ -582,7 +582,7 @@
     "url": "https://www.kanbkam.com/sa/ar/p-e100381937"
    },
    "firstSeen": "2026-11-22",
-   "availNote": "إكسترا: متبقي 1",
+   "availNote": "إكسترا: متبقي 2",
    "lastChecked": "2026-11-25",
    "img": "https://media.extra.com/s/aurora/100381937_800/Glem-Gas-Cooker%2C-90X60%2C-5-GB%2C-Stainless-Steel?locale=en-GB,ar-*,*",
    "name_en": "Glem Gas Cooker, 90X60, 5 GB, Stainless Steel",
