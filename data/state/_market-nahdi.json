@@ -1,0 +1,82 @@
+{
+ "nahdi:103090651": {
+  "q": "manuka UMF16",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 232.41,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "nahdi:103100961": {
+  "q": "manuka MGO 925",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 179.34,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "nahdi:103090635": {
+  "q": "manuka UMF13",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 160.93,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 226.92,
+  "avg": 227,
+  "max": 226.92,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 227,
+   "url": "https://www.kanbkam.com/sa/en/manuka-health-manuka-honey-mgo-400-88-oz-250-g-B001O0BL9E"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 227,
+    "url": "https://www.kanbkam.com/sa/en/manuka-health-manuka-honey-mgo-400-88-oz-250-g-B001O0BL9E"
+   }
+  ],
+  "rejected": []
+ },
+ "nahdi:102691826": {
+  "q": "avene B3",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 157.55,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "nahdi:102691834": {
+  "q": "avne Care 40",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 144.9,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Baby Extra Skin Care 40 Wipes",
+    "why": "accessory, not the product"
+   }
+  ]
+ }
+}
