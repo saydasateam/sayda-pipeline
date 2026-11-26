@@ -134,8 +134,16 @@
     if (/\.(com|sa)|extra|noon|amazon|jarir|store|shop|online/i.test(x)) return true;
     if (!/^\s*\|/.test(x)) return false;
     const s = x.replace(/^[\s|]+/, '').toLowerCase(), w = (s.split(/\s+/)[0] || '').replace(/[^a-z0-9]/g, '');
-    return (w.length >= 5 && String(host || '').startsWith(w)) || /^best price\b|saudi arabia$|\bksa$/.test(s);
+    // BLD-48 (25 Nov 2026): a tail word that IS the whole host label counts at any length, so « | SACO» on saco.sa goes;
+    // the 5-letter floor still holds for a word that only starts the host.
+    const h = String(host || '');
+    return (w.length >= 5 && h.startsWith(w)) || (w.length >= 2 && w === h) || /^best price\b|saudi arabia$|\bksa$/.test(s);
   };
+  S.hostLabel = () => location.hostname.replace(/^www\./, '').split('.')[0].toLowerCase();
+  // BLD-48: a stored English name that cleanTitle would still shorten (it was read before a wrapper rule existed) is read
+  // again by §2d. Only the store's page gives the new name; nothing here rewrites a stored name.
+  S.wrapped = (name, host) => { const n = String(name || '').replace(/\s+/g, ' ').trim();
+    return !!n && S.cleanTitle(n, host == null ? S.hostLabel() : host) !== n; };
   S.cleanTitle = (raw, host) => {
     let t = String(raw || '').replace(/\s+/g, ' ').trim();
     t = t.replace(/\s*[|–-]\s*[^|–-]{0,30}$/, x => S.siteTail(x, host) ? '' : x).trim();
@@ -145,7 +153,7 @@
   S.titleOf = html => {
     const pick = [/id="productTitle"[^>]*>([^<]+)</, /<meta[^>]+property=["']og:title["'][^>]+content=["']([^"']+)["']/i,
       /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:title["']/i, /<h1[^>]*>([^<]{4,200})<\/h1>/i, /<title>([^<]+)</i];
-    const host = location.hostname.replace(/^www\./, '').split('.')[0].toLowerCase();
+    const host = S.hostLabel();
     for (const re of pick) { const m = html.match(re); if (!m) continue; const d = document.createElement('textarea'); d.innerHTML = m[1];
       const t = S.cleanTitle(d.value, host);
       if (t && !/[؀-ۿ]/.test(t)) return t; }
