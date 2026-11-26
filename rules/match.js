@@ -83,6 +83,52 @@ const NAME_STOP = new Set(['the','and','for','with','of','in','a','an','to','kid
 
 const isModelToken = t => /\d/.test(t) && t.length >= 2;
 
+// BLD-49 (D47, 24 Nov 2026). Two kinds of token look like a model and identify nothing.
+//
+// A. Generic counts. «2-in-1», «3 في 1», «4-pack», «6 pcs», «3-seater» carry a digit, so lib/market.js
+//    reads «2-in-1» as the model code, and every 2-in-1 product of the brand then matches. On 23 Nov
+//    the Jikel Minos 2-in-1 swing (Mumzworld) passed against the Jikel Pony 2-in-1 co-sleeper and was
+//    held back by hand. These phrases are removed from the model before it is compared.
+const GENERIC_MODEL = /(?:^|\s)\d+\s?(?:in|في)\s?\d+(?=\s|$)|(?:^|\s)\d+\s?(?:pack|packs|pcs|pc|pieces|piece|seater|ply)(?=\s|$)/g;
+// B. Numbers that are part of the brand's own name: «CERRUTI 1881» is the brand line, so «1881» is on
+//    every product of it. On 24 Nov the Cerruti 1881 white-dial watch (Namshi) passed by name against
+//    the Cerruti 1881 Nemi and was held back by hand. A closed list, like LATIN_BRANDS in lib/market.js:
+//    a number goes on it only when the brand itself is written with it.
+const BRAND_NUMBERS = { cerruti: ['1881'] };
+// C. Words that say what kind of thing a product is, not which one. In the name path they still have
+//    to be present in the listing, but they do not count towards the two distinctive words: «watch
+//    women dial» describes every women's watch of a brand.
+const GENERIC_NAME = new Set(['watch','watches','wrist','analog','analogue','dial','women','womens','woman','men','mens','man','unisex','ladies','lady','round','shape','stainless','steel']);
+/** Condition 3e: for a brand in TRIMS, the row and the listing must state the same trim words. The
+ *  row's words come from its Arabic name, the slug name and the store's own English title (`nameEn`). */
+function trimClash(row, brand, title) {
+  const list = TRIMS[brand]; if (!list) return null;
+  const a = trimSet(`${row.name || ''} ${row.enName || ''} ${row.nameEn || ''}`, list), b = trimSet(title, list);
+  return a === b ? null : `trim differs: row says "${a || 'none'}", listing says "${b || 'none'}"`;
+}
+/** The row's model with generic counts and brand-name numbers taken out. */
+function modelWithoutGeneric(model, brand) {
+  let m = ` ${norm(model)} `.replace(GENERIC_MODEL, ' ');
+  const nums = BRAND_NUMBERS[brand] || [];
+  m = m.split(' ').filter(t => t && !nums.includes(t)).join(' ');
+  return m;
+}
+
+// D. Trim words of a brand whose series code is shared by several products. «Dyson V11» is a series:
+//    the V11 Extra, the V11 Absolute and the V11 Torque Drive are different machines at different
+//    prices, and none of their trim words is a variant in the sense of condition 3b. On 23 Nov the
+//    Dyson V11 Extra Absolute (Mumzworld) passed against an xcite «V11 Absolute/Torque» and was held
+//    back by hand. For a brand listed here, the trim words the row states and the trim words the
+//    listing states must be the same set. A row that states none matches only a listing that states none.
+const TRIMS = { dyson: ['absolute','extra','animal','motorhead','torque','advanced','detect','outsize','slim','origin','fluffy','submarine','complete','total','gen5'] };
+const TRIM_AR = { 'أبسولوت': 'absolute', 'ابسولوت': 'absolute', 'إكسترا': 'extra', 'اكسترا': 'extra', 'أنيمال': 'animal', 'انيمال': 'animal', 'موتورهيد': 'motorhead', 'تورك': 'torque', 'أدفانسد': 'advanced', 'ادفانسد': 'advanced', 'ديتكت': 'detect', 'أوتسايز': 'outsize', 'سليم': 'slim', 'أوريجن': 'origin' };
+function trimSet(text, list) {
+  const t = norm(text).split(' ');
+  const out = new Set(t.filter(w => list.includes(w)));
+  for (const w of t) if (TRIM_AR[w] && list.includes(TRIM_AR[w])) out.add(TRIM_AR[w]);
+  return [...out].sort().join(' ');
+}
+
 /** Whole-word presence, with the run-together variant: "dlc 36362" matches "dlc36362" and back.
  *  Deliberately NOT a substring test. An earlier draft fell back to `hay.includes(token)`, which
  *  accepts "QN80FX" as "QN80F" and "Band 100" as "Band 10" — the same near-miss class that put a
@@ -168,7 +214,11 @@ function sameModel(row, listing, opts = {}) {
   //   B. the whole model fused into one token                    ("dlc 36362"  in "… DLC36362 …")
   // Nothing else. A substring test would accept QN80FX for QN80F; a brand-only match would accept
   // any Samsung TV as any other, which is how a 55-inch became the reference for a 100-inch.
-  const modelParts = norm(row.model || '').split(' ').filter(Boolean);
+  // BLD-49: generic counts («2-in-1») and brand-name numbers («1881») are not part of the model. A row
+  // whose model is nothing but those is refused here: it would otherwise match every product of its kind.
+  const modelPartsRaw = norm(row.model || '').split(' ').filter(Boolean);
+  const modelParts = modelWithoutGeneric(row.model || '', brand).split(' ').filter(Boolean);
+  if (modelPartsRaw.length && !modelParts.length) return { ok: false, reason: `model "${norm(row.model)}" is a generic count or part of the brand name, not a model` };
   // A multi-part model ("fit 4", "ecam12 121", "dlc 36362") requires EVERY part, letters included:
   // the series word is what keeps "fit 4" off a "Band 4", and the number is what keeps it off a
   // "Fit 3". A single-part model must itself be a code — a bare word would be a brand-only match.
@@ -188,10 +238,16 @@ function sameModel(row, listing, opts = {}) {
     const brandWords = new Set(brand.split(' ').filter(Boolean));
     const words = nm.split(' ').filter(w => w && !brandWords.has(w) && !NAME_STOP.has(w) && w.length > 1);
     if (words.length < 2) return { ok: false, reason: `name "${nm}" has fewer than two distinctive words` };
+    // BLD-49: every word above must still be in the listing, but a brand-name number («1881») and a
+    // word that only names the kind of product («watch», «women») do not make it a distinctive one.
+    const brandNums = BRAND_NUMBERS[brand] || [];
+    const distinctive = words.filter(w => !GENERIC_NAME.has(w) && !brandNums.includes(w));
+    if (distinctive.length < 2) return { ok: false, reason: `name "${nm}" has fewer than two distinctive words once generic words and brand-name numbers are set aside` };
     const missing = words.find(w => !hayTokens.includes(w));
     if (missing) return { ok: false, reason: `name word "${missing}" not present as a whole word` };
     if (row.size && !hayTokens.includes(String(row.size))) return { ok: false, reason: `row is ${row.size}", listing does not say so` };
     { const clash = capacityClash(rowText, title); if (clash) return { ok: false, reason: `capacity differs: ${clash}` }; }
+    { const clash = trimClash(row, brand, title); if (clash) return { ok: false, reason: clash }; }
     const pn = Number(listing.price), rpn = Number(row.price);
     if (!(pn > 0 && rpn > 0)) return { ok: false, reason: 'missing price' };
     const rn = pn / rpn;
@@ -229,6 +285,9 @@ function sameModel(row, listing, opts = {}) {
 
   // — 3d. capacity —
   { const clash = capacityClash(rowText, title); if (clash) return { ok: false, reason: `capacity differs: ${clash}` }; }
+
+  // — 3e. trim words of a series brand (BLD-49) —
+  { const clash = trimClash(row, brand, title); if (clash) return { ok: false, reason: clash }; }
 
   // — 4. sanity band —
   const p = Number(listing.price), rp = Number(row.price);
