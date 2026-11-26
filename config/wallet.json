@@ -52,6 +52,11 @@
    "label_en": "Emirates NBD cards"
   },
   {
+   "id": "d360",
+   "label": "بطاقات D360",
+   "label_en": "D360 cards"
+  },
+  {
    "id": "mada",
    "label": "مدى",
    "label_en": "mada"
