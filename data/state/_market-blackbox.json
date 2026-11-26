@@ -95,8 +95,8 @@
  },
  "blackbox:samsung-led-98-inches-smart-4-k-crystal-uhd-144-hz-samsung-vision-ai-ua-p-141111823183502": {
   "q": "samsung UA98U9000HUXSA 98",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 6999,
+  "sampledAt": "2026-11-26",
+  "rowPrice": 5999,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -104,7 +104,28 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Samsung smart neo qled 98 inch (qa98qn90aauxum)",
+    "why": "model part \"ua98u9000huxsa\" not present as a whole word, and \"ua98u9000huxsa\" not present fused"
+   },
+   {
+    "title": "98 Inch Crystal UHD U9000H 4K Samsung Vision AI Smart TV, 144Hz, 4K Vi",
+    "why": "model part \"ua98u9000huxsa\" not present as a whole word, and \"ua98u9000huxsa\" not present fused"
+   },
+   {
+    "title": "Samsung UHD 4K TV, 98 Inch, Secured by Knox, 120Hz, Supersize Picture ",
+    "why": "model part \"ua98u9000huxsa\" not present as a whole word, and \"ua98u9000huxsa\" not present fused"
+   },
+   {
+    "title": "98 Inch QLED TV, Q7F, 4K, 120Hz, Operating System Tizen, Model Year 20",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "Samsung 98 Inch Crystal UHD TV, U9000H, 4K, 240Hz DLG, HDR 10+, Motion",
+    "why": "model part \"ua98u9000huxsa\" not present as a whole word, and \"ua98u9000huxsa\" not present fused"
+   }
+  ]
  },
  "blackbox:samsung-85-inches-neo-qled-tv-smart-120-hz-dlg-4-k-ai-upscaling-slim-p-141111822170505": {
   "q": "samsung QA85QN70HAUXSA 85",

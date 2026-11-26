@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-26",
- "checkedAt": "2026-11-26T12:53:20.102+03:00",
+ "checkedAt": "2026-11-26T16:34:19.477+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -1010,7 +1010,7 @@
    "store": "extra",
    "name": "فيليبس ستايل كير، جهاز تجعيد سيراميك، 130-200 درجة مئوية، 8 إعدادات",
    "name_en": "Phlips StyleCare Curler Ceramic 130 - 200 °C, 8 settings, Auto shutoff",
-   "price": 149,
+   "price": 139,
    "was": null,
    "ref": 159,
    "refKind": "history",
@@ -1438,8 +1438,8 @@
    "verdict": "warn",
    "finding": "كان ٦٧٩ · سبق ونزل ٤٧٣",
    "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/vacuum-cleaner/hitachi-vacuum-cleaner-drum-type-21l-2200w-black-/p/100081572",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "إكسترا: عاد السعر إلى ٦٧٩ — انتهى العرض",
    "model": "CV-960F SS220 BK",
    "ev": {
     "prev": 679,
@@ -1956,8 +1956,8 @@
    "verdict": "warn",
    "finding": "كان ١٧٩ · سبق ونزل ١",
    "url": "https://www.extra.com/ar-sa/small-appliances/personal-care/hair-styler/philips-heated-straightening-brush-ceramic-170-200-c-auto-shut-off/p/100058753",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "إكسترا: عاد السعر إلى ١٧٩ — انتهى العرض",
    "ev": {
     "prev": 179,
     "min": 1,

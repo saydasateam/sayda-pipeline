@@ -1041,5 +1041,389 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "almanea:samsung-electric-oven-steel-ceramic-ne63c6517ss-za-p-120600501676002": {
+  "q": "samsung NE63C6517SSZA",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 4599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:haam-smart-tv-75-inch-4k-uhd-qled-google-tv-built-in-receiver-qhm75uh575kg120h-p-139900199475009": {
+  "q": "haam QHM75UH575KG120 75",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "75 Inch UHD, Google TV - HM75K540TGO Black",
+    "why": "brand word \"haam\" not present as a whole word"
+   },
+   {
+    "title": "Smart TV 75 inches - QLED - 4K - QHM4K75S11TND QHM4K75S11TND Black",
+    "why": "brand word \"haam\" not present as a whole word"
+   },
+   {
+    "title": "75 Inch UHD, Google TV - HM75K540TGO Black",
+    "why": "brand word \"haam\" not present as a whole word"
+   },
+   {
+    "title": "Smart TV 75 inches - QLED - 4K - QHM4K75S11TND QHM4K75S11TND Black",
+    "why": "brand word \"haam\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:samsung-split-ac-20500-btu-cold-and-hot-inverter-compressor-white-ar24dsfzawk-mg-p-110300502324018": {
+  "q": "samsung AR24DSFZAWKMG",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2619,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:kelvinator-split-ac-22300-btu-cool-and-heat-inverter-white-kts24hi6-p-110303502322001": {
+  "q": "kelvinator KTS24HI6",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2299,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:mtc-tv-85-inch-4k-smart-qled-webos-built-in-receiver-qmt85uh300wvwos-p-139900399485010": {
+  "q": "mtc QMT85UH300WVWOS 85",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "85-inch Smart TV - 4K UHD Resolution - WebOS - Magic Remote - MT85UH43",
+    "why": "brand word \"mtc\" not present as a whole word"
+   },
+   {
+    "title": "85 Inch 4K UHD WebOS Smart QLED TV with Magic Remote, Voice Control & ",
+    "why": "brand word \"mtc\" not present as a whole word"
+   },
+   {
+    "title": "شاشة حجم 85 بوصة - سمارت - دقة 4K UHD - نظام WebOS - ماجيك ريموت - MT8",
+    "why": "brand word \"mtc\" not present as a whole word"
+   },
+   {
+    "title": "تلفزيون QLED ذكي مقاس 85 بوصة بدقة 4K UHD ونظام WebOS، مزود بجهاز تحكم",
+    "why": "brand word \"mtc\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:samsung-smart-tv-85-inch-4k-neo-qled-tizen-os-qa85qn70hauxsa-p-139900599485060": {
+  "q": "samsung QA85QN70HAUXSA 85",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 6399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "85 inch, Neo QLED 4K AI Upscaling, 120Hz DLG, slim design, OS Tizen, M",
+    "why": "brand word \"samsung\" not present as a whole word"
+   },
+   {
+    "title": "Samsung series qn800a 85-inch 8k qled tv (qa85qn800a)",
+    "why": "model part \"qa85qn70hauxsa\" not present as a whole word, and \"qa85qn70hauxsa\" not present fused"
+   },
+   {
+    "title": "Samsung smart neo qled 85 inch qn85 (qa85qn85bauxsa)",
+    "why": "model part \"qa85qn70hauxsa\" not present as a whole word, and \"qa85qn70hauxsa\" not present fused"
+   },
+   {
+    "title": "Samsung smart neo qled 4k 85 inch qn90 (qa85qn90bauxsa)",
+    "why": "model part \"qa85qn70hauxsa\" not present as a whole word, and \"qa85qn70hauxsa\" not present fused"
+   },
+   {
+    "title": "Samsung smart neo qled 8k 85 inch qn800 (qa85qn800buxsa)",
+    "why": "model part \"qa85qn70hauxsa\" not present as a whole word, and \"qa85qn70hauxsa\" not present fused"
+   },
+   {
+    "title": "Samsung, 85 Inch, 4K UHD 10+, Smart TV",
+    "why": "model part \"qa85qn70hauxsa\" not present as a whole word, and \"qa85qn70hauxsa\" not present fused"
+   }
+  ]
+ },
+ "almanea:hitachi-refrigerator-side-by-side-21-cu-ft-silver-r-s800ps0gs-p-120122650904002": {
+  "q": "hitachi R-S800PS0GS",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 4399,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:glem-gas-oven-60-90-full-safety-5-burners-gas-al9612gifs-p-120602401886003": {
+  "q": "glem AL9612GIFS",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3099,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "5 Burners Gas Oven 60x90 Full Safety Italian Stainless Steel | AL9612G",
+    "why": "brand word \"glem\" not present as a whole word"
+   },
+   {
+    "title": "Gas 60*90 Stainless Steel Oven with Full Safety Features, 5 Gas Burner",
+    "why": "brand word \"glem\" not present as a whole word"
+   },
+   {
+    "title": "فرن غاز ٥ شعلات ٦٠×٩٠ سم، أمان كامل، ستانلس ستيل إيطالي | AL9612GIFS",
+    "why": "brand word \"glem\" not present as a whole word"
+   },
+   {
+    "title": "فرن غاز 60×90 سم من الستانلس ستيل مع ميزات أمان كاملة، 5 شعلات غاز (مو",
+    "why": "brand word \"glem\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:samsung-electric-stand-oven-black-ceramic-steel-ne63c6317sg-za-p-120600501676003": {
+  "q": "samsung NE63C6317SGZA",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 4049,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:kelvinator-split-ac-22100-btu-cool-only-inverter-white-kts24ci6-p-110303501322001": {
+  "q": "kelvinator KTS24CI6",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2059,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:hisense-four-door-refrigerator-20-5-cu-ft-583-l-inverter-silver-rq560p5esd-p-120102603220002": {
+  "q": "hisense RQ560P5ESD",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:hitachi-side-by-side-refrigerator-18-6-cu-ft-525-l-inverter-silver-hrsn9552dxsa-p-120122650902001": {
+  "q": "hitachi HRSN9552DXSA",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3299,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 3130,
+  "avg": 3130,
+  "max": 3130,
+  "market": {
+   "store": "noon",
+   "price": 3130,
+   "url": "https://www.kanbkam.com/sa/en/hitachi-refrigerator-side-by-side-186-cuft-525l-stainless-steel-hrsn9552dxsa-526-l-950-w-hrsn9552dxsa-silver-N70131602V",
+   "own": "https://www.noon.com/en-sa/hitachi-refrigerator-side-by-side-18-6-cu-ft-525l-stainless-steel-hrsn9552dxsa-525-l-950-w-hrsn9552dxsa-silver/N70131602V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 3130,
+    "url": "https://www.kanbkam.com/sa/en/hitachi-refrigerator-side-by-side-186-cuft-525l-stainless-steel-hrsn9552dxsa-526-l-950-w-hrsn9552dxsa-silver-N70131602V"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "ثلاجة هيتاشي، جنبًا إلى جنب، 18.6 قدم مكعب، 525 لتر، ستانلس ستيل، - HR",
+    "why": "brand word \"hitachi\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:toshiba-washing-machine-inverter-front-load-with-dryer-10-5-kg-14-programs-grey-twd-t25bzu115mwbbmg-p-120301002110003": {
+  "q": "toshiba TWD-T25BZU",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2999,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:haam-floor-standing-ac-49000-btu-cool-only-inverter-compressor-hm50cfsu26inv-p-110500101391001": {
+  "q": "haam HM50CFSU26INV",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 6599,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-18-cu-ft-top-freezer-refrigerator-silver-lt19cbbsin-p-120100702218009": {
+  "q": "lg LT19CBBSIN",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3699,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:haam-65-inch-4k-uhd-smart-google-tv-qled-144hz-qhm65uh590tgo144h-p-139900199465025": {
+  "q": "haam QHM65UH590TGO144 65",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 2199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-top-load-washing-machine-17-kg-6-programs-essence-graphite-wtr17hhg-p-120300701117004": {
+  "q": "lg WTR17HHG",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 4099,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "almanea:lg-refrigerator-single-door-cooling-only-13-6-cu-ft-silver-ld141bbsit-p-120100701213004": {
+  "q": "lg LD141BBSIT",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3749,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "LG 13.6 Cubic Feet Single Door Fridge with Multi Air Flow Technology |",
+    "why": "listing is \"air\", row is the base model"
+   },
+   {
+    "title": "One Door Refrigerator, 13.6 Cu.ft, 385 L, Linear Cooling , Multi Air F",
+    "why": "brand word \"lg\" not present as a whole word"
+   },
+   {
+    "title": "ثلاجة ال جي بباب واحد، 13.6 قدما مكعبة مربع السعة:، فضي",
+    "why": "brand word \"lg\" not present as a whole word"
+   },
+   {
+    "title": "ثلاجة باب واحد، 13.6 قدم³، 385 لتر، تبريد خطي، تدفق هواء متعدد، ضاغط ع",
+    "why": "brand word \"lg\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:lg-upright-freezer-1-door-11-4-cu-ft-324-l-7-drawers-silver-lf131bbsit-p-120200701211004": {
+  "q": "lg LF131BBSIT",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3999,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 3899,
+  "avg": 3899,
+  "max": 3899,
+  "market": {
+   "store": "xcite",
+   "price": 3899,
+   "url": "https://www.kanbkam.com/sa/en/lg-11-4-cft-single-door-refrigerator-lf131bbsit-silver-X637472"
+  },
+  "sources": [
+   {
+    "merchant": "xcite",
+    "price": 3899,
+    "url": "https://www.kanbkam.com/sa/en/lg-11-4-cft-single-door-refrigerator-lf131bbsit-silver-X637472"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "ثلاجة ال جي بباب واحد 11. 4 قدم (lf131bbsit) - فضي",
+    "why": "brand word \"lg\" not present as a whole word"
+   }
+  ]
+ },
+ "almanea:samsung-upright-freezer-one-door-11-1-cu-ft-315-l-digital-inverter-silver-rz40h32p1t-p-120200501211010": {
+  "q": "samsung RZ40H32P1T",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 3649,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
  }
 }

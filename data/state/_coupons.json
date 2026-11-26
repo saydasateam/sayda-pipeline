@@ -146,6 +146,20 @@
    ],
    "perk": "خصم إضافي 20% حتى 200 ريال ببطاقات الأهلي الائتمانية على منتجات مختارة · حتى 28 نوفمبر",
    "perk_en": "Extra 20% off up to 200 SAR with SNB credit cards, on selected products · until 28 Nov"
+  },
+  {
+   "stores": [
+    "jarir"
+   ],
+   "label": "جرير",
+   "kind": "bank",
+   "code": "",
+   "text": "من صفحة شروط العرض في موقع جرير اليوم («خصم إضافي مع بطاقات برق Visa»): «يسري خصم 20٪ وبحد أقصى 200 ريال على جميع الأصناف باستثناء هاتف iPhone 18 Pro وهاتف iPhone 18 Pro Max وهاتف iPhone Duo، والطلبات المسبقة والبطاقات الرقمية أو البطاقات القابلة للشحن وشهادات الهدايا وبطاقات الهدايا وأوراق النسخ». خاص ببطاقة برق فيزا ولا يسري على بطاقات برق مدى، يطبق تلقائياً عند الدفع بكامل المبلغ بالبطاقة (لا يوجد رمز ترويجي)، عملية شراء واحدة لكل عميل وبطاقة، في معارض جرير وموقعه وتطبيقه في السعودية، ولا يسري عبر Apple Pay أو Samsung Pay أو Mada Pay أو التقسيط. يسري من 26 نوفمبر 2026 حتى 3 ديسمبر 2026.",
+   "verified": "2026-11-26",
+   "perk": "خصم 20% بحد أقصى 200 ريال ببطاقة برق فيزا",
+   "perk_en": "20% off, max 200 SAR, with a Barq Visa card",
+   "label_en": "Jarir",
+   "text_en": "From the offer terms page on Jarir’s site today (“Extra discount with Barq Visa cards”): 20% off, up to 200 SAR, on all items except iPhone 18 Pro, iPhone 18 Pro Max and iPhone Duo, pre-orders, digital or rechargeable cards, gift certificates, gift cards and copy paper. Only for the Barq Visa card (not Barq mada cards); applied automatically when the full amount is paid with the card (no promo code); one purchase per customer and per card; in Jarir showrooms, website and app in Saudi Arabia; not valid with Apple Pay, Samsung Pay, Mada Pay or instalment services. Valid 26 November 2026 to 3 December 2026."
   }
  ]
 }
