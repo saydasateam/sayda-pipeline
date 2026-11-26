@@ -488,6 +488,12 @@ const sitePath = path.join(ROOT, 'config/site.json');
 const siteCfg = fs.existsSync(sitePath) ? JSON.parse(fs.readFileSync(sitePath, 'utf8')) : {};
 const GTM_ID = String(siteCfg.gtmId || '').trim();
 if (GTM_ID && !/^GTM-[A-Z0-9]{4,12}$/.test(GTM_ID)) throw new Error(`build: config/site.json gtmId "${GTM_ID}" is not a GTM container id (GTM-XXXXXXX)`);
+// BLD-44 (24 Nov 2026, Finding 24 Nov 2026 0315 Riyadh): config/site.json pagePolicy switches the Content-Security-Policy meta
+// tag (BLD-8) on or off, so a policy that breaks the page can be turned off with one config change and a refresh, instead of
+// publishing an older pair of pages. Missing means "on". Only "on" or "off" is accepted. Off is said on every build.
+// The response headers in sayda-deals/_headers (frame-ancestors, nosniff, HSTS) are not affected by this switch.
+const POLICY = siteCfg.pagePolicy == null ? 'on' : String(siteCfg.pagePolicy).trim();
+if (!['on', 'off'].includes(POLICY)) throw new Error(`build: config/site.json pagePolicy "${POLICY.slice(0, 20)}" must be "on" or "off"`);
 // ---- WhatsApp channel (BLD-18, with Mahmoud's banner of 23 Nov 2026) ----
 // config/site.json whatsappChannel is the channel's own invite address. Set, both pages get: a green strip right under the
 // top section, above the category cards and the first product, that a visitor can close (it stays closed in that browser);
@@ -595,6 +601,7 @@ out = stripComments(out);
 // frame-ancestors cannot be set in a meta tag: the site repo's _headers file sets it, with the other security headers.
 const crypto = require('crypto');
 const withCsp = html => {
+  if (POLICY === 'off') return html;   // BLD-44
   const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => `'sha256-${crypto.createHash('sha256').update(m[1], 'utf8').digest('base64')}'`);
   const policy = [
     "default-src 'self'",
@@ -715,6 +722,12 @@ console.log(`english: dist/en/index.html (${en.length} chars) · store names ${s
   + (noName.length ? ` — ${noName.length} show the Arabic name: ${[...new Set(noName.map(r => r.store))].join(', ')}` : '')
   + (heldNoName.length ? ` · held back, no name in both languages: ${heldNoName.length} (${heldByStore()})` : '')
   + ` · coupons ${cpEn.length} of ${st.coupons.length} · travel ${trEn.length} of ${st.travel.length} · cars ${crEn.length} of ${(st.cars || []).length} · subscriptions ${sbEn.length} of ${st.subs.length}`);
+// BLD-48 (25 Nov 2026): an English name that still ends with « | <its site's own name>» was read before SAYDA.siteTail knew
+// that host (« | SACO»). The name is never cut here; this line names the stores so RUNBOOK §2d reads those titles again.
+{ const label = Object.fromEntries(cfg.stores.map(s => { try { return [s.id, new URL(s.origin).hostname.replace(/^www\./, '').split('.')[0].toLowerCase()]; } catch { return [s.id, '']; } }));
+  const tail = st.rows.filter(r => { const m = String(r.name_en || '').match(/\s\|\s*([^|]{1,30})$/); return m && label[r.store] && m[1].trim().toLowerCase().replace(/[^a-z0-9]/g, '') === label[r.store]; });
+  if (tail.length) { const by = {}; tail.forEach(r => { by[r.store] = (by[r.store] || 0) + 1; });
+    console.log(`english tails: ${tail.length} name(s) still end with their site's own name (${Object.entries(by).map(([s, n]) => `${s} ${n}`).join(', ')}); RUNBOOK §2d reads them again`); } }
 if (warnNoEn.length) { console.error(`build (english): ${warnNoEn.length} row(s) state a condition in Arabic and have no finding_en — the English page would drop the condition: ${warnNoEn.slice(0, 8).map(r => r.id).join(', ')}`); process.exit(1); }
 
 // artifact variant: no doctype/html/head/body, starts at <title>, no brand header/about section
@@ -728,5 +741,6 @@ fs.writeFileSync(path.join(ROOT,'dist/artifact.html'), art);
 
 const un = st.rows.filter(r=>['oos','ended','gone'].includes(r.avail)).length;
 console.log(GTM_ID ? `measurement: Google Tag Manager ${GTM_ID} on both pages, loaded only after the visitor's OK (consent bar, Consent Mode: advertising denied)` : 'measurement: off (config/site.json has no gtmId), no tag on either page');
+console.log(POLICY === 'on' ? 'page policy: on (Content-Security-Policy meta tag on both pages)' : 'page policy: OFF (config/site.json pagePolicy is "off"): no Content-Security-Policy tag on either page; turn it back on once the cause is fixed');
 console.log(WA ? 'whatsapp channel: on both pages (strip after the first 10 cards on a phone, 15 wider; header, above the suggestion box, About, shared-link note; share message)' : 'whatsapp channel: none (config/site.json has no whatsappChannel)');
 console.log(`built dist/index.html (${out.length} chars) · rows ${st.rows.length} (${st.rows.length-un} available) · travel ${T.length}+${TNO.length} · cars ${CR.length}+${CRNO.length} · coupons ${st.coupons.length} · subscriptions ${SB.length}`);

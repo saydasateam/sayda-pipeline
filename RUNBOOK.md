@@ -54,7 +54,8 @@ The page wording and colours follow it; nothing in `template/index.html` names a
   stops at `stopDiscoveryAtMinute` OR when 45 tool calls of `toolCallBudget` remain, whichever comes first (§2 point 6);
   those 45 calls are for §3, §3a, §3c, §3b, pictures, names, the build and the publish. The run log has one line for each of
   the four, saying what was read and what changed (`travel: …`, `cars: …`, `subscriptions: …`, `market: …`). A line that
-  reads «not run» is a failed step: notify it as you would a stale store.
+  reads «not run» is a failed step: notify it as you would a stale store. It also has the one `budget:` line of §5 (BLD-47):
+  how many tool calls the run used against `toolCallBudget`, and when and why discovery stopped.
 - **Extra needs no store «before» price (Mahmoud, 23 Nov 2026).** Extra candidates from its campaign page are judged on their
   KanBkam record alone, exactly as noon and Amazon: tile prices are not read and `was` stays null (15 of the 50 Extra rows on
   23 Nov already have `was: null`). A missing store «before» price is never a reason to skip the KanBkam lookup or to leave a
@@ -226,6 +227,10 @@ Then: `node apply.js check` → prints counts; `work/report.json` lists newlyUna
   and `config/campaign.json`. A MISSING file is still read as empty. When it stops: publish nothing, restore the file from
   git (`git show HEAD:<path> > <path>` for a clone-side accident, or the previous state commit's copy), re-run, and notify.
   Never delete or empty a damaged file to get past the stop: an empty Noon shard publishes a page with no Noon.
+- **The page policy has a switch (BLD-44, 24 Nov 2026).** `config/site.json → pagePolicy`: "on" (also when missing) puts the
+  Content-Security-Policy meta tag on both pages; "off" builds them without it. The build prints «page policy: on» or
+  «page policy: OFF». A run never changes it: switching it off is Mahmoud's call, for a policy that breaks the page, and it
+  lands like any config change. The response headers in sayda-deals/_headers are separate and stay on.
 
 ## 2b. Re-check new rows BEFORE publishing (added 22 Sep — required)
 `apply.js new` marks every row it adds `needsCheck`, and `build.js` does not publish a `needsCheck` row. Discovery sees
@@ -307,7 +312,7 @@ Mahmoud chose on 22 Sep, not a rename of that slot.
 **Discovery plan, every run (22 Nov 2026, Mahmoud approved the review «selection, volume and sorting»).**
 The numbers live in `config/rules.json → discovery`; nothing below repeats them.
 1. `node scripts/rotation.js` prints this run's slot, its **market** store, its **no-record** store, the
-   per-store ceilings and the minute at which discovery stops. Write that line into the run log.
+   per-store ceilings, the minute at which discovery stops and the tool-call budget. Write that line into the run log.
 2. **noon, Amazon and Extra, every run**, up to `ceilingPerStore` each (60 since 22 Nov; it was 20, and on
    21 Nov Amazon had 86 qualifying candidates of which 18 got in). Extra comes from its own campaign page,
    not the KanBkam listing (below).
@@ -377,7 +382,8 @@ The numbers live in `config/rules.json → discovery`; nothing below repeats the
    publish (§4) must always fit. Coverage is never dropped for discovery, and neither are §3, §3a, §3b and §3c.
    Inside the discovery time, work in this order and do not stop early while budget remains (24 Nov 2026): noon, Amazon and
    Extra (point 2), the rotation's market store (point 3), the no-record store (point 4), then the untracked path (point 4b).
-   A step left undone is named in the run log with the call count and minute at which discovery stopped.
+   A step left undone is named in the run log's `budget:` line (§5, BLD-47), with the call count and minute at which
+   discovery stopped.
 
 **Extra from its campaign page.** Open a tab on `store.campaignPage`, inject core + `extra.js`, then
 `SAYDA.start('collect:extra', () => SAYDA.adapters.extra.collectPage())`. It scrolls so every carousel loads
@@ -423,7 +429,12 @@ previousPrice is looked up, live-checked and added like a noon or Amazon one, wi
   1. **accessory guard** — drop titles matching `strap|band for|bands|case|cover|protector|screen|cable|cord|charger for|replacement|compatible|suitable for|holder|stand|pouch|sleeve|film|glass|skin|جراب|حافظة|واقي|حزام|كابل|بديل|متوافق`;
   2. **brand as a whole word** — `\bblack\b` must not match «Koolen … black»; a two-word brand must match both words;
   3. **model as a whole word, or run together** — `dlc 36362` and `dlc36362` both count, `band 10` never matches «Band 9»,
-     and a query with no model token at all is rejected outright rather than matched on the brand alone;
+     and a query with no model token at all is rejected outright rather than matched on the brand alone.
+     **Since BLD-49 (Mahmoud's D47)** a count is not a model token («2-in-1», «3 في 1», «4-pack», «12pc»), nor is a number that is
+     part of the brand's own name (`BRAND_NUMBERS` in rules/match.js: «1881» of CERRUTI 1881); a row whose model is only that is
+     rejected, and lib/market.js sends it to the name path instead. In the name path, words that only name the kind of product
+     («watch», «women», «dial», `GENERIC_NAME`) must still be in the listing but do not count towards the two distinctive words.
+     For a series brand in `TRIMS` (Dyson), the row and the listing must state the same trim words («Extra», «Absolute», «Torque»);
   4. **sanity band** — reject a candidate priced below 0.35× or above 3× the row's price.
   Expect a low hit rate and do not force it: of those 62 queries, 49 returned listings, 12 survived the filter, and only 5
   became deals. Most of a marketplace's catalogue is own-label stock that exists in no other Saudi store, so **no evidence is
@@ -444,6 +455,8 @@ previousPrice is looked up, live-checked and added like a noon or Amazon one, wi
   `ev: {prev, min, max, src:'kanbkam'|'market', on:'YYYY-MM-DD'}`. `node scripts/replay.js` re-derives every row that has `ev` and
   fails the run if a stored `ref` disagrees with it.
   avail from the collect output (inStock/qty) is provisional — mark `in` only if the collect data says in stock. Save as `work/new-rows.json`, then `node apply.js new work/new-rows.json`. Row budget comes from `rules.json → page` (`targetRows`, `maxRows`, `maxNewPerRun`) — never from a number written here.
+Since BLD-42 (24 Nov 2026) replay also prints «replay: compared n of m … not compared k …». Put that line in the run log next to
+«all rows agree»: `na` rows with no reference are not compared, so «agree» covers the compared rows only.
 
 ## 2c. Pictures (added 20 Nov 2026 — every published row should have one)
 The page shows products as cards, and a card without a picture shows a blank tile. After §2b, for each
@@ -467,9 +480,10 @@ them to `work/upload.json` so they ride in the state commit, and leaves `checked
 Every row needs `name_en`: **the store's own English product title**, read from the English version of
 its product page. It is never translated, by you or by anything else: all these stores publish an
 English catalogue, and a name we wrote could describe a different variant from the one we priced.
-For each store that has rows with no `name_en` (new rows always), in that store's tab after core + boot:
+For each store that has rows with no `name_en` (new rows always), or that `node build.js` names on its
+`english tails:` line (BLD-48), in that store's tab after core + boot:
 ```js
-SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en), SAYDA.ctx.store));
+SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en || SAYDA.wrapped(r.name_en)), SAYDA.ctx.store));
 ```
 `SAYDA.show('en:<id>')` + `get_page_text` → `work/en/<id>.json` → `node scripts/apply-names.js work/en/<id>.json`.
 - `store.en` in `config/stores.json` says how to reach the English page: `{api:"noon"}` or
@@ -495,9 +509,12 @@ SAYDA.start('en:<id>', () => SAYDA.names(SAYDA.ctx.rows.filter(r => !r.name_en),
   another such title, keep the row as it is and name it in the summary so Mahmoud can decide.
 - **The site's wrapper is not part of the name** (20 Nov 2026). `SAYDA.titleOf` removes it:
   «Buy … in KSA | Mumzworld», «… | Mothercare Saudi Arabia», «… | Nahdi», «… | Best Price KSA»
-  (Namshi), «… | BlackBox». The product name between is stored exactly as the store wrote it. If a
-  new store's titles come back wrapped, add its phrase to `S.siteTail` in `adapters/_core.js`;
-  never trim a name by hand in a run.
+  (Namshi), «… | BlackBox», «… | SACO». The product name between is stored exactly as the store wrote it.
+  A «|» tail whose first word is the whole host label goes at any length (BLD-48, 25 Nov 2026: «saco»
+  has 4 letters, and the older rule wanted 5). A name stored before its wrapper was known is not cut
+  in place: `SAYDA.wrapped` flags it, the filter above reads its title again, and `build.js` prints
+  `english tails: …` until that is done. If a new store's titles come back wrapped, add its phrase to
+  `S.siteTail` in `adapters/_core.js`; never trim a name by hand in a run.
 - **Everything else you write in Arabic, you also write in English, in the same step:**
   - `finding_en` on a row is REQUIRED whenever its Arabic `finding` states a condition (a code or
     coupon, Trendyol Plus, a basket threshold, a price that only appears at checkout). `build.js`
@@ -674,6 +691,9 @@ https address (`lib/safe.js`). Three lines can appear, and each one goes in the 
 `node scripts/test-escape.js` proves the escaping offline from hostile rows. Run it after any change to a template or to
 `build.js`; it must end `escape: N passed, 0 failed`. Since BLD-50 it also covers the strongest-deals strip and the header
 inside a category, which `build.js` writes as static HTML.
+`node scripts/test-count.js` (BLD-55) proves the page's own count offline: one beacon to `/api/count` on landing and one per
+click that opens a store's product page, carrying only `{e, s, l, st}`, with or without the measurement bar's OK, and nothing
+off saydadeals.com. Run it after any change to a template; it must end `count: N passed, 0 failed`.
 **Two writes per run: the site first, then the state.** How the site goes depends on how the run was started (21 Nov 2026):
 - **Scheduled run on the Sayda server, the normal case: §4a-form.** A scheduled task that uses the server's computer has no
   GitHub repositories attached: `gh api` answers 403 «a run cannot add repositories» and `git clone` of sayda-deals asks for
@@ -766,6 +786,26 @@ Final message in Arabic, concise: top 7 verified deals available now (store, pri
 unavailable / restocked / price changes (from work/report.json), coupon and travel changes, stores skipped and why, and
 the build's `english:` line (store names n of n, coupons n of n, and travel, cars and subscriptions n of n), the four lines
 `travel:`, `cars:`, `subscriptions:` and `market:` from §3 to §3c, the site commit (short sha) and the state commit.
+
+**The `budget:` line (BLD-47, 25 Nov 2026).** Every run log, full or check-only, carries exactly one line of this form, word
+for word in its fixed parts, so the logs can be compared run by run:
+
+`budget: <used> of <toolCallBudget> tool calls · discovery stopped at minute <m> after <c> calls: <reason> · skipped: <steps or «none»> · run <total> min`
+
+- `<used>` is every tool call this session made, from its first to the call that writes the run log (Chrome, `bash`,
+  project and notification calls alike). Keep the tally as you go. If the tally is lost, write `about <n>`; never drop
+  the line. `<toolCallBudget>` is the number `node scripts/rotation.js` printed at the start.
+- `<m>` is minutes from the run's start and `<c>` the tally at the moment discovery stopped.
+- `<reason>` is one of four words: `minute` (`stopDiscoveryAtMinute` reached), `budget` (45 calls of `toolCallBudget`
+  were left), `done` (noon, Amazon and Extra each at its ceiling or out of unread candidates, and the market store, the
+  no-record store and the untracked path all done), or `check-only` (a check-only run, no discovery: then write
+  `discovery stopped at minute - after - calls: check-only`).
+- `skipped:` names each discovery step of §2 point 6 left undone (`noon`, `amazon`, `extra`, `market <store>`,
+  `no-record <store>`, `untracked`), comma separated, or `none`. A step of §3 to §3c is never in this list: it is never
+  skipped (see «Current campaign»).
+- `<total>` is minutes from the run's start to the run log.
+
+Example: `budget: 212 of 250 tool calls · discovery stopped at minute 50 after 171 calls: minute · skipped: untracked · run 63 min`.
 
 **Prove the run did something before calling it done.** Run
 `gh api 'repos/saydasateam/sayda-deals/commits?per_page=1' --jq '.[0]|[.sha[0:7],.commit.committer.date,.commit.message]'`
