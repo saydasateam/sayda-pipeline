@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-26",
- "checkedAt": "2026-11-26T08:50:05.768+03:00",
+ "checkedAt": "2026-11-26T12:53:20.102+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -139,7 +139,7 @@
    "cat": "شاشات",
    "name": "تلفزيون سامسونج، 98 بوصة، ليد، سمارت، كريستال يو إتش دي 4كي، 144 هرتز، سامسونج فيجن إي آي - UA98U9000HUXSA",
    "name_en": "Samsung LED 98 Inches, Smart, 144Hz - UA98U9000HUXSA",
-   "price": 6999,
+   "price": 5999,
    "was": 11999,
    "ref": null,
    "refKind": null,
@@ -371,10 +371,10 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/samsung-led-75-inches-tv-smart-crystal-processor-4-k-uhd-secured-by-knox-ua-p-141111823160505",
-   "avail": "low",
+   "avail": "in",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_smart_crystal_processor_4k_uhd_secured_by_knox_-_ua75u8000huxsa_1.webp",
    "firstSeen": "2026-11-22",
-   "availNote": "بلاك بوكس: متبقي 1",
+   "availNote": "",
    "lastChecked": "2026-11-26"
   },
   {
@@ -651,8 +651,8 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/tcl-65-inches-qd-mini-led-tv-smart-4-k-uhd-hdr-144-hz-android-p-1411112511505002",
-   "avail": "gone",
-   "availNote": "بلاك بوكس: الصفحة غير موجودة",
+   "avail": "low",
+   "availNote": "بلاك بوكس: متبقي 3",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-26",
    "name_en": "TCL 65 Inches QD-Mini LED TV, Smart, 4K UHD, HDR - 65C7L"

@@ -25,7 +25,7 @@
    "type": "طيران",
    "company_en": "flynas",
    "type_en": "Airline",
-   "checked": "2026-11-25"
+   "checked": "2026-11-26"
   },
   {
    "company": "الخطوط السعودية",
@@ -39,7 +39,7 @@
    "type": "طيران",
    "company_en": "Riyadh Air",
    "type_en": "Airline",
-   "checked": "2026-11-25"
+   "checked": "2026-11-26"
   },
   {
    "company": "المسافر",
@@ -53,18 +53,18 @@
    "type": "منصة سفر",
    "company_en": "Flyin",
    "type_en": "Travel platform",
-   "checked": "2026-11-25"
+   "checked": "2026-11-26"
   }
  ],
  "travelNone_text": "فحصنا هذه المواقع في ٢١ نوفمبر: عروضها الحالية أسعار عادية أو أكواد شتوية لا تربطها بالجمعة البيضاء. موقع طيران أديل لم يُفتح وقت الفحص، فلم نُدرجه.",
  "travelNone_text_en": "Checked on 21 November: their current offers are standing fares or winter codes not tied to White Friday. The flyadeal site did not load during the check, so it is not listed.",
  "scanned": {
-  "https://www.riyadhair.com/ar": "2026-11-25",
+  "https://www.riyadhair.com/ar": "2026-11-26",
   "https://www.saudia.com/ar-SA/offers": "2026-11-26",
   "https://www.flynas.com/ar": "2026-11-26",
   "https://www.flyadeal.com/ar": "2026-11-26",
   "https://www.almosafer.com/ar/offers": "2026-11-26",
   "https://almatar.com/ar/sa/offers/": "2026-11-26",
-  "https://www.flyin.com/ar/offers": "2026-11-25"
+  "https://www.flyin.com/ar/offers": "2026-11-26"
  }
 }

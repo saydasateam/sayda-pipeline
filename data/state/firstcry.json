@@ -1,7 +1,7 @@
 {
  "store": "firstcry",
  "updated": "2026-11-26",
- "checkedAt": "2026-11-26T08:50:05.768+03:00",
+ "checkedAt": "2026-11-26T12:53:20.102+03:00",
  "rows": [
   {
    "id": "firstcry:481e5ae1604f6",
@@ -97,7 +97,7 @@
    "id": "firstcry:2bed1aefaa524",
    "store": "firstcry",
    "name": "فات برين تويز - لعبة أير توبز الهوائية، مزودة بمؤشرات إل إي ",
-   "price": 439,
+   "price": 499,
    "was": 861.35,
    "ref": null,
    "verdict": "na",
@@ -169,7 +169,7 @@
    "id": "firstcry:6abfdaeb650a0",
    "store": "firstcry",
    "name": "ليبفروق نظام التعلم ليبستارت ثلاثي الأبعاد",
-   "price": 346,
+   "price": 375,
    "was": 723.35,
    "ref": null,
    "verdict": "na",
@@ -241,7 +241,7 @@
    "id": "firstcry:6c679aec3d0e9",
    "store": "firstcry",
    "name": "ليبفروق مجموعة ألعاب فيديو ليب موف - أسود وأخضر",
-   "price": 319,
+   "price": 290,
    "was": 516.35,
    "ref": null,
    "verdict": "na",

@@ -1,0 +1,76 @@
+{
+ "aldawaa:247340": {
+  "q": "salon beauty Gj-3226",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 495.88,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247262": {
+  "q": "straightener %26 curler Gj-1816",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 170.78,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247373": {
+  "q": "omega garrah%2c hair straightener%2c ceramic%2c slimm%2c 3001",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 151.8,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247488": {
+  "q": "chi chi%2c keratin reconstructing%2c conditioner 946 ml",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 110.06,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "CHI Keratin Conditioner Reconstructing Conditioner",
+    "why": "name word \"2c\" not present as a whole word"
+   },
+   {
+    "title": "بلسم إصلاح الشعر بالكرياتين من شركة تشي",
+    "why": "brand word \"chi\" not present as a whole word"
+   }
+  ]
+ },
+ "aldawaa:247251": {
+  "q": "salon beauty HS-9990",
+  "sampledAt": "2026-11-26",
+  "rowPrice": 126.5,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}
