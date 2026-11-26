@@ -217,6 +217,18 @@ const restore = () => { put(STORE + '.json', shard0); put(STORE + '.history.json
   ok(fs.readFileSync(path.join(TMP, 'config/rules.json')).equals(rulesBefore), 'config/rules.json still unchanged');
 }
 
+// ── 04 in the history writer (BLD-43): lib/history.js save writes only configured stores ────────────────────────────────
+{
+  const Hs = require(path.join(TMP, 'lib/history'));
+  const rulesBefore = fs.readFileSync(path.join(TMP, 'config/rules.json'));
+  const h = { 'noon:BLD43': [['2026-11-24', 10, '2026-11-24']], '../../config/rules:x': [['2026-11-24', 1, '2026-11-24']], 'nosuchstore:1': [['2026-11-24', 1, '2026-11-24']] };
+  const wrote = Hs.save(TMP, h);
+  ok(wrote.length === 1 && wrote[0] === 'noon', 'history save returns only the configured store');
+  ok(fs.readFileSync(path.join(TMP, 'config/rules.json')).equals(rulesBefore), 'history save: «../../config/rules» did not overwrite config/rules.json');
+  ok(!fs.existsSync(ST('nosuchstore.history.json')), 'history save: no shard for an unknown store');
+  ok(JSON.parse(save('noon.history.json'))['noon:BLD43'], 'history save: the configured store\'s shard is written');
+}
+
 // ── 03: the build holds back a row whose link is on another site ─────────────────────────────────────────────────────────
 {
   const noon = JSON.parse(save('noon.json'));

@@ -48,12 +48,15 @@ if (hardcoded.length) {
 }
 
 const conflict = [], review = [];
+// BLD-42 (24 Nov 2026, Codex reassessment): count what was really compared, so «all rows agree» is not read as «all rows
+// were compared». On a91f77f, 607 rows were compared and 224 `na` rows with no reference were not.
+const seen = { evidence: 0, rule: 0, noRef: 0, outOfScope: 0 };
 for (const r of st.rows) {
-  if (r.ref == null || !r.price) continue;
+  if (r.ref == null || !r.price) { seen.noRef++; continue; }
   const f = r.finding || '';
   // trendyol has its own verdict function (conditional offers, suggested-price badges) and
   // an ended deal carries context the row text cannot reconstruct — out of scope for a replay.
-  if (r.store === 'trendyol' || /انتهى العرض|مشروط|سلة المشتريات|Plus/.test(f)) continue;
+  if (r.store === 'trendyol' || /انتهى العرض|مشروط|سلة المشتريات|Plus/.test(f)) { seen.outOfScope++; continue; }
 
   // A row that kept its evidence can be re-derived exactly — no inference from prose needed.
   // This is the check that would have caught 2026-09-19's inflated references: a reference taken
@@ -64,8 +67,10 @@ for (const r of st.rows) {
       conflict.push([r, r.verdict, want.verdict, `المرجع ${r.ref} لا يطابق السعر السابق المسجَّل ${r.ev.prev}`]);
     else if (want.verdict !== r.verdict)
       conflict.push([r, r.verdict, want.verdict, `القاعدة تعطي ${want.verdict} من نفس الدليل المحفوظ`]);
+    seen.evidence++;
     continue;
   }
+  seen.rule++;
 
   const real = 1 - r.price / r.ref;
   const min = after(f, /سبق ونزل\s+([\d٠-٩٬,]+)/);
@@ -87,6 +92,7 @@ show('CONFLICT — القاعدة تفرض حكماً مختلفاً', conflict)
 show('REVIEW — قرار تقديري، لم يُغيَّر', review);
 if (!conflict.length && !review.length) console.log('replay: all', st.rows.length, 'rows agree with rules/verdict.js');
 else console.log(`\nreplay: ${conflict.length} conflict, ${review.length} review, of ${st.rows.length} rows`);
+console.log(`replay: compared ${seen.evidence + seen.rule} of ${st.rows.length} (${seen.evidence} re-derived from stored evidence, ${seen.rule} by the rule's limits); not compared ${seen.noRef + seen.outOfScope} (${seen.noRef} with no reference, mostly na; ${seen.outOfScope} conditional or ended, out of scope)`);
 
 // --fix writes back only the shards that actually contained a corrected row, never the whole set
 if (fix && conflict.length) {

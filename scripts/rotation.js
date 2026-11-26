@@ -35,5 +35,6 @@ const out = {
   selfVerify: self.length ? self[runNo % self.length] : null,
   ceilingPerStore: (rules.discovery || {}).ceilingPerStore || null,
   stopDiscoveryAtMinute: (rules.discovery || {}).stopDiscoveryAtMinute || null,
+  toolCallBudget: (rules.discovery || {}).toolCallBudget || null,   // BLD-47: the run log's `budget:` line is measured against it (RUNBOOK §5)
 };
 console.log(JSON.stringify(out));
