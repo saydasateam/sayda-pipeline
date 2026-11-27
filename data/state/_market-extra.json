@@ -1248,5 +1248,221 @@
   "market": null,
   "sources": [],
   "rejected": []
+ },
+ "extra:100505461": {
+  "q": "braun BT9520",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 639,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 407,
+  "avg": 407,
+  "max": 407,
+  "market": {
+   "store": "noon",
+   "price": 407,
+   "url": "https://www.kanbkam.com/sa/en/braun-beard-trimmer-series-9-7-barbering-tools-50-lengths-problade-bt9520-black-N70245596V",
+   "own": "https://www.noon.com/en-sa/braun-beard-trimmer-series-9-7-barbering-tools-50-lengths-problade-bt9520-black/N70245596V/p"
+  },
+  "sources": [
+   {
+    "merchant": "noon",
+    "price": 407,
+    "url": "https://www.kanbkam.com/sa/en/braun-beard-trimmer-series-9-7-barbering-tools-50-lengths-problade-bt9520-black-N70245596V"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "مكينة حلاقة اللحية سلسلة 9 + 7 أدوات حلاقة - BT 9520",
+    "why": "brand word \"braun\" not present as a whole word"
+   }
+  ]
+ },
+ "extra:100433497": {
+  "q": "philips HX3826/33",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 359,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 376,
+  "avg": 376,
+  "max": 376,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 376,
+   "url": "https://www.kanbkam.com/sa/en/philips-sonicare-cordless-power-flosser-3000black-hx382633-certified-uae-3-pin-B0D2LF1DDD"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 376,
+    "url": "https://www.kanbkam.com/sa/en/philips-sonicare-cordless-power-flosser-3000black-hx382633-certified-uae-3-pin-B0D2LF1DDD"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "جهاز تنظيف الأسنان اللاسلكي سونيكير باور فلوسر 3000 أسود من فيليبس HX3",
+    "why": "brand word \"philips\" not present as a whole word"
+   }
+  ]
+ },
+ "extra:100221559": {
+  "q": "philips NT3650/16",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 89,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 97.2,
+  "avg": 97,
+  "max": 97.2,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 97,
+   "url": "https://www.kanbkam.com/sa/en/philips-nose-trimmer-nt365016-cordless-nose-ear-eyebrow-trimmer-with-protective-guard-system-fully-washable-including-aa-battery-2-eyebrow-combs-pouch-gray-B08KSW28TR"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 97,
+    "url": "https://www.kanbkam.com/sa/en/philips-nose-trimmer-nt365016-cordless-nose-ear-eyebrow-trimmer-with-protective-guard-system-fully-washable-including-aa-battery-2-eyebrow-combs-pouch-gray-B08KSW28TR"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Woollo Case Compatible with Philips Nose and Ear Hair Trimmer Series 3",
+    "why": "accessory, not the product"
+   },
+   {
+    "title": "Woollo Case Compatible with Philips Nose and Ear Hair Trimmer Series 3",
+    "why": "accessory, not the product"
+   },
+   {
+    "title": "ماكينة تشذيب الأنف Nt3650-16 من فيليبس حلاقة لاسلكية للأنف والأذن والح",
+    "why": "brand word \"philips\" not present as a whole word"
+   }
+  ]
+ },
+ "extra:100503328": {
+  "q": "midea WDV18CDWGKSA",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 1789,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100489711": {
+  "q": "gree GWC24AVEXF-D6NTA1A/I",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 3199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "AIMAX Split AC 23,200 BTU, Cooling, On / Off, Self Cleaning Function, ",
+    "why": "brand word \"gree\" not present as a whole word"
+   },
+   {
+    "title": "مكيف هواء AIMAX 23,200 وحدة حرارية بريطانية، تبريد، تشغيل / إيقاف، وظي",
+    "why": "brand word \"gree\" not present as a whole word"
+   }
+  ]
+ },
+ "extra:100534466": {
+  "q": "lg LC242C0",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 2799,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100477959": {
+  "q": "philips NA460/00",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 688,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 674.31,
+  "avg": 674,
+  "max": 674.31,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 674,
+   "url": "https://www.kanbkam.com/sa/en/philips-dualstack-airfryer-xxl-10l2kg-2750w-13-functions-6-presets-3000-series-dual-stacked-basket-5l-5l-touchscreen-rapid-air-technology-shake-reminder-black-na46000-B0G7HY2GZD"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 674,
+    "url": "https://www.kanbkam.com/sa/en/philips-dualstack-airfryer-xxl-10l2kg-2750w-13-functions-6-presets-3000-series-dual-stacked-basket-5l-5l-touchscreen-rapid-air-technology-shake-reminder-black-na46000-B0G7HY2GZD"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Airfryer 4000 Series Stacked Dual Basket Airfryer 10 L 2750 W NA460/00",
+    "why": "brand word \"philips\" not present as a whole word"
+   },
+   {
+    "title": "4000 Series, Airfryer Stacked Dual Basket 10 L 2750 W NA460/00 Black",
+    "why": "brand word \"philips\" not present as a whole word"
+   }
+  ]
+ },
+ "extra:100471248": {
+  "q": "delonghi EC890.M",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 1059,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "extra:100465977": {
+  "q": "philips AC2220/10",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 988,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "PureProtect Quiet 2200 Series, Smart Air Purifier AC2220/10 Arctic Whi",
+    "why": "brand word \"philips\" not present as a whole word"
+   },
+   {
+    "title": "PureProtect Quiet 2200 Series Smart Air Purifier Arctic White and Blac",
+    "why": "brand word \"philips\" not present as a whole word"
+   },
+   {
+    "title": "Philips PureProtect Quiet 2200 Series Smart Air Purifier AC2220/10 Arc",
+    "why": "listing is \"air\", row is the base model"
+   },
+   {
+    "title": "Philips Air Purifier, For Rooms Up To 109m², 420m³/h CADR, Sleep Mode ",
+    "why": "model part \"ac2220\" not present as a whole word, and \"ac222010\" not present fused"
+   }
+  ]
  }
 }

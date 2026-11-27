@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-27",
- "checkedAt": "2026-11-27T16:33:06.232+03:00",
+ "checkedAt": "2026-11-27T20:32:00.495+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -428,7 +428,7 @@
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/lg-77-inches-oled-evo-ai-g6-tv-web-os-smart-4-k-uhd-dolby-p-141111134162507",
    "avail": "low",
-   "availNote": "بلاك بوكس: متبقي 3",
+   "availNote": "بلاك بوكس: متبقي 2",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
    "name_en": "LG 77Inches OLED Evo AI G6 TV, WebOS, Smart - OLED77G66LW",
@@ -640,7 +640,8 @@
    "availNote": "",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_55_inches_neo_qled_tv_smart_120hz_dlg_4k_ai_upscaling_slim_design_-_qa55qn70hauxsa.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_55_inches_neo_qled_tv_smart_120hz_dlg_4k_ai_upscaling_slim_design_-_qa55qn70hauxsa.webp",
+   "name_en": "Samsung 55Inch Neo QLED TV, Smart - QA55QN70HAUXSA"
   },
   {
    "id": "blackbox:tcl-65-inches-qd-mini-led-tv-smart-4-k-uhd-hdr-144-hz-android-p-1411112511505002",
@@ -768,7 +769,8 @@
    "availNote": "",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
-   "name_en": "LG Split Air Conditioner, 22100 BTU, Inverter - NS242C4.NK4"
+   "name_en": "LG Split Air Conditioner, 22100 BTU, Inverter - NS242C4.NK4",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_22100_btu_smart_cold_only_inverter_4-way_airflow_-_ns242c4.nk4.webp"
   },
   {
    "id": "blackbox:tcl-window-air-conditioner-gentle-breeze-18000-btu-inverter-cold-only-white-cw-tw-p-111641251102108",
@@ -802,7 +804,7 @@
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/haier-split-air-conditioner-18000-btu-wi-fi-cold-only-hsu-18-lpb13-r2-t3-p-1116316211021012",
    "avail": "in",
-   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
+   "availNote": "",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpeg/media/catalog/product/h/a/haier_split_air_conditioner_18000btu_cold_only_wi-fi_-_hsu-18lpb13_r2-t3_1.webp",
@@ -825,7 +827,8 @@
    "model": "AM182C0.UK1",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "name_en": "LG Artcool Split Air Conditioner 18000BTU - AM182C0.UK1"
+   "name_en": "LG Artcool Split Air Conditioner 18000BTU - AM182C0.UK1",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_artcool_split_air_conditioner_18000btu_cold_only_dual_inverter_compressor_-_am182c0.uk1.webp"
   },
   {
    "id": "blackbox:tcl-window-air-conditioner-gentle-breeze-20600-btu-inverter-cold-only-white-cw-tw-p-111641251103106",
@@ -960,7 +963,7 @@
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/dots-iron-steam-press-1600-w-40-inch-removable-tank-1-l-white-gip-4022-p-1528166820003002",
    "avail": "in",
-   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
+   "availNote": "",
    "model": "GIP4022W3",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
@@ -1004,7 +1007,8 @@
    "model": "PW11",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/j/i/jimmy_3-1_cordless_vacuum_cleaner_400w_liquids_and_dust_hot_air_drying_-_pw11.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/j/i/jimmy_3-1_cordless_vacuum_cleaner_400w_liquids_and_dust_hot_air_drying_-_pw11.webp",
+   "name_en": "Jimmy 3-1 Cordless Vacuum Cleaner 400W - PW11"
   },
   {
    "id": "blackbox:tcl-portable-ac-9000-btu-dehumidifier-cool-tac-09-cpa-kn-p-1512112511001001",
@@ -1121,7 +1125,8 @@
    "model": "H10FLEX",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_90__11zon.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_90__11zon.webp",
+   "name_en": "Jimmy Cordless Vacuum Cleaner, 600W, 600ml - H10FLEX"
   },
   {
    "id": "blackbox:platinum-40-inch-steam-iron-press-2200-w-with-stand-white-sp-7110-w-p-1528137420000010",
