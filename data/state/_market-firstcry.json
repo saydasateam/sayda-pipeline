@@ -66,8 +66,8 @@
  },
  "firstcry:2bed1aefaa524": {
   "q": "fat brain toys Switch 3 air",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 439,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 499,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -75,11 +75,16 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Fat Brain Toys Air Toobz- Air-Powered STEM Building for Kids & Teens, ",
+    "why": "model part \"switch\" not present as a whole word, and \"switch3\" not present fused"
+   }
+  ]
  },
  "firstcry:8624aae3c58e8": {
   "q": "leapfrog Screen 20",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-27",
   "rowPrice": 712,
   "n": 0,
   "merchantCount": 0,
@@ -105,8 +110,8 @@
  },
  "firstcry:4b235ae9fc659": {
   "q": "infantino 6m",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 418.02,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 388,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -118,8 +123,8 @@
  },
  "firstcry:6abfdaeb650a0": {
   "q": "leapfrog 3D",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 346,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 375,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -131,7 +136,7 @@
  },
  "firstcry:1f6d3ae957fc9": {
   "q": "leapfrog 12m",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-27",
   "rowPrice": 141,
   "n": 0,
   "merchantCount": 0,
@@ -144,20 +149,35 @@
  },
  "firstcry:c57eduae20ab67": {
   "q": "leapfrog magic adventures globe interactive educational toy",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-27",
   "rowPrice": 682,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
+  "n": 2,
+  "merchantCount": 1,
+  "min": 406.5,
+  "avg": 469,
+  "max": 531,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 407,
+   "url": "https://www.kanbkam.com/sa/en/leapfrog-magic-adventures-globe-interactive-childrens-globe-educational-smart-globe-for-kids-with-27-inch-lcd-screen-toys-for-children-with-games-and-activities-suitable-for-5-6-7-year-olds-B07TY15FZN"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 407,
+    "url": "https://www.kanbkam.com/sa/en/leapfrog-magic-adventures-globe-interactive-childrens-globe-educational-smart-globe-for-kids-with-27-inch-lcd-screen-toys-for-children-with-games-and-activities-suitable-for-5-6-7-year-olds-B07TY15FZN"
+   },
+   {
+    "merchant": "Amazon.sa",
+    "price": 531,
+    "url": "https://www.kanbkam.com/sa/en/leapfrog-magic-adventures-globe-frustration-free-packaging-multicolor-B07PXR5J2D"
+   }
+  ],
   "rejected": []
  },
  "firstcry:5d5a1ae202ee9": {
   "q": "playgo junior fire fighter ride on b",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-27",
   "rowPrice": 575.18,
   "n": 0,
   "merchantCount": 0,
@@ -170,20 +190,30 @@
  },
  "firstcry:6c679aec3d0e9": {
   "q": "leapfrog leapmove educational gaming console motion based",
-  "sampledAt": "2026-11-23",
-  "rowPrice": 319,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
+  "sampledAt": "2026-11-27",
+  "rowPrice": 290,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 279.36,
+  "avg": 279,
+  "max": 279.36,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 279,
+   "url": "https://www.kanbkam.com/sa/en/leapfrog-leapmove-educational-gaming-console-motionbased-learning-25-preloaded-games-for-ages-47-years-english-version-B0F8JBZD8F"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 279,
+    "url": "https://www.kanbkam.com/sa/en/leapfrog-leapmove-educational-gaming-console-motionbased-learning-25-preloaded-games-for-ages-47-years-english-version-B0F8JBZD8F"
+   }
+  ],
   "rejected": []
  },
  "firstcry:57c04ae3bbab9": {
   "q": "bburago 19x7x24cm",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-27",
   "rowPrice": 272.1,
   "n": 0,
   "merchantCount": 0,
@@ -222,15 +252,25 @@
  },
  "firstcry:68d97ae480520": {
   "q": "leapfrog pick up and count vacuum educational",
-  "sampledAt": "2026-11-23",
+  "sampledAt": "2026-11-27",
   "rowPrice": 240,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
+  "n": 1,
+  "merchantCount": 1,
+  "min": 240,
+  "avg": 240,
+  "max": 240,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 240,
+   "url": "https://www.kanbkam.com/sa/en/leapfrog-pick-up-count-vacuum-role-play-toy-with-lights-colours-counting-pick-up-counters-in-three-modes-of-play-learning-toy-for-toddlers-gift-for-ages-2-3-4-years-english-version-B087MS4BYK"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 240,
+    "url": "https://www.kanbkam.com/sa/en/leapfrog-pick-up-count-vacuum-role-play-toy-with-lights-colours-counting-pick-up-counters-in-three-modes-of-play-learning-toy-for-toddlers-gift-for-ages-2-3-4-years-english-version-B087MS4BYK"
+   }
+  ],
   "rejected": []
  },
  "firstcry:5dffeae562cb7": {
@@ -247,16 +287,31 @@
   "rejected": []
  },
  "firstcry:c3809ae694260": {
-  "q": "leapfrog 2-In-1",
-  "sampledAt": "2026-11-23",
+  "q": "leapfrog 2 in 1 leaptop touch green",
+  "sampledAt": "2026-11-27",
   "rowPrice": 199,
-  "n": 0,
-  "merchantCount": 0,
-  "min": null,
-  "avg": null,
-  "max": null,
-  "market": null,
-  "sources": [],
-  "rejected": []
+  "n": 1,
+  "merchantCount": 1,
+  "min": 199,
+  "avg": 199,
+  "max": 199,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 199,
+   "url": "https://www.kanbkam.com/sa/en/leapfrog-2in1-leaptop-touch-B072Q1WWKB"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 199,
+    "url": "https://www.kanbkam.com/sa/en/leapfrog-2in1-leaptop-touch-B072Q1WWKB"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "LeapFrog 2-in-1 Touch & Learn Tablet, Kids Two-Sided Tablet, Electroni",
+    "why": "name word \"leaptop\" not present as a whole word"
+   }
+  ]
  }
 }
