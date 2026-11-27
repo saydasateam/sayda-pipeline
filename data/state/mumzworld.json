@@ -1,7 +1,7 @@
 {
  "store": "mumzworld",
  "updated": "2026-11-27",
- "checkedAt": "2026-11-27T08:45:26.988+03:00",
+ "checkedAt": "2026-11-27T12:35:48.327+03:00",
  "rows": [
   {
    "id": "mumzworld:stokke-yoyo-stroller-set-black-frame-leg-rest-45808368-bun-sto-0000xxx-config",
@@ -245,8 +245,8 @@
    "verdict": "na",
    "finding": "ممزورلد · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
    "url": "https://www.mumzworld.com/sa-ar/kinderkraft-nubi-2-stroller-cloudy-grey-400207",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "ممزورلد: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أطفال",
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-27",

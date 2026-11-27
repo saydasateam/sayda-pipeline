@@ -209,32 +209,7 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": [
-   {
-    "title": "Samsung, 85 Inch, 4K UHD 10+, Smart TV",
-    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
-   },
-   {
-    "title": "Samsung smart frame qled 4k 85 inch ls03 (qa85ls03bauxsa)",
-    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
-   },
-   {
-    "title": "Samsung series q70a 85-inch qled uhd smart tv (qa85q70aauxum)",
-    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
-   },
-   {
-    "title": "Samsung, 85 inch, 4K Smart TV, Mini LED, Support AI,120 Hz DLG",
-    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
-   },
-   {
-    "title": "Samsung crystal uhd bu8000 4k led smart tv, 85-inch, 2022 , ua85bu8000",
-    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
-   },
-   {
-    "title": "Samsung Neo QLED 4K TV, 85 Inch, Mini LED, 144Hz, Anti Reflection, Sec",
-    "why": "model part \"qn70h\" not present as a whole word, and \"qn70h\" not present fused"
-   }
-  ]
+  "rejected": []
  },
  "jarir:samsung-m80h-smart-tv-690173": {
   "q": "samsung M80H 75",

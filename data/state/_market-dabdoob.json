@@ -1,0 +1,293 @@
+{
+ "dabdoob:bestway-mount-splashblast-mega-water-park-inflatable-slide-splash-pool-140982": {
+  "q": "bestway mount splashblast mega water park inflatable",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 2530,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "dabdoob:dynamic-sports-arabian-bighorn-wooden-swing-set-134265": {
+  "q": "dynamic sports arabian bighorn wooden swing set",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 3565,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "dabdoob:bestway-super-speedway-mega-water-park-10958": {
+  "q": "bestway super speedway mega water park",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 1955,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Bestway Turbo Splash Water Zone Mega Water Park 365X320X270Cm",
+    "why": "name word \"super\" not present as a whole word"
+   },
+   {
+    "title": "Bestway H2Ogo! Tidal Tower Mega Water Park 565X373X265Cm",
+    "why": "name word \"super\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:mountpeak-elevate-playtime-with-the-elbrus-swing-set-134267": {
+  "q": "mountpeak elevate playtime with the elbrus swing",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 2990,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "dabdoob:little-tikes-cozy-coupe-red-136790": {
+  "q": "little tikes cozy coupe red",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 604,
+  "n": 3,
+  "merchantCount": 1,
+  "min": 511.03,
+  "avg": 1097,
+  "max": 1658,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 511,
+   "url": "https://www.kanbkam.com/sa/en/little-tikes-cozy-coupe-car-with-functional-horn-ignition-button-and-tank-cap-for-kids-18-months-and-up-B0DMFPR6RL"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 1122,
+    "url": "https://www.kanbkam.com/sa/en/t-rex-cozy-coupe-by-little-tikes-dinosaur-ride-on-car-for-kids-multicolor-B08GDZ8H5Q"
+   },
+   {
+    "merchant": "Amazon.sa",
+    "price": 1658,
+    "url": "https://www.kanbkam.com/sa/en/little-tikes-cozy-ice-cream-truck-rideon-toy-ice-cream-truck-cozy-coupe-for-ages-1-12-5-years-multicolored-B08W17KSNC"
+   },
+   {
+    "merchant": "Amazon.sa",
+    "price": 511,
+    "url": "https://www.kanbkam.com/sa/en/little-tikes-cozy-coupe-car-with-functional-horn-ignition-button-and-tank-cap-for-kids-18-months-and-up-B0DMFPR6RL"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Little Tikes Let's Go Cozy Coupe - Cozy Mini Push and Play Vehicle - A",
+    "why": "price 48.14 is 0.08× the row (outside 0.35–3)"
+   },
+   {
+    "title": "Little Tikes Cozy Pumper-Grey, Multicolor, 14inx15inx17-1/2in",
+    "why": "name word \"coupe\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes 18 Red Inflatable Hopper Ball for Kids Ages 4-8",
+    "why": "name word \"cozy\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:little-tikes-cozy-coupe-fairy-design-136794": {
+  "q": "little tikes cozy coupe fairy design",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 688.85,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "little tikes T Rex Cozy Coupe by Dinosaur Ride On Car for Kids, Multic",
+    "why": "name word \"fairy\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes Let's Go Cozy Coupe - Cozy Mini Push and Play Vehicle - A",
+    "why": "name word \"fairy\" not present as a whole word"
+   },
+   {
+    "title": "little tikes Cozy Ice Cream Truck, Ride-On Toy Ice Cream Truck Cozy Co",
+    "why": "name word \"fairy\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes Cozy Coupe Car, Toddler Push & Pedal Vehicle with Removab",
+    "why": "name word \"fairy\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:hopa-wooden-indoor-play-gym-134371": {
+  "q": "hopa wooden indoor play gym",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 519.8,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "dabdoob:plum-surfside-spring-safe-bloom-fun-trampoline-with-8ft-enclosed-net-111825": {
+  "q": "plum 8ft",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 920,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "dabdoob:marvel-shang-chi-action-figure-with-bo-staff-attack-11493": {
+  "q": "marvel shang chi action figure with bo",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 49.29,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Marvel Hasbro Legends Series Shang-Chi and The Legend of The Ten Rings",
+    "why": "name word \"action\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:ninjombie-deluxe-action-figure-jonin-knight-136818": {
+  "q": "ninjombie deluxe action figure jonin knight",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 109,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "dabdoob:max-build-city-airport-playset-118211": {
+  "q": "max build city airport playset",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 199,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Max City INT, Fire Station Playset 933 bricks,bulk",
+    "why": "name word \"build\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:little-tikes-rocking-horse-blue-64143": {
+  "q": "little tikes rocking horse blue",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 299,
+  "n": 1,
+  "merchantCount": 1,
+  "min": 180.09,
+  "avg": 180,
+  "max": 180.09,
+  "market": {
+   "store": "Amazon.sa",
+   "price": 180,
+   "url": "https://www.kanbkam.com/sa/en/little-tikes-rocking-ride-on-horse-blue-427900072-B006YMO4K0"
+  },
+  "sources": [
+   {
+    "merchant": "Amazon.sa",
+    "price": 180,
+    "url": "https://www.kanbkam.com/sa/en/little-tikes-rocking-ride-on-horse-blue-427900072-B006YMO4K0"
+   }
+  ],
+  "rejected": [
+   {
+    "title": "Little Tikes | Mega 10-Foot Trampoline, Blue",
+    "why": "name word \"rocking\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes | Whale Teeter Totter, Blue,487910070",
+    "why": "name word \"rocking\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes-Lean To Turn Scooter Blue (refresh)",
+    "why": "name word \"rocking\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes 2 -in- 1 Snug 'n Secure Grow With Me Swing - Blue",
+    "why": "name word \"rocking\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes Totsports Easy Score Basketball Set- Round Backboard (3L)",
+    "why": "name word \"rocking\" not present as a whole word"
+   },
+   {
+    "title": "Little Tikes Perfect Fit 4-in-1 Trike, Toddler Tricycle with Shade Can",
+    "why": "name word \"rocking\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:little-tikes-rocking-horse-magenta-pink-32520": {
+  "q": "little tikes rocking horse magenta pink",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 379.5,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Little Tikes Rocking Ride On Horse - Blue, 173950E3",
+    "why": "name word \"magenta\" not present as a whole word"
+   }
+  ]
+ },
+ "dabdoob:mesuca-ferrari-kids-two-wheel-scooter-red-86159": {
+  "q": "mesuca ferrari kids two wheel scooter red",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 129,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ }
+}

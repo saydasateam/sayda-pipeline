@@ -1,7 +1,7 @@
 {
  "store": "dabdoob",
  "updated": "2026-11-27",
- "checkedAt": "2026-11-27T08:45:26.988+03:00",
+ "checkedAt": "2026-11-27T12:35:48.327+03:00",
  "rows": [
   {
    "id": "dabdoob:bestway-mount-splashblast-mega-water-park-inflatable-slide-splash-pool-140982",
@@ -117,9 +117,9 @@
    "name": "سيارة ليتل تايكس كوزي كوبيه (حمراء)",
    "price": 604,
    "was": 918.85,
-   "ref": null,
-   "verdict": "na",
-   "finding": "دبدوب · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 511,
+   "verdict": "bad",
+   "finding": "Amazon.sa ٥١١ · أرخص من هنا",
    "url": "https://dabdoob.com/ar-SA/product/little-tikes-cozy-coupe-red-136790",
    "avail": "in",
    "availNote": "",
@@ -127,7 +127,24 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-27",
    "img": "https://dabdoob-cdn-primary.fra1.cdn.digitaloceanspaces.com/media/master/sku/4yTRTr/83eb5149-77ab-4dc7-b858-984036d4602c_Yq0XAmgqjS2u.jpeg",
-   "name_en": "Little Tikes Cozy Coupe (Red)"
+   "name_en": "Little Tikes Cozy Coupe (Red)",
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/dp/B0DMFPR6RL",
+   "refStore": "amazon",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 511,
+     "url": "https://www.amazon.sa/dp/B0DMFPR6RL"
+    },
+    "min": 511.03,
+    "max": 1658,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-27",
+    "url": "https://www.amazon.sa/dp/B0DMFPR6RL"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "dabdoob:133388",
@@ -279,9 +296,9 @@
    "name": "ليتل تكس - أرجوحة الحصان الهزاز لون أزرق",
    "price": 299,
    "was": 483,
-   "ref": null,
-   "verdict": "na",
-   "finding": "دبدوب · لا يوجد سجل سعر خارجي ولا نفس الموديل في متجر آخر",
+   "ref": 180,
+   "verdict": "bad",
+   "finding": "Amazon.sa ١٨٠ · أرخص من هنا",
    "url": "https://dabdoob.com/ar-SA/product/little-tikes-rocking-horse-blue-64143",
    "avail": "in",
    "availNote": "",
@@ -289,7 +306,24 @@
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-27",
    "img": "https://dabdoob-cdn-primary.fra1.cdn.digitaloceanspaces.com/media/master/sku/6Os5TK/d2f24040-dffb-4e79-ada0-50f815cc6366_lKh52mQefH.jpeg",
-   "name_en": "Little Tikes Rocking Horse Blue"
+   "name_en": "Little Tikes Rocking Horse Blue",
+   "refKind": "market",
+   "refUrl": "https://www.amazon.sa/dp/B006YMO4K0",
+   "refStore": "amazon",
+   "ev": {
+    "market": {
+     "store": "Amazon.sa",
+     "price": 180,
+     "url": "https://www.amazon.sa/dp/B006YMO4K0"
+    },
+    "min": 180.09,
+    "max": 180.09,
+    "n": 1,
+    "src": "market",
+    "on": "2026-11-27",
+    "url": "https://www.amazon.sa/dp/B006YMO4K0"
+   },
+   "bk": "cheaper"
   },
   {
    "id": "dabdoob:little-tikes-rocking-horse-magenta-pink-32520",

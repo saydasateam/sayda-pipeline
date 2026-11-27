@@ -1,7 +1,7 @@
 {
  "store": "namshi",
  "updated": "2026-11-27",
- "checkedAt": "2026-11-27T08:45:26.988+03:00",
+ "checkedAt": "2026-11-27T12:35:48.327+03:00",
  "rows": [
   {
    "id": "namshi:ZB7E9D54E03B360638A35Z",
@@ -49,8 +49,8 @@
    "verdict": "bad",
    "finding": "Amazon.sa ٤٤٥ · أرخص من هنا",
    "url": "https://www.namshi.com/saudi-ar/buy-swarovski-constella-bracelet/Z2BD83109ABE14CE6CE26Z/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-27",
@@ -191,8 +191,8 @@
    "verdict": "bad",
    "finding": "Amazon.sa ٦٦٦ · أرخص من هنا",
    "url": "https://www.namshi.com/saudi-ar/buy-dkny-avril-small-satchel/Z5547C5A2792E17445B33Z/p/",
-   "avail": "oos",
-   "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
+   "avail": "in",
+   "availNote": "",
    "cat": "أزياء",
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-27",
