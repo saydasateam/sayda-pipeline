@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
  "updated": "2026-11-27",
- "checkedAt": "2026-11-27T12:35:48.327+03:00",
+ "checkedAt": "2026-11-27T16:33:06.232+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -431,7 +431,8 @@
    "availNote": "بلاك بوكس: متبقي 3",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
-   "name_en": "LG 77Inches OLED Evo AI G6 TV, WebOS, Smart - OLED77G66LW"
+   "name_en": "LG 77Inches OLED Evo AI G6 TV, WebOS, Smart - OLED77G66LW",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_-_2026-07-21t140800.062.webp"
   },
   {
    "id": "blackbox:lg-led-mini-rgb-evo-ai-tv-86-inches-web-os-26-smart-alpha-8-p-141111131171501",
@@ -449,7 +450,8 @@
    "availNote": "",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
-   "name_en": "LG LED Mini RGB evo AI TV, 86 Inches, WebOS26 - 86MRGB85B6C"
+   "name_en": "LG LED Mini RGB evo AI TV, 86 Inches, WebOS26 - 86MRGB85B6C",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_led_mini_rgb_evo_ai_tv_86_inches_webos26_smart_alpha_8_ai_processor_4k_gen3_-_86mrgb85b6c.webp"
   },
   {
    "id": "blackbox:lg-led-mini-rgb-evo-ai-tv-75-inches-web-os-26-smart-alpha-8-p-141111131160501",
@@ -524,7 +526,8 @@
    "availNote": "",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
-   "name_en": "LG Split Air Conditioner JET COOL 23000BTU, Hot&Cold, Rotary, Wi-Fi - LK242H0.NK0"
+   "name_en": "LG Split Air Conditioner JET COOL 23000BTU, Hot&Cold, Rotary, Wi-Fi - LK242H0.NK0",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_23000btu_hot_cold_rotary_wi-fi_-_lk242h0.webp"
   },
   {
    "id": "blackbox:lg-split-air-conditioner-jet-cool-23000-btu-cold-only-rotary-wi-fi-lk-242-p-111631131103130",
@@ -655,7 +658,8 @@
    "availNote": "بلاك بوكس: متبقي 3",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
-   "name_en": "TCL 65 Inches QD-Mini LED TV, Smart, 4K UHD, HDR - 65C7L"
+   "name_en": "TCL 65 Inches QD-Mini LED TV, Smart, 4K UHD, HDR - 65C7L",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_65_inches_qd-mini_led_tv_smart_4k_uhd_hdr_144_hz_android_tv_-_65c7l.webp"
   },
   {
    "id": "blackbox:lg-split-air-conditioner-18000-btu-smart-hot-cold-inverter-4-way-airflow-ns-182-p-111631131102229",
@@ -798,7 +802,7 @@
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/haier-split-air-conditioner-18000-btu-wi-fi-cold-only-hsu-18-lpb13-r2-t3-p-1116316211021012",
    "avail": "in",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-27",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpeg/media/catalog/product/h/a/haier_split_air_conditioner_18000btu_cold_only_wi-fi_-_hsu-18lpb13_r2-t3_1.webp",
@@ -900,7 +904,8 @@
    "model": "LT302H0.NK0",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_28000btu_hot_cold_rotary_wi-fi_-_lt302h0.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_28000btu_hot_cold_rotary_wi-fi_-_lt302h0.webp",
+   "name_en": "LG Split Air Conditioner JET COOL 28000BTU - LT302H0.NK0"
   },
   {
    "id": "blackbox:lg-split-air-conditioner-jet-cool-28000-btu-cold-only-rotary-wi-fi-lt-302-p-111631131104102",
@@ -919,7 +924,8 @@
    "model": "LT302C0.NK0",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_28000btu_cold_only_rotary_wi-fi_-_lt302c0_.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_28000btu_cold_only_rotary_wi-fi_-_lt302c0_.webp",
+   "name_en": "LG Split Air Conditioner JET COOL 28000BTU, Cold Only, Rotary, Wi-Fi - LT302C0.NK0"
   },
   {
    "id": "blackbox:dots-iron-steam-press-1600-w-36-inch-removable-tank-1-l-white-gip-3616-p-1528166820003001",
@@ -954,7 +960,7 @@
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/dots-iron-steam-press-1600-w-40-inch-removable-tank-1-l-white-gip-4022-p-1528166820003002",
    "avail": "in",
-   "availNote": "",
+   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
    "model": "GIP4022W3",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
@@ -1036,7 +1042,8 @@
    "model": "TH6G4VC",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/h/thomson_built-in_gas_hob_4burner_60cm_safety_valves_cast_iron_grid_steel_-_th6g4vcs.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/h/thomson_built-in_gas_hob_4burner_60cm_safety_valves_cast_iron_grid_steel_-_th6g4vcs.webp",
+   "name_en": "Thomson Built-in Gas Hob 4Burner, 60cm, Safety Valves, Cast Iron Grid, Steel - TH6G4VC/S"
   },
   {
    "id": "blackbox:philips-air-fryer-3000-series-6.2-l-1700-w-cooking-window-black-na332-00-p-1552221120006001",
@@ -1055,7 +1062,8 @@
    "model": "NA332/00",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
-   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/p/h/philips_air_fryer_3000_series_6.2l_1700w_cooking_window_black_-_na33200_.3.webp"
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/p/h/philips_air_fryer_3000_series_6.2l_1700w_cooking_window_black_-_na33200_.3.webp",
+   "name_en": "Philips Air Fryer 3000 Series, 6.2L, 1700W, Black - NA332/00"
   },
   {
    "id": "blackbox:jbl-live-flex-3-true-wireless-earbud-noise-cancelling-open-back-stick-blue-p-1725262320000005",
@@ -1089,7 +1097,7 @@
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.blackbox.com.sa/ar/product/dots-electric-oven-100-l-2800-w-double-glass-black-coe-1005-bd2-p-1517166810006001",
    "avail": "in",
-   "availNote": "بلاك بوكس: لم يُفحص (حجب مؤقت)",
+   "availNote": "",
    "model": "COE1005BD2",
    "firstSeen": "2026-11-26",
    "lastChecked": "2026-11-27",
@@ -1112,7 +1120,8 @@
    "availNote": "",
    "model": "H10FLEX",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-27",
+   "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_90__11zon.webp"
   },
   {
    "id": "blackbox:platinum-40-inch-steam-iron-press-2200-w-with-stand-white-sp-7110-w-p-1528137420000010",

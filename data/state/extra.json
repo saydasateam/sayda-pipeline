@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-27",
- "checkedAt": "2026-11-27T12:35:48.327+03:00",
+ "checkedAt": "2026-11-27T16:33:06.232+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -1177,11 +1177,11 @@
    "store": "extra",
    "name": "فيليبس بيرفكت كير سلسلة 7000، كاوية بخار",
    "name_en": "Philips PerfectCare 7000 Series, Steam Generator Iron",
-   "price": 1469,
+   "price": 1324,
    "was": null,
    "ref": 1599,
    "refKind": "history",
-   "verdict": "warn",
+   "verdict": "ok",
    "finding": "كان ١٬٥٩٩ · سبق ونزل ١٬٢٥٨",
    "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/irons/philips-perfectcare-7000-series-steam-generator-iron/p/100397353",
    "avail": "in",
@@ -1459,7 +1459,7 @@
    "store": "extra",
    "name": "سامسونج، مكبر صوت، 5.1 قناة، 370 واط، صوت تكيّفي",
    "brand": "samsung",
-   "price": 699,
+   "price": 649,
    "was": null,
    "url": "https://www.extra.com/ar-sa/electronics/home-entertainment/soundbar/samsung-5-1-ch-370w-dts-virtual-adpative-sound/p/100505211",
    "avail": "in",
@@ -1894,15 +1894,15 @@
   {
    "id": "extra:100020238",
    "store": "extra",
-   "price": 341,
+   "price": 399,
    "was": null,
    "ref": 413,
    "refKind": "history",
-   "verdict": "warn",
+   "verdict": "bad",
    "finding": "كان ٤١٣ · سبق ونزل ٢٣٨",
    "url": "https://www.extra.com/ar-sa/small-appliances/home-environment-care/vacuum-cleaner/philips-powerpro-compact-bagless-vacuum-1800w-330w-suction-power-power-cyclone-5-technology/p/100020238",
-   "avail": "ended",
-   "availNote": "إكسترا: عاد السعر إلى ٤١٣ — انتهى العرض",
+   "avail": "in",
+   "availNote": "",
    "ev": {
     "prev": 413,
     "min": 238,
@@ -2057,6 +2057,34 @@
    "lastChecked": "2026-11-27",
    "model": "CPWD47T",
    "name": "كلاس برو، براد ماء، حار بارد"
+  },
+  {
+   "id": "extra:100141537",
+   "store": "extra",
+   "cat": "المنزل",
+   "name": "بيكو موقد غاز، 90 × 60 سم، 5 عيون، امان كامل، اينوكس",
+   "price": 1699,
+   "was": null,
+   "ref": 2699,
+   "refKind": "history",
+   "verdict": "ok",
+   "finding": "كان ٢٬٦٩٩ · أقل سعر مسجل",
+   "url": "https://www.extra.com/ar-sa/large-appliances-/cookers/gas-cookers/beko-gas-cooker-90x60-5-burners-cast-iron-full-safety-inox/p/100141537",
+   "avail": "in",
+   "ev": {
+    "prev": 2699,
+    "min": 1699,
+    "max": 3399,
+    "src": "kanbkam",
+    "on": "2026-11-27",
+    "url": "https://www.kanbkam.com/sa/ar/p-e100141537"
+   },
+   "model": "GG15125FXNS",
+   "firstSeen": "2026-11-27",
+   "availNote": "",
+   "lastChecked": "2026-11-27",
+   "img": "https://media.extra.com/s/aurora/100141537_800/Beko-Gas-Cooker%2C-90X60%2C-5-Burners%2C-Cast-Iron%2C-Full-Safety%2C-Inox?locale=en-GB,ar-*,*",
+   "name_en": "Beko Gas Cooker, 90X60, 5 Burners, Cast Iron, Full Safety, Inox"
   }
  ]
 }

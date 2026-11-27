@@ -27,8 +27,8 @@
  },
  "namshi:V34AC1CDD80ECE0D01DB4V": {
   "q": "swarovski matrix bangle mb sts wht sts",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 903,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 985,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -37,6 +37,10 @@
   "market": null,
   "sources": [],
   "rejected": [
+   {
+    "title": "Swarovski Women's Matrix Mb Sts/White/Sts, Watch, 5743680",
+    "why": "name word \"bangle\" not present as a whole word"
+   },
    {
     "title": "Swarovski Women's Matrix Mb Sts/White/Sts, Watch, 5743680",
     "why": "name word \"bangle\" not present as a whole word"
@@ -101,8 +105,8 @@
  },
  "namshi:ZA5B900A4E3AD63824E80Z": {
   "q": "dkny avril top zip shoulder bag",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 895,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 640,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -111,6 +115,22 @@
   "market": null,
   "sources": [],
   "rejected": [
+   {
+    "title": "Avril Top Zip Shoulder Bag",
+    "why": "brand word \"dkny\" not present as a whole word"
+   },
+   {
+    "title": "Avril Top Zip Shoulder Bag",
+    "why": "brand word \"dkny\" not present as a whole word"
+   },
+   {
+    "title": "Avril Top Zip Shoulder Bag",
+    "why": "brand word \"dkny\" not present as a whole word"
+   },
+   {
+    "title": "Logo Avril Shoulder Bag",
+    "why": "brand word \"dkny\" not present as a whole word"
+   },
    {
     "title": "DKNY Women Avril Tz Shoulder Shoulder Bag",
     "why": "name word \"top\" not present as a whole word"
@@ -123,8 +143,8 @@
  },
  "namshi:ZC078346AECA9A7D155ECZ": {
   "q": "coach quartz movement analog watch stainless steel",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 505,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 1129,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -134,8 +154,28 @@
   "sources": [],
   "rejected": [
    {
+    "title": "Stainless Steel Analog Wrist Watch 14504042",
+    "why": "brand word \"coach\" not present as a whole word"
+   },
+   {
     "title": "Coach Women's Analog Round Stainless Steel Wrist Watch",
     "why": "name word \"quartz\" not present as a whole word"
+   },
+   {
+    "title": "Invicta Men's 20072 Speedway Analog Display Swiss Quartz Orange Watch,",
+    "why": "brand word \"coach\" not present as a whole word"
+   },
+   {
+    "title": "Invicta Women's Angel Stainless Steel Analog Display Quartz Watch Whit",
+    "why": "brand word \"coach\" not present as a whole word"
+   },
+   {
+    "title": "Citizen Quartz Womens Watch, Stainless Steel, Crystal, GREY, Quartz Mo",
+    "why": "brand word \"coach\" not present as a whole word"
+   },
+   {
+    "title": "Men's Stainless Steel Analog Quartz Watch M915W",
+    "why": "brand word \"coach\" not present as a whole word"
    }
   ]
  },
@@ -193,8 +233,8 @@
  },
  "namshi:Z7A44D10F5E0B2F5FD367Z": {
   "q": "dkny avril top handle flap crossbody bag",
-  "sampledAt": "2026-11-22",
-  "rowPrice": 895,
+  "sampledAt": "2026-11-27",
+  "rowPrice": 640,
   "n": 0,
   "merchantCount": 0,
   "min": null,
@@ -202,6 +242,57 @@
   "max": null,
   "market": null,
   "sources": [],
-  "rejected": []
+  "rejected": [
+   {
+    "title": "Avril Top Handle Satchel Bag",
+    "why": "brand word \"dkny\" not present as a whole word"
+   },
+   {
+    "title": "Cherry Shoulder Bag Purse for Women, Azonee Cute Square Crossbody Bag ",
+    "why": "brand word \"dkny\" not present as a whole word"
+   },
+   {
+    "title": "Women's Crossbody Bag, Elegant PU Leather Top Handle Shoulder Bag with",
+    "why": "brand word \"dkny\" not present as a whole word"
+   }
+  ]
+ },
+ "namshi:Z7C43CCBB6638CF60E607Z": {
+  "q": "cerruti 1881 watch for women white dial",
+  "sampledAt": "2026-11-27",
+  "rowPrice": 901,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Cerruti 1881 Watch for Women - White Dial - 30 MM",
+    "why": "name \"1881 watch for women white dial\" has fewer than two distinctive words once generic words and brand-name numbers are set aside"
+   },
+   {
+    "title": "Cerruti 1881 Watch for Women - White Dial - 26 MM",
+    "why": "name \"1881 watch for women white dial\" has fewer than two distinctive words once generic words and brand-name numbers are set aside"
+   },
+   {
+    "title": "Cerruti 1881 Watch for Women - Blue Dial - 30 MM",
+    "why": "name \"1881 watch for women white dial\" has fewer than two distinctive words once generic words and brand-name numbers are set aside"
+   },
+   {
+    "title": "Women's Watch - White Dial - 34 Mm",
+    "why": "brand word \"cerruti\" not present as a whole word"
+   },
+   {
+    "title": "Cerruti 1881 Adria Brown Mirror Dial Women Watch",
+    "why": "name \"1881 watch for women white dial\" has fewer than two distinctive words once generic words and brand-name numbers are set aside"
+   },
+   {
+    "title": "Women Cerruti 1881 Filiano Analog Women's Watch - White Mother of Pear",
+    "why": "name \"1881 watch for women white dial\" has fewer than two distinctive words once generic words and brand-name numbers are set aside"
+   }
+  ]
  }
 }
