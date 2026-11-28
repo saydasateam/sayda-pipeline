@@ -1747,5 +1747,27 @@
     "why": "brand word \"scooters\" not present as a whole word"
    }
   ]
+ },
+ "extra:100367420": {
+  "q": "philips TT2000/43",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 55,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "for Philips Bodygroom Replacement Head, MULTIM Bodygroove Shaver Head ",
+    "why": "accessory, not the product"
+   },
+   {
+    "title": "راس بديل لفيليبس بودي جروم، راس ماكينة حلاقة بودي جروف مالتيم متوافق م",
+    "why": "accessory, not the product"
+   }
+  ]
  }
 }

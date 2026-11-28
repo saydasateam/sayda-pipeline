@@ -1,7 +1,7 @@
 {
  "store": "namshi",
  "updated": "2026-11-28",
- "checkedAt": "2026-11-28T12:38:25.050+03:00",
+ "checkedAt": "2026-11-28T16:33:15.817+03:00",
  "rows": [
   {
    "id": "namshi:ZB7E9D54E03B360638A35Z",
@@ -31,8 +31,8 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.namshi.com/saudi-ar/buy-swarovski-matrix-bangle-mb-analog-watch/Z342A6BB341EA48A06043Z/p/",
-   "avail": "in",
-   "availNote": "",
+   "avail": "oos",
+   "availNote": "نمشي: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "cat": "أزياء",
    "firstSeen": "2026-11-20",
    "lastChecked": "2026-11-28",
@@ -113,7 +113,7 @@
    "id": "namshi:ZC078346AECA9A7D155ECZ",
    "store": "namshi",
    "name": "كوتش ساعة كوارتز بعقارب من الستانلس ستيل",
-   "price": 1129,
+   "price": 629,
    "was": 1469,
    "ref": null,
    "verdict": "na",

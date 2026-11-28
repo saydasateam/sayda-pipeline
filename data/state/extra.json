@@ -1,7 +1,7 @@
 {
  "store": "extra",
  "updated": "2026-11-28",
- "checkedAt": "2026-11-28T12:46:06.342+03:00",
+ "checkedAt": "2026-11-28T16:33:15.817+03:00",
  "rows": [
   {
    "id": "extra:100311604",
@@ -1409,8 +1409,8 @@
    "verdict": "warn",
    "finding": "كان ١٬٢٩٩ · سبق ونزل ٨٥٩",
    "url": "https://www.extra.com/ar-sa/small-appliances/food-and-beverage-appliances/party-line/ninja-creami-deluxe-10-in-1-ice-cream-frozen-drink-maker/p/100391945",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "إكسترا: عاد السعر إلى ١٬٢٩٩ — انتهى العرض",
    "model": "NC501ME",
    "ev": {
     "prev": 1299,
@@ -1672,8 +1672,8 @@
    "brand": "philips",
    "finding": "Amazon.sa ٢٦٠ · أرخص من هنا",
    "url": "https://www.extra.com/ar-sa/small-appliances/personal-care/men-s-grooming/philips-bodygroom-with-foil-shaver-trimmer/p/100489946",
-   "avail": "in",
-   "availNote": "",
+   "avail": "ended",
+   "availNote": "إكسترا: عاد السعر إلى ٢٧٩ — انتهى العرض",
    "firstSeen": "2026-11-25",
    "lastChecked": "2026-11-28",
    "img": "https://media.extra.com/s/aurora/100489946_800/Philips%2C-Bodygroom-with-Foil-shaver-%26-Trimmer?locale=en-GB,ar-*,*",
