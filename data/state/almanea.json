@@ -1,7 +1,7 @@
 {
  "store": "almanea",
  "updated": "2026-11-28",
- "checkedAt": "2026-11-28T08:54:02.751+03:00",
+ "checkedAt": "2026-11-28T12:38:25.050+03:00",
  "rows": [
   {
    "id": "almanea:lg-top-freezer-refrigerator-21-6-l-inverter-silver-lt23hbhsiv-p-120100702221008",
@@ -441,10 +441,10 @@
    "verdict": "na",
    "finding": "لا يوجد سجل ولا نفس الموديل في متجر آخر للمقارنة",
    "url": "https://www.almanea.sa/product/haam-85-inch-4k-uhd-smart-google-tv-qled-60hz-qhm85uh570tg60h-p-139900199485007",
-   "avail": "in",
+   "avail": "low",
    "img": "https://imgs.dev-almanea.com/media/catalog/product/h/a/haam_85_inch_4k_uhd_smart_google_tv_qled_60hz_-_qhm85uh570tg60h-5.jpg?width=600",
    "firstSeen": "2026-11-22",
-   "availNote": "",
+   "availNote": "المنيع: متبقي 3",
    "lastChecked": "2026-11-28"
   },
   {

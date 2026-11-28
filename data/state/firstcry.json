@@ -1,7 +1,7 @@
 {
  "store": "firstcry",
  "updated": "2026-11-28",
- "checkedAt": "2026-11-28T08:54:02.751+03:00",
+ "checkedAt": "2026-11-28T12:38:25.050+03:00",
  "rows": [
   {
    "id": "firstcry:481e5ae1604f6",
@@ -187,7 +187,7 @@
    "id": "firstcry:1f6d3ae957fc9",
    "store": "firstcry",
    "name": "كتاب التعلم ليبفروق يحتوي على 100 كلمة باللغة العربية والإنج",
-   "price": 141,
+   "price": 120,
    "was": 425.07,
    "ref": null,
    "verdict": "na",

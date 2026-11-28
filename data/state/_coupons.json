@@ -82,6 +82,61 @@
    "perk_en": "20% off, max 200 SAR, with a Barq Visa card",
    "label_en": "Jarir",
    "text_en": "From the offer terms page on Jarir’s site today (“Extra discount with Barq Visa cards”): 20% off, up to 200 SAR, on all items except iPhone 18 Pro, iPhone 18 Pro Max and iPhone Duo, pre-orders, digital or rechargeable cards, gift certificates, gift cards and copy paper. Only for the Barq Visa card (not Barq mada cards); applied automatically when the full amount is paid with the card (no promo code); one purchase per customer and per card; in Jarir showrooms, website and app in Saudi Arabia; not valid with Apple Pay, Samsung Pay, Mada Pay or instalment services. Valid 26 November 2026 to 3 December 2026."
+  },
+  {
+   "stores": [
+    "noon"
+   ],
+   "label": "نون",
+   "kind": "bank",
+   "code": "ARB30",
+   "text": "«يحصل أعضاء نون ون على خصم 30% بحد أقصى 150 ريال عند الدفع ببطاقات الراجحي الائتمانية باستخدام الكود: ARB30» من صفحة عرض الراجحي في نون (/saudi-ar/alrajhi/) اليوم، «الشروط والأحكام»: العرض متاح لحاملي بطاقات مصرف الراجحي الائتمانية ومسبقة الدفع، على طلب واحد لكل نوع بطاقة. الحد الأدنى لقيمة الطلب 100 ريال. يسري من 27 نوفمبر 2026 الساعة 00:01 حتى 30 نوفمبر 2026 الساعة 23:59 بتوقيت السعودية. يستثني العرض الجوالات، والأجهزة اللوحية التي يقل سعرها عن 500 ريال، والمجوهرات، وموديلات مختارة من سماعات إيربودز. غير ساري على بطاقات الراجحي للخصم المباشر أو مدى، ولا مع رصيد نون أو نون باي أو Apple Pay، ولا يُجمع مع أي قسيمة أو كود آخر.",
+   "verified": "2026-11-28",
+   "wallet": [
+    "noonone",
+    "alrajhi"
+   ],
+   "perk": "خصم 30% حتى 150 ريال لأعضاء نون ون ببطاقات الراجحي الائتمانية · الحد الأدنى 100 ريال · الرمز ARB30 · حتى 30 نوفمبر",
+   "perk_en": "30% off, up to 150 SAR, for noon One members with Al Rajhi credit cards · minimum 100 SAR · code ARB30 · until 30 Nov",
+   "label_en": "noon",
+   "text_en": "“noon One members get 30% off, up to 150 SAR, when paying with Al Rajhi credit cards using code ARB30” From the Al Rajhi offer page on noon (/saudi-ar/alrajhi/) today, under “Terms and Conditions”: for Al Rajhi Bank credit and prepaid card holders, one order per card type. Minimum order 100 SAR. Valid from 27 November 2026 00:01 to 30 November 2026 23:59 Saudi time. Excludes mobile phones, tablets under 500 SAR, jewellery and selected AirPods models. Not valid on Al Rajhi debit or mada cards, nor with noon credit, noon Pay or Apple Pay, and cannot be combined with any other voucher or code.",
+   "url": "https://www.noon.com/saudi-ar/alrajhi/"
+  },
+  {
+   "stores": [
+    "noon"
+   ],
+   "label": "نون",
+   "kind": "bank",
+   "code": "ARB20",
+   "text": "«خصم 20% بحد أقصى 100 ريال عند الدفع ببطاقات الراجحي الائتمانية باستخدام الكود: ARB20» من صفحة عرض الراجحي في نون (/saudi-ar/alrajhi/) اليوم، «الشروط والأحكام»: العرض متاح لحاملي بطاقات مصرف الراجحي الائتمانية ومسبقة الدفع، على طلب واحد لكل نوع بطاقة. الحد الأدنى لقيمة الطلب 100 ريال. يسري من 27 نوفمبر 2026 الساعة 00:01 حتى 30 نوفمبر 2026 الساعة 23:59 بتوقيت السعودية. يستثني العرض الجوالات، والأجهزة اللوحية التي يقل سعرها عن 500 ريال، والمجوهرات، وموديلات مختارة من سماعات إيربودز. غير ساري على بطاقات الراجحي للخصم المباشر أو مدى، ولا مع رصيد نون أو نون باي أو Apple Pay، ولا يُجمع مع أي قسيمة أو كود آخر.",
+   "verified": "2026-11-28",
+   "wallet": [
+    "alrajhi"
+   ],
+   "perk": "خصم 20% حتى 100 ريال ببطاقات الراجحي الائتمانية · الحد الأدنى 100 ريال · الرمز ARB20 · حتى 30 نوفمبر",
+   "perk_en": "20% off, up to 100 SAR, with Al Rajhi credit cards · minimum 100 SAR · code ARB20 · until 30 Nov",
+   "label_en": "noon",
+   "text_en": "“20% off, up to 100 SAR, when paying with Al Rajhi credit cards using code ARB20” From the Al Rajhi offer page on noon (/saudi-ar/alrajhi/) today, under “Terms and Conditions”: for Al Rajhi Bank credit and prepaid card holders, one order per card type. Minimum order 100 SAR. Valid from 27 November 2026 00:01 to 30 November 2026 23:59 Saudi time. Excludes mobile phones, tablets under 500 SAR, jewellery and selected AirPods models. Not valid on Al Rajhi debit or mada cards, nor with noon credit, noon Pay or Apple Pay, and cannot be combined with any other voucher or code.",
+   "url": "https://www.noon.com/saudi-ar/alrajhi/"
+  },
+  {
+   "stores": [
+    "noon"
+   ],
+   "label": "نون",
+   "kind": "bank",
+   "code": "ARB15",
+   "text": "«خصم 15% بحد أقصى 75 ريال عند الدفع ببطاقات الراجحي مسبقة الدفع باستخدام الكود: ARB15» من صفحة عرض الراجحي في نون (/saudi-ar/alrajhi/) اليوم، «الشروط والأحكام»: العرض متاح لحاملي بطاقات مصرف الراجحي الائتمانية ومسبقة الدفع، على طلب واحد لكل نوع بطاقة. الحد الأدنى لقيمة الطلب 100 ريال. يسري من 27 نوفمبر 2026 الساعة 00:01 حتى 30 نوفمبر 2026 الساعة 23:59 بتوقيت السعودية. يستثني العرض الجوالات، والأجهزة اللوحية التي يقل سعرها عن 500 ريال، والمجوهرات، وموديلات مختارة من سماعات إيربودز. غير ساري على بطاقات الراجحي للخصم المباشر أو مدى، ولا مع رصيد نون أو نون باي أو Apple Pay، ولا يُجمع مع أي قسيمة أو كود آخر.",
+   "verified": "2026-11-28",
+   "wallet": [
+    "alrajhi"
+   ],
+   "perk": "خصم 15% حتى 75 ريال ببطاقات الراجحي مسبقة الدفع · الحد الأدنى 100 ريال · الرمز ARB15 · حتى 30 نوفمبر",
+   "perk_en": "15% off, up to 75 SAR, with Al Rajhi prepaid cards · minimum 100 SAR · code ARB15 · until 30 Nov",
+   "label_en": "noon",
+   "text_en": "“15% off, up to 75 SAR, when paying with Al Rajhi prepaid cards using code ARB15” From the Al Rajhi offer page on noon (/saudi-ar/alrajhi/) today, under “Terms and Conditions”: for Al Rajhi Bank credit and prepaid card holders, one order per card type. Minimum order 100 SAR. Valid from 27 November 2026 00:01 to 30 November 2026 23:59 Saudi time. Excludes mobile phones, tablets under 500 SAR, jewellery and selected AirPods models. Not valid on Al Rajhi debit or mada cards, nor with noon credit, noon Pay or Apple Pay, and cannot be combined with any other voucher or code.",
+   "url": "https://www.noon.com/saudi-ar/alrajhi/"
   }
  ]
 }
