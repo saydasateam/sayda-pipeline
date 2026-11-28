@@ -1,7 +1,7 @@
 {
  "store": "blackbox",
- "updated": "2026-11-27",
- "checkedAt": "2026-11-27T20:32:00.495+03:00",
+ "updated": "2026-11-28",
+ "checkedAt": "2026-11-28T08:54:02.751+03:00",
  "rows": [
   {
    "id": "blackbox:samsung-100-inch-neo-qled-tv-smart-4-k-144-hz-samsung-vision-ai-qa-p-1411118221855001",
@@ -20,7 +20,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_7__11zon.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-83-inch-oled-tv-smart-4-k-support-samsung-vision-ai-144-hz-qa-p-1411118241685004",
@@ -39,7 +39,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_83inch_oled_tv_smart_4k_support_samsung_vision_ai_144hz_-_qa83s90faexsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-qled-85-inch-tv-2025-smart-4-k-upscaling-air-slim-desgin-qa-85-p-1411118261705007",
@@ -58,7 +58,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_85inch_tv_2025_smart_4k_upscaling_airslim_desgin_-_qa85q8faauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-83-inch-oled-tv-smart-4-k-ai-upscaling-dolby-atmos-120-hz-qa-p-1411118241685003",
@@ -77,7 +77,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_83inch_oled_tv_smart_4k_ai_upscaling_dolby_atmos_120hz_-_qa83s85faexsa.1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-qled-85-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824170501",
@@ -96,7 +96,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_85_inches_frame_tv_smart_4k_uhd_glare_free_144hz_wi-fi_-_qa85ls03heuxsa_1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 1",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-mini-led-100-inches-smart-4-k-ai-upscaling-samsung-vision-ai-144-hz-p-141111821185501",
@@ -115,7 +115,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_miniled_100_inches_smart_4k_ai_upscaling_samsung_vision_ai_144_hz_-_ua100m90huxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "refUrl": "https://www.noon.com/en-sa/100-inch-mini-led-m90h-4k-samsung-vision-ai-smart-tv-2026-ua100m90huxsa-black/N72141193V/p",
    "ev": {
     "market": {
@@ -150,7 +150,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_98_inches_smart_4k_crystal_uhd_144hz_samsung_vision_ai_-_ua98u9000huxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-85-inches-neo-qled-tv-smart-120-hz-dlg-4-k-ai-upscaling-slim-p-141111822170505",
@@ -169,7 +169,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_85_inches_neo_qled_tv_smart_120_hz_dlg_4k_ai_upscaling_slim_design_-_qa85qn70hauxsa.1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-oled-55-inches-tv-smart-4-k-ai-upscaling-glare-free-g-sync-165-p-141111824140505",
@@ -188,7 +188,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_oled_55_inches_tv_smart_4k_ai_upscaling_glare_free_g-sync_165hz_-_qa55s90hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-qled-75-inches-frame-tv-smart-4-k-uhd-glare-free-144-hz-wi-p-141111824160501",
@@ -207,7 +207,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_75_inches_frame_tv_smart_4k_uhd_glare_free_144hz_wi-fi_-_qa75ls03heuxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-oled-55-inches-tv-smart-4-k-ai-upscaling-samsung-vision-ai-120-hz-p-141111824140506",
@@ -226,7 +226,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_oled_55_inches_tv_smart_4k_ai_upscaling_samsung_vision_ai_120hz_-_qa55s85haexsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-led-65-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828150501",
@@ -245,7 +245,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_65_inches_tv_micro_rgb_smart_4k_uhd_samsung_vision_ai_-_mra65r85hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:lg-65-inches-qned-evo-ai-qned-91-tv-smart-4-k-uhd-a8-ai-p-1411111391505005",
@@ -264,7 +264,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_65inches_qned_evo_ai_qned91_tv_smart_4k_uhd_a8_ai_processor_gen2_-_65qned91a6a.webp",
    "firstSeen": "2026-11-22",
    "availNote": "بلاك بوكس: متبقي 2",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-65-inch-neo-qled-tv-smart-144-hz-4-k-ai-upscaling-dolby-atmos-p-1411118221505005",
@@ -283,7 +283,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_65inch_neo_qled_tv_smart_144hz_4k_ai_upscaling_dolby_atmos_-_qa65qn80fauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-led-75-inches-tv-smart-4-k-uhd-samsung-vision-ai-120-hz-dlg-p-141111823160504",
@@ -302,7 +302,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_smart_4k_uhd_samsung_vision_ai_120hz_dlg_-_ua75m70hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "refUrl": "https://www.amazon.sa/dp/B0H5QPC27R",
    "ev": {
     "market": {
@@ -337,7 +337,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_75_inches_qled_tv_smart_4k_uhd_dolby_vision_atmos_google_tv_-_75p71l.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-mini-led-55-inches-smart-4-k-ai-upscaling-144-hz-ai-soccer-mode-p-141111821140502",
@@ -356,7 +356,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_miniled_55_inches_smart_4k_ai_upscaling_144hz_ai_soccer_mode_-ua55m80hauxsa.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-led-75-inches-tv-smart-crystal-processor-4-k-uhd-secured-by-knox-ua-p-141111823160505",
@@ -375,7 +375,7 @@
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_smart_crystal_processor_4k_uhd_secured_by_knox_-_ua75u8000huxsa_1.webp",
    "firstSeen": "2026-11-22",
    "availNote": "",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:samsung-led-75-inches-tv-micro-rgb-smart-4-k-uhd-samsung-vision-ai-mra-p-141111828160501",
@@ -394,7 +394,7 @@
    "firstSeen": "2026-11-24",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_led_75_inches_tv_micro_rgb_smart_4k_uhd_samsung_vision_ai_-_mra75r85hauxsa.webp",
    "name_en": "Samsung LED 75 Inches TV, Micro RGB, Smart - MRA75R85HAUXSA",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:lg-mosque-freestanding-air-conditioner-48000-btu-inverter-cold-only-apnq-55-gt-3-p-111631132114109",
@@ -413,7 +413,7 @@
    "firstSeen": "2026-11-24",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_mosque_freestanding_air_conditioner_48000_btu_inverter_cold_only_-_apnq55gt3ma_apuq55gt3ma.webp",
    "name_en": "LG Mosque Freestanding Air Conditioner",
-   "lastChecked": "2026-11-27"
+   "lastChecked": "2026-11-28"
   },
   {
    "id": "blackbox:lg-77-inches-oled-evo-ai-g6-tv-web-os-smart-4-k-uhd-dolby-p-141111134162507",
@@ -430,7 +430,7 @@
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 2",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "LG 77Inches OLED Evo AI G6 TV, WebOS, Smart - OLED77G66LW",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_-_2026-07-21t140800.062.webp"
   },
@@ -449,7 +449,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "LG LED Mini RGB evo AI TV, 86 Inches, WebOS26 - 86MRGB85B6C",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_led_mini_rgb_evo_ai_tv_86_inches_webos26_smart_alpha_8_ai_processor_4k_gen3_-_86mrgb85b6c.webp"
   },
@@ -468,7 +468,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_led_mini_rgb_evo_ai_tv_75_inches_webos26_smart_alpha_8_ai_processor_4k_gen3_-_75mrgb85b6c.webp",
    "name_en": "LG LED Mini RGB evo AI TV, 75 Inches, WebOS26 - 75MRGB85B6C"
   },
@@ -487,7 +487,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_qled_65_inches_frame_tv_smart_4k_uhd_glare_free_144hz_wi-fi_-_qa65ls03heuxsa.webp",
    "name_en": "Samsung QLED 65 Inches Frame TV, Smart - QA65LS03HEUXSA"
   },
@@ -506,7 +506,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/a/5/a54_-_2023-09-03t155257.043.webp",
    "name_en": "Midea Side by Side Refrigerator 18.0 ft Smart Inverter Silver"
   },
@@ -525,7 +525,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "LG Split Air Conditioner JET COOL 23000BTU, Hot&Cold, Rotary, Wi-Fi - LK242H0.NK0",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_23000btu_hot_cold_rotary_wi-fi_-_lk242h0.webp"
   },
@@ -544,7 +544,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_23000btu_cold_only_rotary_wi-fi_-_lk242c0.webp",
    "name_en": "LG Split Air Conditioner JET COOL 23000BTU, Rotary - LK242C0"
   },
@@ -563,7 +563,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_artcool_split_air_conditioner_18000_btu_cold_only_dual_inverter_wi-fi_-_am182c2.nk2_1.webp",
    "name_en": "LG Artcool Split Air Conditioner, 22000 BTU - AM242C2.NK2"
   },
@@ -582,7 +582,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_22100_btu_fresh_hot_cold_inverter_4-way_airflow_-_nd242h1.nk1.webp",
    "name_en": "LG Split Air Conditioner, 22100 BTU, Hot&Cold - ND242H1.NK1"
   },
@@ -601,7 +601,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_22100_btu_fresh_cold_only_inverter_4-way_airflow_-_nd242c1.nk1.webp",
    "name_en": "LG Split Air Conditioner, 22100 BTU, Inverter - ND242C1.NK1"
   },
@@ -620,7 +620,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_18000btu_hot_cold_rotary_wi-fi_-_lk182h0.webp",
    "name_en": "LG Split Air Conditioner JET COOL 18000BTU - LK182H0.NK0"
   },
@@ -639,7 +639,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/s/a/samsung_55_inches_neo_qled_tv_smart_120hz_dlg_4k_ai_upscaling_slim_design_-_qa55qn70hauxsa.webp",
    "name_en": "Samsung 55Inch Neo QLED TV, Smart - QA55QN70HAUXSA"
   },
@@ -658,7 +658,7 @@
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 3",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "TCL 65 Inches QD-Mini LED TV, Smart, 4K UHD, HDR - 65C7L",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_65_inches_qd-mini_led_tv_smart_4k_uhd_hdr_144_hz_android_tv_-_65c7l.webp"
   },
@@ -677,7 +677,7 @@
    "avail": "low",
    "availNote": "بلاك بوكس: متبقي 1",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_18000_btu_smart_hot_cold_inverter_4-way_airflow_-_ns182h3.nk3.webp",
    "name_en": "LG Split Air Conditioner, 18000 BTU, Hot&Cold - NS182H3.NK3"
   },
@@ -696,7 +696,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_-_2026-05-23t115620.122.webp",
    "name_en": "TCL Split Air Conditioner, 12100 BTU, White - TAC-12CSU/VIG"
   },
@@ -715,7 +715,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_75_inches_led_tv_smart_4k_uhd_dolby_audio_60_hz_google_tv_-_75p6l.webp",
    "name_en": "TCL 75 Inches LED TV, Smart, 4K UHD, Dolby Audio - 75P6L"
   },
@@ -734,7 +734,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_85_inches_qled_tv_smart_4k_uhd_dolby_vision_atmos_google_tv_-_85p71l.webp",
    "name_en": "TCL 85 Inches QLED TV, Smart, 4K UHD, Google TV - 85P71L",
    "refUrl": "https://www.noon.com/en-sa/tcl-85p71l-85-inch-p71l-4k-premium-qled-smart-tv-2026-model-google-tv-international-version-aipq-processor-hva-panel-onkyo-2-0-hi-fi-system-dolby-vision-atmos-85-inch-4k-qled-tv-85p71l-black/N70378082V/p",
@@ -768,7 +768,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "LG Split Air Conditioner, 22100 BTU, Inverter - NS242C4.NK4",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_22100_btu_smart_cold_only_inverter_4-way_airflow_-_ns242c4.nk4.webp"
   },
@@ -787,7 +787,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_window_air_conditioner_gentle_breeze_18000_btu_rotary_cold_only_white_-_cw-tw18civ1s.webp",
    "name_en": "TCL Window Air Conditioner, 18000 BTU, White - CW-TW18CI/V1S"
   },
@@ -806,7 +806,7 @@
    "avail": "in",
    "availNote": "",
    "firstSeen": "2026-11-25",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpeg/media/catalog/product/h/a/haier_split_air_conditioner_18000btu_cold_only_wi-fi_-_hsu-18lpb13_r2-t3_1.webp",
    "name_en": "Haier Split Air Conditioner 18000 BTU Wi-Fi Cold Only I FEEL Option"
   },
@@ -826,7 +826,7 @@
    "availNote": "",
    "model": "AM182C0.UK1",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "LG Artcool Split Air Conditioner 18000BTU - AM182C0.UK1",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_artcool_split_air_conditioner_18000btu_cold_only_dual_inverter_compressor_-_am182c0.uk1.webp"
   },
@@ -846,7 +846,7 @@
    "availNote": "",
    "model": "CW-TW24CI",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_window_air_conditioner_gentle_breeze_20600_btu_inverter_cold_only_white_-_cw-tw24ci_v1s.webp",
    "name_en": "TCL Window Air Conditioner, 20600 BTU, White - CW-TW24CI/V1S"
   },
@@ -866,7 +866,7 @@
    "availNote": "",
    "model": "CW-TW18HI",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/c/tcl_window_air_conditioner_gentle_breeze_18000_btu_inverter_hot_cold_white_-_cw-tw18hiv1.webp",
    "name_en": "TCL Window Air Conditioner, 18000 BTU, White - CW-TW18HI/V1"
   },
@@ -886,7 +886,7 @@
    "availNote": "",
    "model": "NS182C3.NK3",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_18000_btu_smart_cold_only_inverter_4-way_airflow_-_ns182c3.nk3.webp",
    "name_en": "LG Split Air Conditioner, 18000 BTU, Inverter - NS182C3.NK3"
   },
@@ -906,7 +906,7 @@
    "availNote": "",
    "model": "LT302H0.NK0",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_28000btu_hot_cold_rotary_wi-fi_-_lt302h0.webp",
    "name_en": "LG Split Air Conditioner JET COOL 28000BTU - LT302H0.NK0"
   },
@@ -926,7 +926,7 @@
    "availNote": "",
    "model": "LT302C0.NK0",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/l/g/lg_split_air_conditioner_jet_cool_28000btu_cold_only_rotary_wi-fi_-_lt302c0_.webp",
    "name_en": "LG Split Air Conditioner JET COOL 28000BTU, Cold Only, Rotary, Wi-Fi - LT302C0.NK0"
   },
@@ -946,7 +946,7 @@
    "availNote": "",
    "model": "GIP3616W2",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/d/o/dots_iron_steam_press_1600w_36inch_removable_tank_1l_white_-_gip3616w2.webp",
    "name_en": "Dots Iron Steam Press 1600W, 36inch, White - GIP3616W2"
   },
@@ -966,7 +966,7 @@
    "availNote": "",
    "model": "GIP4022W3",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/d/o/dots_iron_steam_press_1600w_40inch_removable_tank_1l_white_-_gip4022w3.webp",
    "name_en": "Dots Iron Steam Press 1600W, 40inch, White - GIP4022W3"
   },
@@ -986,7 +986,7 @@
    "availNote": "",
    "model": "26INV-24C",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/png/media/catalog/product/m/a/mando_split_air_conditioner_gold_24000_btu_cold_only_inverter_white_-_26inv-24c.webp",
    "name_en": "Mando Split Air Conditioner, 24000 BTU, Inverter - 26INV-24C"
   },
@@ -1006,7 +1006,7 @@
    "availNote": "",
    "model": "PW11",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/j/i/jimmy_3-1_cordless_vacuum_cleaner_400w_liquids_and_dust_hot_air_drying_-_pw11.webp",
    "name_en": "Jimmy 3-1 Cordless Vacuum Cleaner 400W - PW11"
   },
@@ -1026,7 +1026,7 @@
    "availNote": "بلاك بوكس: متبقي 1",
    "model": "TAC-09CPA",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "TCL Portable Air Conditioner 9000BTU: Cool & Dehumidify Your Space"
   },
   {
@@ -1045,7 +1045,7 @@
    "availNote": "",
    "model": "TH6G4VC",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/t/h/thomson_built-in_gas_hob_4burner_60cm_safety_valves_cast_iron_grid_steel_-_th6g4vcs.webp",
    "name_en": "Thomson Built-in Gas Hob 4Burner, 60cm, Safety Valves, Cast Iron Grid, Steel - TH6G4VC/S"
   },
@@ -1065,7 +1065,7 @@
    "availNote": "",
    "model": "NA332/00",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/p/h/philips_air_fryer_3000_series_6.2l_1700w_cooking_window_black_-_na33200_.3.webp",
    "name_en": "Philips Air Fryer 3000 Series, 6.2L, 1700W, Black - NA332/00"
   },
@@ -1085,7 +1085,7 @@
    "availNote": "بلاك بوكس: نفد المخزون — لا يوجد زر «أضف إلى السلة»",
    "model": "JBLLIVEFLEX3",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "name_en": "JBL Live Flex 3 True Wireless Earbud, Blue - JBLLIVEFLEX3BLU"
   },
   {
@@ -1104,7 +1104,7 @@
    "availNote": "",
    "model": "COE1005BD2",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/d/o/dots_electric_oven_100l_2800w_double_glass_black_-_coe1005bd2.2.webp",
    "name_en": "Dots Electric Oven 100L, 2800W, Double Glass - COE1005BD2"
   },
@@ -1124,7 +1124,7 @@
    "availNote": "",
    "model": "H10FLEX",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/b/l/black_box_90__11zon.webp",
    "name_en": "Jimmy Cordless Vacuum Cleaner, 600W, 600ml - H10FLEX"
   },
@@ -1144,7 +1144,7 @@
    "availNote": "",
    "model": "SP-7110W",
    "firstSeen": "2026-11-26",
-   "lastChecked": "2026-11-27",
+   "lastChecked": "2026-11-28",
    "img": "https://store.ops.blackbox.com.sa/media/webps/jpg/media/catalog/product/_/2/_2200_sp-7110w.webp",
    "name_en": "Platinum 40 Inch Steam Iron Press: Elevate Your Ironing Game Today!"
   }

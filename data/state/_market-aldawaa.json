@@ -1,7 +1,7 @@
 {
  "aldawaa:247340": {
   "q": "salon beauty Gj-3226",
-  "sampledAt": "2026-11-26",
+  "sampledAt": "2026-11-28",
   "rowPrice": 495.88,
   "n": 0,
   "merchantCount": 0,
@@ -14,7 +14,7 @@
  },
  "aldawaa:247262": {
   "q": "straightener %26 curler Gj-1816",
-  "sampledAt": "2026-11-26",
+  "sampledAt": "2026-11-28",
   "rowPrice": 170.78,
   "n": 0,
   "merchantCount": 0,
@@ -27,7 +27,7 @@
  },
  "aldawaa:247373": {
   "q": "omega garrah%2c hair straightener%2c ceramic%2c slimm%2c 3001",
-  "sampledAt": "2026-11-26",
+  "sampledAt": "2026-11-28",
   "rowPrice": 151.8,
   "n": 0,
   "merchantCount": 0,
@@ -40,7 +40,7 @@
  },
  "aldawaa:247488": {
   "q": "chi chi%2c keratin reconstructing%2c conditioner 946 ml",
-  "sampledAt": "2026-11-26",
+  "sampledAt": "2026-11-28",
   "rowPrice": 110.06,
   "n": 0,
   "merchantCount": 0,
@@ -62,8 +62,124 @@
  },
  "aldawaa:247251": {
   "q": "salon beauty HS-9990",
-  "sampledAt": "2026-11-26",
+  "sampledAt": "2026-11-28",
   "rowPrice": 126.5,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247493": {
+  "q": "hair loss %26 thinning ecrinal%2c serum set%2c anti 1 kit",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 363.56,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:249016": {
+  "q": "hair dryer tecno dry%2c superior 2650 watt black",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 227.7,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247237": {
+  "q": "salon beauty tornado%2c hair dryer super turbo 6000",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 215.05,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247234": {
+  "q": "salon beauty tornado%2c hair dryer super turbo 6000",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 215.05,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:247246": {
+  "q": "straightener %26 curler garrah%2c hair straightener%2c ceramic wide%2c 1003",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 170.78,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": []
+ },
+ "aldawaa:246524": {
+  "q": "toniderma toniderma%2c vitamin c serum%2c brightening %26",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 126.5,
+  "n": 0,
+  "merchantCount": 0,
+  "min": null,
+  "avg": null,
+  "max": null,
+  "market": null,
+  "sources": [],
+  "rejected": [
+   {
+    "title": "Pure Vitamin C 23% Serum with Vitamin E and Hyaluronic Acid, Brighteni",
+    "why": "brand word \"toniderma\" not present as a whole word"
+   },
+   {
+    "title": "DR. RASHEL Vitamin C Brightening & Anti- Aging Face Serum",
+    "why": "brand word \"toniderma\" not present as a whole word"
+   },
+   {
+    "title": "Vitamin C Brightening Shower Serum 450 Ml",
+    "why": "brand word \"toniderma\" not present as a whole word"
+   },
+   {
+    "title": "Vitamin C Brightening And Anti-Aging Facial Serum Orange 50ml",
+    "why": "brand word \"toniderma\" not present as a whole word"
+   },
+   {
+    "title": "Truly Fair Face Serum - Brightening Vitamin C Serum - Hyaluronic Acid ",
+    "why": "brand word \"toniderma\" not present as a whole word"
+   },
+   {
+    "title": "Tree of Life Vitamin C & Hyaluronic Acid Face Serum Set, Gifts for Wom",
+    "why": "brand word \"toniderma\" not present as a whole word"
+   }
+  ]
+ },
+ "aldawaa:247521": {
+  "q": "face serum vitayes%2c perfector eye contour 15 ml",
+  "sampledAt": "2026-11-28",
+  "rowPrice": 120.68,
   "n": 0,
   "merchantCount": 0,
   "min": null,

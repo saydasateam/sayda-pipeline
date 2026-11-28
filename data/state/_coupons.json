@@ -7,8 +7,8 @@
    "label": "أمازون",
    "kind": "bank",
    "code": "SAB30",
-   "text": "بنصّ صفحة المنتج في أمازون اليوم: «التوفير مع خدمة برايم خصم حتى 30% SAR150 | بطاقة SAB الائتمانية. أدخل الرمز SAB30». لأعضاء برايم حاملي بطاقة ساب الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 4 من 4 صفحات فحصناها اليوم)، ويُدخل الرمز عند إتمام الشراء. خانة العرض لا تذكر حداً أدنى للطلب ولا تاريخ انتهاء؛ الشروط الكاملة في رابط «الشروط» بجانب العرض.",
-   "verified": "2026-11-27",
+   "text": "بنصّ صفحة المنتج في أمازون اليوم: «التوفير مع خدمة برايم خصم حتى 30% SAR150 | بطاقة SAB الائتمانية. أدخل الرمز SAB30». لأعضاء برايم حاملي بطاقة ساب الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 2 من 3 صفحات فحصناها اليوم)، ويُدخل الرمز عند إتمام الشراء. خانة العرض لا تذكر حداً أدنى للطلب ولا تاريخ انتهاء؛ الشروط الكاملة في رابط «الشروط» بجانب العرض.",
+   "verified": "2026-11-28",
    "wallet": [
     "prime",
     "sab"
@@ -16,7 +16,7 @@
    "perk": "خصم حتى 30% بحد أقصى 150 ريال لأعضاء برايم ببطاقة ساب الائتمانية على منتجات مختارة · الرمز SAB30",
    "perk_en": "Up to 30% off, max 150 SAR, for Prime members with a SAB credit card, on selected products · code SAB30",
    "label_en": "Amazon",
-   "text_en": "From the Amazon product page today: “Prime Savings Up to 30% off SAR150 | SAB Credit Card. Enter code SAB30.” For Prime members who hold a SAB credit card. It appears in the “Savings” box on Amazon product pages (4 of the 4 pages we checked today), and the code is entered at checkout. The offer box states no minimum order and no end date; the full terms are behind “Terms” beside the offer."
+   "text_en": "From the Amazon product page today: “Prime Savings Up to 30% off SAR150 | SAB Credit Card. Enter code SAB30.” For Prime members who hold a SAB credit card. It appears in the “Savings” box on Amazon product pages (2 of the 3 pages we checked today), and the code is entered at checkout. The offer box states no minimum order and no end date; the full terms are behind “Terms” beside the offer."
   },
   {
    "stores": [
@@ -25,15 +25,15 @@
    "label": "أمازون",
    "kind": "bank",
    "code": "SAB20",
-   "text": "بنصّ صفحة المنتج في أمازون اليوم: «توفير خصم حتى 20% SAR100 | بطاقة SAB الائتمانية. أدخل الرمز SAB20». لحاملي بطاقة ساب الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 4 من 4 صفحات فحصناها اليوم)، ويُدخل الرمز عند إتمام الشراء. خانة العرض لا تذكر حداً أدنى للطلب ولا تاريخ انتهاء؛ الشروط الكاملة في رابط «الشروط» بجانب العرض.",
-   "verified": "2026-11-27",
+   "text": "بنصّ صفحة المنتج في أمازون اليوم: «توفير خصم حتى 20% SAR100 | بطاقة SAB الائتمانية. أدخل الرمز SAB20». لحاملي بطاقة ساب الائتمانية. يظهر في خانة «توفير» بصفحات المنتجات على أمازون (في 2 من 3 صفحات فحصناها اليوم)، ويُدخل الرمز عند إتمام الشراء. خانة العرض لا تذكر حداً أدنى للطلب ولا تاريخ انتهاء؛ الشروط الكاملة في رابط «الشروط» بجانب العرض.",
+   "verified": "2026-11-28",
    "wallet": [
     "sab"
    ],
    "perk": "خصم حتى 20% بحد أقصى 100 ريال ببطاقة ساب الائتمانية على منتجات مختارة · الرمز SAB20",
    "perk_en": "Up to 20% off, max 100 SAR, with a SAB credit card, on selected products · code SAB20",
    "label_en": "Amazon",
-   "text_en": "From the Amazon product page today: “Savings Up to 20% off SAR100 | SAB Credit Card. Enter code SAB20.” For SAB credit card holders. It appears in the “Savings” box on Amazon product pages (4 of the 4 pages we checked today), and the code is entered at checkout. The offer box states no minimum order and no end date; the full terms are behind “Terms” beside the offer."
+   "text_en": "From the Amazon product page today: “Savings Up to 20% off SAR100 | SAB Credit Card. Enter code SAB20.” For SAB credit card holders. It appears in the “Savings” box on Amazon product pages (2 of the 3 pages we checked today), and the code is entered at checkout. The offer box states no minimum order and no end date; the full terms are behind “Terms” beside the offer."
   },
   {
    "stores": [
@@ -42,7 +42,7 @@
    "label": "المنيع",
    "kind": "bank",
    "text": "بنصّ صفحة العرض في موقع المنيع اليوم: «احصل على خصم 15% اضافي على أجهزة المطبخ، أجهزة المنزل، الشاشات، الالكترونيات وغيرها عند الشراء ببطاقات البنك الاهلي. العرض سار لغاية 28 نوفمبر 2026». يسري على المنتجات المدرجة في صفحة العرض (391 منتجاً اليوم)، ووصف الصفحة لا يذكر حداً أقصى للخصم؛ الشروط الكاملة في «الشروط والأحكام» بموقع المنيع.",
-   "verified": "2026-11-27",
+   "verified": "2026-11-28",
    "wallet": [
     "snb"
    ],
@@ -60,7 +60,7 @@
    "kind": "bank",
    "code": "",
    "text": "من صفحة شروط عرض البنك الأهلي في إكسترا اليوم: «يسري هذا العرض من 24 إلى 28 نوفمبر 2026، أو حتى نفاد الكميات المخصصة للعرض. هذا العرض حصري فقط لحاملي بطاقات البنك الأهلي السعودي الائتمانية وبطاقات لك.» خصم إضافي 20% بحد أقصى 200 ريال على المنتجات المدرجة في العرض (عليها شارة «عرض الأهلي»)، وقيمة المنتج 100 ريال أو أكثر. مرة في المعرض ومرة أونلاين، بحد أقصى مرتين لكل بطاقة. لا يسري على مدى والبطاقات مسبقة الدفع، ولا مع أبل باي أو مدى باي أو سامسونج باي أو أي محفظة رقمية. لا يشمل الجوالات والتابلت وملحقاتها وأجهزة Apple والمكيفات وبطاقات الهدايا ومنتجات البائعين الآخرين.",
-   "verified": "2026-11-27",
+   "verified": "2026-11-28",
    "label_en": "eXtra",
    "text_en": "From eXtra’s Saudi National Bank offer terms page today: the offer runs from 24 to 28 November 2026 or while stock lasts, for SNB credit cards and Lak cards only. An extra 20% off, up to 200 SAR, on products listed in the offer (marked «SNB offer»), for products priced 100 SAR or more. Once in store and once online, at most twice per card. Not valid on mada or prepaid cards, nor with Apple Pay, mada Pay, Samsung Pay or any digital wallet. Excludes mobiles, tablets and their accessories, all Apple devices, air conditioners, gift cards and items sold by other sellers.",
    "wallet": [
@@ -77,7 +77,7 @@
    "kind": "bank",
    "code": "",
    "text": "من صفحة شروط العرض في موقع جرير اليوم («خصم إضافي مع بطاقات برق Visa»): «يسري خصم 20٪ وبحد أقصى 200 ريال على جميع الأصناف باستثناء هاتف iPhone 18 Pro وهاتف iPhone 18 Pro Max وهاتف iPhone Duo، والطلبات المسبقة والبطاقات الرقمية أو البطاقات القابلة للشحن وشهادات الهدايا وبطاقات الهدايا وأوراق النسخ». خاص ببطاقة برق فيزا ولا يسري على بطاقات برق مدى، يطبق تلقائياً عند الدفع بكامل المبلغ بالبطاقة (لا يوجد رمز ترويجي)، عملية شراء واحدة لكل عميل وبطاقة، في معارض جرير وموقعه وتطبيقه في السعودية، ولا يسري عبر Apple Pay أو Samsung Pay أو Mada Pay أو التقسيط. يسري من 26 نوفمبر 2026 حتى 3 ديسمبر 2026.",
-   "verified": "2026-11-27",
+   "verified": "2026-11-28",
    "perk": "خصم 20% بحد أقصى 200 ريال ببطاقة برق فيزا",
    "perk_en": "20% off, max 200 SAR, with a Barq Visa card",
    "label_en": "Jarir",
